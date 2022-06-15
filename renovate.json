@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "digest": {
+    "enabled": false
+  },
+  "ignorePaths": [
+    "package.json",
+    "src/package.json",
+    "tests/package.json",
+    "src/js/angular-material-datetimepicker/**",
+    "*"
+  ],
+  "packageRules": [
+    {
+      "packageNames": ["@bugsnag/js", "@bugsnag/plugin-express", "bugsnag", "bugsnag-sourcemaps"],
+      "extends": [":disableMajorUpdates"]
+    }
+  ]
+}
