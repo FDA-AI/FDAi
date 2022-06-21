@@ -48,16 +48,6 @@ scripts/certs/apple.cer
 scripts/certs/dist.cer
 scripts/certs/dist.p12
 supply_json_key_for_google_play.json
-src/configuration-index.html
-src/configuration/
-src/img/CS6.zip
-src/img/icons/*
-!src/img/icons/.gitkeep
-
-!src/chrome_extension/*
-src/js/configuration-app.js
-!src/lib/
-src/manifest.json
 
 # Visual Studio Recommended Folder Exclusions
 platforms
@@ -79,9 +69,6 @@ Ionic\.sln
 composer.phar
 packages/
 npm-debug.log*
-src/scripts/
-src/index.html
-src/custom-lib/quantimodo/
 .DS_Store
 .io-config.json
 ghostinspector\.json
@@ -93,18 +80,11 @@ gradle/
 success
 www/*
 !/www/gitkeep
-/src/qm-amazon/
 #dist/
 .chcplogin
 
 cordova-hcp.json
 .chcpenv
-
-src/default.config.json
-
-src/chcp\.json
-
-src/chcp\.manifest
 
 chcpbuild\.options
 *.pkey
@@ -142,5 +122,3 @@ ts/**/*.js
 ts/**/*.map
 cypress/**/*.js
 cypress/**/*.map
-/src/data/qmStaticData.js
-/src/data/buildInfo.js
