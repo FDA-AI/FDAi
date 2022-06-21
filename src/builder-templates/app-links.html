@@ -2,18 +2,29 @@
     <md-toolbar class="md-theme-light">
         <h2 class="md-toolbar-tools">
             <span style="color: white;">
-                <md-icon class="ion-iphone"></md-icon> Useful Links
+                <md-icon class="ion-link"></md-icon> Useful Links
             </span>
-            <md-button class="md-secondary md-icon-button" style="font-size: 30px;"
-                       ng-click="copyToClipboard(appSettings.clientId)" aria-label="open">
-                <md-icon class="ion-clipboard">
-                    <md-tooltip md-direction="down">Copy client it to clipboard</md-tooltip>
-                </md-icon>
-            </md-button>
         </h2>
     </md-toolbar>
     <md-card-content>
         <md-list>
+            <md-list-item class="noright" ng-href="https://curedao.readme.io/reference/getunits">
+                <img alt="physicianDashboard"
+                     ng-src="img/api-icon.png"
+                     class="md-avatar"/>
+                <div class="md-list-item-text">
+                    <h4>Interactive API Docs</h4>
+                    <p>Generate API requests in any language!  You can use the token "demo" in the Bearer field for
+                        testing.</p>
+                </div>
+                <md-button class="md-secondary md-icon-button" style="font-size: 30px;" target="_blank"
+                           ng-href="https://curedao.readme.io/reference/getunits"
+                           aria-label="open">
+                    <md-icon class="ion-android-open">
+                        <md-tooltip md-direction="down">Open</md-tooltip>
+                    </md-icon>
+                </md-button>
+            </md-list-item>
             <md-list-item class="noright">
                 <img alt="physicianDashboard"
                      ng-src="{{ appSettings.additionalSettings.downloadLinks.images.physicianDashboard }}"
