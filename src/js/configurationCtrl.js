@@ -62,9 +62,14 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
         if($state.current.name === qm.staticData.stateNames.users){
             $scope.loadUserList();
         }
+        if($stateParams.hideNavigationMenu === true){
+            qmService.navBar.hideNavigationMenu();
+        }
     });
     $scope.$on('$ionicView.afterEnter', function(e){
-        qmService.navBar.showNavigationMenu();
+        if($stateParams.hideNavigationMenu !== true){
+            qmService.navBar.showNavigationMenu();
+        }
         setPopOutUrl();
     });
     // noinspection JSUnusedLocalSymbols
@@ -132,8 +137,8 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
     function refreshAppListAndSwitchToSelectedApp(){
         qmLog.info("refreshAppListAndSwitchToSelectedApp...");
         qmService.showInfoToast("Downloading your apps...");
-        configurationService.getAppSettingsArrayFromApi().then(function(){
-            populateAppsListAndSwitchToSelectedApp(configurationService.allAppSettings);
+        configurationService.getAppSettingsArrayFromApi().then(function(allAppSettings){
+            populateAppsListAndSwitchToSelectedApp(allAppSettings);
             qmService.hideLoader();
         });
     }

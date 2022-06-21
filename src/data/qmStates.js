@@ -1175,6 +1175,22 @@ var qmStates = [
     },
     {
         "cache": true,
+        "url": "/clients",
+        "params": {
+            "title": "API Clients",
+            "ionIcon": "ion-settings",
+            "hideNavigationMenu": true,
+        },
+        "views": {
+            "menuContent": {
+                "templateUrl": "../../app-configuration/templates/clients.html",
+                "controller": "ConfigurationCtrl"
+            }
+        },
+        "name": "app.clients"
+    },
+    {
+        "cache": true,
         "url": "/physician",
         "params": {
             "title": "Physician Dashboard",

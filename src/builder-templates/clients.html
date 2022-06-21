@@ -1,24 +1,7 @@
 <ion-view hide-nav-bar="hideNavigationMenu" style="max-height: 100%">
     <ion-nav-title>{{appSettings.appDisplayName}}</ion-nav-title>
     <ion-content ng-class="{ isBrowserView : isWeb == true }" style="max-height: 100%; overflow-y: scroll;">
-        <div id="patient-iframe" ng-if="patientUser" style="height: 100%; width: 100%;">
-            <md-toolbar>
-                <div class="md-toolbar-tools" ng-if="patientUser">
-                    <span flex> Acting as {{patientUser.displayName}}</span>
-                    <md-button class="icon icon-left ion-arrow-swap" ng-click="switchBackFromPatient()">
-                        &nbsp; Switch Back to Your Account
-                    </md-button>
-                    <md-button class="icon icon-left ion-android-open" ng-click="openUrl(iframeUrl, null, 'incognito')">
-                        <md-tooltip>Open in New Tab</md-tooltip>
-                    </md-button>
-                </div>
-            </md-toolbar>
-            <iframe ng-src="{{iframeUrl}}"
-                    data-tap-disabled="true" style="height: 100%; width: 100%;"
-                    frameborder="0">
-            </iframe>
-        </div>
-        <div id="app-builder" ng-if="!patientUser" style="max-height: 100%">
+        <div id="app-builder" style="max-height: 100%">
             <div ng-if="!appList" ng-cloak>
                 <br> <br>
                 <h1 style="text-align: center;">Loading your apps.. </h1>
@@ -42,7 +25,7 @@
                                        ng-change="switchApp(appSettings)" ng-if="appList && appList.length > 1">
                                 <md-option ng-value="app" ng-repeat="app in appList track by app.clientId">
                                     <img style="max-height: 25px;" src="{{ app.appIcon }}"/>
-                                    {{app.appDisplayName}} App Designer
+                                    {{app.appDisplayName}} API Access
                                 </md-option>
                             </md-select>
                             <span flex></span>
@@ -52,31 +35,22 @@
                             <md-button class="icon icon-left ion-plus-round" ng-click="openNewAppModalPopup()">&nbsp;
                                 New App
                             </md-button>
+                            <md-button class="icon icon-left ion-gear-a" ng-click="goToState('app.settings')">&nbsp;
+                                Account
+                            </md-button>
                         </div>
                     </md-toolbar>
-                    <md-tabs ng-if="!patientUser" md-dynamic-height md-border-bottom>
-                        <md-tab label="Links">
+                    <md-tabs md-dynamic-height md-border-bottom>
+                        <md-tab label="Credentials">
                             <md-content class="md-padding">
-                                <!--<div ng-include="'builder-templates/app-design-list-fragment.html'"></div>-->
                                 <div ng-include="'builder-templates/oauth-card.html'"></div>
                                 <div ng-include="'builder-templates/app-links.html'"></div>
-                                <div ng-if="appSettings.appStatus.betaDownloadLinks.androidRelease"
-                                     ng-include="'builder-templates/builds-card.html'"></div>
                             </md-content>
                         </md-tab>
-                        <md-tab label="Design">
+                        <md-tab label="Links">
                             <md-content class="md-padding">
-                                <!--<div ng-include="'builder-templates/app-design-list-fragment.html'"></div>-->
-                                <div ng-include="'builder-templates/app-design-tabs-fragment.html'"></div>
+                                <div ng-include="'builder-templates/app-links.html'"></div>
                             </md-content>
-                        </md-tab>
-                        <md-tab label="Settings">
-                            <md-content class="md-padding">
-                                <div ng-include="'builder-templates/additional-settings-fragment.html'"></div>
-                            </md-content>
-                        </md-tab>
-                        <md-tab label="Builds">
-                            <div ng-include="'builder-templates/builds-tab.html'"></div>
                         </md-tab>
                         <md-tab label="Collaborators">
                             <div ng-include="'builder-templates/lists/collaborator-list.html'"></div>
@@ -86,9 +60,6 @@
                         </md-tab>
                         <md-tab label="Other Apps">
                             <div ng-include="'builder-templates/app-list-fragment.html'"></div>
-                        </md-tab>
-                        <md-tab label="Revisions" ng-click="">
-                            <div ng-include="'builder-templates/revision-list-fragment.html'"></div>
                         </md-tab>
                     </md-tabs>
                 </md-content>
