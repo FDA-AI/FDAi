@@ -101,11 +101,8 @@ angular.module('starter').controller('IntroCtrl', ["$scope", "$state", "$ionicSl
             }else{
                 //qmLog.debug($state.current.name + ' initializing...');
             }
-            var disableSpeech = !qm.speech.getSpeechAvailable() || useFuturisticBackground() === false;
-            //disableSpeech = true; // TODO: Add testing and fix issues with Chrome
-            if(disableSpeech){
-                $scope.state.setSpeechEnabled(false);
-            }
+            var speechEnabled = qm.speech.getSpeechAvailable() && qm.urlHelper.getParam('speechEnabled');
+            $scope.state.setSpeechEnabled(speechEnabled);
             var appSettings = qm.getAppSettings();
             if(!appSettings){
                 qmLog.error("Why isn't app settings set?");

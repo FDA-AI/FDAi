@@ -319,7 +319,7 @@ qm.staticData.appSettings ={
 			"futuristicBackground": true,
 			"active": [
 				{
-					"title": "Hi! I'm QuantiModo!",
+					"title": "Hi!",
 					"color": {
 						"backgroundColor": "#0f9d58",
 						"circleColor": "#03c466"
