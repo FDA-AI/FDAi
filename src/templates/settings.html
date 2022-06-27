@@ -117,22 +117,22 @@
                     </div>
                 </div>
         -->
-        <div id="preview-builds" ng-if="platform.isAndroid" class="card">
+<!--        <div id="preview-builds" ng-if="platform.isAndroid" class="card">
             <div class="item item-divider"><i class="icon ion-erlenmeyer-flask"></i> &nbsp Beta Program</div>
             <ion-toggle ng-model="user.getPreviewBuilds" ng-change="getPreviewBuildsChange()"> Request to Join
             </ion-toggle>
-            <!--            <a ng-if="platform.isAndroid" class="item" ng-click="updateApp()">
+            <a ng-if="platform.isAndroid" class="item" ng-click="updateApp()">
                             <i class="icon ion-android-download"></i> &nbsp; Update App
-                        </a>-->
-        </div>
-        <div id="beta-download" ng-if="platform.isAndroid" class="list card"
+                        </a>
+        </div>-->
+<!--        <div id="beta-download" ng-if="platform.isAndroid" class="list card"
              ng-click="openUrl(appSettings.appStatus.betaDownloadLinks.androidRelease, 'yes', '_system')">
             <a class="item"><i class="icon ion-social-android"></i>&nbsp;Download Beta Version</a>
         </div>
         <div id="beta-download-chrome" ng-if="platform.isChromeExtension" class="list card"
              ng-click="openUrl(appSettings.appStatus.betaDownloadLinks.chromeExtension)">
             <a class="item"><i class="icon ion-social-chrome"></i>&nbsp;Download Beta Version</a>
-        </div>
+        </div>-->
         <div id="debug-mode" class="card sign-in">
             <div class="item item-divider">Debug Mode &nbsp;</div>
             <ion-toggle ng-model="debugMode" ng-change="toggleDebugMode()">
@@ -140,16 +140,18 @@
                 <div ng-if="!debugMode"><i class="icon ion-bug"></i> &nbsp Disabled &nbsp</div>
             </ion-toggle>
         </div>
-        <div id="upgrade-toggle" class="card sign-in" ng-if="user.administrator">
+<!--        <div id="upgrade-toggle" class="card sign-in" ng-if="user.administrator">
             <div class="item item-divider">Upgrade &nbsp;</div>
             <ion-toggle ng-model="user.stripeActive" ng-change="upgradeToggle()">
                 <div ng-if="user.stripeActive"><i class="icon ion-cash"></i> &nbsp Premium Mode &nbsp</div>
                 <div ng-if="!user.stripeActive"><i class="icon ion-cash"></i> &nbsp Free Mode &nbsp</div>
             </ion-toggle>
-        </div>
-        <div id="time-zone" class="card sign-in" ng-if="user">
+        </div>-->
+        <!-- Slows down the app, so hide until click -->
+        <div id="time-zone" class="card sign-in" ng-if="user" ng-click="showTimeZone = !showTimeZone">
             <div class="item item-divider"><i class="icon ion-clock"></i>&nbsp; Your Time Zone &nbsp;</div>
-            <div class="item">
+            <div class="item" ng-if="showTimeZone">
+                <ion-spinner></ion-spinner>
                 <md-input-container style="margin: 0 0;">
                     <md-select ng-model="user.timezone" ng-change="state.updateTimezone()">
                         <md-option><em>None</em></md-option>
@@ -172,19 +174,25 @@
                 Delete Account
             </md-button>
         </div>
-        <div id="downgrade-button" ng-if="user && user.stripeActive" class="list card" ng-click="downgrade()">
+<!--        <div id="downgrade-button" ng-if="user && user.stripeActive" class="list card" ng-click="downgrade()">
             <a class="item"> <i class="icon ion-ios-color-wand"></i> &nbsp; Downgrade to Lite </a>
-        </div>
+        </div>-->
         <div id="image-credits" class="list card"
              ng-click="openUrl('https://api.curedao.org/api/v2/image-credits')">
             <a class="item"><i class="icon ion-ios-camera-outline"></i>&nbsp;Image Credits</a>
         </div>
-        <div id="dialog-flow" class="list card">
+<!--        <div id="dialog-flow" class="list card">
             <a class="item"
                href="https://assistant.google.com/services/invoke/uid/000000d5ea7143b3?intent=Record%20Measurement%20Intent">
                 <i class="icon ion-ios-camera-outline"></i>
                 🅖 Ask Dr. Modo to Record a Measurement
             </a>
+        </div>-->
+        <div id="Developer-Settings" class="list card"
+             ng-click="goToState('app.configuration')">
+            <a class="item"><i class="ion-gear-a"> &nbsp;
+                Developer Settings
+            </i></a>
         </div>
         <br>
     </ion-content>
