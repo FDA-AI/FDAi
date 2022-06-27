@@ -310,7 +310,7 @@ var qmLog = {
             consoleMessage = qmLog.color.red(consoleMessage);
         }
         if(qm.appMode.isTestingOrDevelopment()){
-            qm.toast.errorToast(consoleMessage);
+            //qm.toast.errorToast(consoleMessage);
         }
         console.error(consoleMessage, errorSpecificMetaData);
         qmLog.globalMetaData = qmLog.addGlobalMetaDataAndLog(qmLog.name, qmLog.message, errorSpecificMetaData, qmLog.stackTrace);

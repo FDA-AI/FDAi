@@ -1614,5 +1614,21 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
             'window.QuantiModoIntegration.createSingleFloatingActionButton();' +
             '</script>';
     };
+    configurationService.getReminderCard = function(){
+        return {
+            title: "Default Tracking Reminders",
+                content: "If you add a default tracking reminder, notifications will prompt your users to regularly enter their data for that variable.",
+            ionIcon: "ion-android-notifications-none",
+            buttons: [
+            {
+                text: "Add a Reminder",
+                ionIcon: "ion-android-notifications-none",
+                clickHandler: function(){
+                    configurationService.reminders.addReminder($state);
+                }
+            }
+        ]
+        }
+    };
     return configurationService;
 });

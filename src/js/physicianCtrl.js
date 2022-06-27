@@ -14,20 +14,7 @@ angular.module('starter').controller('PhysicianCtrl', function($state, $scope, $
             //win.focus();
             qmService.email.postInvitation(null, $scope);
         },
-        reminderCard: {
-            title: "Default Tracking Reminders",
-            content: "If you add a default tracking reminder, notifications will prompt your users to regularly enter their data for that variable.",
-            ionIcon: "ion-android-notifications-none",
-            buttons: [
-                {
-                    text: "Add a Reminder",
-                    ionIcon: "ion-android-notifications-none",
-                    clickHandler: function(){
-                        configurationService.reminders.addReminder($state);
-                    }
-                }
-            ]
-        }
+        reminderCard: configurationService.getReminderCard(),
     };
     $scope.typeOf = function(value){
         return typeof value;

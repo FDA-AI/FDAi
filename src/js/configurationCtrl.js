@@ -4,7 +4,8 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
                                                                    Upload, $ionicActionSheet, $mdDialog, $stateParams, $sce){
     $scope.controller_name = "ConfigurationCtrl";
     $scope.state = {
-        clientId: getClientId()
+        clientId: getClientId(),
+        reminderCard: configurationService.getReminderCard(),
     };
     $scope.menu = {
         addSubMenuItem: configurationService.menu.addSubMenuItem,
