@@ -7432,6 +7432,11 @@ var qm = {
                 throw "Notifications is not an array!"
             }
             var allIds = notifications.map(function(n){
+                if(n.id !== n.trackingReminderNotificationId){
+                    qmLog.errorAndExceptionTestingOrDevelopment("notification id: "+n.id +
+                        " does not match trackingReminderNotificationId: "+n.trackingReminderNotificationId, null, n);
+                    n.id = n.trackingReminderNotificationId;
+                }
                 return n.id;
             })
             notifications.forEach(function(n){
