@@ -379,8 +379,6 @@ var qm = {
                     qmLog.debug('Version number not specified! Version number not specified on qm.getAppSettings()');
                 }
             }
-            var t = qm.auth.getAccessTokenFromUrlUserOrStorage();
-            if(!params.accessToken && t){params.accessToken = t;}
             var c = qm.api.getClientId();
             if(!params.clientId && c){params.clientId = c;}
             params.platform = qm.platform.getCurrentPlatform();
@@ -813,9 +811,7 @@ var qm = {
                     }
                     return url + "&" + name + "=" + value;
                 }
-                if(qm.auth.getAccessTokenFromUrlUserOrStorage()){
-                    url = addQueryParameter(url, 'access_token', qm.auth.getAccessTokenFromUrlUserOrStorage());
-                }else{
+                if(!qm.auth.getAccessTokenFromUrlUserOrStorage()){
                     qmLog.info('No access token for request!');
                     if(!qm.serviceWorker){
                         qm.chrome.showSignInNotification();

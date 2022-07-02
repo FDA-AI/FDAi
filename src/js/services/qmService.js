@@ -710,8 +710,6 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                     params.final_callback_url = window.location.href;
                     if(qm.platform.isChromeExtension()){params.final_callback_url = chrome.identity.getRedirectURL();}
                     params.clientId = qm.api.getClientId();
-                    //if(qm.api.getClientSecret()){params.clientSecret = qm.api.getClientSecret();}
-                    if(qm.auth.getAccessTokenFromUrlUserOrStorage()){params.accessToken = qm.auth.getAccessTokenFromUrlUserOrStorage();}
                     url = qm.urlHelper.addUrlQueryParamsToUrlString(params, url);
                     console.info('Going to ' + url);
                     return url;
