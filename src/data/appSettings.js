@@ -253,7 +253,7 @@ qm.staticData.appSettings ={
 						"circleColor": "#03c466"
 					},
 					"image": {
-						"url": "https://maxcdn.icons8.com/Color/PNG/96/Maps/treasure_map-96.png"
+						"url": "https://static.quantimo.do/img/variable_categories/location.svg"
 					},
 					"variableCategoryName": "Location",
 					"premiumFeature": true,
@@ -1056,7 +1056,7 @@ qm.staticData.appSettings ={
 						"circleColor": "#03c466"
 					},
 					"image": {
-						"url": "https://maxcdn.icons8.com/Color/PNG/96/Maps/treasure_map-96.png"
+						"url": "https://static.quantimo.do/img/variable_categories/location.svg"
 					},
 					"variableCategoryName": "Location",
 					"premiumFeature": true,
