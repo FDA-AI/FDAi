@@ -275,7 +275,7 @@ qm.staticData.appSettings ={
 						"circleColor": "#03c466"
 					},
 					"image": {
-						"url": "https://maxcdn.icons8.com/Color/PNG/96/Weather/chance_of_storm-96.png"
+						"url": "https://static.quantimo.do/img/variable_categories/environment.png"
 					},
 					"variableCategoryName": "Environment",
 					"premiumFeature": true,
@@ -1072,7 +1072,7 @@ qm.staticData.appSettings ={
 						"circleColor": "#03c466"
 					},
 					"image": {
-						"url": "https://maxcdn.icons8.com/Color/PNG/96/Weather/chance_of_storm-96.png"
+						"url": "https://static.quantimo.do/img/variable_categories/environment.png"
 					},
 					"variableCategoryName": "Environment",
 					"premiumFeature": false,
