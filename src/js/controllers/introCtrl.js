@@ -133,7 +133,7 @@ angular.module('starter').controller('IntroCtrl', ["$scope", "$state", "$ionicSl
             qm.robot.onRobotClick = null;
         });
         function makeBackgroundTransparentIfUsingFuturisticBackground(){
-            if(useFuturisticBackground() !== false){
+            if(useFuturisticBackground() === true){
                 var slides = introSlides();
                 slides.forEach(function(slide){
                     slide.color.backgroundColor = 'transparent';
