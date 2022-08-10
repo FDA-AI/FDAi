@@ -76,13 +76,13 @@
                                 ng-show="finishUrl"
                                 class="button button-icon ion-android-close"></button>
                     </a>
-                    <button id="menu-help-button"
+                    <a id="menu-help-button" target="_blank"
                             style="padding: 0;"
                             class="button button-icon ion-ios-help-outline"
                             ng-hide="stateParams.helpText || hideHelpButton"
-                            ng-click="goToState('app.help')">
+                            ng-href="https://curedao.org/help">
                         <md-tooltip md-direction="down">Get Help</md-tooltip>
-                    </button>
+                    </a>
                     <button id="menu-showMaterialAlert-button"
                             style="padding: 0;"
                             class="button button-icon ion-ios-help-outline"

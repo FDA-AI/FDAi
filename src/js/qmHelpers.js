@@ -12777,7 +12777,7 @@ var qm = {
                     }
                 })
                 .catch(function(err){
-                    qmLog.debug('An error occurred while retrieving token because: '+err.message, null, err);
+                    qmLog.warn('An error occurred while retrieving token because: '+err.message, null, err);
                     //showToken('Error retrieving Instance ID token. ', err);
                     //qm.webNotifications.postWebPushSubscriptionToServer(false);
                 });
