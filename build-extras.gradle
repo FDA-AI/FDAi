@@ -8,7 +8,7 @@ allprojects {
     }
 }
 
-/* 
+/*
 android {
     dexOptions {
         jumboMode true  // Fixes Dex: Error converting bytecode to dex:
@@ -40,5 +40,5 @@ configurations.all {
        force 'com.google.firebase:firebase-config:11.8.0'
        force 'com.google.firebase:firebase-messaging:11.8.0'
    }
-} 
+}
 */

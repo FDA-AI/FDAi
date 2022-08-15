@@ -39,7 +39,7 @@ global.qm = require('./../../src/js/qmHelpers')
 qm.appMode.mode = 'mocha'
 global.qmLog = require('./../../src/js/qmLogger')
 qmLog.color = require('./../../node_modules/ansi-colors')
-qm.github = require('./../../node_modules/gulp-github')
+qm.github = require('github-api')
 qm.Quantimodo = require('./../../node_modules/quantimodo')
 require('../../src/data/appSettings.js')
 require('../../src/data/commonVariables.js')

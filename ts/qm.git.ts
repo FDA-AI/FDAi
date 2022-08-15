@@ -41,7 +41,7 @@ export function getRepoUrl() {
     if (process.env.GIT_URL) {
         return process.env.GIT_URL
     }
-    return "https://github.com/QuantiModo/quantimodo-android-chrome-ios-web-app.git"
+    return "https://github.com/curedao/curedao-web-android-chrome-ios-app-template.git"
 }
 export function getRepoParts() {
     let gitUrl = getRepoUrl()

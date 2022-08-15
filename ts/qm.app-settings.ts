@@ -1,4 +1,4 @@
-import * as api from "../typescript-node-client/api"
+// import * as api from "../typescript-node-client/api"
 import * as env from "./env-helper"
 import * as fileHelper from "./qm.file-helper"
 import * as qmLog from "./qm.log"
@@ -39,8 +39,8 @@ function getBuildInfo() {
     }
 }
 export function saveAppSettings() {
-    api.AppSettingsService.getAppSettings(env.getQMClientIdOrException(), true)
-        .then(function(AppSettingsResponse: { staticData: any }) {
+    qm.appsManager.getAppSettingsFromApi(env.getQMClientIdOrException(),
+        function(AppSettingsResponse: { staticData: any }) {
             qm.staticData = AppSettingsResponse.staticData
             const as: any = qm.staticData.appSettings
             process.env.APP_DISPLAY_NAME = as.name  // Need env for Fastlane
@@ -61,7 +61,7 @@ export function saveAppSettings() {
             if(url) {
                 as.apiUrl = url.replace("https://", "")
             }
-            return writeAppSettingsToFile()
+            return writeAppSettingsToFile(qm.staticData.appSettings)
         }).catch(function(error: string) {
             qmLog.error(error)
         })
@@ -76,12 +76,15 @@ function getAppDesignerUrl() {
     return "https://builder.quantimo.do/#/app/configuration?clientId=" + qm.getClientId()
 }
 
-function writeAppSettingsToFile() {
+export function writeAppSettingsToFile(appSettings: any | undefined) {
+    qm.staticData = qm.staticData || {}
     qm.staticData.buildInfo = getBuildInfo()
+    appSettings = appSettings || qm.staticData.appSettings
     const content =
-        'if(typeof qm === "undefined"){if(typeof window === "undefined") {global.qm = {}; }else{window.qm = {};}}' +
-    'if(typeof qm.staticData === "undefined"){qm.staticData = {};}' +
-    "qm.staticData.appSettings = "+ qmLog.prettyJSONStringify(qm.staticData.appSettings)
+        `// noinspection DuplicatedCode
+if(typeof qm === "undefined"){if(typeof window === "undefined") {global.qm = {}; }else{window.qm = {};}}
+if(typeof qm.staticData === "undefined"){qm.staticData = {};}
+qm.staticData.appSettings = `+ qmLog.prettyJSONStringify(appSettings)
     try {
         fileHelper.writeToFile(env.paths.www.appSettings, content)
     } catch(e) {
