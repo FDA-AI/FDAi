@@ -1,6 +1,7 @@
 {
   "chromeWebSecurity": false,
   "baseUrl": "https://api.curedao.org",
+  "projectId": "1rj181",
   "pageLoadTimeout": 60000,
   "videoCompression": false,
   "videoUploadOnPasses": false,
