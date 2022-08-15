@@ -99,7 +99,6 @@ google-services.json
 src/data/apiai/
 /lastCommitBuilt
 src/data/commits/
-tmp/
 sh.exe.stackdump
 .vscode/launch.json
 
@@ -122,3 +121,4 @@ ts/**/*.js
 ts/**/*.map
 cypress/**/*.js
 cypress/**/*.map
+!/tmp/.gitignore

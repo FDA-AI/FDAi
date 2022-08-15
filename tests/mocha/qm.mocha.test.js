@@ -50,6 +50,7 @@ require('../../src/data/qmStates.js')
 require('../../src/data/units.js')
 require('../../src/data/variableCategories.js')
 require('../../src/data/stateNames.js')
+require('../../src/data/states.js')
 qm.stateNames = qm.staticData.stateNames
 qm.qmLog = qmLog
 qmLog.qm = qm
