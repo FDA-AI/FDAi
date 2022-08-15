@@ -1,29 +1,7 @@
 var qmLog = require('./qmLog');
-var git = require('gulp-git');
-function execute(command, callback, suppressErrors, lotsOfOutput) {
-    var exec = require('child_process').exec;
-    var spawn = require('child_process').spawn; // For commands with lots of output resulting in stdout maxBuffer exceeded error
-    qmLog.info('executing ' + command);
-    if(lotsOfOutput){
-        var args = command.split(" ");
-        var program = args.shift();
-        var ps = spawn(program, args);
-        ps.on('exit', function (code, signal) {
-            qmLog.info(command + ' exited with ' + 'code '+ code + ' and signal '+ signal);
-            if(callback){callback();}
-        });
-        ps.stdout.on('data', function (data) {qmLog.info(command + ' stdout: ' + data);});
-        ps.stderr.on('data', function (data) {qmLog.error(command + '  stderr: ' + data);});
-        ps.on('close', function (code) {if (code !== 0) {qmLog.error(command + ' process exited with code ' + code);}});
-    } else {
-        var my_child_process = exec(command, function (error, stdout, stderr) {
-            if (error !== null) {if (suppressErrors) {qmLog.info('ERROR: exec ' + error);} else {qmLog.error('ERROR: exec ' + error);}}
-            callback(error, stdout);
-        });
-        my_child_process.stdout.pipe(process.stdout);
-        my_child_process.stderr.pipe(process.stderr);
-    }
-}
+var github = require('github-api');
+var qmExec = require('./qmExec');
+const git = require('simple-git')();
 var qmGit = {
     branchName: null,
     isMaster: function () {
@@ -54,7 +32,7 @@ var qmGit = {
             return;
         }
         var commandForGit = 'git log -1 HEAD --pretty=format:%s';
-        execute(commandForGit, function (error, output) {
+        qmExec(commandForGit, function (error, output) {
             var commitMessage = output.trim();
             qmLog.info("Commit: "+ commitMessage);
             if(callback) {callback(commitMessage);}
@@ -78,9 +56,9 @@ var qmGit = {
             return;
         }
         try {
-            git.revParse({args: '--abbrev-ref HEAD'}, function (err, branch) {
+            git.branch({}, function (GitError, BranchSummary) {
                 if(err){qmLog.error(err); return;}
-                setBranch(branch, callback);
+                setBranch(BranchSummary.current, callback);
             });
         } catch (e) {
             qmLog.info("Could not set branch name because " + e.message);
@@ -97,16 +75,15 @@ var qmGit = {
         if(getNameIfNotHead('GIT_BRANCH')){return process.env.GIT_BRANCH;}
     },
     createStatusToCommit: function(statusOptions, callback){
-        var github = require('gulp-github');
-        github.createStatusToCommit(statusOptions, qmGulp.getGithubOptions(), callback);
+        github.createStatusToCommit(statusOptions, qmGit.getGithubOptions(), callback);
     },
     getGithubOptions: function(){
-        var options = {
+        return {
             // Required options: git_token, git_repo
             // refer to https://help.github.com/articles/creating-an-access-token-for-command-line-use/
             git_token: process.env.GITHUB_ACCESS_TOKEN,
             // comment into this repo, this pr.
-            git_repo: 'QuantiModo/quantimodo-android-chrome-ios-web-app',
+            git_repo: 'curedao/curedao-web-android-chrome-ios-app-template',
             //git_prid: '1',
             // create status to this commit, optional
             git_sha: qmGit.getCurrentGitCommitSha(),
@@ -131,7 +108,6 @@ var qmGit = {
                 return 'Error in ' + E.filename + '!';
             }
         };
-        return options;
     }
 };
 if(typeof window !== "undefined"){ window.qmGit = qmGit;} else {module.exports = qmGit;}

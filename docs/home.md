@@ -139,7 +139,7 @@ title: Community Support
 
 Ask a peer in our community forum about how they use the Stoplight Platform.
 
-[Go to Community](https://github.com/QuantiModo/quantimodo-android-chrome-ios-web-app/discussions)
+[Go to Community](https://github.com/curedao/curedao-web-android-chrome-ios-app-template/discussions)
 
 <!--
 type: tab

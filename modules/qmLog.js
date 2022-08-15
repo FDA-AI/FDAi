@@ -1,27 +1,4 @@
-function execute(command, callback, suppressErrors, lotsOfOutput) {
-    var exec = require('child_process').exec;
-    var spawn = require('child_process').spawn; // For commands with lots of output resulting in stdout maxBuffer exceeded error
-    qmLog.info('executing ' + command);
-    if(lotsOfOutput){
-        var args = command.split(" ");
-        var program = args.shift();
-        var ps = spawn(program, args);
-        ps.on('exit', function (code, signal) {
-            qmLog.info(command + ' exited with ' + 'code '+ code + ' and signal '+ signal);
-            if(callback){callback();}
-        });
-        ps.stdout.on('data', function (data) {qmLog.info(command + ' stdout: ' + data);});
-        ps.stderr.on('data', function (data) {qmLog.error(command + '  stderr: ' + data);});
-        ps.on('close', function (code) {if (code !== 0) {qmLog.error(command + ' process exited with code ' + code);}});
-    } else {
-        var my_child_process = exec(command, function (error, stdout, stderr) {
-            if (error !== null) {if (suppressErrors) {qmLog.info('ERROR: exec ' + error);} else {qmLog.error('ERROR: exec ' + error);}}
-            callback(error, stdout);
-        });
-        my_child_process.stdout.pipe(process.stdout);
-        my_child_process.stderr.pipe(process.stderr);
-    }
-}
+var qmExec = require('./qmExec');
 var qmLog = {
     error: function (message, metaData, maxCharacters) {
         metaData = qmLog.addMetaData(metaData);
@@ -101,7 +78,7 @@ var qmLog = {
     isTruthy: function(value){return value && value !== "false"; },
     getBuildLink: function() {
         if(process.env.BUDDYBUILD_APP_ID){return "https://dashboard.buddybuild.com/apps/" + process.env.BUDDYBUILD_APP_ID + "/build/" + process.env.BUDDYBUILD_APP_ID;}
-        if(process.env.CIRCLE_BUILD_NUM){return "https://circleci.com/gh/QuantiModo/quantimodo-android-chrome-ios-web-app/" + process.env.CIRCLE_BUILD_NUM;}
+        if(process.env.CIRCLE_BUILD_NUM){return "https://circleci.com/gh/curedao/curedao-web-android-chrome-ios-app-template/" + process.env.CIRCLE_BUILD_NUM;}
         if(process.env.TRAVIS_BUILD_ID){return "https://travis-ci.org/" + process.env.TRAVIS_REPO_SLUG + "/builds/" + process.env.TRAVIS_BUILD_ID;}
     },
     timeHelper: {
@@ -152,7 +129,7 @@ var qmLog = {
         },
         getBuildLink: function() {
             if(process.env.BUDDYBUILD_APP_ID){return "https://dashboard.buddybuild.com/apps/" + process.env.BUDDYBUILD_APP_ID + "/build/" + process.env.BUDDYBUILD_APP_ID;}
-            if(process.env.CIRCLE_BUILD_NUM){return "https://circleci.com/gh/QuantiModo/quantimodo-android-chrome-ios-web-app/" + process.env.CIRCLE_BUILD_NUM;}
+            if(process.env.CIRCLE_BUILD_NUM){return "https://circleci.com/gh/curedao/curedao-web-android-chrome-ios-app-template/" + process.env.CIRCLE_BUILD_NUM;}
             if(process.env.TRAVIS_BUILD_ID){return "https://travis-ci.org/" + process.env.TRAVIS_REPO_SLUG + "/builds/" + process.env.TRAVIS_BUILD_ID;}
         }
     },
@@ -181,7 +158,7 @@ var qmLog = {
         accessToken: process.env.GITHUB_ACCESS_TOKEN,
         getCommitMessage: function(callback){
             var commandForGit = 'git log -1 HEAD --pretty=format:%s';
-            execute(commandForGit, function (error, output) {
+            qmExec(commandForGit, function (error, output) {
                 var commitMessage = output.trim();
                 qmLog.info("Commit: "+ commitMessage);
                 if(callback) {callback(commitMessage);}
@@ -205,10 +182,7 @@ var qmLog = {
                 return;
             }
             try {
-                git.revParse({args: '--abbrev-ref HEAD'}, function (err, branch) {
-                    if(err){qmLog.error(err); return;}
-                    setBranch(branch, callback);
-                });
+                qmLog.qmGit.setBranchName()
             } catch (e) {
                 qmLog.info("Could not set branch name because " + e.message);
             }

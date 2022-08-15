@@ -17,7 +17,7 @@ export function getBuildLink() {
             process.env.BUDDYBUILD_APP_ID
     }
     if (process.env.CIRCLE_BUILD_NUM) {
-        return "https://circleci.com/gh/QuantiModo/quantimodo-android-chrome-ios-web-app/" +
+        return "https://circleci.com/gh/curedao/curedao-web-android-chrome-ios-app-template/" +
             process.env.CIRCLE_BUILD_NUM
     }
     if (process.env.TRAVIS_BUILD_ID) {

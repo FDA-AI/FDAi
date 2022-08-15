@@ -66,15 +66,15 @@ If you're using VSCode or Gitpod, right click on src/index.html and click "Open 
  ## Features and Screenshots
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/QuantiModo/quantimodo-android-chrome-ios-web-app/develop/resources-shared/screenshots/5.5-inch%20(iPhone%206%2B)%20-%20History%20Screenshot%201.jpg" width="300">
+<img src="https://raw.githubusercontent.com/curedao/curedao-web-android-chrome-ios-app-template/develop/resources-shared/screenshots/5.5-inch%20(iPhone%206%2B)%20-%20History%20Screenshot%201.jpg" width="300">
 &nbsp
-<img src="https://raw.githubusercontent.com/QuantiModo/quantimodo-android-chrome-ios-web-app/develop/resources-shared/screenshots/5.5-inch%20(iPhone%206+)%20-%20import%20data%20Screenshot%201.jpg" width="300">
+<img src="https://raw.githubusercontent.com/curedao/curedao-web-android-chrome-ios-app-template/develop/resources-shared/screenshots/5.5-inch%20(iPhone%206+)%20-%20import%20data%20Screenshot%201.jpg" width="300">
 <br><br>
-<img src="https://raw.githubusercontent.com/QuantiModo/quantimodo-android-chrome-ios-web-app/develop/resources-shared/screenshots/5.5-inch%20(iPhone%206+)%20-%20bar%20chart%20Screenshot%201.jpg" width="300">
+<img src="https://raw.githubusercontent.com/curedao/curedao-web-android-chrome-ios-app-template/develop/resources-shared/screenshots/5.5-inch%20(iPhone%206+)%20-%20bar%20chart%20Screenshot%201.jpg" width="300">
 &nbsp
-<img src="https://raw.githubusercontent.com/QuantiModo/quantimodo-android-chrome-ios-web-app/develop/resources-shared/screenshots/5.5-inch%20(iPhone%206+)%20-%20predictors%20Screenshot%201.jpg" width="300">
+<img src="https://raw.githubusercontent.com/curedao/curedao-web-android-chrome-ios-app-template/develop/resources-shared/screenshots/5.5-inch%20(iPhone%206+)%20-%20predictors%20Screenshot%201.jpg" width="300">
 <br><br>
-<img src="https://raw.githubusercontent.com/QuantiModo/quantimodo-android-chrome-ios-web-app/develop/resources-shared/screenshots/5.5-inch%20(iPhone%206+)%20-%20reminder%20inbox%20Screenshot%201.jpg?" width="300">
+<img src="https://raw.githubusercontent.com/curedao/curedao-web-android-chrome-ios-app-template/develop/resources-shared/screenshots/5.5-inch%20(iPhone%206+)%20-%20reminder%20inbox%20Screenshot%201.jpg?" width="300">
 <img src="https://user-images.githubusercontent.com/2808553/138347736-f3cbea7a-85fe-4288-921a-78a05b93026d.png" width="300">
 </p>
 

@@ -2351,7 +2351,7 @@ var qm = {
         },
         getBuildLink: function() {
             if(process.env.BUDDYBUILD_APP_ID){return "https://dashboard.buddybuild.com/apps/" + process.env.BUDDYBUILD_APP_ID + "/build/" + process.env.BUDDYBUILD_APP_ID;}
-            if(process.env.CIRCLE_BUILD_NUM){return "https://circleci.com/gh/QuantiModo/quantimodo-android-chrome-ios-web-app/" + process.env.CIRCLE_BUILD_NUM;}
+            if(process.env.CIRCLE_BUILD_NUM){return "https://circleci.com/gh/curedao/curedao-web-android-chrome-ios-app-template/" + process.env.CIRCLE_BUILD_NUM;}
             if(process.env.TRAVIS_BUILD_ID){return "https://travis-ci.org/" + process.env.TRAVIS_REPO_SLUG + "/builds/" + process.env.TRAVIS_BUILD_ID;}
         },
         setVersionNumbers: function(){
@@ -4455,13 +4455,7 @@ var qm = {
                 return;
             }
             try{
-                qm.git.revParse({args: '--abbrev-ref HEAD'}, function(err, branch){
-                    if(err){
-                        qmLog.error(err);
-                        return;
-                    }
-                    setBranch(branch, callback);
-                });
+                qmLog.qmGit.setBranchName()
             }catch (e){
                 qmLog.info("Could not set branch name because " + e.message);
             }
@@ -4501,7 +4495,7 @@ var qm = {
                 // refer to https://help.github.com/articles/creating-an-access-token-for-command-line-use/
                 git_token: process.env.GITHUB_ACCESS_TOKEN,
                 // comment into this repo, this pr.
-                git_repo: 'QuantiModo/quantimodo-android-chrome-ios-web-app',
+                git_repo: 'curedao/curedao-web-android-chrome-ios-app-template',
                 //git_prid: '1',
                 // create status to this commit, optional
                 git_sha: qm.gitHelper.getCurrentGitCommitSha(),

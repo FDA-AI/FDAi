@@ -89,6 +89,7 @@
     "es6-promise-plugin": "4.2.2",
     "event-stream": "4.0.1",
     "express": "4.17.1",
+    "github-api": "^3.4.0",
     "inquirer": "7.3.3",
     "jshint": "^2.13.4",
     "lazypipe": "1.0.2",

@@ -19,7 +19,7 @@ Set up a branch for your feature or bugfix with a link to the original repo:
 ```
 git checkout -b my-awesome-new-feature
 git push --set-upstream origin my-awesome-new-feature
-git remote add upstream https://github.com/QuantiModo/quantimodo-android-chrome-ios-web-app.git
+git remote add upstream https://github.com/curedao/curedao-web-android-chrome-ios-app-template.git
 ```
 
 Commit changes:
