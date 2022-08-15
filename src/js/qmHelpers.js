@@ -433,8 +433,11 @@ var qm = {
         },
         getClientId: function(successHandler){
             qm.clientId = qm.api.getClientIdFromBuilderQueryOrSubDomain();
-            if(qm.platform.isBackEnd() && typeof process.env.CUREDAO_CLIENT_ID !== "undefined"){
-                return process.env.CUREDAO_CLIENT_ID;
+            if(qm.platform.isBackEnd()){
+                var clientId = process.env.CUREDAO_CLIENT_ID;
+                if(clientId && clientId.trim() !== "") {
+                    return process.env.CUREDAO_CLIENT_ID;
+                }
             }
             var appSettings = qm.getAppSettings();
             if(!qm.clientId && appSettings){
@@ -5977,6 +5980,9 @@ var qm = {
                 return menuItem;
             }
             qmLog.info("changed state to " + menuItem.stateName);
+            if(!qm.staticData.states){
+                qmLog.exception("Please load qm.staticData.states");
+            }
             var newState = qm.staticData.states.find(function(state){
                 return state.name === menuItem.stateName;
             });
@@ -11552,6 +11558,9 @@ var qm = {
                         deferred.resolve(user)
                     }else{
                         var err = "getViaXhrOrFetch successHandler was called but we still did not get user from "+url;
+                        if(user.error && user.error.message){
+                            err += "\nError: " + user.error.message;
+                        }
                         qmLog.info(err);
                         if(qm.platform.isChromeExtension()){
                             qm.chrome.openLoginWindow();
