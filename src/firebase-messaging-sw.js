@@ -126,7 +126,10 @@ self.addEventListener('push', function(event) {
         qm.push.logPushReceived({pushType: 'non-background-push-data', pushData: pushData});
         qm.notifications.showWebNotification(pushData);
     } catch (error) {
-        qmLog.error("Could not show push notification because: " + error);
+        qmLog.error("Could not show push notification because: ", "",{
+            error: error,
+            event: event
+        });
     }
 });
 // [END background_handler]
