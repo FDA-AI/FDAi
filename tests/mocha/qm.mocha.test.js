@@ -21,7 +21,11 @@ process.on('unhandledRejection', function(err) {
 var qmGit = require("../../ts/qm.git")
 var qmShell = require("../../ts/qm.shell")
 var envHelper = require("../../ts/env-helper")
-envHelper.loadEnv(".env");
+try {
+    envHelper.loadEnv(".env");
+} catch (err) {
+    console.error("Could not load .env because:", err)
+}
 var fileHelper = global.fileHelper = require("../../ts/qm.file-helper")
 var cypressFunctions = require("../../cypress/cypress-functions")
 var urlParser = require("url")
