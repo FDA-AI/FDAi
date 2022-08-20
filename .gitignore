@@ -119,6 +119,8 @@ debug.log
 /.env
 ts/**/*.js
 ts/**/*.map
-cypress/**/*.js
 cypress/**/*.map
 !/tmp/.gitignore
+/cypress/cypress-functions.js
+/cypress/cypress-runner.js
+/cypress/reports/cypress-slack-reporter.js
