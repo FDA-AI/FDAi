@@ -128,7 +128,8 @@ self.addEventListener('push', function(event) {
     } catch (error) {
         qmLog.error("Could not show push notification because: ", "",{
             error: error,
-            event: event
+            event: event,
+            eventDataJson: event.data.json()
         });
     }
 });
