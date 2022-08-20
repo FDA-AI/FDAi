@@ -571,11 +571,11 @@ describe("Measurement", function () {
     })
 })
 describe("API", function (){
-    it("Makes sure api url is api.curedao.org", function (done) {
+    it("Makes sure api url is app.quantimo.do", function (done) {
         if(qm.appMode.isStaging()){
             expect(qm.api.getApiUrl()).to.eq("https://staging.quantimo.do")
         } else {
-            expect(qm.api.getApiUrl()).to.eq("https://api.curedao.org")
+            expect(qm.api.getApiUrl()).to.eq("https://app.quantimo.do")
         }
         done()
     })
@@ -1145,7 +1145,7 @@ describe("URL Helper", function () {
 describe("Users", function () {
     it('can get users', function(done) {
         this.timeout(10000)
-        //expect(qm.api.getApiUrl()).to.eq("https://api.curedao.org")
+        //expect(qm.api.getApiUrl()).to.eq("https://app.quantimo.do")
         qmTests.setTestAccessToken()
         qm.userHelper.getUsersFromApi(function(users){
             qmLog.debug("users:", users)

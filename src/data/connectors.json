@@ -22,7 +22,7 @@
   "availableOutsideUS": true,
   "connectError": null,
   "connectInstructions": {
-    "url": "https://www.facebook.com/v2.9/dialog/oauth?state=W10-&type=web_server&client_id=225078261031461&redirect_uri=https%3A%2F%2Fapi.curedao.org%2Fapi%2Fv1%2Fconnectors%2Ffacebook%2Fconnect&response_type=code",
+    "url": "https://www.facebook.com/v2.9/dialog/oauth?state=W10-&type=web_server&client_id=225078261031461&redirect_uri=https%3A%2F%2Fapp.quantimo.do%2Fapi%2Fv1%2Fconnectors%2Ffacebook%2Fconnect&response_type=code",
     "parameters": [],
     "usePopup": true
   },
@@ -45,7 +45,7 @@
   "platforms": ["ios", "android", "web", "chrome"],
   "buttons": [{
     "accessibilityText": "Connect",
-    "action": "https://api.curedao.org/api/v4/connectors/facebook/connect",
+    "action": "https://app.quantimo.do/api/v4/connectors/facebook/connect",
     "additionalInformation": null,
     "badgeText": null,
     "backgroundColor": null,
@@ -58,7 +58,7 @@
     "id": "connect-facebook-button",
     "image": "https://static.quantimo.do/img/Ionicons/png/512/link.png",
     "ionIcon": "ion-link",
-    "link": "https://api.curedao.org/api/v4/connectors/facebook/connect",
+    "link": "https://app.quantimo.do/api/v4/connectors/facebook/connect",
     "onClick": null,
     "parameters": [],
     "stateName": null,
@@ -120,7 +120,7 @@
   "availableOutsideUS": true,
   "connectError": null,
   "connectInstructions": {
-    "url": "https://github.com/login/oauth/authorize?state=W10-&type=web_server&client_id=b7bf465391ed9601ba49&redirect_uri=https%3A%2F%2Fapi.curedao.org%2Fapi%2Fv1%2Fconnectors%2Fgithub%2Fconnect&response_type=code&scope=user%2Crepo",
+    "url": "https://github.com/login/oauth/authorize?state=W10-&type=web_server&client_id=b7bf465391ed9601ba49&redirect_uri=https%3A%2F%2Fapp.quantimo.do%2Fapi%2Fv1%2Fconnectors%2Fgithub%2Fconnect&response_type=code&scope=user%2Crepo",
     "parameters": [],
     "usePopup": true
   },
@@ -143,7 +143,7 @@
   "platforms": ["ios", "android", "web", "chrome"],
   "buttons": [{
     "accessibilityText": "Connect",
-    "action": "https://api.curedao.org/api/v4/connectors/github/connect",
+    "action": "https://app.quantimo.do/api/v4/connectors/github/connect",
     "additionalInformation": null,
     "badgeText": null,
     "backgroundColor": null,
@@ -156,7 +156,7 @@
     "id": "connect-github-button",
     "image": "https://static.quantimo.do/img/Ionicons/png/512/link.png",
     "ionIcon": "ion-link",
-    "link": "https://api.curedao.org/api/v4/connectors/github/connect",
+    "link": "https://app.quantimo.do/api/v4/connectors/github/connect",
     "onClick": null,
     "parameters": [],
     "stateName": null,
@@ -221,7 +221,7 @@
   "availableOutsideUS": true,
   "connectError": null,
   "connectInstructions": {
-    "url": "https://accounts.google.com/o/oauth2/auth?access_type=offline&approval_prompt=force&prompt=consent&state=W10-&type=web_server&client_id=1052648855194.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fapi.curedao.org%2Fapi%2Fv1%2Fconnectors%2Fgoogleplus%2Fconnect&response_type=code&scope=openid+profile+email",
+    "url": "https://accounts.google.com/o/oauth2/auth?access_type=offline&approval_prompt=force&prompt=consent&state=W10-&type=web_server&client_id=1052648855194.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fapp.quantimo.do%2Fapi%2Fv1%2Fconnectors%2Fgoogleplus%2Fconnect&response_type=code&scope=openid+profile+email",
     "parameters": [],
     "usePopup": true
   },
@@ -243,7 +243,7 @@
   "platforms": ["ios", "android", "web", "chrome"],
   "buttons": [{
     "accessibilityText": "Connect",
-    "action": "https://api.curedao.org/api/v4/connectors/googleplus/connect",
+    "action": "https://app.quantimo.do/api/v4/connectors/googleplus/connect",
     "additionalInformation": null,
     "badgeText": null,
     "backgroundColor": null,
@@ -256,7 +256,7 @@
     "id": "connect-googleplus-button",
     "image": "https://static.quantimo.do/img/Ionicons/png/512/link.png",
     "ionIcon": "ion-link",
-    "link": "https://api.curedao.org/api/v4/connectors/googleplus/connect",
+    "link": "https://app.quantimo.do/api/v4/connectors/googleplus/connect",
     "onClick": null,
     "parameters": [],
     "stateName": null,
@@ -317,7 +317,7 @@
   "availableOutsideUS": true,
   "connectError": null,
   "connectInstructions": {
-    "url": "https://www.linkedin.com/oauth/v2/authorization?state=W10-&type=web_server&client_id=77oiwiq6wuq9uy&redirect_uri=https%3A%2F%2Fapi.curedao.org%2Fapi%2Fv1%2Fconnectors%2Flinkedin%2Fconnect&response_type=code&scope=r_liteprofile+r_emailaddress",
+    "url": "https://www.linkedin.com/oauth/v2/authorization?state=W10-&type=web_server&client_id=77oiwiq6wuq9uy&redirect_uri=https%3A%2F%2Fapp.quantimo.do%2Fapi%2Fv1%2Fconnectors%2Flinkedin%2Fconnect&response_type=code&scope=r_liteprofile+r_emailaddress",
     "parameters": [],
     "usePopup": true
   },
@@ -339,7 +339,7 @@
   "platforms": ["ios", "android", "web", "chrome"],
   "buttons": [{
     "accessibilityText": "Connect",
-    "action": "https://api.curedao.org/api/v4/connectors/linkedin/connect",
+    "action": "https://app.quantimo.do/api/v4/connectors/linkedin/connect",
     "additionalInformation": null,
     "badgeText": null,
     "backgroundColor": null,
@@ -352,7 +352,7 @@
     "id": "connect-linkedin-button",
     "image": "https://static.quantimo.do/img/Ionicons/png/512/link.png",
     "ionIcon": "ion-link",
-    "link": "https://api.curedao.org/api/v4/connectors/linkedin/connect",
+    "link": "https://app.quantimo.do/api/v4/connectors/linkedin/connect",
     "onClick": null,
     "parameters": [],
     "stateName": null,
@@ -412,7 +412,7 @@
   "availableOutsideUS": true,
   "connectError": null,
   "connectInstructions": {
-    "url": "https://api.curedao.org/api/v3/oauth2/authorize?register=true&state=W10-&type=web_server&client_id=&redirect_uri=https%3A%2F%2Fapi.curedao.org%2Fapi%2Fv1%2Fconnectors%2Fquantimodo%2Fconnect&response_type=code&scope=readmeasurements+writemeasurements",
+    "url": "https://app.quantimo.do/api/v3/oauth2/authorize?register=true&state=W10-&type=web_server&client_id=&redirect_uri=https%3A%2F%2Fapp.quantimo.do%2Fapi%2Fv1%2Fconnectors%2Fquantimodo%2Fconnect&response_type=code&scope=readmeasurements+writemeasurements",
     "parameters": [],
     "usePopup": true
   },
@@ -547,7 +547,7 @@
   "availableOutsideUS": true,
   "connectError": null,
   "connectInstructions": {
-    "url": "https://api.curedao.org/api/v1/connectors/twitter/connect",
+    "url": "https://app.quantimo.do/api/v1/connectors/twitter/connect",
     "parameters": [],
     "usePopup": true
   },
@@ -569,7 +569,7 @@
   "platforms": ["ios", "android", "web", "chrome"],
   "buttons": [{
     "accessibilityText": "Connect",
-    "action": "https://api.curedao.org/api/v4/connectors/twitter/connect",
+    "action": "https://app.quantimo.do/api/v4/connectors/twitter/connect",
     "additionalInformation": null,
     "badgeText": null,
     "backgroundColor": null,
@@ -582,7 +582,7 @@
     "id": "connect-twitter-button",
     "image": "https://static.quantimo.do/img/Ionicons/png/512/link.png",
     "ionIcon": "ion-link",
-    "link": "https://api.curedao.org/api/v4/connectors/twitter/connect",
+    "link": "https://app.quantimo.do/api/v4/connectors/twitter/connect",
     "onClick": null,
     "parameters": [],
     "stateName": null,
