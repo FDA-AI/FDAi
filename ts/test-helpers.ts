@@ -60,9 +60,9 @@ export const releaseStages = {
     staging: "staging",
 }
 export const apiUrls = {
-    ionic: "https://api.curedao.org",
+    ionic: "https://app.quantimo.do",
     localhost: "http://localhost:80",
-    production: "https://api.curedao.org",
+    production: "https://app.quantimo.do",
     staging: "https://staging.quantimo.do",
 }
 
@@ -80,8 +80,8 @@ export function getApiUrl(): string {
                 qm.stringHelper.prettyJsonStringify(apiUrls))
         }
     }
-    console.info("Using https://api.curedao.org as apiUrl because API_URL env not set and RELEASE_STAGE is ionic")
-    return "https://api.curedao.org"
+    console.info("Using https://app.quantimo.do as apiUrl because API_URL env not set and RELEASE_STAGE is ionic")
+    return "https://app.quantimo.do"
 }
 export function getReleaseStage() {
     const stage = qmEnv.getenv("RELEASE_STAGE", null)
