@@ -586,7 +586,7 @@ var qm = {
                 apiUrl = qm.storage.getItem(qm.items.apiUrl);
             }
             if(qm.appMode.isBrowser() && window.location.host.indexOf('dev-') === 0){
-                return "https://local.quantimo.do";
+                return "http://localhost:80";
             }
             if(qm.appMode.isBackEnd()){
                 apiUrl= qm.env.getEnv('API_URL')
@@ -610,8 +610,8 @@ var qm = {
             if(!apiUrl && window.location.origin.indexOf('staging.quantimo.do') !== -1){
                 apiUrl = "https://staging.quantimo.do";
             }
-            if(!apiUrl && window.location.origin.indexOf('local.quantimo.do') !== -1){
-                apiUrl = "https://local.quantimo.do";
+            if(!apiUrl && window.location.origin.indexOf('localhost') !== -1){
+                apiUrl = "http://localhost:80";
             }
             if(!apiUrl && window.location.origin.indexOf('utopia.quantimo.do') !== -1){
                 apiUrl = "https://utopia.quantimo.do";
