@@ -91,7 +91,7 @@ function search(query) {
     }
 }
 function variableSearchV6(query) {
-    const url = 'https://local.quantimo.do/api/v6/variables?q='+query+"&client_id="+clientId+"&cards=1";
+    const url = 'https://app.quantimo.do/api/v6/variables?q='+query+"&client_id="+clientId+"&cards=1";
     fetch(url, {
             headers: {
                 'Content-Type': 'application/json'

@@ -1,13 +1,13 @@
 {
   "chromeWebSecurity": false,
-  "baseUrl": "https://local.quantimo.do",
+  "baseUrl": "http://localhost:80",
   "projectId": "ee8wan",
   "pageLoadTimeout": 60000,
   "videoCompression": false,
   "videoUploadOnPasses": false,
   "video": false,
   "env": {
-    "API_HOST": "local.quantimo.do",
+    "API_HOST": "localhost",
     "OAUTH_APP_HOST": "localhost:8100",
     "BUILDER_HOST": "dev-builder.quantimo.do",
     "abort_strategy": true

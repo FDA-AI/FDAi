@@ -43,7 +43,7 @@
    * Constructs a new <code>Button</code>.
    * @alias module:model/Button
    * @class
-   * @param link {String} Ex: https://local.quantimo.do
+   * @param link {String} Ex: https://app.quantimo.do
    * @param text {String} Ex: Connect
    */
   var exports = function(link, text) {
@@ -202,7 +202,7 @@
    */
   exports.prototype['ionIcon'] = undefined;
   /**
-   * Ex: https://local.quantimo.do
+   * Ex: https://app.quantimo.do
    * @member {String} link
    */
   exports.prototype['link'] = undefined;

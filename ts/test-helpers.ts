@@ -60,8 +60,8 @@ export const releaseStages = {
     staging: "staging",
 }
 export const apiUrls = {
-    development: "https://local.quantimo.do",
     ionic: "https://api.curedao.org",
+    localhost: "http://localhost:80",
     production: "https://api.curedao.org",
     staging: "https://staging.quantimo.do",
 }
