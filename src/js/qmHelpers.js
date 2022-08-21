@@ -574,26 +574,32 @@ var qm = {
                 }
             }
         },
+        apiUrls:{
+            production: 'https://app.quantimo.do',
+            staging: 'https://app.quantimo.do',
+            local: 'http://localhost:80',
+            remoteLocal: 'https://utopia.quantimo.do',
+        },
         getBaseUrl: function(){
             var apiUrl = qm.urlHelper.getParam(qm.items.apiUrl);
             if(apiUrl && apiUrl !== qm.storage.getItem(qm.items.apiUrl)){
                 qm.storage.setItem(qm.items.apiUrl, apiUrl);
             }
             if(!apiUrl && qm.appMode.isDebug() && qm.platform.isMobile() && (!qm.getUser() || qm.getUser().id === 230)){
-                apiUrl = "https://utopia.quantimo.do";
+                apiUrl = qm.api.apiUrls.remoteLocal;
             }
             if(!apiUrl){
                 apiUrl = qm.storage.getItem(qm.items.apiUrl);
             }
             if(qm.appMode.isBrowser() && window.location.host.indexOf('dev-') === 0){
-                return "http://localhost:80";
+                return qm.api.apiUrls.local;
             }
             if(qm.appMode.isBackEnd()){
                 apiUrl= qm.env.getEnv('API_URL')
                 if(apiUrl){return apiUrl;}
                 var stage = qm.env.getEnv('RELEASE_STAGE')
                 if(stage === "staging"){
-                    apiUrl = "https://staging.quantimo.do";
+                    apiUrl = qm.api.apiUrls.staging;
                     qmLog.info("Using apiUrl "+apiUrl+" because release stage is staging")
                     return apiUrl;
                 }
@@ -605,24 +611,24 @@ var qm = {
                 }
             }
             if(!apiUrl && !qm.appMode.isBrowser()){
-                apiUrl = "https://api.curedao.org"; // Don't use anything else or I get CORS errors
+                apiUrl = qm.api.apiUrls.production; // Don't use anything else or I get CORS errors
             }
             if(!apiUrl && window.location.origin.indexOf('staging.quantimo.do') !== -1){
-                apiUrl = "https://staging.quantimo.do";
+                apiUrl = qm.api.apiUrls.staging;
             }
             if(!apiUrl && window.location.origin.indexOf('localhost') !== -1){
-                apiUrl = "http://localhost:80";
+                apiUrl = qm.api.apiUrls.production;
             }
             if(!apiUrl && window.location.origin.indexOf('utopia.quantimo.do') !== -1){
-                apiUrl = "https://utopia.quantimo.do";
+                apiUrl = qm.api.apiUrls.remoteLocal;
             }
             if(!apiUrl && window.location.origin.indexOf('localhost:8100') !== -1){
-                apiUrl = "https://api.curedao.org"; // Don't use anything else or I get CORS errors
+                apiUrl = qm.api.apiUrls.production; // Don't use anything else or I get CORS errors
             } // Ionic serve
             if(!apiUrl){
-                apiUrl = "https://api.curedao.org"; // Don't use anything else or I get CORS errors
+                apiUrl = qm.api.apiUrls.production; // Don't use anything else or I get CORS errors
             }
-            if(apiUrl.indexOf("https://") === -1){
+            if(apiUrl.indexOf("http") === -1){
                 apiUrl = "https://" + apiUrl;
             }
             apiUrl = apiUrl.replace("https://https", "https");
