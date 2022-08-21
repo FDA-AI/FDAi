@@ -7,7 +7,7 @@ exports.default = cypress_1.defineConfig({
             // implement node event listeners here
         },
         "chromeWebSecurity": false,
-        "baseUrl": "https://app.quantimo.do",
+        "baseUrl": "http://localhost:5000",
         "projectId": "1rj181",
         "pageLoadTimeout": 60000,
         "videoCompression": false,
@@ -15,8 +15,8 @@ exports.default = cypress_1.defineConfig({
         "video": true,
         "env": {
             "API_HOST": "app.quantimo.do",
-            "OAUTH_APP_HOST": "web.quantimo.do",
-            "BUILDER_HOST": "builder.quantimo.do",
+            "OAUTH_APP_HOST": "http://localhost:5000",
+            "BUILDER_HOST": "http://localhost:5000",
             "abort_strategy": true
         },
         "reporter": "cypress-multi-reporters",
