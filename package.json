@@ -13,6 +13,8 @@
     "@commitlint/config-conventional": "^17.0.2",
     "@slack/types": "1.9.0",
     "@slack/webhook": "^5.0.4",
+    "@typescript-eslint/eslint-plugin": "^5.34.0",
+    "@typescript-eslint/parser": "^5.34.0",
     "aws-sdk": "2.948.0",
     "aws-sdk-mock": "4.5.0",
     "babel-preset-es2015": "^6.24.1",
