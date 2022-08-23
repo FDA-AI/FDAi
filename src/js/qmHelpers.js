@@ -576,7 +576,7 @@ var qm = {
         },
         apiUrls:{
             production: 'https://app.quantimo.do',
-            staging: 'https://app.quantimo.do',
+            staging: 'https://staging.quantimo.do',
             local: 'http://localhost:80',
             remoteLocal: 'https://utopia.quantimo.do',
         },

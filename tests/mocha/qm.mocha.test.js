@@ -20,9 +20,8 @@ process.on('unhandledRejection', function(err) {
 })
 var qmGit = require("../../ts/qm.git")
 var qmShell = require("../../ts/qm.shell")
-var envHelper = require("../../ts/env-helper")
 try {
-    envHelper.loadEnv(".env");
+    require("../../ts/env-helper").loadEnv(".env");
 } catch (err) {
     console.error("Could not load .env because:", err)
 }
@@ -33,7 +32,7 @@ var https = require("https")
 global.fetch = require("../../node_modules/node-fetch/lib/index.js")
 global.Headers = fetch.Headers
 var _str = require("underscore.string")
-var simpleGit = require("simple-git/promise")
+var simpleGit = require("simple-git")
 var th = require("../../ts/test-helpers")
 var git = simpleGit()
 global.bugsnagClient = require('./../../node_modules/bugsnag')
@@ -592,7 +591,7 @@ describe("Chrome Extension", function () {
     })
 })
 describe("Cypress", function () {
-    it('can upload Cypress video', function(done) {
+    it.skip('can upload Cypress video', function(done) {
         const specName = "test_spec"
         const relative = cypressFunctions.getVideoPath(specName)
         const downloadPath = 'tmp/download.mp4'
