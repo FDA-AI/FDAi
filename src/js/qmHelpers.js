@@ -694,7 +694,7 @@ var qm = {
                         if(xhr.readyState === 4){
                             var fallback = xhr.responseText;
                             var response = qm.stringHelper.parseIfJson(xhr.responseText, fallback);
-                            if ( response && qm.api.postResponseSuccessful(xhr, response)) {
+                            if (qm.api.postResponseSuccessful(xhr, response)) {
                                 if(successHandler){successHandler(response);}
                             } else {
                                 qmLog.error("POST " + url + " response: " + xhr.responseText, response);
