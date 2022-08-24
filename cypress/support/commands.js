@@ -1,4 +1,3 @@
-"use strict";
 /// <reference types="cypress" />
 // ***********************************************
 // This example commands.ts shows you how to
@@ -36,353 +35,366 @@
 //     }
 //   }
 // }
-//# sourceMappingURL=commands.js.map
-
-/* eslint-disable cypress/no-unnecessary-waiting,cypress/no-assigning-return-values */
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This is will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-
-let logLevel = Cypress.env('LOG_LEVEL') || 'info'
-const PERMANENT_TEST_USER_ACCESS_TOKEN_FOR_18535 = '42ff4170172357b7312bb127fb58d5ea464943c1'
-const ACCESS_TOKEN_TO_GET_OR_CREATE_REFERRER_SPECIFIC_USER = 'test-token'
-let accessToken = Cypress.env('ACCESS_TOKEN') || PERMANENT_TEST_USER_ACCESS_TOKEN_FOR_18535 || ACCESS_TOKEN_TO_GET_OR_CREATE_REFERRER_SPECIFIC_USER
-let baseUrl = Cypress.config('baseUrl')
-let testUserName = 'testuser'
-let testUserPassword = 'testing123'
-cy.getOAuthAppUrl = function (){
-    let oauthAppBaseUrl = Cypress.env('OAUTH_APP_HOST')
-    if(oauthAppBaseUrl.indexOf("http") === -1){
-        if(oauthAppBaseUrl.indexOf("localhost") !== -1) {
-            oauthAppBaseUrl = "http://" + oauthAppBaseUrl
-        } else {
-            oauthAppBaseUrl = "https://" + oauthAppBaseUrl
+var logLevel = Cypress.env('LOG_LEVEL') || 'info';
+var PERMANENT_TEST_USER_ACCESS_TOKEN_FOR_18535 = '42ff4170172357b7312bb127fb58d5ea464943c1';
+var ACCESS_TOKEN_TO_GET_OR_CREATE_REFERRER_SPECIFIC_USER = 'test-token';
+var accessToken = Cypress.env('ACCESS_TOKEN') || PERMANENT_TEST_USER_ACCESS_TOKEN_FOR_18535 || ACCESS_TOKEN_TO_GET_OR_CREATE_REFERRER_SPECIFIC_USER;
+var baseUrl = Cypress.config('baseUrl');
+if (!baseUrl) {
+    throw new Error("baseUrl is not set in cypress.json");
+}
+var testUserName = 'testuser';
+var testUserPassword = 'testing123';
+cy.getOAuthAppUrl = function () {
+    var oauthAppBaseUrl = Cypress.env('OAUTH_APP_HOST');
+    if (oauthAppBaseUrl.indexOf("http") === -1) {
+        if (oauthAppBaseUrl.indexOf("localhost") !== -1) {
+            oauthAppBaseUrl = "http://" + oauthAppBaseUrl;
+        }
+        else {
+            oauthAppBaseUrl = "https://" + oauthAppBaseUrl;
         }
     }
-    return oauthAppBaseUrl
-}
-cy.oauthAppIsHTTPS = function (){
-    return cy.getOAuthAppUrl().indexOf("https://") === 0
-}
+    return oauthAppBaseUrl;
+};
+cy.oauthAppIsHTTPS = function () {
+    return cy.getOAuthAppUrl().indexOf("https://") === 0;
+};
 cy.getApiHost = function () {
-    cy.log(`=== getApiHost ===`)
-    const host = Cypress.env('API_HOST')
-    const configInstructions = "cypress open --config-file cypress/config/cypress.development.json"
-    if(!host || host === 'undefined'){
-        throw 'Please set API_HOST in the cypress/configs folder and provide the config like\n\t' + configInstructions
+    cy.log("=== getApiHost ===");
+    var host = Cypress.env('API_HOST');
+    var configInstructions = "cypress open --config-file cypress/config/cypress.development.json";
+    if (!host || host === 'undefined') {
+        throw 'Please set API_HOST in the cypress/configs folder and provide the config like\n\t' + configInstructions;
     }
-    if(host.indexOf('quantimo.do') === -1){
-        throw "API_HOST must be a quantimo.do domain so cypress can clear cookies but is " + host + ".  API_HOST is defined in the cypress/configs directory"
+    if (host.indexOf('quantimo.do') === -1) {
+        throw "API_HOST must be a quantimo.do domain so cypress can clear cookies but is " + host + ".  API_HOST is defined in the cypress/configs directory";
     }
-    return host
-}
-Cypress.Commands.add('goToApiLoginPageAndLogin', (email = testUserName, password = testUserPassword) => {
-    cy.log(`=== goToApiLoginPageAndLogin as ${email} ===`)
-    cy.visitApi(`/api/v2/auth/login?logout=1`)
-    cy.enterCredentials('input[name="user_login"]', email,
-        'input[name="user_pass"]', password,
-        'input[type="submit"]')
-})
-Cypress.Commands.add('goToMobileConnectPage', () => {
-    cy.log(`=== goToMobileConnectPage ===`)
-    cy.visitApi(`/api/v1/connect/mobile?log=testuser&pwd=testing123&clientId=ghostInspector`)
-    cy.wait(5000)
-})
-Cypress.Commands.add('logoutViaApiLogoutUrl', () => {
-    cy.log(`=== logoutViaApiLogoutUrl ===`)
-    cy.visitApi(`/api/v2/auth/logout`).then(() => {
-        cy.wait(2000)
-        cy.visitApi(`/api/v2/auth/login`).then(() => {
+    return host;
+};
+Cypress.Commands.add('goToApiLoginPageAndLogin', function (email, password) {
+    if (email === void 0) { email = testUserName; }
+    if (password === void 0) { password = testUserPassword; }
+    cy.log("=== goToApiLoginPageAndLogin as " + email + " ===");
+    cy.visitApi("/api/v2/auth/login?logout=1");
+    cy.enterCredentials('input[name="user_login"]', email, 'input[name="user_pass"]', password, 'input[type="submit"]');
+});
+Cypress.Commands.add('goToMobileConnectPage', function () {
+    cy.log("=== goToMobileConnectPage ===");
+    cy.visitApi("/api/v1/connect/mobile?log=testuser&pwd=testing123&clientId=ghostInspector");
+    cy.wait(5000);
+});
+Cypress.Commands.add('logoutViaApiLogoutUrl', function () {
+    cy.log("=== logoutViaApiLogoutUrl ===");
+    cy.visitApi("/api/v2/auth/logout").then(function () {
+        cy.wait(2000);
+        cy.visitApi("/api/v2/auth/login").then(function () {
             cy.get('input[name="user_login"]')
                 .type(testUserName)
-                .clear()
-        })
-    })
-})
+                .clear();
+        });
+    });
+});
 /**
  * @return {string}
  */
-function UpdateQueryString(key, value, uri){
-    let re = new RegExp(`([?&])${key}=.*?(&|$)`, 'i')
-    let separator = uri.indexOf('?') !== -1 ? '&' : '?'
-    if(uri.match(re)){
-        return uri.replace(re, `$1${key}=${value}$2`)
+function UpdateQueryString(key, value, uri) {
+    var re = new RegExp("([?&])" + key + "=.*?(&|$)", 'i');
+    var separator = uri.indexOf('?') !== -1 ? '&' : '?';
+    if (uri.match(re)) {
+        return uri.replace(re, "$1" + key + "=" + value + "$2");
     }
-    return `${uri + separator + key}=${value}`
+    return uri + separator + key + "=" + value;
 }
-Cypress.Commands.add('loginWithAccessTokenIfNecessary', (path = '/#/app/reminders-inbox', waitForAvatar = true) => {
-    cy.log(`${path} - loginWithAccessTokenIfNecessary`)
+Cypress.Commands.add('loginWithAccessTokenIfNecessary', function (path, waitForAvatar) {
+    if (path === void 0) { path = '/#/app/reminders-inbox'; }
+    if (waitForAvatar === void 0) { waitForAvatar = true; }
+    cy.log(path + " - loginWithAccessTokenIfNecessary");
     //let logout = UpdateQueryString('logout', true, path)
     //cy.visitIonicAndSetApiUrl(logout)
-    let withToken = UpdateQueryString('access_token', accessToken, path)
-    cy.visitIonicAndSetApiUrl(withToken)
-    if(waitForAvatar){
-        cy.get('#navBarAvatar > img', {timeout: 40000})
+    var withToken = UpdateQueryString('access_token', accessToken, path);
+    cy.visitIonicAndSetApiUrl(withToken);
+    if (waitForAvatar) {
+        cy.get('#navBarAvatar > img', { timeout: 40000 });
     }
-})
-Cypress.Commands.add('visitIonicAndSetApiUrl', (path = '/#/app/reminders-inbox') => {
-    path = UpdateQueryString('apiUrl', cy.getApiHost(), path)
-    path = UpdateQueryString('logLevel', logLevel, path)
-    if(Cypress.env('LOGROCKET')){ path = UpdateQueryString('logrocket', 1, path) }
-    let url = path
-    if(path.indexOf('http') !== 0){ url = cy.getOAuthAppUrl() + path }
-    cy.log(`${url} - visitIonicAndSetApiUrl`)
-    cy.visit(url)
-})
-Cypress.Commands.add('visitWithApiUrlParam', (url, options = {}) => {
-    cy.log(`=== visitWithApiUrlParam at ${url} ===`)
-    if(!options.qs){
-        options.qs = {}
+});
+Cypress.Commands.add('visitIonicAndSetApiUrl', function (path) {
+    if (path === void 0) { path = '/#/app/reminders-inbox'; }
+    path = UpdateQueryString('apiUrl', cy.getApiHost(), path);
+    path = UpdateQueryString('logLevel', logLevel, path);
+    if (Cypress.env('LOGROCKET')) {
+        path = UpdateQueryString('logrocket', 1, path);
     }
-    options.qs.apiUrl = cy.getApiHost()
-    cy.visit(url, options)
-})
+    var url = path;
+    if (path.indexOf('http') !== 0) {
+        url = cy.getOAuthAppUrl() + path;
+    }
+    cy.log(url + " - visitIonicAndSetApiUrl");
+    cy.visit(url);
+});
+Cypress.Commands.add('visitWithApiUrlParam', function (url, options) {
+    if (options === void 0) { options = {}; }
+    cy.log("=== visitWithApiUrlParam at " + url + " ===");
+    if (!options.qs) {
+        options.qs = { apiUrl: cy.getApiHost() };
+    }
+    // @ts-ignore
+    options.qs.apiUrl = cy.getApiHost();
+    cy.visit(url, options);
+});
 // noinspection JSUnusedLocalSymbols
-Cypress.Commands.add('visitApi', (url, options = {}) => {
-    cy.log(`=== visitApi at ${url} ===`)
-    if(!options.qs){ options.qs = {} }
-    options.qs.XDEBUG_SESSION_START = 'PHPSTORM'
-    cy.visit("https://" + cy.getApiHost() + url, options)
-})
-Cypress.Commands.add('containsCaseInsensitive', (selector, content) => {
-    function caseInsensitive(str){
+Cypress.Commands.add('visitApi', function (url, options) {
+    if (options === void 0) { options = {}; }
+    cy.log("=== visitApi at " + url + " ===");
+    if (!options.qs) {
+        options.qs = {};
+    }
+    // @ts-ignore
+    options.qs.XDEBUG_SESSION_START = 'PHPSTORM';
+    cy.visit("https://" + cy.getApiHost() + url, options);
+});
+// @ts-ignore
+Cypress.Commands.add('containsCaseInsensitive', function (selector, content) {
+    function caseInsensitive(str) {
         // escape special characters
         // eslint-disable-next-line no-useless-escape
-        let input = str.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
-        return new RegExp(`${input}`, 'i')
+        var input = str.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        return new RegExp("" + input, 'i');
     }
-    cy.get(selector, {timeout: 10000}).contains(caseInsensitive(content))
-    return cy
-})
-Cypress.Commands.add('urlShouldContainCaseInsensitive', (content) => {
-    let url = cy.url()
-    url = url.toLowerCase()
-    content = content.toLowerCase()
-    if(url.indexOf(content) === -1){
-        throw `URL ${url} does not contain ${content}`
-    }
-})
-Cypress.Commands.add('assertInputValueEquals', (selector, expectedValue) => {
-    cy.get(selector, {timeout: 30000})
-        .scrollIntoView()
-        .should('be.visible')
-        .then(function($el){
-            expect($el[0].value).to.eq(expectedValue)
-        })
-})
-Cypress.Commands.add('assertInputValueContains', (selector, expectedValue) => {
-    cy.get(selector, {timeout: 30000})
-        .scrollIntoView()
-        .should('be.visible')
-        .then(function($el){
-            expect($el[0].value).to.contain(expectedValue)
-        })
-})
-Cypress.Commands.add('assertInputValueDoesNotContain', (selector, expectedValue) => {
-    cy.get(selector, {timeout: 15000})
-        .scrollIntoView()
-        .should('be.visible')
-        .then(function($el){
-            expect($el[0].value).not.to.contain(expectedValue)
-        })
-})
-Cypress.Commands.add('clearAndType', (selector, text) => {
-    cy.log("=== clearAndType ===")
-    cy.get(selector, {timeout: 15000})
-        .scrollIntoView()
-        .should('be.visible')
-        .clear({force: true})
-        .type(text, {force: true})
-})
-Cypress.Commands.add('enterCredentials', (usernameSelector = 'input[name="user_login"]',
-                                          username = 'testuser', passwordSelector = 'input[name="user_pass"]',
-                                          password = 'testing123', submitSelectors = 'input[type="submit"]') => {
-    cy.log("=== enterCredentials ===")
-    cy.get(usernameSelector)
-        .click({force: true})
-        .type(username, {force: true})
-    cy.get(passwordSelector)
-        .click({force: true})
-        .type(password, {force: true})
-    cy.log('Clicking submit')
-    if(typeof submitSelectors === 'string'){
-        submitSelectors = [submitSelectors]
-    }
-    submitSelectors.forEach(function(selector){
-        cy.get(selector)
-            .click({force: true})
-        cy.log('Clicked submit')
-    })
-})
-Cypress.Commands.add('disableSpeechAndSkipIntro', () => {
-    // Seeing if commenting this fixes run error messages cy.log("=== disableSpeechAndSkipIntro ===")
-    if(Cypress.browser.name === 'chrome'){
-        cy.get('.pane > div > div > #disableSpeechButton > span', {timeout: 30000}).click()
-    }
-    cy.get('.slider > .slider-slides > .slider-slide:nth-child(1) > .button-bar > #skipButtonIntro').click()
-})
-Cypress.Commands.add('enterNewUserCredentials', (clickAccept) => {
-    cy.log("=== enterNewUserCredentials ===")
-    let d = new Date()
-    let newUserLogin = `testuser${d.getTime()}`
-    let newUserEmail = `testuser${d.getTime()}@gmail.com`
-    cy.get('input[name="user_login"]').type(newUserLogin, {force: true})
-    cy.get('input[name="user_email"]').type(newUserEmail, {force: true})
-    cy.get('input[name="user_pass"]').click({force: true}).type('qwerty', {force: true})
-    cy.get('input[name="user_pass_confirmation"]').click({force: true}).type('qwerty', {force: true})
-    cy.get('input[type="submit"]').click({force: true})
-    if(clickAccept && baseUrl.indexOf("quantimo.do") === -1){
-        cy.log("OAUTH_APP_HOST is external so we have to click approve on oauth page")
-        cy.get('#button-approve').click({force: true})
-    }
-})
-Cypress.Commands.add('logOutViaSettingsPage', (useMenuButton = false) => {
-    cy.log("=== logOutViaSettingsPage ===")
-    if(useMenuButton){
-        cy.get('#menu-item-settings').click({force: true})
-        cy.get('#menu-item-settings > a').click({force: true})
-    }else{
-        cy.visitIonicAndSetApiUrl(`/#/app/settings`)
-    }
-    cy.get('#userName', {timeout: 30000}).click({force: true})
-    cy.get('#yesButton').click({force: true})
-    cy.log('We should end up back at intro after logout')
-    cy.get('#skipButtonIntro').should('exist')
-})
-Cypress.Commands.add('allowUncaughtException', (expectedErrorMessage) => {
-    if(expectedErrorMessage){
-        cy.log(`Allowing uncaught exceptions containing ${expectedErrorMessage}`)
-    }else{
-        cy.log('Disabling allowance of uncaught exceptions')
-    }
-    Cypress.env('expectedErrorMessage', expectedErrorMessage)
-})
-Cypress.Commands.add('checkForBrokenImages', () => {
-    cy.log('Checking for broken images...')
-    cy.wait(2000)
-    // noinspection JSUnusedLocalSymbols
-    cy.get('img', {timeout: 30000})
-        // eslint-disable-next-line no-unused-vars
-        .each(($el, index, $list) => {
-            if(!$el){
-                cy.log(`No $element at index: ${index}`)
-                return
-            }
-            if(!$el[0].naturalWidth){
-                let src = $el[0].getAttribute('src')
-                cy.url().then((url) => {
-                    let message = `The image with src \n  ${src} \n  is broken! \n outerHTML is: \n  ${$el[0].outerHTML}  \n URL: ` + url
-                    cy.log(message)
-                    throw message
-                })
-            }
-        })
-})
-Cypress.Commands.add('iframeLoaded', {prevSubject: 'element'}, ($iframe) => {
-    const contentWindow = $iframe.prop('contentWindow')
-    return new Promise((resolve) => {
-        if(
-            contentWindow &&
-            contentWindow.document.readyState === 'complete'
-        ){
-            resolve(contentWindow)
-        }else{
-            $iframe.on('load', () => {
-                resolve(contentWindow)
-            })
+    cy.get(selector, { timeout: 10000 }).contains(caseInsensitive(content));
+    return cy;
+});
+Cypress.Commands.add('urlShouldContainCaseInsensitive', function (content) {
+    cy.url().then(function (url) {
+        url = url.toLowerCase();
+        content = content.toLowerCase();
+        if (url.indexOf(content) === -1) {
+            throw "URL " + url + " does not contain " + content;
         }
-    })
-})
-Cypress.Commands.add('getInDocument', {prevSubject: 'document'}, (document, selector) => Cypress.$(selector, document))
-Cypress.Commands.add('getWithinIframe',
-    (targetElement) => cy.get('iframe').iframeLoaded().its('document').getInDocument(targetElement))
+    });
+});
+Cypress.Commands.add('assertInputValueEquals', function (selector, expectedValue) {
+    cy.get(selector, { timeout: 30000 })
+        .scrollIntoView()
+        .should('be.visible')
+        .then(function ($el) {
+        // @ts-ignore
+        expect($el[0].value).to.eq(expectedValue);
+    });
+});
+Cypress.Commands.add('assertInputValueContains', function (selector, expectedValue) {
+    cy.get(selector, { timeout: 30000 })
+        .scrollIntoView()
+        .should('be.visible')
+        .then(function ($el) {
+        // @ts-ignore
+        expect($el[0].value).to.contain(expectedValue);
+    });
+});
+Cypress.Commands.add('assertInputValueDoesNotContain', function (selector, expectedValue) {
+    cy.get(selector, { timeout: 15000 })
+        .scrollIntoView()
+        .should('be.visible')
+        .then(function ($el) {
+        // @ts-ignore
+        expect($el[0].value).not.to.contain(expectedValue);
+    });
+});
+Cypress.Commands.add('clearAndType', function (selector, text) {
+    cy.log("=== clearAndType ===");
+    cy.get(selector, { timeout: 15000 })
+        .scrollIntoView()
+        .should('be.visible')
+        .clear({ force: true })
+        .type(text, { force: true });
+});
+Cypress.Commands.add('enterCredentials', function (usernameSelector, username, passwordSelector, password, submitSelector) {
+    if (usernameSelector === void 0) { usernameSelector = 'input[name="user_login"]'; }
+    if (username === void 0) { username = 'testuser'; }
+    if (passwordSelector === void 0) { passwordSelector = 'input[name="user_pass"]'; }
+    if (password === void 0) { password = 'testing123'; }
+    if (submitSelector === void 0) { submitSelector = 'input[type="submit"]'; }
+    cy.log("=== enterCredentials ===");
+    cy.get(usernameSelector)
+        .click({ force: true })
+        .type(username, { force: true });
+    cy.get(passwordSelector)
+        .click({ force: true })
+        .type(password, { force: true });
+    cy.log('Clicking submit');
+    var submitSelectors = [submitSelector];
+    submitSelectors.forEach(function (selector) {
+        cy.get(selector)
+            .click({ force: true });
+        cy.log('Clicked submit');
+    });
+});
+Cypress.Commands.add('disableSpeechAndSkipIntro', function () {
+    // Seeing if commenting this fixes run error messages cy.log("=== disableSpeechAndSkipIntro ===")
+    if (Cypress.browser.name === 'chrome') {
+        cy.get('.pane > div > div > #disableSpeechButton > span', { timeout: 30000 }).click();
+    }
+    cy.get('.slider > .slider-slides > .slider-slide:nth-child(1) > .button-bar > #skipButtonIntro').click();
+});
+Cypress.Commands.add('enterNewUserCredentials', function (clickAccept) {
+    cy.log("=== enterNewUserCredentials ===");
+    var d = new Date();
+    var newUserLogin = "testuser" + d.getTime();
+    var newUserEmail = "testuser" + d.getTime() + "@gmail.com";
+    cy.get('input[name="user_login"]').type(newUserLogin, { force: true });
+    cy.get('input[name="user_email"]').type(newUserEmail, { force: true });
+    cy.get('input[name="user_pass"]').click({ force: true }).type('qwerty', { force: true });
+    cy.get('input[name="user_pass_confirmation"]').click({ force: true }).type('qwerty', { force: true });
+    cy.get('input[type="submit"]').click({ force: true });
+    if (!baseUrl) {
+        throw new Error("baseUrl is not set in cypress.json");
+    }
+    if (clickAccept && baseUrl.indexOf("quantimo.do") === -1) {
+        cy.log("OAUTH_APP_HOST is external so we have to click approve on oauth page");
+        cy.get('#button-approve').click({ force: true });
+    }
+});
+Cypress.Commands.add('logOutViaSettingsPage', function (useMenuButton) {
+    if (useMenuButton === void 0) { useMenuButton = false; }
+    cy.log("=== logOutViaSettingsPage ===");
+    if (useMenuButton) {
+        cy.get('#menu-item-settings').click({ force: true });
+        cy.get('#menu-item-settings > a').click({ force: true });
+    }
+    else {
+        cy.visitIonicAndSetApiUrl("/#/app/settings");
+    }
+    cy.get('#userName', { timeout: 30000 }).click({ force: true });
+    cy.get('#yesButton').click({ force: true });
+    cy.log('We should end up back at intro after logout');
+    cy.get('#skipButtonIntro').should('exist');
+});
+Cypress.Commands.add('allowUncaughtException', function (expectedErrorMessage) {
+    if (expectedErrorMessage) {
+        cy.log("Allowing uncaught exceptions containing " + expectedErrorMessage);
+    }
+    else {
+        cy.log('Disabling allowance of uncaught exceptions');
+    }
+    Cypress.env('expectedErrorMessage', expectedErrorMessage);
+});
+Cypress.Commands.add('checkForBrokenImages', function () {
+    cy.log('Checking for broken images...');
+    cy.wait(2000);
+    // noinspection JSUnusedLocalSymbols
+    cy.get('img', { timeout: 30000 })
+        // eslint-disable-next-line no-unused-vars
+        .each(function ($el, index, $list) {
+        if (!$el) {
+            cy.log("No $element at index: " + index);
+            return;
+        }
+        // @ts-ignore
+        if (!$el[0].naturalWidth) {
+            var src_1 = $el[0].getAttribute('src');
+            cy.url().then(function (url) {
+                var message = "The image with src \n  " + src_1 + " \n  is broken! \n outerHTML is: \n  " + $el[0].outerHTML + "  \n URL: " + url;
+                cy.log(message);
+                throw message;
+            });
+        }
+    });
+});
+// @ts-ignore
+Cypress.Commands.add('iframeLoaded', { prevSubject: 'element' }, function ($iframe) {
+    var contentWindow = $iframe.prop('contentWindow');
+    return new Promise(function (resolve) {
+        if (contentWindow &&
+            contentWindow.document.readyState === 'complete') {
+            resolve(contentWindow);
+        }
+        else {
+            $iframe.on('load', function () {
+                resolve(contentWindow);
+            });
+        }
+    });
+});
+// @ts-ignore
+Cypress.Commands.add('getInDocument', { prevSubject: 'document' }, function (document, selector) { return Cypress.$(selector, document); });
+// @ts-ignore
+// @ts-ignore
+Cypress.Commands.add('getWithinIframe', function (targetElement) {
+    return cy.get('iframe').then(function (iframe) {
+        return cy.iframeLoaded(iframe).then(function () {
+            cy.document().then(function (doc) {
+                return cy.getInDocument(doc, targetElement);
+            });
+        });
+    });
+});
 /**
  * @param {string} variableName
  * @param {boolean} topResultShouldContainSearchTerm
  */
-Cypress.Commands.add('searchAndClickTopResult', (variableName, topResultShouldContainSearchTerm) => {
-    cy.log(`=== searchAndClickTopResult for ${variableName} ===`)
-    cy.wait(1000)
-    cy.get('#variableSearchBox').type(variableName, { force: true, timeout: 5000 })
-    let firstResultSelector = '#variable-search-result > div > p'
-    cy.log('Wait for search results to load')
-    cy.wait(1000) // Wait in case we only have common variables locally
+Cypress.Commands.add('searchAndClickTopResult', function (variableName, topResultShouldContainSearchTerm) {
+    cy.log("=== searchAndClickTopResult for " + variableName + " ===");
+    cy.wait(1000);
+    cy.get('#variableSearchBox').type(variableName, { force: true, timeout: 5000 });
+    var firstResultSelector = '#variable-search-result > div > p';
+    cy.log('Wait for search results to load');
+    cy.wait(1000); // Wait in case we only have common variables locally
     // Sometimes we just get local variables so we can't cy.wait('@get-variables')
     // cy.wait('@get-variables', {timeout: 30000}).should('have.property', 'status', 200)
-    cy.log(`Click on ${variableName} in dropdown search results`)
+    cy.log("Click on " + variableName + " in dropdown search results");
     if (topResultShouldContainSearchTerm) {
         cy.get(firstResultSelector, { timeout: 20000 })
             .contains(variableName)
-            .click({ force: true })
-    } else {
-        cy.get(firstResultSelector, { timeout: 20000 })
-            .click({ force: true })
+            .click({ force: true });
     }
-})
-Cypress.Commands.add('setTimeZone', () => {
-    cy.log(`=== setTimeZone for ===`)
+    else {
+        cy.get(firstResultSelector, { timeout: 20000 })
+            .click({ force: true });
+    }
+});
+Cypress.Commands.add('setTimeZone', function () {
+    cy.log("=== setTimeZone for ===");
     // TODO
-})
+});
 /**
  * @param {string} str
  */
-Cypress.Commands.add('clickActionSheetButtonContaining', (str) => {
-    cy.log(`${str} Action Sheet Button`)
-    cy.wait(2000)
-    let button = '.action-sheet-option'
+Cypress.Commands.add('clickActionSheetButtonContaining', function (str) {
+    cy.log(str + " Action Sheet Button");
+    cy.wait(2000);
+    var button = '.action-sheet-option';
+    if (!str) {
+        throw new Error('str is required');
+    }
     if (str.indexOf('Delete') !== -1) {
-        button = '.destructive'
+        button = '.destructive';
     }
     cy.get(button, { timeout: 5000 })
         .contains(str)
-        .click({ force: true })
-})
+        .click({ force: true });
+});
 /**
  * @param {string} str
  */
-Cypress.Commands.add('toastContains', (str) => {
-    cy.get('.md-toast-text').should('contain', str)
-})
+Cypress.Commands.add('toastContains', function (str) {
+    cy.get('.md-toast-text').should('contain', str);
+});
 //Cypress.Commands.overwrite('log', (subject, message) => cy.task('log', message));
-
-beforeEach(function(){ // runs before each test in the block
-    let url = Cypress.config('baseUrl')
-    if(!url){
+beforeEach(function () {
+    var url = Cypress.config('baseUrl');
+    if (!url) {
         // eslint-disable-next-line no-debugger
-        debugger
-        throw Error("baseUrl not set!")
+        debugger;
+        throw Error("baseUrl not set!");
     }
-    cy.log(`baseUrl is ${url}`)
-    cy.log(`API_HOST is ` + cy.getApiHost())
-})
-
-beforeEach(() => {
-    cy.server()
-    cy.intercept('GET', '/api/v3/measurements*').as('measurements')
-    cy.intercept('GET', '/api/v3/variables*').as('get-variables')
-    cy.intercept('POST', '/api/v3/measurements*').as('post-measurement')
-    cy.intercept('POST', '/api/v3/measurements/delete').as('delete-measurements')
-    cy.intercept('POST', '/api/v3/trackingReminderNotifications*').as('post-notifications')
-})
+    cy.log("baseUrl is " + url);
+    cy.log("API_HOST is " + cy.getApiHost());
+});
+beforeEach(function () {
+    cy.server();
+    cy.intercept('GET', '/api/v3/measurements*').as('measurements');
+    cy.intercept('GET', '/api/v3/variables*').as('get-variables');
+    cy.intercept('POST', '/api/v3/measurements*').as('post-measurement');
+    cy.intercept('POST', '/api/v3/measurements/delete').as('delete-measurements');
+    cy.intercept('POST', '/api/v3/trackingReminderNotifications*').as('post-notifications');
+});

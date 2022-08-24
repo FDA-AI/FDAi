@@ -8,6 +8,7 @@ const args = utils.crossArguments(process.argv.slice(2))
 
 debug('parsing CLI arguments: %o', args)
 const parsed = utils.getArguments(args)
+parsed.silent = true
 debug('parsed args: %o', parsed)
 
 const { services, test } = parsed
