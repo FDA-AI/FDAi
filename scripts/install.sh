@@ -11,7 +11,7 @@ cd "${SCRIPT_FOLDER}" && cd .. && export IONIC_PATH="$PWD" && source "$IONIC_PAT
 # shellcheck source=./no-root.sh
 source "$SCRIPT_FOLDER"/no-root.sh
 # shellcheck source=./nvm.sh
-source "$SCRIPT_FOLDER"/nvm.sh 10
+source "$SCRIPT_FOLDER"/nvm.sh 16.13.0
 npm install npm@latest -g
 set -x && npm install --loglevel info && set +x
 if [[ ${NODE_NAME} = "sonicmaster-ubuntu" ]];
