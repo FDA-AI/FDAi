@@ -2471,6 +2471,7 @@ var qm = {
                 var def = exp.substring(exp.indexOf("{") + 1, exp.lastIndexOf("}"));
                 // eslint-disable-next-line no-new-func
                 def = def.replace('//debugger', 'debugger')
+                // eslint-disable-next-line no-new-func
                 highchartConfig.tooltip.formatter = new Function(def);
             }
         }

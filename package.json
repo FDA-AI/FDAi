@@ -198,7 +198,6 @@
     "test": "npm run test:mocha && npm run cy:run && npm run test:ghostinspector",
     "test:ghostinspector": "npx ts-node ts/gi-runner.ts",
     "test:mocha": "mocha tests/mocha/**/*.test.js",
-    "test:mocha:ts": "mocha -r ts-node/register tests/mocha/**/*.test.ts",
     "types": "npm run types:cypress && npm run types:ts",
     "types:cypress": "cd cypress && tsc",
     "types:ts": "cd ts && tsc",

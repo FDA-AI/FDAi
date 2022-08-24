@@ -1,14 +1,16 @@
 import {defineConfig} from "cypress";
 
 const {env} = process;
-let baseUrl = env.BASE_URL || "http://localhost:5000";
 let apiHost = env.API_HOST || "app.quantimo.do";
-let oAuthAppHost = env.OAUTH_APP_HOST || apiHost;
-let builderHost = env.BUILDER_HOST || 'dev-builder.quantimo.do'
+let oAuthAppHost = env.OAUTH_APP_HOST || "http://localhost:5000";
+let baseUrl = env.BASE_URL || oAuthAppHost;
+let builderHost = env.BUILDER_HOST || oAuthAppHost
 export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      //const conf = JSON.parse(JSON.stringify(config));
+      console.log("setupNodeEvents", on, config);
     },
     "chromeWebSecurity": false,
     "baseUrl": baseUrl,

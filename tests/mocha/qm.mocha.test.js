@@ -23,7 +23,9 @@ var qmShell = require("../../ts/qm.shell")
 try {
     require("../../ts/env-helper").loadEnv(".env");
 } catch (err) {
-    console.error("Could not load .env because:", err)
+    console.error("Could not load .env because:"+ err.message + "\n"+
+        err.stack.substring(0, err.stack.indexOf("    at" +
+        " Module._compile")))
 }
 var fileHelper = global.fileHelper = require("../../ts/qm.file-helper")
 var cypressFunctions = require("../../cypress/cypress-functions")
@@ -65,6 +67,7 @@ global.Swal = require('./../../node_modules/sweetalert2/dist/sweetalert2.all')
 global.moment = require('./../../src/lib/moment-timezone/moment-timezone')
 const chrome = require('sinon-chrome/extensions')
 const {getBuildLink} = require("../../ts/test-helpers")
+const {getenv} = require("../../ts/env-helper");
 var qmTests = {
     getTestAccessToken(){
         var t = process.env.TEST_ACCESS_TOKEN
@@ -635,12 +638,23 @@ describe("File Helper", function () {
         done()
     })
     it("uploads a file", function () {
+        //this.timeout(60000) // Default 2000 is too fast
+        if(!getenv("AWS_ACCESS_KEY_ID")){
+            console.warn("Could not test 'uploads a file' AWS_ACCESS_KEY_ID is not set")
+            //done()
+            return;
+        }
         return fileHelper.uploadToS3("tests/ionIcons.js", "tests/ionIcons.js")
             .then(function (url) {
                 return downloadFileContains(url, "iosArrowUp")
             })
     })
-    it.skip("uploads test results", function (done) {
+    it("uploads test results", function (done) {
+        if(!getenv("AWS_ACCESS_KEY_ID")){
+            console.error("Could not test 'uploads test results' AWS_ACCESS_KEY_ID is not set")
+            done()
+            return;
+        }
         this.timeout(60000) // Default 2000 is too fast
         cypressFunctions.uploadMochawesome()
             .then(function(urls) {
