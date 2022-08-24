@@ -13,14 +13,14 @@ if [[ -z "$lastCommitBuilt" || ${CURRENT_GIT_HASH} != ${lastCommitBuilt} || ${RE
         rm ${IONIC}/www/scripts/*
         echo "==== RUNNING npm install silently FOR IONIC APP ===="
         cd ${IONIC} && npm install --silent
-        echo "==== RUNNING bower install --allow-root --quiet FOR IONIC APP ===="
-        bower install --allow-root --quiet
-        echo "==== RUNNING gulp configureAppAfterNpmInstall FOR IONIC APP ===="
-        gulp configureAppAfterNpmInstall
-        if [[ ! -f success ]]; then
-            echo "===== IONIC BUILD FAILURE: Ionic success file does not exist so build did not complete! ====="
-            exit 1
-        fi
+        #echo "==== RUNNING bower install --allow-root --quiet FOR IONIC APP ===="
+        #bower install --allow-root --quiet
+        #echo "==== RUNNING gulp configureAppAfterNpmInstall FOR IONIC APP ===="
+        #gulp configureAppAfterNpmInstall
+#        if [[ ! -f success ]]; then
+#            echo "===== IONIC BUILD FAILURE: Ionic success file does not exist so build did not complete! ====="
+#            exit 1
+#        fi
         echo ${CURRENT_GIT_HASH} > ${BUILDER}/log/ionic-last-commit-built
     else
         echo "Already built ${CURRENT_GIT_HASH}";
