@@ -18,13 +18,3 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("./commands");
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-//# sourceMappingURL=e2e.js.map
-
-Cypress.on('uncaught:exception', (err, runnable) => {
-    // returning false here prevents Cypress from
-    // failing the test
-    console.log(err);
-    //cy.log(`Uncaught exception: ${err.message}`, {err, runnable})
-    //Cy.log(err)
-    return false
-})
