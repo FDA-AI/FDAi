@@ -20,6 +20,7 @@ if [[ ${NODE_NAME} = "sonicmaster-ubuntu" ]];
         npm rebuild node-sass;
 fi
 npm install typescript -g
+set -xe
 npm run configure:app
 # shellcheck source=./log_start.sh
 source "$IONIC_PATH"/scripts/log_end.sh "${BASH_SOURCE[0]}"
