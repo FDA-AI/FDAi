@@ -9,20 +9,11 @@ PARENT_SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${
 # shellcheck source=./log_start.sh
 cd "${SCRIPT_FOLDER}" && cd .. && export IONIC_PATH="$PWD" && source "$IONIC_PATH"/scripts/log_start.sh "${BASH_SOURCE[0]}"
 # shellcheck source=./no-root.sh
-source "$SCRIPT_FOLDER"/no-root.sh
-# shellcheck source=./doppler.sh
-source "$SCRIPT_FOLDER"/doppler.sh
-# shellcheck source=./nvm.sh
-source "$SCRIPT_FOLDER"/nvm.sh 16.13.0
-npm install npm@latest -g
-set -x && npm install --loglevel info && set +x
-if [[ ${NODE_NAME} = "sonicmaster-ubuntu" ]];
-    then
-        echo "Have to run rebuild node-sass on sonicmaster slave.  TODO: Remove this";
-        npm rebuild node-sass;
-fi
-npm install typescript -g
-set -xe
-npm run configure:app
-# shellcheck source=./log_start.sh
-source "$IONIC_PATH"/scripts/log_end.sh "${BASH_SOURCE[0]}"
+
+sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
+curl -sLf --retry 3 --tlsv1.2 --proto "=https" 'https://packages.doppler.com/public/cli/gpg.DE2A7741A397C129.key' | sudo apt-key add -
+echo "deb https://packages.doppler.com/public/cli/deb/debian any-version main" | sudo tee /etc/apt/sources.list.d/doppler-cli.list
+sudo apt-get update && sudo apt-get install doppler
+
+
+log_end_of_script
