@@ -1,10 +1,10 @@
 import {defineConfig} from "cypress";
 
 const {env} = process;
-let apiHost = env.API_HOST || "app.quantimo.do";
-let oAuthAppHost = env.OAUTH_APP_HOST || "http://localhost:5000";
-let baseUrl = env.BASE_URL || oAuthAppHost;
-let builderHost = env.BUILDER_HOST || oAuthAppHost
+let apiOrigin = env.API_ORIGIN || "app.quantimo.do";
+let appOrigin = env.OAUTH_APP_ORIGIN || "http://localhost:5000";
+let baseUrl = env.BASE_URL || appOrigin;
+let builderOrigin = env.BUILDER_ORIGIN || appOrigin
 export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
@@ -21,9 +21,9 @@ export default defineConfig({
     "experimentalSessionAndOrigin": false,
     "video": true,
     "env": {
-      "API_HOST": apiHost,
-      "OAUTH_APP_HOST": oAuthAppHost,
-      "BUILDER_HOST": builderHost,
+      "API_ORIGIN": apiOrigin,
+      "OAUTH_APP_ORIGIN": appOrigin,
+      "BUILDER_ORIGIN": builderOrigin,
       "abort_strategy": true
     },
     "reporter": "cypress-multi-reporters",

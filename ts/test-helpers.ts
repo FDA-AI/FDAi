@@ -59,34 +59,34 @@ export const releaseStages = {
     production: "production",
     staging: "staging",
 }
-export const apiUrls = {
+export const apiOrigins = {
     ionic: "https://app.quantimo.do",
     localhost: "http://localhost:80",
     production: "https://app.quantimo.do",
     staging: "https://staging.quantimo.do",
 }
 
-export function getApiUrl(): string {
-    const url = qmEnv.getenv("API_URL", null)
+export function getApiOrigin(): string {
+    const url = qmEnv.getenv("API_ORIGIN", null)
     if(url) {return url}
     const stage = qmEnv.getenv("RELEASE_STAGE", null)
     if(stage) {
         // @ts-ignore
-        if(typeof apiUrls[stage] !== "undefined") {
+        if(typeof apiOrigins[stage] !== "undefined") {
             // @ts-ignore
-            return apiUrls[stage]
+            return apiOrigins[stage]
         } else {
-            throw Error("apiUrl not defined for RELEASE_STAGE: " + stage + "! Available ones are "+
-                qm.stringHelper.prettyJsonStringify(apiUrls))
+            throw Error("apiOrigin not defined for RELEASE_STAGE: " + stage + "! Available ones are "+
+                qm.stringHelper.prettyJsonStringify(apiOrigins))
         }
     }
-    console.info("Using https://app.quantimo.do as apiUrl because API_URL env not set and RELEASE_STAGE is ionic")
+    console.info("Using https://app.quantimo.do as apiOrigin because API_ORIGIN env not set and RELEASE_STAGE is ionic")
     return "https://app.quantimo.do"
 }
 export function getReleaseStage() {
     const stage = qmEnv.getenv("RELEASE_STAGE", null)
     if(stage) {return stage}
-    const url = qmEnv.getenv("API_URL", null)
+    const url = qmEnv.getenv("API_ORIGIN", null)
     if(!url) {
         throw Error("Please set RELEASE_STAGE env")
     }

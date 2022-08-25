@@ -125,11 +125,11 @@ var qmTests = {
         }
         return null
     },
-    getApiUrl(){
+    getApiOrigin(){
         var params = qmTests.getTestParams()
-        if(params && params.API_URL){ return params.API_URL }
-        if(process.env.API_URL){ return process.env.API_URL }
-        if(argv.apiUrl){ return argv.apiUrl }
+        if(params && params.API_ORIGIN){ return params.API_ORIGIN }
+        if(process.env.API_ORIGIN){ return process.env.API_ORIGIN }
+        if(argv.apiOrigin){ return argv.apiOrigin }
         return 'api.quantimo.do'
     },
     tests: {
@@ -172,7 +172,7 @@ var qmTests = {
         getOptions(startUrl){
             var options = {}
             options.startUrl = startUrl || qmTests.getStartUrl()
-            options.apiUrl = qmTests.getApiUrl()
+            options.apiOrigin = qmTests.getApiOrigin()
             if(qmTests.getSha()){ options.sha = qmTests.getSha() }
             if(qmTests.getStatusesUrl()){ options.statuses_url = qmTests.getStatusesUrl() }
             return options
@@ -575,9 +575,9 @@ describe("Measurement", function () {
 describe("API", function (){
     it("Makes sure api url is app.quantimo.do", function (done) {
         if(qm.appMode.isStaging()){
-            expect(qm.api.getApiUrl()).to.eq("https://staging.quantimo.do")
+            expect(qm.api.getApiOrigin()).to.eq("https://staging.quantimo.do")
         } else {
-            expect(qm.api.getApiUrl()).to.eq("https://app.quantimo.do")
+            expect(qm.api.getApiOrigin()).to.eq("https://app.quantimo.do")
         }
         done()
     })
@@ -745,20 +745,20 @@ describe("Favorites", function () {
 })
 describe("Ghost Inspector", function () {
     it("runs tests on staging API", function (done) {
-        var previouslySetApiUrl = process.env.API_URL || null
-        if(previouslySetApiUrl){
-            expect(previouslySetApiUrl).to.eq(qmTests.getApiUrl())
+        var previouslySetApiOrigin = process.env.API_ORIGIN || null
+        if(previouslySetApiOrigin){
+            expect(previouslySetApiOrigin).to.eq(qmTests.getApiOrigin())
         }
-        delete process.env.API_URL
-        chai.assert.isUndefined(process.env.API_URL)
+        delete process.env.API_ORIGIN
+        chai.assert.isUndefined(process.env.API_ORIGIN)
         var originalReleaseStage = process.env.RELEASE_STAGE
         process.env.RELEASE_STAGE = "staging"
-        var url = th.getApiUrl()
+        var url = th.getApiOrigin()
         var stagingUrl = "https://staging.quantimo.do"
         expect(url).to.contain(stagingUrl)
-        expect(qm.api.getBaseUrl()).to.contain(stagingUrl)
-        if (previouslySetApiUrl) {
-            process.env.API_URL = previouslySetApiUrl
+        expect(qm.api.getApiOrigin()).to.contain(stagingUrl)
+        if (previouslySetApiOrigin) {
+            process.env.API_ORIGIN = previouslySetApiOrigin
         }
         process.env.RELEASE_STAGE = originalReleaseStage
         done()
@@ -1158,7 +1158,7 @@ describe("URL Helper", function () {
 describe("Users", function () {
     it('can get users', function(done) {
         this.timeout(10000)
-        //expect(qm.api.getApiUrl()).to.eq("https://app.quantimo.do")
+        //expect(qm.api.getApiOrigin()).to.eq("https://app.quantimo.do")
         qmTests.setTestAccessToken()
         qm.userHelper.getUsersFromApi(function(users){
             qmLog.debug("users:", users)
