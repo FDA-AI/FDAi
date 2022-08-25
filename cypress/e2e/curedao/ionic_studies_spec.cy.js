@@ -27,7 +27,7 @@ describe('Studies', function () {
     cy.logoutViaApiLogoutUrl()
   })
   it('Tries to joins a study and is sent to login', function () {
-    cy.visitIonicAndSetApiUrl(
+    cy.visitIonicAndSetApiOrigin(
       '/#/app/study-join?causeVariableName=Flaxseed%20Oil&' +
         'effectVariableName=Overall%20Mood&' +
         'studyId=cause-53530-effect-1398-population-study&' +
@@ -54,7 +54,7 @@ describe('Studies', function () {
       // cy.get('#goToStudyButton', { timeout: 30000 }).click({ force: true })
       // checkStudyPage(effect, cause)
       // cy.get('.voteButtons').click({ force: true })
-      // cy.visitIonicAndSetApiUrl(`/#/app/study?causeVariableName=${cause}&effectVariableName=${effect}`)
+      // cy.visitIonicAndSetApiOrigin(`/#/app/study?causeVariableName=${cause}&effectVariableName=${effect}`)
       // checkStudyPage(effect, cause)
     })
       cy.logOutViaSettingsPage(false)
@@ -63,7 +63,7 @@ describe('Studies', function () {
       // Very flakey!
     let effect = 'Overall Mood'
     let cause = 'Sleep Duration'
-    cy.visitIonicAndSetApiUrl(`/#/app/study?causeVariableName=${cause}&` +
+    cy.visitIonicAndSetApiOrigin(`/#/app/study?causeVariableName=${cause}&` +
         `effectVariableName=${effect}&` +
       'logout=1')
       cy.wait(1000)

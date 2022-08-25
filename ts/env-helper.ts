@@ -3,11 +3,11 @@ import * as fileHelper from "./qm.file-helper"
 import * as qmLog from "./qm.log"
 
 export const envs = {
-    APP_HOST_NAME: "APP_HOST_NAME",
+    API_ORIGIN: "API_ORIGIN",
     AWS_ACCESS_KEY_ID: "AWS_ACCESS_KEY_ID",
     AWS_SECRET_ACCESS_KEY: "AWS_SECRET_ACCESS_KEY",
     BUGSNAG_API_KEY: "BUGSNAG_API_KEY",
-    CUREDAO_ACCESS_TOKEN: "CUREDAO_ACCESS_TOKEN",
+    CUREDAO_PERSONAL_ACCESS_TOKEN: "CUREDAO_PERSONAL_ACCESS_TOKEN",
     CUREDAO_CLIENT_ID: "CUREDAO_CLIENT_ID",
     CUREDAO_CLIENT_SECRET: "CUREDAO_CLIENT_SECRET",
     GH_TOKEN: "GH_TOKEN",
@@ -118,11 +118,11 @@ export function getQMClientSecret(): string | null {
 }
 
 export function getAppHostName() {
-    return getenv(envs.APP_HOST_NAME)
+    return getenv(envs.API_ORIGIN)
 }
 
 export function getAccessToken(): string {
-    return getenvOrException(envs.CUREDAO_ACCESS_TOKEN)
+    return getenvOrException(envs.CUREDAO_PERSONAL_ACCESS_TOKEN)
 }
 
 export function getGithubAccessToken(): string {

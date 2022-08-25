@@ -6,7 +6,7 @@ describe('Onboarding', function () {
     cy.wait(1000)
   }
   it.skip('Creates a new user', function (){
-    cy.visitIonicAndSetApiUrl('/#/app/intro?logout=1')
+    cy.visitIonicAndSetApiOrigin('/#/app/intro?logout=1')
     cy.disableSpeechAndSkipIntro()
     cy.get('#signUpButton').click({force: true})
     cy.enterNewUserCredentials(true)

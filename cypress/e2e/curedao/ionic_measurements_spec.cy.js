@@ -95,7 +95,7 @@ function recordTreatmentMeasurementAndCheckHistoryPage(dosageValue, variableName
     cy.get('#unitSelector').should('contain', 'Milligrams')
     cy.log('Check that mg is selected')
     saveMeasurement()
-    cy.visitIonicAndSetApiUrl('/#/app/history-all-category/' + variableCategory)
+    cy.visitIonicAndSetApiOrigin('/#/app/history-all-category/' + variableCategory)
     let treatmentStringNoQuotes = `${dosageValue} mg Aaa Test Treatment`
     getTopMeasurementTitle().invoke('text').then((text) => {
         //debugger
@@ -164,7 +164,7 @@ function goToHistoryForVariable(variableName, login) {
     if (login) {
         cy.loginWithAccessTokenIfNecessary('/#/app/history-all-variable/' + variableName)
     } else {
-        cy.visitIonicAndSetApiUrl('/#/app/history-all-variable/' + variableName)
+        cy.visitIonicAndSetApiOrigin('/#/app/history-all-variable/' + variableName)
     }
 }
 
@@ -230,7 +230,7 @@ describe('Measurements', function () {
         let newDosageValue = dosageValue / 10
         cy.get('#defaultValue').type(newDosageValue.toString(), {force: true})
         saveMeasurement()
-        cy.visitIonicAndSetApiUrl('/#/app/history-all-category/' + variableCategoryName)
+        cy.visitIonicAndSetApiOrigin('/#/app/history-all-category/' + variableCategoryName)
         editHistoryPageMeasurement(newDosageValue.toString())
         cy.get('button.button.icon-left.ion-trash-a').click({force: true})
         cy.wait(1000)

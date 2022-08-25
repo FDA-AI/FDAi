@@ -5,7 +5,7 @@
  * @param {string} path
  */
 function visitAndCheckUrl (path) {
-  cy.visitIonicAndSetApiUrl(path)
+  cy.visitIonicAndSetApiOrigin(path)
   cy.wait(2000)
   cy.url().should('include', path)
 }
@@ -260,7 +260,7 @@ describe('Reminders', function () {
         cy.get('#defaultValue').type('100', { force: true })
         cy.get('#saveButton').click({ force: true })
         cy.log('Wait for favorite to save so we are not redirected back to favoriteAdd')
-        cy.visitIonicAndSetApiUrl('/#/app/favorites')
+        cy.visitIonicAndSetApiOrigin('/#/app/favorites')
         cy.log('Check that favorite was added')
         cy.get('#favoriteItemTitle').should('contain', variableName)
         cy.debug()
@@ -290,7 +290,7 @@ describe('Reminders', function () {
         //cy.log('There is no favorites list since there are no favorites')
         //cy.get("#favoritesList").should('not.exist')
         cy.log('Posted value from second click')
-        cy.visitIonicAndSetApiUrl('/#/app/history-all?variableCategoryName=Treatments')
+        cy.visitIonicAndSetApiOrigin('/#/app/history-all?variableCategoryName=Treatments')
         //TODO: cy.get('#historyItemTitle-0', { timeout: 30000 }).should('contain', '100 mg '+variableName)
     })
 })

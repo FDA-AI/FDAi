@@ -45,30 +45,30 @@ if (!baseUrl) {
 }
 var testUserName = 'testuser';
 var testUserPassword = 'testing123';
-cy.getOAuthAppUrl = function () {
-    var oauthAppBaseUrl = Cypress.env('OAUTH_APP_HOST');
-    if (oauthAppBaseUrl.indexOf("http") === -1) {
-        if (oauthAppBaseUrl.indexOf("localhost") !== -1) {
-            oauthAppBaseUrl = "http://" + oauthAppBaseUrl;
+cy.getOAuthAppOrigin = function () {
+    var oauthAppOrigin = Cypress.env('OAUTH_APP_ORIGIN');
+    if (oauthAppOrigin.indexOf("http") === -1) {
+        if (oauthAppOrigin.indexOf("localhost") !== -1) {
+            oauthAppOrigin = "http://" + oauthAppOrigin;
         }
         else {
-            oauthAppBaseUrl = "https://" + oauthAppBaseUrl;
+            oauthAppOrigin = "https://" + oauthAppOrigin;
         }
     }
-    return oauthAppBaseUrl;
+    return oauthAppOrigin;
 };
 cy.oauthAppIsHTTPS = function () {
-    return cy.getOAuthAppUrl().indexOf("https://") === 0;
+    return cy.getOAuthAppOrigin().indexOf("https://") === 0;
 };
-cy.getApiHost = function () {
-    cy.log("=== getApiHost ===");
-    var host = Cypress.env('API_HOST');
-    var configInstructions = "cypress open --config-file cypress/config/cypress.development.json";
+cy.getApiOrigin = function () {
+    cy.log("=== getApiOrigin ===");
+    var host = Cypress.env('API_ORIGIN');
+    var configInstructions = "cypress open";
     if (!host || host === 'undefined') {
-        throw 'Please set API_HOST in the cypress/configs folder and provide the config like\n\t' + configInstructions;
+        throw 'Please set API_ORIGIN in the cypress/configs folder and provide the config like\n\t' + configInstructions;
     }
     if (host.indexOf('quantimo.do') === -1) {
-        throw "API_HOST must be a quantimo.do domain so cypress can clear cookies but is " + host + ".  API_HOST is defined in the cypress/configs directory";
+        throw "API_ORIGIN must be a quantimo.do domain so cypress can clear cookies but is " + host + ".  API_ORIGIN is defined in the cypress/configs directory";
     }
     return host;
 };
@@ -111,47 +111,47 @@ Cypress.Commands.add('loginWithAccessTokenIfNecessary', function (path, waitForA
     if (waitForAvatar === void 0) { waitForAvatar = true; }
     cy.log(path + " - loginWithAccessTokenIfNecessary");
     //let logout = UpdateQueryString('logout', true, path)
-    //cy.visitIonicAndSetApiUrl(logout)
+    //cy.visitIonicAndSetApiOrigin(logout)
     var withToken = UpdateQueryString('access_token', accessToken, path);
-    cy.visitIonicAndSetApiUrl(withToken);
+    cy.visitIonicAndSetApiOrigin(withToken);
     if (waitForAvatar) {
         cy.get('#navBarAvatar > img', { timeout: 40000 });
     }
 });
-Cypress.Commands.add('visitIonicAndSetApiUrl', function (path) {
+Cypress.Commands.add('visitIonicAndSetApiOrigin', function (path) {
     if (path === void 0) { path = '/#/app/reminders-inbox'; }
-    path = UpdateQueryString('apiUrl', cy.getApiHost(), path);
+    path = UpdateQueryString('apiOrigin', cy.getApiOrigin(), path);
     path = UpdateQueryString('logLevel', logLevel, path);
     if (Cypress.env('LOGROCKET')) {
         path = UpdateQueryString('logrocket', 1, path);
     }
     var url = path;
     if (path.indexOf('http') !== 0) {
-        url = cy.getOAuthAppUrl() + path;
+        url = cy.getOAuthAppOrigin() + path;
     }
-    cy.log(url + " - visitIonicAndSetApiUrl");
+    cy.log(url + " - visitIonicAndSetApiOrigin");
     cy.visit(url);
 });
-Cypress.Commands.add('visitWithApiUrlParam', function (url, options) {
+Cypress.Commands.add('visitWithApiOriginParam', function (url, options) {
     if (options === void 0) { options = {}; }
-    cy.log("=== visitWithApiUrlParam at " + url + " ===");
+    cy.log("=== visitWithApiOriginParam at " + url + " ===");
     if (!options.qs) {
-        options.qs = { apiUrl: cy.getApiHost() };
+        options.qs = { apiOrigin: cy.getApiOrigin() };
     }
     // @ts-ignore
-    options.qs.apiUrl = cy.getApiHost();
+    options.qs.apiOrigin = cy.getApiOrigin();
     cy.visit(url, options);
 });
 // noinspection JSUnusedLocalSymbols
-Cypress.Commands.add('visitApi', function (url, options) {
+Cypress.Commands.add('visitApi', function (path, options) {
     if (options === void 0) { options = {}; }
-    cy.log("=== visitApi at " + url + " ===");
+    cy.log("=== visitApi at " + path + " ===");
     if (!options.qs) {
         options.qs = {};
     }
     // @ts-ignore
     options.qs.XDEBUG_SESSION_START = 'PHPSTORM';
-    cy.visit("https://" + cy.getApiHost() + url, options);
+    cy.visit(cy.getApiOrigin() + path, options);
 });
 // @ts-ignore
 Cypress.Commands.add('containsCaseInsensitive', function (selector, content) {
@@ -250,7 +250,7 @@ Cypress.Commands.add('enterNewUserCredentials', function (clickAccept) {
         throw new Error("baseUrl is not set in cypress.json");
     }
     if (clickAccept && baseUrl.indexOf("quantimo.do") === -1) {
-        cy.log("OAUTH_APP_HOST is external so we have to click approve on oauth page");
+        cy.log("OAUTH_APP_ORIGIN is external so we have to click approve on oauth page");
         cy.get('#button-approve').click({ force: true });
     }
 });
@@ -262,7 +262,7 @@ Cypress.Commands.add('logOutViaSettingsPage', function (useMenuButton) {
         cy.get('#menu-item-settings > a').click({ force: true });
     }
     else {
-        cy.visitIonicAndSetApiUrl("/#/app/settings");
+        cy.visitIonicAndSetApiOrigin("/#/app/settings");
     }
     cy.get('#userName', { timeout: 30000 }).click({ force: true });
     cy.get('#yesButton').click({ force: true });
@@ -388,7 +388,7 @@ beforeEach(function () {
         throw Error("baseUrl not set!");
     }
     cy.log("baseUrl is " + url);
-    cy.log("API_HOST is " + cy.getApiHost());
+    cy.log("API_ORIGIN is " + cy.getApiOrigin());
 });
 beforeEach(function () {
     cy.server();

@@ -78,7 +78,8 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
         qmLog.info("Leaving configuration state!");
     });
     function setPopOutUrl(){
-        var query = '?clientId=' + getClientId() + '&apiUrl=' + qm.api.getApiUrlWithoutProtocol() +
+        var query = '?clientId=' + getClientId() + '&apiOrigin=' +
+            encodeURIComponent(qm.api.getApiOrigin()) +
             '&quantimodoAccessToken=' + qm.getUser().accessToken;
         var url = 'https://builder.quantimo.do/#/app/configuration' + query;
         // Why do we need this if we can just preview in the builder?
@@ -241,7 +242,7 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
         var body = {file: file};
         qmService.showBasicLoader();
         file.upload = Upload.upload({
-            url: qm.api.getBaseUrl() + '/api/v2/upload?clientId=' + $rootScope.appSettings.clientId +
+            url: qm.api.getApiOrigin() + '/api/v2/upload?clientId=' + $rootScope.appSettings.clientId +
                 '&filename=' + fileName + "&accessToken=" + $rootScope.user.accessToken + "&encrypt=" + encrypt,
             data: body
         });
@@ -300,7 +301,7 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
             body.encrypt = true;
         }
         file.upload = Upload.upload({
-            url: qm.api.getBaseUrl() + '/api/v2/upload?clientId=' + $rootScope.appSettings.clientId +
+            url: qm.api.getApiOrigin() + '/api/v2/upload?clientId=' + $rootScope.appSettings.clientId +
                 '&filename=' + fileName + '&accessToken=' + $rootScope.user.accessToken, data: body
         });
         file.upload.then(function(response){

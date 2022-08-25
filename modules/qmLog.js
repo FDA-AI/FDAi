@@ -51,7 +51,7 @@ var qmLog = {
         if(process.env.CUREDAO_CLIENT_SECRET){message = message.replace(process.env.CUREDAO_CLIENT_SECRET, 'HIDDEN');}
         if(process.env.AWS_SECRET_ACCESS_KEY){message = message.replace(process.env.AWS_SECRET_ACCESS_KEY, 'HIDDEN');}
         if(process.env.ENCRYPTION_SECRET){message = message.replace(process.env.ENCRYPTION_SECRET, 'HIDDEN');}
-        if(process.env.CUREDAO_ACCESS_TOKEN){message = message.replace(process.env.CUREDAO_ACCESS_TOKEN, 'HIDDEN');}
+        if(process.env.CUREDAO_PERSONAL_ACCESS_TOKEN){message = message.replace(process.env.CUREDAO_PERSONAL_ACCESS_TOKEN, 'HIDDEN');}
         return message;
     },
     obfuscateSecrets: function(object){
