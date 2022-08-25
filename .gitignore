@@ -121,3 +121,4 @@ ts/**/*.js
 ts/**/*.map
 cypress/**/*.map
 !/tmp/.gitignore
+.vercel
