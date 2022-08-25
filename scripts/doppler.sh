@@ -15,5 +15,5 @@ curl -sLf --retry 3 --tlsv1.2 --proto "=https" 'https://packages.doppler.com/pub
 echo "deb https://packages.doppler.com/public/cli/deb/debian any-version main" | sudo tee /etc/apt/sources.list.d/doppler-cli.list
 sudo apt-get update && sudo apt-get install doppler
 
-# shellcheck source=./log_start.sh
+# shellcheck source=./log_end.sh
 source "$IONIC_PATH"/scripts/log_end.sh "${BASH_SOURCE[0]}"
