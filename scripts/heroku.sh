@@ -7,6 +7,6 @@ cd "${SCRIPT_FOLDER}" && cd .. && export IONIC_PATH="$PWD"
 source "$IONIC_PATH/scripts/log_start.sh" "${BASH_SOURCE[0]}"
 # shellcheck source=./no-root.sh
 source "$SCRIPT_FOLDER/no-root.sh"
-git push git@heroku.com:medimodo.git HEAD:master -f;
+npm run heroku:deploy
 # shellcheck source=./log_end.sh
 source "$IONIC_PATH"/scripts/log_end.sh "${BASH_SOURCE[0]}"

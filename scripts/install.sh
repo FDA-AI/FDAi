@@ -10,13 +10,11 @@ PARENT_SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${
 cd "${SCRIPT_FOLDER}" && cd .. && export IONIC_PATH="$PWD" && source "$IONIC_PATH"/scripts/log_start.sh "${BASH_SOURCE[0]}"
 # shellcheck source=./no-root.sh
 source "$SCRIPT_FOLDER"/no-root.sh
-# shellcheck source=./doppler.sh
-source "$SCRIPT_FOLDER"/doppler.sh
 # shellcheck source=./nvm.sh
 source "$SCRIPT_FOLDER"/nvm.sh 16.13.0
 npm install npm@latest -g
-set -x && npm install --loglevel info && set +x
-if [[ ${NODE_NAME} = "sonicmaster-ubuntu" ]];
+set -x && npm install && set +x
+if [[ ${NODE_NAME:-$HOSTNAME} = "sonicmaster-ubuntu" ]];
     then
         echo "Have to run rebuild node-sass on sonicmaster slave.  TODO: Remove this";
         npm rebuild node-sass;

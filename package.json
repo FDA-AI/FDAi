@@ -134,11 +134,10 @@
     "requireCurlyBraces": null
   },
   "scripts": {
-    "start-5000": "http-server -p 5000 ./src -a localhost http://localhost:5000 -o -c-1",
+    "start-server-and-cy-run": "start-server-and-test 'http-server ./src -c-1 -p 5000 --silent' 5000 'cypress run'",
+    "http-server": "http-server -p 5000 ./src -a localhost http://localhost:5000 -o -c-1 --silent",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "start-server": "node tests/start-server-and-test.js start-5000 http://localhost:5000",
-    "start-server-and-cy-run": "node tests/start-server-and-test.js start-5000 http://localhost:5000 cy:run",
     "install:global:packages": "nvm install 16.13.0 && nvm use 16.13.0",
     "serve": "npm serve src",
     "cy:open:ionic": "cross-env OAUTH_APP_ORIGIN='https://medimodo.herokuapp.com' cypress open",
@@ -174,7 +173,7 @@
     "effective:config": "circleci config process circle.yml | sed /^#/d",
     "git:pre:commit": "npm run lint:fix && npm run types && npm run test:mocha",
     "git:delete-feature-branches": "git branch | grep \"/feature\" | xargs git branch -D",
-    "heroku:deploy": "git push git@heroku.com:medimodo.git HEAD:master -f",
+    "heroku:deploy": "heroku git:remote -a medimodo && git push heroku master -f",
     "heroku-postbuild": "npm run configure:app",
     "heroku-prebuild": "echo This runs before Heroku installs your dependencies.",
     "heroku-test": "whoami && node -e 'console.log(process.geteuid())' && npm run ci:set-port && npm run test:ci:record",

@@ -5,7 +5,7 @@ export TEST_FOLDER=`dirname ${SCRIPT_PATH}` && cd ${TEST_FOLDER} && cd .. && exp
 if [[ -z "$START_URL" ]]; then START_URL=https://medimodo.herokuapp.com/ && echo "No START_URL specified so falling back to $START_URL"; else echo "Using START_URL $START_URL"; fi
 if [[ "$START_URL" = *"medimodo.herokuapp.com"* ]]; then
     echo "=== Check build progress at https://dashboard.heroku.com/apps/medimodo/activity ==="
-    cd ${IONIC} && git push git@heroku.com:medimodo.git HEAD:master -f;
+    cd ${IONIC} && npm run heroku:deploy;
     EXIT_CODE=$? && echo "git push exit code was $EXIT_CODE" # $? now contains the exit code of the preceding echo
     if [[ ${EXIT_CODE} -eq 0 ]]; then echo "Heroku push successful!"; else echo "Heroku push FAILED with exit code $EXIT_CODE" && exit 1; fi
 fi
