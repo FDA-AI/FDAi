@@ -17,21 +17,22 @@ cd "$IONIC_PATH"
 source "${SCRIPT_FOLDER}/doppler.sh"
 # shellcheck source=./nvm.sh
 source "$SCRIPT_FOLDER/nvm.sh" 16.13.0
+#set +x
 npm install typescript -g
 #doppler run --command="npm install"
 #doppler run --command="npm run configure:app"
 # shellcheck source=./cypress_install.sh
-#source "${SCRIPT_FOLDER}/cypress_install.sh"
-sudo apt-get install -y xvfb libgtk-3-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2
-npm install -g cypress
-doppler run --command="npm run start-server-and-cy-run"
+source "${SCRIPT_FOLDER}/cypress_install.sh"
+set -x
+cd "$IONIC_PATH"
+doppler run --command="npm run test:mocha"
+doppler run --command="node tests/start-server-and-test.js"
 #doppler run --command="npm run heroku:deploy"
 echo "installing vercel..." && npm i -g vercel
 #doppler run --command="printenv"
 echo "deploying to vercel..."
 VERCEL_TOKEN=$(doppler run --command="echo \$VERCEL_TOKEN")
 DEPLOYMENT_URL=$(vercel -t "$VERCEL_TOKEN" --yes)
-
 # shellcheck source=./ghost-inspector.sh
 doppler run --command="START_URL=$DEPLOYMENT_URL npx ts-node ts/gi-runner-ionic.ts"
 # shellcheck source=./log_end.sh

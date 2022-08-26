@@ -5,7 +5,7 @@ export IONIC=$(dirname "${SCRIPT_PATH}")
 echo "======================="
 echo "Building Ionic Web App"
 echo "======================="
-cd "${IONIC}" && CURRENT_GIT_HASH=$(git rev-parse @:./src/ionic) && lastCommitBuilt=$(cat "${IONIC}/log/ionic-last-commit-built")
+cd "${IONIC}" && CURRENT_GIT_HASH=$(git rev-parse) && lastCommitBuilt=$(cat "${IONIC}/log/ionic-last-commit-built")
 echo "Previous IONIC commit built ${lastCommitBuilt} and CURRENT_GIT_HASH ${CURRENT_GIT_HASH}"
 if [[ -z "$lastCommitBuilt" || ${CURRENT_GIT_HASH} != "${lastCommitBuilt}" || ${REBUILD} == "1" ]]
     then

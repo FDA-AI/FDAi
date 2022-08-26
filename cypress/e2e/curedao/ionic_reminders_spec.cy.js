@@ -41,7 +41,9 @@ describe('Reminders', function () {
   function setReminderTime (hour, minute, ampm) {
     cy.log(`Change to ${hour}:${minute} ${ampm} (We want this to be slightly later than other reminders so its always at the top of ` +
             'the reminder inbox.  (Warning: This will fail for 15 minutes every day)')
+    cy.wait(1000)
     cy.get('#materialFirstReminderStartTime', { timeout: 30000 }).click({ force: true })
+    cy.wait(1000)
     cy.get('.dtp-picker-time').contains(hour).click()
     cy.wait(1000)
     cy.get('a').contains(ampm).click()

@@ -27,5 +27,5 @@ nvm install $1
 echo "nvm use $1..."
 nvm use $1
 node -v
-# shellcheck source=./log_start.sh
+# shellcheck source=./log_end.sh
 source "$IONIC_PATH"/scripts/log_end.sh "${BASH_SOURCE[0]}"
