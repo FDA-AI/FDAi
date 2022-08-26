@@ -214,9 +214,15 @@ function loadDopplerSecrets() {
     result = require("child_process").execSync("node "+absPath)
     const secrets = JSON.parse(result)
     qmLog.info("Setting envs from doppler-secrets-async.js...")
+    const env = process.env
     Object.keys(secrets).forEach(function(key) {
         if (secrets.hasOwnProperty(key)) {
             const value = secrets[key]
+            const existingValue = env[key] || null
+            if(existingValue && existingValue.length > 0) {
+                qmLog.info(key + " already set to " + existingValue)
+                return
+            }
             if (value.length > 6) {
                 qmLog.debug(key + "=..." + value.substring(value.length - 6, value.length))
             } else {

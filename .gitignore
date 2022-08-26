@@ -122,3 +122,4 @@ ts/**/*.map
 cypress/**/*.map
 !/tmp/.gitignore
 .vercel
+/src/data/buildInfo.js
