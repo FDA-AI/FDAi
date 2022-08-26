@@ -10,7 +10,7 @@ const startAndTest = require('../node_modules/start-server-and-test/src/index.js
 const utils = require('../node_modules/start-server-and-test/src/utils')
 const {getCurrentGitCommitSha} = require("../ts/qm.git");
 const {getHumanDateTime} = require("../ts/qm.time-helper");
-const baseUrl = getenv("BASE_URL") || "http://localhost:"+port;
+const baseUrl = envHelper.getenv("BASE_URL") || "http://localhost:"+port;
 process.env.BASE_URL = baseUrl;
 let services = [
   {
@@ -22,8 +22,8 @@ let services = [
 ]
 qmLog.info("Starting services...", services)
 let id = getCurrentGitCommitSha()+"-"+getHumanDateTime()
-let test = `npx currents run --parallel --record --key ${getenvOrException('CURRENTS_RECORD_KEY')} --ci-build-id ${id}`
-if(getenv('APP_DEBUG')) {
+let test = `npx currents run --parallel --record --key ${envHelper.getenvOrException('CURRENTS_RECORD_KEY')} --ci-build-id ${id}`
+if(envHelper.getenv('APP_DEBUG')) {
   utils.printArguments({ services, test })
 }
 startAndTest({ services, test }).catch(e => {
