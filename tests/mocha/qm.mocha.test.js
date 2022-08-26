@@ -18,15 +18,10 @@ process.on('unhandledRejection', function(err) {
         throw err
     }
 })
+const envHelper = require("../../ts/env-helper");
+envHelper.loadEnvFromDopplerOrDotEnv(".env")
 var qmGit = require("../../ts/qm.git")
 var qmShell = require("../../ts/qm.shell")
-try {
-    require("../../ts/env-helper").loadEnv(".env");
-} catch (err) {
-    console.error("Could not load .env because:"+ err.message + "\n"+
-        err.stack.substring(0, err.stack.indexOf("    at" +
-        " Module._compile")))
-}
 var fileHelper = global.fileHelper = require("../../ts/qm.file-helper")
 var cypressFunctions = require("../../cypress/cypress-functions")
 var urlParser = require("url")
@@ -67,7 +62,7 @@ global.Swal = require('./../../node_modules/sweetalert2/dist/sweetalert2.all')
 global.moment = require('./../../src/lib/moment-timezone/moment-timezone')
 const chrome = require('sinon-chrome/extensions')
 const {getBuildLink} = require("../../ts/test-helpers")
-const {getenv} = require("../../ts/env-helper");
+
 var qmTests = {
     getTestAccessToken(){
         var t = process.env.TEST_ACCESS_TOKEN

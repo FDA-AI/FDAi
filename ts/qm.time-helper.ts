@@ -1,4 +1,4 @@
-export function getUnixTimestampInSeconds(dateTimeString?: number) {
+export function getUnixTimestampInSeconds(dateTimeString?: string | number | Date): number {
     if (!dateTimeString) {
         dateTimeString = new Date().getTime()
     }
@@ -35,17 +35,7 @@ export function getSecondsAgo(unixTimestamp: number) {
 }
 
 export function getHumanDateTime(timeAt?: number|string) {
-    let at = new Date()
-    if(timeAt) {
-        at = new Date(timeAt)
-    }
-    const datetime = "Last Sync: " + at.getDate() + "/"
-        + (at.getMonth()+1)  + "/"
-        + at.getFullYear() + " "
-        + at.getHours() + ":"
-        + at.getMinutes() + ":"
-        + at.getSeconds()
-    return datetime
+    return getISO(timeAt)
 }
 
 export function getISO(timeAt?: number|string) {

@@ -134,8 +134,9 @@
     "requireCurlyBraces": null
   },
   "scripts": {
+    "start-server-and-test": "node tests/start-server-and-test.js",
     "start-server-and-cy-run": "start-server-and-test 'http-server ./src -c-1 -p 5000 --silent' 5000 'cypress run'",
-    "http-server": "http-server -p 5000 ./src -a localhost http://localhost:5000 -o -c-1 --silent",
+    "http-server": "http-server -p 5000 ./src -a localhost http://localhost:5000 -o -c-1",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "install:global:packages": "nvm install 16.13.0 && nvm use 16.13.0",
@@ -191,7 +192,7 @@
     "ship-it": "npm run pre-publish && npm publish",
     "start": "node app.js",
     "start:ci": "serve --no-clipboard --listen ${PORT:-8080}",
-    "test": "npm run test:mocha && npm run cy:run && npm run test:ghostinspector",
+    "test": "npm run test:mocha && node tests/start-server-and-test.js && npm run test:ghostinspector",
     "test:ghostinspector": "npx ts-node ts/gi-runner.ts",
     "test:mocha": "mocha tests/mocha/**/*.test.js",
     "types": "npm run types:cypress && npm run types:ts",

@@ -18,7 +18,7 @@ function verifyAndDeleteMeasurement(variableString){
  * @param waitTime // Need to wait for users variables to populate or we just get common from staticData
  */
 function searchForMoodFromMagnifyingGlassIcon(variableName, waitTime = 5000){
-    cy.get('#menu-search-button').click({force: true})
+    cy.get('#menu-search-button', {timeout: 10000}).click({force: true})
     cy.get('md-autocomplete-wrap.md-whiteframe-z1 > input[type="search"]').click({force: true})
     cy.get('md-autocomplete-wrap.md-whiteframe-z1 > input[type="search"]').type(variableName, {force: true})
     cy.log('Waiting for user variables to replace common variables if necessary...')

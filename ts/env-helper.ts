@@ -76,6 +76,13 @@ export function getenv(names: string|string[], defaultValue?: null | string): st
     }
     return defaultValue || null
 }
+export function loadEnvFromDopplerOrDotEnv(relativeEnvPath: string): void {
+    if(!process.env.DOPPLER_TOKEN) {
+        loadEnv(relativeEnvPath)
+    } else {
+        loadDopplerSecrets()
+    }
+}
 
 export function getenvOrException(names: string|string[]): string {
     if(!Array.isArray(names)) {names = [names]}
@@ -194,3 +201,23 @@ export const qmPlatform = {
         return typeof window === "undefined"
     },
 }
+
+function loadDopplerSecrets() {
+    const secrets = JSON.parse(
+        require("child_process").execSync("node doppler-secrets-async.js"),
+    )
+    qmLog.info("Setting envs from doppler-secrets-async.js...")
+    Object.keys(secrets).forEach(function(key) {
+        if (secrets.hasOwnProperty(key)) {
+            const value = secrets[key]
+            if (value.length > 6) {
+                qmLog.debug(key + "=..." + value.substring(value.length - 6, value.length))
+            } else {
+                qmLog.debug(key + "=" + value)
+            }
+            process.env[key] = secrets[key]
+        }
+    })
+}
+
+
