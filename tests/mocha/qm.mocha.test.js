@@ -634,7 +634,7 @@ describe("File Helper", function () {
     })
     it("uploads a file", function () {
         //this.timeout(60000) // Default 2000 is too fast
-        if(!getenv("AWS_ACCESS_KEY_ID")){
+        if(!envHelper.getenv("AWS_ACCESS_KEY_ID")){
             console.warn("Could not test 'uploads a file' AWS_ACCESS_KEY_ID is not set")
             //done()
             return;
@@ -645,7 +645,7 @@ describe("File Helper", function () {
             })
     })
     it("uploads test results", function (done) {
-        if(!getenv("AWS_ACCESS_KEY_ID")){
+        if(!envHelper.getenv("AWS_ACCESS_KEY_ID")){
             console.error("Could not test 'uploads test results' AWS_ACCESS_KEY_ID is not set")
             done()
             return;
