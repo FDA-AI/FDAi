@@ -14,11 +14,6 @@ source "$SCRIPT_FOLDER"/no-root.sh
 source "$SCRIPT_FOLDER"/nvm.sh 16.13.0
 npm install npm@latest -g
 set -x && npm install && set +x
-if [[ ${NODE_NAME:-$HOSTNAME} = "sonicmaster-ubuntu" ]];
-    then
-        echo "Have to run rebuild node-sass on sonicmaster slave.  TODO: Remove this";
-        npm rebuild node-sass;
-fi
 npm install typescript -g
 set -xe
 npm run configure:app
