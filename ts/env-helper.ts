@@ -1,4 +1,5 @@
 import dotenv from "dotenv"
+import {getAbsolutePath} from "./qm.file-helper"
 import * as fileHelper from "./qm.file-helper"
 import * as qmLog from "./qm.log"
 
@@ -78,7 +79,12 @@ export function getenv(names: string|string[], defaultValue?: null | string): st
 }
 export function loadEnvFromDopplerOrDotEnv(relativeEnvPath: string): void {
     if(!process.env.DOPPLER_TOKEN) {
-        loadEnv(relativeEnvPath)
+        try {
+            loadEnv(relativeEnvPath)
+        } catch (e) {
+            qmLog.error("Please provide a DOPPLER_TOKEN environment variable or .env in root of repo")
+            throw e
+        }
     } else {
         loadDopplerSecrets()
     }
@@ -203,9 +209,10 @@ export const qmPlatform = {
 }
 
 function loadDopplerSecrets() {
-    const secrets = JSON.parse(
-        require("child_process").execSync("node doppler-secrets-async.js"),
-    )
+    let result
+    const absPath = getAbsolutePath("doppler-secrets-async.js")
+    result = require("child_process").execSync("node "+absPath)
+    const secrets = JSON.parse(result)
     qmLog.info("Setting envs from doppler-secrets-async.js...")
     Object.keys(secrets).forEach(function(key) {
         if (secrets.hasOwnProperty(key)) {
@@ -219,5 +226,3 @@ function loadDopplerSecrets() {
         }
     })
 }
-
-
