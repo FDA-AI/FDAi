@@ -15,7 +15,7 @@ source "$SCRIPT_FOLDER"/nvm.sh 16.13.0
 npm install npm@latest -g
 set -x && npm install && set +x
 npm install typescript -g
-set -xe
+set -e
 npm run configure:app
 # shellcheck source=./log_start.sh
 source "$IONIC_PATH"/scripts/log_end.sh "${BASH_SOURCE[0]}"
