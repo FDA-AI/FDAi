@@ -14,7 +14,7 @@ source "$SCRIPT_FOLDER"/no-root.sh
 source "$SCRIPT_FOLDER"/nvm.sh 16.13.0
 npm install npm@latest -g
 set -x && npm install && set +x
-npm install typescript -g
+npm install typescript http-server -g
 set -e
 npm run configure:app
 # shellcheck source=./log_start.sh
