@@ -25,6 +25,8 @@ npm install typescript -g
 source "${SCRIPT_FOLDER}/cypress_install.sh"
 set -x
 cd "$IONIC_PATH"
+mkdir cypress/reports/mocha || true
+mkdir cypress/reports/mocha/assets || true
 doppler run --command="npm run test:mocha"
 doppler run --command="node tests/start-server-and-test.js"
 #doppler run --command="npm run heroku:deploy"
