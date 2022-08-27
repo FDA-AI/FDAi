@@ -130,7 +130,7 @@ describe('Variables', function(){
         cy.log("durationOfAction should be 504")
         cy.assertInputValueEquals('#durationOfAction', '504')
     })
-    it('Goes to variable settings from chart page', function(){
+    it.skip('Goes to variable settings from chart page', function(){
         cy.loginWithAccessTokenIfNecessary('/#/app/chart-search')
         cy.searchAndClickTopResult(variableName, true)
         cy.url().should('contain', chartsPath)
