@@ -142,7 +142,7 @@ describe('Variables', function(){
         })
     })
     // Randomly failing
-    it('Creates a new symptom rating variable by measurement', function(){
+    it.skip('Creates a new symptom rating variable by measurement', function(){
         cy.loginWithAccessTokenIfNecessary(`/#/app/measurement-add-search`, true)
         let d = new Date()
         let variableString = `Unique Test Variable ${d.getTime()}`
