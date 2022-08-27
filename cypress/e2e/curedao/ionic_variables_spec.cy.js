@@ -147,7 +147,7 @@ describe('Variables', function(){
         let d = new Date()
         let variableString = `Unique Test Variable ${d.getTime()}`
         let variableCategoryName = 'Symptoms'
-        cy.get('#variableSearchBox').type(variableString, {force: true})
+        cy.get('#variableSearchBox', {timeout: 10000}).type(variableString, {force: true})
         cy.get('#new-variable-button', {timeout: 30000}).click({force: true})
         cy.get('.scroll > #measurementAddCard > .list > .item > #variableCategorySelector').select(variableCategoryName)
         cy.get('.primary-outcome-variable-history > img:nth-of-type(3)').click({force: true})
