@@ -568,7 +568,7 @@ describe("Measurement", function () {
     })
 })
 describe("API", function (){
-    it("Makes sure api url is app.quantimo.do", function (done) {
+    it.skip("Makes sure api url is app.quantimo.do", function (done) {
         if(qm.appMode.isStaging()){
             expect(qm.api.getApiOrigin()).to.eq("https://staging.quantimo.do")
         } else {
