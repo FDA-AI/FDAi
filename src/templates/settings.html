@@ -71,6 +71,7 @@
                 Export as XLS File
             </a>
             -->
+            <div ng-include="'templates/personal-access-token.html'"></div>
             <a id="manage-data-sharing" ng-click="goToState('app.dataSharing')" class="item ">
                 <i class="icon ion-email"></i> &nbsp Manage Data Sharing
                 <p style="white-space: normal">Invite or revoke access for individuals and studies</p>
@@ -169,11 +170,6 @@
                 <p ng-if="user.description" style="white-space: normal">{{user.description}}</p>
             </a>
         </div>
-        <div id="delete-account" style="text-align: center;">
-            <md-button ng-if="user" ng-click="openDeleteUserAccountDialog($event)">
-                Delete Account
-            </md-button>
-        </div>
 <!--        <div id="downgrade-button" ng-if="user && user.stripeActive" class="list card" ng-click="downgrade()">
             <a class="item"> <i class="icon ion-ios-color-wand"></i> &nbsp; Downgrade to Lite </a>
         </div>-->
@@ -193,6 +189,11 @@
             <a class="item"><i class="ion-gear-a"> &nbsp;
                 Developer Settings
             </i></a>
+        </div>
+        <div id="delete-account" style="text-align: center;">
+            <md-button ng-if="user" ng-click="openDeleteUserAccountDialog($event)">
+                Delete Account
+            </md-button>
         </div>
         <br>
     </ion-content>
