@@ -80,16 +80,16 @@ If you're using VSCode or Gitpod, right click on src/index.html and click "Open 
 
 ## Technology Stack
 
-| Technology   | Description                                                              |
-| ------------ | ------------------------------------------------------------------------ |
-| JavaScript   | High-Level Programming Language                      |
-| TypeScript      | JavaScript with syntax for types                   |
-| CSS      | Cascading Style Sheets                                |
-| SCSS      | Syntactically Awesome Style Sheet                        |
-| Angular.js      |  front-end web framework                           |
-| HTML      | HyperText Markup Language                                |
-| Cypress      | standard in front-end testing                         |
-| Gitpod      | platform for remote development                        |
+| Technology | Description                       |
+|------------|-----------------------------------|
+| JavaScript | High-Level Programming Language   |
+| TypeScript | JavaScript with syntax for types  |
+| CSS        | Cascading Style Sheets            |
+| SCSS       | Syntactically Awesome Style Sheet |
+| Angular.js | front-end web framework           |
+| HTML       | HyperText Markup Language         |
+| Cypress    | standard in front-end testing     |
+| Gitpod     | platform for remote development   |
 
 ## Get Involved
 
