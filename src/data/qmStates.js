@@ -1152,7 +1152,7 @@ var qmStates = [
         },
         "views": {
             "menuContent": {
-                "templateUrl": "../../app-configuration/templates/configuration.html",
+                "templateUrl": "builder-templates/configuration.html",
                 "controller": "ConfigurationCtrl"
             }
         },
@@ -1167,7 +1167,7 @@ var qmStates = [
         },
         "views": {
             "menuContent": {
-                "templateUrl": "../../app-configuration/templates/configuration.html",
+                "templateUrl": "builder-templates/configuration.html",
                 "controller": "ConfigurationCtrl"
             }
         },
@@ -1183,11 +1183,43 @@ var qmStates = [
         },
         "views": {
             "menuContent": {
-                "templateUrl": "../../app-configuration/templates/clients.html",
+                "templateUrl": "builder-templates/clients.html",
                 "controller": "ConfigurationCtrl"
             }
         },
         "name": "app.clients"
+    },
+    {
+        "cache": true,
+        "url": "/api-portal/:clientId",
+        "params": {
+            "title": "API Portal",
+            "ionIcon": "ion-settings",
+            hideNavigationMenu: true,
+        },
+        "views": {
+            "menuContent": {
+                "templateUrl": "builder-templates/api-portal.html",
+                "controller": "ConfigurationCtrl"
+            }
+        },
+        "name": "app.apiPortalClientId"
+    },
+    {
+        "cache": true,
+        "url": "/api-portal",
+        "params": {
+            "title": "API Portal",
+            "ionIcon": "ion-settings",
+            hideNavigationMenu: true,
+        },
+        "views": {
+            "menuContent": {
+                "templateUrl": "builder-templates/api-portal.html",
+                "controller": "ConfigurationCtrl"
+            }
+        },
+        "name": "app.apiPortal"
     },
     {
         "cache": true,
@@ -1213,7 +1245,7 @@ var qmStates = [
         },
         "views": {
             "menuContent": {
-                "templateUrl": "../../app-configuration/templates/users.html",
+                "templateUrl": "builder-templates/users.html",
                 "controller": "ConfigurationCtrl"
             }
         },
