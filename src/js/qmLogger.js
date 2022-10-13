@@ -522,7 +522,9 @@ var qmLog = {
         }
         logString = qmLog.replaceSecretValuesInString(logString);
         if(!logString){debugger}
-        return logString;
+        if(!this.startTime){this.startTime = new Date().getTime();}
+        var time = new Date().getTime() - this.startTime;
+        return logString + " (" + (time/1000).toString().substring(0,3) + "s)";
     },
     shouldWeLog: function(providedLogLevelName){
         var globalLogLevelValue = qmLog.logLevels[qmLog.getLogLevelName()];
