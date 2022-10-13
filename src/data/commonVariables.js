@@ -79,7 +79,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1398,
-        "url": "https:\/\/local.quantimo.do\/variables\/Overall_Mood"
+        "url": "https:\/\/app.quantimo.do\/variables\/Overall_Mood"
     },
     {
         "joinedVariables": [],
@@ -150,7 +150,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1358,
-        "url": "https:\/\/local.quantimo.do\/variables\/Irritability"
+        "url": "https:\/\/app.quantimo.do\/variables\/Irritability"
     },
     {
         "joinedVariables": [],
@@ -216,7 +216,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1388,
-        "url": "https:\/\/local.quantimo.do\/variables\/Nervousness"
+        "url": "https:\/\/app.quantimo.do\/variables\/Nervousness"
     },
     {
         "joinedVariables": [],
@@ -290,7 +290,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1335,
-        "url": "https:\/\/local.quantimo.do\/variables\/Guiltiness"
+        "url": "https:\/\/app.quantimo.do\/variables\/Guiltiness"
     },
     {
         "joinedVariables": [],
@@ -347,7 +347,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1313,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fear"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fear"
     },
     {
         "joinedVariables": [],
@@ -410,7 +410,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1258,
-        "url": "https:\/\/local.quantimo.do\/variables\/Alertness"
+        "url": "https:\/\/app.quantimo.do\/variables\/Alertness"
     },
     {
         "joinedVariables": [],
@@ -477,7 +477,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1308,
-        "url": "https:\/\/local.quantimo.do\/variables\/Excitability"
+        "url": "https:\/\/app.quantimo.do\/variables\/Excitability"
     },
     {
         "joinedVariables": [],
@@ -538,7 +538,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1443,
-        "url": "https:\/\/local.quantimo.do\/variables\/Shame"
+        "url": "https:\/\/app.quantimo.do\/variables\/Shame"
     },
     {
         "joinedVariables": [],
@@ -609,7 +609,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1252,
-        "url": "https:\/\/local.quantimo.do\/variables\/Activeness"
+        "url": "https:\/\/app.quantimo.do\/variables\/Activeness"
     },
     {
         "joinedVariables": [],
@@ -678,7 +678,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1307,
-        "url": "https:\/\/local.quantimo.do\/variables\/Enthusiasm"
+        "url": "https:\/\/app.quantimo.do\/variables\/Enthusiasm"
     },
     {
         "joinedVariables": [],
@@ -738,7 +738,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1305,
-        "url": "https:\/\/local.quantimo.do\/variables\/Distress"
+        "url": "https:\/\/app.quantimo.do\/variables\/Distress"
     },
     {
         "joinedVariables": [],
@@ -801,7 +801,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1267,
-        "url": "https:\/\/local.quantimo.do\/variables\/Attentiveness"
+        "url": "https:\/\/app.quantimo.do\/variables\/Attentiveness"
     },
     {
         "joinedVariables": [],
@@ -869,7 +869,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1344,
-        "url": "https:\/\/local.quantimo.do\/variables\/Hostility"
+        "url": "https:\/\/app.quantimo.do\/variables\/Hostility"
     },
     {
         "joinedVariables": [],
@@ -936,7 +936,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1475,
-        "url": "https:\/\/local.quantimo.do\/variables\/Upsettedness"
+        "url": "https:\/\/app.quantimo.do\/variables\/Upsettedness"
     },
     {
         "joinedVariables": [],
@@ -1002,7 +1002,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1356,
-        "url": "https:\/\/local.quantimo.do\/variables\/Interest"
+        "url": "https:\/\/app.quantimo.do\/variables\/Interest"
     },
     {
         "joinedVariables": [],
@@ -1064,7 +1064,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1361,
-        "url": "https:\/\/local.quantimo.do\/variables\/Jitteriness"
+        "url": "https:\/\/app.quantimo.do\/variables\/Jitteriness"
     },
     {
         "joinedVariables": [],
@@ -1130,7 +1130,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1299,
-        "url": "https:\/\/local.quantimo.do\/variables\/Determination"
+        "url": "https:\/\/app.quantimo.do\/variables\/Determination"
     },
     {
         "joinedVariables": [],
@@ -1196,7 +1196,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1355,
-        "url": "https:\/\/local.quantimo.do\/variables\/Inspiration"
+        "url": "https:\/\/app.quantimo.do\/variables\/Inspiration"
     },
     {
         "joinedVariables": [],
@@ -1262,7 +1262,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1436,
-        "url": "https:\/\/local.quantimo.do\/variables\/Resilience"
+        "url": "https:\/\/app.quantimo.do\/variables\/Resilience"
     },
     {
         "joinedVariables": [],
@@ -1326,7 +1326,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1441,
-        "url": "https:\/\/local.quantimo.do\/variables\/Scaredness"
+        "url": "https:\/\/app.quantimo.do\/variables\/Scaredness"
     },
     {
         "joinedVariables": [],
@@ -1393,7 +1393,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1411,
-        "url": "https:\/\/local.quantimo.do\/variables\/Pride"
+        "url": "https:\/\/app.quantimo.do\/variables\/Pride"
     },
     {
         "joinedVariables": [],
@@ -1471,7 +1471,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 87760,
-        "url": "https:\/\/local.quantimo.do\/variables\/Tiredness_\/_Fatigue"
+        "url": "https:\/\/app.quantimo.do\/variables\/Tiredness_\/_Fatigue"
     },
     {
         "joinedVariables": [],
@@ -1544,7 +1544,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "Pa",
         "variableCategoryName": "Environment",
         "variableId": 96380,
-        "url": "https:\/\/local.quantimo.do\/variables\/Barometric_Pressure"
+        "url": "https:\/\/app.quantimo.do\/variables\/Barometric_Pressure"
     },
     {
         "joinedVariables": [],
@@ -1614,7 +1614,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "%",
         "variableCategoryName": "Environment",
         "variableId": 5957090,
-        "url": "https:\/\/local.quantimo.do\/variables\/Cloud_Cover"
+        "url": "https:\/\/app.quantimo.do\/variables\/Cloud_Cover"
     },
     {
         "joinedVariables": [],
@@ -1680,7 +1680,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "%",
         "variableCategoryName": "Environment",
         "variableId": 5954744,
-        "url": "https:\/\/local.quantimo.do\/variables\/Outdoor_Humidity"
+        "url": "https:\/\/app.quantimo.do\/variables\/Outdoor_Humidity"
     },
     {
         "joinedVariables": [],
@@ -1759,7 +1759,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 5903391,
-        "url": "https:\/\/local.quantimo.do\/variables\/Anxiety"
+        "url": "https:\/\/app.quantimo.do\/variables\/Anxiety"
     },
     {
         "joinedVariables": [],
@@ -1825,7 +1825,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "C",
         "variableCategoryName": "Environment",
         "variableId": 5954773,
-        "url": "https:\/\/local.quantimo.do\/variables\/Outdoor_Temperature"
+        "url": "https:\/\/app.quantimo.do\/variables\/Outdoor_Temperature"
     },
     {
         "joinedVariables": [],
@@ -1879,7 +1879,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 5974181,
-        "url": "https:\/\/local.quantimo.do\/variables\/UV_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/UV_Index"
     },
     {
         "joinedVariables": [],
@@ -1935,7 +1935,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Environment",
         "variableId": 6038788,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Between_Sunrise_And_Sunset"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Between_Sunrise_And_Sunset"
     },
     {
         "joinedVariables": [],
@@ -1998,7 +1998,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 89387,
-        "url": "https:\/\/local.quantimo.do\/variables\/Lack_of_Motivation"
+        "url": "https:\/\/app.quantimo.do\/variables\/Lack_of_Motivation"
     },
     {
         "joinedVariables": [],
@@ -2064,7 +2064,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "F",
         "variableCategoryName": "Environment",
         "variableId": 6038777,
-        "url": "https:\/\/local.quantimo.do\/variables\/Daily_High_Outdoor_Temperature"
+        "url": "https:\/\/app.quantimo.do\/variables\/Daily_High_Outdoor_Temperature"
     },
     {
         "joinedVariables": [],
@@ -2119,7 +2119,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mm",
         "variableCategoryName": "Environment",
         "variableId": 5954746,
-        "url": "https:\/\/local.quantimo.do\/variables\/Precipitation"
+        "url": "https:\/\/app.quantimo.do\/variables\/Precipitation"
     },
     {
         "joinedVariables": [],
@@ -2182,7 +2182,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mph",
         "variableCategoryName": "Environment",
         "variableId": 6038789,
-        "url": "https:\/\/local.quantimo.do\/variables\/Wind_Speed"
+        "url": "https:\/\/app.quantimo.do\/variables\/Wind_Speed"
     },
     {
         "joinedVariables": [],
@@ -2247,7 +2247,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "F",
         "variableCategoryName": "Environment",
         "variableId": 6038776,
-        "url": "https:\/\/local.quantimo.do\/variables\/Average_Daily_Outdoor_Temperature"
+        "url": "https:\/\/app.quantimo.do\/variables\/Average_Daily_Outdoor_Temperature"
     },
     {
         "joinedVariables": [],
@@ -2312,7 +2312,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "F",
         "variableCategoryName": "Environment",
         "variableId": 6038778,
-        "url": "https:\/\/local.quantimo.do\/variables\/Daily_Low_Outdoor_Temperature"
+        "url": "https:\/\/app.quantimo.do\/variables\/Daily_Low_Outdoor_Temperature"
     },
     {
         "joinedVariables": [],
@@ -2369,7 +2369,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 5978301,
-        "url": "https:\/\/local.quantimo.do\/variables\/Coffee,_Tea_&_Cocoa"
+        "url": "https:\/\/app.quantimo.do\/variables\/Coffee,_Tea_&_Cocoa"
     },
     {
         "joinedVariables": [],
@@ -2425,7 +2425,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 5978734,
-        "url": "https:\/\/local.quantimo.do\/variables\/Single-Serve_Capsules_&_Pods"
+        "url": "https:\/\/app.quantimo.do\/variables\/Single-Serve_Capsules_&_Pods"
     },
     {
         "joinedVariables": [],
@@ -2501,7 +2501,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 84985,
-        "url": "https:\/\/local.quantimo.do\/variables\/Coffee"
+        "url": "https:\/\/app.quantimo.do\/variables\/Coffee"
     },
     {
         "joinedVariables": [],
@@ -2574,7 +2574,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 89251,
-        "url": "https:\/\/local.quantimo.do\/variables\/Insomnia_Or_Sleep_Disturbances"
+        "url": "https:\/\/app.quantimo.do\/variables\/Insomnia_Or_Sleep_Disturbances"
     },
     {
         "joinedVariables": [],
@@ -2646,7 +2646,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mL",
         "variableCategoryName": "Foods",
         "variableId": 109592,
-        "url": "https:\/\/local.quantimo.do\/variables\/Water_(mL)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Water_(mL)"
     },
     {
         "joinedVariables": [],
@@ -2720,7 +2720,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1923,
-        "url": "https:\/\/local.quantimo.do\/variables\/Stress"
+        "url": "https:\/\/app.quantimo.do\/variables\/Stress"
     },
     {
         "joinedVariables": [],
@@ -2782,7 +2782,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "event",
         "variableCategoryName": "Social Interactions",
         "variableId": 5969791,
-        "url": "https:\/\/local.quantimo.do\/variables\/Facebook_Pages_Liked"
+        "url": "https:\/\/app.quantimo.do\/variables\/Facebook_Pages_Liked"
     },
     {
         "joinedVariables": [],
@@ -2853,7 +2853,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 1306,
-        "url": "https:\/\/local.quantimo.do\/variables\/Energy"
+        "url": "https:\/\/app.quantimo.do\/variables\/Energy"
     },
     {
         "joinedVariables": [],
@@ -2916,7 +2916,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "lb",
         "variableCategoryName": "Physique",
         "variableId": 1486,
-        "url": "https:\/\/local.quantimo.do\/variables\/Body_Weight"
+        "url": "https:\/\/app.quantimo.do\/variables\/Body_Weight"
     },
     {
         "joinedVariables": [],
@@ -2988,7 +2988,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 1919,
-        "url": "https:\/\/local.quantimo.do\/variables\/Back_Pain"
+        "url": "https:\/\/app.quantimo.do\/variables\/Back_Pain"
     },
     {
         "joinedVariables": [],
@@ -3062,7 +3062,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Sleep",
         "variableId": 1867,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sleep_Duration"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sleep_Duration"
     },
     {
         "joinedVariables": [],
@@ -3129,7 +3129,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 89438,
-        "url": "https:\/\/local.quantimo.do\/variables\/Loneliness"
+        "url": "https:\/\/app.quantimo.do\/variables\/Loneliness"
     },
     {
         "joinedVariables": [],
@@ -3186,7 +3186,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "kcal",
         "variableCategoryName": "Physical Activity",
         "variableId": 1280,
-        "url": "https:\/\/local.quantimo.do\/variables\/Calories_Burned"
+        "url": "https:\/\/app.quantimo.do\/variables\/Calories_Burned"
     },
     {
         "joinedVariables": [],
@@ -3249,7 +3249,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "m",
         "variableCategoryName": "Physical Activity",
         "variableId": 1304,
-        "url": "https:\/\/local.quantimo.do\/variables\/Walk_Or_Run_Distance"
+        "url": "https:\/\/app.quantimo.do\/variables\/Walk_Or_Run_Distance"
     },
     {
         "joinedVariables": [],
@@ -3322,7 +3322,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 87323,
-        "url": "https:\/\/local.quantimo.do\/variables\/Headache_Severity"
+        "url": "https:\/\/app.quantimo.do\/variables\/Headache_Severity"
     },
     {
         "joinedVariables": [],
@@ -3386,7 +3386,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mL",
         "variableCategoryName": "Environment",
         "variableId": 6038774,
-        "url": "https:\/\/local.quantimo.do\/variables\/Precipitation_(Volume)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Precipitation_(Volume)"
     },
     {
         "joinedVariables": [],
@@ -3439,7 +3439,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "%",
         "variableCategoryName": "Environment",
         "variableId": 5954747,
-        "url": "https:\/\/local.quantimo.do\/variables\/Cloud_Cover_Amount"
+        "url": "https:\/\/app.quantimo.do\/variables\/Cloud_Cover_Amount"
     },
     {
         "joinedVariables": [],
@@ -3507,7 +3507,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "count",
         "variableCategoryName": "Physical Activity",
         "variableId": 1451,
-        "url": "https:\/\/local.quantimo.do\/variables\/Daily_Step_Count"
+        "url": "https:\/\/app.quantimo.do\/variables\/Daily_Step_Count"
     },
     {
         "joinedVariables": [],
@@ -3577,7 +3577,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 90371,
-        "url": "https:\/\/local.quantimo.do\/variables\/Social_Anxiety"
+        "url": "https:\/\/app.quantimo.do\/variables\/Social_Anxiety"
     },
     {
         "joinedVariables": [],
@@ -3639,7 +3639,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "count",
         "variableCategoryName": "Environment",
         "variableId": 5965343,
-        "url": "https:\/\/local.quantimo.do\/variables\/Partly_Cloudy-day"
+        "url": "https:\/\/app.quantimo.do\/variables\/Partly_Cloudy-day"
     },
     {
         "joinedVariables": [],
@@ -3700,7 +3700,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "event",
         "variableCategoryName": "Social Interactions",
         "variableId": 1884,
-        "url": "https:\/\/local.quantimo.do\/variables\/Facebook_Posts"
+        "url": "https:\/\/app.quantimo.do\/variables\/Facebook_Posts"
     },
     {
         "joinedVariables": [],
@@ -3755,7 +3755,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6038275,
-        "url": "https:\/\/local.quantimo.do\/variables\/Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -3831,7 +3831,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "min",
         "variableCategoryName": "Treatments",
         "variableId": 85055,
-        "url": "https:\/\/local.quantimo.do\/variables\/Meditation"
+        "url": "https:\/\/app.quantimo.do\/variables\/Meditation"
     },
     {
         "joinedVariables": [],
@@ -3897,7 +3897,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 86779,
-        "url": "https:\/\/local.quantimo.do\/variables\/Anger"
+        "url": "https:\/\/app.quantimo.do\/variables\/Anger"
     },
     {
         "joinedVariables": [],
@@ -3960,7 +3960,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "bpm",
         "variableCategoryName": "Vital Signs",
         "variableId": 1342,
-        "url": "https:\/\/local.quantimo.do\/variables\/Heart_Rate_(Pulse)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Heart_Rate_(Pulse)"
     },
     {
         "joinedVariables": [],
@@ -4024,7 +4024,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 1420,
-        "url": "https:\/\/local.quantimo.do\/variables\/Protein"
+        "url": "https:\/\/app.quantimo.do\/variables\/Protein"
     },
     {
         "joinedVariables": [],
@@ -4092,7 +4092,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 109612,
-        "url": "https:\/\/local.quantimo.do\/variables\/Water_(serving)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Water_(serving)"
     },
     {
         "joinedVariables": [],
@@ -4152,7 +4152,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6038277,
-        "url": "https:\/\/local.quantimo.do\/variables\/Juniper_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Juniper_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -4205,7 +4205,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6059498,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fine_Particulate_Matter_Pollution_Air_Quality_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fine_Particulate_Matter_Pollution_Air_Quality_Index"
     },
     {
         "joinedVariables": [],
@@ -4269,7 +4269,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6038272,
-        "url": "https:\/\/local.quantimo.do\/variables\/Grasses_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Grasses_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -4333,7 +4333,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Physique",
         "variableId": 1272,
-        "url": "https:\/\/local.quantimo.do\/variables\/Body_Mass_Index_Or_BMI"
+        "url": "https:\/\/app.quantimo.do\/variables\/Body_Mass_Index_Or_BMI"
     },
     {
         "joinedVariables": [],
@@ -4393,7 +4393,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "count",
         "variableCategoryName": "Environment",
         "variableId": 97848,
-        "url": "https:\/\/local.quantimo.do\/variables\/Rain"
+        "url": "https:\/\/app.quantimo.do\/variables\/Rain"
     },
     {
         "joinedVariables": [],
@@ -4452,7 +4452,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "km",
         "variableCategoryName": "Environment",
         "variableId": 6050798,
-        "url": "https:\/\/local.quantimo.do\/variables\/Outdoor_Visibility"
+        "url": "https:\/\/app.quantimo.do\/variables\/Outdoor_Visibility"
     },
     {
         "joinedVariables": [],
@@ -4521,7 +4521,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 87650,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sleepiness"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sleepiness"
     },
     {
         "joinedVariables": [],
@@ -4579,7 +4579,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 87553,
-        "url": "https:\/\/local.quantimo.do\/variables\/Panic_Attack"
+        "url": "https:\/\/app.quantimo.do\/variables\/Panic_Attack"
     },
     {
         "joinedVariables": [],
@@ -4644,7 +4644,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 1290,
-        "url": "https:\/\/local.quantimo.do\/variables\/Cholesterol"
+        "url": "https:\/\/app.quantimo.do\/variables\/Cholesterol"
     },
     {
         "joinedVariables": [],
@@ -4707,7 +4707,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "count",
         "variableCategoryName": "Sleep",
         "variableId": 1906,
-        "url": "https:\/\/local.quantimo.do\/variables\/Awakenings"
+        "url": "https:\/\/app.quantimo.do\/variables\/Awakenings"
     },
     {
         "joinedVariables": [],
@@ -4766,7 +4766,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6038289,
-        "url": "https:\/\/local.quantimo.do\/variables\/Elm_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Elm_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -4831,7 +4831,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 88099,
-        "url": "https:\/\/local.quantimo.do\/variables\/ADHD"
+        "url": "https:\/\/app.quantimo.do\/variables\/ADHD"
     },
     {
         "joinedVariables": [],
@@ -4887,7 +4887,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "kcal",
         "variableCategoryName": "Nutrients",
         "variableId": 1283,
-        "url": "https:\/\/local.quantimo.do\/variables\/Caloric_Intake"
+        "url": "https:\/\/app.quantimo.do\/variables\/Caloric_Intake"
     },
     {
         "joinedVariables": [],
@@ -4954,7 +4954,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 84887,
-        "url": "https:\/\/local.quantimo.do\/variables\/Neck_Pain"
+        "url": "https:\/\/app.quantimo.do\/variables\/Neck_Pain"
     },
     {
         "joinedVariables": [],
@@ -5016,7 +5016,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6038288,
-        "url": "https:\/\/local.quantimo.do\/variables\/Ragweed_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Ragweed_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -5087,7 +5087,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 102685,
-        "url": "https:\/\/local.quantimo.do\/variables\/Hunger"
+        "url": "https:\/\/app.quantimo.do\/variables\/Hunger"
     },
     {
         "joinedVariables": [],
@@ -5152,7 +5152,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Sleep",
         "variableId": 5211821,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sleep_Start_Time"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sleep_Start_Time"
     },
     {
         "joinedVariables": [],
@@ -5214,7 +5214,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6038273,
-        "url": "https:\/\/local.quantimo.do\/variables\/Oak_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Oak_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -5267,7 +5267,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6059497,
-        "url": "https:\/\/local.quantimo.do\/variables\/Ozone_Pollution_Air_Quality_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Ozone_Pollution_Air_Quality_Index"
     },
     {
         "joinedVariables": [],
@@ -5331,7 +5331,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 87709,
-        "url": "https:\/\/local.quantimo.do\/variables\/Suicidality"
+        "url": "https:\/\/app.quantimo.do\/variables\/Suicidality"
     },
     {
         "joinedVariables": [],
@@ -5405,7 +5405,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 88878,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fatigue_\/_Lethargy_\/_Tiredness"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fatigue_\/_Lethargy_\/_Tiredness"
     },
     {
         "joinedVariables": [],
@@ -5471,7 +5471,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "count",
         "variableCategoryName": "Environment",
         "variableId": 5965369,
-        "url": "https:\/\/local.quantimo.do\/variables\/Clear_Day"
+        "url": "https:\/\/app.quantimo.do\/variables\/Clear_Day"
     },
     {
         "joinedVariables": [],
@@ -5533,7 +5533,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6039201,
-        "url": "https:\/\/local.quantimo.do\/variables\/Chenopods_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Chenopods_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -5592,7 +5592,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 5974683,
-        "url": "https:\/\/local.quantimo.do\/variables\/Air_Quality_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Air_Quality_Index"
     },
     {
         "joinedVariables": [],
@@ -5668,7 +5668,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 1251,
-        "url": "https:\/\/local.quantimo.do\/variables\/Acne_Severity"
+        "url": "https:\/\/app.quantimo.do\/variables\/Acne_Severity"
     },
     {
         "joinedVariables": [],
@@ -5727,7 +5727,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "count",
         "variableCategoryName": "Physical Activity",
         "variableId": 5955886,
-        "url": "https:\/\/local.quantimo.do\/variables\/Hourly_Step_Count"
+        "url": "https:\/\/app.quantimo.do\/variables\/Hourly_Step_Count"
     },
     {
         "joinedVariables": [],
@@ -5786,7 +5786,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "event",
         "variableCategoryName": "Social Interactions",
         "variableId": 5969792,
-        "url": "https:\/\/local.quantimo.do\/variables\/Facebook_Posts_Made"
+        "url": "https:\/\/app.quantimo.do\/variables\/Facebook_Posts_Made"
     },
     {
         "joinedVariables": [],
@@ -5838,7 +5838,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6059097,
-        "url": "https:\/\/local.quantimo.do\/variables\/Ozone_Pollution_Air_Quality"
+        "url": "https:\/\/app.quantimo.do\/variables\/Ozone_Pollution_Air_Quality"
     },
     {
         "joinedVariables": [],
@@ -5900,7 +5900,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 1730,
-        "url": "https:\/\/local.quantimo.do\/variables\/Tea_-_Brewed,_Prepared_With_Tap_Water_(black_Tea)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Tea_-_Brewed,_Prepared_With_Tap_Water_(black_Tea)"
     },
     {
         "joinedVariables": [],
@@ -5952,7 +5952,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6059091,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fine_Particulate_Matter_Pollution_Air_Quality"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fine_Particulate_Matter_Pollution_Air_Quality"
     },
     {
         "joinedVariables": [],
@@ -6013,7 +6013,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "%",
         "variableCategoryName": "Sleep",
         "variableId": 5211811,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sleep_Efficiency"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sleep_Efficiency"
     },
     {
         "joinedVariables": [],
@@ -6074,7 +6074,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "count",
         "variableCategoryName": "Environment",
         "variableId": 5965402,
-        "url": "https:\/\/local.quantimo.do\/variables\/Partly_Cloudy-night"
+        "url": "https:\/\/app.quantimo.do\/variables\/Partly_Cloudy-night"
     },
     {
         "joinedVariables": [],
@@ -6132,7 +6132,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 87210,
-        "url": "https:\/\/local.quantimo.do\/variables\/Dissociation"
+        "url": "https:\/\/app.quantimo.do\/variables\/Dissociation"
     },
     {
         "joinedVariables": [],
@@ -6201,7 +6201,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "bpm",
         "variableCategoryName": "Vital Signs",
         "variableId": 5211891,
-        "url": "https:\/\/local.quantimo.do\/variables\/Resting_Heart_Rate_(Pulse)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Resting_Heart_Rate_(Pulse)"
     },
     {
         "joinedVariables": [],
@@ -6267,7 +6267,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 5538211,
-        "url": "https:\/\/local.quantimo.do\/variables\/Apathy"
+        "url": "https:\/\/app.quantimo.do\/variables\/Apathy"
     },
     {
         "joinedVariables": [],
@@ -6327,7 +6327,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6038287,
-        "url": "https:\/\/local.quantimo.do\/variables\/Ash_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Ash_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -6388,7 +6388,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6038274,
-        "url": "https:\/\/local.quantimo.do\/variables\/Mulberry_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Mulberry_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -6451,7 +6451,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 106942,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sugar_(g)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sugar_(g)"
     },
     {
         "joinedVariables": [],
@@ -6512,7 +6512,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6038279,
-        "url": "https:\/\/local.quantimo.do\/variables\/Birch_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Birch_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -6572,7 +6572,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6039747,
-        "url": "https:\/\/local.quantimo.do\/variables\/Nettle_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Nettle_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -6632,7 +6632,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "%RDA",
         "variableCategoryName": "Nutrients",
         "variableId": 1480,
-        "url": "https:\/\/local.quantimo.do\/variables\/Vitamin_A"
+        "url": "https:\/\/app.quantimo.do\/variables\/Vitamin_A"
     },
     {
         "joinedVariables": [],
@@ -6700,7 +6700,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 87524,
-        "url": "https:\/\/local.quantimo.do\/variables\/Pain_Severity"
+        "url": "https:\/\/app.quantimo.do\/variables\/Pain_Severity"
     },
     {
         "joinedVariables": [],
@@ -6761,7 +6761,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Foods",
         "variableId": 1984,
-        "url": "https:\/\/local.quantimo.do\/variables\/Caffeine"
+        "url": "https:\/\/app.quantimo.do\/variables\/Caffeine"
     },
     {
         "joinedVariables": [],
@@ -6818,7 +6818,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6038281,
-        "url": "https:\/\/local.quantimo.do\/variables\/Poplar_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Poplar_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -6879,7 +6879,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "%",
         "variableCategoryName": "Physique",
         "variableId": 1273,
-        "url": "https:\/\/local.quantimo.do\/variables\/Body_Fat"
+        "url": "https:\/\/app.quantimo.do\/variables\/Body_Fat"
     },
     {
         "joinedVariables": [],
@@ -6940,7 +6940,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "%RDA",
         "variableCategoryName": "Nutrients",
         "variableId": 1357,
-        "url": "https:\/\/local.quantimo.do\/variables\/Iron"
+        "url": "https:\/\/app.quantimo.do\/variables\/Iron"
     },
     {
         "joinedVariables": [],
@@ -6995,7 +6995,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6038453,
-        "url": "https:\/\/local.quantimo.do\/variables\/Alder_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Alder_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -7058,7 +7058,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 1509,
-        "url": "https:\/\/local.quantimo.do\/variables\/Saturated_Fat"
+        "url": "https:\/\/app.quantimo.do\/variables\/Saturated_Fat"
     },
     {
         "joinedVariables": [],
@@ -7118,7 +7118,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6038280,
-        "url": "https:\/\/local.quantimo.do\/variables\/Maple_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Maple_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -7180,7 +7180,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 1315,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fiber"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fiber"
     },
     {
         "joinedVariables": [],
@@ -7241,7 +7241,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6040528,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sagebrush_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sagebrush_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -7303,7 +7303,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 1285,
-        "url": "https:\/\/local.quantimo.do\/variables\/Carbs"
+        "url": "https:\/\/app.quantimo.do\/variables\/Carbs"
     },
     {
         "joinedVariables": [],
@@ -7366,7 +7366,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Treatments",
         "variableId": 110842,
-        "url": "https:\/\/local.quantimo.do\/variables\/Adderall_(mg)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Adderall_(mg)"
     },
     {
         "joinedVariables": [],
@@ -7426,7 +7426,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 1449,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sodium"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sodium"
     },
     {
         "joinedVariables": [],
@@ -7485,7 +7485,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Treatments",
         "variableId": 1253,
-        "url": "https:\/\/local.quantimo.do\/variables\/Adderall"
+        "url": "https:\/\/app.quantimo.do\/variables\/Adderall"
     },
     {
         "joinedVariables": [],
@@ -7547,7 +7547,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 1905,
-        "url": "https:\/\/local.quantimo.do\/variables\/Water"
+        "url": "https:\/\/app.quantimo.do\/variables\/Water"
     },
     {
         "joinedVariables": [],
@@ -7603,7 +7603,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 1871,
-        "url": "https:\/\/local.quantimo.do\/variables\/Unsaturated_Fat"
+        "url": "https:\/\/app.quantimo.do\/variables\/Unsaturated_Fat"
     },
     {
         "joinedVariables": [],
@@ -7662,7 +7662,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "event",
         "variableCategoryName": "Social Interactions",
         "variableId": 5969879,
-        "url": "https:\/\/local.quantimo.do\/variables\/Comments_On_Your_Facebook_Posts"
+        "url": "https:\/\/app.quantimo.do\/variables\/Comments_On_Your_Facebook_Posts"
     },
     {
         "joinedVariables": [],
@@ -7722,7 +7722,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 1410,
-        "url": "https:\/\/local.quantimo.do\/variables\/Potassium"
+        "url": "https:\/\/app.quantimo.do\/variables\/Potassium"
     },
     {
         "joinedVariables": [],
@@ -7782,7 +7782,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 1383,
-        "url": "https:\/\/local.quantimo.do\/variables\/Monounsaturated_Fat"
+        "url": "https:\/\/app.quantimo.do\/variables\/Monounsaturated_Fat"
     },
     {
         "joinedVariables": [],
@@ -7844,7 +7844,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6039216,
-        "url": "https:\/\/local.quantimo.do\/variables\/Dock_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Dock_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -7905,7 +7905,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "%RDA",
         "variableCategoryName": "Nutrients",
         "variableId": 106952,
-        "url": "https:\/\/local.quantimo.do\/variables\/Vitamin_C_(%RDA)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Vitamin_C_(%RDA)"
     },
     {
         "joinedVariables": [],
@@ -7969,7 +7969,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "min",
         "variableCategoryName": "Physical Activity",
         "variableId": 5211861,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fat_Burn_Heart_Rate_Zone_Minutes"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fat_Burn_Heart_Rate_Zone_Minutes"
     },
     {
         "joinedVariables": [],
@@ -8029,7 +8029,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 1508,
-        "url": "https:\/\/local.quantimo.do\/variables\/Polyunsaturated_Fat"
+        "url": "https:\/\/app.quantimo.do\/variables\/Polyunsaturated_Fat"
     },
     {
         "joinedVariables": [],
@@ -8094,7 +8094,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 86810,
-        "url": "https:\/\/local.quantimo.do\/variables\/Depression"
+        "url": "https:\/\/app.quantimo.do\/variables\/Depression"
     },
     {
         "joinedVariables": [],
@@ -8149,7 +8149,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 1310,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fat_Intake"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fat_Intake"
     },
     {
         "joinedVariables": [],
@@ -8208,7 +8208,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 1715,
-        "url": "https:\/\/local.quantimo.do\/variables\/Servings_of_Fruit"
+        "url": "https:\/\/app.quantimo.do\/variables\/Servings_of_Fruit"
     },
     {
         "joinedVariables": [],
@@ -8275,7 +8275,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 90183,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sadness"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sadness"
     },
     {
         "joinedVariables": [],
@@ -8335,7 +8335,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 111612,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Entertainment_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Entertainment_Activities"
     },
     {
         "joinedVariables": [],
@@ -8407,7 +8407,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 87494,
-        "url": "https:\/\/local.quantimo.do\/variables\/Nausea_Severity"
+        "url": "https:\/\/app.quantimo.do\/variables\/Nausea_Severity"
     },
     {
         "joinedVariables": [],
@@ -8464,7 +8464,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "cal",
         "variableCategoryName": "Physical Activity",
         "variableId": 5211851,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fat_Burn_Heart_Rate_Zone_Calories_Out"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fat_Burn_Heart_Rate_Zone_Calories_Out"
     },
     {
         "joinedVariables": [],
@@ -8523,7 +8523,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "%RDA",
         "variableCategoryName": "Nutrients",
         "variableId": 106962,
-        "url": "https:\/\/local.quantimo.do\/variables\/Calcium_(%RDA)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Calcium_(%RDA)"
     },
     {
         "joinedVariables": [],
@@ -8578,7 +8578,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Treatments",
         "variableId": 86646,
-        "url": "https:\/\/local.quantimo.do\/variables\/Zoloft"
+        "url": "https:\/\/app.quantimo.do\/variables\/Zoloft"
     },
     {
         "joinedVariables": [],
@@ -8644,7 +8644,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 88305,
-        "url": "https:\/\/local.quantimo.do\/variables\/Brain_Fog_(difficulty_Thinking_Clearly)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Brain_Fog_(difficulty_Thinking_Clearly)"
     },
     {
         "joinedVariables": [],
@@ -8702,7 +8702,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 5759571,
-        "url": "https:\/\/local.quantimo.do\/variables\/Depression,_Bipolar"
+        "url": "https:\/\/app.quantimo.do\/variables\/Depression,_Bipolar"
     },
     {
         "joinedVariables": [],
@@ -8761,7 +8761,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "min",
         "variableCategoryName": "Physical Activity",
         "variableId": 5211881,
-        "url": "https:\/\/local.quantimo.do\/variables\/Cardio_Heart_Rate_Zone_Minutes"
+        "url": "https:\/\/app.quantimo.do\/variables\/Cardio_Heart_Rate_Zone_Minutes"
     },
     {
         "joinedVariables": [],
@@ -8814,7 +8814,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6049823,
-        "url": "https:\/\/local.quantimo.do\/variables\/Mixed_Trace_Pollen"
+        "url": "https:\/\/app.quantimo.do\/variables\/Mixed_Trace_Pollen"
     },
     {
         "joinedVariables": [],
@@ -8875,7 +8875,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6039753,
-        "url": "https:\/\/local.quantimo.do\/variables\/Plantain_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Plantain_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -8929,7 +8929,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "cal",
         "variableCategoryName": "Physical Activity",
         "variableId": 5211871,
-        "url": "https:\/\/local.quantimo.do\/variables\/Cardio_Heart_Rate_Zone_Calories_Out"
+        "url": "https:\/\/app.quantimo.do\/variables\/Cardio_Heart_Rate_Zone_Calories_Out"
     },
     {
         "joinedVariables": [],
@@ -8987,7 +8987,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "tablets",
         "variableCategoryName": "Treatments",
         "variableId": 1385,
-        "url": "https:\/\/local.quantimo.do\/variables\/Multivitamin"
+        "url": "https:\/\/app.quantimo.do\/variables\/Multivitamin"
     },
     {
         "joinedVariables": [],
@@ -9048,7 +9048,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "min",
         "variableCategoryName": "Physical Activity",
         "variableId": 5211911,
-        "url": "https:\/\/local.quantimo.do\/variables\/Peak_Heart_Rate_Zone_Minutes"
+        "url": "https:\/\/app.quantimo.do\/variables\/Peak_Heart_Rate_Zone_Minutes"
     },
     {
         "joinedVariables": [],
@@ -9114,7 +9114,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 105851,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sad"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sad"
     },
     {
         "joinedVariables": [],
@@ -9173,7 +9173,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 1510,
-        "url": "https:\/\/local.quantimo.do\/variables\/Trans_Fat"
+        "url": "https:\/\/app.quantimo.do\/variables\/Trans_Fat"
     },
     {
         "joinedVariables": [],
@@ -9229,7 +9229,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "cal",
         "variableCategoryName": "Physical Activity",
         "variableId": 5211901,
-        "url": "https:\/\/local.quantimo.do\/variables\/Peak_Heart_Rate_Zone_Calories_Out"
+        "url": "https:\/\/app.quantimo.do\/variables\/Peak_Heart_Rate_Zone_Calories_Out"
     },
     {
         "joinedVariables": [],
@@ -9282,7 +9282,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 1858,
-        "url": "https:\/\/local.quantimo.do\/variables\/Banana"
+        "url": "https:\/\/app.quantimo.do\/variables\/Banana"
     },
     {
         "joinedVariables": [],
@@ -9346,7 +9346,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 87418,
-        "url": "https:\/\/local.quantimo.do\/variables\/Joint_Pain_Severity"
+        "url": "https:\/\/app.quantimo.do\/variables\/Joint_Pain_Severity"
     },
     {
         "joinedVariables": [],
@@ -9398,7 +9398,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 1962,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fructose"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fructose"
     },
     {
         "joinedVariables": [],
@@ -9454,7 +9454,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 5863941,
-        "url": "https:\/\/local.quantimo.do\/variables\/Snack"
+        "url": "https:\/\/app.quantimo.do\/variables\/Snack"
     },
     {
         "joinedVariables": [],
@@ -9518,7 +9518,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "min",
         "variableCategoryName": "Sleep",
         "variableId": 5964701,
-        "url": "https:\/\/local.quantimo.do\/variables\/Minutes_To_Fall_Asleep"
+        "url": "https:\/\/app.quantimo.do\/variables\/Minutes_To_Fall_Asleep"
     },
     {
         "joinedVariables": [],
@@ -9579,7 +9579,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "min",
         "variableCategoryName": "Sleep",
         "variableId": 5964702,
-        "url": "https:\/\/local.quantimo.do\/variables\/Minutes_After_Wakeup_Still_In_Bed"
+        "url": "https:\/\/app.quantimo.do\/variables\/Minutes_After_Wakeup_Still_In_Bed"
     },
     {
         "joinedVariables": [],
@@ -9634,7 +9634,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 5864161,
-        "url": "https:\/\/local.quantimo.do\/variables\/Overwhelmed"
+        "url": "https:\/\/app.quantimo.do\/variables\/Overwhelmed"
     },
     {
         "joinedVariables": [],
@@ -9693,7 +9693,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "event",
         "variableCategoryName": "Social Interactions",
         "variableId": 5969880,
-        "url": "https:\/\/local.quantimo.do\/variables\/Likes_On_Your_Facebook_Posts"
+        "url": "https:\/\/app.quantimo.do\/variables\/Likes_On_Your_Facebook_Posts"
     },
     {
         "joinedVariables": [],
@@ -9747,7 +9747,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401611,
-        "url": "https:\/\/local.quantimo.do\/variables\/Vitamin_C,_Total_Ascorbic_Acid"
+        "url": "https:\/\/app.quantimo.do\/variables\/Vitamin_C,_Total_Ascorbic_Acid"
     },
     {
         "joinedVariables": [],
@@ -9799,7 +9799,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401321,
-        "url": "https:\/\/local.quantimo.do\/variables\/Calcium,_Ca"
+        "url": "https:\/\/app.quantimo.do\/variables\/Calcium,_Ca"
     },
     {
         "joinedVariables": [],
@@ -9859,7 +9859,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 111642,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Reference_And_Learning_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Reference_And_Learning_Activities"
     },
     {
         "joinedVariables": [],
@@ -9918,7 +9918,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "%",
         "variableCategoryName": "Goals",
         "variableId": 111162,
-        "url": "https:\/\/local.quantimo.do\/variables\/Productivity_Pulse"
+        "url": "https:\/\/app.quantimo.do\/variables\/Productivity_Pulse"
     },
     {
         "joinedVariables": [],
@@ -9971,7 +9971,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401291,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sugars,_Total"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sugars,_Total"
     },
     {
         "joinedVariables": [],
@@ -10031,7 +10031,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 111632,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Software_Development_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Software_Development_Activities"
     },
     {
         "joinedVariables": [],
@@ -10088,7 +10088,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "%",
         "variableCategoryName": "Goals",
         "variableId": 5956874,
-        "url": "https:\/\/local.quantimo.do\/variables\/Efficiency_Score_From_Rescuetime"
+        "url": "https:\/\/app.quantimo.do\/variables\/Efficiency_Score_From_Rescuetime"
     },
     {
         "joinedVariables": [],
@@ -10150,7 +10150,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 111662,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Software_Utilities_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Software_Utilities_Activities"
     },
     {
         "joinedVariables": [],
@@ -10203,7 +10203,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5401221,
-        "url": "https:\/\/local.quantimo.do\/variables\/Carbohydrate,_By_Difference"
+        "url": "https:\/\/app.quantimo.do\/variables\/Carbohydrate,_By_Difference"
     },
     {
         "joinedVariables": [],
@@ -10270,7 +10270,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 1679,
-        "url": "https:\/\/local.quantimo.do\/variables\/Eggs_-_Fried_(whole_Egg)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Eggs_-_Fried_(whole_Egg)"
     },
     {
         "joinedVariables": [],
@@ -10330,7 +10330,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 111592,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Social_Networking_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Social_Networking_Activities"
     },
     {
         "joinedVariables": [],
@@ -10395,7 +10395,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 68592,
-        "url": "https:\/\/local.quantimo.do\/variables\/Gas_Or_Flatulence_Severity"
+        "url": "https:\/\/app.quantimo.do\/variables\/Gas_Or_Flatulence_Severity"
     },
     {
         "joinedVariables": [],
@@ -10455,7 +10455,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 111622,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Consuming_News_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Consuming_News_Activities"
     },
     {
         "joinedVariables": [],
@@ -10514,7 +10514,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "min",
         "variableCategoryName": "Sleep",
         "variableId": 5872231,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_In_Bed"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_In_Bed"
     },
     {
         "joinedVariables": [],
@@ -10574,7 +10574,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 111602,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Design_And_Composition_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Design_And_Composition_Activities"
     },
     {
         "joinedVariables": [],
@@ -10639,7 +10639,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 5444111,
-        "url": "https:\/\/local.quantimo.do\/variables\/Alcoholic_Beverage,_Beer,_Regular,_All"
+        "url": "https:\/\/app.quantimo.do\/variables\/Alcoholic_Beverage,_Beer,_Regular,_All"
     },
     {
         "joinedVariables": [],
@@ -10691,7 +10691,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5401211,
-        "url": "https:\/\/local.quantimo.do\/variables\/Total_Lipid_(fat)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Total_Lipid_(fat)"
     },
     {
         "joinedVariables": [],
@@ -10757,7 +10757,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Sleep",
         "variableId": 5953225,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sleep_Quality_Rating"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sleep_Quality_Rating"
     },
     {
         "joinedVariables": [],
@@ -10810,7 +10810,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6059499,
-        "url": "https:\/\/local.quantimo.do\/variables\/Large_Particulate_Matter_Pollution_Air_Quality_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Large_Particulate_Matter_Pollution_Air_Quality_Index"
     },
     {
         "joinedVariables": [],
@@ -10859,7 +10859,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401371,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sodium,_Na"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sodium,_Na"
     },
     {
         "joinedVariables": [],
@@ -10921,7 +10921,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Treatments",
         "variableId": 1487,
-        "url": "https:\/\/local.quantimo.do\/variables\/Wellbutrin"
+        "url": "https:\/\/app.quantimo.do\/variables\/Wellbutrin"
     },
     {
         "joinedVariables": [],
@@ -10970,7 +10970,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401331,
-        "url": "https:\/\/local.quantimo.do\/variables\/Iron,_Fe"
+        "url": "https:\/\/app.quantimo.do\/variables\/Iron,_Fe"
     },
     {
         "joinedVariables": [],
@@ -11022,7 +11022,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Foods",
         "variableId": 95793,
-        "url": "https:\/\/local.quantimo.do\/variables\/Vitamin_B-12"
+        "url": "https:\/\/app.quantimo.do\/variables\/Vitamin_B-12"
     },
     {
         "joinedVariables": [],
@@ -11084,7 +11084,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 1668511,
-        "url": "https:\/\/local.quantimo.do\/variables\/Pizza_(serving)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Pizza_(serving)"
     },
     {
         "joinedVariables": [],
@@ -11148,7 +11148,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 3220371,
-        "url": "https:\/\/local.quantimo.do\/variables\/Pasta"
+        "url": "https:\/\/app.quantimo.do\/variables\/Pasta"
     },
     {
         "joinedVariables": [],
@@ -11218,7 +11218,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 111582,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Communication_And_Scheduling_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Communication_And_Scheduling_Activities"
     },
     {
         "joinedVariables": [],
@@ -11267,7 +11267,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401311,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fiber,_Total_Dietary"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fiber,_Total_Dietary"
     },
     {
         "joinedVariables": [],
@@ -11323,7 +11323,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "%",
         "variableCategoryName": "Emotions",
         "variableId": 5538501,
-        "url": "https:\/\/local.quantimo.do\/variables\/Worthlessness_(%)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Worthlessness_(%)"
     },
     {
         "joinedVariables": [],
@@ -11375,7 +11375,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401361,
-        "url": "https:\/\/local.quantimo.do\/variables\/Potassium,_K"
+        "url": "https:\/\/app.quantimo.do\/variables\/Potassium,_K"
     },
     {
         "joinedVariables": [],
@@ -11439,7 +11439,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 89384,
-        "url": "https:\/\/local.quantimo.do\/variables\/Lack_of_Focus"
+        "url": "https:\/\/app.quantimo.do\/variables\/Lack_of_Focus"
     },
     {
         "joinedVariables": [],
@@ -11493,7 +11493,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Foods",
         "variableId": 1323,
-        "url": "https:\/\/local.quantimo.do\/variables\/Folic_Acid"
+        "url": "https:\/\/app.quantimo.do\/variables\/Folic_Acid"
     },
     {
         "joinedVariables": [],
@@ -11544,7 +11544,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "kcal",
         "variableCategoryName": "Nutrients",
         "variableId": 1922,
-        "url": "https:\/\/local.quantimo.do\/variables\/Energy_From_Food"
+        "url": "https:\/\/app.quantimo.do\/variables\/Energy_From_Food"
     },
     {
         "joinedVariables": [],
@@ -11594,7 +11594,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Foods",
         "variableId": 1955,
-        "url": "https:\/\/local.quantimo.do\/variables\/Riboflavin"
+        "url": "https:\/\/app.quantimo.do\/variables\/Riboflavin"
     },
     {
         "joinedVariables": [],
@@ -11638,7 +11638,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "count",
         "variableCategoryName": "Environment",
         "variableId": 6010854,
-        "url": "https:\/\/local.quantimo.do\/variables\/Drama_&_Theater"
+        "url": "https:\/\/app.quantimo.do\/variables\/Drama_&_Theater"
     },
     {
         "joinedVariables": [],
@@ -11690,7 +11690,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401381,
-        "url": "https:\/\/local.quantimo.do\/variables\/Zinc,_Zn"
+        "url": "https:\/\/app.quantimo.do\/variables\/Zinc,_Zn"
     },
     {
         "joinedVariables": [],
@@ -11741,7 +11741,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5555971,
-        "url": "https:\/\/local.quantimo.do\/variables\/12:0_Saturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/12:0_Saturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -11794,7 +11794,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5555981,
-        "url": "https:\/\/local.quantimo.do\/variables\/14:0_Saturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/14:0_Saturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -11846,7 +11846,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Foods",
         "variableId": 94759,
-        "url": "https:\/\/local.quantimo.do\/variables\/Pantothenic_Acid"
+        "url": "https:\/\/app.quantimo.do\/variables\/Pantothenic_Acid"
     },
     {
         "joinedVariables": [],
@@ -11907,7 +11907,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956912,
-        "url": "https:\/\/local.quantimo.do\/variables\/Video_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Video_Activities"
     },
     {
         "joinedVariables": [],
@@ -11960,7 +11960,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556031,
-        "url": "https:\/\/local.quantimo.do\/variables\/18:2_Undifferentiated_Polyunsaturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/18:2_Undifferentiated_Polyunsaturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -12015,7 +12015,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 1696,
-        "url": "https:\/\/local.quantimo.do\/variables\/Apples_-_Raw,_With_Skin"
+        "url": "https:\/\/app.quantimo.do\/variables\/Apples_-_Raw,_With_Skin"
     },
     {
         "joinedVariables": [],
@@ -12065,7 +12065,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Foods",
         "variableId": 1954,
-        "url": "https:\/\/local.quantimo.do\/variables\/Thiamin"
+        "url": "https:\/\/app.quantimo.do\/variables\/Thiamin"
     },
     {
         "joinedVariables": [],
@@ -12120,7 +12120,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556131,
-        "url": "https:\/\/local.quantimo.do\/variables\/22:1_Undifferentiated_Monounsaturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/22:1_Undifferentiated_Monounsaturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -12171,7 +12171,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401631,
-        "url": "https:\/\/local.quantimo.do\/variables\/Folate,_Total"
+        "url": "https:\/\/app.quantimo.do\/variables\/Folate,_Total"
     },
     {
         "joinedVariables": [],
@@ -12224,7 +12224,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556001,
-        "url": "https:\/\/local.quantimo.do\/variables\/18:0_Saturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/18:0_Saturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -12277,7 +12277,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5402161,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fatty_Acids,_Total_Monounsaturated"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fatty_Acids,_Total_Monounsaturated"
     },
     {
         "joinedVariables": [],
@@ -12330,7 +12330,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5402171,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fatty_Acids,_Total_Polyunsaturated"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fatty_Acids,_Total_Polyunsaturated"
     },
     {
         "joinedVariables": [],
@@ -12383,7 +12383,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556041,
-        "url": "https:\/\/local.quantimo.do\/variables\/18:3_Undifferentiated_Polyunsaturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/18:3_Undifferentiated_Polyunsaturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -12434,7 +12434,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401421,
-        "url": "https:\/\/local.quantimo.do\/variables\/Selenium,_Se"
+        "url": "https:\/\/app.quantimo.do\/variables\/Selenium,_Se"
     },
     {
         "joinedVariables": [],
@@ -12489,7 +12489,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556061,
-        "url": "https:\/\/local.quantimo.do\/variables\/22:6_N-3_(DHA)_Polyunsaturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/22:6_N-3_(DHA)_Polyunsaturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -12540,7 +12540,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401451,
-        "url": "https:\/\/local.quantimo.do\/variables\/Vitamin_A,_RAE"
+        "url": "https:\/\/app.quantimo.do\/variables\/Vitamin_A,_RAE"
     },
     {
         "joinedVariables": [],
@@ -12593,7 +12593,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556091,
-        "url": "https:\/\/local.quantimo.do\/variables\/16:1_Undifferentiated_Monounsaturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/16:1_Undifferentiated_Monounsaturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -12646,7 +12646,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556111,
-        "url": "https:\/\/local.quantimo.do\/variables\/20:1_Monounsaturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/20:1_Monounsaturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -12698,7 +12698,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Foods",
         "variableId": 1956,
-        "url": "https:\/\/local.quantimo.do\/variables\/Niacin"
+        "url": "https:\/\/app.quantimo.do\/variables\/Niacin"
     },
     {
         "joinedVariables": [],
@@ -12759,7 +12759,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 97961,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Shopping_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Shopping_Activities"
     },
     {
         "joinedVariables": [],
@@ -12814,7 +12814,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556141,
-        "url": "https:\/\/local.quantimo.do\/variables\/22:5_N-3_(DPA)_Polyunsaturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/22:5_N-3_(DPA)_Polyunsaturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -12867,7 +12867,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5555941,
-        "url": "https:\/\/local.quantimo.do\/variables\/6:0_Saturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/6:0_Saturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -12922,7 +12922,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401341,
-        "url": "https:\/\/local.quantimo.do\/variables\/Magnesium,_Mg"
+        "url": "https:\/\/app.quantimo.do\/variables\/Magnesium,_Mg"
     },
     {
         "joinedVariables": [],
@@ -12974,7 +12974,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "count",
         "variableCategoryName": "Foods",
         "variableId": 96324,
-        "url": "https:\/\/local.quantimo.do\/variables\/Apples"
+        "url": "https:\/\/app.quantimo.do\/variables\/Apples"
     },
     {
         "joinedVariables": [],
@@ -13026,7 +13026,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401461,
-        "url": "https:\/\/local.quantimo.do\/variables\/Carotene,_Beta"
+        "url": "https:\/\/app.quantimo.do\/variables\/Carotene,_Beta"
     },
     {
         "joinedVariables": [],
@@ -13075,7 +13075,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401471,
-        "url": "https:\/\/local.quantimo.do\/variables\/Carotene,_Alpha"
+        "url": "https:\/\/app.quantimo.do\/variables\/Carotene,_Alpha"
     },
     {
         "joinedVariables": [],
@@ -13128,7 +13128,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401481,
-        "url": "https:\/\/local.quantimo.do\/variables\/Vitamin_E_(alpha-tocopherol)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Vitamin_E_(alpha-tocopherol)"
     },
     {
         "joinedVariables": [],
@@ -13178,7 +13178,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401521,
-        "url": "https:\/\/local.quantimo.do\/variables\/Cryptoxanthin,_Beta"
+        "url": "https:\/\/app.quantimo.do\/variables\/Cryptoxanthin,_Beta"
     },
     {
         "joinedVariables": [],
@@ -13228,7 +13228,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401531,
-        "url": "https:\/\/local.quantimo.do\/variables\/Lutein_+_Zeaxanthin"
+        "url": "https:\/\/app.quantimo.do\/variables\/Lutein_+_Zeaxanthin"
     },
     {
         "joinedVariables": [],
@@ -13281,7 +13281,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5555931,
-        "url": "https:\/\/local.quantimo.do\/variables\/4:0_Saturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/4:0_Saturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -13331,7 +13331,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401351,
-        "url": "https:\/\/local.quantimo.do\/variables\/Phosphorus,_P"
+        "url": "https:\/\/app.quantimo.do\/variables\/Phosphorus,_P"
     },
     {
         "joinedVariables": [],
@@ -13388,7 +13388,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6038290,
-        "url": "https:\/\/local.quantimo.do\/variables\/Walnut_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Walnut_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -13438,7 +13438,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401891,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fatty_Acids,_Total_Saturated"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fatty_Acids,_Total_Saturated"
     },
     {
         "joinedVariables": [],
@@ -13484,7 +13484,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5401231,
-        "url": "https:\/\/local.quantimo.do\/variables\/Ash"
+        "url": "https:\/\/app.quantimo.do\/variables\/Ash"
     },
     {
         "joinedVariables": [],
@@ -13538,7 +13538,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 5514651,
-        "url": "https:\/\/local.quantimo.do\/variables\/Chicken_(serving)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Chicken_(serving)"
     },
     {
         "joinedVariables": [],
@@ -13591,7 +13591,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "%",
         "variableCategoryName": "Goals",
         "variableId": 6053848,
-        "url": "https:\/\/local.quantimo.do\/variables\/Productivity_Pulse_From_Rescuetime"
+        "url": "https:\/\/app.quantimo.do\/variables\/Productivity_Pulse_From_Rescuetime"
     },
     {
         "joinedVariables": [],
@@ -13644,7 +13644,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401871,
-        "url": "https:\/\/local.quantimo.do\/variables\/Vitamin_B-12,_Added"
+        "url": "https:\/\/app.quantimo.do\/variables\/Vitamin_B-12,_Added"
     },
     {
         "joinedVariables": [],
@@ -13702,7 +13702,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 110372,
-        "url": "https:\/\/local.quantimo.do\/variables\/Apples_-_Raw,_With_Skin_(serving)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Apples_-_Raw,_With_Skin_(serving)"
     },
     {
         "joinedVariables": [],
@@ -13753,7 +13753,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401691,
-        "url": "https:\/\/local.quantimo.do\/variables\/Folate,_DFE"
+        "url": "https:\/\/app.quantimo.do\/variables\/Folate,_DFE"
     },
     {
         "joinedVariables": [],
@@ -13814,7 +13814,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 1633,
-        "url": "https:\/\/local.quantimo.do\/variables\/Apple"
+        "url": "https:\/\/app.quantimo.do\/variables\/Apple"
     },
     {
         "joinedVariables": [],
@@ -13864,7 +13864,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401861,
-        "url": "https:\/\/local.quantimo.do\/variables\/Vitamin_E,_Added"
+        "url": "https:\/\/app.quantimo.do\/variables\/Vitamin_E,_Added"
     },
     {
         "joinedVariables": [],
@@ -13922,7 +13922,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6038283,
-        "url": "https:\/\/local.quantimo.do\/variables\/Hickory_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Hickory_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -13972,7 +13972,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401261,
-        "url": "https:\/\/local.quantimo.do\/variables\/Alcohol,_Ethyl"
+        "url": "https:\/\/app.quantimo.do\/variables\/Alcohol,_Ethyl"
     },
     {
         "joinedVariables": [],
@@ -14031,7 +14031,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5968816,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Business_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Business_Activities"
     },
     {
         "joinedVariables": [],
@@ -14080,7 +14080,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401621,
-        "url": "https:\/\/local.quantimo.do\/variables\/Vitamin_B-6"
+        "url": "https:\/\/app.quantimo.do\/variables\/Vitamin_B-6"
     },
     {
         "joinedVariables": [],
@@ -14129,7 +14129,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5555991,
-        "url": "https:\/\/local.quantimo.do\/variables\/16:0_Saturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/16:0_Saturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -14191,7 +14191,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956896,
-        "url": "https:\/\/local.quantimo.do\/variables\/General_Reference_&_Learning_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/General_Reference_&_Learning_Activities"
     },
     {
         "joinedVariables": [],
@@ -14240,7 +14240,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401391,
-        "url": "https:\/\/local.quantimo.do\/variables\/Copper,_Cu"
+        "url": "https:\/\/app.quantimo.do\/variables\/Copper,_Cu"
     },
     {
         "joinedVariables": [],
@@ -14289,7 +14289,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556021,
-        "url": "https:\/\/local.quantimo.do\/variables\/18:1_Undifferentiated_Monounsaturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/18:1_Undifferentiated_Monounsaturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -14333,7 +14333,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Foods",
         "variableId": 94278,
-        "url": "https:\/\/local.quantimo.do\/variables\/Lycopene"
+        "url": "https:\/\/app.quantimo.do\/variables\/Lycopene"
     },
     {
         "joinedVariables": [],
@@ -14381,7 +14381,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401681,
-        "url": "https:\/\/local.quantimo.do\/variables\/Folate,_Food"
+        "url": "https:\/\/app.quantimo.do\/variables\/Folate,_Food"
     },
     {
         "joinedVariables": [],
@@ -14433,7 +14433,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556051,
-        "url": "https:\/\/local.quantimo.do\/variables\/20:4_Undifferentiated_Polyunsaturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/20:4_Undifferentiated_Polyunsaturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -14480,7 +14480,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401441,
-        "url": "https:\/\/local.quantimo.do\/variables\/Retinol"
+        "url": "https:\/\/app.quantimo.do\/variables\/Retinol"
     },
     {
         "joinedVariables": [],
@@ -14534,7 +14534,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059910,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Internet_Utilities_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Internet_Utilities_Activities"
     },
     {
         "joinedVariables": [],
@@ -14588,7 +14588,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059911,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Music_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Music_Activities"
     },
     {
         "joinedVariables": [],
@@ -14635,7 +14635,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556121,
-        "url": "https:\/\/local.quantimo.do\/variables\/20:5_N-3_(EPA)_Polyunsaturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/20:5_N-3_(EPA)_Polyunsaturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -14699,7 +14699,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Sleep",
         "variableId": 100769,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sleep"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sleep"
     },
     {
         "joinedVariables": [],
@@ -14748,7 +14748,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401511,
-        "url": "https:\/\/local.quantimo.do\/variables\/Vitamin_D_(D2_+_D3)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Vitamin_D_(D2_+_D3)"
     },
     {
         "joinedVariables": [],
@@ -14797,7 +14797,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5555961,
-        "url": "https:\/\/local.quantimo.do\/variables\/10:0_Saturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/10:0_Saturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -14846,7 +14846,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401641,
-        "url": "https:\/\/local.quantimo.do\/variables\/Choline,_Total"
+        "url": "https:\/\/app.quantimo.do\/variables\/Choline,_Total"
     },
     {
         "joinedVariables": [],
@@ -14895,7 +14895,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401411,
-        "url": "https:\/\/local.quantimo.do\/variables\/Manganese,_Mn"
+        "url": "https:\/\/app.quantimo.do\/variables\/Manganese,_Mn"
     },
     {
         "joinedVariables": [],
@@ -14949,7 +14949,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059894,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Engineering_&_Technology_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Engineering_&_Technology_Activities"
     },
     {
         "joinedVariables": [],
@@ -15003,7 +15003,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059896,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Search_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Search_Activities"
     },
     {
         "joinedVariables": [],
@@ -15057,7 +15057,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059897,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_General_Reference_&_Learning_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_General_Reference_&_Learning_Activities"
     },
     {
         "joinedVariables": [],
@@ -15111,7 +15111,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059899,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_General_Entertainment_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_General_Entertainment_Activities"
     },
     {
         "joinedVariables": [],
@@ -15165,7 +15165,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059902,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Browsers_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Browsers_Activities"
     },
     {
         "joinedVariables": [],
@@ -15219,7 +15219,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059903,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_General_Social_Networking_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_General_Social_Networking_Activities"
     },
     {
         "joinedVariables": [],
@@ -15273,7 +15273,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059909,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_General_Business_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_General_Business_Activities"
     },
     {
         "joinedVariables": [],
@@ -15322,7 +15322,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556101,
-        "url": "https:\/\/local.quantimo.do\/variables\/18:4_Polyunsaturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/18:4_Polyunsaturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -15387,7 +15387,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 1686,
-        "url": "https:\/\/local.quantimo.do\/variables\/Milk_-__Reduced_Fat,_2%_Milkfat"
+        "url": "https:\/\/app.quantimo.do\/variables\/Milk_-__Reduced_Fat,_2%_Milkfat"
     },
     {
         "joinedVariables": [],
@@ -15441,7 +15441,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059950,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_General_Communication_&_Scheduling_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_General_Communication_&_Scheduling_Activities"
     },
     {
         "joinedVariables": [],
@@ -15490,7 +15490,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5555951,
-        "url": "https:\/\/local.quantimo.do\/variables\/8:0_Saturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/8:0_Saturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -15542,7 +15542,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 109352,
-        "url": "https:\/\/local.quantimo.do\/variables\/Apple_(serving)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Apple_(serving)"
     },
     {
         "joinedVariables": [],
@@ -15596,7 +15596,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059914,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_General_News_&_Opinion_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_General_News_&_Opinion_Activities"
     },
     {
         "joinedVariables": [],
@@ -15650,7 +15650,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059921,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_Video_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_Video_Activities"
     },
     {
         "joinedVariables": [],
@@ -15704,7 +15704,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059904,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Games_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Games_Activities"
     },
     {
         "joinedVariables": [],
@@ -15764,7 +15764,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 90006,
-        "url": "https:\/\/local.quantimo.do\/variables\/Poor_Self_Care"
+        "url": "https:\/\/app.quantimo.do\/variables\/Poor_Self_Care"
     },
     {
         "joinedVariables": [],
@@ -15820,7 +15820,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059926,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Instant_Message_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Instant_Message_Activities"
     },
     {
         "joinedVariables": [],
@@ -15874,7 +15874,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059939,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_Writing_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_Writing_Activities"
     },
     {
         "joinedVariables": [],
@@ -15932,7 +15932,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/1",
         "variableCategoryName": "Sleep",
         "variableId": 53709,
-        "url": "https:\/\/local.quantimo.do\/variables\/Deep_Sleep"
+        "url": "https:\/\/app.quantimo.do\/variables\/Deep_Sleep"
     },
     {
         "joinedVariables": [],
@@ -15983,7 +15983,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6059496,
-        "url": "https:\/\/local.quantimo.do\/variables\/Mixed_Trace_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Mixed_Trace_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -16032,7 +16032,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401671,
-        "url": "https:\/\/local.quantimo.do\/variables\/Vitamin_K_(phylloquinone)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Vitamin_K_(phylloquinone)"
     },
     {
         "joinedVariables": [],
@@ -16086,7 +16086,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059900,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Intelligence_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Intelligence_Activities"
     },
     {
         "joinedVariables": [],
@@ -16140,7 +16140,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059901,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Email_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Email_Activities"
     },
     {
         "joinedVariables": [],
@@ -16194,7 +16194,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059916,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_File_Sharing_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_File_Sharing_Activities"
     },
     {
         "joinedVariables": [],
@@ -16248,7 +16248,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059948,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Business_&_Finance_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Business_&_Finance_Activities"
     },
     {
         "joinedVariables": [],
@@ -16295,7 +16295,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401281,
-        "url": "https:\/\/local.quantimo.do\/variables\/Theobromine"
+        "url": "https:\/\/app.quantimo.do\/variables\/Theobromine"
     },
     {
         "joinedVariables": [],
@@ -16354,7 +16354,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/1",
         "variableCategoryName": "Sleep",
         "variableId": 1889,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sleep_Noise_Level"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sleep_Noise_Level"
     },
     {
         "joinedVariables": [],
@@ -16408,7 +16408,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059895,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_General_Software_Development_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_General_Software_Development_Activities"
     },
     {
         "joinedVariables": [],
@@ -16462,7 +16462,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059898,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_General_Shopping_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_General_Shopping_Activities"
     },
     {
         "joinedVariables": [],
@@ -16516,7 +16516,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059912,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Other_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Other_Activities"
     },
     {
         "joinedVariables": [],
@@ -16575,7 +16575,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Sleep",
         "variableId": 1448,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sleep_Quality"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sleep_Quality"
     },
     {
         "joinedVariables": [],
@@ -16631,7 +16631,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Treatments",
         "variableId": 1479,
-        "url": "https:\/\/local.quantimo.do\/variables\/Vitamin_D3"
+        "url": "https:\/\/app.quantimo.do\/variables\/Vitamin_D3"
     },
     {
         "joinedVariables": [],
@@ -16691,7 +16691,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956888,
-        "url": "https:\/\/local.quantimo.do\/variables\/General_Entertainment_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/General_Entertainment_Activities"
     },
     {
         "joinedVariables": [],
@@ -16752,7 +16752,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "event",
         "variableCategoryName": "Sleep",
         "variableId": 1888,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sleep_Cycles"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sleep_Cycles"
     },
     {
         "joinedVariables": [],
@@ -16806,7 +16806,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059907,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Meetings_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Meetings_Activities"
     },
     {
         "joinedVariables": [],
@@ -16863,7 +16863,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "count",
         "variableCategoryName": "Emotions",
         "variableId": 96430,
-        "url": "https:\/\/local.quantimo.do\/variables\/Boredom"
+        "url": "https:\/\/app.quantimo.do\/variables\/Boredom"
     },
     {
         "joinedVariables": [],
@@ -16924,7 +16924,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956928,
-        "url": "https:\/\/local.quantimo.do\/variables\/Browsers_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Browsers_Activities"
     },
     {
         "joinedVariables": [],
@@ -16982,7 +16982,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mmHg",
         "variableCategoryName": "Vital Signs",
         "variableId": 1874,
-        "url": "https:\/\/local.quantimo.do\/variables\/Blood_Pressure_(Systolic_-_Top_Number)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Blood_Pressure_(Systolic_-_Top_Number)"
     },
     {
         "joinedVariables": [],
@@ -17036,7 +17036,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059905,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Calendars_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Calendars_Activities"
     },
     {
         "joinedVariables": [],
@@ -17090,7 +17090,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059923,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_Systems_Operations_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_Systems_Operations_Activities"
     },
     {
         "joinedVariables": [],
@@ -17150,7 +17150,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "min",
         "variableCategoryName": "Sleep",
         "variableId": 5964700,
-        "url": "https:\/\/local.quantimo.do\/variables\/Minutes_Awake_During_Night"
+        "url": "https:\/\/app.quantimo.do\/variables\/Minutes_Awake_During_Night"
     },
     {
         "joinedVariables": [],
@@ -17204,7 +17204,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059946,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_Sports_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_Sports_Activities"
     },
     {
         "joinedVariables": [],
@@ -17258,7 +17258,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059947,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Photos_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Photos_Activities"
     },
     {
         "joinedVariables": [],
@@ -17311,7 +17311,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 95668,
-        "url": "https:\/\/local.quantimo.do\/variables\/Tyrosine"
+        "url": "https:\/\/app.quantimo.do\/variables\/Tyrosine"
     },
     {
         "joinedVariables": [],
@@ -17373,7 +17373,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956883,
-        "url": "https:\/\/local.quantimo.do\/variables\/General_Social_Networking_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/General_Social_Networking_Activities"
     },
     {
         "joinedVariables": [],
@@ -17428,7 +17428,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 87079,
-        "url": "https:\/\/local.quantimo.do\/variables\/Bloating"
+        "url": "https:\/\/app.quantimo.do\/variables\/Bloating"
     },
     {
         "joinedVariables": [],
@@ -17488,7 +17488,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956906,
-        "url": "https:\/\/local.quantimo.do\/variables\/Internet_Utilities_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Internet_Utilities_Activities"
     },
     {
         "joinedVariables": [],
@@ -17544,7 +17544,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5985696,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Drama_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Drama_Activities"
     },
     {
         "joinedVariables": [],
@@ -17594,7 +17594,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 95656,
-        "url": "https:\/\/local.quantimo.do\/variables\/Tryptophan"
+        "url": "https:\/\/app.quantimo.do\/variables\/Tryptophan"
     },
     {
         "joinedVariables": [],
@@ -17648,7 +17648,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059960,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_Marketing_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_Marketing_Activities"
     },
     {
         "joinedVariables": [],
@@ -17705,7 +17705,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401821,
-        "url": "https:\/\/local.quantimo.do\/variables\/Glycine"
+        "url": "https:\/\/app.quantimo.do\/variables\/Glycine"
     },
     {
         "joinedVariables": [],
@@ -17756,7 +17756,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 92403,
-        "url": "https:\/\/local.quantimo.do\/variables\/Arginine"
+        "url": "https:\/\/app.quantimo.do\/variables\/Arginine"
     },
     {
         "joinedVariables": [],
@@ -17820,7 +17820,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 87555,
-        "url": "https:\/\/local.quantimo.do\/variables\/Paranoia"
+        "url": "https:\/\/app.quantimo.do\/variables\/Paranoia"
     },
     {
         "joinedVariables": [],
@@ -17880,7 +17880,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956887,
-        "url": "https:\/\/local.quantimo.do\/variables\/Intelligence_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Intelligence_Activities"
     },
     {
         "joinedVariables": [],
@@ -17940,7 +17940,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956891,
-        "url": "https:\/\/local.quantimo.do\/variables\/Instant_Message_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Instant_Message_Activities"
     },
     {
         "joinedVariables": [],
@@ -18000,7 +18000,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956920,
-        "url": "https:\/\/local.quantimo.do\/variables\/General_Shopping_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/General_Shopping_Activities"
     },
     {
         "joinedVariables": [],
@@ -18050,7 +18050,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "cm",
         "variableCategoryName": "Physique",
         "variableId": 1343,
-        "url": "https:\/\/local.quantimo.do\/variables\/Height"
+        "url": "https:\/\/app.quantimo.do\/variables\/Height"
     },
     {
         "joinedVariables": [],
@@ -18101,7 +18101,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 94284,
-        "url": "https:\/\/local.quantimo.do\/variables\/Lysine"
+        "url": "https:\/\/app.quantimo.do\/variables\/Lysine"
     },
     {
         "joinedVariables": [],
@@ -18165,7 +18165,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Treatments",
         "variableId": 109172,
-        "url": "https:\/\/local.quantimo.do\/variables\/Melatonin_(mg)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Melatonin_(mg)"
     },
     {
         "joinedVariables": [],
@@ -18215,7 +18215,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401751,
-        "url": "https:\/\/local.quantimo.do\/variables\/Cystine"
+        "url": "https:\/\/app.quantimo.do\/variables\/Cystine"
     },
     {
         "joinedVariables": [],
@@ -18265,7 +18265,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401501,
-        "url": "https:\/\/local.quantimo.do\/variables\/Vitamin_D3_(cholecalciferol)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Vitamin_D3_(cholecalciferol)"
     },
     {
         "joinedVariables": [],
@@ -18318,7 +18318,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401761,
-        "url": "https:\/\/local.quantimo.do\/variables\/Phenylalanine"
+        "url": "https:\/\/app.quantimo.do\/variables\/Phenylalanine"
     },
     {
         "joinedVariables": [],
@@ -18372,7 +18372,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401781,
-        "url": "https:\/\/local.quantimo.do\/variables\/Histidine"
+        "url": "https:\/\/app.quantimo.do\/variables\/Histidine"
     },
     {
         "joinedVariables": [],
@@ -18422,7 +18422,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401791,
-        "url": "https:\/\/local.quantimo.do\/variables\/Alanine"
+        "url": "https:\/\/app.quantimo.do\/variables\/Alanine"
     },
     {
         "joinedVariables": [],
@@ -18472,7 +18472,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401801,
-        "url": "https:\/\/local.quantimo.do\/variables\/Aspartic_Acid"
+        "url": "https:\/\/app.quantimo.do\/variables\/Aspartic_Acid"
     },
     {
         "joinedVariables": [],
@@ -18522,7 +18522,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401831,
-        "url": "https:\/\/local.quantimo.do\/variables\/Proline"
+        "url": "https:\/\/app.quantimo.do\/variables\/Proline"
     },
     {
         "joinedVariables": [],
@@ -18572,7 +18572,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401841,
-        "url": "https:\/\/local.quantimo.do\/variables\/Serine"
+        "url": "https:\/\/app.quantimo.do\/variables\/Serine"
     },
     {
         "joinedVariables": [],
@@ -18636,7 +18636,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 87029,
-        "url": "https:\/\/local.quantimo.do\/variables\/Abdominal_Pain"
+        "url": "https:\/\/app.quantimo.do\/variables\/Abdominal_Pain"
     },
     {
         "joinedVariables": [],
@@ -18698,7 +18698,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956882,
-        "url": "https:\/\/local.quantimo.do\/variables\/General_Communication_&_Scheduling_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/General_Communication_&_Scheduling_Activities"
     },
     {
         "joinedVariables": [],
@@ -18758,7 +18758,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956884,
-        "url": "https:\/\/local.quantimo.do\/variables\/Email_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Email_Activities"
     },
     {
         "joinedVariables": [],
@@ -18819,7 +18819,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956886,
-        "url": "https:\/\/local.quantimo.do\/variables\/Health_&_Medicine_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Health_&_Medicine_Activities"
     },
     {
         "joinedVariables": [],
@@ -18879,7 +18879,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956893,
-        "url": "https:\/\/local.quantimo.do\/variables\/General_Business_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/General_Business_Activities"
     },
     {
         "joinedVariables": [],
@@ -18939,7 +18939,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956894,
-        "url": "https:\/\/local.quantimo.do\/variables\/Search_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Search_Activities"
     },
     {
         "joinedVariables": [],
@@ -18996,7 +18996,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mmHg",
         "variableCategoryName": "Vital Signs",
         "variableId": 5554981,
-        "url": "https:\/\/local.quantimo.do\/variables\/Blood_Pressure_(Diastolic_-_Bottom_Number)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Blood_Pressure_(Diastolic_-_Bottom_Number)"
     },
     {
         "joinedVariables": [],
@@ -19045,7 +19045,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "min",
         "variableCategoryName": "Activities",
         "variableId": 5985670,
-        "url": "https:\/\/local.quantimo.do\/variables\/Comics_&_Graphic_Novels"
+        "url": "https:\/\/app.quantimo.do\/variables\/Comics_&_Graphic_Novels"
     },
     {
         "joinedVariables": [],
@@ -19105,7 +19105,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956892,
-        "url": "https:\/\/local.quantimo.do\/variables\/File_Sharing_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/File_Sharing_Activities"
     },
     {
         "joinedVariables": [],
@@ -19165,7 +19165,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956901,
-        "url": "https:\/\/local.quantimo.do\/variables\/General_News_&_Opinion_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/General_News_&_Opinion_Activities"
     },
     {
         "joinedVariables": [],
@@ -19224,7 +19224,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "pieces",
         "variableCategoryName": "Foods",
         "variableId": 96575,
-        "url": "https:\/\/local.quantimo.do\/variables\/Chocolate"
+        "url": "https:\/\/app.quantimo.do\/variables\/Chocolate"
     },
     {
         "joinedVariables": [],
@@ -19276,7 +19276,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6059098,
-        "url": "https:\/\/local.quantimo.do\/variables\/Large_Particulate_Matter_Pollution_Air_Quality"
+        "url": "https:\/\/app.quantimo.do\/variables\/Large_Particulate_Matter_Pollution_Air_Quality"
     },
     {
         "joinedVariables": [],
@@ -19330,7 +19330,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059920,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Operations_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Operations_Activities"
     },
     {
         "joinedVariables": [],
@@ -19392,7 +19392,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956898,
-        "url": "https:\/\/local.quantimo.do\/variables\/General_Software_Development_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/General_Software_Development_Activities"
     },
     {
         "joinedVariables": [],
@@ -19452,7 +19452,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956922,
-        "url": "https:\/\/local.quantimo.do\/variables\/Calendars_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Calendars_Activities"
     },
     {
         "joinedVariables": [],
@@ -19510,7 +19510,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "count",
         "variableCategoryName": "Environment",
         "variableId": 5967500,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fog"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fog"
     },
     {
         "joinedVariables": [],
@@ -19564,7 +19564,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059919,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Health_&_Medicine_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Health_&_Medicine_Activities"
     },
     {
         "joinedVariables": [],
@@ -19618,7 +19618,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059945,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Design_&_Planning_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Design_&_Planning_Activities"
     },
     {
         "joinedVariables": [],
@@ -19678,7 +19678,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956881,
-        "url": "https:\/\/local.quantimo.do\/variables\/Music_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Music_Activities"
     },
     {
         "joinedVariables": [],
@@ -19738,7 +19738,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956934,
-        "url": "https:\/\/local.quantimo.do\/variables\/Photos_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Photos_Activities"
     },
     {
         "joinedVariables": [],
@@ -19792,7 +19792,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059892,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Editing_&_IDEs_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Editing_&_IDEs_Activities"
     },
     {
         "joinedVariables": [],
@@ -19844,7 +19844,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401731,
-        "url": "https:\/\/local.quantimo.do\/variables\/Leucine"
+        "url": "https:\/\/app.quantimo.do\/variables\/Leucine"
     },
     {
         "joinedVariables": [],
@@ -19898,7 +19898,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059952,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Regional_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Regional_Activities"
     },
     {
         "joinedVariables": [],
@@ -19958,7 +19958,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956900,
-        "url": "https:\/\/local.quantimo.do\/variables\/Writing_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Writing_Activities"
     },
     {
         "joinedVariables": [],
@@ -20018,7 +20018,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956907,
-        "url": "https:\/\/local.quantimo.do\/variables\/Science_&_Technology_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Science_&_Technology_Activities"
     },
     {
         "joinedVariables": [],
@@ -20078,7 +20078,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956914,
-        "url": "https:\/\/local.quantimo.do\/variables\/Engineering_&_Technology_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Engineering_&_Technology_Activities"
     },
     {
         "joinedVariables": [],
@@ -20138,7 +20138,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956933,
-        "url": "https:\/\/local.quantimo.do\/variables\/Games_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Games_Activities"
     },
     {
         "joinedVariables": [],
@@ -20184,7 +20184,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401711,
-        "url": "https:\/\/local.quantimo.do\/variables\/Threonine"
+        "url": "https:\/\/app.quantimo.do\/variables\/Threonine"
     },
     {
         "joinedVariables": [],
@@ -20230,7 +20230,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401721,
-        "url": "https:\/\/local.quantimo.do\/variables\/Isoleucine"
+        "url": "https:\/\/app.quantimo.do\/variables\/Isoleucine"
     },
     {
         "joinedVariables": [],
@@ -20277,7 +20277,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401741,
-        "url": "https:\/\/local.quantimo.do\/variables\/Methionine"
+        "url": "https:\/\/app.quantimo.do\/variables\/Methionine"
     },
     {
         "joinedVariables": [],
@@ -20323,7 +20323,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401771,
-        "url": "https:\/\/local.quantimo.do\/variables\/Valine"
+        "url": "https:\/\/app.quantimo.do\/variables\/Valine"
     },
     {
         "joinedVariables": [],
@@ -20377,7 +20377,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059949,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_Voice_Chat_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_Voice_Chat_Activities"
     },
     {
         "joinedVariables": [],
@@ -20431,7 +20431,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059959,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_Travel_&_Outdoors_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_Travel_&_Outdoors_Activities"
     },
     {
         "joinedVariables": [],
@@ -20477,7 +20477,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Nutrients",
         "variableId": 5401811,
-        "url": "https:\/\/local.quantimo.do\/variables\/Glutamic_Acid"
+        "url": "https:\/\/app.quantimo.do\/variables\/Glutamic_Acid"
     },
     {
         "joinedVariables": [],
@@ -20537,7 +20537,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956895,
-        "url": "https:\/\/local.quantimo.do\/variables\/Maps_&_Regional_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Maps_&_Regional_Activities"
     },
     {
         "joinedVariables": [],
@@ -20596,7 +20596,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "min",
         "variableCategoryName": "Sleep",
         "variableId": 5964699,
-        "url": "https:\/\/local.quantimo.do\/variables\/Minutes_Asleep"
+        "url": "https:\/\/app.quantimo.do\/variables\/Minutes_Asleep"
     },
     {
         "joinedVariables": [],
@@ -20650,7 +20650,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059944,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Reading_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Reading_Activities"
     },
     {
         "joinedVariables": [],
@@ -20711,7 +20711,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 1735,
-        "url": "https:\/\/local.quantimo.do\/variables\/Green_Tea"
+        "url": "https:\/\/app.quantimo.do\/variables\/Green_Tea"
     },
     {
         "joinedVariables": [],
@@ -20771,7 +20771,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956903,
-        "url": "https:\/\/local.quantimo.do\/variables\/General_Design_&_Composition_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/General_Design_&_Composition_Activities"
     },
     {
         "joinedVariables": [],
@@ -20833,7 +20833,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956911,
-        "url": "https:\/\/local.quantimo.do\/variables\/Presentation_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Presentation_Activities"
     },
     {
         "joinedVariables": [],
@@ -20895,7 +20895,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Treatments",
         "variableId": 5725751,
-        "url": "https:\/\/local.quantimo.do\/variables\/Ibuprofen"
+        "url": "https:\/\/app.quantimo.do\/variables\/Ibuprofen"
     },
     {
         "joinedVariables": [],
@@ -20956,7 +20956,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956924,
-        "url": "https:\/\/local.quantimo.do\/variables\/Other_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Other_Activities"
     },
     {
         "joinedVariables": [],
@@ -21010,7 +21010,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 1703,
-        "url": "https:\/\/local.quantimo.do\/variables\/White_Bread"
+        "url": "https:\/\/app.quantimo.do\/variables\/White_Bread"
     },
     {
         "joinedVariables": [],
@@ -21069,7 +21069,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 88614,
-        "url": "https:\/\/local.quantimo.do\/variables\/Depressed_Symptoms"
+        "url": "https:\/\/app.quantimo.do\/variables\/Depressed_Symptoms"
     },
     {
         "joinedVariables": [],
@@ -21129,7 +21129,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956902,
-        "url": "https:\/\/local.quantimo.do\/variables\/Professional_Networking_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Professional_Networking_Activities"
     },
     {
         "joinedVariables": [],
@@ -21189,7 +21189,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956905,
-        "url": "https:\/\/local.quantimo.do\/variables\/Business_&_Finance_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Business_&_Finance_Activities"
     },
     {
         "joinedVariables": [],
@@ -21249,7 +21249,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956916,
-        "url": "https:\/\/local.quantimo.do\/variables\/Marketing_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Marketing_Activities"
     },
     {
         "joinedVariables": [],
@@ -21311,7 +21311,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956917,
-        "url": "https:\/\/local.quantimo.do\/variables\/Accounting_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Accounting_Activities"
     },
     {
         "joinedVariables": [],
@@ -21371,7 +21371,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "event",
         "variableCategoryName": "Goals",
         "variableId": 5955693,
-        "url": "https:\/\/local.quantimo.do\/variables\/Code_Commits"
+        "url": "https:\/\/app.quantimo.do\/variables\/Code_Commits"
     },
     {
         "joinedVariables": [],
@@ -21431,7 +21431,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "-4 to 4",
         "variableCategoryName": "Emotions",
         "variableId": 2032,
-        "url": "https:\/\/local.quantimo.do\/variables\/Happiness"
+        "url": "https:\/\/app.quantimo.do\/variables\/Happiness"
     },
     {
         "joinedVariables": [],
@@ -21494,7 +21494,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Treatments",
         "variableId": 5212661,
-        "url": "https:\/\/local.quantimo.do\/variables\/Lamotrigine_(mg)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Lamotrigine_(mg)"
     },
     {
         "joinedVariables": [],
@@ -21554,7 +21554,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956880,
-        "url": "https:\/\/local.quantimo.do\/variables\/Voice_Chat_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Voice_Chat_Activities"
     },
     {
         "joinedVariables": [],
@@ -21614,7 +21614,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956919,
-        "url": "https:\/\/local.quantimo.do\/variables\/Travel_&_Outdoors_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Travel_&_Outdoors_Activities"
     },
     {
         "joinedVariables": [],
@@ -21664,7 +21664,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "in",
         "variableCategoryName": "Payments",
         "variableId": 5980754,
-        "url": "https:\/\/local.quantimo.do\/variables\/Exercise_&_Fitness"
+        "url": "https:\/\/app.quantimo.do\/variables\/Exercise_&_Fitness"
     },
     {
         "joinedVariables": [],
@@ -21718,7 +21718,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059925,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_Clothes_&_Personal_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_Clothes_&_Personal_Activities"
     },
     {
         "joinedVariables": [],
@@ -21778,7 +21778,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956931,
-        "url": "https:\/\/local.quantimo.do\/variables\/Employment_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Employment_Activities"
     },
     {
         "joinedVariables": [],
@@ -21832,7 +21832,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401701,
-        "url": "https:\/\/local.quantimo.do\/variables\/Betaine"
+        "url": "https:\/\/app.quantimo.do\/variables\/Betaine"
     },
     {
         "joinedVariables": [],
@@ -21887,7 +21887,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "pills",
         "variableCategoryName": "Treatments",
         "variableId": 1313751,
-        "url": "https:\/\/local.quantimo.do\/variables\/Birth_Control_Pills_(pills)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Birth_Control_Pills_(pills)"
     },
     {
         "joinedVariables": [],
@@ -21947,7 +21947,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956899,
-        "url": "https:\/\/local.quantimo.do\/variables\/Administration_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Administration_Activities"
     },
     {
         "joinedVariables": [],
@@ -22005,7 +22005,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 89409,
-        "url": "https:\/\/local.quantimo.do\/variables\/Leg_Pain"
+        "url": "https:\/\/app.quantimo.do\/variables\/Leg_Pain"
     },
     {
         "joinedVariables": [],
@@ -22065,7 +22065,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956935,
-        "url": "https:\/\/local.quantimo.do\/variables\/Clothes_&_Personal_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Clothes_&_Personal_Activities"
     },
     {
         "joinedVariables": [],
@@ -22128,7 +22128,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Treatments",
         "variableId": 1313741,
-        "url": "https:\/\/local.quantimo.do\/variables\/Escitalopram_(Lexapro)_(mg)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Escitalopram_(Lexapro)_(mg)"
     },
     {
         "joinedVariables": [],
@@ -22188,7 +22188,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "count",
         "variableCategoryName": "Environment",
         "variableId": 5965549,
-        "url": "https:\/\/local.quantimo.do\/variables\/Wind"
+        "url": "https:\/\/app.quantimo.do\/variables\/Wind"
     },
     {
         "joinedVariables": [],
@@ -22247,7 +22247,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956897,
-        "url": "https:\/\/local.quantimo.do\/variables\/Project_Management_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Project_Management_Activities"
     },
     {
         "joinedVariables": [],
@@ -22307,7 +22307,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956904,
-        "url": "https:\/\/local.quantimo.do\/variables\/Graphic_Design_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Graphic_Design_Activities"
     },
     {
         "joinedVariables": [],
@@ -22367,7 +22367,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956913,
-        "url": "https:\/\/local.quantimo.do\/variables\/Systems_Operations_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Systems_Operations_Activities"
     },
     {
         "joinedVariables": [],
@@ -22430,7 +22430,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "yes\/no",
         "variableCategoryName": "Symptoms",
         "variableId": 97445,
-        "url": "https:\/\/local.quantimo.do\/variables\/Menstrual_Period"
+        "url": "https:\/\/app.quantimo.do\/variables\/Menstrual_Period"
     },
     {
         "joinedVariables": [],
@@ -22490,7 +22490,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 5968154,
-        "url": "https:\/\/local.quantimo.do\/variables\/Menstrual_Period_(\/5)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Menstrual_Period_(\/5)"
     },
     {
         "joinedVariables": [],
@@ -22541,7 +22541,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mcg",
         "variableCategoryName": "Nutrients",
         "variableId": 5401401,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fluoride,_F"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fluoride,_F"
     },
     {
         "joinedVariables": [],
@@ -22601,7 +22601,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956930,
-        "url": "https:\/\/local.quantimo.do\/variables\/Operations_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Operations_Activities"
     },
     {
         "joinedVariables": [],
@@ -22662,7 +22662,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "pieces",
         "variableCategoryName": "Foods",
         "variableId": 106392,
-        "url": "https:\/\/local.quantimo.do\/variables\/Bread"
+        "url": "https:\/\/app.quantimo.do\/variables\/Bread"
     },
     {
         "joinedVariables": [],
@@ -22716,7 +22716,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059971,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_Office_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_Office_Activities"
     },
     {
         "joinedVariables": [],
@@ -22768,7 +22768,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6060009,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_to-Do_List_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_to-Do_List_Activities"
     },
     {
         "joinedVariables": [],
@@ -22822,7 +22822,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6060015,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_Video_Editing_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_Video_Editing_Activities"
     },
     {
         "joinedVariables": [],
@@ -22875,7 +22875,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6038276,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sycamore_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sycamore_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -22934,7 +22934,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "tablets",
         "variableCategoryName": "Treatments",
         "variableId": 110602,
-        "url": "https:\/\/local.quantimo.do\/variables\/Vitamin_C_(tablets)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Vitamin_C_(tablets)"
     },
     {
         "joinedVariables": [],
@@ -22994,7 +22994,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956923,
-        "url": "https:\/\/local.quantimo.do\/variables\/Comedy_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Comedy_Activities"
     },
     {
         "joinedVariables": [],
@@ -23055,7 +23055,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "event",
         "variableCategoryName": "Activities",
         "variableId": 1868,
-        "url": "https:\/\/local.quantimo.do\/variables\/Keystrokes"
+        "url": "https:\/\/app.quantimo.do\/variables\/Keystrokes"
     },
     {
         "joinedVariables": [],
@@ -23111,7 +23111,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6039749,
-        "url": "https:\/\/local.quantimo.do\/variables\/Composites_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Composites_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -23170,7 +23170,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956936,
-        "url": "https:\/\/local.quantimo.do\/variables\/Anti-Virus_&_Spyware_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Anti-Virus_&_Spyware_Activities"
     },
     {
         "joinedVariables": [],
@@ -23230,7 +23230,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956945,
-        "url": "https:\/\/local.quantimo.do\/variables\/Food_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Food_Activities"
     },
     {
         "joinedVariables": [],
@@ -23284,7 +23284,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059969,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_Anti-Virus_&_Spyware_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_Anti-Virus_&_Spyware_Activities"
     },
     {
         "joinedVariables": [],
@@ -23345,7 +23345,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956910,
-        "url": "https:\/\/local.quantimo.do\/variables\/Editing_&_IDEs_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Editing_&_IDEs_Activities"
     },
     {
         "joinedVariables": [],
@@ -23404,7 +23404,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956918,
-        "url": "https:\/\/local.quantimo.do\/variables\/Legal_&_Govt_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Legal_&_Govt_Activities"
     },
     {
         "joinedVariables": [],
@@ -23464,7 +23464,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956921,
-        "url": "https:\/\/local.quantimo.do\/variables\/Business_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Business_Activities"
     },
     {
         "joinedVariables": [],
@@ -23524,7 +23524,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956927,
-        "url": "https:\/\/local.quantimo.do\/variables\/Video_Editing_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Video_Editing_Activities"
     },
     {
         "joinedVariables": [],
@@ -23586,7 +23586,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956937,
-        "url": "https:\/\/local.quantimo.do\/variables\/Entertainment_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Entertainment_Activities"
     },
     {
         "joinedVariables": [],
@@ -23645,7 +23645,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956940,
-        "url": "https:\/\/local.quantimo.do\/variables\/Home_&_Garden_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Home_&_Garden_Activities"
     },
     {
         "joinedVariables": [],
@@ -23706,7 +23706,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "event",
         "variableCategoryName": "Activities",
         "variableId": 1869,
-        "url": "https:\/\/local.quantimo.do\/variables\/Mouse_Clicks"
+        "url": "https:\/\/app.quantimo.do\/variables\/Mouse_Clicks"
     },
     {
         "joinedVariables": [],
@@ -23765,7 +23765,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956941,
-        "url": "https:\/\/local.quantimo.do\/variables\/Electronics_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Electronics_Activities"
     },
     {
         "joinedVariables": [],
@@ -23822,7 +23822,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 5741651,
-        "url": "https:\/\/local.quantimo.do\/variables\/Depressive_Disorder"
+        "url": "https:\/\/app.quantimo.do\/variables\/Depressive_Disorder"
     },
     {
         "joinedVariables": [],
@@ -23886,7 +23886,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "min",
         "variableCategoryName": "Physical Activity",
         "variableId": 95836,
-        "url": "https:\/\/local.quantimo.do\/variables\/Walking_(minutes)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Walking_(minutes)"
     },
     {
         "joinedVariables": [],
@@ -23941,7 +23941,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "min",
         "variableCategoryName": "Sleep",
         "variableId": 6054544,
-        "url": "https:\/\/local.quantimo.do\/variables\/Duration_of_Awakenings_During_Sleep"
+        "url": "https:\/\/app.quantimo.do\/variables\/Duration_of_Awakenings_During_Sleep"
     },
     {
         "joinedVariables": [],
@@ -24000,7 +24000,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "s",
         "variableCategoryName": "Software",
         "variableId": 111302,
-        "url": "https:\/\/local.quantimo.do\/variables\/Google.com_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/Google.com_Usage"
     },
     {
         "joinedVariables": [],
@@ -24059,7 +24059,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956932,
-        "url": "https:\/\/local.quantimo.do\/variables\/Quality_Assurance_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Quality_Assurance_Activities"
     },
     {
         "joinedVariables": [],
@@ -24117,7 +24117,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "count",
         "variableCategoryName": "Environment",
         "variableId": 5965362,
-        "url": "https:\/\/local.quantimo.do\/variables\/Snow"
+        "url": "https:\/\/app.quantimo.do\/variables\/Snow"
     },
     {
         "joinedVariables": [],
@@ -24178,7 +24178,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Treatments",
         "variableId": 4071241,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fluoxetine_(mg)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fluoxetine_(mg)"
     },
     {
         "joinedVariables": [],
@@ -24237,7 +24237,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956948,
-        "url": "https:\/\/local.quantimo.do\/variables\/Society_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Society_Activities"
     },
     {
         "joinedVariables": [],
@@ -24301,7 +24301,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "min",
         "variableCategoryName": "Physical Activity",
         "variableId": 93529,
-        "url": "https:\/\/local.quantimo.do\/variables\/Exercise"
+        "url": "https:\/\/app.quantimo.do\/variables\/Exercise"
     },
     {
         "joinedVariables": [],
@@ -24364,7 +24364,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Treatments",
         "variableId": 1634421,
-        "url": "https:\/\/local.quantimo.do\/variables\/Cymbalta_(duloxetine)_(mg)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Cymbalta_(duloxetine)_(mg)"
     },
     {
         "joinedVariables": [],
@@ -24419,7 +24419,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "min",
         "variableCategoryName": "Sleep",
         "variableId": 6054281,
-        "url": "https:\/\/local.quantimo.do\/variables\/REM_Sleep_Duration"
+        "url": "https:\/\/app.quantimo.do\/variables\/REM_Sleep_Duration"
     },
     {
         "joinedVariables": [],
@@ -24478,7 +24478,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 88512,
-        "url": "https:\/\/local.quantimo.do\/variables\/Concentration_Problems"
+        "url": "https:\/\/app.quantimo.do\/variables\/Concentration_Problems"
     },
     {
         "joinedVariables": [],
@@ -24530,7 +24530,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6060016,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_Work_&_Play_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_Work_&_Play_Activities"
     },
     {
         "joinedVariables": [],
@@ -24582,7 +24582,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6060017,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_General_Studying_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_General_Studying_Activities"
     },
     {
         "joinedVariables": [],
@@ -24637,7 +24637,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 88066,
-        "url": "https:\/\/local.quantimo.do\/variables\/Abdominal_Cramps"
+        "url": "https:\/\/app.quantimo.do\/variables\/Abdominal_Cramps"
     },
     {
         "joinedVariables": [],
@@ -24697,7 +24697,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956889,
-        "url": "https:\/\/local.quantimo.do\/variables\/Design_&_Planning_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Design_&_Planning_Activities"
     },
     {
         "joinedVariables": [],
@@ -24754,7 +24754,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 1827,
-        "url": "https:\/\/local.quantimo.do\/variables\/Diet_Coke_-_12oz_Can"
+        "url": "https:\/\/app.quantimo.do\/variables\/Diet_Coke_-_12oz_Can"
     },
     {
         "joinedVariables": [],
@@ -24814,7 +24814,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956908,
-        "url": "https:\/\/local.quantimo.do\/variables\/Customer_Relations_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Customer_Relations_Activities"
     },
     {
         "joinedVariables": [],
@@ -24873,7 +24873,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956949,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sports_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sports_Activities"
     },
     {
         "joinedVariables": [],
@@ -24929,7 +24929,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "%",
         "variableCategoryName": "Emotions",
         "variableId": 5865581,
-        "url": "https:\/\/local.quantimo.do\/variables\/Happy"
+        "url": "https:\/\/app.quantimo.do\/variables\/Happy"
     },
     {
         "joinedVariables": [],
@@ -24993,7 +24993,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 1444,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sickness_Severity"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sickness_Severity"
     },
     {
         "joinedVariables": [],
@@ -25053,7 +25053,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 89097,
-        "url": "https:\/\/local.quantimo.do\/variables\/Migraine_Headache_Severity"
+        "url": "https:\/\/app.quantimo.do\/variables\/Migraine_Headache_Severity"
     },
     {
         "joinedVariables": [],
@@ -25113,7 +25113,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956943,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sales_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sales_Activities"
     },
     {
         "joinedVariables": [],
@@ -25171,7 +25171,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Software",
         "variableId": 5240661,
-        "url": "https:\/\/local.quantimo.do\/variables\/Google_Chrome_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/Google_Chrome_Usage"
     },
     {
         "joinedVariables": [],
@@ -25227,7 +25227,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059109,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_Browsers"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_Browsers"
     },
     {
         "joinedVariables": [],
@@ -25287,7 +25287,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "yes\/no",
         "variableCategoryName": "Symptoms",
         "variableId": 5953162,
-        "url": "https:\/\/local.quantimo.do\/variables\/Depressed__(yes\/no)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Depressed__(yes\/no)"
     },
     {
         "joinedVariables": [],
@@ -25345,7 +25345,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Treatments",
         "variableId": 108222,
-        "url": "https:\/\/local.quantimo.do\/variables\/Effexor_(venlafaxine)_(mg)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Effexor_(venlafaxine)_(mg)"
     },
     {
         "joinedVariables": [],
@@ -25398,7 +25398,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "%",
         "variableCategoryName": "Sleep",
         "variableId": 6057041,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sleep_Efficiency_From_Fitbit"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sleep_Efficiency_From_Fitbit"
     },
     {
         "joinedVariables": [],
@@ -25458,7 +25458,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956946,
-        "url": "https:\/\/local.quantimo.do\/variables\/International_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/International_Activities"
     },
     {
         "joinedVariables": [],
@@ -25515,7 +25515,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "%",
         "variableCategoryName": "Physique",
         "variableId": 1875,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fat_Ratio"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fat_Ratio"
     },
     {
         "joinedVariables": [],
@@ -25574,7 +25574,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 5516891,
-        "url": "https:\/\/local.quantimo.do\/variables\/Cheese"
+        "url": "https:\/\/app.quantimo.do\/variables\/Cheese"
     },
     {
         "joinedVariables": [],
@@ -25633,7 +25633,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Software",
         "variableId": 5240691,
-        "url": "https:\/\/local.quantimo.do\/variables\/Youtube.com_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/Youtube.com_Usage"
     },
     {
         "joinedVariables": [],
@@ -25688,7 +25688,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059124,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_General_Entertainment"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_General_Entertainment"
     },
     {
         "joinedVariables": [],
@@ -25758,7 +25758,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Treatments",
         "variableId": 1256,
-        "url": "https:\/\/local.quantimo.do\/variables\/Adderall_Xr"
+        "url": "https:\/\/app.quantimo.do\/variables\/Adderall_Xr"
     },
     {
         "joinedVariables": [],
@@ -25813,7 +25813,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "index",
         "variableCategoryName": "Environment",
         "variableId": 6038285,
-        "url": "https:\/\/local.quantimo.do\/variables\/Olive_Pollen_Index"
+        "url": "https:\/\/app.quantimo.do\/variables\/Olive_Pollen_Index"
     },
     {
         "joinedVariables": [],
@@ -25870,7 +25870,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "min",
         "variableCategoryName": "Physical Activity",
         "variableId": 86584,
-        "url": "https:\/\/local.quantimo.do\/variables\/Yoga"
+        "url": "https:\/\/app.quantimo.do\/variables\/Yoga"
     },
     {
         "joinedVariables": [],
@@ -25932,7 +25932,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 1617,
-        "url": "https:\/\/local.quantimo.do\/variables\/Protein_Shake"
+        "url": "https:\/\/app.quantimo.do\/variables\/Protein_Shake"
     },
     {
         "joinedVariables": [],
@@ -25991,7 +25991,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Software",
         "variableId": 5242011,
-        "url": "https:\/\/local.quantimo.do\/variables\/Facebook.com_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/Facebook.com_Usage"
     },
     {
         "joinedVariables": [],
@@ -26044,7 +26044,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059958,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_Wellness_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_Wellness_Activities"
     },
     {
         "joinedVariables": [],
@@ -26100,7 +26100,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 90591,
-        "url": "https:\/\/local.quantimo.do\/variables\/Thoughts_of_Suicide"
+        "url": "https:\/\/app.quantimo.do\/variables\/Thoughts_of_Suicide"
     },
     {
         "joinedVariables": [],
@@ -26158,7 +26158,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "count",
         "variableCategoryName": "Symptoms",
         "variableId": 5957893,
-        "url": "https:\/\/local.quantimo.do\/variables\/Crying"
+        "url": "https:\/\/app.quantimo.do\/variables\/Crying"
     },
     {
         "joinedVariables": [],
@@ -26211,7 +26211,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556011,
-        "url": "https:\/\/local.quantimo.do\/variables\/20:0_Saturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/20:0_Saturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -26266,7 +26266,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059113,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_Instant_Message"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_Instant_Message"
     },
     {
         "joinedVariables": [],
@@ -26327,7 +26327,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "kg",
         "variableCategoryName": "Physique",
         "variableId": 5955691,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fat-Free_Mass_(FFM)_Or_Lean_Body_Mass_(LBM)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fat-Free_Mass_(FFM)_Or_Lean_Body_Mass_(LBM)"
     },
     {
         "joinedVariables": [],
@@ -26387,7 +26387,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "kg",
         "variableCategoryName": "Physique",
         "variableId": 5955692,
-        "url": "https:\/\/local.quantimo.do\/variables\/Fat_Mass_Weight"
+        "url": "https:\/\/app.quantimo.do\/variables\/Fat_Mass_Weight"
     },
     {
         "joinedVariables": [],
@@ -26443,7 +26443,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "count",
         "variableCategoryName": "Environment",
         "variableId": 5965441,
-        "url": "https:\/\/local.quantimo.do\/variables\/Cloudy"
+        "url": "https:\/\/app.quantimo.do\/variables\/Cloudy"
     },
     {
         "joinedVariables": [],
@@ -26498,7 +26498,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Software",
         "variableId": 5915277,
-        "url": "https:\/\/local.quantimo.do\/variables\/Video_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/Video_Usage"
     },
     {
         "joinedVariables": [],
@@ -26553,7 +26553,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Software",
         "variableId": 5246681,
-        "url": "https:\/\/local.quantimo.do\/variables\/Photos_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/Photos_Usage"
     },
     {
         "joinedVariables": [],
@@ -26607,7 +26607,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg\/dL",
         "variableCategoryName": "Vital Signs",
         "variableId": 2025,
-        "url": "https:\/\/local.quantimo.do\/variables\/Blood_Glucose_Sugar"
+        "url": "https:\/\/app.quantimo.do\/variables\/Blood_Glucose_Sugar"
     },
     {
         "joinedVariables": [],
@@ -26662,7 +26662,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Software",
         "variableId": 5915662,
-        "url": "https:\/\/local.quantimo.do\/variables\/Search_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/Search_Usage"
     },
     {
         "joinedVariables": [],
@@ -26717,7 +26717,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059104,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_General_Reference_&_Learning"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_General_Reference_&_Learning"
     },
     {
         "joinedVariables": [],
@@ -26770,7 +26770,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "s",
         "variableCategoryName": "Software",
         "variableId": 111202,
-        "url": "https:\/\/local.quantimo.do\/variables\/Gmail_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/Gmail_Usage"
     },
     {
         "joinedVariables": [],
@@ -26825,7 +26825,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059110,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_General_Shopping"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_General_Shopping"
     },
     {
         "joinedVariables": [],
@@ -26882,7 +26882,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059112,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_General_Business"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_General_Business"
     },
     {
         "joinedVariables": [],
@@ -26936,7 +26936,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "s",
         "variableCategoryName": "Software",
         "variableId": 111362,
-        "url": "https:\/\/local.quantimo.do\/variables\/RescueTime_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/RescueTime_Usage"
     },
     {
         "joinedVariables": [],
@@ -26991,7 +26991,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Foods",
         "variableId": 1816,
-        "url": "https:\/\/local.quantimo.do\/variables\/Candy"
+        "url": "https:\/\/app.quantimo.do\/variables\/Candy"
     },
     {
         "joinedVariables": [],
@@ -27051,7 +27051,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 1336,
-        "url": "https:\/\/local.quantimo.do\/variables\/Hair_Loss_Severity"
+        "url": "https:\/\/app.quantimo.do\/variables\/Hair_Loss_Severity"
     },
     {
         "joinedVariables": [],
@@ -27111,7 +27111,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956925,
-        "url": "https:\/\/local.quantimo.do\/variables\/Office_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Office_Activities"
     },
     {
         "joinedVariables": [],
@@ -27169,7 +27169,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956944,
-        "url": "https:\/\/local.quantimo.do\/variables\/Regional_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Regional_Activities"
     },
     {
         "joinedVariables": [],
@@ -27224,7 +27224,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059108,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_General_News_&_Opinion"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_General_News_&_Opinion"
     },
     {
         "joinedVariables": [],
@@ -27276,7 +27276,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556071,
-        "url": "https:\/\/local.quantimo.do\/variables\/22:0_Saturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/22:0_Saturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -27331,7 +27331,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059120,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_General_Communication_&_Scheduling"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_General_Communication_&_Scheduling"
     },
     {
         "joinedVariables": [],
@@ -27384,7 +27384,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556081,
-        "url": "https:\/\/local.quantimo.do\/variables\/14:1_Monounsaturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/14:1_Monounsaturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -27440,7 +27440,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059132,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_Calendars"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_Calendars"
     },
     {
         "joinedVariables": [],
@@ -27494,7 +27494,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mL",
         "variableCategoryName": "Foods",
         "variableId": 106394,
-        "url": "https:\/\/local.quantimo.do\/variables\/Tea"
+        "url": "https:\/\/app.quantimo.do\/variables\/Tea"
     },
     {
         "joinedVariables": [],
@@ -27549,7 +27549,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556151,
-        "url": "https:\/\/local.quantimo.do\/variables\/15:0_Saturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/15:0_Saturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -27602,7 +27602,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556161,
-        "url": "https:\/\/local.quantimo.do\/variables\/17:0_Saturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/17:0_Saturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -27657,7 +27657,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Software",
         "variableId": 5918962,
-        "url": "https:\/\/local.quantimo.do\/variables\/Email_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/Email_Usage"
     },
     {
         "joinedVariables": [],
@@ -27721,7 +27721,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 87332,
-        "url": "https:\/\/local.quantimo.do\/variables\/Heartburn_Or_Indigestion"
+        "url": "https:\/\/app.quantimo.do\/variables\/Heartburn_Or_Indigestion"
     },
     {
         "joinedVariables": [],
@@ -27776,7 +27776,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "serving",
         "variableCategoryName": "Nutrients",
         "variableId": 110392,
-        "url": "https:\/\/local.quantimo.do\/variables\/Sugar_(serving)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Sugar_(serving)"
     },
     {
         "joinedVariables": [],
@@ -27834,7 +27834,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956929,
-        "url": "https:\/\/local.quantimo.do\/variables\/Audio_Editing_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Audio_Editing_Activities"
     },
     {
         "joinedVariables": [],
@@ -27894,7 +27894,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "count",
         "variableCategoryName": "Foods",
         "variableId": 5953618,
-        "url": "https:\/\/local.quantimo.do\/variables\/Coffee_(count)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Coffee_(count)"
     },
     {
         "joinedVariables": [],
@@ -27949,7 +27949,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059121,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_General_Social_Networking"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_General_Social_Networking"
     },
     {
         "joinedVariables": [],
@@ -28004,7 +28004,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059122,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_Intelligence"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_Intelligence"
     },
     {
         "joinedVariables": [],
@@ -28060,7 +28060,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059123,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_on_Internet_Utilities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_on_Internet_Utilities"
     },
     {
         "joinedVariables": [],
@@ -28116,7 +28116,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Software",
         "variableId": 5240701,
-        "url": "https:\/\/local.quantimo.do\/variables\/Windows_Explorer_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/Windows_Explorer_Usage"
     },
     {
         "joinedVariables": [],
@@ -28168,7 +28168,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "g",
         "variableCategoryName": "Foods",
         "variableId": 5556171,
-        "url": "https:\/\/local.quantimo.do\/variables\/24:0_Saturated_Fatty_Acids"
+        "url": "https:\/\/app.quantimo.do\/variables\/24:0_Saturated_Fatty_Acids"
     },
     {
         "joinedVariables": [],
@@ -28222,7 +28222,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Software",
         "variableId": 5241381,
-        "url": "https:\/\/local.quantimo.do\/variables\/Blank_Web_Browser_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/Blank_Web_Browser_Usage"
     },
     {
         "joinedVariables": [],
@@ -28276,7 +28276,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "s",
         "variableCategoryName": "Software",
         "variableId": 111402,
-        "url": "https:\/\/local.quantimo.do\/variables\/Accounts.google.com_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/Accounts.google.com_Usage"
     },
     {
         "joinedVariables": [],
@@ -28330,7 +28330,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Software",
         "variableId": 5241681,
-        "url": "https:\/\/local.quantimo.do\/variables\/Amazon.com_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/Amazon.com_Usage"
     },
     {
         "joinedVariables": [],
@@ -28390,7 +28390,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "pills",
         "variableCategoryName": "Treatments",
         "variableId": 1386,
-        "url": "https:\/\/local.quantimo.do\/variables\/Multivitamin_(pills)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Multivitamin_(pills)"
     },
     {
         "joinedVariables": [],
@@ -28444,7 +28444,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 6059938,
-        "url": "https:\/\/local.quantimo.do\/variables\/Time_Spent_On_General_Design_&_Composition_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Time_Spent_On_General_Design_&_Composition_Activities"
     },
     {
         "joinedVariables": [],
@@ -28509,7 +28509,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 87214,
-        "url": "https:\/\/local.quantimo.do\/variables\/Dizziness_Or_Lightheadedness"
+        "url": "https:\/\/app.quantimo.do\/variables\/Dizziness_Or_Lightheadedness"
     },
     {
         "joinedVariables": [],
@@ -28571,7 +28571,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Emotions",
         "variableId": 89305,
-        "url": "https:\/\/local.quantimo.do\/variables\/Irritable"
+        "url": "https:\/\/app.quantimo.do\/variables\/Irritable"
     },
     {
         "joinedVariables": [],
@@ -28624,7 +28624,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Treatments",
         "variableId": 4071231,
-        "url": "https:\/\/local.quantimo.do\/variables\/Gabapentin_(mg)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Gabapentin_(mg)"
     },
     {
         "joinedVariables": [],
@@ -28680,7 +28680,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "s",
         "variableCategoryName": "Software",
         "variableId": 111452,
-        "url": "https:\/\/local.quantimo.do\/variables\/Drive.google.com_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/Drive.google.com_Usage"
     },
     {
         "joinedVariables": [],
@@ -28731,7 +28731,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Treatments",
         "variableId": 1634671,
-        "url": "https:\/\/local.quantimo.do\/variables\/Wellbutrin_XL_(mg)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Wellbutrin_XL_(mg)"
     },
     {
         "joinedVariables": [],
@@ -28792,7 +28792,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "\/5",
         "variableCategoryName": "Symptoms",
         "variableId": 87456,
-        "url": "https:\/\/local.quantimo.do\/variables\/Mania"
+        "url": "https:\/\/app.quantimo.do\/variables\/Mania"
     },
     {
         "joinedVariables": [],
@@ -28845,7 +28845,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "s",
         "variableCategoryName": "Software",
         "variableId": 2465441,
-        "url": "https:\/\/local.quantimo.do\/variables\/Reddit.com_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/Reddit.com_Usage"
     },
     {
         "joinedVariables": [],
@@ -28899,7 +28899,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "s",
         "variableCategoryName": "Software",
         "variableId": 111312,
-        "url": "https:\/\/local.quantimo.do\/variables\/Newtab_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/Newtab_Usage"
     },
     {
         "joinedVariables": [],
@@ -28962,7 +28962,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "mg",
         "variableCategoryName": "Treatments",
         "variableId": 1634331,
-        "url": "https:\/\/local.quantimo.do\/variables\/Abilify_(Aripiprazole)_(mg)"
+        "url": "https:\/\/app.quantimo.do\/variables\/Abilify_(Aripiprazole)_(mg)"
     },
     {
         "joinedVariables": [],
@@ -29017,7 +29017,7 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Software",
         "variableId": 5492511,
-        "url": "https:\/\/local.quantimo.do\/variables\/Music_Usage"
+        "url": "https:\/\/app.quantimo.do\/variables\/Music_Usage"
     },
     {
         "joinedVariables": [],
@@ -29075,6 +29075,6 @@ qm.staticData.commonVariables = [
         "unitAbbreviatedName": "h",
         "variableCategoryName": "Activities",
         "variableId": 5956939,
-        "url": "https:\/\/local.quantimo.do\/variables\/Meetings_Activities"
+        "url": "https:\/\/app.quantimo.do\/variables\/Meetings_Activities"
     }
 ];

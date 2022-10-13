@@ -26,7 +26,7 @@
               redirect_uri = options.redirect_uri;
             }
           }
-          var browserRef = window.cordova.InAppBrowser.open('https://api.curedao.org/api/oauth2/authorize?response_type=code&client_id=' + clientId +
+          var browserRef = window.cordova.InAppBrowser.open('https://app.quantimo.do/api/oauth2/authorize?response_type=code&client_id=' + clientId +
             '&redirect_uri=' + redirect_uri + '&scope=' + appScope.join(","), '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
           browserRef.addEventListener('loadstart', function(event) {
             if((event.url).indexOf(redirect_uri) === 0) {
@@ -34,7 +34,7 @@
               $http({method: "post", headers: {
                 'Content-Type': 'application/x-www-form-urlencoded', 'accept': 'application/json'
                 },
-                url: "https://api.curedao.org/api/oauth2/token",
+                url: "https://app.quantimo.do/api/oauth2/token",
                 data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&code=" + requestToken + "&grant_type=authorization_code" })
                 .success(function(data) {
                   deferred.resolve(data);

@@ -50,7 +50,7 @@ qm.staticData.connectors = [
         "buttons": [
             {
                 "accessibilityText": "Connect",
-                "action": "https:\/\/api.curedao.org\/api\/v4\/connectors\/facebook\/connect",
+                "action": "https:\/\/app.quantimo.do\/api\/v4\/connectors\/facebook\/connect",
                 "additionalInformation": null,
                 "badgeText": null,
                 "backgroundColor": null,
@@ -63,7 +63,7 @@ qm.staticData.connectors = [
                 "id": "connect-facebook-button",
                 "image": "https:\/\/static.quantimo.do\/img\/Ionicons\/png\/512\/link.png",
                 "ionIcon": "ion-link",
-                "link": "https:\/\/api.curedao.org\/api\/v4\/connectors\/facebook\/connect",
+                "link": "https:\/\/app.quantimo.do\/api\/v4\/connectors\/facebook\/connect",
                 "onClick": null,
                 "parameters": [],
                 "stateName": null,
@@ -154,7 +154,7 @@ qm.staticData.connectors = [
         "buttons": [
             {
                 "accessibilityText": "Connect",
-                "action": "https:\/\/api.curedao.org\/api\/v4\/connectors\/github\/connect",
+                "action": "https:\/\/app.quantimo.do\/api\/v4\/connectors\/github\/connect",
                 "additionalInformation": null,
                 "badgeText": null,
                 "backgroundColor": null,
@@ -167,7 +167,7 @@ qm.staticData.connectors = [
                 "id": "connect-github-button",
                 "image": "https:\/\/static.quantimo.do\/img\/Ionicons\/png\/512\/link.png",
                 "ionIcon": "ion-link",
-                "link": "https:\/\/api.curedao.org\/api\/v4\/connectors\/github\/connect",
+                "link": "https:\/\/app.quantimo.do\/api\/v4\/connectors\/github\/connect",
                 "onClick": null,
                 "parameters": [],
                 "stateName": null,
@@ -261,7 +261,7 @@ qm.staticData.connectors = [
         "buttons": [
             {
                 "accessibilityText": "Connect",
-                "action": "https:\/\/api.curedao.org\/api\/v4\/connectors\/googleplus\/connect",
+                "action": "https:\/\/app.quantimo.do\/api\/v4\/connectors\/googleplus\/connect",
                 "additionalInformation": null,
                 "badgeText": null,
                 "backgroundColor": null,
@@ -274,7 +274,7 @@ qm.staticData.connectors = [
                 "id": "connect-googleplus-button",
                 "image": "https:\/\/static.quantimo.do\/img\/Ionicons\/png\/512\/link.png",
                 "ionIcon": "ion-link",
-                "link": "https:\/\/api.curedao.org\/api\/v4\/connectors\/googleplus\/connect",
+                "link": "https:\/\/app.quantimo.do\/api\/v4\/connectors\/googleplus\/connect",
                 "onClick": null,
                 "parameters": [],
                 "stateName": null,
@@ -363,7 +363,7 @@ qm.staticData.connectors = [
         "buttons": [
             {
                 "accessibilityText": "Connect",
-                "action": "https:\/\/api.curedao.org\/api\/v4\/connectors\/linkedin\/connect",
+                "action": "https:\/\/app.quantimo.do\/api\/v4\/connectors\/linkedin\/connect",
                 "additionalInformation": null,
                 "badgeText": null,
                 "backgroundColor": null,
@@ -376,7 +376,7 @@ qm.staticData.connectors = [
                 "id": "connect-linkedin-button",
                 "image": "https:\/\/static.quantimo.do\/img\/Ionicons\/png\/512\/link.png",
                 "ionIcon": "ion-link",
-                "link": "https:\/\/api.curedao.org\/api\/v4\/connectors\/linkedin\/connect",
+                "link": "https:\/\/app.quantimo.do\/api\/v4\/connectors\/linkedin\/connect",
                 "onClick": null,
                 "parameters": [],
                 "stateName": null,
@@ -580,7 +580,7 @@ qm.staticData.connectors = [
         "availableOutsideUS": true,
         "connectError": null,
         "connectInstructions": {
-            "url": "https:\/\/api.curedao.org\/api\/v1\/connectors\/twitter\/connect",
+            "url": "https:\/\/app.quantimo.do\/api\/v1\/connectors\/twitter\/connect",
             "parameters": [],
             "usePopup": true
         },
@@ -608,7 +608,7 @@ qm.staticData.connectors = [
         "buttons": [
             {
                 "accessibilityText": "Connect",
-                "action": "https:\/\/api.curedao.org\/api\/v4\/connectors\/twitter\/connect",
+                "action": "https:\/\/app.quantimo.do\/api\/v4\/connectors\/twitter\/connect",
                 "additionalInformation": null,
                 "badgeText": null,
                 "backgroundColor": null,
@@ -621,7 +621,7 @@ qm.staticData.connectors = [
                 "id": "connect-twitter-button",
                 "image": "https:\/\/static.quantimo.do\/img\/Ionicons\/png\/512\/link.png",
                 "ionIcon": "ion-link",
-                "link": "https:\/\/api.curedao.org\/api\/v4\/connectors\/twitter\/connect",
+                "link": "https:\/\/app.quantimo.do\/api\/v4\/connectors\/twitter\/connect",
                 "onClick": null,
                 "parameters": [],
                 "stateName": null,

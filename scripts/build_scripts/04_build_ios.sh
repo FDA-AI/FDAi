@@ -48,7 +48,7 @@ chmod a+x ./scripts/add-key.sh
 
 cp -R apps/${CUREDAO_CLIENT_ID}/* $PWD
 ionic state reset
-npm install && gulp configureApp
+npm install && npm run configure:app
 echo "npm has installed"
 gulp -v
 echo "ran through gulp"

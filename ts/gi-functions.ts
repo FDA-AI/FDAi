@@ -22,9 +22,9 @@ export function runIonicFailedAll(callback: () => void) {
         })
     })
 }
-function logTestParameters(apiUrl: string, startUrl: string, testUrl: string) {
+function logTestParameters(apiOrigin: string, startUrl: string, testUrl: string) {
     console.info(`startUrl: ` + startUrl)
-    console.info(`apiUrl: ` + apiUrl)
+    console.info(`apiOrigin: ` + apiOrigin)
     console.info(`View test at: ` + testUrl)
 }
 function handleTestErrors(errorMessage: string) {
@@ -38,17 +38,17 @@ export const gi = {
     context: "",
     getStartUrl(): string {
         if (gi.suiteType === "api") {
-            return th.getApiUrl() + `/api/v2/auth/login`
+            return th.getApiOrigin() + `/api/v2/auth/login`
         }
         let defaultValue = "https://web.quantimo.do"
-        if (th.getApiUrl().indexOf("utopia") !== -1) {
+        if (th.getApiOrigin().indexOf("utopia") !== -1) {
             defaultValue = "https://dev-web.quantimo.do"
         }
         if(process.env.RELEASE_STAGE === "ionic") {
-            const CYPRESS_OAUTH_APP_HOST = process.env.CYPRESS_OAUTH_APP_HOST
-            if(CYPRESS_OAUTH_APP_HOST) {
-                qmLog.info("Using startUrl "+CYPRESS_OAUTH_APP_HOST+ " from process.env.CYPRESS_OAUTH_APP_HOST")
-                return CYPRESS_OAUTH_APP_HOST
+            const CYPRESS_OAUTH_APP_ORIGIN = process.env.CYPRESS_OAUTH_APP_ORIGIN
+            if(CYPRESS_OAUTH_APP_ORIGIN) {
+                qmLog.info("Using startUrl "+CYPRESS_OAUTH_APP_ORIGIN+ " from process.env.CYPRESS_OAUTH_APP_ORIGIN")
+                return CYPRESS_OAUTH_APP_ORIGIN
             }
             return "https://medimodo.herokuapp.com"
         }
@@ -125,8 +125,8 @@ export const gi = {
         const options = gi.getOptions(startUrl)
         const test = tests.pop()
         const testUrl = `https://app.ghostinspector.com/tests/` + test._id
-        qmGit.setGithubStatus("pending", gi.context, options.apiUrl, testUrl)
-        logTestParameters(options.apiUrl, options.startUrl, testUrl)
+        qmGit.setGithubStatus("pending", gi.context, options.apiOrigin, testUrl)
+        logTestParameters(options.apiOrigin, options.startUrl, testUrl)
         getGhostInspector().executeTest(test._id, options, function(err: string, testResults: any, passing: any) {
             console.info(`RESULTS:`)
             if (err) {
@@ -134,7 +134,7 @@ export const gi = {
             }
             if (!passing) {
                 gi.outputErrorsForTest(testResults)
-                qmGit.setGithubStatus("failure", gi.context, options.apiUrl, testUrl, function() {
+                qmGit.setGithubStatus("failure", gi.context, options.apiOrigin, testUrl, function() {
                     process.exit(1)
                 })
             } else {
@@ -183,8 +183,8 @@ export const gi = {
         console.info(`\n=== All ${gi.suiteType.toUpperCase()} GI Tests ===\n`)
         const options = gi.getOptions(startUrl)
         const testSuiteUrl = `https://app.ghostinspector.com/suites/` + suiteId
-        logTestParameters(options.apiUrl, startUrl, testSuiteUrl)
-        qmGit.setGithubStatus("pending", gi.context, options.apiUrl, testSuiteUrl)
+        logTestParameters(options.apiOrigin, startUrl, testSuiteUrl)
+        qmGit.setGithubStatus("pending", gi.context, options.apiOrigin, testSuiteUrl)
         getGhostInspector().executeSuite(suiteId, options, function(err: string, suiteResults: string |
             any[],                                                  passing: boolean) {
             console.info(`RESULTS:`)
@@ -201,13 +201,13 @@ export const gi = {
                 }
             } else {
                 console.log(testSuiteUrl + " " + " passed! :D")
-                qmGit.setGithubStatus("success", gi.context, options.apiUrl, testSuiteUrl, callback)
+                qmGit.setGithubStatus("success", gi.context, options.apiOrigin, testSuiteUrl, callback)
             }
         })
     },
     getOptions(startUrl: any) {
         return {
-            apiUrl: th.getApiUrl(),
+            apiOrigin: th.getApiOrigin(),
             sha: qmGit.getCurrentGitCommitSha(),
             startUrl: startUrl || gi.getStartUrl(),
         }

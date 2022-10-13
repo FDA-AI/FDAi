@@ -121,6 +121,5 @@ ts/**/*.js
 ts/**/*.map
 cypress/**/*.map
 !/tmp/.gitignore
-/cypress/cypress-functions.js
-/cypress/cypress-runner.js
-/cypress/reports/cypress-slack-reporter.js
+.vercel
+/src/data/buildInfo.js

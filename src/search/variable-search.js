@@ -91,7 +91,7 @@ function search(query) {
     }
 }
 function variableSearchV6(query) {
-    const url = 'https://local.quantimo.do/api/v6/variables?q='+query+"&client_id="+clientId+"&cards=1";
+    const url = 'https://app.quantimo.do/api/v6/variables?q='+query+"&client_id="+clientId+"&cards=1";
     fetch(url, {
             headers: {
                 'Content-Type': 'application/json'
@@ -107,7 +107,7 @@ function variableSearchV6(query) {
 function updateSearchResults(result) {
     searchCache[query] = result;
     function generateLineSearchItem(one) {
-        var url = one.url || one.link || "https://api.curedao.org/datalab/variables/"+one.id;
+        var url = one.url || one.link || "https://app.quantimo.do/variables/"+one.id;
         var title = one.title || one.displayName || one.name;
         var subTitle = one.subTitle || one.description || one.variableCategoryName;
         var image = one.imageUrl || one.image || one.avatar;

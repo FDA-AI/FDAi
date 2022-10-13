@@ -1,20 +1,21 @@
 import dotenv from "dotenv"
+import {getAbsolutePath} from "./qm.file-helper"
 import * as fileHelper from "./qm.file-helper"
 import * as qmLog from "./qm.log"
 
 export const envs = {
-    APP_HOST_NAME: "APP_HOST_NAME",
+    API_ORIGIN: "API_ORIGIN",
     AWS_ACCESS_KEY_ID: "AWS_ACCESS_KEY_ID",
     AWS_SECRET_ACCESS_KEY: "AWS_SECRET_ACCESS_KEY",
     BUGSNAG_API_KEY: "BUGSNAG_API_KEY",
+    CUREDAO_CLIENT_ID: "CUREDAO_CLIENT_ID",
+    CUREDAO_CLIENT_SECRET: "CUREDAO_CLIENT_SECRET",
+    CUREDAO_PERSONAL_ACCESS_TOKEN: "CUREDAO_PERSONAL_ACCESS_TOKEN",
     GH_TOKEN: "GH_TOKEN",
     GITHUB_ACCESS_TOKEN: "GITHUB_ACCESS_TOKEN",
     GITHUB_ACCESS_TOKEN_FOR_STATUS: "GITHUB_ACCESS_TOKEN_FOR_STATUS",
     QM_AWS_ACCESS_KEY_ID: "QM_AWS_ACCESS_KEY_ID",
     QM_AWS_SECRET_ACCESS_KEY: "QM_AWS_SECRET_ACCESS_KEY",
-    CUREDAO_ACCESS_TOKEN: "CUREDAO_ACCESS_TOKEN",
-    CUREDAO_CLIENT_ID: "CUREDAO_CLIENT_ID",
-    CUREDAO_CLIENT_SECRET: "CUREDAO_CLIENT_SECRET",
 }
 
 export let paths = {
@@ -76,6 +77,18 @@ export function getenv(names: string|string[], defaultValue?: null | string): st
     }
     return defaultValue || null
 }
+export function loadEnvFromDopplerOrDotEnv(relativeEnvPath: string): void {
+    if(!process.env.DOPPLER_TOKEN) {
+        try {
+            loadEnv(relativeEnvPath)
+        } catch (e) {
+            qmLog.error("Please provide a DOPPLER_TOKEN environment variable or .env in root of repo")
+            throw e
+        }
+    } else {
+        loadDopplerSecrets()
+    }
+}
 
 export function getenvOrException(names: string|string[]): string {
     if(!Array.isArray(names)) {names = [names]}
@@ -118,11 +131,11 @@ export function getQMClientSecret(): string | null {
 }
 
 export function getAppHostName() {
-    return getenv(envs.APP_HOST_NAME)
+    return getenv(envs.API_ORIGIN)
 }
 
 export function getAccessToken(): string {
-    return getenvOrException(envs.CUREDAO_ACCESS_TOKEN)
+    return getenvOrException(envs.CUREDAO_PERSONAL_ACCESS_TOKEN)
 }
 
 export function getGithubAccessToken(): string {
@@ -193,4 +206,29 @@ export const qmPlatform = {
     isBackEnd() {
         return typeof window === "undefined"
     },
+}
+
+function loadDopplerSecrets() {
+    let result
+    const absPath = getAbsolutePath("doppler-secrets-async.js")
+    result = require("child_process").execSync("node "+absPath)
+    const secrets = JSON.parse(result)
+    qmLog.info("Setting envs from doppler-secrets-async.js...")
+    const env = process.env
+    Object.keys(secrets).forEach(function(key) {
+        if (secrets.hasOwnProperty(key)) {
+            const value = secrets[key]
+            const existingValue = env[key] || null
+            if(existingValue && existingValue.length > 0) {
+                qmLog.info(key + " already set to " + existingValue)
+                return
+            }
+            if (value.length > 6) {
+                qmLog.debug(key + "=..." + value.substring(value.length - 6, value.length))
+            } else {
+                qmLog.debug(key + "=" + value)
+            }
+            process.env[key] = secrets[key]
+        }
+    })
 }

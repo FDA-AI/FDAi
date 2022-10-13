@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "CureDAO",
   "short_name": "curedao",
-  "description": "Better living through data.",
+  "description": "Crowdsourcing cures.",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [
@@ -13,6 +13,6 @@
     }
   ],
   "background_color": "#FF9800",
-  "theme_color": "#FF9800",
-  "gcm_sender_id": "103953800507"
+  "gcm_sender_id": "103953800507",
+  "theme_color": "#000000"
 }

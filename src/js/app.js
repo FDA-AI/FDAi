@@ -33,20 +33,11 @@ angular.module('starter',
         'ngFitText',
         'ngMdIcons',
         'angularMoment',
-        'open-chat-framework'
+        //'open-chat-framework'
     ]
 )
-    .run(["$ionicPlatform", "$ionicHistory", "$state", "$rootScope", "qmService", "ngChatEngine",
-        function($ionicPlatform, $ionicHistory, $state, $rootScope, qmService, ngChatEngine){
-            if(typeof ChatEngineCore !== "undefined"){
-                $rootScope.ChatEngine = ChatEngineCore.create({
-                    publishKey: 'pub-c-d8599c43-cecf-42ba-a72f-aa3b24653c2b',
-                    subscribeKey: 'sub-c-6c6c021c-c4e2-11e7-9628-f616d8b03518'
-                }, {
-                    debug: true,
-                    globalChannel: 'chat-engine-angular-simple'
-                });
-            }
+    .run(["$ionicPlatform", "$ionicHistory", "$state", "$rootScope", "qmService",
+        function($ionicPlatform, $ionicHistory, $state, $rootScope, qmService){
             if(!qm.urlHelper.onQMSubDomain()){
                 //qm.appsManager.loadPrivateConfigFromJsonFile();
             }
@@ -142,35 +133,9 @@ angular.module('starter',
                  //, $opbeatProvider
         ){
             //$opbeatProvider.config({orgId: '10d58117acb546c08a2cae66d650480d', appId: 'fc62a74505'});
-            if(qm.urlHelper.getParam(qm.items.apiUrl)){
-                qm.storage.setItem(qm.items.apiUrl, "https://" + qm.urlHelper.getParam(qm.items.apiUrl));
+            if(qm.urlHelper.getParam(qm.items.apiOrigin)){
+                qm.storage.setItem(qm.items.apiOrigin, qm.urlHelper.getParam(qm.items.apiOrigin));
             }
-            function setupGoogleAnalytics(){
-                var analyticsOptions = {tracker: 'UA-39222734-25', trackEvent: true};  // Note:  This will be replaced by qm.getAppSettings().additionalSettings.googleAnalyticsTrackingIds.endUserApps in qmService.getUserAndSetupGoogleAnalytics
-                if(ionic.Platform.isAndroid()){
-                    var clientId = qm.storage.getItem('GA_LOCAL_STORAGE_KEY');
-                    if(!clientId){
-                        clientId = Math.floor((Math.random() * 9999999999) + 1000000000);
-                        clientId = clientId + '.' + Math.floor((Math.random() * 9999999999) + 1000000000);
-                        window.qm.storage.setItem('GA_LOCAL_STORAGE_KEY', clientId);
-                    }
-                    analyticsOptions.fields = {storage: 'none', fields: clientId};
-                }
-                if(typeof AnalyticsProvider !== "undefined"){
-                    AnalyticsProvider.setAccount(analyticsOptions);
-                    AnalyticsProvider.delayScriptTag(true);  // Needed to set user id later
-                    // Track all routes (default is true).
-                    AnalyticsProvider.trackPages(true); // Track all URL query params (default is false).
-                    AnalyticsProvider.trackUrlParams(true);  // Ignore first page view (default is false).
-                    AnalyticsProvider.ignoreFirstPageLoad(true);  // Helpful when using hashes and whenever your bounce rate looks obscenely low.
-                    //AnalyticsProvider.trackPrefix('my-application'); // Helpful when the app doesn't run in the root directory. URL prefix (default is empty).
-                    AnalyticsProvider.setPageEvent('$stateChangeSuccess'); // Change the default page event name. Helpful when using ui-router, which fires $stateChangeSuccess instead of $routeChangeSuccess.
-                    AnalyticsProvider.setHybridMobileSupport(true);  // Set hybrid mobile application support
-                    //AnalyticsProvider.enterDebugMode(true);
-                    AnalyticsProvider.useECommerce(true, true); // Enable e-commerce module (ecommerce.js)
-                }
-            }
-            setupGoogleAnalytics();
             //$ionicCloudProvider.init({"core": {"app_id": "42fe48d4"}}); Trying to move to appCtrl
             $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|mailto|chrome-extension|ms-appx-web|ms-appx):/);
             $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|file|ftp|mailto|chrome-extension|ms-appx-web|ms-appx):/);
@@ -299,14 +264,3 @@ angular.module('exceptionOverride', []).factory('$exceptionHandler', function(){
         }
     };
 });
-angular.module('open-chat-framework', [])
-    .service('ngChatEngine', ['$timeout', function($timeout){
-        this.bind = function(ChatEngine){ // updates angular when anything changes
-            ChatEngine.onAny(function(event, payload){
-                console.log('event', event);
-                console.log('payload', payload);
-                $timeout(function(){
-                });
-            });
-        }
-    }]);

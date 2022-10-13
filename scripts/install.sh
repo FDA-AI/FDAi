@@ -11,15 +11,11 @@ cd "${SCRIPT_FOLDER}" && cd .. && export IONIC_PATH="$PWD" && source "$IONIC_PAT
 # shellcheck source=./no-root.sh
 source "$SCRIPT_FOLDER"/no-root.sh
 # shellcheck source=./nvm.sh
-source "$SCRIPT_FOLDER"/nvm.sh 10
+source "$SCRIPT_FOLDER"/nvm.sh 16.13.0
 npm install npm@latest -g
-set -x && npm install --loglevel info && set +x
-if [[ ${NODE_NAME} = "sonicmaster-ubuntu" ]];
-    then
-        echo "Have to run rebuild node-sass on sonicmaster slave.  TODO: Remove this";
-        npm rebuild node-sass;
-fi
-npm install typescript -g
+set -x && npm install && set +x
+npm install typescript http-server -g
+set -e
 npm run configure:app
 # shellcheck source=./log_start.sh
 source "$IONIC_PATH"/scripts/log_end.sh "${BASH_SOURCE[0]}"

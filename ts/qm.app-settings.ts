@@ -7,6 +7,7 @@ import * as testHelpers from "./test-helpers"
 
 // tslint:disable-next-line:no-var-requires
 const qm = require("../src/js/qmHelpers.js")
+env.loadEnvFromDopplerOrDotEnv(".env")
 function isTruthy(value: string | undefined) {return (value && value !== "false")}
 function getRequestOptions(path: string) {
     const options = {
@@ -21,9 +22,9 @@ function getRequestOptions(path: string) {
         uri: qm.getAppHostName() + path,
     }
     if(options.qs.access_token) {
-        qmLog.info("Using CUREDAO_ACCESS_TOKEN: " + options.qs.access_token.substring(0,4)+"...")
+        qmLog.info("Using CUREDAO_PERSONAL_ACCESS_TOKEN: " + options.qs.access_token.substring(0,4)+"...")
     } else {
-        qmLog.error("Please add your CUREDAO_ACCESS_TOKEN environmental variable from " + env.getAppHostName()
+        qmLog.error("Please add your CUREDAO_PERSONAL_ACCESS_TOKEN environmental variable from " + env.getAppHostName()
             + "/api/v2/account")
     }
     return options
@@ -59,7 +60,7 @@ export function saveAppSettings() {
                 getAppEditUrl())
             const url = env.getAppHostName()
             if(url) {
-                as.apiUrl = url.replace("https://", "")
+                as.apiOrigin = url.replace("https://", "")
             }
             return writeAppSettingsToFile(qm.staticData.appSettings)
         }).catch(function(error: string) {
