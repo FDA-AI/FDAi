@@ -3197,7 +3197,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
             /** @namespace $rootScope.offlineConnectionErrorShowing */
             if(!$rootScope.offlineConnectionErrorShowing && !doNotShowOfflineError){
                 qmLog.error("Showing offline indicator because no data was returned from this request: " + pathWithoutQuery,
-                    {debugApiUrl: qm.api.getDebugApiUrlFromRequest(request), request: request}, options.stackTrace);
+                    {debugApiOrigin: qm.api.getDebugApiOriginFromRequest(request), request: request}, options.stackTrace);
                 qmService.navBar.setOfflineConnectionErrorShowing(true);
                 if($rootScope.platform.isIOS){
                     $ionicPopup.show({
@@ -5758,7 +5758,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                 userVote: 1
             });
             var subjectLine = "Help us discover the effect of " + causeVariableName + " on " + effectVariableName;
-            var studyLinkStatic = qm.api.getBaseUrl() + "/api/v2/study?causeVariableName=" +
+            var studyLinkStatic = qm.api.getApiOrigin() + "/api/v2/study?causeVariableName=" +
                 encodeURIComponent(causeVariableName) + '&effectVariableName=' + encodeURIComponent(effectVariableName);
             var bodyText = "Please join my study at " + studyLinkStatic + " .  Have a great day!";
             return {
@@ -5772,7 +5772,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
             if(study && study.studyLinks){
                 return study.studyLinks.studyLinkStatic;
             }
-            return qm.api.getBaseUrl() + '/api/v2/study?causeVariableName=' + encodeURIComponent(causeVariableName) + '&effectVariableName=' + encodeURIComponent(effectVariableName);
+            return qm.api.getApiOrigin() + '/api/v2/study?causeVariableName=' + encodeURIComponent(causeVariableName) + '&effectVariableName=' + encodeURIComponent(effectVariableName);
         };
         qmService.getWikipediaArticle = function(title){
             var deferred = $q.defer();

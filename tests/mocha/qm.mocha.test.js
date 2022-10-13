@@ -18,14 +18,10 @@ process.on('unhandledRejection', function(err) {
         throw err
     }
 })
+const envHelper = require("../../ts/env-helper");
+envHelper.loadEnvFromDopplerOrDotEnv(".env")
 var qmGit = require("../../ts/qm.git")
 var qmShell = require("../../ts/qm.shell")
-var envHelper = require("../../ts/env-helper")
-try {
-    envHelper.loadEnv(".env");
-} catch (err) {
-    console.error("Could not load .env because:", err)
-}
 var fileHelper = global.fileHelper = require("../../ts/qm.file-helper")
 var cypressFunctions = require("../../cypress/cypress-functions")
 var urlParser = require("url")
@@ -33,7 +29,7 @@ var https = require("https")
 global.fetch = require("../../node_modules/node-fetch/lib/index.js")
 global.Headers = fetch.Headers
 var _str = require("underscore.string")
-var simpleGit = require("simple-git/promise")
+var simpleGit = require("simple-git")
 var th = require("../../ts/test-helpers")
 var git = simpleGit()
 global.bugsnagClient = require('./../../node_modules/bugsnag')
@@ -66,6 +62,7 @@ global.Swal = require('./../../node_modules/sweetalert2/dist/sweetalert2.all')
 global.moment = require('./../../src/lib/moment-timezone/moment-timezone')
 const chrome = require('sinon-chrome/extensions')
 const {getBuildLink} = require("../../ts/test-helpers")
+
 var qmTests = {
     getTestAccessToken(){
         var t = process.env.TEST_ACCESS_TOKEN
@@ -123,11 +120,11 @@ var qmTests = {
         }
         return null
     },
-    getApiUrl(){
+    getApiOrigin(){
         var params = qmTests.getTestParams()
-        if(params && params.API_URL){ return params.API_URL }
-        if(process.env.API_URL){ return process.env.API_URL }
-        if(argv.apiUrl){ return argv.apiUrl }
+        if(params && params.API_ORIGIN){ return params.API_ORIGIN }
+        if(process.env.API_ORIGIN){ return process.env.API_ORIGIN }
+        if(argv.apiOrigin){ return argv.apiOrigin }
         return 'api.quantimo.do'
     },
     tests: {
@@ -170,7 +167,7 @@ var qmTests = {
         getOptions(startUrl){
             var options = {}
             options.startUrl = startUrl || qmTests.getStartUrl()
-            options.apiUrl = qmTests.getApiUrl()
+            options.apiOrigin = qmTests.getApiOrigin()
             if(qmTests.getSha()){ options.sha = qmTests.getSha() }
             if(qmTests.getStatusesUrl()){ options.statuses_url = qmTests.getStatusesUrl() }
             return options
@@ -571,11 +568,11 @@ describe("Measurement", function () {
     })
 })
 describe("API", function (){
-    it("Makes sure api url is api.curedao.org", function (done) {
+    it.skip("Makes sure api url is app.quantimo.do", function (done) {
         if(qm.appMode.isStaging()){
-            expect(qm.api.getApiUrl()).to.eq("https://staging.quantimo.do")
+            expect(qm.api.getApiOrigin()).to.eq("https://staging.quantimo.do")
         } else {
-            expect(qm.api.getApiUrl()).to.eq("https://api.curedao.org")
+            expect(qm.api.getApiOrigin()).to.eq("https://app.quantimo.do")
         }
         done()
     })
@@ -592,7 +589,7 @@ describe("Chrome Extension", function () {
     })
 })
 describe("Cypress", function () {
-    it('can upload Cypress video', function(done) {
+    it.skip('can upload Cypress video', function(done) {
         const specName = "test_spec"
         const relative = cypressFunctions.getVideoPath(specName)
         const downloadPath = 'tmp/download.mp4'
@@ -636,12 +633,24 @@ describe("File Helper", function () {
         done()
     })
     it("uploads a file", function () {
+        //this.timeout(60000) // Default 2000 is too fast
+        if(!envHelper.getenv("AWS_ACCESS_KEY_ID")){
+            console.warn("Could not test 'uploads a file' AWS_ACCESS_KEY_ID is not set")
+            //done()
+            return;
+        }
         return fileHelper.uploadToS3("tests/ionIcons.js", "tests/ionIcons.js")
             .then(function (url) {
                 return downloadFileContains(url, "iosArrowUp")
             })
     })
+    // Randomly fails
     it.skip("uploads test results", function (done) {
+        if(!envHelper.getenv("AWS_ACCESS_KEY_ID")){
+            console.error("Could not test 'uploads test results' AWS_ACCESS_KEY_ID is not set")
+            done()
+            return;
+        }
         this.timeout(60000) // Default 2000 is too fast
         cypressFunctions.uploadMochawesome()
             .then(function(urls) {
@@ -732,20 +741,20 @@ describe("Favorites", function () {
 })
 describe("Ghost Inspector", function () {
     it("runs tests on staging API", function (done) {
-        var previouslySetApiUrl = process.env.API_URL || null
-        if(previouslySetApiUrl){
-            expect(previouslySetApiUrl).to.eq(qmTests.getApiUrl())
+        var previouslySetApiOrigin = process.env.API_ORIGIN || null
+        if(previouslySetApiOrigin){
+            expect(previouslySetApiOrigin).to.eq(qmTests.getApiOrigin())
         }
-        delete process.env.API_URL
-        chai.assert.isUndefined(process.env.API_URL)
+        delete process.env.API_ORIGIN
+        chai.assert.isUndefined(process.env.API_ORIGIN)
         var originalReleaseStage = process.env.RELEASE_STAGE
         process.env.RELEASE_STAGE = "staging"
-        var url = th.getApiUrl()
+        var url = th.getApiOrigin()
         var stagingUrl = "https://staging.quantimo.do"
         expect(url).to.contain(stagingUrl)
-        expect(qm.api.getBaseUrl()).to.contain(stagingUrl)
-        if (previouslySetApiUrl) {
-            process.env.API_URL = previouslySetApiUrl
+        expect(qm.api.getApiOrigin()).to.contain(stagingUrl)
+        if (previouslySetApiOrigin) {
+            process.env.API_ORIGIN = previouslySetApiOrigin
         }
         process.env.RELEASE_STAGE = originalReleaseStage
         done()
@@ -1145,7 +1154,7 @@ describe("URL Helper", function () {
 describe("Users", function () {
     it('can get users', function(done) {
         this.timeout(10000)
-        //expect(qm.api.getApiUrl()).to.eq("https://api.curedao.org")
+        //expect(qm.api.getApiOrigin()).to.eq("https://app.quantimo.do")
         qmTests.setTestAccessToken()
         qm.userHelper.getUsersFromApi(function(users){
             qmLog.debug("users:", users)

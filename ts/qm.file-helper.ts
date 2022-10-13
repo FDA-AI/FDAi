@@ -121,6 +121,7 @@ export function uploadToS3(
         // @ts-ignore
         params.ContentType = ContentType
     }
+    qmLog.info("\n\tuploading to s3: "+ s3Key)
     s3.upload(params, (err: any, SendData: any) => {
         if (err) {
             qmLog.error(s3Key + "\n\t FAILED to uploaded")
@@ -184,57 +185,39 @@ export function download(url: string, relative: string) {
     return deferred.promise
 }
 
-export function uploadFolderToS3(
+export async function uploadFolderToS3(
     dir: string,
     s3BasePath: string,
     s3Bucket = defaultS3Bucket,
     accessControlLevel = "public-read",
     ContentType?: string | undefined,
 ) {
-    return listFilesRecursively(dir)
-        .then(function(files) {
-            const promises: Q.IWhenable<any[]> = []
-            // @ts-ignore
-            files.forEach(function(file) {
-                const dirWithForwardSlashes = qm.stringHelper.replaceBackSlashes(dir, "/")
-                const fileWithForwardSlashes = qm.stringHelper.replaceBackSlashes(file, "/")
-                const relativePath = fileWithForwardSlashes.replace(dirWithForwardSlashes, "")
-                let s3Key = s3BasePath + relativePath
-                s3Key = s3Key.replace("\\", "/")
-                promises.push(uploadToS3(file, s3Key, s3Bucket, ContentType))
-            })
-            return Q.all(promises)
-        })
+    const files = await listFilesRecursively(dir)
+    qmLog.info("Uploading " + files.length + " files to " + s3Bucket + "/" + s3BasePath + "...")
+    const urls = []
+    // @ts-ignore
+    for (const file of files) {
+        const dirWithForwardSlashes = qm.stringHelper.replaceBackSlashes(dir, "/")
+        const fileWithForwardSlashes = qm.stringHelper.replaceBackSlashes(file, "/")
+        const relativePath = fileWithForwardSlashes.replace(dirWithForwardSlashes, "")
+        let s3Key = s3BasePath + relativePath
+        s3Key = s3Key.replace("\\", "/")
+        urls.push(await uploadToS3(file, s3Key, s3Bucket, ContentType))
+    }
+    return urls
 }
 
-export function listFilesRecursively(dir: string) {
-    let results: any[] = []
-    const deferred = Q.defer()
-    fs.readdir(dir, function(err, list) {
-        if (err) {
-           deferred.reject(err)
-           return
+export async function listFilesRecursively(dirPath: string, arrayOfFiles?: string[]): Promise<string[]> {
+    const fileNames = fs.readdirSync(dirPath)
+    arrayOfFiles = arrayOfFiles || []
+    for (const fileName of fileNames) {
+        const dirOrFile = path.join(dirPath, fileName)
+        if (fs.statSync(dirOrFile).isDirectory()) {
+            arrayOfFiles = await listFilesRecursively(dirOrFile, arrayOfFiles)
+        } else {
+            const filePath = path.join(dirPath, fileName)
+            arrayOfFiles.push(filePath)
         }
-        let i = 0;
-        (function next() {
-            let file = list[i++]
-            if (!file) {
-                deferred.resolve(results)
-                return
-            }
-            file = path.resolve(dir, file)
-            fs.stat(file, function(statErr, stat) {
-                if (stat && stat.isDirectory()) {
-                    listFilesRecursively(file).then(function(res) {
-                        results = results.concat(res)
-                        next()
-                    })
-                } else {
-                    results.push(file)
-                    next()
-                }
-            })
-        })()
-    })
-    return deferred.promise
+    }
+    return arrayOfFiles
 }

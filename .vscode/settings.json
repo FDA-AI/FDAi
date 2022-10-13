@@ -11,5 +11,6 @@
     "gulptasks.notifications.executed": true,
     "gulptasks.notifications.terminated": true,
     "gulptasks.notifications.restarted": true,
-    "fiveServer.navigate": true
+    "fiveServer.navigate": true,
+    "editor.acceptSuggestionOnEnter": "on"
   }

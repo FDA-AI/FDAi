@@ -109,18 +109,6 @@ var qmLog = {
         }
         return qmLog.authDebugEnabled;
     },
-    setDebugMode: function(value){
-        if(value){
-            if(qm.getUser() && qm.getUser().id === 230){
-                qm.storage.setItem(qm.items.apiUrl, 'utopia.quantimo.do');
-            }
-            qmLog.setLogLevelName("debug");
-        }else{
-            qm.storage.removeItem(qm.items.apiUrl);
-            qmLog.setLogLevelName("info");
-        }
-        return value;
-    },
     itemAndThrowException: function(item, message, propertiesToLog){
         qmLog.itemProperties(item, propertiesToLog);
         throw message;
@@ -534,7 +522,9 @@ var qmLog = {
         }
         logString = qmLog.replaceSecretValuesInString(logString);
         if(!logString){debugger}
-        return logString;
+        if(!this.startTime){this.startTime = new Date().getTime();}
+        var time = new Date().getTime() - this.startTime;
+        return logString + " (" + (time/1000).toString().substring(0,3) + "s)";
     },
     shouldWeLog: function(providedLogLevelName){
         var globalLogLevelValue = qmLog.logLevels[qmLog.getLogLevelName()];
@@ -597,7 +587,7 @@ var qmLog = {
         if(qmLog.isDebugMode()){
             qmLog.globalMetaData.local_storage = qm.storage.getLocalStorageList();
         } // Too slow to do for every error
-        qmLog.globalMetaData.api = {log: qm.api.requestLog, ApiUrl: qm.api.getApiUrl()};
+        qmLog.globalMetaData.api = {log: qm.api.requestLog, ApiOrigin: qm.api.getApiOrigin()};
         var as = qm.getAppSettings();
         if(as){
             qmLog.globalMetaData.api.client_id = qm.api.getClientId();

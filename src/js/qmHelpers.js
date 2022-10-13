@@ -195,9 +195,9 @@ var qm = {
             params = params || {};
             var qmApiClient = qm.Quantimodo.ApiClient.instance;
             var quantimodo_oauth2 = qmApiClient.authentications.quantimodo_oauth2;
-            qmApiClient.basePath = qm.api.getBaseUrl() + '/api';
+            qmApiClient.basePath = qm.api.getApiOrigin() + '/api';
             quantimodo_oauth2.accessToken = qm.auth.getAccessTokenFromUrlUserOrStorage();
-            var message = "API Request to " + qm.api.getBaseUrl() + " for " + functionName;
+            var message = "API Request to " + qm.api.getApiOrigin() + " for " + functionName;
             if(params.reason){
                 message += " because " + params.reason;
             }
@@ -574,68 +574,65 @@ var qm = {
                 }
             }
         },
-        getBaseUrl: function(){
-            var apiUrl = qm.urlHelper.getParam(qm.items.apiUrl);
-            if(apiUrl && apiUrl !== qm.storage.getItem(qm.items.apiUrl)){
-                qm.storage.setItem(qm.items.apiUrl, apiUrl);
+        apiOrigins:{
+            production: 'https://app.quantimo.do',
+            staging: 'https://staging.quantimo.do',
+            local: 'http://localhost:80',
+            remoteLocal: 'https://utopia.quantimo.do',
+        },
+        getApiOrigin: function(){
+            var apiOrigin = qm.urlHelper.getParam(qm.items.apiOrigin);
+            if(apiOrigin && apiOrigin !== qm.storage.getItem(qm.items.apiOrigin)){
+                qm.storage.setItem(qm.items.apiOrigin, apiOrigin);
             }
-            if(!apiUrl && qm.appMode.isDebug() && qm.platform.isMobile() && (!qm.getUser() || qm.getUser().id === 230)){
-                apiUrl = "https://utopia.quantimo.do";
+            if(!apiOrigin && qm.appMode.isDebug() && qm.platform.isMobile() && (!qm.getUser() || qm.getUser().id === 230)){
+                apiOrigin = qm.api.apiOrigins.remoteLocal;
             }
-            if(!apiUrl){
-                apiUrl = qm.storage.getItem(qm.items.apiUrl);
+            if(!apiOrigin){
+                apiOrigin = qm.storage.getItem(qm.items.apiOrigin);
             }
             if(qm.appMode.isBrowser() && window.location.host.indexOf('dev-') === 0){
-                return "https://local.quantimo.do";
+                return qm.api.apiOrigins.local;
             }
             if(qm.appMode.isBackEnd()){
-                apiUrl= qm.env.getEnv('API_URL')
-                if(apiUrl){return apiUrl;}
+                apiOrigin= qm.env.getEnv('API_ORIGIN')
+                if(apiOrigin){return apiOrigin;}
                 var stage = qm.env.getEnv('RELEASE_STAGE')
                 if(stage === "staging"){
-                    apiUrl = "https://staging.quantimo.do";
-                    qmLog.info("Using apiUrl "+apiUrl+" because release stage is staging")
-                    return apiUrl;
+                    apiOrigin = qm.api.apiOrigins.staging;
+                    qmLog.info("Using apiOrigin "+apiOrigin+" because release stage is staging")
+                    return apiOrigin;
                 }
             }
-            if(!apiUrl){
+            if(!apiOrigin){
                 var appSettings = qm.appsManager.getAppSettingsFromMemory();
-                if(appSettings && appSettings.apiUrl){
-                    apiUrl = appSettings.apiUrl;
+                if(appSettings && appSettings.apiOrigin){
+                    apiOrigin = appSettings.apiOrigin;
                 }
             }
-            if(!apiUrl && !qm.appMode.isBrowser()){
-                apiUrl = "https://api.curedao.org"; // Don't use anything else or I get CORS errors
+            if(!apiOrigin && !qm.appMode.isBrowser()){
+                apiOrigin = qm.api.apiOrigins.production; // Don't use anything else or I get CORS errors
             }
-            if(!apiUrl && window.location.origin.indexOf('staging.quantimo.do') !== -1){
-                apiUrl = "https://staging.quantimo.do";
+            if(!apiOrigin && window.location.origin.indexOf('staging.quantimo.do') !== -1){
+                apiOrigin = qm.api.apiOrigins.staging;
             }
-            if(!apiUrl && window.location.origin.indexOf('local.quantimo.do') !== -1){
-                apiUrl = "https://local.quantimo.do";
+            if(!apiOrigin && window.location.origin.indexOf('localhost') !== -1){
+                apiOrigin = qm.api.apiOrigins.production;
             }
-            if(!apiUrl && window.location.origin.indexOf('utopia.quantimo.do') !== -1){
-                apiUrl = "https://utopia.quantimo.do";
+            if(!apiOrigin && window.location.origin.indexOf('utopia.quantimo.do') !== -1){
+                apiOrigin = qm.api.apiOrigins.remoteLocal;
             }
-            if(!apiUrl && window.location.origin.indexOf('localhost:8100') !== -1){
-                apiUrl = "https://api.curedao.org"; // Don't use anything else or I get CORS errors
+            if(!apiOrigin && window.location.origin.indexOf('localhost:8100') !== -1){
+                apiOrigin = qm.api.apiOrigins.production; // Don't use anything else or I get CORS errors
             } // Ionic serve
-            if(!apiUrl){
-                apiUrl = "https://api.curedao.org"; // Don't use anything else or I get CORS errors
+            if(!apiOrigin){
+                apiOrigin = qm.api.apiOrigins.production; // Don't use anything else or I get CORS errors
             }
-            if(apiUrl.indexOf("https://") === -1){
-                apiUrl = "https://" + apiUrl;
+            if(apiOrigin.indexOf("http") === -1){
+                apiOrigin = "https://" + apiOrigin;
             }
-            apiUrl = apiUrl.replace("https://https", "https");
-            return apiUrl;
-        },
-        getApiUrl: function(){
-            return qm.api.getBaseUrl();
-        },
-        getApiUrlWithoutProtocol: function(){
-            var url = qm.api.getBaseUrl();
-            url = url.replace('https://', '');
-            url = url.replace('http://', '');
-            return url;
+            apiOrigin = apiOrigin.replace("https://https", "https");
+            return apiOrigin;
         },
         postViaFetch: function(url, body, successHandler, errorHandler){
             var headers = new Headers(qm.api.getDefaultHeaders())
@@ -688,7 +685,7 @@ var qm = {
                         if(xhr.readyState === 4){
                             var fallback = xhr.responseText;
                             var response = qm.stringHelper.parseIfJson(xhr.responseText, fallback);
-                            if ( response && qm.api.postResponseSuccessful(xhr, response)) {
+                            if (qm.api.postResponseSuccessful(xhr, response)) {
                                 if(successHandler){successHandler(response);}
                             } else {
                                 qmLog.error("POST " + url + " response: " + xhr.responseText, response);
@@ -707,8 +704,18 @@ var qm = {
                 }
             });
         },
+        logRequestUrl: function(url, method){
+            var logUrl = url;
+            if(qm.appMode.isDevelopment()){
+                var token =  qm.auth.getAccessTokenFromUrlUserOrStorage();
+                if(token){
+                    logUrl = qm.urlHelper.addUrlQueryParamsToUrlString({access_token: token}, url)
+                }
+            }
+            qmLog.info("Making "+method+" request to " + logUrl);
+        },
         getViaXhrOrFetch: function(url, successHandler, errorHandler){
-            qmLog.info("Making GET request to " + url);
+            qm.api.logRequestUrl(url, "GET")
             if(typeof XMLHttpRequest !== "undefined"){
                 qm.api.getViaXhr(url, successHandler, errorHandler);
             }else{
@@ -718,7 +725,7 @@ var qm = {
         getAppSettingsUrl: function(clientId, callback){
             function generateUrl(clientId, clientSecret){
                 // Can't use QM SDK in service worker
-                var settingsUrl = qm.api.getBaseUrl() + '/api/v1/appSettings?clientId=' + clientId;
+                var settingsUrl = qm.api.getApiOrigin() + '/api/v1/appSettings?clientId=' + clientId;
                 if(clientSecret){
                     settingsUrl += "&clientSecret=" + clientSecret;
                 }
@@ -853,13 +860,13 @@ var qm = {
             }
             var url = path;
             if(url.indexOf("http") !== 0){
-                url = addGlobalQueryParameters(qm.api.getBaseUrl() + "/api/" + path);
+                url = addGlobalQueryParameters(qm.api.getApiOrigin() + "/api/" + path);
             }
             if(params){
                 url = qm.urlHelper.addUrlQueryParamsToUrlString(params, url);
             }
             url = url.replace('/api/api/', '/api/');
-            qmLog.info("Making API request to " + url);
+            qmLog.debug("Making API request to " + url);
             if(url.indexOf("api/https") !== -1){
                 qmLog.errorAndExceptionTestingOrDevelopment("url is "+url);
             }
@@ -872,7 +879,7 @@ var qm = {
             if(typeof path === "undefined"){
                 path = "";
             }
-            return qm.api.getBaseUrl() + "/" + path;
+            return qm.api.getApiOrigin() + "/" + path;
         },
         getLocalStorageNameForRequest: function(type, route){
             return 'last_' + type + '_' + route.replace('/', '_') + '_request_at';
@@ -941,7 +948,7 @@ var qm = {
                 errorName += ': ' + data.message;
             }
             var metaData = {
-                debugApiUrl: qm.api.getDebugApiUrlFromRequest(request),
+                debugApiOrigin: qm.api.getDebugApiOriginFromRequest(request),
                 appUrl: window.location.href,
                 groupingHash: errorName,
                 requestData: data,
@@ -959,7 +966,7 @@ var qm = {
             qmLog.error(errorName, metaData, options.stackTrace);
             return userErrorMessage;
         },
-        getDebugApiUrlFromRequest: function(request){
+        getDebugApiOriginFromRequest: function(request){
             var debugUrl = request.method + " " + request.url;
             if(request.headers && request.headers.Authorization){
                 var accessToken = request.headers.Authorization.replace("Bearer ", "");
@@ -1118,22 +1125,6 @@ var qm = {
                     qm.appsManager.processAndSaveAppSettings(response.appSettings, successHandler);
                 }, errorHandler)
             });
-        },
-        loadPrivateConfigFromJsonFile: function(successHandler, errorHandler){  // I think adding appSettings to the chrome manifest breaks installation
-            if(!qm.privateConfig){
-                qm.api.getViaXhrOrFetch(qm.urlHelper.getPrivateConfigJsonUrl(), function(parsedResponse){  // Can't use QM SDK in service worker
-                    qmLog.debug('Got private config from json file', null, parsedResponse);
-                    qm.privateConfig = parsedResponse;
-                    if(successHandler){
-                        successHandler(parsedResponse);
-                    }
-                }, function(){
-                    qmLog.error("Could not get private config from json file");
-                    if(errorHandler){
-                        errorHandler("Could not get private config from json file");
-                    }
-                });
-            }
         },
         processAndSaveAppSettings: function(appSettings, callback){
             if(typeof appSettings === "string"){
@@ -2033,7 +2024,7 @@ var qm = {
             return str.replace(/%20([^%20]*)$/, '$1');
         },
         generateV1OAuthUrl: function(register){
-            var url = qm.api.getBaseUrl() + "/api/oauth2/authorize?";
+            var url = qm.api.getApiOrigin() + "/api/oauth2/authorize?";
             // add params
             url += "response_type=code";
             url += "&client_id=" + qm.api.getClientId();
@@ -2089,7 +2080,7 @@ var qm = {
             if(appSettings && appSettings.redirectUri){
                 return appSettings.redirectUri;
             }
-            return qm.api.getBaseUrl() + '/callback/';
+            return qm.api.getApiOrigin() + '/callback/';
         },
         getAccessTokenFromUrlAndSetLocalStorageFlags: function(){
             if(qm.auth.accessTokenFromUrl){
@@ -2465,6 +2456,7 @@ var qm = {
                 var def = exp.substring(exp.indexOf("{") + 1, exp.lastIndexOf("}"));
                 // eslint-disable-next-line no-new-func
                 def = def.replace('//debugger', 'debugger')
+                // eslint-disable-next-line no-new-func
                 highchartConfig.tooltip.formatter = new Function(def);
             }
         }
@@ -3859,7 +3851,7 @@ var qm = {
             return qm.env.getEnv('APP_ENV') === "local"
         },
         getAccessToken: function(){
-            return qm.env.getEnv('CUREDAO_ACCESS_TOKEN')
+            return qm.env.getEnv('CUREDAO_PERSONAL_ACCESS_TOKEN')
         },
         getClientSecret: function(){
             return qm.env.getEnv('CUREDAO_CLIENT_SECRET')
@@ -4722,7 +4714,7 @@ var qm = {
         afterLoginGoToState: 'afterLoginGoToState',
         appList: 'appList',
         aggregatedCorrelations: 'aggregatedCorrelations',
-        apiUrl: 'apiUrl',
+        apiOrigin: 'apiOrigin',
         appSettings: 'appSettings',
         appSettingsRevisions: 'appSettingsRevisions',
         authorizedClients: 'authorizedClients',
@@ -11620,7 +11612,7 @@ var qm = {
                     }, errorHandler, params, 'getUsersFromApi');
                 });
             } catch(e) {
-                throw "Could not get users from "+ qm.api.getBaseUrl()+ " because "+e.message
+                throw "Could not get users from "+ qm.api.getApiOrigin()+ " because "+e.message
             }
         },
         updateUserSettings: function(params, successHandler, errorHandler){

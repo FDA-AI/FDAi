@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **id** | **String** | HTML element id | [optional] 
 **image** | **String** | Ex: https://image.jpg | [optional] 
 **ionIcon** | **String** | Ex: ion-refresh | [optional] 
-**link** | **String** | Ex: https://local.quantimo.do | 
+**link** | **String** | Ex: https://app.quantimo.do | 
 **stateName** | **String** | State to go to | [optional] 
 **stateParams** | **Object** | Data to provide to the state | [optional] 
 **successToastText** | **String** | Text to show user after executing functionName | [optional] 

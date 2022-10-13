@@ -112,7 +112,7 @@ cd ${INTERMEDIATE_PATH}
 
 rm -rf plugins
 echo "NPM INSTALL"
-npm install && gulp configureApp
+npm install && npm run configure:app
 gulp prepareRepositoryForAndroid
 
 #echo "ionic state reset"
@@ -170,7 +170,7 @@ if [ -z ${BUILD_CUREDAO} ];
     then
         echo "NOT BUILDING ${APP_DISPLAY_NAME}"
     else
-        gulp configureApp
+        npm run configure:app
         source ${INTERMEDIATE_PATH}/scripts/build_scripts/03_build_android.sh
         source ${INTERMEDIATE_PATH}/scripts/build_scripts/02_build_chrome.sh
         #source ${INTERMEDIATE_PATH}/scripts/build_scripts/04_build_ios.sh
@@ -196,7 +196,7 @@ if [ -z ${BUILD_MOODIMODO} ];
     then
         echo "NOT BUILDING ${APP_DISPLAY_NAME}"
     else
-        gulp configureApp
+        npm run configure:app
         #source ${INTERMEDIATE_PATH}/scripts/build_scripts/03_build_android.sh
         source ${INTERMEDIATE_PATH}/scripts/build_scripts/02_build_chrome.sh
         #source ${INTERMEDIATE_PATH}/scripts/build_scripts/04_build_ios.sh
@@ -223,7 +223,7 @@ if [ -z ${BUILD_MINDFIRST} ];
     then
         echo "NOT BUILDING ${APP_DISPLAY_NAME}"
     else
-        gulp configureApp
+        npm run configure:app
         source ${INTERMEDIATE_PATH}/scripts/build_scripts/03_build_android.sh
         source ${INTERMEDIATE_PATH}/scripts/build_scripts/02_build_chrome.sh
         #source ${INTERMEDIATE_PATH}/scripts/build_scripts/04_build_ios.sh
@@ -250,7 +250,7 @@ if [ -z ${BUILD_ENERGYMODO} ];
     then
         echo "NOT BUILDING ${APP_DISPLAY_NAME}"
     else
-        gulp configureApp
+        npm run configure:app
         source ${INTERMEDIATE_PATH}/scripts/build_scripts/03_build_android.sh
         source ${INTERMEDIATE_PATH}/scripts/build_scripts/02_build_chrome.sh
         #source ${INTERMEDIATE_PATH}/scripts/build_scripts/04_build_ios.sh
@@ -276,7 +276,7 @@ if [ -z ${BUILD_MEDIMODO} ];
     then
         echo "NOT BUILDING ${APP_DISPLAY_NAME}"
     else
-        gulp configureApp
+        npm run configure:app
         source ${INTERMEDIATE_PATH}/scripts/build_scripts/03_build_android.sh
         source ${INTERMEDIATE_PATH}/scripts/build_scripts/02_build_chrome.sh
         #source ${INTERMEDIATE_PATH}/scripts/build_scripts/04_build_ios.sh
@@ -302,7 +302,7 @@ if [ -z ${BUILD_EPHARMIX} ];
     then
         echo "NOT BUILDING ${APP_DISPLAY_NAME}"
     else
-        gulp configureApp
+        npm run configure:app
         source ${INTERMEDIATE_PATH}/scripts/build_scripts/03_build_android.sh
         source ${INTERMEDIATE_PATH}/scripts/build_scripts/02_build_chrome.sh
         #source ${INTERMEDIATE_PATH}/scripts/build_scripts/04_build_ios.sh

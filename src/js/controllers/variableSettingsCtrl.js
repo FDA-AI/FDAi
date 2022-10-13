@@ -141,6 +141,7 @@ angular.module('starter').controller('VariableSettingsCtrl', ["$scope", "$state"
                     qmService.showBlackRingLoader();
                     qmService.postUserTagDeferred(userTagData).then(function(response){
                         setVariableObject(response.data.userTaggedVariable);
+                        $scope.refreshUserVariable(); // TODO - remove when UserTag is returned from API
                     });
                 }
             }
@@ -219,6 +220,7 @@ angular.module('starter').controller('VariableSettingsCtrl', ["$scope", "$state"
                     qmService.postUserTagDeferred(userTagData).then(function(response){
                         setVariableObject(response.data.userTagVariable);
                         qmService.hideLoader();
+                        $scope.refreshUserVariable(); // TODO - remove when UserTag is returned from API
                     });
                 }
             }

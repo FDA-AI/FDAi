@@ -7,7 +7,7 @@
 - Create a BUILD_ANDROID [environment variable](http://docs.buddybuild.com/docs/environment-variables) and set to true in the Android app
 - Create a BUILD_IOS [environment variable](http://docs.buddybuild.com/docs/environment-variables) and set to true in the iOS app
 - Add your CUREDAO_CLIENT_ID from the [app dasboard](https://api.curedao.org/api/v2/apps) in the [environment variables](http://docs.buddybuild.com/docs/environment-variables) for both apps
-- Add your CUREDAO_ACCESS_TOKEN from your [account page](https://api.curedao.org/api/v2/account) in the [environment variables](http://docs.buddybuild.com/docs/environment-variables) for both apps
+- Add your CUREDAO_PERSONAL_ACCESS_TOKEN from your [account page](https://api.curedao.org/api/v2/account) in the [environment variables](http://docs.buddybuild.com/docs/environment-variables) for both apps
 - In Build Settings -> Auto Versioning, select the YYYYMMDDHHmmss option.
 - To release follow the rest of the setup steps in the [BuddyBuild Docs](http://docs.buddybuild.com/docs)
 - If you want to release but don't want to spend hundreds on an iOS and Android development certificate or deal with the setup headaches, email mike@quantimo.do and we can use my certificates

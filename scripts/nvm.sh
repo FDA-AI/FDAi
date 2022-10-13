@@ -22,12 +22,10 @@ echo "Loading nvm command for shell access..."
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 # shellcheck disable=SC1090
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-set +x
 echo "nvm install version $1..."
 nvm install $1
 echo "nvm use $1..."
 nvm use $1
-set -x
 node -v
-# shellcheck source=./log_start.sh
+# shellcheck source=./log_end.sh
 source "$IONIC_PATH"/scripts/log_end.sh "${BASH_SOURCE[0]}"
