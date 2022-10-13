@@ -14,6 +14,7 @@ if(typeof navigator !== "undefined"){
         navigator.mozGetUserMedia ||
         navigator.msGetUserMedia);
 }
+const API_PORTAL = 'api-portal';
 var qm = {
     alert: {
         errorAlert: function(title, text){
@@ -135,6 +136,12 @@ var qm = {
                 qm.urlHelper.indexOfCurrentUrl('app/configuration') !== -1 ||
                 qm.urlHelper.indexOfCurrentUrl('configuration-index.html') !== -1 ||
                 qm.urlHelper.subDomainContains('builder');
+        },
+        isApiPortal: function(){
+            if(typeof window === "undefined"){
+                return false;
+            }
+            return qm.urlHelper.subDomainContains(API_PORTAL) || qm.storage.getItem(API_PORTAL);
         },
         isPhysician: function(){
             if(typeof window === "undefined"){
