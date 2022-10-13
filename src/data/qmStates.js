@@ -1200,7 +1200,7 @@ var qmStates = [
         "views": {
             "menuContent": {
                 "templateUrl": "builder-templates/api-portal.html",
-                "controller": "ConfigurationCtrl"
+                "controller": "ApiPortalCtrl"
             }
         },
         "name": "app.apiPortalClientId"
@@ -1216,7 +1216,7 @@ var qmStates = [
         "views": {
             "menuContent": {
                 "templateUrl": "builder-templates/api-portal.html",
-                "controller": "ConfigurationCtrl"
+                "controller": "ApiPortalCtrl"
             }
         },
         "name": "app.apiPortal"
