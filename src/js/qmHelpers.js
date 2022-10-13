@@ -711,8 +711,18 @@ var qm = {
                 }
             });
         },
+        logRequestUrl: function(url, method){
+            var logUrl = url;
+            if(qm.appMode.isDevelopment()){
+                var token =  qm.auth.getAccessTokenFromUrlUserOrStorage();
+                if(token){
+                    logUrl = qm.urlHelper.addUrlQueryParamsToUrlString({access_token: token}, url)
+                }
+            }
+            qmLog.info("Making "+method+" request to " + logUrl);
+        },
         getViaXhrOrFetch: function(url, successHandler, errorHandler){
-            qmLog.info("Making GET request to " + url);
+            qm.api.logRequestUrl(url, "GET")
             if(typeof XMLHttpRequest !== "undefined"){
                 qm.api.getViaXhr(url, successHandler, errorHandler);
             }else{
@@ -863,7 +873,7 @@ var qm = {
                 url = qm.urlHelper.addUrlQueryParamsToUrlString(params, url);
             }
             url = url.replace('/api/api/', '/api/');
-            qmLog.info("Making API request to " + url);
+            qmLog.debug("Making API request to " + url);
             if(url.indexOf("api/https") !== -1){
                 qmLog.errorAndExceptionTestingOrDevelopment("url is "+url);
             }
