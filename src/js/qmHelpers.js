@@ -11140,6 +11140,7 @@ var qm = {
             var url = window.location.origin + window.location.pathname;
             url = qm.stringHelper.before('#', url);
             url = qm.stringHelper.before('configuration-index.html', url);
+            url = qm.stringHelper.before('api-portal.html', url);
             url = qm.stringHelper.before('index.html', url);
             url = qm.stringHelper.before('android_popup.html', url);
             url = qm.stringHelper.before('chrome_default_popup_iframe.html', url);
