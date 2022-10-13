@@ -33,7 +33,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-const apiUrl = process.env.API_URL || 'https://hldata-n66b6ronka-uc.a.run.app';
+const apiUrl = process.env.API_URL || 'https://app.quantimo.do/api';
 const serverPort = 8080 || process.env.PORT;
 
 app.use('/', proxy(apiUrl));
