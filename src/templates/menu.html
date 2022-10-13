@@ -1,6 +1,6 @@
 <ion-side-menus enable-menu-with-back-views="true"
                 id="app-container">
-    <ion-side-menu-content ng-class="{'menu-disabled': hideNavigationMenu}">
+    <ion-side-menu-content ng-class="{'menu-disabled': hideNavigationMenu}" class="gradient-bg">
         <ion-nav-bar id="top-nav-bar"
                      class="{{appSettings.appDesign.ionNavBarClass}}"
                      ng-show="hideNavigationMenu === false || appSettings.designMode">
@@ -195,14 +195,16 @@
                     <ion-item id="menu-item-{{menuItem.id}}"
                               ng-click="closeMenuIfNeeded(menuItem)"
                               ng-href="{{menuItem.href}}">
+                        <span class="md-title">
                         <i ng-if="menuItem.showSubMenu && menuItem.subMenu"
                            class="ion-chevron-down">&nbsp;
                             {{menuItem.title}}
                         </i>
                         <i ng-if="!menuItem.showSubMenu || !menuItem.subMenu"
                            class="{{menuItem.icon}}">&nbsp;
-                            {{menuItem.title}}
+                            <span class="md-title">{{menuItem.title}}</span>
                         </i>
+                            </span>
                     </ion-item>
                     <ion-item id="menu-item-{{menuItem.id + '-design'}}"
                               ng-if="false && appSettings.designMode">
@@ -255,7 +257,7 @@
                           id="github">
                     <i
                             class="ion-social-github"
-                            menu-toggle>&nbsp; Fork Me
+                            menu-toggle>&nbsp;<span class="md-title"> Fork Me</span>
                     </i>
                 </ion-item>
             </ion-list>
