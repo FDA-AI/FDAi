@@ -1,105 +1,90 @@
-<!-- PROJECT TITLE -->
-<h1 align="center">CuRoBoT</h1>
+# Curedao
 
-An app for collecting, aggregating, and analyzing health data to identify the most effective ways to optimize your health and happiness. 
+This project was generated using [Nx](https://nx.dev).
 
-<details>
-<summary>Table of Contents</summary>
+<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
-- [Project Demo](#demo)
-- [API](#api)
-- [Features and Screenshots](#features-and-screenshots)
-- [Technology Stack](#technology-stack)
-- [Local Development](#local-development)
-- [Getting Involved](#get-involved)
-- [License](#license)
+🔎 **Smart, Fast and Extensible Build System**
 
-</details>
+## Adding capabilities to your workspace
 
-## Demo
+Nx supports many plugins which add capabilities for developing different types of applications and different tools.
 
-Try the [demo](https://app.curedao.org)
+These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
 
-## API
+Below are our core plugins:
 
-For more info about the types of data you can store and get from the API, try out our
-[Interactive API Explorer](https://curedao.readme.io) with the access token `demo`.
+-   [React](https://reactjs.org)
+    -   `npm install --save-dev @nrwl/react`
+-   Web (no framework frontends)
+    -   `npm install --save-dev @nrwl/web`
+-   [Angular](https://angular.io)
+    -   `npm install --save-dev @nrwl/angular`
+-   [Nest](https://nestjs.com)
+    -   `npm install --save-dev @nrwl/nest`
+-   [Express](https://expressjs.com)
+    -   `npm install --save-dev @nrwl/express`
+-   [Node](https://nodejs.org)
+    -   `npm install --save-dev @nrwl/node`
 
-## Quick Start
+There are also many [community plugins](https://nx.dev/community) you could add.
 
-1. Fork the project
-2. Click the `Open in Gitpod` button below in YOUR forked repo.
-3. Allow Gitpod to open port 5555.  It should then open the project in a new tab. 
+## Generate an application
 
-[![Open in Gitpod](https://camo.githubusercontent.com/1eb1ddfea6092593649f0117f7262ffa8fbd3017/68747470733a2f2f676974706f642e696f2f627574746f6e2f6f70656e2d696e2d676974706f642e737667)](https://gitpod-referer.now.sh/api/gitpod-referer-redirect)
+Run `nx g @nrwl/react:app my-app` to generate an application.
 
-## Local Development
+> You can use any of the plugins above to generate applications as well.
 
-**Step 1** 
-:wrench: Fork the project
+When using Nx, you can create multiple applications and libraries in the same workspace.
 
-**Step 2**
-:octocat: Clone your forked version
+## Generate a library
 
-```bash
-$ git clone https://github.com/your_username/curobot.git
-```
+Run `nx g @nrwl/react:lib my-lib` to generate a library.
 
-**Step 3**
-:hammer: Install [Node.js](http://nodejs.org/).  (Windows Developers: We recommend [Visual Studio Code](https://code.visualstudio.com/) with the [recommended extensions](.vscode/extensions.json), which automatically installs everything you need!)
+> You can also use any of the plugins above to generate libraries as well.
 
-**Step 5**
- :running: Run `npm install -g bower` and `bower install` in the root of this repository.
+Libraries are shareable across libraries and applications. They can be imported from `@curedao/mylib`.
 
-**Step 6**
-:ticket: Create your application and get your client ID [here](https://builder.quantimo.do).
+## Development server
 
-**Step 7** -
-Make a copy of .env.example in the root called .env and add your client id to it
+Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
-**Step 8** -
-If you're using VSCode or Gitpod, right click on src/index.html and click "Open with FiveServer"
+## Code scaffolding
 
-**Step 9**
- :raising_hand: Need help?  Please [create an issue](/issues) or [contact us](http://help.quantimo.do)
- 
- ## Features and Screenshots
+Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
 
-<p align="center">
-<img src="https://raw.githubusercontent.com/curedao/curedao-web-android-chrome-ios-app-template/develop/resources-shared/screenshots/5.5-inch%20(iPhone%206%2B)%20-%20History%20Screenshot%201.jpg" width="300">
-&nbsp
-<img src="https://raw.githubusercontent.com/curedao/curedao-web-android-chrome-ios-app-template/develop/resources-shared/screenshots/5.5-inch%20(iPhone%206+)%20-%20import%20data%20Screenshot%201.jpg" width="300">
-<br><br>
-<img src="https://raw.githubusercontent.com/curedao/curedao-web-android-chrome-ios-app-template/develop/resources-shared/screenshots/5.5-inch%20(iPhone%206+)%20-%20bar%20chart%20Screenshot%201.jpg" width="300">
-&nbsp
-<img src="https://raw.githubusercontent.com/curedao/curedao-web-android-chrome-ios-app-template/develop/resources-shared/screenshots/5.5-inch%20(iPhone%206+)%20-%20predictors%20Screenshot%201.jpg" width="300">
-<br><br>
-<img src="https://raw.githubusercontent.com/curedao/curedao-web-android-chrome-ios-app-template/develop/resources-shared/screenshots/5.5-inch%20(iPhone%206+)%20-%20reminder%20inbox%20Screenshot%201.jpg?" width="300">
-<img src="https://user-images.githubusercontent.com/2808553/138347736-f3cbea7a-85fe-4288-921a-78a05b93026d.png" width="300">
-</p>
+## Build
 
-## Technology Stack
+Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-| Technology   | Description                                                              |
-| ------------ | ------------------------------------------------------------------------ |
-| JavaScript   | High-Level Programming Language                      |
-| TypeScript      | JavaScript with syntax for types                   |
-| CSS      | Cascading Style Sheets                                |
-| SCSS      | Syntactically Awesome Style Sheet                        |
-| Angular.js      |  front-end web framework                           |
-| HTML      | HyperText Markup Language                                |
-| Cypress      | standard in front-end testing                         |
-| Gitpod      | platform for remote development                        |
+## Running unit tests
 
-## Get Involved
+Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
 
-[CONTRIBUTING](https://www.curedao.org/join-us)
+Run `nx affected:test` to execute the unit tests affected by a change.
 
-## License
+## Running end-to-end tests
 
-[![GitLicense](https://img.shields.io/badge/License-GNU-blue.svg)](https://github.com/cure-dao/curobot/blob/develop/LICENSE.md)
+Run `nx e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
 
+Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
 
+## Understand your workspace
 
+Run `nx graph` to see a diagram of the dependencies of your projects.
 
+## Further help
 
+Visit the [Nx Documentation](https://nx.dev) to learn more.
+
+## ☁ Nx Cloud
+
+### Distributed Computation Caching & Distributed Task Execution
+
+<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
+
+Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
+
+Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
+
+Visit [Nx Cloud](https://nx.app/) to learn more.
