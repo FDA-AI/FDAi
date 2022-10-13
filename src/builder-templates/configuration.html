@@ -41,8 +41,14 @@
                                        ng-model-options="{trackBy: '$value.clientId'}" aria-label="appList"
                                        ng-change="switchApp(appSettings)" ng-if="appList && appList.length > 1">
                                 <md-option ng-value="app" ng-repeat="app in appList track by app.clientId">
-                                    <img style="max-height: 25px;" src="{{ app.appIcon }}"/>
-                                    {{app.appDisplayName}} App Designer
+                                    <md-list-item class="md-1-line" style="align-items: unset">
+                                        <img class="md-avatar" style="max-height: 25px; width: auto;"
+                                             src="{{ app.appIcon }}" alt="{{app.appDisplayName}}"/>
+                                        <div class="md-list-item-text">
+                                            <h4>{{app.appDisplayName}} App Designer</h4>
+                                        </div>
+                                    </md-list-item>
+
                                 </md-option>
                             </md-select>
                             <span flex></span>
@@ -63,6 +69,12 @@
 <!--                                <div ng-if="appSettings.appStatus.betaDownloadLinks.androidRelease"
                                      ng-include="'builder-templates/builds-card.html'"></div>-->
                             </md-content>
+                        </md-tab>
+                        <md-tab label="API" style="height: 100%; width: 100%; ">
+                            <iframe ng-src="api-docs.html"
+                                    data-tap-disabled="true" style="height: 100%; width: 100%; position: absolute;"
+                                    frameborder="0">
+                            </iframe>
                         </md-tab>
                         <md-tab label="Design">
                             <md-content class="md-padding">

@@ -193,10 +193,6 @@ angular.module('starter',
                     if(state.name === 'app'){
                         state.resolve = config_resolver;
                     }
-                    var isBuilderState = state.views && state.views.menuContent.templateUrl.indexOf('configuration') !== -1;
-                    if(isBuilderState && state.views.menuContent.templateUrl.indexOf('builder-templates') === -1){
-                        state.views.menuContent.templateUrl = state.views.menuContent.templateUrl.replace('../../app-configuration/templates', 'builder-templates');
-                    }
                     var isPhysicianState = state.views && state.views.menuContent.templateUrl.indexOf('physician') !== -1;
                     if(isPhysicianState && !qm.appMode.isPhysician()){
                         return;
