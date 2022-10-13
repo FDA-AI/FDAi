@@ -1,0 +1,26 @@
+{
+  "name": "curedao-api",
+  "version": "0.0.1",
+  "description": "A data platform for accelerating clinical discovery",
+  "license": "GNU General Public License v3 (GPL-3)",
+  "author": {
+    "name": "Mike P. Sinn",
+    "email": "mike@curedao.org",
+    "url": "https://curedao.org/api",
+    "organization": "CureDAO",
+    "organizationUrl": "https://curedao.org"
+  },
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm install --only=prod",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@oas-tools/core": "^3.0.0",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.0",
+    "express-http-proxy": "^1.6.3",
+    "memory-cache": "^0.2.0",
+    "node-fetch": "^3.2.10"
+  }
+}
