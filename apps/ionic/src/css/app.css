@@ -26162,3 +26162,21 @@ body::after {
     box-shadow: 0 0 350px 100px rgba(93, 248, 240, 1);
   }
 }
+
+.circle-page-image-background {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  animation: 45s ease 0s infinite normal none running gradient;
+  background: linear-gradient(-45deg, rgb(238, 119, 82), rgb(231, 60, 126), rgb(35, 166, 213), rgb(35, 213, 171)) 0% 0% / 400% 400%;
+}
+
+#circle-page-image {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+}

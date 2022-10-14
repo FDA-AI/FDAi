@@ -1,10 +1,10 @@
 <ion-view hide-nav-bar="hideNavigationMenu">
     <ion-nav-title>Get Started</ion-nav-title>
-    <div class="outer"
-         style=" background-color: {{circlePage.color.backgroundColor}};">
+    <div class="outer gradient-bg" >
+<!--         style=" background-color: {{circlePage.color.backgroundColor}};">-->
         <div class="middle">
             <div class="inner">
-                <div style="text-align: center; color: white; padding: 30px; height: 100%">
+                <div style="text-align: center; color: white; padding: 30px; height: 100%; z-index: 999">
                     <div ng-if="!state.registrationForm && !state.loginForm" >
                         <div ng-include="'templates/fragments/circle-page.html'" on-hold="state.setAuthDebugEnabled()"
                              ng-cloak></div>
