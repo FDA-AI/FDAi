@@ -2,13 +2,23 @@
 
 The goal of this monorepo is to acheive maximum interoperability and minimum duplication of effort between the various projects in the digital health ecosystem.  
 
+## Why a monorepo?
+
 Let's get one thing clear.  **A monorepo is not a monolith**.  
 
-In fact, a well-designed monorepo helps to avoid the creation of monolithic applications by providing maximum visibility and reusability between UI components, analytical tools and models, and API documentation/libraries.  
+In fact, a well-designed monorepo helps to avoid the creation of monolithic applications by providing maximum visibility and reusability between: 
+- UI components
+- Analytical tools and models
+- API documentation/libraries
+- Data transformation pipelines
 
-This allows us to easily share code and data between projects.
+This allows us to easily share code and data between projects.  
 
-If you want to read more about monorepos, here are some useful links:
+**But won't this be a massive dependency to use in other projects?**
+
+Hell, no. Libraries and components can automatically be published to NPM and consumed by other projects.  So if you only need one library, you don't need to install the entire monorepo.  And if you need to make a change to a library, you can do so in the monorepo and publish the new version to NPM.
+
+### More Info on Monorepos
 
 - [Monorepo in Git](https://www.atlassian.com/git/tutorials/monorepos)
 - [Monorepo != monolith](https://blog.nrwl.io/misconceptions-about-monorepos-monorepo-monolith-df1250d4b03c)
@@ -35,9 +45,7 @@ Here's the base structure of our monorepo:
 
 ```sh
 nx generate @trumbitta/nx-plugin-openapi:api-spec
-```
 
-```
 ✔ What name would you like to use? 
 A: my-api-name-api-spec
 
@@ -52,13 +60,41 @@ A: true
 
 ```sh
 nx generate @trumbitta/nx-plugin-openapi:api-lib
-```
 
-```
 ✔ What name would you like to use? 
-· my-api-name-api-typescript-fetch
+· my-api-name-sdk-typescript-fetch
+
 ✔ Which OpenAPITool generator would you like to use?  
 · typescript-fetch
+
+✔ Is the API spec file published online? (y/N)
+· false
+
+✔ If online, what is the URL where I can get the API spec file from?
+·
+
+✔ If online, which authorization headers do you need to add?
+·
+
+✔ If local, what is the name of the lib containing the API spec file?
+· my-api-name-api-spec
+
+✔ If local, what is the path of the API spec file starting from the lib root?
+· src/my-api-name-api-spec.openapi.yml
+```
+
+4. Create an API docs library from the spec file (replace `my-api-name` with the name of the API):
+
+### Generate or update sources
+
+Given the libs created in the examples above, then:
+
+`nx run api-docs:generate-sources`
+
+### Then you can simply serve it
+npx http-server libs/api-docs/src
+
+# Or you can configure a Nx serve target for it, or do whatever you want
 ```
 
 ## Monorepo Structure
