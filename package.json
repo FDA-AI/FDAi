@@ -5,17 +5,30 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "api-spec": "nx generate @trumbitta/nx-plugin-openapi:api-spec",
+    "api-lib": "nx generate @trumbitta/nx-plugin-openapi:api-lib"
   },
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
   "devDependencies": {
     "@nrwl/cli": "14.8.6",
+    "@nrwl/jest": "14.8.6",
+    "@nrwl/js": "14.8.6",
     "@nrwl/nx-cloud": "14.7.0",
     "@nrwl/workspace": "14.8.6",
+    "@types/jest": "28.1.1",
+    "@types/node": "16.11.7",
+    "jest": "28.1.1",
+    "jest-environment-jsdom": "28.1.1",
     "nx": "14.8.6",
     "prettier": "^2.6.2",
-    "typescript": "~4.8.2"
+    "ts-jest": "28.0.5",
+    "ts-node": "10.9.1",
+    "typescript": "~4.8.2",
+    "@openapitools/openapi-generator-cli": "2.3.7",
+    "@trumbitta/nx-plugin-openapi": "^1.12.1"
   }
 }
-
