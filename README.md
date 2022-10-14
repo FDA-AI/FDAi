@@ -1,5 +1,32 @@
 # CureDAO Mono Repo
 
+The goal of this monorepo is to acheive maximum interoperability and minimum duplication of effort between the various projects in the digital health ecosystem.  
+
+Let's get one thing clear.  **A monorepo is not a monolith**.  
+
+In fact, a well-designed monorepo helps to avoid the creation of monolithic applications by providing maximum visibility and reusability between UI components, analytical tools and models, and API documentation/libraries.  
+
+This allows us to easily share code and data between projects.
+
+If you want to read more about monorepos, here are some useful links:
+
+- [Monorepo in Git](https://www.atlassian.com/git/tutorials/monorepos)
+- [Monorepo != monolith](https://blog.nrwl.io/misconceptions-about-monorepos-monorepo-monolith-df1250d4b03c)
+- [Nrwl Nx Resources](https://nx.dev/latest/angular/getting-started/resources)
+
+Here's the base structure of our monorepo:
+
+```
+- apps/
+    - {{appName}}  <-- A complete user-facing application
+    - {{appName}}-e2e  <-- Cypress end-to-end tests for the application
+- libs/
+    - {{apiName}}-api-spec <-- OpenAPI >3.0.1 specifications designed with Stoplight Studio
+    - {{apiName}}-sdk-{{language}}  <-- Language-specific libraries for using APIs will live
+- tools/
+    - {{toolName}}  <-- A tool that is not a user-facing application but is used by developers
+```
+
 
 
 ## How to add a new API
