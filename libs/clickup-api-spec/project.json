@@ -1,0 +1,8 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "clickup-api-spec",
+  "sourceRoot": "libs/clickup-api-spec/src",
+  "projectType": "library",
+  "targets": {},
+  "tags": []
+}
