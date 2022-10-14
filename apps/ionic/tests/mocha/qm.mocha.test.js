@@ -45,12 +45,10 @@ require('../../src/data/appSettings.js')
 require('../../src/data/commonVariables.js')
 require('../../src/data/connectors.js')
 require('../../src/data/dialogAgent.js')
-require('../../src/data/docs.js')
 require('../../src/data/qmStates.js')
 require('../../src/data/units.js')
 require('../../src/data/variableCategories.js')
 require('../../src/data/stateNames.js')
-require('../../src/data/states.js')
 qm.stateNames = qm.staticData.stateNames
 qm.qmLog = qmLog
 qmLog.qm = qm
