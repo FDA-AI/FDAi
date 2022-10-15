@@ -1,0 +1,8 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "quantimodo-api-spec",
+  "sourceRoot": "libs/quantimodo-api-spec/src",
+  "projectType": "library",
+  "targets": {},
+  "tags": []
+}

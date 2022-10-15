@@ -1,15 +1,21 @@
-openapi: 3.0.1
+openapi: 3.0.0
 servers:
   - url: 'https://api.clickup.com'
-    description: Production
+    description: ''
+    variables: {}
+  - url: 'https://ivan-dev-api.clickup.com'
+    description: ''
     variables: {}
 info:
   version: 14f9e102-6793-40e8-ab79-2628e5acea50
   title: ClickUp API V2
-  description: |-
-    You can follow along at [https://clickup20.docs.apiary.io/#introduction/oauth2](https://clickup20.docs.apiary.io/#introduction/oauth2).
+  description:
+    You can follow along at
+    [https://clickup20.docs.apiary.io/#introduction/oauth2](https://clickup20.docs.apiary.io/#introduction/oauth2).
 
-    You'll need your personal token for this, just change the authorization header to include it.
+
+    You'll need your personal token for this, just change the authorization
+    header to include it.
   termsOfService: ''
   contact: {}
   license:
@@ -50,7 +56,7 @@ paths:
         - Attachments
   /api/v2/oauth/token:
     post:
-      security: []
+      security: [] 
       summary: Get Access Token
       operationId: GetAccessToken
       parameters:
@@ -319,7 +325,9 @@ paths:
   '/api/v2/comment/{comment_id}':
     put:
       summary: Update Comment
-      description: Please paste comment_id from original task comment created for continuity
+      description:
+        Please paste comment_id from original task comment created for
+        continuity
       operationId: UpdateComment
       parameters:
         - $ref: '#/components/parameters/comment_id'
@@ -328,7 +336,9 @@ paths:
           description: ''
           headers: {}
       requestBody:
-        description: Please paste comment_id from original task comment created for continuity
+        description:
+          Please paste comment_id from original task comment created for
+          continuity
         required: true
         content:
           application/json:
@@ -346,7 +356,9 @@ paths:
         - Comments
     delete:
       summary: Delete Comment
-      description: Please paste comment_id from original task comment created for continuity
+      description:
+        Please paste comment_id from original task comment created for
+        continuity
       operationId: DeleteComment
       parameters:
         - $ref: '#/components/parameters/comment_id'
@@ -649,7 +661,9 @@ paths:
   '/api/v2/goal/{goal_id}/key_result':
     post:
       summary: Create a Key Result
-      description: Please use previously created goal_id created before "Get Goal" for continuity
+      description:
+        Please use previously created goal_id created before "Get Goal" for
+        continuity
       operationId: CreateaKeyResult
       parameters:
         - $ref: '#/components/parameters/goal_id'
@@ -658,7 +672,9 @@ paths:
           description: ''
           headers: {}
       requestBody:
-        description: Please use previously created goal_id created before "Get Goal" for continuity
+        description:
+          Please use previously created goal_id created before "Get Goal" for
+          continuity
         required: true
         content:
           application/json:
@@ -689,7 +705,9 @@ paths:
   '/api/v2/key_result/{key_result_id}':
     put:
       summary: Edit a Key Result
-      description: Please paste key_result_id from previously created key_result for continuity
+      description:
+        Please paste key_result_id from previously created key_result for
+        continuity
       operationId: EditaKeyResult
       parameters:
         - $ref: '#/components/parameters/key_result_id'
@@ -698,7 +716,9 @@ paths:
           description: ''
           headers: {}
       requestBody:
-        description: Please paste key_result_id from previously created key_result for continuity
+        description:
+          Please paste key_result_id from previously created key_result for
+          continuity
         required: true
         content:
           application/json:
@@ -714,7 +734,10 @@ paths:
         - Goals
     delete:
       summary: Delete a Key Result
-      description: Please post key_result_id from the previously edited key_result for continuity. Please also delete the previously created Goal created for testing the "Get Goal" endpoint.
+      description:
+        Please post key_result_id from the previously edited key_result for
+        continuity. Please also delete the previously created Goal created for
+        testing the "Get Goal" endpoint.
       operationId: DeleteaKeyResult
       parameters:
         - $ref: '#/components/parameters/key_result_id'
@@ -727,7 +750,10 @@ paths:
   '/api/v2/team/{team_id}/guest':
     post:
       summary: Invite Guest to Workspace
-      description: 'The type of JSON to fill out: { "email": "example@gmail.com", "can_edit_tags": true || false, "can_see_time_estimated": true || false, "can_see_time_spent": true || false }'
+      description:
+        'The type of JSON to fill out: { "email": "example@gmail.com",
+        "can_edit_tags": true || false, "can_see_time_estimated": true || false,
+        "can_see_time_spent": true || false }'
       operationId: InviteGuesttoWorkspace
       parameters:
         - $ref: '#/components/parameters/team_id'
@@ -736,7 +762,10 @@ paths:
           description: ''
           headers: {}
       requestBody:
-        description: 'The type of JSON to fill out: { "email": "example@gmail.com", "can_edit_tags": true || false, "can_see_time_estimated": true || false, "can_see_time_spent": true || false }'
+        description:
+          'The type of JSON to fill out: { "email": "example@gmail.com",
+          "can_edit_tags": true || false, "can_see_time_estimated": true ||
+          false, "can_see_time_spent": true || false }'
         required: true
         content:
           application/json:
@@ -795,7 +824,9 @@ paths:
   '/api/v2/task/{task_id}/guest/{guest_id}':
     post:
       summary: Add Guest to Task
-      description: 'JSON Body: { "permission_level": "read" || "comment" || "edit" || "create" }'
+      description:
+        'JSON Body: { "permission_level": "read" || "comment" || "edit" ||
+        "create" }'
       operationId: AddGuesttoTask
       parameters:
         - $ref: '#/components/parameters/task_id'
@@ -805,7 +836,9 @@ paths:
           description: ''
           headers: {}
       requestBody:
-        description: 'JSON Body: { "permission_level": "read" || "comment" || "edit" || "create" }'
+        description:
+          'JSON Body: { "permission_level": "read" || "comment" || "edit" ||
+          "create" }'
         required: true
         content:
           text/plain:
@@ -831,7 +864,9 @@ paths:
   '/api/v2/list/{list_id}/guest/{guest_id}':
     post:
       summary: Add Guest to List
-      description: 'JSON Body: { "permission_level": "read" || "comment" || "edit" || "create" }'
+      description:
+        'JSON Body: { "permission_level": "read" || "comment" || "edit" ||
+        "create" }'
       operationId: AddGuesttoList
       parameters:
         - $ref: '#/components/parameters/list_id'
@@ -857,7 +892,9 @@ paths:
   '/api/v2/folder/{folder_id}/guest/{guest_id}':
     post:
       summary: Add Guest to Folder
-      description: 'JSON Body: { "permission_level": "read" || "comment" || "edit" || "create" }'
+      description:
+        'JSON Body: { "permission_level": "read" || "comment" || "edit" ||
+        "create" }'
       operationId: AddGuesttoFolder
       parameters:
         - $ref: '#/components/parameters/folder_id'
@@ -2191,7 +2228,9 @@ paths:
   '/api/v2/view/{view_id}':
     get:
       summary: Get View
-      description: Please paste view_id from "API V2 View" on "API V2 Test Space" for continuity
+      description:
+        Please paste view_id from "API V2 View" on "API V2 Test Space" for
+        continuity
       operationId: GetView
       parameters:
         - $ref: '#/components/parameters/view_id'
@@ -2203,7 +2242,9 @@ paths:
         - Views
     put:
       summary: Update View
-      description: Please paste view_id from "API V2 View" on "API V2 Test Space" for continuity
+      description:
+        Please paste view_id from "API V2 View" on "API V2 Test Space" for
+        continuity
       operationId: UpdateView
       parameters:
         - $ref: '#/components/parameters/view_id'
@@ -2212,7 +2253,9 @@ paths:
           description: ''
           headers: {}
       requestBody:
-        description: Please paste view_id from "API V2 View" on "API V2 Test Space" for continuity
+        description:
+          Please paste view_id from "API V2 View" on "API V2 Test Space" for
+          continuity
         required: true
         content:
           application/json:
@@ -2436,9 +2479,9 @@ paths:
 components:
   securitySchemes:
     apiKeyAuth:
-      type: apiKey
-      in: header
-      name: Authorization
+        type: apiKey
+        in: header
+        name: Authorization
   parameters:
     client_id:
       name: client_id
