@@ -1,3 +1,7 @@
+---
+stoplight-id: sz5hf6lkwwyg5
+---
+
 # CureDAO Mono Repo
 
 The goal of this monorepo is to acheive maximum interoperability and minimum duplication of effort between the various projects in the digital health ecosystem.  
@@ -36,8 +40,6 @@ Here's the base structure of our monorepo:
 - tools/
     - {{toolName}}  <-- A tool that is not a user-facing application but is used by developers
 ```
-
-
 
 ## How to add a new API
 
@@ -97,15 +99,14 @@ nx generate @trumbitta/nx-plugin-openapi:api-lib
 
 ### Generate or update sources
 
-Given the libs created in the examples above, then:
+Given the specification lib created above, then generate the html docs:
 
-`nx run api-docs:generate-sources`
+`nx run my-api-name-api-docs:generate-sources`
 
 ### Then you can simply serve it
-npx http-server libs/api-docs/src
+`npx http-server libs/my-api-name-api-docs/src`
 
-# Or you can configure a Nx serve target for it, or do whatever you want
-```
+Or you can configure a Nx serve target for it, or do whatever you want, I don't care.
 
 ## Monorepo Structure
 
