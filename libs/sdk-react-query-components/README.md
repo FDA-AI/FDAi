@@ -12,7 +12,7 @@ You can go check those options, and modify them if you need to, in `workspace.js
 When you are good, generate the sources running:
 
 ```sh
-nx run quantimodo-typescript-fetch:generate-sources
+nx run sdk-react-query-components:generate-sources
 ```
 
 You should run - either manually or via CI - this `generate-sources` builder every time the API spec file changes.

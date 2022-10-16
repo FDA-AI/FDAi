@@ -2,8 +2,8 @@ openapi: 3.0.1
 x-stoplight:
   id: e2dd35f0e728f
 info:
-  title: QuAnTiMoDo API
-  description: A data platform for accelerating clinical research
+  title: dFDA API
+  description: The Decentralized FDA - Using 7 billion digital twins to discover the personalized effects of every food and drug on human health.
   termsOfService: 'https://quantimo.do/tos'
   contact:
     name: hello@quantimo.do
@@ -3856,7 +3856,7 @@ components:
           description: Can be used as title in help info popup
         errors:
           type: array
-          description: Array of error objects with message property
+          description: Array of error objects with message property src/dfda-api-spec.openapi.yml
           items:
             $ref: '#/components/schemas/ErrorResponse'
         status:

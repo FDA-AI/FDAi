@@ -102,20 +102,9 @@ Given the libs created in the examples above, then:
 `nx run api-docs:generate-sources`
 
 ### Then you can simply serve it
-npx http-server libs/api-docs/src
+`npx http-server libs/api-docs/src`
 
-# Or you can configure a Nx serve target for it, or do whatever you want
-```
-| Technology | Description                       |
-|------------|-----------------------------------|
-| JavaScript | High-Level Programming Language   |
-| TypeScript | JavaScript with syntax for types  |
-| CSS        | Cascading Style Sheets            |
-| SCSS       | Syntactically Awesome Style Sheet |
-| Angular.js | front-end web framework           |
-| HTML       | HyperText Markup Language         |
-| Cypress    | standard in front-end testing     |
-| Gitpod     | platform for remote development   |
+Or you can configure a Nx serve target for it, or do whatever you want
 
 ## Monorepo Structure
 

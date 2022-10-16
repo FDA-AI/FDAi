@@ -1,7 +1,7 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "name": "quantimodo-api-spec",
-  "sourceRoot": "libs/quantimodo-api-spec/src",
+  "name": "dfda-api-spec",
+  "sourceRoot": "/src",
   "projectType": "library",
   "targets": {},
   "tags": []
