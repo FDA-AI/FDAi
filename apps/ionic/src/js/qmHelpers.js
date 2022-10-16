@@ -692,7 +692,7 @@ var qm = {
                     xhr = qm.api.addXhrHeaders(xhr);
                     xhr.onreadystatechange = function(){//Call a function when the state changes.
                         var done = XMLHttpRequest.DONE;
-                        if(xhr.readyState === 4){
+                        if(xhr.readyState === done){
                             var fallback = xhr.responseText;
                             var response = qm.stringHelper.parseIfJson(xhr.responseText, fallback);
                             if (qm.api.postResponseSuccessful(xhr, response)) {

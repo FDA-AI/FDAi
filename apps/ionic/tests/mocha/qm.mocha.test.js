@@ -53,11 +53,11 @@ qm.stateNames = qm.staticData.stateNames
 qm.qmLog = qmLog
 qmLog.qm = qm
 qm.qmLog.setLogLevelName(process.env.LOG_LEVEL || 'info')
-global.nlp = require('./../../src/lib/compromise')
-var Q = global.Q = require('./../../src/lib/q')
+global.nlp = require('compromise')
+var Q = global.Q = require('q')
 global.Swal = require('./../../node_modules/sweetalert2/dist/sweetalert2.all')
 //global.moment = require('./../../src/lib/moment/moment')
-global.moment = require('./../../src/lib/moment-timezone/moment-timezone')
+global.moment = require('moment-timezone')
 const chrome = require('sinon-chrome/extensions')
 const {getBuildLink} = require("../../ts/test-helpers")
 
@@ -1161,6 +1161,31 @@ describe("Users", function () {
         }, function(error){
             throw error
         })
+    })
+    it('can create a user', function(done) {
+        let rand = Math.random() * 1000000;
+        this.timeout(10000)
+        var params = {
+            log: "testuser" + rand + "@gmail.com",
+            pwd: rand,
+            pwdConfirm: rand,
+            register: true
+        }
+        qm.api.post('api/v3/userSettings', params, function(response){
+            expect(response.data).to.have.property('user')
+            var user = response.data.user
+            expect(user).to.have.property('id')
+            expect(user).to.have.property('email')
+            expect(user).to.have.property('loginName')
+            expect(user).not.to.have.property('password')
+            expect(user.email).to.eq(params.log)
+            expect(user.loginName).to.eq(params.log)
+            //expect(user.password).to.eq(params.pwd)
+            expect(user.clientId).to.eq(qm.getClientId())
+            done()
+        }, function(error){
+            throw Error(error);
+        });
     })
 })
 describe("Variables", function () {

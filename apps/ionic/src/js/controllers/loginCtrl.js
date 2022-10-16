@@ -2,7 +2,8 @@ angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootSco
     "$stateParams", "$timeout", "qmService", "$mdDialog",
     function($scope, $state, $rootScope, $ionicLoading, $injector, $stateParams, $timeout, qmService, $mdDialog){
         $scope.state = {
-            useLocalUserNamePasswordForms: qm.platform.isMobileOrChromeExtension(),
+            //useLocalUserNamePasswordForms: qm.platform.isMobileOrChromeExtension(),
+            useLocalUserNamePasswordForms: true,
             loading: false,
             alreadyRetried: false,
             showRetry: false,
