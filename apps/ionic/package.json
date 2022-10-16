@@ -21,7 +21,7 @@
     "beautify": "0.0.8",
     "chai": "4.3.4",
     "cheerio": "1.0.0-rc.10",
-    "compromise": "12.3.0",
+    "compromise": "11.11.0",
     "coveralls": "3.1.1",
     "cross-env": "6.0.3",
     "cypress": "^10.6.0",

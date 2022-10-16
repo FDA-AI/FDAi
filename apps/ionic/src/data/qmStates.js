@@ -1611,7 +1611,11 @@ var qmStates = [
 ]
 if (typeof window !== "undefined") {
     window.qmStates = qmStates;
+    window.qm.qmStaticData = window.qm.qmStaticData || {};
+    window.qm.staticData.states = qmStates;
 } else {
     global.qmStates = qmStates;
     module.exports = qmStates;
+    global.qm.qmStaticData = global.qm.qmStaticData || {};
+    global.qm.staticData.states = qmStates;
 }
