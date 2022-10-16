@@ -37,6 +37,14 @@ angular.module("starter").controller("StudyCtrl", [
         if(!study){return;}
         if(study.statistics){delete study.statistics.studyText;}
         qm.studyHelper.isOwner(study);
+        if(study.causeVariable){
+            qmLog.info("Deleting causeVariable.charts because it's too much data for the view");
+            delete study.causeVariable.charts;
+        }
+        if(study.effectVariable){
+            qmLog.info("Deleting effectVariable.charts because it's too much data for the view");
+            delete study.effectVariable.charts;
+        }
         $scope.state.study = study;
     }
     function matchesVariableNames(study){
