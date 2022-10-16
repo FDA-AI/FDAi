@@ -2914,7 +2914,7 @@ export async function getUser(): Promise<User | null> {
   const { requests } = digitalTwinApi()
   const user = await requests.getUser()
   if (user) {
-    storage.setItem('user', JSON.stringify(user))
+    localStorage.setItem('user', JSON.stringify(user))
   }
   return user || null
 }
@@ -2932,7 +2932,7 @@ export async function getVariable(variableName: string): Promise<UserVariable | 
   const variables = await requests.getUserVariables(variableName)
   const variable = variables[0] || null
   if (variable) {
-    storage.setItem(variableName, variable)
+    localStorage.setItem(variableName, variable)
   }
   return variable
 }
@@ -2987,10 +2987,9 @@ export async function mintNFTForUserVariable(recipientAddress: string, userVaria
   if (!key) {
     throw new Error('Please set REACT_APP_NFTPORT_API_KEY to create NFTs')
   }
-
+  let url: string = 'https://api.nftport.xyz/v0/mints/easy/urls';
   const options = {
-    method: 'POST',
-    url: 'https://api.nftport.xyz/v0/mints/easy/urls',
+    url: url,
     params: {
       chain: 'polygon',
       description: 'A JSON file containing ' + userVariable.name + ' Data',
@@ -3005,7 +3004,7 @@ export async function mintNFTForUserVariable(recipientAddress: string, userVaria
     data: form,
   }
 
-  return axios.request(options)
+  return axios.post(url, options)
 }
 
 const width = 1264
