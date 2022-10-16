@@ -36,6 +36,9 @@ var qmLog = {
         }
         return qmLog.message = qmLog.replaceSecretValuesInString(message);
     },
+    exception: function(exception){
+        throw Error(exception);
+    },
     globalMetaData: {
         context: null,
         chcpInfo: {
