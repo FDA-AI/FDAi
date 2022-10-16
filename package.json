@@ -11,6 +11,9 @@
   },
   "private": true,
   "dependencies": {
+    "canvas": "^2.10.1",
+    "mathjs": "^11.3.0",
+    "react-query": "^3.39.2",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

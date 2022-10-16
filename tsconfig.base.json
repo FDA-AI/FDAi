@@ -15,7 +15,16 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@curedao/clickup-api": ["libs/clickup-api/src/index.ts"]
+      "@curedao/clickup-api": ["libs/clickup-api/src/index.ts"],
+      "@curedao/sdk-javascript": ["libs/sdk-javascript/src/index.ts"],
+      "@curedao/sdk-php": ["libs/sdk-php/src/index.ts"],
+      "@curedao/sdk-react-query-components": [
+        "libs/sdk-react-query-components/src/index.ts"
+      ],
+      "@curedao/sdk-typescript-axios": [
+        "libs/sdk-typescript-axios/src/index.ts"
+      ],
+      "@curedao/sdk-typescript-node": ["libs/sdk-typescript-node/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
