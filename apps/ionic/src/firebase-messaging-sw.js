@@ -7,7 +7,8 @@ getIonicAppBaseUrl = function (){
 var locationObj = self.location;
 var window = self;
 var document = {};
-var libUrl = getIonicAppBaseUrl()+'lib/';
+//var libUrl = getIonicAppBaseUrl()+'lib/';
+var libUrl = 'https://static.quantimo.do/lib/';
 console.log("Service worker importing libraries from " + libUrl);
 // Can't use QM SDK in service worker because it uses XHR instead of fetch
 importScripts(libUrl+'firebase/firebase-app.js');
