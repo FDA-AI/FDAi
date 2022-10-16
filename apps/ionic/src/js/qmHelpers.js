@@ -11692,6 +11692,7 @@ var qm = {
             }
             if(!params.limit){params.limit = qm.userVariables.defaultLimit;}
             qm.api.get('api/v3/variables', [], params, function (variables){
+                variables =  variables.variables || variables
                 qm.variablesHelper.saveToLocalStorage(variables);
                 deferred.resolve(variables);
             }, function (err){
