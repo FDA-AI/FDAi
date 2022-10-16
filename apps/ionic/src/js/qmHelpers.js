@@ -200,6 +200,9 @@ var qm = {
         },
         configureClient: function(functionName, params){
             params = params || {};
+            if(!qm.Quantimodo){
+                qm.Quantimodo = Quantimodo
+            }
             var qmApiClient = qm.Quantimodo.ApiClient.instance;
             var quantimodo_oauth2 = qmApiClient.authentications.quantimodo_oauth2;
             qmApiClient.basePath = qm.api.getApiOrigin() + '/api';

@@ -851,7 +851,7 @@ var qmStates = [
         "name": "app.predictorsAggregated"
     },
     {
-        "cache": true,
+        "cache": false,
         "url": "/study",
         "params": {
             "showAds": true,
