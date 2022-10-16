@@ -3575,7 +3575,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                 return deferred.promise;
             }
             qmLog.debug('qmService.refreshUser: Calling qmService.getUserFromApi...');
-            qm.userHelper.getUserFromApi().then(function(user){
+            qm.userHelper.getUserFromApi(params).then(function(user){
                 qmLog.authDebug('qmService.refreshUser: qmService.getUserFromApi returned ', user);
                 qmService.setUserInLocalStorageBugsnagIntercomPush(user);
                 qmService.deferredRequests.user = null;

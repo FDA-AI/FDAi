@@ -104,6 +104,7 @@
     "jshint": "^2.13.4",
     "lazypipe": "1.0.2",
     "mime": "2.4.6",
+    "moment-timezone": "^0.5.38",
     "morgan": "1.10.0",
     "ng-material-floating-button": "0.6.2",
     "node-fetch": "^2.6.7",
