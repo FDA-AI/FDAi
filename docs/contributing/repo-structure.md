@@ -2,13 +2,13 @@
 stoplight-id: sz5hf6lkwwyg5
 ---
 
-# CureDAO Mono Repo
+# CureDAO Monorepo
 
 The goal of this monorepo is to acheive maximum interoperability and minimum duplication of effort between the various projects in the digital health ecosystem.  
 
 ## Why a monorepo?
 
-Let's get one thing clear.  **A monorepo is not a monolith**.  
+**A monorepo is not a monolith**.  
 
 In fact, a well-designed monorepo helps to avoid the creation of monolithic applications by providing maximum visibility and reusability between: 
 - UI components
@@ -41,74 +41,10 @@ Here's the base structure of our monorepo:
     - {{toolName}}  <-- A tool that is not a user-facing application but is used by developers
 ```
 
-## How to add a new API
-
-1. Create a new lib for the API spec file (replace `my-api-name` with the name of the API):
-
-```sh
-nx generate @trumbitta/nx-plugin-openapi:api-spec
-```
-✔ What name would you like to use? 
-```
-A: my-api-name-api-spec
-```
-
-✔ Do you want me to also create a sample spec file for you? (y/N) 
-```
-A: true
-```
-
-2. Paste the API spec file in the newly created `my-api-name-api-spec` file in the [libs](libs) folder.
+## [How to add a new API](./add-an-api.md)
 
 
-3.  Create an API client library from the spec file (replace `my-api-name` with the name of the API):
-
-```sh
-nx generate @trumbitta/nx-plugin-openapi:api-lib
-```
-✔ What name would you like to use? 
-```
-· my-api-name-sdk-typescript-fetch
-```
-✔ Which OpenAPITool generator would you like to use?  
-```
-· typescript-fetch
-```
-✔ Is the API spec file published online? (y/N)
-```
-· false
-```
-✔ If online, what is the URL where I can get the API spec file from?
-```
-·
-```
-✔ If online, which authorization headers do you need to add?
-```
-·
-```
-✔ If local, what is the name of the lib containing the API spec file?
-```
-· my-api-name-api-spec
-```
-✔ If local, what is the path of the API spec file starting from the lib root?
-```
-· src/my-api-name-api-spec.openapi.yml
-```
-
-4. Create an API docs library from the spec file (replace `my-api-name` with the name of the API):
-
-### Generate or update sources
-
-Given the specification lib created above, then generate the html docs:
-
-`nx run my-api-name-api-docs:generate-sources`
-
-### Then you can simply serve it
-`npx http-server libs/my-api-name-api-docs/src`
-
-Or you can configure a Nx serve target for it, or do whatever you want, I don't care.
-
-## Monorepo Structure
+## NX Monorepo Helpers
 
 This project use [Nx](https://nx.dev) to manage the inter-related dependencies.
 
