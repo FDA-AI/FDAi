@@ -1,6 +1,6 @@
 {
     "packageJSON": "package.json",
-    "oasFile": "../src/docs/openapi.yml",
+    "oasFile": "../../libs/dfda-api-spec/src/dfda-api-spec.openapi.yml",
     "useAnnotations": false,
     "logger": {
         "customLogger": null,
