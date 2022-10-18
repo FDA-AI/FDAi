@@ -1,10 +1,9 @@
 ---
 stoplight-id: 68344da7b63ba
+internal: true
 ---
 
 # Radical Projects
-
-
 
 # Awesome Articles
 
