@@ -6,28 +6,25 @@
         <div ng-show="loadingCharts || !state.study">
             <md-progress-linear md-mode="indeterminate"></md-progress-linear>
         </div>
-        <div ng-if="state.study" class="item-text-wrap card-item"
-             style="border-style:hidden; padding: 20px;">
-            <div id="studyHeaderHtml"
+        <div ng-if="state.study">
+            <div id="studyHeaderHtml" class="item-text-wrap card-item"
                  ng-if="state.study.studyHtml.studyHeaderHtml"
                  ng-bind-html="trustAsHtml(state.study.studyHtml.studyHeaderHtml)"
-                 style="text-align: center;"></div>
-            <div ng-include="'templates/fragments/correlation-buttons-fragment.html'" style="text-align: center;"></div>
-            <br>
-            <div
-                ng-hide="state.study.studyCharts && user && (state.study.userId === user.id || state.study.statistics.userId === user.id)"
-                 class="row">
-                <div class="col">
+                 style="text-align: center;">
+                <div ng-include="'templates/fragments/correlation-buttons-fragment.html'" style="text-align: center;"></div>
+                <br>
+                <div
+                    ng-hide="state.study.studyCharts && user && (state.study.userId === user.id || state.study.statistics.userId === user.id)"
+                     class="row">
                     <button id="joinStudyButton"
-                            class="button button-outline button-block icon-left ion-ios-people button-positive"
+                            class="button button-outline button-block icon-left ion-ios-people"
                             ng-click="goToJoinStudy(state.study)">
                         Join this Study
                     </button>
                 </div>
             </div>
         </div>
-        <div ng-show="loadingCharts || !state.study" class="item-text-wrap card-item"
-             style="border-style:hidden; padding: 20px;"><br>
+        <div ng-show="loadingCharts || !state.study"><br>
             <div>
                 <div><h1 style="text-align: center;">Analyzing data...</h1></div>
                 <div style="max-width: 600px; display:block; margin:auto;"
@@ -35,30 +32,22 @@
             </div>
             <div ng-show="loadingCharts" ng-include="'templates/spinner.html'"></div>
         </div>
-        <div ng-cloak ng-show="state.study" class="item-text-wrap card-item"
+        <div ng-cloak ng-show="state.study"
              style="border-style:hidden; padding: 20px;"><br>
             <div id="individual-owner-buttons" ng-if="state.study.isOwner && state.study.type === 'individual'">
-                <div id="causeSettingsButton" class="row">
-                    <div class="col">
-                        <button class="button button-outline button-block icon-left {{state.study.studyImages.causeVariableIonIcon}} button-positive"
-                                id="causeVariableSettingsButton"
-                                ng-click="goToVariableSettingsForCauseVariable(state.study.statistics)">
-                            {{state.study.causeVariableName}} Settings
-                        </button>
-                    </div>
+                <div>
+                    <button class="button button-block icon-left {{state.study.studyImages.causeVariableIonIcon}}"
+                            id="causeVariableSettingsButton"
+                            ng-click="goToVariableSettingsForCauseVariable(state.study.statistics)">
+                        {{state.study.causeVariableName}} Settings
+                    </button>
+                    <button class="button button-block icon-left {{state.study.studyImages.effectVariableIonIcon}}"
+                            id="effectVariableSettingsButton"
+                            ng-click="goToVariableSettingsForEffectVariable(state.study.statistics)">
+                        {{state.study.effectVariableName}} Settings
+                    </button>
                 </div>
-                <div id="effectSettingsButton"
-                     class="row">
-                    <div class="col">
-                        <button class="button button-outline button-block icon-left {{state.study.studyImages.effectVariableIonIcon}} button-positive"
-                                id="effectVariableSettingsButton"
-                                ng-click="goToVariableSettingsForEffectVariable(state.study.statistics)">
-                            {{state.study.effectVariableName}} Settings
-                        </button>
-                    </div>
-                </div>
-                <div id="publicStudyToggle"
-                     class="card sign-in">
+                <div id="publicStudyToggle">
                     <ion-toggle ng-model="state.study.studySharing.shareUserMeasurements"
                                 ng-change="toggleStudyShare(state.study.statistics)">
                         <i ng-if="!state.study.studySharing.shareUserMeasurements" class="icon ion-locked">
@@ -88,10 +77,9 @@
                 </div>
             </div>
         </div>
-        <div ng-cloak ng-show="state.study" class="item-text-wrap card-item"
-             style="border-style:hidden; padding: 20px;"><br>
+        <div ng-cloak ng-show="state.study"><br>
             <div id="studyCharts" style="text-align: center;">
-                <div ng-repeat="(key, chart) in state.study.studyCharts" ng-if="chart.highchartConfig">
+                <div ng-repeat="(key, chart) in state.study.studyCharts" ng-if="chart.highchartConfig"  class="item-text-wrap card-item">
 <!--                    <h2>{{chart.chartTitle}}</h2>-->
                     <highchart id="{{chart.chartId}}" config="chart.highchartConfig"></highchart>
 <!--                    <p ng-if="chart.explanation">{{chart.explanation}}</p>-->
@@ -123,7 +111,7 @@
             <br>
             <br>
         </div>
-        <div class="card" style="text-align: center; padding-left: 10px; padding-right: 10px;"
+        <div class="card"
              ng-if="state.studyNotFound">
             <p style="line-height: normal; font-size: 25px;">Not Enough Data</p>
             <img style="width:100px; height:100px;" ng-src="img/robots/quantimodo-robot-puzzled.svg">

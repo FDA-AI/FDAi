@@ -1,15 +1,14 @@
 <ion-view hide-nav-bar="hideNavigationMenu">
     <ion-nav-title>{{state.title}}</ion-nav-title>
     <ion-content>
-        <div id="variable-category-selector-card"
-            class="card">
+        <div id="variable-category-selector-card">
             <label id="variable-category-selector-label"
                 class="item item-input item-select">
                 <div class="input-label"
-                     style="white-space:normal; width: 60%">Category
+                     style="white-space:normal; width: 60%">Category Filter
                 </div>
                 <select id="variable-category-selector"
-                        ng-model="state.variableSearchParameters.variableCategoryName"
+                        ng-model="state.variableSearchParameters.variableCategoryName || 'Anything'"
                         ng-change="onVariableSearch()"
                 >
                     <option ng-repeat="variableCategoryName in variableCategoryNames"
@@ -17,7 +16,9 @@
                     </option>
                 </select>
             </label>
-            <div ng-show="state.helpText" class="item item-text-wrap"> {{state.helpText}}</div>
+<!--            <div ng-show="state.helpText" class="item item-text-wrap"> {{state.helpText}}</div>-->
+        </div>
+        <div id="variable-search-input-container" class="search-input-container">
             <label class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
                 <input ng-model="state.variableSearchParameters.searchPhrase"
@@ -37,7 +38,8 @@
                     &nbsp
                 </a>
             </label>
-            <p></p>
+        </div>
+        <div id="variable-search-results">
             <ion-list>
                 <ion-item style="text-align: center; margin: auto; border-bottom: 1px solid rgb(221, 221, 221);"
                           ng-show="state.searching || showSearchLoader">
@@ -50,7 +52,9 @@
                           ng-repeat="item in state.variableSearchResults | unique:'name' track by $index">
                     <div>
                         <!-- For some reason, putting displayName on new line in HTML code also produces new line in rendered HTML even though there's no <br> -->
-                        <p style="font-size:18px; white-space: pre;"><i ng-if="item.ionIcon" class="icon {{item.ionIcon}}"></i>&nbsp {{item.displayName}}</p>
+                        <div class="search-result-title"><i ng-if="item.ionIcon" class="icon {{item.ionIcon}}"></i>&nbsp
+                                                                                                             {{item
+                          .displayName}}</div>
                         <small ng-if="item.subtitle">{{item.subtitle}}</small>
                         <small ng-if="!item.subtitle && item.latestMeasurementTime">
                             Recorded {{item.latestMeasurementTime | fromNow}} - {{item.numberOfRawMeasurements}} measurements

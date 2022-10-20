@@ -1149,7 +1149,8 @@ var qm = {
             if(!appSettings.appDesign){
                 qmLog.error("No appDesign property!", appSettings);
             }else if(!appSettings.appDesign.ionNavBarClass){
-                appSettings.appDesign.ionNavBarClass = "bar-positive";
+                //appSettings.appDesign.ionNavBarClass = "bar-positive";
+                appSettings.appDesign.ionNavBarClass = "bar-transparent";
             }
             function successHandler(){
                 qm.localForage.setItem(qm.items.appSettings, appSettings);

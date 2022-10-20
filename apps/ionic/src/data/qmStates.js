@@ -13,6 +13,13 @@ var qmStates = [
         "name": "app"
     },
     {
+        "url": "/login",
+        "templateUrl": "templates/login-page.html",
+        "controller": "LoginCtrl",
+        "resolve": {},
+        "name": "login"
+    },
+    {
         "cache": true,
         "url": "/welcome",
         "views": {

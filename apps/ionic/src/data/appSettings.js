@@ -1290,7 +1290,7 @@ qm.staticData.appSettings ={
 			"id": null
 		},
 		"primaryOutcomeVariable": null,
-		"ionNavBarClass": "bar-positive",
+		"ionNavBarClass": "bar-transparent",
 		"physicianAlias": "Physician",
 		"patientAlias": "Patient",
 		"welcomeState": "app.welcome",
