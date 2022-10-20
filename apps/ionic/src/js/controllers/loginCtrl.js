@@ -1,6 +1,10 @@
 angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootScope", "$ionicLoading", "$injector",
     "$stateParams", "$timeout", "qmService", "$mdDialog",
     function($scope, $state, $rootScope, $ionicLoading, $injector, $stateParams, $timeout, qmService, $mdDialog){
+        function hideLoginPageLoader(){
+            //return;
+            qmService.hideLoader();
+        }
         $scope.state = {
             //useLocalUserNamePasswordForms: qm.platform.isMobileOrChromeExtension(),
             useLocalUserNamePasswordForms: true,
@@ -14,12 +18,12 @@ angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootSco
                 qmLog.authDebug("Trying to get user");
                 qmService.refreshUser(force, {}).then(function(){
                     qmLog.authDebug("Got user");
-                    qmService.hideLoader();
+                    hideLoginPageLoader();
                     leaveIfLoggedIn();
                 }, function(error){
                     console.info("Could not get user! error: " + error);
                     //qmService.showMaterialAlert(error);  Can't do this because it has a not authenticate popup
-                    qmService.hideLoader();  // Hides login loader too early
+                    hideLoginPageLoader();  // Hides login loader too early
                     leaveIfLoggedIn();
                 });
             },
@@ -33,23 +37,23 @@ angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootSco
                 qmService.showBasicLoader();
                 qm.api.post('api/v3/userSettings', params, function(response){
                     qmService.setUserInLocalStorageBugsnagIntercomPush(response.user);
-                    qmService.hideLoader();
+                    hideLoginPageLoader();
                     leaveIfLoggedIn();
                 }, function(error){
                     qmService.showMaterialAlert("Error", error);
-                    qmService.hideLoader();  // Hides login loader too early
+                    hideLoginPageLoader();  // Hides login loader too early
                     leaveIfLoggedIn();
                 });
             },
             emailLogin: function () {
                 qmService.showBasicLoader(); // Chrome needs to do this because we can't redirect with access token
                 qmService.refreshUser(true, $scope.state.loginForm).then(function(){
-                    qmService.hideLoader();
+                    hideLoginPageLoader();
                     leaveIfLoggedIn();
                 }, function(error){
                     qmLog.error("Email Login Error", error);
                     qmService.showMaterialAlert("Login Error", "Hmm. I couldn't sign you in with those credentials.  Please double check them or contact me at https://help.quantimo.do.");
-                    qmService.hideLoader();  // Hides login loader too early
+                    hideLoginPageLoader();  // Hides login loader too early
                     leaveIfLoggedIn();
                 });
             }
@@ -83,7 +87,7 @@ angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootSco
             overlayIcon: false, //TODO: Figure out how to position properly in circle-page.html
             color: {
                 "backgroundColor": "#3467d6",
-                circleColor: "#5b95f9"
+                circleColor: "#00000042"
             },
             image: {
                 url: "img/robots/robot-waving.svg",

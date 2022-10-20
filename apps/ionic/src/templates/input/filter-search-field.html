@@ -3,8 +3,9 @@
         <i class="icon ion-ios7-search placeholder-icon"></i>
         <input id="filter-box" type="search" placeholder="Filter by name or type" ng-model="state.searchText"
                style="width: 100%" autocomplete="off">
-        <a id="clear-search" ng-if="state.searchText != ''" style="cursor: pointer;" on-touch="state.searchText=''">
-            <i class="icon ion-close-round placeholder-icon"></i>
+        <a id="clear-search" ng-if="state.searchText != ''"
+           style="cursor: pointer;" on-touch="state.searchText=''">
+            <i class="icon ion-close-round placeholder-icon clear-search-button"></i>
         </a>
     </label>
 </div>

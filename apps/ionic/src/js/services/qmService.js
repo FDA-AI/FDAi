@@ -6109,6 +6109,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
             }
         };
         qmService.hideLoader = function(delay){
+            //debugger
             if(qm.urlHelper.getParam('loaderDebug')){
                 qmLog.debug('Called hideLoader in ' + $state.current.name);
             }
