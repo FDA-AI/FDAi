@@ -7,23 +7,23 @@
             <ion-nav-buttons side="left">
                 <button id="menu-toggle-button"
                         ng-hide="hideMenuButton"
-                        class="button button-icon button-clear ion-navicon"
+                        class="button button-icon button-clear ion-navicon nav-bar-button"
                         menu-toggle="left">
                 </button>
                 <button id="menu-close-button"
                         ng-show="showCloseMenuButton"
-                        class="button button-icon ion-android-close"
+                        class="button button-icon ion-android-close nav-bar-button"
                         ng-click="closeMenu()">
                 </button>
                 <button id="menu-back-button"
                         style="padding: 0;"
                         ng-hide="hideBackButton"
-                        class="button button-icon ion-android-arrow-back"
+                        class="button button-icon ion-android-arrow-back nav-bar-button"
                         ng-click="goBack()">
                 </button>
                 <button id="demo-link-button"
                         ng-if="appSettings.designMode"
-                        class="button button-icon ion-link"
+                        class="button button-icon ion-link nav-bar-button"
                         ng-click="copyDemoLink()">
                     <md-tooltip>Copy Demo Link To Clipboard</md-tooltip>
                 </button>
@@ -37,7 +37,8 @@
                          style="cursor:pointer;"
                          ng-click="switchBackToPhysician()"
                          ng-if="physicianUser">
-                        <md-tooltip md-direction="down">Switch back to your account from {{user.displayName}}
+                        <md-tooltip
+                          md-direction="down">Switch back to your account from {{user.displayName}}
                         </md-tooltip>
                         <a ng-if="user && user.avatar"
                            class="button button-clear">
@@ -55,7 +56,7 @@
                     <a ng-if="popOutUrl"
                        href="{{popOutUrl}}"
                        target="_blank">
-                        <button class="button button-icon ion-android-open">
+                        <button class="button button-icon ion-android-open nav-bar-button">
                             <md-tooltip md-direction="down">Pop Out</md-tooltip>
                         </button>
                     </a>
@@ -68,30 +69,30 @@
                     </a>
                     <button id="menu-search-button"
                             style="padding: 0;"
-                            class="button button-icon ion-ios-search"
+                            class="button button-icon ion-ios-search nav-bar-button"
                             ng-click="showGeneralVariableSearchDialog($event)"></button>
                     <a ng-if="finishUrl"
                        href="{{finishUrl}}">
                         <button id="menu-finish-button"
                                 ng-show="finishUrl"
-                                class="button button-icon ion-android-close"></button>
+                                class="button button-icon ion-android-close nav-bar-button"></button>
                     </a>
                     <a id="menu-help-button" target="_blank"
                             style="padding: 0;"
-                            class="button button-icon ion-ios-help-outline"
+                            class="button button-icon ion-ios-help-outline nav-bar-button"
                             ng-hide="stateParams.helpText || hideHelpButton"
                             ng-href="https://curedao.org/help">
                         <md-tooltip md-direction="down">Get Help</md-tooltip>
                     </a>
                     <button id="menu-showMaterialAlert-button"
                             style="padding: 0;"
-                            class="button button-icon ion-ios-help-outline"
+                            class="button button-icon ion-ios-help-outline nav-bar-button"
                             ng-show="stateParams.helpText"
                             ng-click="showMaterialAlert(stateParams.title, stateParams.helpText, $event)">
                         <md-tooltip md-direction="down">Get Help</md-tooltip>
                     </button>
                     <button id="menu-more-button"
-                            class="button button-icon ion-android-more-vertical"
+                            class="button button-icon ion-android-more-vertical nav-bar-button"
                             ng-show="showActionSheetMenu"
                             ng-click="showActionSheetMenu()"></button>
                 </div>
@@ -105,12 +106,12 @@
                 <div id="splash-logo">
                     <div id="splash-text"
                          style="margin-top: 20%">
-                        <div class="splash-h1"
+                        <!--<div class="splash-h1"
                              style="font-size: 60px; z-index: 0;">Offline
-                        </div>
-                        <div class="splash-h2"
-                             style="font-size: 60px; z-index: 0;">Please reload!
-                        </div>
+                        </div>-->
+                        <!--<div class="splash-h2"
+                              style="font-size: 60px; z-index: 0;">Please reload!
+                         </div>-->
                     </div>
                 </div>
             </a>
@@ -138,7 +139,7 @@
                    is-enabled="!hideNavigationMenu"
                    expose-aside-when="large"
                    ng-class="{'menu-disabled': hideNavigationMenu}">
-        <ion-header-bar class="bar-positive">
+        <ion-header-bar class="bar-transparent">
             <div id="menu-avatar"
                  style="cursor:pointer;"
                  ng-click="goToState('app.settings')"
@@ -149,7 +150,7 @@
                          id="menuAvatar"
                          ng-src="{{user.avatar}}">
                 </a>
-                <h1 class="title"
+                <h1 class="title nav-bar-text"
                     style="position: fixed; bottom: 0;">{{user.displayName}}
                 </h1>
             </div>
@@ -164,7 +165,7 @@
                          id="patientAvatar"
                          ng-src="{{user.avatar}}">
                 </a>
-                <h1 class="title"
+                <h1 class="title nav-bar-text"
                     style="position: fixed; bottom: 0;">{{user.displayName}}
                 </h1>
                 <button id="switch-button"
@@ -172,10 +173,11 @@
             </div>
             <div id="menu-upgrade"
                  style="cursor:pointer;"
+                 class="nav-bar-text"
                  ng-if="!appSettings.designMode && !physicianUser && user && user.displayName && !user.stripeActive && appSettings.additionalSettings.monetizationSettings.subscriptionsEnabled.value"
                  ng-click="goToState('app.upgrade')">
                 <button class="button button-icon ion-android-star-outline"></button>
-                <h1 class="title"
+                <h1 class="title nav-bar-text"
                     style="position: fixed; bottom: 0;">{{appSettings.appDisplayName}} Plus
                 </h1>
             </div>
@@ -184,7 +186,7 @@
                  ng-if="appSettings.designMode"
                  ng-click="goToState('app.configuration')">
                 <button class="button button-icon ion-android-star-outline"></button>
-                <h1 class="title"
+                <h1 class="title nav-bar-text"
                     style="position: fixed; bottom: 0;">App Builder
                 </h1>
             </div>
@@ -193,6 +195,7 @@
             <ion-list id="menu-list">
                 <div ng-repeat="menuItem in appSettings.appDesign.menu.active">
                     <ion-item id="menu-item-{{menuItem.id}}"
+                              class="menu-item"
                               ng-click="closeMenuIfNeeded(menuItem)"
                               ng-href="{{menuItem.href}}">
                         <span class="md-title">
@@ -207,6 +210,7 @@
                             </span>
                     </ion-item>
                     <ion-item id="menu-item-{{menuItem.id + '-design'}}"
+                              class="menu-item"
                               ng-if="false && appSettings.designMode">
                         <span ng-href="{{menuItem.href}}"
                               ng-click="closeMenuIfNeeded(menuItem)">
@@ -234,6 +238,7 @@
                         </span>
                     </ion-item>
                     <ion-item ng-repeat="subMenuItem in menuItem.subMenu"
+                              class="menu-item"
                               id="submenu-item-{{subMenuItem.id}}"
                               ng-href="{{subMenuItem.href}}"
                               ng-show="menuItem.showSubMenu"
@@ -245,6 +250,7 @@
                     </ion-item>
                 </div>
                 <ion-item ng-show="appSettings.designMode"
+                          class="menu-item"
                           ng-href="#/app/configuration"
                           id="configurationMenuItem">
                     <i
@@ -254,6 +260,7 @@
                 </ion-item>
                 <ion-item
                         ng-href="https://github.com/curedao/curedao-web-android-chrome-ios-demo-app"
+                        class="menu-item"
                           id="github">
                     <i
                             class="ion-social-github"

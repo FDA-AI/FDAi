@@ -75,7 +75,7 @@
                  ng-repeat="historyItem in state.history track by $index"
                  ng-hide="historyItem.hide"
                  data-measurementid="{{historyItem.id}}"
-                 class="item item-avatar item-button-right">
+                 class="item item-avatar item-button-right history-item">
                 <i id="historyItemIcon-{{$index}}"
                    class="icon positive {{historyItem.icon}} icon-positive"
                    ng-click="showActionSheetForMeasurement(historyItem)"
