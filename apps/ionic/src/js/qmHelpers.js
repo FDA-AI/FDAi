@@ -9555,6 +9555,7 @@ var qm = {
             }
             for(var i = 0; i < notifications.length; i++){
                 var n = notifications[i]
+                n.pngPath = n.pngPath || n.imageUrl || n.image
                 n.showZeroButton = shouldWeShowZeroButton(notifications[i]);
                 n.trackAllActions.forEach(function (a) {
                     if(a.callback === "skipAction"){
