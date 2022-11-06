@@ -340,7 +340,6 @@ describe("Measurement", function () {
             "inputType": "value",
             "pngPath": "https://static.quantimo.do/img/variable_categories/treatments.png",
             startAt,
-            "startTime": "2020-12-02 03:52:57",
             "unitAbbreviatedName": "mg",
             "unitId": 7,
             "unitName": "Milligrams",
@@ -363,8 +362,8 @@ describe("Measurement", function () {
         queue.forEach(function(m){
             expect(m.startAt).to.eq(startAt)
             // TODO: Uncomment this qm.lei(m.startTime)
-            qm.lei(m.startTimeEpoch)
-            qm.lei(m.startTimeEpochSeconds)
+            //qm.lei(m.startTimeEpoch)
+            //qm.lei(m.startTimeEpochSeconds)
         })
         qm.measurements.queue = {}
     })
@@ -372,7 +371,6 @@ describe("Measurement", function () {
         this.timeout(60000)
         var measurements = [{
             "sourceName": "Fitbit",
-            "startTimeString": "2020-12-10 00:00:00",
             "unitAbbreviatedName": "min",
             "value": 81,
             "variableName": "Duration of Awakenings During Sleep",

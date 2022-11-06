@@ -6,9 +6,10 @@
              class="list card" ng-click="goToState('app.upgrade')">
             <a class="item"><i class="icon ion-ios-color-wand"></i> &nbsp; {{appSettings.appDisplayName}} Plus</a>
         </div>
-        <div id="logout">
+        <div id="logout" class="list card">
             <a href="" ng-show="!user"
-               ng-click="completelyResetAppStateAndSendToLogin('clicked sign in in settings page')" class="item ">
+               ng-click="completelyResetAppStateAndSendToLogin('clicked sign in in settings page')"
+               class="item card">
                 Account <p>Tap to sign in</p>
             </a>
             <a id="userName" href="" ng-show="user" ng-click="logout($event)" class="item ">
@@ -16,7 +17,7 @@
                 <p>Tap to sign out</p>
             </a>
         </div>
-        <div id="contact-us">
+        <div id="contact-us" class="card">
             <a ng-click="contactUs()" class="item ">
                 <i class="icon ion-help-buoy"></i> &nbsp; Help & Feedback
             </a>
@@ -46,14 +47,16 @@
             <div class="item item-divider" ng-click="showHelpInfoPopup('locationAndWeatherTracking', $event)">
                 Location Tracking &nbsp; <i class="icon ion-information-circled"></i>
             </div>
-            <ion-toggle ng-model="user.trackLocation" ng-change="trackLocationWithMeasurementsChange($event)">
+            <ion-toggle ng-model="user.trackLocation"
+                        ng-change="trackLocationWithMeasurementsChange($event)">
                 <div><i class="icon ion-map"></i> &nbsp
                     <span ng-if="!platform.isMobile">Record with Measurements</span>
                     <span ng-if="platform.isMobile">with Measurements</span>
                     &nbsp
                 </div>
             </ion-toggle>
-            <ion-toggle ng-model="backgroundLocationTracking" ng-change="backgroundLocationChange()">
+            <ion-toggle ng-model="backgroundLocationTracking"
+                        ng-change="backgroundLocationChange()">
                 <div><i class="icon ion-map"></i> &nbsp
                     <span ng-if="!platform.isMobile">Ongoing Background Recording</span>
                     <span ng-if="platform.isMobile">Background Recording</span>
@@ -72,7 +75,9 @@
             </a>
             -->
             <div ng-include="'templates/personal-access-token.html'"></div>
-            <a id="manage-data-sharing" ng-click="goToState('app.dataSharing')" class="item ">
+            <a id="manage-data-sharing"
+               ng-click="goToState('app.dataSharing')"
+               class="item class">
                 <i class="icon ion-email"></i> &nbsp Manage Data Sharing
                 <p style="white-space: normal">Invite or revoke access for individuals and studies</p>
             </a>
@@ -82,11 +87,14 @@
                 <div class="item item-divider" ng-click="showHelpInfoPopup('shareAllData', $event, 'User')">
                     Make All Data Public &nbsp; <i class="icon ion-information-circled"></i>
                 </div>
-                <ion-toggle ng-model="user.shareAllData" ng-change="shareAllDataChange($event)">
-                    <div ng-if="user.shareAllData"><i class="icon ion-share"></i> &nbsp All Measurements are Public
+                <ion-toggle ng-model="user.shareAllData"
+                            ng-change="shareAllDataChange($event)">
+                    <div ng-if="user.shareAllData">
+                        <i class="icon ion-share"></i> &nbsp All Measurements are Public
                         &nbsp
                     </div>
-                    <div ng-if="!user.shareAllData"><i class="icon ion-share"></i> &nbsp Measurements are Private &nbsp
+                    <div ng-if="!user.shareAllData">
+                        <i class="icon ion-share"></i> &nbsp Measurements are Private &nbsp
                     </div>
                 </ion-toggle>
             </div>
@@ -149,21 +157,30 @@
             </ion-toggle>
         </div>-->
         <!-- Slows down the app, so hide until click -->
-        <div id="time-zone" ng-if="user" ng-click="showTimeZone = !showTimeZone">
-            <div class="item item-divider"><i class="icon ion-clock"></i>&nbsp; Your Time Zone &nbsp;</div>
-            <div class="item" ng-if="showTimeZone">
+        <div id="time-zone"
+             ng-if="user"
+              class="card"
+             ng-click="showTimeZone = !showTimeZone">
+            <div class="item item-divider"><i class="icon ion-clock">
+            </i>&nbsp; Your Time Zone &nbsp;</div>
+            <div class="item"
+                 ng-if="showTimeZone">
                 <ion-spinner></ion-spinner>
                 <md-input-container style="margin: 0 0;">
-                    <md-select ng-model="user.timezone" ng-change="state.updateTimezone()">
+                    <md-select ng-model="user.timezone"
+                               ng-change="state.updateTimezone()">
                         <md-option><em>None</em></md-option>
-                        <md-option ng-repeat="timezone in state.timezones" ng-value="timezone">
+                        <md-option ng-repeat="timezone in state.timezones"
+                                   ng-value="timezone">
                             {{timezone}}
                         </md-option>
                     </md-select>
                 </md-input-container>
             </div>
         </div>
-        <div id="user-description"  ng-show="user">
+        <div id="user-description"
+             ng-show="user"
+             class="card">
             <a ng-click="state.showBioModalPromptPopup($event)" class="item ">
                 <i class="icon ion-email"></i> &nbsp Edit Your Bio
                 <p ng-if="!user.description" style="white-space: normal">Displayed on studies that you publish</p>
@@ -174,6 +191,7 @@
             <a class="item"> <i class="icon ion-ios-color-wand"></i> &nbsp; Downgrade to Lite </a>
         </div>-->
         <div id="image-credits"
+             class="card"
              ng-click="openUrl('https://app.quantimo.do/api/v2/image-credits')">
             <a class="item"><i class="icon ion-ios-camera-outline"></i>&nbsp;Image Credits</a>
         </div>
@@ -185,13 +203,15 @@
             </a>
         </div>-->
         <div id="Developer-Settings"
+             class="card"
              ng-click="goToState('app.configuration')">
             <a class="item"><i class="ion-gear-a"> &nbsp;
                 Developer Settings
             </i></a>
         </div>
         <div id="delete-account" style="text-align: center;">
-            <md-button class="md-primary" ng-if="user" ng-click="openDeleteUserAccountDialog($event)">
+            <md-button class="md-primary" ng-if="user"
+                       ng-click="openDeleteUserAccountDialog($event)">
                 Delete Account
             </md-button>
         </div>
