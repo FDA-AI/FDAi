@@ -6654,7 +6654,7 @@ button.item.item-button-right {
 .list-inset {
   overflow: hidden;
   margin: 20px 10px;
-  border-radius: 2px;
+  border-radius: 10px;
   background-color: #fff; }
 
 .card {
