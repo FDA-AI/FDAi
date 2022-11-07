@@ -8,7 +8,7 @@
                      style="white-space:normal; width: 60%">Category Filter
                 </div>
                 <select id="variable-category-selector"
-                        ng-model="state.variableSearchParameters.variableCategoryName || 'Anything'"
+                        ng-model="state.variableSearchParameters.variableCategoryName"
                         ng-change="onVariableSearch()"
                 >
                     <option ng-repeat="variableCategoryName in variableCategoryNames"
