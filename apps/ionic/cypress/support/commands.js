@@ -232,7 +232,7 @@ Cypress.Commands.add('enterCredentials', function (usernameSelector, username, p
 Cypress.Commands.add('disableSpeechAndSkipIntro', function () {
     // Seeing if commenting this fixes run error messages cy.log("=== disableSpeechAndSkipIntro ===")
     if (Cypress.browser.name === 'chrome') {
-        cy.get('.pane > div > div > #disableSpeechButton > span', { timeout: 30000 }).click();
+        //cy.get('.pane > div > div > #disableSpeechButton > span', { timeout: 30000 }).click();
     }
     cy.get('.slider > .slider-slides > .slider-slide:nth-child(1) > .button-bar > #skipButtonIntro').click();
 });
@@ -336,7 +336,7 @@ Cypress.Commands.add('searchAndClickTopResult', function (variableName, topResul
     cy.log("=== searchAndClickTopResult for " + variableName + " ===");
     cy.wait(1000);
     cy.get('#variableSearchBox').type(variableName, { force: true, timeout: 5000 });
-    var firstResultSelector = '#variable-search-result > div > p';
+    var firstResultSelector = '#variable-search-result';
     cy.log('Wait for search results to load');
     cy.wait(1000); // Wait in case we only have common variables locally
     // Sometimes we just get local variables so we can't cy.wait('@get-variables')

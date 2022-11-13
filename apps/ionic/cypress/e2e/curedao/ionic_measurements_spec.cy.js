@@ -221,7 +221,7 @@ describe('Measurements', function () {
         })
     })
     // Skipping because it fails randomly and can't reproduce failure locally
-    it.only('Record, edit, and delete a treatment measurement', function () {
+    it('Record, edit, and delete a treatment measurement', function () {
         let dosageValue = Math.floor(Math.random() * 100) + 10
         let variableName = 'Aaa Test Treatment'
         let variableCategoryName = 'Treatments'
