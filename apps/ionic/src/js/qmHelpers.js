@@ -2498,7 +2498,7 @@ var qm = {
         },
         showDriftButton: function(){
             if(typeof drift === "undefined"){
-                qmLog.error("drift not defined!");
+                qmLog.warn("drift not defined!");
                 return;
             }
             qmLog.debug("called show drift");
@@ -10393,7 +10393,9 @@ var qm = {
         },
         goToStudyPageViaStudy: function(study){
             var url = qm.studyHelper.getStudyUrl(study);
-            qmLog.info("goToStudyPageViaStudy: Going to " + url + " because we clicked " + study.causeVariableName + " vs " + study.effectVariableName + " study...");
+            qmLog.info("goToStudyPageViaStudy: Going to " + url +
+                       " because we clicked " + study.causeVariableName + " vs " +
+                       study.effectVariableName + " study...");
             qm.urlHelper.goToUrl(url);
         },
         deleteVote: function(study, successHandler, errorHandler){

@@ -211,7 +211,7 @@ angular.module("starter").controller("StudyCtrl", [
         });
     }
     function getStudy(recalculate){
-        getLocalStudyIfNecessary(); // Get it quick so they have something to look at while waiting for charts
+        getLocalStudyIfNecessary(); // Get it quick, so they have something to look at while waiting for charts
         $scope.loadingCharts = true;
         function successHandler(study){
             qmService.hideLoader();

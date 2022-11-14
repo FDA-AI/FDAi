@@ -85,16 +85,23 @@ angular.module('starter').controller('StudyCreationCtrl', ["$scope", "$state", "
             });
         };
         $scope.createStudy = function(type){
-            qmLog.info('Clicked createStudy for ' + getCauseVariableName() + ' and ' + getEffectVariableName());
+            let causeVariableName = getCauseVariableName();
+            let effectVariableName = getEffectVariableName();
+            qmLog.info('Clicked createStudy for ' + causeVariableName + ' and ' + effectVariableName);
             qmService.showInfoToast("Creating study (this could take a minute)", 45);
             qmService.showBasicLoader(60);
-            var body = new Quantimodo.StudyCreationBody(getCauseVariableName(), getEffectVariableName(), type);
+            var body = new Quantimodo.StudyCreationBody(causeVariableName, effectVariableName, type);
+            body.causeVariableName = body.predictorVariableName || body.causeVariableName;
+            body.effectVariableName = body.outcomeVariableName || body.effectVariableName;
             qm.studiesCreated.createStudy(body, function(study){
-                qmService.hideLoader();
                 if(body.type === 'individual'){
                     if(study.statistics){
-                        qm.studyHelper.goToStudyPageViaStudy(study); // Need to use goToStudyPageViaStudy so url params are populated
+                        //debugger
+                        qmService.goToState('app.study', {study: study});
+                        //qm.studyHelper.goToStudyPageViaStudy(study); // Need to use goToStudyPageViaStudy so url
+                        // params are populated
                     } else {
+                        qmService.hideLoader();
                         qm.studyHelper.goToJoinStudy(study);
                     }
                 }else{
