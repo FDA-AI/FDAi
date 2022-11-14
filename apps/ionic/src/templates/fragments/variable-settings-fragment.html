@@ -268,30 +268,22 @@
             </md-chips>
         </div>
     </div>
-    <div class="row">
-        <div class="col col-50">
-            <md-button class="button button-outline button-block icon-left ion-android-cancel button-assertive"
-                       id="cancelButton"
-                       ng-click="goBack()">
-                Cancel
-            </md-button>
-        </div>
-        <div class="col col-50">
-            <md-button class="button button-outline button-block icon-left ion-android-done button-positive"
-                       id="saveButton"
-                       ng-click="saveVariableSettings(state.variableObject)">
-                {{state.saveButtonText}}
-            </md-button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <md-button class="button button-outline button-block icon-left ion-android-cancel button-assertive"
-                       id="resetButton"
-                       ng-click="resetVariableToDefaultSettings(state.variableObject)">
-                Reset to Default Settings
-            </md-button>
-        </div>
+    <div class="center">
+        <md-button class="icon-left ion-android-cancel md-raised"
+                   id="cancelButton"
+                   ng-click="goBack()">
+            Cancel
+        </md-button>
+        <md-button class="icon-left ion-android-done md-raised md-primary"
+                   id="saveButton"
+                   ng-click="saveVariableSettings(state.variableObject)">
+            {{state.saveButtonText}}
+        </md-button>
+        <md-button class="icon-left ion-android-cancel md-raised"
+                   id="resetButton"
+                   ng-click="resetVariableToDefaultSettings(state.variableObject)">
+            Reset to Default Settings
+        </md-button>
     </div>
     <div id="variable-info card" class="card variable-settings">
         <div class="list">
