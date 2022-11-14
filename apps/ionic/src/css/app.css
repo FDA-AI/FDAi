@@ -8760,8 +8760,9 @@ progress {
       background: none; }
     .button.button-assertive.button-outline {
       border-color: #ef473a;
-      background: transparent;
-      color: #ef473a; }
+      /* background: transparent; */
+      color: #ef473a;
+      }
       .button.button-assertive.button-outline.active, .button.button-assertive.button-outline.activated {
         background-color: #ef473a;
         box-shadow: none;
@@ -26490,7 +26491,7 @@ linear-gradient(-45deg, rgb(0 46 255), rgb(60 0 255), rgb(35 213 64), rgb(255 0 
   background: white;
   padding: 0px;
   margin: 10px;
-  border-radius: 52px;
+  border-radius: 25px;
 }
 
 .clear-search-button {
