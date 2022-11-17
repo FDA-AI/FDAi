@@ -16,7 +16,7 @@ angular.module("starter").controller("StudyCtrl", [
             hideStudyButton: true,
             loading: true,
             study: $stateParams.study,
-            copyLinkText: "Copy Shareable Link to Clipboard"
+            copyLinkText: "Copy Shareable Link"
         };
         qmService.hideLoader(); // Hide before robot is called in afterEnter
         setAllStateProperties(getScopedStudyIfMatchesVariableNames());
