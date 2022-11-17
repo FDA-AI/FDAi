@@ -5,54 +5,58 @@
                  style="padding: 10px;"
                  ng-class="{ isBrowserView : platform.isWeb == true }">
         <ion-refresher on-refresh="refreshStudy()"></ion-refresher>
-        <div ng-show="loadingCharts || !state.study">
+        <div ng-show="loadingCharts || !state.study" style="left: -10px; right: -10px">
             <md-progress-linear md-mode="indeterminate"></md-progress-linear>
         </div>
-        <div ng-if="state.study" class="card">
-            <div id="studyHeaderHtml" class="item-text-wrap card-item"
-                 ng-if="state.study.studyHtml.studyHeaderHtml"
-                 ng-bind-html="trustAsHtml(state.study.studyHtml.studyHeaderHtml)"
-                 style="text-align: center;">
-                <div ng-include="'templates/fragments/correlation-buttons-fragment.html'" style="text-align: center;"></div>
-                <br>
-                <div
-                    ng-hide="state.study.studyCharts && user && (state.study.userId === user.id || state.study.statistics.userId === user.id)"
-                     class="row">
-                    <button id="joinStudyButton"
-                            class="button button-outline button-block icon-left ion-ios-people"
-                            ng-click="goToJoinStudy(state.study)">
-                        Join this Study
-                    </button>
+        <div ng-if="state.study">
+            <md-card id="studyHeaderHtml"
+                     class="card padding">
+                <div id="studyHeaderHtml"
+                     class="item-text-wrap padding"
+                     ng-if="state.study.studyHtml.studyHeaderHtml"
+                     ng-bind-html="trustAsHtml(state.study.studyHtml.studyHeaderHtml)"
+                     style="text-align: center; padding-top: 10px;">
                 </div>
-            </div>
+            </md-card>
+            <div ng-include="'templates/buttons/vote-buttons.html'"></div>
+            <div ng-include="'templates/buttons/study-sharing-buttons.html'"></div>
+            <md-card
+              ng-hide="state.study.studyCharts && user && (state.study.userId === user.id || state.study.statistics.userId === user.id)">
+                <button id="joinStudyButton"
+                        class="button button-outline button-block icon-left ion-ios-people"
+                        ng-click="goToJoinStudy(state.study)">
+                    Join this Study
+                </button>
+            </md-card>
         </div>
-        <div ng-show="loadingCharts || !state.study"><br>
+        <div ng-show="loadingCharts || !state.study">
             <div>
-                <div><h1 style="text-align: center;">Analyzing data...</h1></div>
+                <div>
+                    <h1 style="text-align: center;">Analyzing data...</h1>
+                </div>
                 <div style="max-width: 600px; display:block; margin:auto;"
                      ng-include="'templates/loaders/blue-robot-loader.html'"></div>
             </div>
             <div ng-show="loadingCharts" ng-include="'templates/spinner.html'"></div>
         </div>
-        <div ng-cloak ng-show="state.study"
-             class="card">
-            <br>
-            <div id="individual-owner-buttons" ng-if="state.study.isOwner && state.study.type === 'individual'">
-                <div>
-                    <md-button class="button button-block icon-left {{state.study.studyImages.causeVariableIonIcon}}"
+        <div ng-cloak ng-show="state.study">
+            <div id="individual-owner-buttons"
+                 ng-if="state.study.isOwner && state.study.type === 'individual'">
+                <div class="center padding-top">
+                    <md-button class="md-raised icon-left {{state.study.studyImages.causeVariableIonIcon}}"
                             id="causeVariableSettingsButton"
                             ng-click="goToVariableSettingsForCauseVariable(state.study.statistics)">
                         {{state.study.causeVariableName}} Settings
                     </md-button>
-                    <md-button class="button button-block icon-left {{state.study.studyImages.effectVariableIonIcon}}"
+                    <md-button class="md-raised icon-left {{state.study.studyImages.effectVariableIonIcon}}"
                             id="effectVariableSettingsButton"
                             ng-click="goToVariableSettingsForEffectVariable(state.study.statistics)">
                         {{state.study.effectVariableName}} Settings
                     </md-button>
                 </div>
-                <div id="publicStudyToggle">
+                <div id="publicStudyToggle" class="card">
                     <ion-toggle ng-model="state.study.studySharing.shareUserMeasurements"
-                                ng-change="toggleStudyShare(state.study.statistics)">
+                                ng-change="toggleStudyShare(state.study)">
                         <i ng-if="!state.study.studySharing.shareUserMeasurements" class="icon ion-locked">
                             &nbsp Study is Private
                         </i>
@@ -61,10 +65,10 @@
                         </i>
                     </ion-toggle>
                     <!--TODO: Add clipboard plugin for mobile-->
-                    <md-button ng-click="copyStudyUrlToClipboard()" class="item item-content"
+<!--                    <md-button ng-click="copyStudyUrlToClipboard()"
                            ng-if="!platform.isMobile && state.study.studySharing.shareUserMeasurements === true && state.study.studyLinks.studyLinkStatic">
                         <i class="icon ion-clipboard"> &nbsp {{state.copyLinkText}}</i>
-                    </md-button>
+                    </md-button>-->
                 </div>
             </div>
             <div id="non-owner-buttons" ng-if="!state.study.isOwner || state.study.type !== 'individual'">
@@ -80,7 +84,7 @@
                 </div>
             </div>
         </div>
-        <div ng-cloak ng-show="state.study"><br>
+        <div ng-cloak ng-show="state.study">
             <div id="studyCharts"
                  style="text-align: center;">
                 <div ng-repeat="(key, chart) in state.study.studyCharts" ng-if="chart.highchartConfig"
@@ -116,8 +120,6 @@
         </div>
         <div ng-show="state.study.statistics">
             <div ng-include="'templates/fragments/statistics-fragment.html'"></div>
-            <br>
-            <br>
         </div>
         <div class="card"
              ng-if="state.studyNotFound">
@@ -127,14 +129,12 @@
                 I don't have enough data to determine the relationship between
                 {{state.requestParams.causeVariableName}} and {{state.requestParams.effectVariableName}}!
             </p>
-            <br>
             <p> Want to help advance citizen science? </p>
             <div ng-include="'templates/buttons/join-study-button.html'"></div>
             <div>
                 <p style="font-size: 16px; line-height: 1; text-align: center"> or share it </p>
                 <div ng-include="'templates/fragments/study-sharing-fragment.html'"></div>
             </div>
-            <br>
         </div>
     </ion-content>
     <div ng-hide="hideNavigationMenu || showRobot"
