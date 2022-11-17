@@ -33,7 +33,7 @@ angular.module('starter').controller('StudyCreationCtrl', ["$scope", "$state", "
             qmLog.debug('Sorry, copy to clipboard is not supported');
             $scope.hideClipboardButton = true;
         }
-        $scope.copyLinkText = 'Copy Shareable Link to Clipboard';
+        $scope.copyLinkText = 'Copy Shareable Link';
         $scope.copyStudyUrlToClipboard = function(causeVariableName, effectVariableName, study){
             $scope.copyLinkText = 'Copied!';
             var url = qmService.getStudyLinkStatic(causeVariableName, effectVariableName, study);
@@ -89,23 +89,19 @@ angular.module('starter').controller('StudyCreationCtrl', ["$scope", "$state", "
             let effectVariableName = getEffectVariableName();
             qmLog.info('Clicked createStudy for ' + causeVariableName + ' and ' + effectVariableName);
             qmService.showInfoToast("Creating study (this could take a minute)", 45);
-            qmService.showBasicLoader(60);
+            //qmService.showBasicLoader(60);
             var body = new Quantimodo.StudyCreationBody(causeVariableName, effectVariableName, type);
             body.causeVariableName = body.predictorVariableName || body.causeVariableName;
             body.effectVariableName = body.outcomeVariableName || body.effectVariableName;
             qm.studiesCreated.createStudy(body, function(study){
-                if(body.type === 'individual'){
-                    if(study.statistics){
-                        //debugger
-                        qmService.goToState('app.study', {study: study});
-                        //qm.studyHelper.goToStudyPageViaStudy(study); // Need to use goToStudyPageViaStudy so url
-                        // params are populated
-                    } else {
-                        qmService.hideLoader();
-                        qm.studyHelper.goToJoinStudy(study);
-                    }
-                }else{
-                    $scope.state.study = study;
+                qmService.hideLoader();
+                if(study.statistics){
+                    //debugger
+                    qmService.goToState('app.study', {study: study});
+                    //qm.studyHelper.goToStudyPageViaStudy(study); // Need to use goToStudyPageViaStudy so url
+                    // params are populated
+                } else {
+                    qm.studyHelper.goToJoinStudy(study);
                 }
             }, function(error){
                 qmService.hideLoader();

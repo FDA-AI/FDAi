@@ -358,7 +358,7 @@ angular.module('starter')// Parent Controller - This controller runs before ever
             $scope.showMaterialAlert = function(title, textContent, ev){
                 qmService.showMaterialAlert(title, textContent, ev);
             };
-            $scope.copyLinkText = 'Copy Shareable Link to Clipboard';
+            $scope.copyLinkText = 'Copy Shareable Link';
             $scope.copyToClipboard = function(url, name){
                 name = name || url;
                 $scope.copyLinkText = 'Copied!';
