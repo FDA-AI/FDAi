@@ -1,6 +1,7 @@
 <ion-side-menus enable-menu-with-back-views="true"
+                class="rainbow-gradient-webflow"
                 id="app-container">
-    <ion-side-menu-content ng-class="{'menu-disabled': hideNavigationMenu}" class="css-cnggjx">
+    <ion-side-menu-content ng-class="{'menu-disabled': hideNavigationMenu}">
         <ion-nav-bar id="top-nav-bar"
                      class="{{appSettings.appDesign.ionNavBarClass}}"
                      ng-show="hideNavigationMenu === false || appSettings.designMode">
@@ -99,7 +100,7 @@
             </ion-nav-buttons>
         </ion-nav-bar>
         <div id="splash-screen"
-             class="splash-wrapper"
+             class="splash-wrapper gradient-bg"
              style="width: 100%; position: absolute; height: 100%; z-index: 0;">
             <a href="https://curedao.org/help"
                style="text-decoration: none; cursor:pointer;">
@@ -135,6 +136,7 @@
         </ion-nav-view>
     </ion-side-menu-content>
     <ion-side-menu id="side-menu"
+                   class="rainbow-gradient-webflow"
                    side="left"
                    is-enabled="!hideNavigationMenu"
                    expose-aside-when="large"
