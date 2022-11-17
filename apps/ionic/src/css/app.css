@@ -2991,12 +2991,13 @@ article, aside, canvas, details, embed, fieldset,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
+  /* margin: 0; */
+  /* padding: 0; */
+  /* border: 0; */
   vertical-align: baseline;
   font: inherit;
-  font-size: 100%; }
+  font-size: 100%;
+  }
 
 ol, ul {
   list-style: none; }
@@ -5277,7 +5278,7 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
   min-height: 100%;
   max-height: 100%;
   width: 275px;
-  /* background-color: #fff; */
+  background-color: #fff;
   }
   .menu .scroll-content {
     z-index: 10; }
@@ -9090,9 +9091,10 @@ a.button {
   .row-no-padding > .col {
     padding: 0; }
 
-.row + .row {
-  margin-top: -5px;
-  padding-top: 0; }
+/*.row + .row {*/
+/*  margin-top: -5px;*/
+/*  padding-top: 0; */
+/*}*/
 
 .col {
   -webkit-box-flex: 1;
@@ -10579,7 +10581,8 @@ button.md-button::-moz-focus-inner {
     line-height: 24px;
     padding: 8px;
     width: 40px;
-    border-radius: 50%; }
+    border-radius: 50%;
+    }
     .md-button.md-icon-button .md-ripple-container {
       border-radius: 50%;
       background-clip: padding-box;
@@ -26059,7 +26062,7 @@ body::after {
   width: 50%;
   height: 100%;
   border-radius: 100%;
-  top: 0%;
+  top: 0;
   left: -50%;
   box-shadow: 0 0 350px 300px rgb(142, 68, 173);
   animation: animate_2 10s infinite;
@@ -26072,7 +26075,7 @@ body::after {
   width: 50%;
   height: 100%;
   border-radius: 100%;
-  top: 0%;
+  top: 0;
   right: -50%;
   bottom: -1000px;
   box-shadow: 0 0 350px 100px rgba(93, 248, 240, 1);
@@ -26090,7 +26093,7 @@ body::after {
   }
 
   75% {
-    box-shadow: 0 150px 300px rgba(93, 248, 240, 1);
+    box-shadow: 0 150px 300px #0af;
   }
 
   100% {
@@ -26108,7 +26111,7 @@ body::after {
   }
 
   75% {
-    box-shadow: 0 150px 300px rgba(93, 248, 240, 1);
+    box-shadow: 0 150px 300px #0af;
   }
 
   100% {
@@ -26123,7 +26126,7 @@ body::after {
   }
 
   50% {
-    box-shadow: 0 0 350px 100px rgba(93, 248, 240, 1);
+    box-shadow: 0 0 350px 100px #0af;
   }
 
   75% {
@@ -26141,7 +26144,7 @@ body::after {
   }
 
   50% {
-    box-shadow: 0 0 350px 100px rgba(93, 248, 240, 1);
+    box-shadow: 0 0 350px 100px #0af;
   }
 
   75% {
@@ -26156,7 +26159,7 @@ body::after {
 /* animate-3 */
 @keyframes animate_3 {
   25% {
-    box-shadow: 0 0 350px 100px rgba(93, 248, 240, 1);
+    box-shadow: 0 0 350px 100px #0af;
   }
 
   50% {
@@ -26174,7 +26177,7 @@ body::after {
 
 @-webkit-keyframes animate_3 {
   25% {
-    box-shadow: 0 0 350px 100px rgba(93, 248, 240, 1);
+    box-shadow: 0 0 350px 100px #0af;
   }
 
   50% {
@@ -26186,7 +26189,7 @@ body::after {
   }
 
   100% {
-    box-shadow: 0 0 350px 100px rgba(93, 248, 240, 1);
+    box-shadow: 0 0 350px 100px #0af;
   }
 }
 
@@ -26438,7 +26441,7 @@ linear-gradient(-45deg, rgb(0 46 255), rgb(60 0 255), rgb(35 213 64), rgb(255 0 
   background: transparent;
 }
 #menu-list {
-  background: transparent;
+  /*background: transparent;*/
   color: white;
 }
 .menu-item {
@@ -26502,7 +26505,7 @@ linear-gradient(-45deg, rgb(0 46 255), rgb(60 0 255), rgb(35 213 64), rgb(255 0 
   background: white;
   padding: 10px;
   margin: 19px 19px 19px 19px;
-  border-radius: 65px;
+  border-radius: 28px;
   width: unset;
 }
 
@@ -26539,4 +26542,49 @@ linear-gradient(-45deg, rgb(0 46 255), rgb(60 0 255), rgb(35 213 64), rgb(255 0 
 .search-result-title {
   font-size: 1.2rem;
   color: black;
+}
+
+
+.rainbow-gradient {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: rainbow-gradient 15s ease infinite;
+  height: 100vh;
+}
+
+@keyframes rainbow-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.rainbow-gradient-webflow {
+  background: linear-gradient(311deg, #00aaff, #00aaff, #00ffaa, #ff3971, #ff00aa);
+  background-size: 300% 300%;
+
+  -webkit-animation: RainbowGradientAnimation 26s ease infinite;
+  -moz-animation: RainbowGradientAnimation 26s ease infinite;
+  animation: RainbowGradientAnimation 26s ease infinite;
+}
+
+@-webkit-keyframes RainbowGradientAnimation {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@-moz-keyframes RainbowGradientAnimation {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes RainbowGradientAnimation {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
