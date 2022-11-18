@@ -54,7 +54,9 @@
                         {{state.study.effectVariableName}} Settings
                     </md-button>
                 </div>
-                <div id="publicStudyToggle" class="card">
+                <div id="publicStudyToggle"
+                     ng-if="state.study.studySharing"
+                     class="card">
                     <ion-toggle ng-model="state.study.studySharing.shareUserMeasurements"
                                 ng-change="toggleStudyShare(state.study)">
                         <i ng-if="!state.study.studySharing.shareUserMeasurements" class="icon ion-locked">
@@ -71,7 +73,9 @@
                     </md-button>-->
                 </div>
             </div>
-            <div id="non-owner-buttons" ng-if="!state.study.isOwner || state.study.type !== 'individual'">
+            <div id="non-owner-buttons"
+                 ng-if="!state.loading">
+                 ng-if="!state.study.isOwner || state.study.type !== 'individual'">
                 <div id="join-button"
                      class="row">
                     <div class="col">

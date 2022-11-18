@@ -6413,7 +6413,11 @@ button.item.item-button-right {
   min-height: 30px;
   background-color: #f5f5f5;
   color: #222;
-  font-weight: 500; }
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+  }
 
 .platform-ios .item-divider-platform,
 .item-divider-ios {
@@ -6656,12 +6660,17 @@ button.item.item-button-right {
   overflow: hidden;
   margin: 20px 10px;
   border-radius: 10px;
-  background-color: #fff; }
+  background-color: #fff;
+  }
 
 .card {
   padding-top: 1px;
   padding-bottom: 1px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, .8);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+  }
   .card .item {
     border-left: 0;
     border-right: 0; }
@@ -6678,7 +6687,11 @@ button.item.item-button-right {
 .list-inset .item:first-child,
 .padding > .list .item:first-child {
   border-top-left-radius: 2px;
-  border-top-right-radius: 2px; }
+  border-top-right-radius: 2px;
+  /* background-color: rgba(255, 255, 255, .5); */
+  backdrop-filter: blur(5px);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+  }
   .card .item:first-child .item-content,
   .list-inset .item:first-child .item-content,
   .padding > .list .item:first-child .item-content {
@@ -7352,7 +7365,8 @@ ion-slides {
   left: 0;
   overflow: hidden;
   margin: auto;
-  height: 60px; }
+  height: 50px;
+  }
   .scroll-refresher .ionic-refresher-content {
     position: absolute;
     bottom: 15px;
@@ -8499,14 +8513,15 @@ input:checked + .checkbox-icon:after {
     padding: 0 48px 0 16px;
     max-width: 65%;
     border: none;
-    background: #fff;
+    background: transparent;
     color: #333;
     text-indent: .01px;
     text-overflow: '';
     white-space: nowrap;
     font-size: 14px;
     cursor: pointer;
-    direction: rtl; }
+    direction: rtl;
+    }
   .item-select select::-ms-expand {
     display: none; }
   .item-select option {
@@ -9460,7 +9475,8 @@ a.button {
  * --------------------------------------------------
  */
 .padding {
-  padding: 10px; }
+  padding: 10px;
+  }
 
 .padding-top,
 .padding-vertical {
@@ -26465,6 +26481,9 @@ linear-gradient(-45deg, rgb(0 46 255), rgb(60 0 255), rgb(35 213 64), rgb(255 0 
   padding: 10px;
   margin: 19px;
   border-radius: 10px;
+  background-color: rgba(255, 255, 255, .9);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 50%);
 }
 
 .history-item {
@@ -26475,7 +26494,9 @@ linear-gradient(-45deg, rgb(0 46 255), rgb(60 0 255), rgb(35 213 64), rgb(255 0 
 }
 
 #variable-item, #favoriteItem {
-  background: white;
+  background-color: rgba(255, 255, 255, .5);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
   /* padding: 10px; */
   margin: 19px;
   border-radius: 10px;
@@ -26507,13 +26528,19 @@ linear-gradient(-45deg, rgb(0 46 255), rgb(60 0 255), rgb(35 213 64), rgb(255 0 
   margin: 19px 19px 19px 19px;
   border-radius: 28px;
   width: unset;
+  background-color: rgba(255, 255, 255, .7);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
 }
 
 #variable-category-selector-card {
-  background: white;
+  /* background: white; */
   padding: 0px;
   margin: 19px;
   border-radius: 10px;
+  background-color: rgba(255, 255, 255, .25);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
 }
 
 #variable-category-selector {
@@ -26521,7 +26548,9 @@ linear-gradient(-45deg, rgb(0 46 255), rgb(60 0 255), rgb(35 213 64), rgb(255 0 
 }
 
 #variable-search-result {
-  background: white;
+  background-color: rgba(255, 255, 255, .6);
+  backdrop-filter: blur(5px);
+  /*background: white;*/
   padding: 12px;
   margin: 19px;
   border-radius: 10px;
@@ -26533,10 +26562,14 @@ linear-gradient(-45deg, rgb(0 46 255), rgb(60 0 255), rgb(35 213 64), rgb(255 0 
   padding: 10px;
   margin: 19px;
   border-radius: 32px;
+  background-color: rgba(255, 255, 255, .6);
+  backdrop-filter: blur(5px);
 }
 
 #variableSearchBox {
   font-size: 1.2rem;
+  /* background-color: rgba(255, 255, 255, .6); */
+  /* backdrop-filter: blur(5px); */
 }
 
 .search-result-title {
@@ -26587,4 +26620,10 @@ linear-gradient(-45deg, rgb(0 46 255), rgb(60 0 255), rgb(35 213 64), rgb(255 0 
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
+}
+
+.glass {
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
 }
