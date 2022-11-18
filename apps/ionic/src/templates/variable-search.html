@@ -41,14 +41,18 @@
         </div>
         <div id="variable-search-results">
             <ion-list>
-                <ion-item style="text-align: center; margin: auto; border-bottom: 1px solid rgb(221, 221, 221);"
+                <ion-item
+                  class="glass"
+                  style="text-align: center; margin: auto; border-bottom: 1px solid rgb(221, 221, 221);"
                           ng-show="state.searching || showSearchLoader">
                     <ion-spinner></ion-spinner>
                 </ion-item>
             </ion-list>
             <ion-list ng-show="state.variableSearchResults.length" class>
                 <!--<ion-item ng-click="selectVariable(item)" ng-repeat="item in state.variableSearchResults | orderBy:'-latestMeasurementTime' | limitTo:5 | unique:'id'  ">-->
-                <ion-item id="variable-search-result" ng-click="selectVariable(item)"
+                <ion-item id="variable-search-result"
+                          class="glass"
+                          ng-click="selectVariable(item)"
                           ng-repeat="item in state.variableSearchResults | unique:'name' track by $index">
                     <div>
                         <!-- For some reason, putting displayName on new line in HTML code also produces new line in rendered HTML even though there's no <br> -->
