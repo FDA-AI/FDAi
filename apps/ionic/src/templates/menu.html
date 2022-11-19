@@ -1,7 +1,8 @@
 <ion-side-menus enable-menu-with-back-views="true"
                 class="rainbow-gradient-webflow"
                 id="app-container">
-    <ion-side-menu-content ng-class="{'menu-disabled': hideNavigationMenu}">
+    <ion-side-menu-content
+      ng-class="{'menu-disabled': hideNavigationMenu}">
         <ion-nav-bar id="top-nav-bar"
                      class="{{appSettings.appDesign.ionNavBarClass}}"
                      ng-show="hideNavigationMenu === false || appSettings.designMode">
@@ -119,13 +120,15 @@
             <div class="splash-grid"
                  style="z-index: 0;"></div>
         </div>
-        <div class="col"
+        <div id="offline-indicator-nav-menu"
+          class="col"
              ng-show="hideNavigationMenu && offlineConnectionErrorShowing;"
              style="top:0px!important;"
              ng-class="{'connection-error-indicator':offlineConnectionErrorShowing}"> <span>
             <i class="icon ion-connection-bars"></i> Currently Offline</span>
         </div>
-        <div class="col"
+        <div id="offline-indicator-no-nav-menu"
+          class="col"
              ng-show="!hideNavigationMenu && offlineConnectionErrorShowing;"
              ng-class="{'connection-error-indicator':offlineConnectionErrorShowing}"><span> <i
                 class="icon ion-connection-bars"></i> Currently Offline</span>

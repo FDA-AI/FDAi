@@ -423,6 +423,7 @@ angular.module('starter').controller('RemindersInboxCtrl', ["$scope", "$state", 
             //debugger
             qmLog.info("addLocalNotificationsToScope because "+reason || addLocalNotificationsToScope.caller)
             var notifications = getNotifications();
+            notifications = qm.notifications.addHumanDay(notifications);
             if($state.current.name === "app.remindersInboxCompact"){
                 $scope.trackingReminderNotifications = notifications;
             }else{

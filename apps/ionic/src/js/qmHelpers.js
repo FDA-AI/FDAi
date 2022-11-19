@@ -7459,6 +7459,13 @@ var qm = {
             });
             return toKeep;
         },
+        addHumanDay: function(notifications){
+            if(!notifications){return;}
+            notifications.forEach(function(n){
+                n.day = qm.timeHelper.getHumanDay(n.notifyAt);
+            });
+            return notifications;
+        },
         groupByDate: function(notifications){
             if(!qm.arrayHelper.variableIsArray(notifications)){
                 qmLog.error("trackingReminderNotifications is not an array! trackingReminderNotifications: ",
@@ -10669,6 +10676,22 @@ var qm = {
             var unixTime = qm.timeHelper.toUnixTime(timeAt);
             var rounded = qm.numberHelper.roundToNearestMultiple(unixTime, seconds);
             return qm.timeHelper.at(rounded);
+        },
+        getHumanDay: function(notifyAt){
+            var dateText = moment.utc(notifyAt).local().from(new Date());
+            var startOfToday = moment().startOf('day');
+            var startOfDate = moment.utc(notifyAt).local().startOf('day');
+            var daysDiff = startOfDate.diff(startOfToday, 'days');
+            var days = {
+                '0': 'today',
+                '-1': 'yesterday',
+                '1': 'tomorrow'
+            };
+            if (Math.abs(daysDiff) <= 1) {
+                dateText = days[daysDiff];
+            }
+            qmLog.debug('dateText is ' + dateText, null);
+            return dateText;
         }
     },
     toast: {
