@@ -537,7 +537,7 @@ angular.module('starter').controller('ApiPortalCtrl', function($state, $scope, $
             var win = window.open(url, '_blank');
             win.focus();
         }
-        openInNewTab('https://api.curedao.org/qm-connect/fab-preview.html?clientId=' +
+        openInNewTab('https://app.quantimo.do/qm-connect/fab-preview.html?clientId=' +
             $rootScope.appSettings.clientId + "&previewUrl=" +
             $rootScope.appSettings.homepageUrl.replace('https://', '').replace('http://', ''));
     };

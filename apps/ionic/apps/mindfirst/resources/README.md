@@ -7,11 +7,11 @@ Features:
 - Add notes with your ratings
 - Create reminders to track treatments, symptoms, emotions, diet, physical activity and anything else
 - Import your data from over 30 other apps and devices like Fitbit, Rescuetime, Jawbone Up, Withings, Facebook, Github, Google Calendar, Runkeeper, MoodPanda, Slice, Google Fit, and more
-- Analyze your data to identify which hidden factors are most likely to be influencing your mood and their optimal daily values at https://api.curedao.org/api/v2/account/user-relationships
+- Analyze your data to identify which hidden factors are most likely to be influencing your mood and their optimal daily values at https://app.quantimo.do/api/v2/account/user-relationships
 - View mood trends helping to identify triggers for symptoms and identify the potential effects of treatments
-- Export and email your data to your healthcare provider at https://api.curedao.org/api/v2/account/export-data
-- Create and publish studies using your data or aggregated user data at https://api.curedao.org/api/v2/studies
-- Embed QuantiModo's data aggregation and analytics functionality in your own app at https://api.curedao.org/api/v2/apps
+- Export and email your data to your healthcare provider at https://app.quantimo.do/api/v2/account/export-data
+- Create and publish studies using your data or aggregated user data at https://app.quantimo.do/api/v2/studies
+- Embed QuantiModo's data aggregation and analytics functionality in your own app at https://app.quantimo.do/api/v2/apps
 
 Brain chemistry is influenced by a number of factors including social interaction, sleep, diet, medication, and physical activity. Since the human mind is not powerful enough to retain all of the necessary information, this data integration feature is essential to identifying correlations and causal relationships.
 

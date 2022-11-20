@@ -21,6 +21,6 @@
     "notifications",
     "alarms",
 
-    "http://api.curedao.org/*"
+    "http://app.quantimo.do/*"
   ]
 }
