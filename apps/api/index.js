@@ -8,6 +8,11 @@ const mcache = require('memory-cache');
 const proxy = require('express-http-proxy');
 const http = require("http");
 const {numberFormat} = require("underscore.string");
+const {loadEnvFromDopplerOrDotEnv} = require("../ionic/ts/env-helper")
+const fileHelper = require("../ionic/ts/qm.file-helper")
+const {resolve} = require('path');
+const envPath = resolve('./.env');
+loadEnvFromDopplerOrDotEnv(envPath);
 var cache = (duration) => {
     return (req, res, next) => {
         let key = '__express__' + req.originalUrl || req.url
@@ -40,6 +45,7 @@ var serverPort = 5000;
 if(process.env.PORT){
     serverPort = numberFormat(process.env.PORT);
 }
+app.use('/', express.static(path.join(__dirname, '../ionic/src')))
 app.use('/#app', express.static(path.join(__dirname, '../src')))
 app.use('/docs', express.static(path.join(__dirname, '../src/docs')))
 // app.use('*', proxy(proxyUrl));
@@ -52,6 +58,11 @@ app.use('/api', proxy(proxyUrl, {
         // you can change the method
         //proxyReqOpts.method = 'GET';
         return proxyReqOpts;
+    },
+    proxyReqPathResolver: function (req) {
+        req.url = '/api' + req.url;
+        console.log('proxyReqPathResolver', req.url)
+        return req.url;
     }
 }));
 app.use(bodyParser.urlencoded({ extended: true }));  // must come after any proxy calls, or it fucks up the body
