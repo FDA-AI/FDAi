@@ -3,6 +3,9 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     morgan = require('morgan');
 const path = require('path');
+const envPath = path.resolve('./.env');
+const {loadEnvFromDopplerOrDotEnv} = require("../ionic/ts/env-helper")
+loadEnvFromDopplerOrDotEnv(envPath);
 const { initialize } = require('@oas-tools/core');
 const mcache = require('memory-cache');
 const proxy = require('express-http-proxy');
@@ -40,7 +43,6 @@ app.use(function(req, res, next) {
     next();
 });
 
-const proxyUrl = process.env.API_URL || 'https://app.quantimo.do/api';
 var serverPort = 5000;
 if(process.env.PORT){
     serverPort = numberFormat(process.env.PORT);
@@ -50,7 +52,24 @@ app.use('/#app', express.static(path.join(__dirname, '../src')))
 app.use('/docs', express.static(path.join(__dirname, '../src/docs')))
 // app.use('*', proxy(proxyUrl));
 //app.use('/api', proxy(apiUrl+'/api'));
-app.use('/api', proxy(proxyUrl, {
+const novaOrigin = process.env.NOVA_ORIGIN || 'https://app.quantimo.do';
+app.use('/nova', proxy(novaOrigin, {
+    proxyReqOptDecorator: function(proxyReqOpts, srcReq) {
+        // you can update headers
+        proxyReqOpts.headers['X-Client-ID'] = process.env.CONNECTOR_QUANTIMODO_CLIENT_ID;
+        proxyReqOpts.headers['X-Client-Secret'] = process.env.CONNECTOR_QUANTIMODO_CLIENT_SECRET;
+        // you can change the method
+        //proxyReqOpts.method = 'GET';
+        return proxyReqOpts;
+    },
+    proxyReqPathResolver: function (req) {
+        req.url = '/nova' + req.url;
+        console.log('proxyReqPathResolver', req.url)
+        return req.url;
+    }
+}));
+const apiOrigin = process.env.API_ORIGIN || 'https://app.quantimo.do'
+app.use('/api', proxy(apiOrigin, {
     proxyReqOptDecorator: function(proxyReqOpts, srcReq) {
         // you can update headers
         proxyReqOpts.headers['X-Client-ID'] = process.env.QUANTIMODO_CLIENT_ID;

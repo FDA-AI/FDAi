@@ -89,11 +89,13 @@ qm.staticData.appSettings = `+ qmLog.prettyJSONStringify(appSettings)
     try {
         fileHelper.writeToFile(env.paths.www.appSettings, content)
     } catch(e) {
+        // @ts-ignore
         qmLog.error(e.message + ".  Maybe www/data doesn't exist but it might be resolved when we copy from src")
     }
     try {
         fileHelper.writeToFile("build/chrome_extension/data/appSettings.js", content)
     } catch(e) {
+        // @ts-ignore
         qmLog.error(e.message + ".  Maybe build/chrome_extension/data doesn't exist but it might be resolved when we copy from src")
     }
     return fileHelper.writeToFile(env.paths.src.appSettings, content)

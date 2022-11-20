@@ -36,7 +36,7 @@ function getBugsnag() {
     return Bugsnag
 }
 
-export function error(message: string, metaData?: any, maxCharacters?: number) {
+export function error(message: string|any, metaData?: any, maxCharacters?: number) {
     // tslint:disable-next-line:no-debugger
     debugger
     metaData = addMetaData(metaData)

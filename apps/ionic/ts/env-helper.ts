@@ -73,6 +73,7 @@ export function getenv(names: string|string[], defaultValue?: null | string): st
         if(result !== null) {return result}
         console.info("Could not get "+names.join(" or ")+" from .env file or process.env")
     } catch (e) {
+        // @ts-ignore
         console.info(e.message+"\n No .env to get "+names.join(" or "))
     }
     return defaultValue || null
