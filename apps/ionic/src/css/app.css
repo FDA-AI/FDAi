@@ -26522,16 +26522,6 @@ linear-gradient(-45deg, rgb(0 46 255), rgb(60 0 255), rgb(35 213 64), rgb(255 0 
   font-size: 25px;
 }
 
-.data-source-item {
-  background: white;
-  padding: 10px;
-  margin: 19px 19px 19px 19px;
-  border-radius: 28px;
-  width: unset;
-  background-color: rgba(255, 255, 255, .7);
-  backdrop-filter: blur(5px);
-  box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
-}
 
 #variable-category-selector-card {
   /* background: white; */
@@ -26626,4 +26616,31 @@ linear-gradient(-45deg, rgb(0 46 255), rgb(60 0 255), rgb(35 213 64), rgb(255 0 
   background-color: rgba(255, 255, 255, .15);
   backdrop-filter: blur(5px);
   box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+}
+
+.data-source-image {
+  width: 100%;
+  max-height: 100px;
+  max-width: 100px;
+  border-radius: 10px;
+}
+
+.data-source-item {
+  padding: 10px;
+  margin: 19px 19px 19px 19px;
+  border-radius: 28px;
+  width: unset;
+  background: rgba(255, 255, 255, .6);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+}
+
+.data-source-message {
+  white-space: normal;
+  line-height: normal;
+}
+
+.data-source-buttons {
+  display: inline-flex;
+  text-align: center;
 }
