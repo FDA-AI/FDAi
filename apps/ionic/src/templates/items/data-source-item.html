@@ -1,12 +1,13 @@
 <!--suppress XmlDuplicatedId -->
 <div class="row data-source-item"
+     ng-click="showActionSheetForConnector(connector, $event)"
      id="{{connector.name}}-item">
     <div class="col col-20"
          style="padding-top: 10px;">
         <img ng-src="{{connector.image}}"
              id="{{connector.name}}-image"
              alt="{{connector.displayName}} Connector Image"
-             style="width: 100%; max-height: 100px; max-width: 100px;" src="{{connector.image}}">
+             class="data-source-image">
     </div>
     <div class="col col-70">
         <div class="row">
@@ -26,10 +27,15 @@
                 <md-tooltip md-direction="left">{{connector.errorMessage}}</md-tooltip>
             </md-button>
         </div>
-        <div class="col col-90 md-subhead"
+        <div class="col col-90 md-subhead data-source-message"
+             ng-if="connector.showMessage"
            id="{{connector.name}}-message"
-           style="white-space: normal; line-height: normal;"
            ng-bind-html="connector.message">
+        </div>
+        <div class="col col-90 md-subhead data-source-message"
+             ng-if="!connector.showMessage"
+             id="{{connector.name}}-message">
+            {{connector.shortDescription}}
         </div>
     </div>
 </div>
