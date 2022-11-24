@@ -40,7 +40,8 @@ angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootSco
                     hideLoginPageLoader();
                     leaveIfLoggedIn();
                 }, function(error){
-                    qmService.showMaterialAlert("Error", error);
+                    var message = qm.api.getErrorMessageFromResponse(error);
+                    qmService.showMaterialAlert("Error", message);
                     hideLoginPageLoader();  // Hides login loader too early
                     leaveIfLoggedIn();
                 });
