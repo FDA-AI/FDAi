@@ -12,5 +12,7 @@ module.exports = {
   websiteDomain,
   serverPort,
   API_ORIGIN,
-  POST_LOGIN_PATH
+  POST_LOGIN_PATH,
+  loginSuccessRedirect: POST_LOGIN_PATH,
+  loginFailureRedirect: '/login',
 }

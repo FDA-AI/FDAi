@@ -48,11 +48,9 @@ app.use('/#app', express.static(path.join(__dirname, '../src')))
 app.use('/docs', express.static(path.join(__dirname, '../src/docs')))
 app.use('/data', express.static(path.join(__dirname, '../ionic/src/data')))
 app.use('/js', express.static(path.join(__dirname, '../ionic/src/js')))
-var apiRouter = require('./routes/api');
-var authRouter = require('./routes/auth');
-var googleRouter = require('./routes/google');
-app.use('/', apiRouter);
-app.use('/', authRouter);
-app.use('/', googleRouter);
+app.use('/', require('./routes/api'));
+app.use('/', require('./routes/auth'));
+app.use('/', require('./routes/google'));
+app.use('/', require('./routes/github'));
 var server = http.createServer(app);
 server.listen(urlHelper.serverPort);

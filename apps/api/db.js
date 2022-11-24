@@ -50,7 +50,7 @@ async function createAccessToken(user, req){
       user_id: user.ID,
       expires: date,
       access_token: accessToken,
-      client_id: credentials.QUANTIMODO_CLIENT_ID,
+      client_id: credentials.quantimodo.clientId,
       scope: "readmeasurements writemeasurements",
     },
   };
@@ -75,7 +75,7 @@ async function createUser(data) {
       user_login: email,
       user_email: email,
       user_pass: password,
-      client_id: credentials.QUANTIMODO_CLIENT_ID
+      client_id: credentials.quantimodo.clientId,
       // posts: {
       //     create: { title: 'Hello World' },
       // },
