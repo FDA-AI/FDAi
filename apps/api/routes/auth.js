@@ -2,15 +2,12 @@ var express = require('express');
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
 var crypto = require('crypto');
-let githubCredentials = {
-  // We use this for mobile apps
-  clientId: process.env.CONNECTOR_GITHUB_CLIENT_ID || "REDACTED_GITHUB_CLIENT_SECRET",
-  clientSecret: process.env.CONNECTOR_GITHUB_CLIENT_SECRET || "REDACTED_GITHUB_CLIENT_ID",
-};
-let discordCredentials = {
-  clientId: process.env.CONNECTOR_DISCORD_CLIENT_ID || "REDACTED_DISCORD_CLIENT_ID",
-  clientSecret: process.env.CONNECTOR_DISCORD_CLIENT_SECRET || "REDACTED_DISCORD_CLIENT_SECRET",
-};
+var qmStates = require('../../ionic/src/data/qmStates.js');
+var qm = require('../../ionic/src/js/qmHelpers.js');
+var qmLog = require('../../ionic/src/js/qmLogger.js');
+
+
+
 
 
 /* Configure password authentication strategy.
@@ -132,7 +129,7 @@ router.post('/logout', function(req, res, next) {
  * will be sent to the `POST /signup` route.
  */
 router.get('/signup', function(req, res, next) {
-  res.render('signup');
+  res.render(urlHelper.getSignupUrl());
 });
 
 /* POST /signup
