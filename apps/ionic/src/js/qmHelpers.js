@@ -326,6 +326,9 @@ var qm = {
             return url;
         },
         getErrorMessageFromResponse: function(error, response){
+            if(response && response.error && response.error.message){
+                return response.error.message;
+            }
             var errorMessage = '';
             if(typeof error === "string"){
                 errorMessage = error;
