@@ -53,11 +53,13 @@ export function writeBuildInfoFile() {
     try {
         writeToFile(paths.www.data+"/buildInfo.js", content)
     } catch(e) {
+        // @ts-ignore
         qmLog.error(e.message + ".  Maybe www/data doesn't exist but it might be resolved when we copy from src")
     }
     try {
         writeToFile("build/chrome_extension/data/buildInfo.js", content)
     } catch(e) {
+        // @ts-ignore
         qmLog.error(e.message + ".  Maybe build/chrome_extension/data doesn't exist but it might be resolved when we copy from src")
     }
     return writeToFile(paths.src.data+"/buildInfo.js", content)
