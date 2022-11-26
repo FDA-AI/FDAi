@@ -4,7 +4,7 @@ var db = require('../db');
 const proxy = require("express-http-proxy");
 const urlHelper = require("../utils/urlHelper");
 const stringHelper = require("../utils/stringHelper");
-
+const qm = require("../../ionic/src/js/qmHelpers");
 var ensureLoggedIn = ensureLogIn();
 
 
@@ -39,7 +39,9 @@ function fetchUser(req, res, next) {
 checkAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     let user = req.user
-    req.headers['Authorization'] = `Bearer ${user.access_token.access_token}`
+    let qmUser = req.session.qmUser
+    let token = user.accessToken || user.access_token.access_token;
+    req.headers['Authorization'] = `Bearer ${token}`
   }
   return next()
   //res.redirect("/#/app/login")
@@ -67,7 +69,7 @@ router.get('/api/v1/user', checkAuthenticated, (req, res) => {
   if(!req.user){
     const email = req.query.email
     if(email){
-      return db.findByEmail(email).then((user) => {
+      return db.findUserByEmail(email).then((user) => {
         const storedPassword = user.password
         const providedPassword = req.query.password
 

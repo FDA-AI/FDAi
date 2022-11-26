@@ -18,6 +18,7 @@ const Str = require('@supercharge/strings')
 require("dotenv").config();
 const urlHelper = require("./utils/urlHelper");
 const passport = require('passport')
+global.Q = require('q');
 app.use(require('cookie-parser')());
 app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
@@ -25,13 +26,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 showLogs = (req, res, next) => {
-    console.log("\n==============================")
-    console.log("req", req.url)
-    console.log(`req.session.passport --> `,req.session.passport)
-    console.log(`req.user -> `,req.user)
-    console.log(`req.session.id -> ${req.session.id}`)
-    console.log(`req.session.cookie --> `,req.session.cookie)
-    console.log("===========================================\n")
+    if(!qm.fileHelper.isStaticAsset(req.url)){
+        console.log("\n==============================")
+        console.log("req", req.url)
+        console.log(`req.session.passport --> `,req.session.passport)
+        console.log(`req.user -> `,req.user)
+        console.log(`req.session.id -> ${req.session.id}`)
+        console.log(`req.session.cookie --> `,req.session.cookie)
+        console.log("===========================================\n")
+    }
     next()
 }
 app.use(showLogs)
@@ -39,8 +42,12 @@ app.use(showLogs)
 app.use(function(req, res, next) {
     // Don't allow cross-origin to prevent usage of client id and secret
     // res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type, Authorization, X-Client-ID, X-Client-Secret');
+    if(!qm.fileHelper.isStaticAsset(req.url)){
+        qm.request = req;
+        qm.response = res;
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type, Authorization, X-Client-ID, X-Client-Secret');
+    }
     next();
 });
 app.use('/', express.static(path.join(__dirname, '../ionic/src')))
@@ -50,7 +57,6 @@ app.use('/data', express.static(path.join(__dirname, '../ionic/src/data')))
 app.use('/js', express.static(path.join(__dirname, '../ionic/src/js')))
 app.use('/', require('./routes/api'));
 app.use('/', require('./routes/auth'));
-app.use('/', require('./routes/google'));
-app.use('/', require('./routes/github'));
+//app.use('/', require('./routes/github'));
 var server = http.createServer(app);
 server.listen(urlHelper.serverPort);

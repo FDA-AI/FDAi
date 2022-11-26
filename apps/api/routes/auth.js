@@ -5,9 +5,10 @@ var crypto = require('crypto');
 var qmStates = require('../../ionic/src/data/qmStates.js');
 var qm = require('../../ionic/src/js/qmHelpers.js');
 var qmLog = require('../../ionic/src/js/qmLogger.js');
-
-
-
+const credentials = require("../utils/credentials");
+const authHelper = require("../utils/authHelper");
+const urlHelper = require("../utils/urlHelper");
+const db = require("../db");
 
 
 /* Configure password authentication strategy.
@@ -162,5 +163,33 @@ router.post('/signup', function(req, res, next) {
     });
   });
 });
+
+function socialLoginRoutes(strategyName, libraryName, connectorName) {
+  if(!connectorName){connectorName = strategyName;}
+  libraryName = libraryName || "passport-" + strategyName;
+  const { Strategy: Strategy } = require(libraryName);
+  let strategyOpts = credentials.find(strategyName, connectorName);
+  passport.use(new Strategy(strategyOpts,
+    function(request, accessToken, refreshToken, profile, done){
+      return authHelper.handleSocialLogin(request, accessToken, refreshToken, profile, done, connectorName);
+    }));
+  let authOpts = {
+    scope: credentials.getScopes(connectorName)
+  };
+  router.get("/auth/" + strategyName,
+    passport.authenticate(strategyName, authOpts));
+  router.get("/auth/" + strategyName + "/callback",
+    passport.authenticate(strategyName, {
+      //successRedirect: urlHelper.loginFailureRedirect,
+      failureRedirect: urlHelper.loginFailureRedirect
+    }), (req, res) => {
+      //debugger
+      res.redirect(urlHelper.loginSuccessRedirect);
+    });
+}
+socialLoginRoutes('google', 'passport-google-oauth2', 'googleplus');
+socialLoginRoutes('github');
+socialLoginRoutes('facebook');
+socialLoginRoutes('twitter');
 
 module.exports = router;
