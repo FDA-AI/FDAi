@@ -48,7 +48,8 @@
     "q": "^1.5.1",
     "sequelize-typescript": "^2.1.5",
     "serve-favicon": "~2.4.2",
-    "underscore.string": "^3.3.6"
+    "underscore.string": "^3.3.6",
+    "wordpress-hash-node": "^1.0.0"
   },
   "devDependencies": {
     "@mermaid-js/mermaid-cli": "^9.2.2",

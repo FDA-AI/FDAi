@@ -25,32 +25,25 @@ const db = require("../db");
 passport.use(new LocalStrategy(
   {
     usernameField: 'email',
-  }, function verify(email, password, cb) {
-  db.get('SELECT * FROM users WHERE email = ?', [ email ], function(err, row) {
-    if (err) { return cb(err); }
-    if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }
-
-    crypto.pbkdf2(password, row.salt, 310000, 32, 'sha256', function(err, hashedPassword) {
-      if (err) { return cb(err); }
-      if (!crypto.timingSafeEqual(row.hashed_password, hashedPassword)) {
-        return cb(null, false, { message: 'Incorrect username or password.' });
-      }
-      return cb(null, row);
-    });
+    passReqToCallback: true
+  }, function(req, email, password, done) {
+    return authHelper.loginViaEmail(req, function (err, user) {
+      done(err, user);
   });
 }));
 
-/* Configure session management.
- *
- * When a login session is established, information about the user will be
- * stored in the session.  This information is supplied by the `serializeUser`
- * function, which is yielding the user ID and username.
- *
- * As the user interacts with the app, subsequent requests will be authenticated
- * by verifying the session.  The same user information that was serialized at
- * session establishment will be restored when the session is authenticated by
- * the `deserializeUser` function.
- */
+
+  /* Configure session management.
+   *
+   * When a login session is established, information about the user will be
+   * stored in the session.  This information is supplied by the `serializeUser`
+   * function, which is yielding the user ID and username.
+   *
+   * As the user interacts with the app, subsequent requests will be authenticated
+   * by verifying the session.  The same user information that was serialized at
+   * session establishment will be restored when the session is authenticated by
+   * the `deserializeUser` function.
+   */
 
 passport.serializeUser( (user, done) => {
   console.log(`\n--------> Serialize User:`)
@@ -104,8 +97,8 @@ router.get('/login', function(req, res, next) {
  * a message informing them of what went wrong.
  */
 router.post('/login/password', passport.authenticate('local', {
-  successReturnToOrRedirect: '/',
-  failureRedirect: '/login',
+  successReturnToOrRedirect: urlHelper.loginSuccessRedirect,
+  failureRedirect: urlHelper.loginFailureRedirect,
   failureMessage: true
 }));
 
@@ -118,19 +111,6 @@ router.post('/logout', function(req, res, next) {
     if (err) { return next(err); }
     res.redirect('/');
   });
-});
-
-
-/* GET /signup
- *
- * This route prompts the user to sign up.
- *
- * The 'signup' view renders an HTML form, into which the user enters their
- * desired username and password.  When the user submits the form, a request
- * will be sent to the `POST /signup` route.
- */
-router.get('/signup', function(req, res, next) {
-  res.render(urlHelper.getSignupUrl());
 });
 
 /* POST /signup

@@ -75,7 +75,9 @@
                             </div>
                         </div>
                     </div>
-                    <div id="registrationForm" ng-if="state.registrationForm" class="container" style="padding-top: 20px;">
+                    <div id="registrationForm" ng-if="state.registrationForm"
+                         class="container"
+                         style="padding-top: 20px;">
                         <div layout="column" layout-align="center center" layout-fill="layout-fill"
                              style="padding: 20px;">
                             <div layout="column" class="loginBox md-whiteframe-z1">
@@ -83,30 +85,38 @@
                                     <md-content layout="column" class="md-padding">
                                         <md-input-container>
                                             <label>Enter Your Email</label>
-                                            <input required type="text" ng-model="state.registrationForm.log" name="username"/>
-                                            <div ng-messages="loginForm.username.$error">
+                                            <input required type="text"
+                                                   ng-model="state.registrationForm.log" name="email"/>
+                                            <div ng-messages="loginForm.email.$error">
                                                 <div ng-message="required">This is required.</div>
                                             </div>
                                         </md-input-container>
                                         <md-input-container>
                                             <label>Make Up a Super Secret Password</label>
-                                            <input required type="password" ng-model="state.registrationForm.pwd" name="password"/>
-                                            <div ng-messages="loginForm.password.$error" role="alert">
+                                            <input required type="password"
+                                                   ng-model="state.registrationForm.password"
+                                                   name="password"/>
+                                            <div ng-messages="loginForm.password.$error"
+                                                 role="alert">
                                                 <div ng-message="required">This is required.</div>
                                             </div>
                                         </md-input-container>
                                         <md-input-container>
                                             <label>Type It Again for Fun</label>
-                                            <input required type="password" ng-model="state.registrationForm.pwdConfirm" name="passwordConfirm"/>
-                                            <div ng-messages="loginForm.password.$error" role="alert">
+                                            <input required type="password"
+                                                   ng-model="state.registrationForm.passwordConfirm"
+                                                   name="passwordConfirm"/>
+                                            <div ng-messages="loginForm.password.$error"
+                                                 role="alert">
                                                 <div ng-message="required">This is required.</div>
                                             </div>
                                         </md-input-container>
-                                        <md-button type="submit" ng-click="state.emailRegister()"
+                                        <md-button type="submit"
+                                                   ng-click="state.emailRegister()"
                                                    class="md-raised md-primary rainbow-gradient-animation center">
                                             Sign Up
                                         </md-button>
-                                        <md-button ng-click="state.registrationForm = false; "
+                                        <md-button ng-click="state.registrationForm = false;"
                                                    class="center"
                                                    md-no-ink>Already have an account?
                                         </md-button>
@@ -116,20 +126,24 @@
                         </div>
                     </div>
                     <div id="loginForm" ng-if="state.loginForm" class="container">
-                        <div layout="column" layout-align="center center" layout-fill="layout-fill">
+                        <div layout="column" layout-align="center center"
+                             layout-fill="layout-fill">
                             <div layout="column" class="loginBox md-whiteframe-z1">
                                 <form name="loginForm">
                                     <md-content layout="column" class="md-padding">
                                         <md-input-container>
-                                            <label>Email or Username</label>
-                                            <input required type="text" ng-model="state.loginForm.log" name="username"/>
-                                            <div ng-messages="loginForm.username.$error">
+                                            <label>Email</label>
+                                            <input required type="text"
+                                                   ng-model="state.loginForm.email"
+                                                   name="email"/>
+                                            <div ng-messages="loginForm.email.$error">
                                                 <div ng-message="required">This is required.</div>
                                             </div>
                                         </md-input-container>
                                         <md-input-container>
                                             <label>Password</label>
-                                            <input required type="password" ng-model="state.loginForm.pwd" name="password"/>
+                                            <input required type="password"
+                                                   ng-model="state.loginForm.password" name="password"/>
                                             <div ng-messages="loginForm.password.$error" role="alert">
                                                 <div ng-message="required">This is required.</div>
                                             </div>

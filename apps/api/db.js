@@ -73,6 +73,10 @@ async function findUserByEmail(email){
       user_email: email,
     },
   })
+  if(!user){
+    qmLog.error("User not found for email " + email);
+    return null
+  }
   user.id = user.ID.toString()
   return user
 }

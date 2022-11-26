@@ -12,6 +12,7 @@ const proxy = require('express-http-proxy');
 const http = require("http");
 const {numberFormat} = require("underscore.string");
 const qm = require("../ionic/src/js/qmHelpers");
+let envHelper = require("../ionic/ts/env-helper")
 var crypto = require('crypto');
 var audit = require('express-requests-logger')
 const Str = require('@supercharge/strings')
@@ -20,8 +21,13 @@ const urlHelper = require("./utils/urlHelper");
 const passport = require('passport')
 global.Q = require('q');
 app.use(require('cookie-parser')());
-app.use(require('body-parser').urlencoded({ extended: true }));
-app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(require('express-session')({
+    secret: envHelper.getRequiredEnv('JWT_SECRET'),
+    resave: true,
+    saveUninitialized: true
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 

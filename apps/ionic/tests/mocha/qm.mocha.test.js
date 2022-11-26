@@ -572,6 +572,20 @@ describe("API", function (){
         }
         done()
     })
+    it("Makes sure it parses error responses properly", function (done) {
+        this.timeout(60000)
+        var params = {"log":"testuser","pwd":"testing123","pwdConfirm":"testing123","register":true}
+        qm.api.post('api/v3/userSettings', params, function(response){
+            //qmService.setUserInLocalStorageBugsnagIntercomPush(response.user);
+            expect(true).to.eq(false)
+        }, function(error){
+            var message = qm.api.getErrorMessageFromResponse(error);
+            expect(message).to.eq("User not authenticated")
+            //qmService.showMaterialAlert("Error", message);
+            done()
+        });
+
+    });
 })
 describe("Chrome Extension", function () {
     before(function () {
@@ -1148,6 +1162,17 @@ describe("URL Helper", function () {
     })
 })
 describe("Users", function () {
+    it('can login via email and password', function(done) {
+        this.timeout(5000)
+        const auth  = require('../../../api/utils/authHelper')
+        let request = { body: { email: "testuser@mikesinn.com", password: "testing123" } };
+        auth.loginViaEmail(request,
+          function(something, user, err){
+            qmLog.debug("user:", user)
+            qm.assert.equals("testuser", user.user_login);
+            done()
+        })
+    })
     it('can get users', function(done) {
         this.timeout(10000)
         //expect(qm.api.getApiOrigin()).to.eq("https://app.quantimo.do")
@@ -1161,29 +1186,48 @@ describe("Users", function () {
         })
     })
     it('can create a user', function(done) {
-        let rand = Math.random() * 1000000;
-        this.timeout(10000)
+        let rand = Math.round(Math.random() * 1000000);
+        this.timeout(20000)
+        var username = "testuser" + rand+"@quantimo.do"
         var params = {
-            log: "testuser" + rand + "@gmail.com",
-            pwd: rand,
-            pwdConfirm: rand,
+            email: username,
+            password: "some-damn-pw",
             register: true
         }
-        qm.api.post('api/v3/userSettings', params, function(response){
-            expect(response.data).to.have.property('user')
-            var user = response.data.user
-            expect(user).to.have.property('id')
-            expect(user).to.have.property('email')
-            expect(user).to.have.property('loginName')
-            expect(user).not.to.have.property('password')
-            expect(user.email).to.eq(params.log)
-            expect(user.loginName).to.eq(params.log)
-            //expect(user.password).to.eq(params.pwd)
-            expect(user.clientId).to.eq(qm.getClientId())
-            done()
-        }, function(error){
-            throw Error(error);
-        });
+        let origin = 'https://curedao-n66b6ronka-uc.a.run.app';
+        origin = 'http://cd-api.test:800'
+        let url = origin + '/api/v6/users';
+        console.log('url', url);
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Client-Id': process.env.CONNECTOR_QUANTIMODO_CLIENT_ID,
+                'X-Client-Secret': process.env.CONNECTOR_QUANTIMODO_CLIENT_SECRET
+            },
+            body: JSON.stringify(params)
+        })
+          .then(response => response.json())
+          .then(response => {
+              // enter you logic when the fetch is successful
+              console.log(response)
+              expect(response.data).to.have.property('user')
+              var user = response.data.user
+              expect(user).to.have.property('id')
+              expect(user).to.have.property('email')
+              expect(user).to.have.property('loginName')
+              expect(user).not.to.have.property('password')
+              expect(user.email).to.eq(params.log)
+              expect(user.loginName).to.eq(params.log)
+              //expect(user.password).to.eq(params.pwd)
+              expect(user.clientId).to.eq(qm.getClientId())
+              done()
+          })
+          .catch(error => {
+              // enter your logic for when there is an error (ex. error toast)
+              console.log(error)
+              throw Error(error);
+          })
     })
 })
 describe("Variables", function () {
