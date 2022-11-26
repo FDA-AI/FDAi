@@ -1619,10 +1619,10 @@ var qmStates = [
 if (typeof window !== "undefined") {
     window.qmStates = qmStates;
     window.qm.qmStaticData = window.qm.qmStaticData || {};
-    window.qm.staticData.states = qmStates;
+    window.qm.qmStaticData.states = qmStates;
 } else {
     global.qmStates = qmStates;
     module.exports = qmStates;
     global.qm.qmStaticData = global.qm.qmStaticData || {};
-    global.qm.staticData.states = qmStates;
+    global.qm.qmStaticData.states = qmStates;
 }
