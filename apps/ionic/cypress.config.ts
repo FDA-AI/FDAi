@@ -1,6 +1,6 @@
 import {defineConfig} from "cypress";
-// @ts-ignore
-import * as qmLog from "ts/qm.log";
+
+//import * as qmLog from "./ts/qm.log;
 
 const {env} = process;
 let baseUrl = env.BASE_URL || "http://localhost:5000";
@@ -12,9 +12,9 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
       //const conf = JSON.parse(JSON.stringify(config));
-      qmLog.debug("setupNodeEvents Plugin Events", on);
-      qmLog.info("setupNodeEvents Config:", config);
-      qmLog.info("setupNodeEvents config.env:", config.env);
+      // qmLog.debug("setupNodeEvents Plugin Events", on);
+      // qmLog.info("setupNodeEvents Config:", config);
+      // qmLog.info("setupNodeEvents config.env:", config.env);
     },
     "chromeWebSecurity": false,
     "baseUrl": baseUrl,
