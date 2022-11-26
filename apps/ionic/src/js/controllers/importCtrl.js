@@ -295,6 +295,13 @@ angular.module('starter').controller('ImportCtrl', ["$scope", "$ionicLoading", "
             }else if(b.stateName){
                 qmService.goToState(b.stateName, b.stateParams);
             }else if(b.link){
+                if(b.link.indexOf('history-all') !== -1){
+                    qmService.goToState(qm.staticData.stateNames.historyAll, {
+                        "connectorId": c.id,
+                        "sourceName": c.name,
+                    });
+                    return;
+                }
                 qmService.setLastStateAndUrl();
                 qm.urlHelper.goToUrl(b.link);
             }else {
