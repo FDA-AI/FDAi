@@ -648,11 +648,11 @@ var qm = {
             return apiOrigin;
         },
         postViaFetch: function(url, body, successHandler, errorHandler){
-            var headers = new Headers(qm.api.getDefaultHeaders())
+            //var headers = new Headers()
             fetch(url, {
                 method: 'post',
                 body: JSON.stringify(body),
-                headers: headers
+                headers: qm.api.getDefaultHeaders()
             }).then(function(response){
                 qmLog.info(response.status + " response from\n\tPOST " + url);
                 if(response.status === 204){
@@ -763,7 +763,8 @@ var qm = {
             qmLog.pushDebug("Making get request to " + url);
             fetch(url, {
                 method: 'get',
-                headers: new Headers(qm.api.getDefaultHeaders())
+                //headers: new Headers(qm.api.getDefaultHeaders()),
+                headers: qm.api.getDefaultHeaders()
             }).then(function(response){
                 return response.json();
             }).then(function(data){
@@ -1924,7 +1925,11 @@ var qm = {
             }
             var u = qm.userHelper.getUserSync();
             if(u){
-                accessToken = u.accessToken;
+                if(typeof u.accessToken === "string"){
+                    accessToken = u.accessToken;
+                } else if (u.accessToken && u.accessToken.access_token){
+                    accessToken = u.accessToken.access_token;
+                }
                 if(accessToken){
                     if(!qm.auth.accessTokenIsValid(accessToken)){
                         qmLog.error("qm.userHelper.getUserFromLocalStorage().accessToken is invalid: " + accessToken);
@@ -4261,6 +4266,18 @@ var qm = {
         },
         listFilesInFolder: function(folder){
             return qm.fileHelper.fs().readdirSync(qm.fileHelper.getAbsolutePath(folder))
+        },
+        isStaticAsset: function (url){
+            return qm.stringHelper.endsWith(url, '.js') ||
+                   qm.stringHelper.endsWith(url, '.css') ||
+                   qm.stringHelper.endsWith(url, '.json') ||
+                   qm.stringHelper.endsWith(url, '.map') ||
+                   qm.stringHelper.endsWith(url, '.html') ||
+                   qm.stringHelper.endsWith(url, '.png') ||
+                   qm.stringHelper.endsWith(url, '.gif') ||
+                   qm.stringHelper.endsWith(url, '.svg') ||
+                   qm.stringHelper.endsWith(url, '.jpg') ||
+                   qm.stringHelper.endsWith(url, '.jpeg')
         }
     },
     functionHelper: {
@@ -10039,6 +10056,26 @@ var qm = {
             str = qm.stringHelper.replaceAll(str, "-", "");
             str = qm.stringHelper.replaceAll(str, " ", "");
             return str.toLowerCase();
+        },
+        endsWith: function(str, ends, position) {
+            if(!str){return false;}
+            ends = '' + ends;
+            if (typeof position == 'undefined') {
+                position = str.length - ends.length;
+            } else {
+                position = Math.min(toPositive(position), str.length) - ends.length;
+            }
+            return position >= 0 && str.indexOf(ends, position) === position;
+        },
+        camelizeObjectKeys: function(user){
+            var newObject = {};
+            for (var key in user) {
+                if (user.hasOwnProperty(key)) {
+                    var newKey = qm.stringHelper.toCamelCase(key);
+                    newObject[newKey] = user[key];
+                }
+            }
+            return newObject;
         }
     },
     studyHelper: {
@@ -11579,32 +11616,30 @@ var qm = {
                 }, errorHandler, params, 'getUserFromApi');
             });
         },
-        getUserFromApi: function(params){
+        getUserFromApi: function(){
             var deferred = Q.defer();
             qmLog.authDebug("Getting user from API...");
             // Sdk doesn't return timezone
-            qm.api.getRequestUrl('v1/user', params, function(url){
-                qm.api.getViaXhrOrFetch(url, function(user){
-                    if(user && typeof user.displayName !== "undefined"){
-                        qmLog.info("Got user " + user.id + " from API: " + user.loginName)
-                        qm.userHelper.setUser(user);
-                        deferred.resolve(user)
-                    }else{
-                        var err = "getViaXhrOrFetch successHandler was called but we still did not get user from "+url;
-                        if(user.error && user.error.message){
-                            err += "\nError: " + user.error.message;
-                        }
-                        qmLog.info(err);
-                        if(qm.platform.isChromeExtension()){
-                            qm.chrome.openLoginWindow();
-                        }
-                        deferred.reject(err)
+            qm.api.getViaXhrOrFetch('/api/v1/user', function(user){
+                if(user && typeof user.displayName !== "undefined"){
+                    qmLog.info("Got user " + user.id + " from API: " + user.loginName)
+                    qm.userHelper.setUser(user);
+                    deferred.resolve(user)
+                }else{
+                    var err = "getViaXhrOrFetch successHandler was called but we still did not get user from "+url;
+                    if(user.error && user.error.message){
+                        err += "\nError: " + user.error.message;
                     }
-                }, function (err){
-                    if(!err){err = "Empty error from "+url}
+                    qmLog.info(err);
+                    if(qm.platform.isChromeExtension()){
+                        qm.chrome.openLoginWindow();
+                    }
                     deferred.reject(err)
-                })
-            });
+                }
+            }, function (err){
+                if(!err){err = "Empty error from "+url}
+                deferred.reject(err)
+            })
             return deferred.promise;
         },
         getUserFromLocalStorageOrApi: function(){

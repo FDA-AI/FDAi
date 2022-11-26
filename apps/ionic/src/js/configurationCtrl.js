@@ -583,7 +583,7 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
             var win = window.open(url, '_blank');
             win.focus();
         }
-        openInNewTab('https://api.curedao.org/qm-connect/fab-preview.html?clientId=' +
+        openInNewTab('https://app.quantimo.do/qm-connect/fab-preview.html?clientId=' +
             $rootScope.appSettings.clientId + "&previewUrl=" +
             $rootScope.appSettings.homepageUrl.replace('https://', '').replace('http://', ''));
     };
@@ -642,4 +642,3 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
         configurationService.reminders.deleteReminder(reminderToDelete);
     };
 });
-

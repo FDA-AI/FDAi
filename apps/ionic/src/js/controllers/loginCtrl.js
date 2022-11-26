@@ -59,8 +59,8 @@ angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootSco
                 });
             }
         };
-        $scope.state.socialLogin = function(connectorName, ev, additionalParams){
-            if(connectorName === 'quantimodo' && $scope.state.useLocalUserNamePasswordForms){
+        $scope.state.socialLogin = function(strategyName, ev, additionalParams){
+            if(strategyName === 'quantimodo' && $scope.state.useLocalUserNamePasswordForms){
                 if(additionalParams.register){
                     $scope.state.registrationForm = {};
                 }else{
@@ -70,16 +70,18 @@ angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootSco
             }
             // qmService.createDefaultReminders();  TODO:  Do this at appropriate time. Maybe on the back end during user creation?
             loginTimeout();
-            qmService.auth.socialLogin(connectorName, ev, additionalParams, function(response){
-                qmLog.authDebug("Called socialLogin successHandler with response: " + JSON.stringify(response), null, response);
-                if(!qm.getUser()){
-                    handleLoginError("No user after successful social login!", {response: response});
-                }else{
-                    handleLoginSuccess();
-                }
-            }, function(error){
-                handleLoginError("SocialLogin failed! error: ", error);
-            });
+            window.location.href = window.location.origin + '/auth/'+strategyName;
+            // return;
+            // qmService.auth.socialLogin(strategyName, ev, additionalParams, function(response){
+            //     qmLog.authDebug("Called socialLogin successHandler with response: " + JSON.stringify(response), null, response);
+            //     if(!qm.getUser()){
+            //         handleLoginError("No user after successful social login!", {response: response});
+            //     }else{
+            //         handleLoginSuccess();
+            //     }
+            // }, function(error){
+            //     handleLoginError("SocialLogin failed! error: ", error);
+            // });
         };
         $scope.controller_name = "LoginCtrl";
         qmService.navBar.setFilterBarSearchIcon(false);
