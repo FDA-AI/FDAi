@@ -2,15 +2,20 @@ const db = require("../db");
 const qm = require("../../ionic/src/js/qmHelpers");
 const fetch = require('node-fetch');
 const credentials = require("./credentials");
+var hasher = require('wordpress-hash-node');
 global.fetch = fetch
 global.Headers = fetch.Headers;
 const dataSources = require("../data/data-sources");
-function login(dbUser, request, accessToken, refreshToken, profile, connectorName, done){
-  let qmUser = qm.stringHelper.camelizeObjectKeys(dbUser);
+const crypto = require("crypto");
+function addAccessTokenToUser(dbUser, request, done){
   return db.createAccessToken(dbUser, request).then((token) => {
-    qmUser.accessToken = token.access_token;
-    qm.userHelper.setUser(qmUser);
-    request.session.qmUser = qmUser;
+    dbUser.accessToken = token.access_token;
+    qm.userHelper.setUser(dbUser);
+    return done(null, dbUser);
+  });
+}
+function login(dbUser, request, accessToken, refreshToken, profile, connectorName, done){
+  return addAccessTokenToUser(dbUser, request, function(){
     storeConnectorCredentials(request, accessToken, refreshToken, profile, connectorName).then((connection) => {
       console.log("connection", connection);
     });
@@ -99,7 +104,20 @@ async function createConnection(connectorResponse, connectorName){
   })
   return connection;
 }
+function loginViaEmail(request, done) {
+  const email = request.body.email;
+  const plainTextPassword = request.body.password;
+  db.findUserByEmail(email).then((dbUser) => {
+    if (!dbUser) { return done("I couldn't find a user matching those credentials!"); }
+    var matches = hasher.CheckPassword(plainTextPassword, dbUser.user_pass); //This will return true
+    if (!matches) {return done("I couldn't find a user matching those credentials!");}
+    return addAccessTokenToUser(dbUser, request, function(){
+      return done(null, dbUser);
+    });
+  });
+}
 
 module.exports = {
-  handleSocialLogin
+  handleSocialLogin,
+  loginViaEmail
 }

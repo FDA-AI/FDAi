@@ -11568,6 +11568,7 @@ var qm = {
             if(user && user.data && user.data.user){
                 user = user.data.user;
             }
+            if(user){user = qm.stringHelper.camelizeObjectKeys(user);}
             qm.storage.setItem(qm.items.user, user);
             qm.localForage.setItem(qm.items.user, user);
             if(!user){

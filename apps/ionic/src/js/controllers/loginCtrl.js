@@ -30,7 +30,7 @@ angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootSco
             emailRegister: function () {
                 var params = $scope.state.registrationForm;
                 params.register = true;
-                if(!params.pwdConfirm || params.pwdConfirm !== params.pwd){
+                if(!params.passwordConfirm || params.passwordConfirm !== params.password){
                     qmService.showMaterialAlert("Confirm Password", "Passwords do not match!");
                     return;
                 }
@@ -48,8 +48,19 @@ angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootSco
             },
             emailLogin: function () {
                 qmService.showBasicLoader(); // Chrome needs to do this because we can't redirect with access token
-                qmService.refreshUser(true, $scope.state.loginForm).then(function(){
+                fetch('/login/password',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify($scope.state.loginForm)
+                }).then(function(response){
                     hideLoginPageLoader();
+                    if(!response.ok){
+                        var body = response.json();
+                        qmService.showMaterialAlert("Error", "Invalid username or password");
+                        return;
+                    }
                     leaveIfLoggedIn();
                 }, function(error){
                     qmLog.error("Email Login Error", error);

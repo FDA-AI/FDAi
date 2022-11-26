@@ -51,6 +51,15 @@ export let paths = {
     },
 }
 
+export function getRequiredEnv(envName: string) {
+    const value = getenv(envName)
+    if (!value) {
+        qmLog.error("Missing required environment variable: " + envName)
+        process.exit(1)
+    }
+    return value
+}
+
 export function getenv(names: string|string[], defaultValue?: null | string): string | null {
     if(!Array.isArray(names)) {names = [names]}
     function getFromProcess(): string | null  {
