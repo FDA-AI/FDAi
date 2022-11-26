@@ -3562,7 +3562,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
             return qm.userVariables.getFromLocalStorageOrApi();
         };
         qmService.deferredRequests = {};
-        qmService.refreshUser = function(force, params){
+        qmService.refreshUser = function(force){
             var deferred = qmService.deferredRequests.user;
             if(deferred){
                 return deferred.promise;
@@ -3575,7 +3575,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                 return deferred.promise;
             }
             qmLog.debug('qmService.refreshUser: Calling qmService.getUserFromApi...');
-            qm.userHelper.getUserFromApi(params).then(function(user){
+            qm.userHelper.getUserFromApi().then(function(user){
                 qmLog.authDebug('qmService.refreshUser: qmService.getUserFromApi returned ', user);
                 qmService.setUserInLocalStorageBugsnagIntercomPush(user);
                 qmService.deferredRequests.user = null;
@@ -3585,7 +3585,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                 deferred.reject(error);
                 qmService.deferredRequests.user = null;
                 return deferred.promise;
-            }, params);
+            });
             return deferred.promise;
         };
         qmService.refreshUserEmailPreferencesDeferred = function(params, successHandler, errorHandler){
@@ -3604,6 +3604,9 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
             $ionicHistory.clearHistory();
             $ionicHistory.clearCache();
             qmService.auth.deleteAllAccessTokens(reason);
+            return fetch('/logout', {
+                method: 'POST',
+            })
         };
         qmService.updateUserSettingsDeferred = function(params){
             if($rootScope.physicianUser || qm.storage.getItem(qm.items.physicianUser)){
