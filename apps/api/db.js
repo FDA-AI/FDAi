@@ -55,16 +55,25 @@ async function createAccessToken(user, req){
     },
   };
   const token = await prisma.oa_access_tokens.create(tokenData)
+  user.access_token = token;
   return token
 }
-
-async function findByEmail(email){
+async function findUserById(id){
+  const user = await prisma.wp_users.findUnique({
+    where: {
+      ID: id,
+    },
+  })
+  user.id = user.ID.toString()
+  return user
+}
+async function findUserByEmail(email){
   const user = await prisma.wp_users.findUnique({
     where: {
       user_email: email,
     },
   })
-
+  user.id = user.ID.toString()
   return user
 }
 async function createUser(data) {
@@ -91,7 +100,7 @@ async function createUser(data) {
 
 authUser = async function(request, accessToken, refreshToken, profile, done){
   console.log("authUser", profile)
-  let user = await findByEmail(profile.email)
+  let user = await findUserByEmail(profile.email)
   if(!user){
     user = createUser(profile)
   }
@@ -103,7 +112,8 @@ authUser = async function(request, accessToken, refreshToken, profile, done){
 module.exports =  {
   prisma,
   createAccessToken,
-  findByEmail,
+  findUserByEmail,
+  findUserById,
   createUser,
   authUser
 }

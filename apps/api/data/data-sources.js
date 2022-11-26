@@ -1,4 +1,4 @@
-{
+module.exports = {
   "general_spreadsheet": {
     "id": 75,
     "timestamps": true,
@@ -472,7 +472,7 @@
     "displayName": "MyFitnessPal",
     "enabled": 1,
     "fontAwesome": "fas fa-plug",
-    "getItUrl": "http://www.amazon.com/gp/product/B004H6WTJI/ref=as_li_qf_sp_asin_il?ie=UTF8&camp=1789&creative=9325&creativeASIN=B004H6WTJI&linkCode=as2&tag=quantimodo04-20",
+    "getItUrl": "https://www.amazon.com/gp/product/B004H6WTJI/ref=as_li_qf_sp_asin_il?ie=UTF8&camp=1789&creative=9325&creativeASIN=B004H6WTJI&linkCode=as2&tag=quantimodo04-20",
     "image": "https://i.imgur.com/2aUrwtd.png",
     "logoColor": "#2d2d2d",
     "longDescription": "Lose weight with MyFitnessPal, the fastest and easiest-to-use calorie counter for iPhone and iPad. With the largest food database of any iOS calorie counter (over 3,000,000 foods), and amazingly fast food and exercise entry.",
@@ -516,7 +516,7 @@
     "displayName": "MyNetDiary",
     "enabled": 1,
     "fontAwesome": "fas fa-plug",
-    "getItUrl": "http://www.amazon.com/gp/product/B00BFEVFP4/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00BFEVFP4&linkCode=as2&tag=quantimodo04-20",
+    "getItUrl": "https://www.amazon.com/gp/product/B00BFEVFP4/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00BFEVFP4&linkCode=as2&tag=quantimodo04-20",
     "image": "https://i.imgur.com/yqm06Zg.png",
     "logoColor": "#2d2d2d",
     "longDescription": "MyNetDiary is an online and mobile food diary with calorie counter and online community. MyNetDiary provides instant and easy food entry, searching while you type. Enter foods 2-3 times faster than with any other food diary.",
@@ -771,7 +771,7 @@
     "displayName": "RunKeeper",
     "enabled": 1,
     "fontAwesome": "fas fa-plug",
-    "getItUrl": "http://www.amazon.com/gp/product/B004Z2TYTC/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B004Z2TYTC&linkCode=as2&tag=quantimodo04-20",
+    "getItUrl": "https://www.amazon.com/gp/product/B004Z2TYTC/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B004Z2TYTC&linkCode=as2&tag=quantimodo04-20",
     "image": "https://i.imgur.com/GHhb4wb.png",
     "logoColor": "#2d2d2d",
     "longDescription": "RunKeeper is the simplest way to improve fitness, whether you're just deciding to get off the couch for a 5k, biking every day, or even deep into marathon training.\nTrack your runs, walks, bike rides, training workouts and all of the other fitness activities using the GPS in your Android Phone.",
@@ -959,7 +959,7 @@
     "displayName": "WhatPulse",
     "enabled": 1,
     "fontAwesome": "fas fa-plug",
-    "getItUrl": "http://www.whatpulse.org/downloads/",
+    "getItUrl": "https://www.whatpulse.org/downloads/",
     "image": "https://i.imgur.com/EEZxqtd.png",
     "logoColor": "#2d2d2d",
     "longDescription": "WhatPulse is a small application that measures your keyboard/mouse usage, down- & uploads and your uptime. It sends these statistics here, to the website, where you can use these stats to analyze your computing life, compete against or with your friends and compare your statistics to other people.",
