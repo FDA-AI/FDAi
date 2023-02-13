@@ -412,7 +412,7 @@
   "availableOutsideUS": true,
   "connectError": null,
   "connectInstructions": {
-    "url": "https://app.quantimo.do/api/v3/oauth2/authorize?register=true&state=W10-&type=web_server&client_id=&redirect_uri=https%3A%2F%2Fapp.quantimo.do%2Fapi%2Fv1%2Fconnectors%2Fquantimodo%2Fconnect&response_type=code&scope=readmeasurements+writemeasurements",
+    "url": "https://app.quantimo.do/oauth/authorize?register=true&state=W10-&type=web_server&client_id=&redirect_uri=https%3A%2F%2Fapp.quantimo.do%2Fapi%2Fv1%2Fconnectors%2Fquantimodo%2Fconnect&response_type=code&scope=readmeasurements+writemeasurements",
     "parameters": [],
     "usePopup": true
   },
