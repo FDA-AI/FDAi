@@ -36,7 +36,8 @@ var qmStates = [
             "fromState": null,
             "fromUrl": null,
             "title": "Login",
-            "ionIcon": "ion-log-in"
+            "ionIcon": "ion-log-in",
+	        "logout": null,
         },
         "views": {
             "menuContent": {
@@ -52,7 +53,8 @@ var qmStates = [
         "params": {
             "doNotRedirect": true,
             "title": "Intro",
-            "ionIcon": "ion-log-in"
+            "ionIcon": "ion-log-in",
+	        "logout": null,
         },
         "views": {
             "menuContent": {
@@ -84,7 +86,7 @@ var qmStates = [
         "params": {
             "excludeDuplicateBloodPressure": true,
             "variableSearchParameters": {
-                "limit": 100,
+                "limit": 50,
                 "includePublic": true
             },
             "title": "Select a Variable",
@@ -103,7 +105,7 @@ var qmStates = [
         "cache": false,
         "params": {
             "variableSearchParameters": {
-                "limit": 100,
+                "limit": 50,
                 "includePublic": true
             },
             "title": "Select a Variable",
@@ -122,7 +124,7 @@ var qmStates = [
         "cache": false,
         "params": {
             "variableSearchParameters": {
-                "limit": 100,
+                "limit": 50,
                 "includePublic": true
             },
             "title": "Select a Variable",
@@ -149,7 +151,7 @@ var qmStates = [
             "variableCategoryName": null,
             "excludeDuplicateBloodPressure": true,
             "variableSearchParameters": {
-                "limit": 100,
+                "limit": 50,
                 "includePublic": true,
                 // Don't do this or blood pressure doesn't show up. Plus we just put manualTracking at the top anyway.  "manualTracking": true
             },
@@ -179,7 +181,7 @@ var qmStates = [
             "nextState": "app.reminderAdd",
             "excludeDuplicateBloodPressure": true,
             "variableSearchParameters": {
-                "limit": 100,
+                "limit": 50,
                 "includePublic": true,
                 // Don't do this or blood pressure doesn't show up. Plus we just put manualTracking at the top anyway.  "manualTracking": true
             },
@@ -211,7 +213,7 @@ var qmStates = [
             "pageTitle": "Add a favorite",
             "excludeDuplicateBloodPressure": true,
             "variableSearchParameters": {
-                "limit": 100,
+                "limit": 50,
                 "includePublic": true,
                 // Don't do this or blood pressure doesn't show up. Plus we just put manualTracking at the top anyway.  "manualTracking": true
             },
@@ -345,7 +347,7 @@ var qmStates = [
             "doNotShowAddVariableButton": true,
             "excludeSingularBloodPressure": true,
             "variableSearchParameters": {
-                "limit": 100,
+                "limit": 50,
                 "includePublic": false
             },
             "hideNavigationMenu": null,
@@ -708,6 +710,27 @@ var qmStates = [
             }
         },
         "name": "app.outcomesAll"
+    },
+    {
+        "url": "/outcomes-label/:causeVariableName",
+        "params": {
+            "variableObject": null,
+            "causeVariableName": null,
+            "effectVariableName": null,
+            "requestParams": {
+                "correlationCoefficient": null
+            },
+            "title": "Outcomes Label",
+            "ionIcon": "ion-ios-list-outline"
+        },
+        "cache": false,
+        "views": {
+            "menuContent": {
+                "templateUrl": "templates/outcomes-label-page.html",
+                "controller": "StudiesCtrl"
+            }
+        },
+        "name": "app.outcomesLabel"
     },
     {
         "url": "/predictors-positive",
