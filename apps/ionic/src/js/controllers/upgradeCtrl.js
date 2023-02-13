@@ -33,7 +33,7 @@ angular.module('starter').controller('UpgradeCtrl', ["$scope", "$state", "$ionic
             return;
         }
         if(qm.platform.isChromeExtension()){
-            chrome.tabs.create({url: qm.api.getApiOrigin() + '/upgrade'});
+            chrome.tabs.create({url: qm.api.getQMApiOrigin() + '/upgrade'});
             window.close();
             return;
         }
@@ -159,7 +159,7 @@ angular.module('starter').controller('UpgradeCtrl', ["$scope", "$state", "$ionic
         });  // Handle real-time validation errors from the card Element.
         var form = document.getElementById('payment-form'); // Handle form submission.
         form.addEventListener('submit', function(event){
-            qmService.showBasicLoader();
+            qmService.showFullScreenLoader();
             event.preventDefault();
             stripe.createToken(card).then(function(result){
                 qmService.hideLoader();
@@ -265,10 +265,11 @@ angular.module('starter').controller('UpgradeCtrl', ["$scope", "$state", "$ionic
     }
     function getProductId(baseProductId){
         if($rootScope.platform.isIOS){
-            if(baseProductId.toLowerCase().indexOf('month') !== -1){
-                return qm.getAppSettings().additionalSettings.monetizationSettings.iosMonthlySubscriptionCode.value;
+	        let monetizationSettings = qm.getAppSettings().additionalSettings.monetizationSettings
+	        if(baseProductId.toLowerCase().indexOf('month') !== -1){
+                return monetizationSettings.iosMonthlySubscriptionCode.value;
             }else if(baseProductId.toLowerCase().indexOf('year') !== -1){
-                return qm.getAppSettings().additionalSettings.monetizationSettings.iosYearlySubscriptionCode.value;
+                return monetizationSettings.iosYearlySubscriptionCode.value;
             }else{
                 qmLog.error("Could not determine subscription code for baseProductId " + baseProductId);
             }
@@ -301,7 +302,7 @@ angular.module('starter').controller('UpgradeCtrl', ["$scope", "$state", "$ionic
         $rootScope.user.stripeActive = true;
     }
     function makeInAppPurchase(baseProductId){
-        qmService.showBlackRingLoader();
+        qmService.showFullScreenLoader();
         var getReceipt = false;
         inAppPurchase.subscribe(getProductId(baseProductId))
             .then(function(data){
@@ -345,7 +346,7 @@ angular.module('starter').controller('UpgradeCtrl', ["$scope", "$state", "$ionic
                 productId: getProductId(baseProductId), trialEndsAt: moment().add(14, 'days').toISOString()
             });
         }
-        qmService.showBlackRingLoader();
+        qmService.showFullScreenLoader();
         //qmService.recordUpgradeProductPurchase(baseProductId, null, 1);
         inAppPurchase
             .getProducts([getProductId(baseProductId)])

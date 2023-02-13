@@ -10,7 +10,7 @@ angular.module('starter').controller('ImportCtrl', ["$scope", "$ionicLoading", "
             connectorName: null,
             connectWithParams: function(connector){
                 var params = connector.connectInstructions.parameters;
-                qmService.showBasicLoader();
+                qmService.showFullScreenLoader();
                 qmService.connectors.connectWithParams(params, connector.name, function(){
                     var redirectUrl = qm.urlHelper.getParam('final_callback_url');
                     if(!redirectUrl){
@@ -71,7 +71,12 @@ angular.module('starter').controller('ImportCtrl', ["$scope", "$ionicLoading", "
             if($rootScope.user.stripeActive){return true;}
             if(qm.platform.isChromeExtension()){return true;}
             if(connector && !connector.premium){return true;}
-            var needSubscription = qm.getAppSettings().additionalSettings.monetizationSettings.subscriptionsEnabled.value;
+	        var appSettings = qm.getAppSettings()
+	        if(!appSettings){
+				qmLog.error("No appSettings in userCanConnect");
+				return true;
+			}
+	        var needSubscription = appSettings.additionalSettings.monetizationSettings.subscriptionsEnabled.value;
             var canConnect = !needSubscription;
             return canConnect;
         }
@@ -81,12 +86,13 @@ angular.module('starter').controller('ImportCtrl', ["$scope", "$ionicLoading", "
         };
         var loadNativeConnectorPage = function(){
             $scope.showImportHelpCard = !qm.storage.getItem(qm.items.hideImportHelpCard);
-            qmService.showBlackRingLoader();
+            qmService.showFullScreenLoader();
             var connectors = qm.connectorHelper.getConnectorsFromLocalStorage();
             if(connectors){setConnectors(connectors);}
             $scope.refreshConnectors();
         };
         $scope.showActionSheetForConnector = function(connector){
+            //debugger
             connector.showMessage = true;
             var connectorButtons = JSON.parse(JSON.stringify(connector.buttons));
             connectorButtons.push({
@@ -131,11 +137,11 @@ angular.module('starter').controller('ImportCtrl', ["$scope", "$ionicLoading", "
             $scope.errFile = errFiles && errFiles[0];
             if(file){
                 button.text = "Uploading...";
-                qmService.showBasicLoader();
+                qmService.showFullScreenLoader();
                 var body = {file: file, "connectorName": connector.name};
                 file.upload = Upload.upload({
-                    url: qm.api.getApiOrigin() + '/api/v2/spreadsheetUpload?clientId=' +
-                        $rootScope.appSettings.clientId + "&access_token=" + $rootScope.user.accessToken, data: body
+                    url: qm.api.getQMApiOrigin() + '/api/v2/spreadsheetUpload?clientId=' +
+                         $rootScope.appSettings.clientId + "&access_token=" + $rootScope.user.accessToken, data: body
                 });
                 file.upload.then(function(response){
                     button.text = "Import Scheduled";
@@ -174,7 +180,9 @@ angular.module('starter').controller('ImportCtrl', ["$scope", "$ionicLoading", "
             c.updateStatus = "CONNECTING"; // Need to make error message hidden
             if(qm.arrayHelper.inArray(c.mobileConnectMethod, ['oauth', 'facebook', 'google'])){
                 qmLog.info("connectConnector is inArray('oauth', 'facebook', 'google'): " + JSON.stringify(c), null, c);
-                qmService.connectors.oAuthConnect(c, ev, {});
+                qm.connectorHelper.webConnectViaRedirect(c, ev, {
+					link: button.link,
+                });
                 button.text = "Connecting...";
                 return;
             }
@@ -282,7 +290,8 @@ angular.module('starter').controller('ImportCtrl', ["$scope", "$ionicLoading", "
             //debugger
             if(b.text.toLowerCase().indexOf('disconnect') !== -1){
                 disconnectConnector(c, b);
-            }else if(b.text.toLowerCase().indexOf('connect') !== -1){
+            }else if(b.text.toLowerCase().indexOf('connect') !== -1
+                     || b.text.toLowerCase().indexOf('import') !== -1){
                 connectConnector(c, b, ev);
             }else if(b.text.toLowerCase().indexOf('settings') !== -1){
                 amazonSettings(c, b, ev);
@@ -314,6 +323,9 @@ angular.module('starter').controller('ImportCtrl', ["$scope", "$ionicLoading", "
         });
         function setConnectors(connectors) {
             //debugger
+	        connectors.forEach(function(connector){
+				if(!connector.message){connector.message = connector.longDescription || connector.shortDescription;}
+	        })
             qmLog.info("Setting connectors: ", connectors)
             $scope.safeApply(function (){$scope.state.connectors = connectors;})
             //Stop the ion-refresher from spinning
