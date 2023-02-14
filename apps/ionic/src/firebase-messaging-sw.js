@@ -1,7 +1,7 @@
 // Import and configure the Firebase SDK
 // These scripts are made available when the app is served or deployed on Firebase Hosting
 // If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup
-getIonicAppBaseUrl = function (){
+var getIonicAppBaseUrl = function (){
     return (self.location.origin + self.location.pathname).replace('firebase-messaging-sw.js', '');
 };
 var locationObj = self.location;
@@ -14,7 +14,7 @@ console.log("Service worker importing libraries from " + libUrl);
 importScripts(libUrl+'firebase/firebase-app.js');
 importScripts(libUrl+'firebase/firebase-messaging.js');
 importScripts(libUrl+'localforage/dist/localforage.js');
-importScripts(libUrl+'q/q.js');
+importScripts('https://static.quantimo.do/lib/q/q.js');
 //importScripts(libUrl+'bugsnag/dist/bugsnag.min.js');
 importScripts(getIonicAppBaseUrl()+'js/qmLogger.js');
 importScripts(getIonicAppBaseUrl()+'js/qmHelpers.js');
