@@ -290,7 +290,7 @@ angular.module('starter').controller('historyAllMeasurementsCtrl', ["$scope", "$
                     })
                 }, errorHandler);
             } else {
-                //qmService.showBasicLoader();
+                //qmService.showFullScreenLoader();
                 qm.measurements.getMeasurementsFromApi(params).then(successHandler, errorHandler);
             }
         };
@@ -391,7 +391,7 @@ angular.module('starter').controller('historyAllMeasurementsCtrl', ["$scope", "$
                         qmService.goToVariableSettingsByName($scope.state.measurement.variableName);
                     }
                     if(index === 5){
-                        qmService.showBlackRingLoader();
+                        qmService.showFullScreenLoader();
                         qmService.goToCorrelationsListForVariable($scope.state.measurement.variableName);
                     }
                     if(index === 6){
