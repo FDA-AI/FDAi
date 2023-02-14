@@ -58,7 +58,7 @@ angular.module('starter').controller('VoteCtrl', ["$state", "$scope", "$rootScop
                     return;
                 }
                 $scope.state.loading = true;
-                qm.api.get('api/v1/votes', [], {}, function(data){
+                qm.api.get('/api/v1/votes', [], {}, function(data){
                     hideLoader();
                     if(!data.cards || !data.cards.length){
                         qmService.goToState(qm.staticData.stateNames.studies);
@@ -75,7 +75,7 @@ angular.module('starter').controller('VoteCtrl', ["$state", "$scope", "$rootScop
         var clickHandlers = {
             skipAll: function(card, ev){
                 qm.ui.preventDragAfterAlert(ev);
-                qmService.showBasicLoader();
+                qmService.showFullScreenLoader();
                 qm.feed.postCardImmediately(card, function(cardsFromResponse){
                     cardHandlers.getCards(cardsFromResponse);
                 });
