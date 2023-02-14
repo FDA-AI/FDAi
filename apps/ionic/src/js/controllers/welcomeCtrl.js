@@ -9,12 +9,12 @@ angular.module('starter').controller('WelcomeCtrl', ["$scope", "$state", "$rootS
     $rootScope.sendDailyEmailReminder = true;
     $scope.saveIntervalAndGoToLogin = function(frequency){
         $scope.saveInterval(frequency);
-        qm.auth.sendToLogin("welcome completed");
+	    qmService.login.sendToLogin("welcome completed");
     };
     $scope.skipInterval = function(){
         $scope.showIntervalCard = false;
         qmLog.debug('skipInterval: Going to login state...', null);
-        qm.auth.sendToLogin("welcome completed");
+	    qmService.login.sendToLogin("welcome completed");
     };
     $scope.saveInterval = function(frequency){
         if(frequency){
