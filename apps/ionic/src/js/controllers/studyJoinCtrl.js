@@ -69,7 +69,7 @@ angular.module('starter').controller('StudyJoinCtrl', ["$scope", "$state", "qmSe
             return body;
         }
         $scope.joinStudy = function(){
-            qmService.showBasicLoader();
+            qmService.showFullScreenLoader();
             $scope.state.joining = true;
             $scope.state.image.url = "img/robots/quantimodo-robot-happy.svg";
             if(qmService.login.sendToLoginIfNecessaryAndComeBack("joinStudy in " + $state.current.name, null, window.location.href + '&alreadyJoined=true')){
@@ -78,7 +78,7 @@ angular.module('starter').controller('StudyJoinCtrl', ["$scope", "$state", "qmSe
             $scope.state.title = "Joining study...";
             $scope.state.bodyText = "Thank you for helping us accelerate scientific discovery!";
             if(!$scope.state.study){
-                //qmService.showBasicLoader();
+                //qmService.showFullScreenLoader();
             }else{
                 $scope.state.study.joined = true;
             }

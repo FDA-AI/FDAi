@@ -372,12 +372,12 @@ angular.module('starter')// Parent Controller - This controller runs before ever
                 $scope.copyToClipboard(url, name);
             };
             $scope.sendEmailAfterVerification = function(emailType){
-                qmService.sendEmailAfterVerification(emailType);
+                qmService.email.sendEmailAfterVerification(emailType);
             };
             $scope.updateEmailAndExecuteCallback = function(callback){
                 qmService.updateEmailAndExecuteCallback(callback);
             };
-            $scope.goToStudyPageViaStudy = qm.studyHelper.goToStudyPageViaStudy;
+            $scope.goToStudyPageViaStudy = qmService.goToStudyPageViaStudy;
             $scope.goToJoinStudy = qm.studyHelper.goToJoinStudy;
             $scope.showGeneralVariableSearchDialog = function(ev){
                 function selectVariable(variable){
