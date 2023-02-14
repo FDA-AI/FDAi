@@ -4,20 +4,19 @@ var express = require('express'),
     logger = require('morgan');
 app.use(logger('dev'));
 const path = require('path');
-const envPath = path.resolve('./.env');
-const {loadEnvFromDopplerOrDotEnv} = require("../ionic/ts/env-helper")
-loadEnvFromDopplerOrDotEnv(envPath);
-const { initialize } = require('@oas-tools/core');
+const envPath = path.resolve('../../.env');
+const envHelper = require("../ionic/ts/env-helper")
+envHelper.loadEnvFromDopplerOrDotEnv(envPath);
+//const { initialize } = require('@oas-tools/core');
 const proxy = require('express-http-proxy');
 const http = require("http");
 const {numberFormat} = require("underscore.string");
 const qm = require("../ionic/src/js/qmHelpers");
-let envHelper = require("../ionic/ts/env-helper")
 var crypto = require('crypto');
 var audit = require('express-requests-logger')
 const Str = require('@supercharge/strings')
-require("dotenv").config();
 const urlHelper = require("./utils/urlHelper");
+const authHelper = require("./utils/authHelper");
 const passport = require('passport')
 global.Q = require('q');
 app.use(require('cookie-parser')());
@@ -33,17 +32,19 @@ app.use(passport.session());
 
 showLogs = (req, res, next) => {
     if(!qm.fileHelper.isStaticAsset(req.url)){
-        console.log("\n==============================")
-        console.log("req", req.url)
-        console.log(`req.session.passport --> `,req.session.passport)
-        console.log(`req.user -> `,req.user)
-        console.log(`req.session.id -> ${req.session.id}`)
-        console.log(`req.session.cookie --> `,req.session.cookie)
-        console.log("===========================================\n")
+        qmLog.debug("\n==============================")
+        qmLog.info("req", req.url)
+        qmLog.debug(`req.session.passport --> `,req.session.passport)
+        qmLog.debug(`req.user -> `,req.user)
+        qmLog.debug(`req.session.id -> ${req.session.id}`)
+        qmLog.debug(`req.session.cookie --> `,req.session.cookie)
+        qmLog.debug("===========================================\n")
     }
     next()
 }
 app.use(showLogs)
+app.use(authHelper.addAccessTokenToSession)
+
 // CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
 app.use(function(req, res, next) {
     // Don't allow cross-origin to prevent usage of client id and secret
@@ -66,3 +67,9 @@ app.use('/', require('./routes/auth'));
 //app.use('/', require('./routes/github'));
 var server = http.createServer(app);
 server.listen(urlHelper.serverPort);
+console.info('Server running at ' + urlHelper.serverOrigin);
+server.on('error', (e) => {
+    if (e.code === 'EADDRINUSE') {
+        console.error('Address in use, retrying...');
+    }
+})
