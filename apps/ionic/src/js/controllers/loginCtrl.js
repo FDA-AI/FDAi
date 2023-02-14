@@ -1,10 +1,16 @@
 angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootScope", "$ionicLoading", "$injector",
     "$stateParams", "$timeout", "qmService", "$mdDialog",
     function($scope, $state, $rootScope, $ionicLoading, $injector, $stateParams, $timeout, qmService, $mdDialog){
-        function hideLoginPageLoader(){
-            //return;
-            qmService.hideLoader();
-        }
+        function hideLoginPageLoader(){qmService.hideLoader();}
+        const handleLogin = async function(response){
+            //debugger
+            var user = await response.json();
+            if(user.data){user = user.data;}
+	        if(user.user){user = user.user;}
+            qmService.setUserInLocalStorageBugsnagIntercomPush(user);
+            hideLoginPageLoader();
+	        afterLoginGoToUrlOrState();
+        };
         $scope.state = {
             //useLocalUserNamePasswordForms: qm.platform.isMobileOrChromeExtension(),
             useLocalUserNamePasswordForms: true,
@@ -13,65 +19,61 @@ angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootSco
             showRetry: false,
             registrationForm: false,
             loginForm: false,
-            tryToGetUser: function(force){
-                qmService.showBasicLoader(); // Chrome needs to do this because we can't redirect with access token
-                qmLog.authDebug("Trying to get user");
-                qmService.refreshUser(force, {}).then(function(){
-                    qmLog.authDebug("Got user");
-                    hideLoginPageLoader();
-                    leaveIfLoggedIn();
-                }, function(error){
-                    console.info("Could not get user! error: " + error);
-                    //qmService.showMaterialAlert(error);  Can't do this because it has a not authenticate popup
-                    hideLoginPageLoader();  // Hides login loader too early
-                    leaveIfLoggedIn();
-                });
-            },
-            emailRegister: function () {
+	        forgotPasswordUrl: qm.auth.getForgotPasswordUrl(),
+            emailRegister: async function () {
                 var params = $scope.state.registrationForm;
                 params.register = true;
                 if(!params.passwordConfirm || params.passwordConfirm !== params.password){
                     qmService.showMaterialAlert("Confirm Password", "Passwords do not match!");
                     return;
                 }
-                qmService.showBasicLoader();
-                qm.api.post('api/v3/userSettings', params, function(response){
-                    qmService.setUserInLocalStorageBugsnagIntercomPush(response.user);
-                    hideLoginPageLoader();
-                    leaveIfLoggedIn();
-                }, function(error){
+                qmService.showFullScreenLoader();
+                fetch('/api/v1/user', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(params)
+                }).then(handleLogin).catch(function(error){
+                    debugger
                     var message = qm.api.getErrorMessageFromResponse(error);
                     qmService.showMaterialAlert("Error", message);
                     hideLoginPageLoader();  // Hides login loader too early
-                    leaveIfLoggedIn();
+                    //leaveIfLoggedIn();
                 });
             },
+	        metamaskLogin: function () {
+				qm.web3.web3Login().then(function (response) {
+					qmService.setUserInLocalStorageBugsnagIntercomPush(response.user);
+					afterLoginGoToUrlOrState();
+				});
+	        },
+	        metamaskRegister: function () {
+		        qm.web3.web3Register().then(function (response) {
+			        qmService.setUserInLocalStorageBugsnagIntercomPush(response.data);
+			        afterLoginGoToUrlOrState();
+		        });
+	        },
             emailLogin: function () {
-                qmService.showBasicLoader(); // Chrome needs to do this because we can't redirect with access token
-                fetch('/login/password',{
+                qmService.showFullScreenLoader(); // Chrome needs to do this because we can't redirect with access token
+                fetch('/api/v1/user',{
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify($scope.state.loginForm)
-                }).then(function(response){
-                    hideLoginPageLoader();
-                    if(!response.ok){
-                        var body = response.json();
-                        qmService.showMaterialAlert("Error", "Invalid username or password");
-                        return;
-                    }
-                    leaveIfLoggedIn();
-                }, function(error){
-                    qmLog.error("Email Login Error", error);
-                    qmService.showMaterialAlert("Login Error", "Hmm. I couldn't sign you in with those credentials.  Please double check them or contact me at https://help.quantimo.do.");
-                    hideLoginPageLoader();  // Hides login loader too early
-                    leaveIfLoggedIn();
-                });
+                })
+                .then(handleLogin)
+				.catch(function(error){
+					qmLog.error("Email Login Error", error);
+					qmService.showMaterialAlert("Login Error", "Hmm. I couldn't sign you in with those credentials.  Please double check them or contact me at https://help.quantimo.do.");
+					hideLoginPageLoader();  // Hides login loader too early
+				});
             }
         };
-        $scope.state.socialLogin = function(strategyName, ev, additionalParams){
-            if(strategyName === 'quantimodo' && $scope.state.useLocalUserNamePasswordForms){
+        $scope.state.socialLogin = function(connectorName, ev, additionalParams){
+            if(connectorName === 'quantimodo' && $scope.state.useLocalUserNamePasswordForms){
                 if(additionalParams.register){
                     $scope.state.registrationForm = {};
                 }else{
@@ -79,20 +81,8 @@ angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootSco
                 }
                 return;
             }
-            // qmService.createDefaultReminders();  TODO:  Do this at appropriate time. Maybe on the back end during user creation?
             loginTimeout();
-            window.location.href = window.location.origin + '/auth/'+strategyName;
-            // return;
-            // qmService.auth.socialLogin(strategyName, ev, additionalParams, function(response){
-            //     qmLog.authDebug("Called socialLogin successHandler with response: " + JSON.stringify(response), null, response);
-            //     if(!qm.getUser()){
-            //         handleLoginError("No user after successful social login!", {response: response});
-            //     }else{
-            //         handleLoginSuccess();
-            //     }
-            // }, function(error){
-            //     handleLoginError("SocialLogin failed! error: ", error);
-            // });
+            qm.connectorHelper.webConnectViaRedirect(connectorName, ev, additionalParams);
         };
         $scope.controller_name = "LoginCtrl";
         qmService.navBar.setFilterBarSearchIcon(false);
@@ -114,24 +104,44 @@ angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootSco
             // moreInfo: "Your data belongs to you.  Security and privacy our top priorities. I promise that even if " +
             //     "the NSA waterboards me, I will never divulge share your data without your permission.",
         };
-        var leaveIfLoggedIn = function(){
-            if(qm.getUser() && qm.auth.getAccessTokenFromUrlUserOrStorage()){
-                qmLog.authDebug('Already logged in on login page.  goToDefaultStateIfNoAfterLoginGoToUrlOrState...');
-                qmService.login.afterLoginGoToUrlOrState();
-            }
-        };
         function handleLoginError(error, metaData){
             $scope.retryLogin(error);
             qmLog.error('Login failure: ' + error, metaData, metaData);
         }
         function handleLoginSuccess(){
+            //debugger
             if(qm.getUser() && $state.current.name.indexOf('login') !== -1){
-                qmService.login.afterLoginGoToUrlOrState();
+                afterLoginGoToUrlOrState();
             }
+        }
+        function afterLoginGoToUrlOrState(){
+            var afterLoginGoToUrl = qm.storage.getItem(qm.items.afterLoginGoToUrl);
+            if(afterLoginGoToUrl){
+                $timeout(function(){
+                    qm.storage.removeItem(qm.items.afterLoginGoToUrl);
+                }, 10000);
+                window.location.replace(afterLoginGoToUrl);
+                return true;
+            }
+            var afterLoginGoToState = qmService.login.getAfterLoginState();
+            if(afterLoginGoToState){
+                qmService.goToState(afterLoginGoToState);
+                $timeout(function(){  // Wait 10 seconds in case it's called again too quick and sends to default state
+                    qm.storage.removeItem(qm.items.afterLoginGoToState);
+                }, 10000);
+                return true;
+            }
+            if(qm.appMode.isBuilder()){
+                qmService.goToState(qm.staticData.stateNames.configuration);
+            }
+            if(qm.appMode.isPhysician()){
+                qmService.goToState(qm.staticData.stateNames.physician);
+            }
+            qmService.goToState(qm.staticData.stateNames.onboarding);
         }
         var loginTimeout = function(){
             var duration = 60;
-            qmService.showBlackRingLoader(duration);
+            qm.loaders.psychedelicLoader.show();
             $scope.circlePage.title = 'Logging in...';
             $scope.circlePage.bodyText = 'Thank you for your patience. Your call is very important to us!';
             qmLog.authDebug('Setting login timeout...');
@@ -148,17 +158,22 @@ angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootSco
             }, duration * 1000);
         };
         $scope.$on('$ionicView.beforeEnter', function(e){
-            if (document.title !== "Login") {document.title = "Login";}
-            qmLog.authDebug('beforeEnter in state ' + $state.current.name);
-            leaveIfLoggedIn();
-            if(qm.urlHelper.getParam('loggingIn') || qm.auth.getAccessTokenFromUrlAndSetLocalStorageFlags($state.current.name)){
-                loginTimeout();
-            }else{
-                qmLog.authDebug('refreshUser in beforeEnter in state ' + $state.current.name + ' in case we\'re on a Chrome extension that we can\'t redirect to with a token');
-                $scope.state.tryToGetUser(false);
-            }
+	        if (document.title !== "Login") {document.title = "Login";}
+	        qmLog.authDebug('beforeEnter in state ' + $state.current.name);
+			if(qm.auth.loggingOut($stateParams)){return;}
+	        qmService.showFullScreenLoader();
+			qm.getUser(function(user){
+		        if(user){
+			        qmLog.authDebug('Already logged in on login page.  goToDefaultStateIfNoAfterLoginGoToUrlOrState...');
+			        afterLoginGoToUrlOrState();
+		        }
+	        }, function(error){
+		        hideLoginPageLoader();
+		        qmLog.debug(error);
+	        })
         });
         $scope.$on('$ionicView.enter', function(){
+	        qmService.showFullScreenLoader();
             //leaveIfLoggedIn();  // Can't call this again because it will send to default state even if the leaveIfLoggedIn in beforeEnter sent us to another state
             qmLog.authDebug($state.current.name + ' enter...');
             qmService.navBar.hideNavigationMenu();

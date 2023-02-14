@@ -36,7 +36,7 @@ angular.module('starter').controller('RemindersManageCtrl', ["$scope", "$state",
         $scope.$on('$ionicView.beforeEnter', function(e){
             if (document.title !== $scope.state.title) {document.title = $scope.state.title;}
             qmLog.info('beforeEnter RemindersManageCtrl', null);
-            qmService.showBasicLoader();
+            //qmService.showFullScreenLoader();
             qmService.navBar.showNavigationMenuIfHideUrlParamNotSet();
             $scope.stateParams = $stateParams;
             var actionButtons = [
@@ -123,10 +123,12 @@ angular.module('starter').controller('RemindersManageCtrl', ["$scope", "$state",
         }
         function hideLoader(){
             $scope.$broadcast('scroll.refreshComplete'); //Stop the ion-refresher from spinning
+            $timeout(function(){
+                $scope.state.loading = false;
+            }, 1000);
             qmService.hideLoader();
         }
         function addRemindersToScope(allTypes){
-            hideLoader();
             var favoritesActiveAndArchived = allTypes.allTrackingReminders || [];
             var favorites = allTypes.favorites || [];
             var active = allTypes.active || [];
@@ -134,6 +136,7 @@ angular.module('starter').controller('RemindersManageCtrl', ["$scope", "$state",
             var variableCategoryName = getVariableCategoryName();
             if(!favoritesActiveAndArchived || !favoritesActiveAndArchived.length){
                 $scope.state.showNoRemindersCard = true;
+                hideLoader();
                 return;
             }
             qmLog.info('Got '+favoritesActiveAndArchived.length+" favoritesActiveAndArchived! Category: "+ variableCategoryName);
@@ -145,11 +148,12 @@ angular.module('starter').controller('RemindersManageCtrl', ["$scope", "$state",
             var noReminders = !favoritesActiveAndArchived.length;
             $scope.state.showTreatmentInfoCard = noReminders && variableCategoryName === 'Treatments';
             $scope.state.showSymptomInfoCard = noReminders && variableCategoryName === 'Symptom';
+            hideLoader();
         }
         $scope.refreshReminders = function(){
             qmService.showInfoToast('Syncing...');
+            $scope.state.loading = true;
             qm.reminderHelper.syncReminders(true).then(function(){
-                hideLoader();
                 getTrackingReminders();
             });
         };
