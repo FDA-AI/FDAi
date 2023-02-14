@@ -242,7 +242,7 @@ angular.module('starter').controller('StudiesCtrl',
             $scope.$broadcast('scroll.infiniteScrollComplete');
         }
         $scope.loadMore = function(){
-            //qmService.showBlackRingLoader();
+            //qmService.showFullScreenLoader();
             if($scope.state.studiesResponse.studies.length){
                 $scope.state.requestParams.offset = $scope.state.studiesResponse.studies.length;
                 populateStudyListBySortParam();
