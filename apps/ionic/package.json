@@ -112,7 +112,6 @@
     "plist": "^3.0.5",
     "pump": "3.0.0",
     "q": "1.5.1",
-    "quantimodo": "5.12.0",
     "request": "2.88.2",
     "request-promise": "4.2.6",
     "run-sequence": "2.2.1",
