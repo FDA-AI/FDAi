@@ -122,7 +122,9 @@ var qmLog = {
         //     return false;
         // }
         qmLog.authDebugEnabled = value;
-        qm.storage.setItem('authDebugEnabled', value);
+        if(qmLog.authDebugEnabled && window.localStorage){
+            qm.storage.setItem('authDebugEnabled', value);
+        }
         return qmLog.authDebugEnabled;
     },
     itemAndThrowException: function(item, message, propertiesToLog){
