@@ -26,9 +26,11 @@
       <link rel="shortcut icon"
             href="img/icons/icon_16.png">
       <!-- build:js scripts/combined-head-libraries.js -->
-      <script crossorigin="anonymous"
-              src="https://cdn.lr-ingest.io/LogRocket.min.js"></script>
+<!--      <script crossorigin="anonymous"-->
+<!--              src="https://cdn.lr-ingest.io/LogRocket.min.js"></script>-->
       <script defer src="https://static.quantimo.do/lib/bugsnag/dist/bugsnag.js"></script>
+      <script src="js/psychedelic-loader-ionic.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/89/three.min.js"></script>
       <script defer src="https://static.quantimo.do/lib/localforage/dist/localforage.js"></script>
       <script src="https://static.quantimo.do/lib/jquery/dist/jquery.min.js"></script>
       <!--Putting jQuery before Angular to see if it fixes double click issue per https://github.com/angular/angular.js/issues/6251 -->
@@ -38,8 +40,8 @@
       <script defer src="https://static.quantimo.do/lib/oclazyload/dist/ocLazyLoad.min.js"></script>
       <!--<script defer src="https://static.quantimo.do/lib/opbeat-angular/opbeat-angular.min.js"></script>-->
       <script defer src="https://static.quantimo.do/lib/quantimodo/quantimodo-web.js"></script>
-      <script async src="js/ionIcons.js"></script>
-    <script async src="js/qmLogger.js"></script>
+      <script src="https://static.quantimo.do/js/ionIcons.js"></script> <!-- Needed for qmService to work -->
+    <script src="js/qmLogger.js"></script>
     <script src="js/qmHelpers.js"></script>
     <script src="data/appSettings.js"></script> <!-- Must come after qmHelpers because we assign to qm.staticData -->
       <script src="data/qmStates.js"></script>
@@ -50,7 +52,7 @@
       <script defer src="data/commonVariables.js"></script>
       <script defer src="data/docs.js"></script>
       <script defer src="data/dialogAgent.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/app-ionic.js"></script>
     <script src="js/services/qmService.js"></script>
     <!-- Here we inject app builder files not needed in the normal end-user app -->
     <!-- inject:js -->
@@ -62,34 +64,34 @@
     <!-- endinject -->
     <script src="js/quantimodoFilters.js"></script>
     <script src="js/controllers/appCtrl.js"></script>
-    <script async src="js/controllers/remindersInboxCtrl.js"></script>
+    <script src="js/controllers/remindersInboxCtrl.js"></script>
     <script async src="js/controllers/favoritesCtrl.js"></script>
-    <script async src="js/controllers/introCtrl.js"></script>
-    <!--<script async src="js/controllers/fabric.js"></script> Not sure if this does anything.  We might want to enable for native error logging sometime. -->
-    <script async src="js/controllers/variableSettingsCtrl.js"></script>
+    <script src="js/controllers/introCtrl.js"></script>
+    <!--<script src="js/controllers/fabric.js"></script> Not sure if this does anything.  We might want to enable for native error logging sometime. -->
+    <script src="js/controllers/variableSettingsCtrl.js"></script>
     <script src="js/controllers/loginCtrl.js"></script>
     <script async src="js/controllers/patch.js"></script>
     <script async src="js/controllers/welcomeCtrl.js"></script>
     <script async src="js/controllers/trackPrimaryOutcomeCtrl.js"></script>
-    <script async src="js/controllers/settingsCtrl.js"></script>
+    <script src="js/controllers/settingsCtrl.js"></script>
     <script async src="js/controllers/iframeScreenCtrl.js"></script>
-    <script async src="js/controllers/studiesCtrl.js"></script>
+    <script src="js/controllers/studiesCtrl.js"></script>
     <script async src="js/controllers/externalCtrl.js"></script>
-    <script async src="js/controllers/historyAllMeasurementsCtrl.js"></script>
-    <script async src="js/controllers/importCtrl.js"></script>
-    <script async src="js/controllers/variableSearchCtrl.js"></script>
-    <script async src="js/controllers/remindersManageCtrl.js"></script>
-    <script async src="js/controllers/reminderAddCtrl.js"></script>
-    <script async src="js/controllers/measurementAddCtrl.js"></script>
-    <script async src="js/controllers/tagAddCtrl.js"></script>
-    <script async src="js/controllers/chartsPageCtrl.js"></script>
-    <script async src="js/controllers/studyCtrl.js"></script>
+    <script src="js/controllers/historyAllMeasurementsCtrl.js"></script>
+    <script src="js/controllers/importCtrl.js"></script>
+    <script src="js/controllers/variableSearchCtrl.js"></script>
+    <script src="js/controllers/remindersManageCtrl.js"></script>
+    <script src="js/controllers/reminderAddCtrl.js"></script>
+    <script src="js/controllers/measurementAddCtrl.js"></script>
+    <script src="js/controllers/tagAddCtrl.js"></script>
+    <script src="js/controllers/chartsPageCtrl.js"></script>
+    <script src="js/controllers/studyCtrl.js"></script>
     <script async src="js/controllers/mapCtrl.js"></script>
-    <script async src="js/controllers/onboardingCtrl.js"></script>
+    <script src="js/controllers/onboardingCtrl.js"></script>
     <script async src="js/controllers/upgradeCtrl.js"></script>
     <script async src="js/controllers/tabsCtrl.js"></script>
-    <script async src="js/controllers/studyJoinCtrl.js"></script>
-    <script async src="js/controllers/studyCreationCtrl.js"></script>
+    <script src="js/controllers/studyJoinCtrl.js"></script>
+    <script src="js/controllers/studyCreationCtrl.js"></script>
     <script async src="js/controllers/dataSharingCtrl.js"></script>
     <script async src="js/controllers/chatCtrl.js"></script>
     <script async src="js/controllers/feedCtrl.js"></script>
@@ -115,7 +117,6 @@
       </script>-->
   </head>
   <body ng-app="starter">
-  <script src="js/psychedelic-loader.js"></script>
   <script>
       (function() {
           // your page initialization code here the DOM will be available here
@@ -192,7 +193,7 @@
     </script>-->
     <script defer src="https://static.quantimo.do/lib/compromise/builds/compromise.js"></script> <!-- compromise produces errors when minified for some reason -->
     <script defer src="https://static.quantimo.do/lib/Bravey/build/bravey.js"></script> <!-- Bravey produces errors when minified for some reason -->
-    <script defer src="https://js.stripe.com/v3/"></script>
+<!--    <script defer src="https://js.stripe.com/v3/"></script>-->
     <!-- Load Facebook SDK for JavaScript -->
 <!--    <div id="fb-root"></div>
     <script>(function(d, s, id) {
@@ -254,5 +255,37 @@
         </script>-->
         <!-- End of Async Drift Code -->
         <script async src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+	  <script async src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+	  <script
+			  onload="LitJsSdk.litJsSdkLoadedInALIT()"
+			  src="https://jscdn.litgateway.com/index.web.js"
+	  ></script>
+	  <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.7/src/glowCookies.min.js"></script>
+	  <script>
+		  glowCookies.start('en', {
+			  // style: 2,
+			  // analytics: 'G-FH87DE17XF',
+			  // facebookPixel: '990955817632355',
+			  hideAfterClick: true,
+			  // border: 'none',
+			  // position: 'right',
+			  policyLink: '/privacy',
+			  // customScript: [{ type: 'custom', position: 'body', content: `console.log('my custom js');` }],
+			  // bannerDescription: 'banner desc',
+			  // bannerLinkText: 'banner link text',
+			  //bannerBackground: '#000',
+			  //bannerColor: '#fafafa',
+			  // bannerHeading: '<h2>Cookies</h2>',
+			  // acceptBtnText: 'accept btn text',
+			  // acceptBtnColor: 'green',
+			  // acceptBtnBackground: 'red',
+			  // rejectBtnText: 'reject btn text',
+			  // rejectBtnBackground: 'lightblue',
+			  // rejectBtnColor: 'blue',
+			  // manageColor: 'white',
+			  // manageBackground: 'blue',
+			  // manageText: 'cookies text'
+		  });
+	  </script>
   </body>
 </html>
