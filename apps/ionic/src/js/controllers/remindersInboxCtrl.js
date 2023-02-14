@@ -46,27 +46,42 @@ angular.module('starter').controller('RemindersInboxCtrl', ["$scope", "$state", 
                     "id": "reminderButton",
                     "buttonText": "Add a Reminder",
                     "buttonClass": "button button-clear button-positive ion-bell",
-                    "goToState": "app.reminderSearch"
+                    "goToState": qm.staticData.stateNames.reminderSearch,
+                    clickFunctionCall: function(){
+                        qmService.goToState(qm.staticData.stateNames.reminderSearch);
+                    }
                 },{
                     "id": "measurementButton",
                     "buttonText": "Record a measurement",
                     "buttonClass": "button button-clear button-positive ion-edit",
-                    "goToState": "app.measurementSearch"
+                    "goToState": qm.staticData.stateNames.measurementAddSearch,
+                    clickFunctionCall: function(){
+                        qmService.goToState(qm.staticData.stateNames.measurementAddSearch);
+                    }
                 },{
                     "id": "importButton",
                     "buttonText": "Import Your Data",
                     "buttonClass": "button button-clear button-positive ion-checkmark",
-                    "goToState": "app.import"
+                    "goToState": qm.staticData.stateNames.import,
+                    clickFunctionCall: function(){
+                        qmService.goToState(qm.staticData.stateNames.import);
+                    }
                 },{
                     "id": "studiesButton",
                     "buttonText": "Discoveries",
                     "buttonClass": "button button-clear button-positive ion-book",
-                    "goToState": "app.studies"
+                    "goToState": qm.staticData.stateNames.studies,
+                    clickFunctionCall: function(){
+                        qmService.goToState(qm.staticData.stateNames.studies);
+                    }
                 },{
                     "id": "chartsButton",
                     "buttonText": "Charts",
                     "buttonClass": "button button-clear button-positive ion-chart",
-                    "goToState": "app.charts"
+                    "goToState": qm.staticData.stateNames.charts,
+                    clickFunctionCall: function(){
+                        qmService.goToState(qm.staticData.stateNames.charts);
+                    }
                 }],
                 "$$hashKey": "object:1200"
             }
