@@ -1221,38 +1221,6 @@ var qmStates = [
     },
     {
         "cache": true,
-        "url": "/api-portal/:clientId",
-        "params": {
-            "title": "API Portal",
-            "ionIcon": "ion-settings",
-            hideNavigationMenu: true,
-        },
-        "views": {
-            "menuContent": {
-                "templateUrl": "builder-templates/api-portal.html",
-                "controller": "ApiPortalCtrl"
-            }
-        },
-        "name": "app.apiPortalClientId"
-    },
-    {
-        "cache": true,
-        "url": "/api-portal",
-        "params": {
-            "title": "API Portal",
-            "ionIcon": "ion-settings",
-            hideNavigationMenu: true,
-        },
-        "views": {
-            "menuContent": {
-                "templateUrl": "builder-templates/api-portal.html",
-                "controller": "ApiPortalCtrl"
-            }
-        },
-        "name": "app.apiPortal"
-    },
-    {
-        "cache": true,
         "url": "/physician",
         "params": {
             "title": "Physician Dashboard",
