@@ -2,7 +2,7 @@
     <md-toolbar class="md-theme-light" ng-click="showApiCredentials = !showApiCredentials">
         <h2 class="md-toolbar-tools">
             <span style="color: white;">
-                <md-icon class="ion-link"></md-icon> Click For API Credentials
+                <md-icon class="ion-lock-combination"></md-icon> Click For API Credentials
             </span>
         </h2>
     </md-toolbar>
@@ -68,7 +68,7 @@
             <md-list-item class="md-3-line">
                 <div class="md-list-item-text" layout="column">
                     <h3>OAuth Authentication URL</h3>
-                    <h4>https://app.quantimo.do/api/oauth2/authorize</h4>
+                    <h4>https://app.quantimo.do/oauth/authorize</h4>
                     <p>The URL you should send users to to collect an OAuth token.</p>
                 </div>
                 <md-button class="md-secondary md-icon-button" style="font-size: 30px;"
@@ -80,7 +80,7 @@
                     </md-icon>
                 </md-button>
                 <md-button class="md-secondary md-icon-button" style="font-size: 30px;"
-                           ng-click="copyToClipboard('https://app.quantimo.do/api/oauth2/authorize')"
+                           ng-click="copyToClipboard('https://app.quantimo.do/oauth/authorize')"
                            aria-label="Copy to clipboard">
                     <md-icon class="ion-clipboard">
                         <md-tooltip md-direction="down">Copy to clipboard</md-tooltip>
@@ -90,7 +90,7 @@
             <md-list-item class="md-3-line">
                 <div class="md-list-item-text" layout="column">
                     <h3>OAuth Token URL</h3>
-                    <h4>https://app.quantimo.do/api/oauth2/token</h4>
+                    <h4>https://app.quantimo.do/oauth/token</h4>
                     <p>The URL you should use to turn the code into an access token (second portion of
                         the OAuth flow).</p>
                 </div>
@@ -103,7 +103,7 @@
                     </md-icon>
                 </md-button>
                 <md-button class="md-secondary md-icon-button" style="font-size: 30px;"
-                           ng-click="copyToClipboard('https://app.quantimo.do/api/oauth2/token')"
+                           ng-click="copyToClipboard('https://app.quantimo.do/oauth/token')"
                            aria-label="Copy to clipboard">
                     <md-icon class="ion-clipboard">
                         <md-tooltip md-direction="down">Copy to clipboard</md-tooltip>
