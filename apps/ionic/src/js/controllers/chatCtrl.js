@@ -53,7 +53,7 @@ angular.module('starter').controller('ChatCtrl', ["$state", "$scope", "$rootScop
             if (document.title !== "Chat") {document.title = "Chat";}
             $rootScope.setMicAndSpeechEnabled(true);
             qmLog.debug('beforeEnter state ' + $state.current.name);
-            qmService.showBasicLoader();
+            qmService.showFullScreenLoader();
             if($stateParams.hideNavigationMenu !== true){
                 qmService.navBar.showNavigationMenuIfHideUrlParamNotSet();
             }

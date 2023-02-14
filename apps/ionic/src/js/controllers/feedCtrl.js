@@ -28,7 +28,7 @@ angular.module('starter').controller('FeedCtrl', ["$state", "$scope", "$rootScop
         $scope.$on('$ionicView.beforeEnter', function(e){
             if (document.title !== "Feed") {document.title = "Feed";}
             qmLog.debug('beforeEnter state ' + $state.current.name);
-            qmService.showBasicLoader();
+            qmService.showFullScreenLoader();
             if($stateParams.hideNavigationMenu !== true){
                 qmService.navBar.showNavigationMenuIfHideUrlParamNotSet();
             }
@@ -40,7 +40,7 @@ angular.module('starter').controller('FeedCtrl', ["$state", "$scope", "$rootScop
             }
             cardHandlers.getCards();
             if(!$scope.state.cards || !$scope.state.cards.length){
-                qmService.showBasicLoader();
+                qmService.showFullScreenLoader();
             }
         });
         $rootScope.$on('getCards', function(){
@@ -81,7 +81,7 @@ angular.module('starter').controller('FeedCtrl', ["$state", "$scope", "$rootScop
         var clickHandlers = {
             skipAll: function(card, ev){
                 qm.ui.preventDragAfterAlert(ev);
-                qmService.showBasicLoader();
+                qmService.showFullScreenLoader();
                 qm.feed.postCardImmediately(card, function(cardsFromResponse){
                     cardHandlers.getCards(cardsFromResponse);
                 });
