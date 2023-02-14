@@ -5,8 +5,8 @@
                  style="padding: 10px;"
                  ng-class="{ isBrowserView : platform.isWeb == true }">
         <ion-refresher on-refresh="refreshStudy()"></ion-refresher>
+	    <md-progress-linear md-mode="indeterminate"  ng-show="loadingCharts || !state.study"></md-progress-linear>
         <div ng-show="loadingCharts || !state.study" style="left: -10px; right: -10px">
-            <md-progress-linear md-mode="indeterminate"></md-progress-linear>
         </div>
         <div ng-if="state.study">
             <md-card id="studyHeaderHtml"
@@ -20,23 +20,19 @@
             </md-card>
             <div ng-include="'templates/buttons/vote-buttons.html'"></div>
             <div ng-include="'templates/buttons/study-sharing-buttons.html'"></div>
-            <md-card
+            <div
+              class="center"
               ng-hide="state.study.studyCharts && user && (state.study.userId === user.id || state.study.statistics.userId === user.id)">
-                <button id="joinStudyButton"
-                        class="button button-outline button-block icon-left ion-ios-people"
+                <md-button id="joinStudyButton"
+                        class="md-primary md-raised"
                         ng-click="goToJoinStudy(state.study)">
                     Join this Study
-                </button>
-            </md-card>
+                </md-button>
+            </div>
         </div>
         <div ng-show="loadingCharts || !state.study">
-            <div>
-                <div>
-                    <h1 style="text-align: center;">Analyzing data...</h1>
-                </div>
-                <div style="max-width: 600px; display:block; margin:auto;"
-                     ng-include="'templates/loaders/blue-robot-loader.html'"></div>
-            </div>
+            <div style="max-width: 600px; display:block; margin:auto;"
+                 ng-include="'templates/loaders/blue-robot-loader.html'"></div>
             <div ng-show="loadingCharts" ng-include="'templates/spinner.html'"></div>
         </div>
         <div ng-cloak ng-show="state.study">
