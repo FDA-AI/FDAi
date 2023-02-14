@@ -49,7 +49,19 @@ var qmLog = {
     },
     getCombinedMetaData: function(name, message, errorSpecificMetaData, stackTrace){
         var combinedMetaData = qmLog.getGlobalMetaData();
-        combinedMetaData = JSON.parse(JSON.stringify(combinedMetaData));
+        function getCircularReplacer() {
+            const seen = new WeakSet();
+            return (key, value) => {
+                if (typeof value === 'object' && value !== null) {
+                    if (seen.has(value)) {
+                        return;
+                    }
+                    seen.add(value);
+                }
+                return value;
+            }
+        }
+        combinedMetaData = JSON.parse(JSON.stringify(combinedMetaData, getCircularReplacer()));
         combinedMetaData.errorSpecificMetaData = errorSpecificMetaData;
         combinedMetaData.stackTrace = stackTrace;
         combinedMetaData.message = message;
@@ -79,6 +91,9 @@ var qmLog = {
         }
     },
     getLogLevelName: function(){
+        if(typeof process !== "undefined" && process && process.env && process.env['APP_LOG_LEVEL']){
+            return process.env['APP_LOG_LEVEL'].toLowerCase()
+        }
         if(qm.urlHelper.getParam('debug') || qm.urlHelper.getParam('debugMode')){
             qmLog.setLogLevelName("debug");
         }
@@ -103,13 +118,11 @@ var qmLog = {
         return qmLog.logLevel;
     },
     setAuthDebugEnabled: function(value){
-        if(!qm.platform.getWindow()){
-            return false;
-        }
+        // if(!qm.platform.getWindow()){
+        //     return false;
+        // }
         qmLog.authDebugEnabled = value;
-        if(qmLog.authDebugEnabled && window.localStorage){
-            qm.storage.setItem('authDebugEnabled', value);
-        }
+        qm.storage.setItem('authDebugEnabled', value);
         return qmLog.authDebugEnabled;
     },
     itemAndThrowException: function(item, message, propertiesToLog){
@@ -161,6 +174,9 @@ var qmLog = {
         qmLog.arrayValues(variables, propertiesToLog);
     },
     isDebugMode: function(){
+        if(typeof process !== "undefined" && process && process.env && process.env['APP_DEBUG']){
+            return !!process.env['APP_DEBUG'];
+        }
         return qmLog.getLogLevelName() === "debug";
     },
     getDebugMode: function(){
@@ -264,7 +280,7 @@ var qmLog = {
     },
     bugsnagNotify: function(name, message, errorSpecificMetaData, logLevel, stackTrace){
         // eslint-disable-next-line no-debugger
-        debugger
+        if(qmLog.isDebugMode()){debugger;}
         if(typeof bugsnagClient === "undefined"){
             if(!qm.appMode.isDevelopment()){
                 console.error('bugsnagClient not defined', errorSpecificMetaData);
@@ -329,6 +345,9 @@ var qmLog = {
         }
     },
     getAuthDebugEnabled: function(message){
+        if(qmLog.authDebugEnabled){
+            return qmLog.authDebugEnabled
+        }
         if(qm.platform.isBackEnd()){
             return false;
         }
@@ -349,7 +368,7 @@ var qmLog = {
             qmLog.debug(name, message, errorSpecificMetaData);
             return;
         }
-        if(qm.platform.isMobile()){
+        if(qm.platform.isMobile() || qm.platform.isBackEnd()){
             qmLog.error(name, message, errorSpecificMetaData);
         }else{
             qmLog.info(name, message, errorSpecificMetaData);
@@ -590,7 +609,7 @@ var qmLog = {
         if(qmLog.isDebugMode()){
             qmLog.globalMetaData.local_storage = qm.storage.getLocalStorageList();
         } // Too slow to do for every error
-        qmLog.globalMetaData.api = {log: qm.api.requestLog, ApiOrigin: qm.api.getApiOrigin()};
+        qmLog.globalMetaData.api = {log: qm.api.requestLog, ApiOrigin: qm.api.getExpressUrl()};
         var as = qm.getAppSettings();
         if(as){
             qmLog.globalMetaData.api.client_id = qm.api.getClientId();
@@ -890,7 +909,7 @@ function getCallerFunctionName(){
             try{
                 return getCalleeFunction().caller;
             }catch (error){
-                console.error(error);
+                console.debug(error.message);
                 return null;
             }
         }
@@ -912,20 +931,20 @@ function addCallerFunctionToMessage(message){
     if(message === "undefined"){
         message = "";
     }
-    var caller = getCallerFunctionName();
-    var callee = getCalleeFunctionName();
-    if(!callee && !caller){
-        return message;
-    }
-    if(caller === callee){
-        return callee + ": " + message || "";
-    }
-    if(callee){
-        message = "callee " + callee + ": " + message || "";
-    }
-    if(caller){
-        message = "Caller " + caller + " called " + message || "";
-    }
+    // var caller = getCallerFunctionName();
+    // //var callee = getCalleeFunctionName();
+    // if(!callee && !caller){
+    //     return message;
+    // }
+    // if(caller === callee){
+    //     return callee + ": " + message || "";
+    // }
+    // if(callee){
+    //     message = "callee " + callee + ": " + message || "";
+    // }
+    // if(caller){
+    //     message = "Caller " + caller + " called " + message || "";
+    // }
     return message;
 }
 if(typeof window !== "undefined"){
