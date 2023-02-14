@@ -7,7 +7,7 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
             qmLog.info("getAppSettingsArrayFromApi...");
             var deferred = $q.defer();
             var params = qm.api.addGlobalParams({all: true, designMode: true});
-            qm.api.get('api/v1/appSettings', [], params, function(response){
+            qm.api.get('/api/v1/appSettings', [], params, function(response){
                 qmLog.debug(response);
                 /** @namespace response.allAppSettings */
                 var appList = configurationService.convertAppSettingsToAppList(response.allAppSettings);
@@ -1291,7 +1291,9 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
                 configurationService.saveAppSettingsRevisionLocally(function(revisionList){
                     callback(revisionList);
                 });
-            });
+            }, function(err){
+	            qmLog.error(err);
+            }, {includeClientSecret: true});
         });
     };
     configurationService.saveRevisionAndPostAppSettingsAfterConfirmation = function(appSettings){
@@ -1322,9 +1324,11 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
             appSettings.clientId + ") and apply your changes for your " + numberOfUsers + " users?";
         function yesCallback(){
             qmService.showInfoToast("Saving app settings...");
-            qmService.showBasicLoader();
+            qmService.showFullScreenLoader();
             $timeout(function(){ // Allow time to show toast first
-                qm.api.post('api/v1/appSettings', appSettings, function(response){
+				var url = qm.api.getQMApiOrigin() + '/api/v1/appSettings';
+				url = qm.urlHelper.addUrlQueryParamsToUrlString({'includeClientSecret': true}, url);
+                qm.api.post(url, appSettings, function(response){
                     //qmService.processAndSaveAppSettings(response.appSettings, successHandler);  // We'll over-write changes while posting
                     qmService.hideLoader();
                 }, function(userErrorMessage){
@@ -1512,7 +1516,7 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
     };
     configurationService.getAppsSettings = function(clientId){
         var deferred = $q.defer();
-        qm.api.get('api/v1/appSettings', [], {clientId: clientId}, function(response){
+        qm.api.get('/api/v1/appSettings', [], {clientId: clientId}, function(response){
             configurationService.separateUsersAndConfigureAppSettings(response.appSettings);
         }, function(error){
             deferred.reject(error);
@@ -1534,7 +1538,7 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
     };
     configurationService.upgradeUser = function(userId){
         var deferred = $q.defer();
-        qm.api.post('api/v1/upgrade', {
+        qm.api.post('/api/v1/upgrade', {
             clientId: $rootScope.appSettings.clientId,
             userId: userId
         }, function(response){
@@ -1546,7 +1550,7 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
     };
     configurationService.addCollaborator = function(email){
         var deferred = $q.defer();
-        qm.api.post('api/v2/apps/' + $rootScope.appSettings.clientId + '/add-collaborator', {
+        qm.api.post('/api/v2/apps/' + $rootScope.appSettings.clientId + '/add-collaborator', {
             clientId: $rootScope.appSettings.clientId,
             email: email
         }, function(response){
@@ -1575,8 +1579,8 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
             newAppToPost.qmClientId = newAppToPost.appDisplayName;
         }
         newAppToPost.qmClientId = sanitizeClientId(newAppToPost.qmClientId);
-        qmService.showBasicLoader();
-        qm.api.post('api/v2/apps/create', newAppToPost, function(response){
+        qmService.showFullScreenLoader();
+        qm.api.post('/api/v2/apps/create', newAppToPost, function(response){
             qmLog.debug("createApp response ", response);
             qmService.hideLoader();
             qmService.showInfoToast("App created!");
@@ -1597,7 +1601,7 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
             qmLog.errorAndExceptionTestingOrDevelopment("No user id provided to configurationService.deleteCollaborator");
         }
         var deferred = $q.defer();
-        qm.api.post('api/v2/apps/' + clientId + '/delete-collaborator', {
+        qm.api.post('/api/v2/apps/' + clientId + '/delete-collaborator', {
             clientId: clientId,
             userId: userId
         }, function(response){

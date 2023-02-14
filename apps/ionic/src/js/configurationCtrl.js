@@ -55,7 +55,7 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
                 populateAppsListAndSwitchToSelectedApp(configurationService.allAppSettings);
             }else{
                 qmService.showInfoToast("Loading your apps (this could take a minute)");
-                qmService.showBlackRingLoader();
+                qmService.showFullScreenLoader();
                 refreshAppListAndSwitchToSelectedApp();
             }
             configurationService.updateAppComponents();
@@ -79,8 +79,8 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
     });
     function setPopOutUrl(){
         var query = '?clientId=' + getClientId() + '&apiOrigin=' +
-            encodeURIComponent(qm.api.getApiOrigin()) +
-            '&quantimodoAccessToken=' + qm.getUser().accessToken;
+                    encodeURIComponent(qm.api.getQMApiOrigin()) +
+                    '&quantimodoAccessToken=' + qm.getUser().accessToken;
         var url = 'https://builder.quantimo.do/#/app/configuration' + query;
         // Why do we need this if we can just preview in the builder?
         //if(!qm.windowHelper.isIframe()){url = 'https://web.quantimo.do/index.html' + query;}
@@ -118,6 +118,14 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
         qm.storage.setItem(qm.items.appList, appList);
         $scope.appList = appList; // More efficient than updating scope a million times
     }
+	function refreshAppListAndSwitchToSelectedApp(){
+		qmLog.info("refreshAppListAndSwitchToSelectedApp...");
+		qmService.showInfoToast("Downloading your apps...");
+		configurationService.getAppSettingsArrayFromApi().then(function(allAppSettings){
+			populateAppsListAndSwitchToSelectedApp(allAppSettings);
+			qmService.hideLoader();
+		});
+	}
     function populateAppsListAndSwitchToSelectedApp(appSettingsArray){
         qmService.showInfoToast("Synced most recent versions of your " + appSettingsArray.length + " apps!");
         qmLog.info("populateAppsListAndSwitchToSelectedApp");
@@ -125,7 +133,9 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
         var appToSwitchTo = appSettingsArray.find(function(appSettingsObject){
             return appSettingsObject.clientId === qm.appsManager.getBuilderClientId();
         });
-        if($rootScope.user.administrator && !appToSwitchTo && $rootScope.appSettings.clientId === qm.appsManager.getBuilderClientId()){
+        if($rootScope.user.administrator && 
+           !appToSwitchTo && 
+           $rootScope.appSettings.clientId === qm.appsManager.getBuilderClientId()){
             // This happens when an admin is editing an app they aren't a collaborator of with clientId url param
             qmService.hideLoader();
             return;
@@ -136,16 +146,8 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
         configurationService.separateUsersAndConfigureAppSettings(appToSwitchTo);
         qmService.hideLoader();
     }
-    function refreshAppListAndSwitchToSelectedApp(){
-        qmLog.info("refreshAppListAndSwitchToSelectedApp...");
-        qmService.showInfoToast("Downloading your apps...");
-        configurationService.getAppSettingsArrayFromApi().then(function(allAppSettings){
-            populateAppsListAndSwitchToSelectedApp(allAppSettings);
-            qmService.hideLoader();
-        });
-    }
     $scope.loadUserList = function(){ // Delay loading user list because it's so big
-        qmService.showBasicLoader();
+        qmService.showFullScreenLoader();
         var users = configurationService.users;
         if(!users){
             var appSettings = qm.getAppSettings();
@@ -240,10 +242,10 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
             encrypt = false;
         }
         var body = {file: file};
-        qmService.showBasicLoader();
+        qmService.showFullScreenLoader();
         file.upload = Upload.upload({
-            url: qm.api.getApiOrigin() + '/api/v2/upload?clientId=' + $rootScope.appSettings.clientId +
-                '&filename=' + fileName + "&accessToken=" + $rootScope.user.accessToken + "&encrypt=" + encrypt,
+            url: qm.api.getQMApiOrigin() + '/api/v2/upload?clientId=' + $rootScope.appSettings.clientId +
+                 '&filename=' + fileName + "&accessToken=" + $rootScope.user.accessToken + "&encrypt=" + encrypt,
             data: body
         });
         var displayName = fileName.replace('app_images_', '');
@@ -294,15 +296,15 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
         }
         $scope.f = file;
         $scope.errFile = errFiles && errFiles[0];
-        qmService.showBasicLoader();
+        qmService.showFullScreenLoader();
         var fileName = parentKey + "_" + childKey + '_' + qm.timeHelper.getUnixTimestampInSeconds();
         var body = {file: file};
         if(encrypt){
             body.encrypt = true;
         }
         file.upload = Upload.upload({
-            url: qm.api.getApiOrigin() + '/api/v2/upload?clientId=' + $rootScope.appSettings.clientId +
-                '&filename=' + fileName + '&accessToken=' + $rootScope.user.accessToken, data: body
+            url: qm.api.getQMApiOrigin() + '/api/v2/upload?clientId=' + $rootScope.appSettings.clientId +
+                 '&filename=' + fileName + '&accessToken=' + $rootScope.user.accessToken, data: body
         });
         file.upload.then(function(response){
             console.debug("File upload response: ", response);
@@ -337,7 +339,7 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
         data = JSON.parse(JSON.stringify(data));  //Prevent from updating $rootScope.appSettings
         if(generic){
             data.appDisplayName = "__APP_DISPLAY_NAME__";
-            data.clientId = "__CUREDAO_CLIENT_ID__";
+            data.clientId = "__CONNECTOR_QUANTIMODO_CLIENT_ID__";
             data.appDescription = configurationService.defaultAppDescriptions[data.appType];
             filename = $rootScope.appSettings.appType;
         }
@@ -495,7 +497,7 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
             qmLog.info("Already using " + selectedApp.clientId);
             return false;
         }
-        qmService.showBasicLoader();
+        qmService.showFullScreenLoader();
         configurationService.switchApp(selectedApp, function(revisionList){
             qmService.hideLoader();
             $scope.revisionsList = revisionList;

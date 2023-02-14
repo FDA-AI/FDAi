@@ -42,7 +42,7 @@ angular.module('starter').controller('PhysicianCtrl', function($state, $scope, $
         $scope.state.loading = false;
     }
     $scope.loadUserList = function(){ // Delay loading user list because it's so big
-        qmService.showBasicLoader();
+        qmService.showFullScreenLoader();
         qm.userHelper.getUsersFromApi(function(response){
             hideLoader();
             $scope.state.card = response.card;
@@ -60,7 +60,7 @@ angular.module('starter').controller('PhysicianCtrl', function($state, $scope, $
         });
     };
     $scope.switchToPatientInIFrame = function(user){
-        qmService.showBasicLoader();
+        qmService.showFullScreenLoader();
         qmService.navBar.hideNavigationMenu();
         $scope.iframeUrl = $sce.trustAsResourceUrl(qm.urlHelper.getPatientHistoryUrl(user.accessToken));
         qmService.rootScope.setProperty(qm.items.patientUser, user, function(){qmService.hideLoader();});
