@@ -61,7 +61,7 @@ angular.module('starter').controller('VariableSearchCtrl',
                     userTagVariableObject: $scope.state.userTagVariableObject
                 });
             } else {
-                qmService.showBlackRingLoader();
+                qmService.showFullScreenLoader();
                 qmService.postUserTagDeferred({
                     userTagVariableId: $scope.state.userTagVariableObject.variableId,
                     userTaggedVariableId: selected.variableId,
@@ -94,7 +94,7 @@ angular.module('starter').controller('VariableSearchCtrl',
                     userTagVariableObject: selected
                 });
             } else {
-                qmService.showBlackRingLoader();
+                qmService.showFullScreenLoader();
                 qmService.postUserTagDeferred({
                     userTagVariableId: selected.variableId,
                     userTaggedVariableId: $scope.state.userTaggedVariableObject.variableId,
@@ -168,7 +168,6 @@ angular.module('starter').controller('VariableSearchCtrl',
             }
             // If no results or no exact match, show "+ Add [variable]" button for query
             if((variables.length < 1 || !found)){
-                //debugger
                 $scope.showSearchLoader = false;
                 qmLog.info($state.current.name + ': ' + '$scope.onVariableSearch: Set showAddVariableButton to true', null);
                 $scope.state.showAddVariableButton = true;
@@ -232,6 +231,11 @@ angular.module('starter').controller('VariableSearchCtrl',
                 $scope.state.searching = false;
             });
         }
+		function hideLoader(){
+			$scope.safeApply(function(){
+				$scope.state.searching = false;
+			});
+		}
         function getVariableSearchParameters(){
             // $stateParams.variableSearchParameters.searchPhrase is getting populated somehow and is not being updated
             delete $stateParams.variableSearchParameters.searchPhrase;
@@ -263,18 +267,24 @@ angular.module('starter').controller('VariableSearchCtrl',
             var previous = $scope.state.variableSearchResults;
             if(!previous || previous.length < 1){$scope.state.searching = true;}
             var params = getVariableSearchParameters();
-            qm.variablesHelper.getFromLocalStorageOrApi(params).then(function(variables){
-                qmLog.info("Got "+variables.length+" matching params: ", params)
-                if(variables && variables.length > 0){
-                    if(q.length < 3){
-                        // Not sure what this is for but it breaks the category filter: if(previous){variables = previous.concat(variables);}
-                        addVariablesToScope(variables);
-                    }
-                }else{
-                    $scope.state.noVariablesFoundCard.show = true;
-                    $scope.state.searching = false;
-                }
-            });
+	        $scope.state.searching = true;
+            qm.variablesHelper.getFromLocalStorageOrApi(params)
+              .then(function(variables){
+	                qmLog.info("Got "+variables.length+" matching params: ", params)
+	                if(variables && variables.length > 0){
+	                    if(q.length < 3){
+	                        // Not sure what this is for but it breaks the category filter: if(previous){variables = previous.concat(variables);}
+	                        addVariablesToScope(variables);
+	                    }
+	                }else{
+	                    $scope.state.noVariablesFoundCard.show = true;
+	                }
+		            hideLoader();
+	            })
+	            .catch(function(error){
+					qmLog.error(error);
+		            hideLoader();
+	            });
         };
         $scope.addNewVariable = function(){
             var variableObject = {};

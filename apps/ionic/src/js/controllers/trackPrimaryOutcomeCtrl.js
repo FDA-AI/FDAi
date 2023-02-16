@@ -13,7 +13,7 @@ angular.module('starter').controller('TrackPrimaryOutcomeCtrl',
     $scope.$on('$ionicView.enter', function(e){
         qmLog.debug('Entering state ' + $state.current.name+' Updating charts and syncing..');
         qmService.navBar.showNavigationMenuIfHideUrlParamNotSet();
-        qmService.showBlackRingLoader();
+        qmService.showFullScreenLoader();
         updateCharts();
         $scope.showRatingFaces = true;
         $scope.timeRemaining = false;

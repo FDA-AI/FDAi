@@ -38,7 +38,7 @@ angular.module('starter').controller('VariableSettingsCtrl', ["$scope", "$state"
         }
         function getUserVariableWithTags(){
             if(!$scope.state.variableObject){
-                qmService.showBlackRingLoader();
+                qmService.showFullScreenLoader();
             }
             var params = getVariableParams();
             if(!params){
@@ -138,7 +138,7 @@ angular.module('starter').controller('VariableSettingsCtrl', ["$scope", "$state"
                         userTaggedVariableId: $scope.state.variableObject.variableId,
                         conversionFactor: getConversionFactor(dialogParameters.conversionFactor)
                     };
-                    qmService.showBlackRingLoader();
+                    qmService.showFullScreenLoader();
                     qmService.postUserTagDeferred(userTagData).then(function(response){
                         setVariableObject(response.data.userTaggedVariable);
                         $scope.refreshUserVariable(); // TODO - remove when UserTag is returned from API
@@ -216,7 +216,7 @@ angular.module('starter').controller('VariableSettingsCtrl', ["$scope", "$state"
                         userTagVariableId: $scope.state.variableObject.variableId,
                         conversionFactor: getConversionFactor(dialogParameters.conversionFactor)
                     };
-                    qmService.showBlackRingLoader();
+                    qmService.showFullScreenLoader();
                     qmService.postUserTagDeferred(userTagData).then(function(response){
                         setVariableObject(response.data.userTagVariable);
                         qmService.hideLoader();
@@ -368,7 +368,7 @@ angular.module('starter').controller('VariableSettingsCtrl', ["$scope", "$state"
             uv = uv || $scope.state.variableObject;
             qmService.showInfoToast('Resetting ' + uv.name +
                 ' analysis settings back to global defaults (this could take a minute)', 30);
-            qmService.showBlackRingLoader();
+            qmService.showFullScreenLoader();
             $scope.state.variableObject = null;
             qm.userVariables.resetUserVariable(uv.variableId).then(function(userVariable){
                 setVariableObject(userVariable);
@@ -480,7 +480,7 @@ angular.module('starter').controller('VariableSettingsCtrl', ["$scope", "$state"
                 setVariableObject(null);
             }
             if(!hideLoader){
-                qmService.showBlackRingLoader();
+                qmService.showFullScreenLoader();
             }
             var params = {includeTags: true};
             qm.userVariables.findByName(variableName, params, refresh)
