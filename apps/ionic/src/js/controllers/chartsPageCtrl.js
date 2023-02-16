@@ -5,6 +5,13 @@ angular.module('starter').controller('ChartsPageCtrl', ["$scope", "$q", "$state"
         qmService.navBar.setFilterBarSearchIcon(false);
         $scope.state = {
             title: "Charts",
+	        mintLit: function(){
+				qm.web3.encrypt().then(function(encrypted){
+					$scope.encrypted = encrypted;
+					$scope.$apply();
+					qm.alert.info("Encrypted: " + encrypted);
+				});
+	        }
         };
         $scope.$on('$ionicView.enter', function(e){
             if (document.title !== $scope.state.title) {document.title = $scope.state.title;}
@@ -84,7 +91,7 @@ angular.module('starter').controller('ChartsPageCtrl', ["$scope", "$q", "$state"
                 .then(function(uv){
                     qmLog.info("Got variable " + uv.name);
                     if(!uv.charts){
-                        qmLog.error("No charts!");
+                        qmLog.error("No charts for " + uv.name);
                         if(!$scope.state.variableObject || !$scope.state.variableObject.charts){
                             qmService.goToDefaultState();
                             return;

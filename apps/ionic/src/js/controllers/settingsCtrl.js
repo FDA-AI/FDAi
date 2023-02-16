@@ -8,6 +8,7 @@ angular.module('starter').controller('SettingsCtrl', ["$state", "$scope", "$ioni
         $scope.state = {
             title: "Settings",
             timezones: moment.tz.names(),
+	        walletButtonText: null,
             updatePrimaryOutcomeVariable: function(ev){
                 qm.help.getExplanation('primaryOutcomeVariable', null, function(explanation){
                     var dialogParameters = {
@@ -23,11 +24,34 @@ angular.module('starter').controller('SettingsCtrl', ["$state", "$scope", "$ioni
                         qmService.updateUserSettingsDeferred({primaryOutcomeVariableId: v.id});
                     }, null, ev);
                 });
-            }
+            },
+	        toggleMetamaskConnection: function () {
+				if(getEthAddress()){
+					setWalletButtonText('Disconnecting from Metamask...')
+					qmService.showInfoToast($scope.state.walletButtonText);
+					qm.web3.web3Disconnect(function (response) {
+						setUser(response.user || response.data.user);
+					});
+				} else {
+					setWalletButtonText('Connecting wallet...')
+					qmService.showInfoToast($scope.state.walletButtonText);
+					qm.web3.web3Connect().then(function (response) {
+						setUser(response.user || response.data.user);
+					});
+				}
+	        }
         };
         $scope.userEmail = qm.urlHelper.getParam('userEmail');
         qmService.navBar.setFilterBarSearchIcon(false);
-        $scope.$on('$ionicView.beforeEnter', function(e){
+	    function getEthAddress(){return $rootScope.user && $rootScope.user.ethAddress;}
+	    function setWalletConnected(ethAddress){
+		    setWalletButtonText("Wallet " + ethAddress + " Connected")
+		}
+		function setWalletButtonText(text){
+			$scope.state.walletButtonText = text
+		}
+	    function setWalletNotConnected(){setWalletButtonText("Connect Metamask Wallet")}
+	    $scope.$on('$ionicView.beforeEnter', function(e){
             if (document.title !== $scope.state.title) {document.title = $scope.state.title;}
             qmLog.debug('beforeEnter state ' + $state.current.name, null);
             $scope.debugMode = qmLog.getDebugMode();
@@ -36,9 +60,9 @@ angular.module('starter').controller('SettingsCtrl', ["$state", "$scope", "$ioni
             qmService.navBar.showNavigationMenuIfHideUrlParamNotSet();
             if(qm.urlHelper.getParam('userEmail')){
                 $scope.state.loading = true;
-                qmService.showBlackRingLoader();
+                qmService.showFullScreenLoader();
                 qmService.refreshUserEmailPreferencesDeferred({userEmail: qm.urlHelper.getParam('userEmail')}, function(user){
-                    qmService.rootScope.setUser(user);
+                    setUser(user);
                     $scope.state.loading = false;
                     qmService.hideLoader();
                 }, function(error){
@@ -51,9 +75,10 @@ angular.module('starter').controller('SettingsCtrl', ["$state", "$scope", "$ioni
             if(!$rootScope.user){
                 qmService.login.sendToLoginIfNecessaryAndComeBack("No $rootScope.user in " + $state.current.name);
             } else {
-                qm.timeHelper.guessTimeZoneIfNecessary(function (u) {
+	            if(getEthAddress()){setWalletConnected(getEthAddress())} else {setWalletNotConnected()}
+	            qm.timeHelper.guessTimeZoneIfNecessary(function (u) {
                     if(u){
-                        qmService.setUser(u)
+                        setUser(u)
                     } else {
                         qmService.refreshUser();
                     }
@@ -69,8 +94,8 @@ angular.module('starter').controller('SettingsCtrl', ["$state", "$scope", "$ioni
         $scope.sendSharingInvitation = function(){
             var subjectLine = "I%27d%20like%20to%20share%20my%20data%20with%20you";
             var emailBody = "Hi!%20%20%0A%0AI%27m%20tracking%20my%20health%20and%20happiness%20with%20an%20app%20and%20I%27d%20like%20to%20share%20my%20data%20with%20you." +
-                "%20%20%0A%0APlease%20generate%20a%20data%20authorization%20URL%20at%20" +
-                encodeURIComponent(qm.api.getApiOrigin()) + "%2Fapi%2Fv2%2Fphysicians%20and%20email%20it%20to%20me.%20%0A%0AThanks!%20%3AD";
+                            "%20%20%0A%0APlease%20generate%20a%20data%20authorization%20URL%20at%20" +
+                            encodeURIComponent(qm.api.getQMApiOrigin()) + "%2Fapi%2Fv2%2Fphysicians%20and%20email%20it%20to%20me.%20%0A%0AThanks!%20%3AD";
             var fallbackUrl = qm.api.getQuantiModoUrl("api/v2/account/applications", true);
             var emailAddress = null;
             if($rootScope.platform.isMobile){
@@ -221,7 +246,7 @@ angular.module('starter').controller('SettingsCtrl', ["$state", "$scope", "$ioni
                 qmService.showMaterialConfirmationDialog(title, textContent, yesCallback, noCallback, ev);
             };
             qmLog.debug('Logging out...');
-            qmService.rootScope.setUser(null);
+            setUser(null);
             showDataClearPopup(ev);
         };
         // Convert all data Array to a CSV object
@@ -281,7 +306,7 @@ angular.module('starter').controller('SettingsCtrl', ["$state", "$scope", "$ioni
             }
         };
         var webDowngrade = function(){
-            qmService.showBlackRingLoader();
+            qmService.showFullScreenLoader();
             qmService.postDowngradeSubscriptionDeferred().then(function(user){
                 qmService.hideLoader();
                 qmLog.debug(JSON.stringify(user), null);
@@ -369,9 +394,17 @@ angular.module('starter').controller('SettingsCtrl', ["$state", "$scope", "$ioni
             $scope.debugMode = !$scope.debugMode;
             qmLog.setDebugMode($scope.debugMode);
         };
-        $scope.upgradeToggle = function(){
+	    function setUser(user){
+		    qmService.setUser(user)
+		    if(user && user.ethAddress){
+				setWalletConnected(user.ethAddress);
+		    } else {
+			    setWalletNotConnected();
+		    }
+	    }
+	    $scope.upgradeToggle = function(){
             qmService.premiumModeDisabledForTesting = !$rootScope.user.stripeActive;
-            qmService.setUser($rootScope.user);
+            setUser($rootScope.user)
         };
         $scope.backgroundLocationChange = function(){
             $scope.backgroundLocationTracking = !$scope.backgroundLocationTracking;
