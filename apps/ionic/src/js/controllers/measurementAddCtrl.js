@@ -172,7 +172,7 @@ angular.module('starter').controller('MeasurementAddCtrl', [
             if(!unitChanged){
                 $scope.goBack(backStateParams);  // We can go back immediately if no unit change
             }else{
-                qmService.showBasicLoader(20);
+                qmService.showFullScreenLoader(20);
                 qmService.showInfoToast("Saving measurement and updating your default unit");
             }
         };
@@ -309,7 +309,7 @@ angular.module('starter').controller('MeasurementAddCtrl', [
             setDefaultValue(v);
         }
         var setupFromVariableName = function(variableName){
-            qmService.showBlackRingLoader();
+            qmService.showFullScreenLoader();
             qm.userVariables.findByName(variableName, {}, null)
                 .then(function(variable){
                     qmService.hideLoader();
@@ -323,7 +323,7 @@ angular.module('starter').controller('MeasurementAddCtrl', [
         };
         var setupByID = function(id){
             var deferred = $q.defer();
-            qmService.showBlackRingLoader();
+            qmService.showFullScreenLoader();
             qm.toast.infoToast("Fetching measurement...")
             //debugger
             qm.measurements.find(id)

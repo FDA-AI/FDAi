@@ -7,6 +7,11 @@ angular.module('starter').controller('OnboardingCtrl',
                 showSkipButton: false,
                 //requireUpgrades: true // Might want to do this at some point
                 requireUpgrades: false, // Default to false for new users
+                skipOnboarding: function(){
+                    qmService.rootScope.setProperty('hideMenuButton', false);
+                    setOnboardedTrueAndResetOnboardingSequence();
+                    qmService.goToInbox();
+                }
             };
             if(!$rootScope.appSettings){
                 qmService.rootScope.setProperty('appSettings', window.qm.getAppSettings());
@@ -29,6 +34,9 @@ angular.module('starter').controller('OnboardingCtrl',
                 }
             });
             $scope.$on('$ionicView.afterEnter', function(){
+                if(qm.getUser()){
+                    qmService.hideLoader();
+                }
                 qmLog.debug('OnboardingCtrl afterEnter in state ' + $state.current.name);
                 if(!speechEnabled){
                     $rootScope.setMicAndSpeechEnabled(false);
@@ -112,11 +120,6 @@ angular.module('starter').controller('OnboardingCtrl',
                 qmService.backButtonState = qm.staticData.stateNames.onboarding;
                 qmService.goToState('app.upgrade');
             };
-            $scope.skipOnboarding = function(){
-                qmService.rootScope.setProperty('hideMenuButton', false);
-                setOnboardedTrueAndResetOnboardingSequence();
-                qmService.goToDefaultState();
-            };
             $scope.goToReminderSearchFromOnboarding = function(ev){
                 qmService.search.reminderSearch(function(variableObject){
                     var page = $scope.circlePage;
@@ -170,7 +173,7 @@ angular.module('starter').controller('OnboardingCtrl',
                 var pages = getPages();
                 if(pageIndex === pages.length - 1){
                     qmService.rootScope.setProperty('hideMenuButton', false);
-                    qmService.goToDefaultState();
+                    qmService.goToInbox();
                 }else{
                     nextPage();
                     initializeAddRemindersPageIfNecessary();
