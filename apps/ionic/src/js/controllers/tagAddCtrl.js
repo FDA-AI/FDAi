@@ -26,7 +26,7 @@ angular.module('starter').controller('TagAddCtrl', ["$scope", "$q", "$timeout", 
             userTagVariableId: $scope.stateParams.userTagVariableObject.variableId,
             userTaggedVariableId: $scope.stateParams.userTaggedVariableObject.variableId
         };
-        qmService.showBlackRingLoader();
+        qmService.showFullScreenLoader();
         if(variableObject.userTagVariables){
             variableObject.userTagVariables =
                 variableObject.userTagVariables.filter(function(obj){
@@ -87,7 +87,7 @@ angular.module('starter').controller('TagAddCtrl', ["$scope", "$q", "$timeout", 
         };
         addTaggedToTagVariable();
         addTagToTaggedVariable();
-        qmService.showBlackRingLoader();
+        qmService.showFullScreenLoader();
         qmService.postUserTagDeferred(userTagData).then(function(response){
             qmLog.info("postUserTagDeferred: ", response);
             goBack();
@@ -113,7 +113,7 @@ angular.module('starter').controller('TagAddCtrl', ["$scope", "$q", "$timeout", 
     });
     function setDebugVariables(){
         if(!$scope.stateParams.userTagVariableObject){
-            qmService.showBlackRingLoader();
+            qmService.showFullScreenLoader();
             qm.userVariables.findByName('Anxiety', {}, null)
                 .then(function(variable){
                     $scope.stateParams.userTagVariableObject = variable;
@@ -121,7 +121,7 @@ angular.module('starter').controller('TagAddCtrl', ["$scope", "$q", "$timeout", 
                 });
         }
         if(!$scope.stateParams.userTaggedVariableObject){
-            qmService.showBlackRingLoader();
+            qmService.showFullScreenLoader();
             qm.userVariables.findByName('Overall Mood', {}, null)
                 .then(function(variable){
                     $scope.stateParams.userTaggedVariableObject = variable;
