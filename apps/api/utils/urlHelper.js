@@ -1,13 +1,19 @@
 const {numberFormat} = require("underscore.string");
-var serverPort = 5000;
-if(process.env.PORT){
-  serverPort = numberFormat(process.env.PORT);
+const envHelper = require("../../ionic/ts/env-helper");
+//envHelper.loadEnvFromDopplerOrDotEnv(null);
+var port = envHelper.getEnvOrException("EXPRESS_PORT");
+let fallbackServerUrl = `http://localhost:${port}`;
+let envs = process.env
+let envNames = envHelper.envNames
+let apiOrigin = process.env[envNames.QM_API_ORIGIN]
+if(!apiOrigin){
+  apiOrigin = 'https://app.quantimo.do';
 }
 module.exports = {
-  serverPort,
-  websiteDomain: process.env.REACT_APP_WEBSITE_URL || `http://localhost:${serverPort}`,
-  API_ORIGIN: process.env.API_ORIGIN || 'https://app.quantimo.do',
-  loginSuccessRedirect: process.env.POST_LOGIN_PATH || "/#/app/onboarding",
+  serverPort: port,
+  serverOrigin: process.env[envHelper.envNames.EXPRESS_ORIGIN] || fallbackServerUrl,
+  QM_API_ORIGIN: apiOrigin,
+  loginSuccessRedirect: process.env[envHelper.envNames.LOGIN_SUCCESS_REDIRECT] || "/#/app/onboarding",
   loginFailureRedirect: "/#/app/login",
   loginPath: "/#/app/login"
 }

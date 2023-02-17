@@ -56,8 +56,10 @@ passport.serializeUser( (user, done) => {
 
 
 passport.deserializeUser((user, done) => {
-  console.log("\n--------- Deserialized User:")
-  console.log(user)
+  if(qm.appMode.isDebug()){
+    console.log("\n--------- Deserialized User:")
+    console.log(user)
+  }
   // This is the {user} that was saved in req.session.passport.user.{user} in the serializationUser()
   // deserializeUser will attach this {user} to the "req.user.{user}", so that it can be used anywhere in the App.
 
@@ -75,11 +77,12 @@ var router = express.Router();
  * username and password.  When the user submits the form, a request will be
  * sent to the `POST /login/password` route.
  */
-router.get('/login', function(req, res, next) {
+let handleGetLogin = function(req, res, next) {
   //res.render('login');
-  res.redirect("/#/app/login")
-});
-
+  return res.redirect("/#/app/login")
+};
+router.get('/login', handleGetLogin);
+router.get('/auth/login', handleGetLogin);
 /* POST /login/password
  *
  * This route authenticates the user by verifying a username and password.
@@ -106,12 +109,35 @@ router.post('/login/password', passport.authenticate('local', {
  *
  * This route logs the user out.
  */
-router.post('/logout', function(req, res, next) {
+router.post('/auth/logout', function(req, res, next) {
   req.logout(function(err) {
     if (err) { return next(err); }
-    res.redirect('/');
+    req.user = null;
+    //res.redirect('/');
   });
 });
+let getLogoutHandler = function(req, res, next) {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    req.user = null;
+    return res.redirect('/');
+  });
+  req.user = null;
+  return res.redirect('/');
+};
+
+/* GET /auth/logout
+ *
+ * This route logs the user out.
+ */
+router.get('/auth/logout', getLogoutHandler);
+
+/* GET /auth/logout
+ *
+ * This route logs the user out.
+ */
+
+router.get('/logout', getLogoutHandler);
 
 /* POST /signup
  *
@@ -147,29 +173,45 @@ router.post('/signup', function(req, res, next) {
 function socialLoginRoutes(strategyName, libraryName, connectorName) {
   if(!connectorName){connectorName = strategyName;}
   libraryName = libraryName || "passport-" + strategyName;
-  const { Strategy: Strategy } = require(libraryName);
+  let { Strategy: Strategy } = require(libraryName);
   let strategyOpts = credentials.find(strategyName, connectorName);
-  passport.use(new Strategy(strategyOpts,
-    function(request, accessToken, refreshToken, profile, done){
-      return authHelper.handleSocialLogin(request, accessToken, refreshToken, profile, done, connectorName);
-    }));
+  if(strategyName === "fitbit"){
+    Strategy = require( 'passport-fitbit-oauth2' ).FitbitOAuth2Strategy;
+  }
+  let authCallbackFunction = function(request, accessToken, refreshToken, profile, done){
+    return authHelper.handleConnection(request, accessToken, refreshToken, profile, done, connectorName);
+  };
+  try {
+    passport.use(new Strategy(strategyOpts, authCallbackFunction));
+  } catch (e) {
+    qmLog.error("Error creating " + strategyName + " strategy.  Please check your credentials.json file.  Error: " + e);
+    throw e
+  }
+
   let authOpts = {
     scope: credentials.getScopes(connectorName)
   };
-  router.get("/auth/" + strategyName,
+  router.get("/auth/" + connectorName,
     passport.authenticate(strategyName, authOpts));
   router.get("/auth/" + strategyName + "/callback",
     passport.authenticate(strategyName, {
       //successRedirect: urlHelper.loginFailureRedirect,
       failureRedirect: urlHelper.loginFailureRedirect
     }), (req, res) => {
-      //debugger
-      res.redirect(urlHelper.loginSuccessRedirect);
+      let url = req.session.final_callback_url;
+      if(url){
+        req.session.final_callback_url = null;
+        res.redirect(url);
+      } else {
+        res.redirect(urlHelper.loginSuccessRedirect);
+      }
     });
 }
 socialLoginRoutes('google', 'passport-google-oauth2', 'googleplus');
 socialLoginRoutes('github');
 socialLoginRoutes('facebook');
 socialLoginRoutes('twitter');
+socialLoginRoutes('fitbit', 'passport-fitbit-oauth2');
+//socialLoginRoutes('withings');
 
 module.exports = router;

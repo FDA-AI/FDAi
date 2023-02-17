@@ -23,8 +23,16 @@
             </div>
         </md-dialog-content>
         <md-dialog-actions layout="row">
-            <md-button id="helpButton" ng-click="answer('help')"> More Help</md-button>
-            <md-button id="okButton" ng-click="answer('ok')"> OK</md-button>
+            <md-button 
+		            class="rainbow-gradient-background"
+		            id="helpButton" 
+                       ng-click="answer('help')">
+	            More Help
+            </md-button>
+            <md-button id="okButton"
+                       class="rainbow-gradient-background"
+                       ng-click="answer('ok')"> OK
+            </md-button>
         </md-dialog-actions>
     </form>
 </md-dialog>

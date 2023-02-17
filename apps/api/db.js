@@ -2,8 +2,11 @@ var crypto = require('crypto');
 const { PrismaClient } = require('@prisma/client')
 const credentials = require("./utils/credentials");
 var randomBytes = require('bluebird').promisify(require('crypto').randomBytes);
-
+const qm = require("../ionic/src/js/qmHelpers");
 const prisma = new PrismaClient()
+let oaClients = prisma.oa_clients;
+let client;
+const clientId = qm.getClientId();
 
 BigInt.prototype["toJSON"] = function () {
   return this.toString();
@@ -12,6 +15,15 @@ BigInt.prototype["toJSON"] = function () {
 
 async function main() {
   // ... you will write your Prisma Client queries here
+  const count = await oaClients.count();
+  client = await oaClients.findUnique({
+    where: {
+      client_id: clientId,
+    }
+  })
+  if(!client){
+    throw Error("Client not found for client_id: " + clientId);
+  }
 }
 
 main()
@@ -35,7 +47,7 @@ async function generateRandomToken() {
   return t;
 }
 
-async function createAccessToken(user, req){
+async function createAccessTokenForUser(user, req){
   let unixTimestamp = Math.round(+new Date()/1000);
   unixTimestamp += (30*86400);
   var date = qm.timeHelper.iso(unixTimestamp)
@@ -45,12 +57,13 @@ async function createAccessToken(user, req){
   // } else {
   //     accessToken = await generateRandomToken();
   // }
+
   let tokenData = {
     data: {
       user_id: user.ID,
       expires: date,
       access_token: accessToken,
-      client_id: credentials.quantimodo.clientId,
+      client_id: client.client_id,
       scope: "readmeasurements writemeasurements",
     },
   };
@@ -64,7 +77,7 @@ async function findUserById(id){
       ID: id,
     },
   })
-  user.id = user.ID.toString()
+  user.id = user.ID
   return user
 }
 async function findUserByEmail(email){
@@ -77,9 +90,10 @@ async function findUserByEmail(email){
     qmLog.error("User not found for email " + email);
     return null
   }
-  user.id = user.ID.toString()
+  user.id = user.ID
   return user
 }
+
 async function createUser(data) {
   let email = data.email;
   let password = data.password || data.token || await generateRandomToken();
@@ -101,23 +115,10 @@ async function createUser(data) {
   return user
 }
 
-
-authUser = async function(request, accessToken, refreshToken, profile, done){
-  console.log("authUser", profile)
-  let user = await findUserByEmail(profile.email)
-  if(!user){
-    user = createUser(profile)
-  }
-  //return done(null, profile);
-  return done(null, user);
-}
-
-
 module.exports =  {
   prisma,
-  createAccessToken,
+  createAccessToken: createAccessTokenForUser,
   findUserByEmail,
   findUserById,
-  createUser,
-  authUser
+  createUser
 }
