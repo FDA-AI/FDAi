@@ -1,5 +1,5 @@
 const db = require("../db");
-const qm = require("../../ionic/src/js/qmHelpers");
+const qm = require("../../ionic/public/js/qmHelpers");
 const fetch = require('node-fetch');
 const credentials = require("./credentials");
 const encrypter = require('./encryption');
