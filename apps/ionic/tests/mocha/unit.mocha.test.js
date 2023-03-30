@@ -801,10 +801,19 @@ describe("NFT", function () {
 		img.then(function(img){
 			qmLog.debug(img)
 			expect(img).to.be.a('string')
-			
 			done()
 		})
 	});
+  it('can make a data gem nft', function(done) {
+          this.timeout(20000)
+          qm.auth.setAccessToken('demo')
+          const img = qm.web3.mintAndEncrypt();
+          img.then(function(img){
+              qmLog.debug(img)
+              expect(img).to.be.a('string')
+              done()
+          })
+  });
 	it('can generate an variable image', function(done) {
 		this.timeout(20000)
 		qm.auth.setAccessToken('demo')
