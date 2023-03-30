@@ -1,6 +1,6 @@
 import Bugsnag from "@bugsnag/js"
 // @ts-ignore
-import qm from "../src/js/qmHelpers.js"
+import qm from "../public/js/qmHelpers.js"
 import {envNames, getenv, getEnvOrException, getQMClientIdIfSet, qmPlatform} from "./env-helper"
 import {getBuildLink, getCiProvider} from "./test-helpers"
 

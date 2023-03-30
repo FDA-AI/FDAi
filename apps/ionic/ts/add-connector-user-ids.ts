@@ -1,57 +1,63 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { PrismaClient } from "@prisma/client"
+const prisma = new PrismaClient()
 
 async function main() {
-    const connectors = await prisma.connectors.findMany();
-    const loginConnectors = connectors.filter(connector =>
+    const connectors = await prisma.connectors.findMany()
+    const loginConnectors = connectors.filter((connector) =>
         connector.name === "googleplus" ||
         connector.name === "facebook" ||
         connector.name === "twitter" ||
-        connector.name === "github");
-    const connectorIds = loginConnectors.map(connector => connector.id);
+        connector.name === "github")
+    const connectorIds = loginConnectors.map((connector) => connector.id)
     // ... you will write your Prisma Client queries here
-    let connections = await prisma.connections.findMany({
-        where: {
-            connector_user_id: {
-                equals: null
-            },
-            connector_id: {
-                in: connectorIds
-            }
-        },
-        include: {
-            connector: true,
-            human: true
-        }
-    });
+    const connections = await prisma.connections.findMany({
+          include: {
+              connector: true,
+              human: true,
+          },
+          where: {
+              connector_id: {
+                  in: connectorIds,
+              },
+              connector_user_id: {
+                  equals: null,
+              },
+          },
+      })
     for (const connectionsKey in connections) {
-        const connection = connections[connectionsKey];
-        const connector = connection.connector;
-        const connectorName = connector.name;
-        console.log(`Connector name: ${connectorName} - ${connection.human.email}`);
-        var meta = await prisma.wp_usermeta.findMany({
+        if (!connections.hasOwnProperty(connectionsKey)) {
+            continue
+        }
+        const connection = connections[connectionsKey]
+        const connector = connection.connector
+        const connectorName = connector.name
+        console.log(`Connector name: ${connectorName} - ${connection.human.email}`)
+        const meta = await prisma.wp_usermeta.findMany({
             where: {
-                user_id: {
-                    equals: connection.user_id
-                },
                 meta_key: {
-                    contains: "%" + connectorName + "%"
-                }
-            }
-        });
+                    contains: "%" + connectorName + "%",
+                },
+                user_id: {
+                    equals: connection.user_id,
+                },
+            },
+        })
         for(const metaKey in meta) {
-            var metaItem = meta[metaKey];
+            if (!meta.hasOwnProperty(metaKey)) {
+                continue
+            }
+            const metaItem = meta[metaKey]
             if(metaItem.meta_key === connectorName + "_connector_user_id") {
-                let connector_user_id = metaItem.meta_value;
-                let res = await prisma.connections.update({
-                    where: {
-                        id: connection.id
-                    },
+                const connectorUserId = metaItem.meta_value
+                const res = await prisma.connections.update({
                     data: {
-                        connector_user_id
-                    }
-                });
-                console.log(`Updated connection ${connection.id} with connector_user_id ${metaItem.meta_value}. Result: ${res}`);
+                        connector_user_id: connectorUserId,
+                    },
+                    where: {
+                        id: connection.id,
+                    },
+                })
+                console.log(`Updated connection ${connection.id} with connector_user_id ${metaItem.meta_value}. Result: ${res}`)
             }
 
         }

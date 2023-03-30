@@ -6,7 +6,7 @@ import * as timeHelper from "./qm.time-helper"
 import * as testHelpers from "./test-helpers"
 
 // tslint:disable-next-line:no-var-requires
-const qm = require("../src/js/qmHelpers.js")
+const qm = require("../public/js/qmHelpers.js")
 env.loadEnvFromDopplerOrDotEnv(".env")
 function isTruthy(value: string | undefined) {return (value && value !== "false")}
 function getRequestOptions(path: string) {
