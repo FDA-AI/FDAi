@@ -1,6 +1,6 @@
 # 📲 Data Collection Plugins
 
-![](data-collection-plugins.PNG)
+![](data-collection.PNG)
 
 It all begins with self-tracking and initial data collection.\
 This can be done using wearable sensors, third-party applications, and client applications.
