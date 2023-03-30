@@ -7,7 +7,7 @@ import * as qmLog from "./qm.log"
 import * as qmShell from "./qm.shell"
 import {getBuildLink} from "./test-helpers"
 // tslint:disable-next-line:no-var-requires
-const qm = require("../src/js/qmHelpers.js")
+const qm = require("../public/js/qmHelpers.js")
 export function getOctoKit() {
     return new Octokit({auth: getGithubAccessToken()})
 }

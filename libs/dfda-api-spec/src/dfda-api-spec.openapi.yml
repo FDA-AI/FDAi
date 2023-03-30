@@ -2747,7 +2747,7 @@ components:
           $ref: '#/components/schemas/Card'
         clientId:
           type: string
-          description: 'Your CureDAO client id can be obtained by creating an app at https://builder.quantimo.do'
+          description: 'Your client id can be obtained by creating an app at https://builder.quantimo.do'
         connected:
           type: boolean
           description: True if the authenticated user has this connector enabled
@@ -4319,7 +4319,7 @@ components:
           $ref: '#/components/schemas/Card'
         clientId:
           type: string
-          description: 'Your CureDAO client id can be obtained by creating an app at https://builder.quantimo.do'
+          description: 'Your client id can be obtained by creating an app at https://builder.quantimo.do'
         combinationOperation:
           type: string
           description: The way multiple measurements are aggregated over time
@@ -4635,7 +4635,7 @@ components:
           $ref: '#/components/schemas/Card'
         clientId:
           type: string
-          description: 'Your CureDAO client id can be obtained by creating an app at https://builder.quantimo.do'
+          description: 'Your client id can be obtained by creating an app at https://builder.quantimo.do'
         combinationOperation:
           type: string
           description: The way multiple measurements are aggregated over time
@@ -5327,7 +5327,7 @@ components:
           description: 'Ex: https://twitter.com/home?status=Check%20out%20my%20Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29%20data%21%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapi.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png%20%40curedao'
         clientId:
           type: string
-          description: 'Your CureDAO client id can be obtained by creating an app at https://builder.quantimo.do'
+          description: 'Your client id can be obtained by creating an app at https://builder.quantimo.do'
         combinationOperation:
           type: string
           description: 'User-Defined Variable Setting: How to aggregate measurements over time. SUM should be used for things like minutes of exercise.  If you use MEAN for exercise, then a person might exercise more minutes in one day but add separate measurements that were smaller.  So when we are doing correlational analysis, we would think that the person exercised less that day even though they exercised more.  Conversely, we must use MEAN for things such as ratings which cannot be SUMMED.'
@@ -5824,7 +5824,7 @@ components:
             $ref: '#/components/schemas/TagVariable'
         clientId:
           type: string
-          description: 'Your CureDAO client id can be obtained by creating an app at https://builder.quantimo.do'
+          description: 'Your client id can be obtained by creating an app at https://builder.quantimo.do'
         combinationOperation:
           type: string
           description: 'User-Defined Variable Setting: How to aggregate measurements over time. SUM should be used for things like minutes of exercise.  If you use MEAN for exercise, then a person might exercise more minutes in one day but add separate measurements that were smaller.  So when we are doing correlational analysis, we would think that the person exercised less that day even though they exercised more.  Conversely, we must use MEAN for things such as ratings which cannot be SUMMED.'
@@ -6458,7 +6458,7 @@ components:
           description: Cause variable id
         clientId:
           type: string
-          description: 'Your CureDAO client id can be obtained by creating an app at https://builder.quantimo.do'
+          description: 'Your client id can be obtained by creating an app at https://builder.quantimo.do'
         createdAt:
           type: string
           description: 'When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format'
@@ -6485,7 +6485,7 @@ components:
             - none
         type:
           type: string
-          description: 'Your CureDAO client id can be obtained by creating an app at https://builder.quantimo.do'
+          description: 'Your client id can be obtained by creating an app at https://builder.quantimo.do'
           enum:
             - causality
             - usefulness
@@ -6511,7 +6511,7 @@ components:
     clientIdParam:
       name: clientId
       in: query
-      description: 'Your CureDAO client id can be obtained by creating an app at https://builder.quantimo.do'
+      description: 'Your client id can be obtained by creating an app at https://builder.quantimo.do'
       schema:
         type: string
     clientSecretParam:
