@@ -27,7 +27,7 @@ export function assertExists(relative: string) {
 
 // require untyped library file
 // tslint:disable-next-line:no-var-requires
-const qm = require("../src/js/qmHelpers.js")
+const qm = require("../public/js/qmHelpers.js")
 
 export function exists(filename: string) {
     const filepath = getAbsolutePath(filename)

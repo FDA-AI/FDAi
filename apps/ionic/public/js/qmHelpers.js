@@ -11994,22 +11994,25 @@ var qm = {
         },
         getFromLocalStorage: function(params){
             if(!params){params = {};}
+            params.includePublic = true;
             var commonVariables = qm.arrayHelper.filterByRequestParams(qm.staticData.commonVariables, params);
             if(!params.sort){commonVariables = qm.variablesHelper.defaultVariableSort(commonVariables);}
             return commonVariables;
         },
 	    getFromLocalStorageOrApi: function(params){
-			var deferred = Q.defer();
-			var local = qm.commonVariablesHelper.getFromLocalStorage(params);
-			if(local && local.length > 0){
-				deferred.resolve(local);
-			}
-			qm.variablesHelper.getFromLocalStorageOrApi(params).then(function(variables){
-				deferred.resolve(variables);
-			}, function(error){
-				deferred.reject(error);
-			});
-			return deferred.promise;
+          if(!params){params = {};}
+          params.includePublic = true;
+          var deferred = Q.defer();
+          var local = qm.commonVariablesHelper.getFromLocalStorage(params);
+          if(local && local.length > 0){
+            deferred.resolve(local);
+          }
+          qm.variablesHelper.getFromLocalStorageOrApi(params).then(function(variables){
+            deferred.resolve(variables);
+          }, function(error){
+            deferred.reject(error);
+          });
+          return deferred.promise;
 	    }
     },
     userVariables: {
@@ -13254,6 +13257,11 @@ var qm = {
 			var dt = await qm.api.postAsync('/api/v6/digitalTwin');
 			return dt;
 		},
+      mintDataGem: async function(){
+        var nft = await qm.web3.mintAndEncrypt();
+        var dt = await qm.api.postAsync('/api/v6/digitalTwin');
+        return dt;
+      },
 		litConnected: false,
 		litConnect: async function(){
 			if(!qm.web3.litConnected){
@@ -13316,7 +13324,7 @@ var qm = {
 				chain
 			})
 			const htmlLit = LitJsSdk.createHtmlLIT({
-				title: "Your Digital Twin",
+				title: window.document.title,
 				htmlBody: "",
 				css: "",
 				accessControlConditions,
