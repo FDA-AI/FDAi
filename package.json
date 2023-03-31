@@ -45,7 +45,7 @@
     "@nrwl/web": "15.2.4",
     "@nrwl/webpack": "15.2.4",
     "@nrwl/workspace": "15.2.4",
-    "@openapitools/openapi-generator-cli": "2.3.7",
+    "@openapitools/openapi-generator-cli": "2.5.2",
     "@testing-library/react": "13.4.0",
     "@trumbitta/nx-plugin-openapi": "^1.12.1",
     "@types/jest": "28.1.1",
