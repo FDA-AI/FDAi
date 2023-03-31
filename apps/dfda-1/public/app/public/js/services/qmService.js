@@ -6069,9 +6069,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
             return planFeatureCards;
         };
         qmService.showFullScreenLoader = function(duration){
-			//return;
             duration = duration || 15;
-            //debugger
 	        var templateUrl = "templates/loaders/triangles-loader.html"
 	        $ionicLoading.show({templateUrl: templateUrl, duration: duration * 1000});
         };

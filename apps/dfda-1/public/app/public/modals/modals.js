@@ -3,7 +3,7 @@ $(document).ready(function () {
         return {
             showCancelButton: true,
             showConfirmButton: false,
-            html: '<iframe width="100%" height="300" public="//web.quantimo.do/'+path+'" frameborder="0"></iframe>'
+            html: '<iframe width="100%" height="300" src="//web.quantimo.do/'+path+'" frameborder="0"></iframe>'
         }
     }
     function fireIframe(path){

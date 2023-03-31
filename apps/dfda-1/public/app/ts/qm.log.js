@@ -1,12 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.logEndOfProcess = exports.logStartOfProcess = exports.logErrorAndThrowException = exports.slugify = exports.throwError = exports.getCurrentServerContext = exports.logBugsnagLink = exports.prettyJSONStringify = exports.obfuscateSecrets = exports.obfuscateString = exports.isSecretWord = exports.obfuscateStringify = exports.addMetaData = exports.debug = exports.info = exports.error = exports.le = void 0;
-var js_1 = __importDefault(require("@bugsnag/js"));
+var js_1 = require("@bugsnag/js");
 // @ts-ignore
-var qmHelpers_js_1 = __importDefault(require("../public/js/qmHelpers.js"));
+var qmHelpers_js_1 = require("../public/js/qmHelpers.js");
 var env_helper_1 = require("./env-helper");
 var test_helpers_1 = require("./test-helpers");
 function le(s, meta) {
@@ -22,7 +19,7 @@ exports.le = le;
 function isTruthy(value) {
     return (value && value !== "false");
 }
-// getenvOrException(envs.BUGSNAG_API_KEY)
+// getEnvOrException(envs.BUGSNAG_API_KEY)
 function getBugsnag() {
     js_1.default.start({
         apiKey: (0, env_helper_1.getEnvOrException)(env_helper_1.envNames.BUGSNAG_API_KEY),
@@ -184,4 +181,3 @@ function logEndOfProcess(str) {
     console.log("====================================\n" + "DONE WITH " + str);
 }
 exports.logEndOfProcess = logEndOfProcess;
-//# sourceMappingURL=qm.log.js.map

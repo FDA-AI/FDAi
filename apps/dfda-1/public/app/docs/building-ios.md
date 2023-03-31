@@ -44,7 +44,7 @@
 
 - Install the FB plugin by running 
 
-  `cordova -d plugin add ~/Developer/fbplugin/phonegap-facebook-plugin --variable APP_ID="225078261031461" --variable APP_NAME="Awesome FDA"` 
+  `cordova -d plugin add ~/Developer/fbplugin/phonegap-facebook-plugin --variable APP_ID="225078261031461" --variable APP_NAME="QuantiModo"` 
 > Replace the app with your appid and name. Also make sure your bundle id is included in the Facebook App Settings.
 
 - When we install both of the social plugins, they tend to override properties in `Resources/info.plist` file.

@@ -46,7 +46,9 @@ angular.module('starter').controller('IntroCtrl', ["$scope", "$state", "$ionicSl
                             }
                         } else{
 	                        qmService.login.sendToLogin("Intro has completed")
-	                        qmService.showFullScreenLoader();
+                            if(!qm.getUser()){
+                                qmService.showFullScreenLoader();
+                            }
                         }
                     }
                     var message = "Now let's create a mathematical model of YOU!  ";
@@ -133,7 +135,7 @@ angular.module('starter').controller('IntroCtrl', ["$scope", "$state", "$ionicSl
         $scope.$on('$ionicView.beforeLeave', function(){
             qm.music.fadeOut();
             qm.robot.onRobotClick = null;
-			qmService.showFullScreenLoader();
+            if(!qm.getUser()){qmService.showFullScreenLoader();}
         });
         function makeBackgroundTransparentIfUsingFuturisticBackground(){
             if(useFuturisticBackground() === true){
