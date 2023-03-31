@@ -1,0 +1,8 @@
+[
+  {
+    "value": "@createReminderTriggerPhrase @variableName",
+    "synonyms": [
+      "@createReminderTriggerPhrase @variableName"
+    ]
+  }
+]

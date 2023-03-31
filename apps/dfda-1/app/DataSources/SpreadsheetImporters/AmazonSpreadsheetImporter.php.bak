@@ -1,0 +1,7 @@
+<?php
+namespace App\DataSources\SpreadsheetImporters;
+use App\DataSources\QMSpreadsheetImporter;
+class AmazonSpreadsheetImporter extends QMSpreadsheetImporter
+{
+
+}

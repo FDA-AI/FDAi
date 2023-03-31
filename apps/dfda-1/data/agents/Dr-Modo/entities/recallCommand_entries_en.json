@@ -1,0 +1,14 @@
+[
+  {
+    "value": "recall",
+    "synonyms": [
+      "recall"
+    ]
+  },
+  {
+    "value": "recall @memoryQuestion:memoryQuestion",
+    "synonyms": [
+      "recall @memoryQuestion:memoryQuestion"
+    ]
+  }
+]

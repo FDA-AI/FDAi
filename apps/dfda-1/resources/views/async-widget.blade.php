@@ -1,0 +1,3 @@
+{{
+    AsyncWidget::run($name, $params)
+}}

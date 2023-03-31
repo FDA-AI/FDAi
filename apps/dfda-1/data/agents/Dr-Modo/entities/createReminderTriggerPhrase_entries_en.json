@@ -1,0 +1,14 @@
+[
+  {
+    "value": "add",
+    "synonyms": [
+      "add"
+    ]
+  },
+  {
+    "value": "create reminder",
+    "synonyms": [
+      "\"add reminder\", \"add\", \"add reminder\", \"add a reminder for\", \"create reminder for\", \"create a reminder for\""
+    ]
+  }
+]

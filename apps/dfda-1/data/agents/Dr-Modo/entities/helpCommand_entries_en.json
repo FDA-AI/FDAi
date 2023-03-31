@@ -1,0 +1,20 @@
+[
+  {
+    "value": "help",
+    "synonyms": [
+      "help"
+    ]
+  },
+  {
+    "value": "What can you do?",
+    "synonyms": [
+      "What can you do?"
+    ]
+  },
+  {
+    "value": "What can I do?",
+    "synonyms": [
+      "What can I do?"
+    ]
+  }
+]

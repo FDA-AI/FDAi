@@ -1,0 +1,24 @@
+[
+  {
+    "value": "exit",
+    "synonyms": [
+      "exit"
+    ]
+  },
+  {
+    "value": "closeCommand",
+    "synonyms": [
+      "closeCommand",
+      "cancel",
+      "quit",
+      "bye",
+      "terminate"
+    ]
+  },
+  {
+    "value": "close",
+    "synonyms": [
+      "close"
+    ]
+  }
+]
