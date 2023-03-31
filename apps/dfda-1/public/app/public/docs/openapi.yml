@@ -2755,7 +2755,7 @@ components:
           description: 'Ex: https://app.quantimo.do/img/logos/curedao-logo-qm-rainbow-200-200.png'
         imageHtml:
           type: string
-          description: 'Ex: <a href="https://quantimo.do"><img id="curedao_image" title="CureDAO" public="https://app.quantimo.do/img/logos/curedao-logo-qm-rainbow-200-200.png" alt="CureDAO"></a>'
+          description: 'Ex: <a href="https://quantimo.do"><img id="curedao_image" title="CureDAO" src="https://app.quantimo.do/img/logos/curedao-logo-qm-rainbow-200-200.png" alt="CureDAO"></a>'
         lastSuccessfulUpdatedAt:
           type: string
           description: 'Ex: 2017-07-31 10:10:34 UTC ISO 8601 YYYY-MM-DDThh:mm:ss'

@@ -222,7 +222,7 @@ var qm = {
             var message = "API Request to " + qmApiClient.basePath + " for " + functionName;
             if(params.reason){message += " because " + params.reason;}
             delete params.reason;
-            qmLog.info(message, params);
+            qmLog.debug(message, params);
             qm.api.requestLog.push({
                 time: qm.timeHelper.getCurrentLocalDateAndTime(),
                 name: functionName,
@@ -554,7 +554,7 @@ var qm = {
             }
             var subDomain = qm.urlHelper.getSubDomain();
             subDomain = subDomain.replace('qm-', '');
-            if(subDomain === 'web' || 
+            if(subDomain === 'web' ||
                subDomain === 'staging-web' ||
                subDomain === 'feature' ||
                subDomain === 'dev-web'){
@@ -608,7 +608,6 @@ var qm = {
 		    return qm.api.apiOrigins.production;
 	    },
         getQMApiOrigin: function(){
-	        //return qm.api.apiOrigins.localQM;
             if(qm.appMode.isBackEnd() && process.env.QM_API_ORIGIN){
                 return process.env.QM_API_ORIGIN;
             }
@@ -2340,7 +2339,7 @@ var qm = {
 			    return true;
 		    }
 		    let logout = qm.urlHelper.getParam('logout');
-		    return qm.boolHelper.isTruthy(logout) && 
+		    return qm.boolHelper.isTruthy(logout) &&
 		           !qm.urlHelper.urlContains("logout=0");  // Handles screwed up redirect urls with logout=0%2Fapp%2Flogin
 	    },
 	    loginIfNecessary: async function(){
@@ -10013,7 +10012,7 @@ var qm = {
             return !qm.boolHelper.isFalsey(value);
         },
         isFalsey: function(value) {
-            return value === "false" || value === false || value === 0 || value === "0" || !value 
+            return value === "false" || value === false || value === 0 || value === "0" || !value
                    || value.indexOf("0%2F") === 0; // TODO: Fix redirect urls
         }
     },
@@ -12012,24 +12011,25 @@ var qm = {
         },
         getFromLocalStorage: function(params){
             if(!params){params = {};}
+            params.includePublic = true;
             var commonVariables = qm.arrayHelper.filterByRequestParams(qm.staticData.commonVariables, params);
             if(!params.sort){commonVariables = qm.variablesHelper.defaultVariableSort(commonVariables);}
             return commonVariables;
         },
 	    getFromLocalStorageOrApi: function(params){
-			var deferred = Q.defer();
-			var local = qm.commonVariablesHelper.getFromLocalStorage(params);   
-			if(local && local.length > 0){
-				deferred.resolve(local);
-			}
-		    qm.api.get('/api/v3/variables', [], params, function(variables){
-			    if(variables.data){variables = variables.data;}
-			    if(variables.variables){variables = variables.variables;}
-			    deferred.resolve(variables);
-		    }, function(error){
-			    deferred.reject(error);
-		    });
-			return deferred.promise;
+          if(!params){params = {};}
+          params.includePublic = true;
+          var deferred = Q.defer();
+          var local = qm.commonVariablesHelper.getFromLocalStorage(params);
+          if(local && local.length > 0){
+            deferred.resolve(local);
+          }
+          qm.variablesHelper.getFromLocalStorageOrApi(params).then(function(variables){
+            deferred.resolve(variables);
+          }, function(error){
+            deferred.reject(error);
+          });
+          return deferred.promise;
 	    }
     },
     userVariables: {
@@ -13205,11 +13205,11 @@ var qm = {
                 return;
             }
             if(qm.webNotifications.tokenJustPosted && qm.webNotifications.tokenJustPosted === deviceTokenString){
-                qmLog.info("Just posted "+deviceTokenString+" already");
+                qmLog.debug("Just posted "+deviceTokenString+" already");
                 return;
             }
             qm.webNotifications.tokenJustPosted = deviceTokenString;
-            qmLog.info("Got token: " + deviceTokenString);
+            qmLog.debug("Got token: " + deviceTokenString);
             qm.api.configureClient(arguments.callee.name);
             var apiInstance = new qm.Quantimodo.NotificationsApi();
             function callback(error, data, response){
@@ -13267,7 +13267,7 @@ var qm = {
     },
 	web3: {
 		getDigitalTwin: async function(){
-			var dt = await qm.api.getAsync('/api/v6/digitalTwin');	
+			var dt = await qm.api.getAsync('/api/v6/digitalTwin');
 			if(!dt){
 				dt = await qm.web3.mintDigitalTwin();
 			}

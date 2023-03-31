@@ -1,16 +1,19 @@
 {
-  "version": 2,
-  "buildCommand": "npm install && npm start",
-  "builds": [
+  "redirects": [
+    { "source": "/import", "destination": "#/app/import" },
+    { "source": "/import", "destination": "#/app/import" },
+    { "source": "/inbox", "destination": "#/app/reminders-inbox", "permanent": false },
     {
-      "src": "index.js",
-      "use": "@now/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "index.js"
+      "source": "/:path((?!uk/).*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "GB"
+        }
+      ],
+      "destination": "/uk/:path*",
+      "permanent": false
     }
   ]
 }

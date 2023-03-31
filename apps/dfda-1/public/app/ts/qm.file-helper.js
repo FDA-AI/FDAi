@@ -1,27 +1,4 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -37,7 +14,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+        while (_) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -58,21 +35,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.listFilesRecursively = exports.uploadFolderToS3 = exports.download = exports.getAbsolutePath = exports.writeToFile = exports.uploadToS3 = exports.uploadToS3InSubFolderWithCurrentDateTime = exports.downloadFromS3 = exports.getS3Client = exports.deleteFile = exports.createFile = exports.exists = exports.assertExists = exports.assertDoesNotExist = void 0;
 // noinspection JSUnusedGlobalSymbols,JSUnusedGlobalSymbols
-var aws_sdk_1 = __importDefault(require("aws-sdk"));
-var fs = __importStar(require("fs"));
-var https = __importStar(require("https"));
-var mime = __importStar(require("mime"));
-var path = __importStar(require("path"));
-var Q = __importStar(require("q"));
-var rimraf_1 = __importDefault(require("rimraf"));
+var aws_sdk_1 = require("aws-sdk");
+var fs = require("fs");
+var https = require("https");
+var mime = require("mime");
+var path = require("path");
+var Q = require("q");
+var rimraf_1 = require("rimraf");
 var env_helper_1 = require("./env-helper");
-var qmLog = __importStar(require("./qm.log"));
+var qmLog = require("./qm.log");
 var defaultS3Bucket = "qmimages";
 // tslint:disable-next-line:no-var-requires
 var appRoot = require("app-root-path");
@@ -323,4 +297,3 @@ function listFilesRecursively(dirPath, arrayOfFiles) {
     });
 }
 exports.listFilesRecursively = listFilesRecursively;
-//# sourceMappingURL=qm.file-helper.js.map

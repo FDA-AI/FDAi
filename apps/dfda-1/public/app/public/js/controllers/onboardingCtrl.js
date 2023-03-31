@@ -34,6 +34,9 @@ angular.module('starter').controller('OnboardingCtrl',
                 }
             });
             $scope.$on('$ionicView.afterEnter', function(){
+                if(qm.getUser()){
+                    qmService.hideLoader();
+                }
                 qmLog.debug('OnboardingCtrl afterEnter in state ' + $state.current.name);
                 if(!speechEnabled){
                     $rootScope.setMicAndSpeechEnabled(false);

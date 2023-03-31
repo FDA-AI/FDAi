@@ -123,7 +123,7 @@ function updateSearchResults(result) {
                     //'<p class="text-sm py-1">' + one.category + '</p>' +
                 '</a>' +
                 '<a href="' + url + '">' +
-                    '<img class="md:block h-16 border-none" public="' + image + '" alt="">' +
+                    '<img class="md:block h-16 border-none" src="' + image + '" alt="">' +
                 '</a>' +
             '</span>';
         if(one.htmlContent){

@@ -13,7 +13,7 @@
             <div class="inner">
                 <div style="text-align: center; color: white; padding: 5px; height: 100%; z-index: 999">
                     <div ng-if="!state.registrationForm && !state.loginForm" >
-                        <div ng-include="'templates/fragments/circle-page.html'" 
+                        <div ng-include="'templates/fragments/circle-page.html'"
                              on-hold="state.setAuthDebugEnabled()"
                              ng-cloak></div>
                         <div ng-if="state.showRetry" ng-click="retryLogin('user clicked retry button')"><br><br>Click
@@ -24,7 +24,7 @@
                                 <!--<md-button class="md-raised md-primary icon icon-left ion-social-github" style="background: #2d2d2d;" ng-click="state.socialLogin('github', $event)">
                                     &nbsp Github Login &nbsp
                                 </md-button>-->
-<!--                                <img public="img/signin-assets/google_signin_buttons/web/1x/btn_google_signin_dark_normal_web.png"
+<!--                                <img src="img/signin-assets/google_signin_buttons/web/1x/btn_google_signin_dark_normal_web.png"
                                      alt="google login"
                                      style="margin: auto;"
                                      id="signInWithGoogle"
@@ -32,7 +32,7 @@
                                      ng-click="state.socialLogin('googleplus', $event)"
                                      class="md-button"
                                 >-->
-<!--                                <img public="img/signin-assets/google_signin_buttons/web/1x/btn_google_signin_dark_normal_web.png"-->
+<!--                                <img src="img/signin-assets/google_signin_buttons/web/1x/btn_google_signin_dark_normal_web.png"-->
 <!--                                     alt="google login"-->
 <!--                                     style="margin: auto;"-->
 <!--                                     id="signInWithGoogle"-->
@@ -89,7 +89,7 @@
                              style="padding: 20px;">
                             <div layout="column" class="loginBox md-whiteframe-z1">
                                 <form name="registrationForm">
-                                    <md-content layout="column" 
+                                    <md-content layout="column"
                                                 class="md-padding md-form-content">
 	                                    <md-input-container class="md-form-input">
 		                                    <label class="md-input-label-dark-bg">Pick a Username</label>
@@ -104,10 +104,10 @@
 	                                    </md-input-container>
                                         <md-input-container class="md-form-input">
                                             <label class="md-input-label-dark-bg">Enter Your Email</label>
-                                            <input required 
+                                            <input required
                                                    id="email-input"
                                                    type="text"
-                                                   ng-model="state.registrationForm.email" 
+                                                   ng-model="state.registrationForm.email"
                                                    name="email"/>
                                             <div ng-messages="loginForm.email.$error">
                                                 <div ng-message="required">This is required.</div>
@@ -115,7 +115,7 @@
                                         </md-input-container>
                                         <md-input-container class="md-form-input">
                                             <label class="md-input-label-dark-bg">Make Up a Super Secret Password</label>
-                                            <input required 
+                                            <input required
                                                    type="password"
                                                    id="password-input"
                                                    ng-model="state.registrationForm.password"
@@ -127,7 +127,7 @@
                                         </md-input-container>
                                         <md-input-container class="md-form-input">
                                             <label class="md-input-label-dark-bg">Type It Again for Fun</label>
-                                            <input required 
+                                            <input required
                                                    type="password"
                                                    id="password-confirm-input"
                                                    ng-model="state.registrationForm.passwordConfirm"
@@ -152,14 +152,14 @@
                             </div>
                         </div>
                     </div>
-                    <div id="loginForm" 
-                         ng-if="state.loginForm" 
+                    <div id="loginForm"
+                         ng-if="state.loginForm"
                          class="container">
                         <div layout="column" layout-align="center center"
                              layout-fill="layout-fill">
                             <div layout="column" class="loginBox md-whiteframe-z1">
                                 <form name="loginForm">
-                                    <md-content layout="column" 
+                                    <md-content layout="column"
                                                 class="md-padding md-form-content">
                                         <md-input-container class="md-form-input">
                                             <label class="md-input-label-dark-bg">Email or Username</label>
