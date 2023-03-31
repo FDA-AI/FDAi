@@ -1,0 +1,9 @@
+╔══════════════════════════╤══════════════════════╤═════════════════════════════════════════════════════════════╗
+║ Caller                   │ Table                │ SQL                                                         ║
+╟──────────────────────────┼──────────────────────┼─────────────────────────────────────────────────────────────╢
+║ getAggregateCorrelations │ aggregate_correlatio │ exists (select * from variables where effect_variable_id... ║
+║ getAggregateCorrelations │ variables            │ id in (1872, 5955693) & deleted_at=null                     ║
+║ getAggregateCorrelations │ variables            │ id in (1272) & deleted_at=null                              ║
+║ getAggregateCorrelations │ votes                │ aggregate_correlation_id in (1, 2) & deleted_at=null        ║
+║ QMUser::find             │ wp_users             │ ID=12000 & deleted_at=null limit 1                          ║
+╚══════════════════════════╧══════════════════════╧═════════════════════════════════════════════════════════════╝
