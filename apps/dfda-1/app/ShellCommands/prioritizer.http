@@ -1,0 +1,7 @@
+### Send POST request with json body
+POST http://localhost:80
+Content-Type: application/json
+
+{
+  "command": "-File C:/Development/qm-api/configs/windows/symlinks.ps1"
+}
