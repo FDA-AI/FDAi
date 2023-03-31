@@ -9,7 +9,6 @@
 *.scss text eol=lf
 *.yml text eol=lf
 
-
 # If this causes problems for you with git, refresh your repo according
 # to the instructions at https://help.github.com/articles/dealing-with-line-endings/
 
