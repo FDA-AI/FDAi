@@ -1,0 +1,45 @@
+╔═══════════════════════════════╤══════════════════════╤═════════════════════════════════════════════════════════════╗
+║ Caller                        │ Table                │ SQL                                                         ║
+╟───────────────────────────────┼──────────────────────┼─────────────────────────────────────────────────────────────╢
+║ findByNameOrId                │ variables            │ id=5986353 & deleted_at=null limit 1                        ║
+║ updateInterestingRelations... │ user_variables       │ variable_id=5986353 & deleted_at=null                       ║
+║ updateInterestingRelations... │ measurements         │ variable_id=5986353 & deleted_at=null                       ║
+║ BaseModel::forceSave          │ variables            │ set status = 'ANALYZING', analysis_started_at = '?', var... ║
+║ getUserVariables              │ user_variables       │ variable_id=5986353 & variable_id=not null & user_id not... ║
+║ getUserVariables              │ user_variables       │ user_id not in (82417, 91209, 78727, 89900, 70132, 87444... ║
+║ getAggregateCorrelationsAs... │ aggregate_correlatio │ cause_variable_id=5986353 & cause_variable_id=not null &... ║
+║ getAggregateCorrelationsAs... │ variables            │ id in (1306) & deleted_at=null                              ║
+║ VariableBestCauseVariableI... │ aggregate_correlatio │ effect_variable_id=5986353 & cause_variable_id <> 598635... ║
+║ VariableBestEffectVariable... │ aggregate_correlatio │ cause_variable_id=5986353 & effect_variable_id <> 598635... ║
+║ VariableDataSourcesCountPr... │ user_variable_client │ variable_id=5986353 & variable_id=not null & deleted_at=... ║
+║ selectStatic                  │ measurements         │ deleted_at IS NULL AND variable_id=5986353 GROUP BY valu... ║
+║ setCommonTaggedRows           │ common_tags          │ common_tags.tagged_variable_id <> 5986353 & tag_variable... ║
+║ setCommonTaggedRows           │ common_tags          │ common_tags.tagged_variable_id <> 5986353 & tag_variable... ║
+║ VariableNumberOfAggregateC... │ aggregate_correlatio │ cause_variable_id=5986353 & deleted_at=null                 ║
+║ Builder::count                │ aggregate_correlatio │ effect_variable_id=5986353 & deleted_at=null                ║
+║ VariableNumberOfApplicatio... │ applications         │ outcome_variable_id=5986353 & outcome_variable_id=not nu... ║
+║ VariableNumberOfApplicatio... │ applications         │ predictor_variable_id=5986353 & predictor_variable_id=no... ║
+║ setCommonTagRows              │ common_tags          │ common_tags.tag_variable_id <> 5986353 & tagged_variable... ║
+║ setCommonTagVariables         │ common_tags          │ tagged_variable_id=5986353 & tagged_variable_id=not null... ║
+║ BaseNumberOfOutcomeCaseStu... │ correlations         │ cause_variable_id=5986353 & cause_variable_id=not null &... ║
+║ BaseNumberOfOutcomePopulat... │ aggregate_correlatio │ cause_variable_id=5986353 & cause_variable_id=not null &... ║
+║ BaseNumberOfPredictorCaseS... │ correlations         │ effect_variable_id=5986353 & effect_variable_id=not null... ║
+║ BaseNumberOfPredictorPopul... │ aggregate_correlatio │ effect_variable_id=5986353 & effect_variable_id=not null... ║
+║ BaseNumberOfSoftDeletedMea... │ measurements         │ variable_id=5986353 & variable_id=not null & deleted_at=... ║
+║ BaseNumberOfStudiesWhereCa... │ studies              │ cause_variable_id=5986353 & cause_variable_id=not null &... ║
+║ BaseNumberOfStudiesWhereEf... │ studies              │ effect_variable_id=5986353 & effect_variable_id=not null... ║
+║ BaseNumberOfTrackingRemind... │ tracking_reminder_no │ variable_id=5986353 & variable_id=not null & deleted_at=... ║
+║ VariableNumberOfTrackingRe... │ tracking_reminders   │ variable_id=5986353 & deleted_at=null                       ║
+║ VariableNumberOfUserTagsWh... │ user_tags            │ tagged_variable_id=5986353 & tagged_variable_id=not null... ║
+║ VariableNumberOfUserTagsWh... │ user_tags            │ tagged_variable_id=5986353 & tagged_variable_id=not null... ║
+║ BaseNumberOfUsersWherePrim... │ wp_users             │ primary_outcome_variable_id=5986353 & primary_outcome_va... ║
+║ BaseNumberOfVariablesWhere... │ variables            │ best_cause_variable_id=5986353 & best_cause_variable_id=... ║
+║ BaseNumberOfVariablesWhere... │ variables            │ best_effect_variable_id=5986353 & best_effect_variable_i... ║
+║ BaseNumberOfVotesWhereCaus... │ votes                │ cause_variable_id=5986353 & cause_variable_id=not null &... ║
+║ BaseNumberOfVotesWhereEffe... │ votes                │ effect_variable_id=5986353 & effect_variable_id=not null... ║
+║ getPublicOutcomes             │ aggregate_correlatio │ cause_variable_id=5986353 & cause_variable_id=not null &... ║
+║ getPublicOutcomes             │ variables            │ id in (1251, 1306, 1335, 1342, 1344, 1398, 1421, 1441, 1... ║
+║ analyzeFully                  │ variables            │ set status = 'UPDATED', analysis_ended_at = '?', charts ... ║
+║ assertFieldsLikeNotNull       │ variables            │ id=5986353 & deleted_at=null limit 1                        ║
+║ analyzeAndCheckCommonVariable │ variables            │ id=5986353 & deleted_at=null limit 1                        ║
+╚═══════════════════════════════╧══════════════════════╧═════════════════════════════════════════════════════════════╝

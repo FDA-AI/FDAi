@@ -1,0 +1,35 @@
+[
+  {
+    "value": "snooze",
+    "synonyms": [
+      "snooze",
+      "Snooze"
+    ]
+  },
+  {
+    "value": "skip",
+    "synonyms": [
+      "skip",
+      "Skip"
+    ]
+  },
+  {
+    "value": "track",
+    "synonyms": [
+      "track",
+      "Track"
+    ]
+  },
+  {
+    "value": "yes",
+    "synonyms": [
+      "yes"
+    ]
+  },
+  {
+    "value": "no",
+    "synonyms": [
+      "no"
+    ]
+  }
+]
