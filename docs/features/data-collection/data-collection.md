@@ -1,4 +1,4 @@
-# 📲 Data Collection Plugins
+# 📲 Data Collection 
 
 ![](data-collection.PNG)
 
@@ -23,7 +23,7 @@ Ultimately, the system should be able to handle the following data types:
 
 ### Automated Data Acquisition
 
-At the present time, it requires a great deal of effort and diligence on the part of the self-tracker to gather all of the data required to identify the triggers of mental illness and quantify the effectiveness of different treatments. Tracking one’s mood, diet, sleep, activity, and medication intake can be extremely time-consuming. The present invention automatically pulls data from a number of data sources (adding more all the time).
+At the present time, it requires a great deal of effort and diligence on the part of the self-tracker to gather all the data required to identify the triggers of mental illness and quantify the effectiveness of different treatments. Tracking one’s mood, diet, sleep, activity, and medication intake can be extremely time-consuming. The present invention automatically pulls data from a number of data sources (adding more all the time).
 
 The data sources would include:
 
@@ -33,4 +33,3 @@ The data sources would include:
 * Visual Affect Data via Web-Cameras: By tracking hundreds of points on the subjects’ faces, InSight can accurately capture emotional states.
 * Prescription Records: Microsoft HealthVault can automatically collect lab results, prescription history, and visit records from a growing list of labs, pharmacies, hospitals, and clinics.
 
-![data import](<../../assets/aggregation/data-import (1) (2).PNG>)
