@@ -1,2 +1,2 @@
-var qm = require('../../../../apps/ionic/public/js/qmHelpers')
+var qm = require('../../../../apps/dfda-1/public/app/public/js/qmHelpers')
 module.exports = qm
