@@ -313,7 +313,7 @@ angular.module('starter').controller('SettingsCtrl', ["$state", "$scope", "$ioni
                 qmService.showMaterialAlert('Downgraded', 'Successfully downgraded to QuantiModo Lite');
             }, function(error){
                 qmService.hideLoader();
-                qmService.showMaterialAlert('Error', 'An error occurred while downgrading. Please email mike@quantimo.do');
+                qmService.showMaterialAlert('Error', 'An error occurred while downgrading. Please email help@curedao.org');
                 qmLog.debug(JSON.stringify(error), null);
             });
         };

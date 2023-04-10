@@ -46,7 +46,7 @@ comment on column lightsail_instances.deleted_at is 'The time the record was del
 
 comment on column lightsail_instances.updated_at is 'The time the record was last modified';
 
-comment on column lightsail_instances.user_id is 'The QuantiModo user ID for the owner of the record';
+comment on column lightsail_instances.user_id is 'The user ID for the owner of the record';
 
 comment on column lightsail_instances.name is 'Example: cc-wp';
 
