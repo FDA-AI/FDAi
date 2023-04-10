@@ -82,7 +82,7 @@
     "@vercel/edge-config": "^0.1.0",
     "api": "^5.0.7",
     "app-root-path": "^3.1.0",
-    "aws-sdk": "^2.948.0",
+    "aws-sdk": "^2.1354.0",
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.7.2",
     "body-parser": "^1.20.1",
