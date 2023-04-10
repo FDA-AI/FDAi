@@ -90,7 +90,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^1.35.4",
     "app-root-path": "^3.1.0",
-    "aws-sdk": "^2.1294.0",
+    "aws-sdk": "^2.1354.0",
     "clockwork-browser": "^1.0.0",
     "cross-env": "^7.0.3",
     "cypress-plugin-api": "^2.9.0",
