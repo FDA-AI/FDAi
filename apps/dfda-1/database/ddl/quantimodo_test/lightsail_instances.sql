@@ -6,7 +6,7 @@ create table quantimodo_test.lightsail_instances
     created_at          timestamp default CURRENT_TIMESTAMP not null comment 'The time the record was originally created',
     deleted_at          timestamp                           null comment 'The time the record was deleted',
     updated_at          timestamp default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment 'The time the record was last modified',
-    user_id             bigint unsigned                     not null comment 'The QuantiModo user ID for the owner of the record',
+    user_id             bigint unsigned                     not null comment 'The user ID for the owner of the record',
     name                varchar(255)                        not null comment 'Example: cc-wp',
     arn                 varchar(255)                        not null comment 'Example: arn:aws:lightsail:us-east-1:335072289018:Instance/14eb6cec-1c74-429a-96f5-8f8f5e5fbbc1',
     support_code        varchar(255)                        not null comment 'Example: 102336889266/i-005d61af88d99927e',

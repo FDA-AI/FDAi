@@ -1,12 +1,12 @@
 {
     "id": null,
     "populationTraitScatterPlot": {
-        "chartId": "trait-correlation-between-fluoxetine-and-overall-mood",
+        "chartId": "trait-relationship-between-fluoxetine-and-overall-mood",
         "chartTitle": "Trait Correlation Between Fluoxetine and Overall Mood",
         "explanation": "People with higher Fluoxetine usually have lower Overall Mood",
         "highchartConfig": {
             "chart": {
-                "renderTo": "trait-correlation-between-fluoxetine-and-overall-mood-chart-container",
+                "renderTo": "trait-relationship-between-fluoxetine-and-overall-mood-chart-container",
                 "type": "scatter",
                 "zoomType": "xy"
             },
@@ -25,7 +25,7 @@
                 "filename": "custom-file-name",
                 "showTable": false
             },
-            "id": "trait-correlation-between-fluoxetine-and-overall-mood",
+            "id": "trait-relationship-between-fluoxetine-and-overall-mood",
             "lang": {
                 "loading": ""
             },
@@ -82,11 +82,11 @@
                 }
             }
         },
-        "id": "trait-correlation-between-fluoxetine-and-overall-mood",
+        "id": "trait-relationship-between-fluoxetine-and-overall-mood",
         "imageGeneratedAt": null,
-        "imageUrl": "https://static.quantimo.do/population-studies/cause-93614-effect-1398-population-study/trait-correlation-between-fluoxetine-and-overall-mood-population-trait-correlation-scatter-plot.png",
+        "imageUrl": "https://static.quantimo.do/population-studies/cause-93614-effect-1398-population-study/trait-relationship-between-fluoxetine-and-overall-mood-population-trait-correlation-scatter-plot.png",
         "jpgUrl": null,
-        "pngUrl": "https://static.quantimo.do/population-studies/cause-93614-effect-1398-population-study/trait-correlation-between-fluoxetine-and-overall-mood-population-trait-correlation-scatter-plot.png",
+        "pngUrl": "https://static.quantimo.do/population-studies/cause-93614-effect-1398-population-study/trait-relationship-between-fluoxetine-and-overall-mood-population-trait-correlation-scatter-plot.png",
         "subtitle": null,
         "svgUrl": null,
         "title": "Trait Correlation Between Fluoxetine and Overall Mood",

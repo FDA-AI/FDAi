@@ -69,7 +69,7 @@ notifications:
   webhooks: https://www.travisbuddy.com/
   email:
     recipients:
-      - mike@quantimo.do
+      - help@curedao.org
     on_success: never
     on_failure: always
   slack:
