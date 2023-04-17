@@ -72,7 +72,7 @@ return [
     |
     */
 
-    'user_agent' => "QuantiModo (https://quantimo.do; mike@quantimo.do)",
+    'user_agent' => "QuantiModo (https://quantimo.do; help@curedao.org)",
 
     /*
     |--------------------------------------------------------------------------

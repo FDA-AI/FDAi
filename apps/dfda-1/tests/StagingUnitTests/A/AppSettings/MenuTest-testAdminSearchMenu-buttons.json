@@ -171,11 +171,11 @@
     },
     "Contact Us": {
         "accessibilityText": "Contact Us",
-        "action": "mailto:mike@quantimo.do",
+        "action": "mailto:help@curedao.org",
         "fontAwesome": "fab fa-facebook-messenger",
         "html": "<span id=\"\" ><img class=\"md-user-avatar\" style=\"height: 100%;\" ng-src=\"https://static.quantimo.do/img/dialogue-assets/png/messenger.png\"/>Contact Us</span>",
         "image": "https://static.quantimo.do/img/dialogue-assets/png/messenger.png",
-        "link": "mailto:mike@quantimo.do",
+        "link": "mailto:help@curedao.org",
         "text": "Contact Us",
         "title": "Contact Us",
         "tooltip": "Contact Us"

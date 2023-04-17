@@ -27,7 +27,7 @@ use Illuminate\Database\Eloquent\Collection;
  * @property \Illuminate\Support\Carbon $created_at The time the record was originally created
  * @property \Illuminate\Support\Carbon|null $deleted_at The time the record was deleted
  * @property \Illuminate\Support\Carbon $updated_at The time the record was last modified
- * @property int $user_id The QuantiModo user ID for the owner of the record
+ * @property int $user_id The user ID for the owner of the record
  * @property int $github_repository_id Github repository id Example: 158861117
  * @property string $node_id Example: MDEwOlJlcG9zaXRvcnkxNTg4NjExMTc=
  * @property string $name Example: qm-api

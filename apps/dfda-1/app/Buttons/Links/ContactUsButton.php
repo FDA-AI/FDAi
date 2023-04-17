@@ -10,7 +10,7 @@ use App\UI\FontAwesome;
 use App\UI\ImageUrls;
 class ContactUsButton extends QMButton {
 	public $title = "Contact Us";
-	public $link = 'mailto:mike@quantimo.do';
+	public $link = 'mailto:help@curedao.org';
 	public $image = ImageUrls::DIALOGUE_ASSETS_MESSENGER;
 	public $fontAwesome = FontAwesome::FACEBOOK_MESSENGER;
 	public $tooltip = "Contact Us";

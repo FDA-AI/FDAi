@@ -1,7 +1,7 @@
 @if ( isset($errors) && $errors->any() )
     <div class="alert alert-danger alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        Please check the form below for errors. Please try again or contact mike@quantimo.do for help.
+        Please check the form below for errors. Please try again or contact help@curedao.org for help.
     </div>
 @endif
 
@@ -16,7 +16,7 @@
     <div class="alert alert-danger alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         {{ $message }}
-        <br>Please try again or contact mike@quantimo.do for help.
+        <br>Please try again or contact help@curedao.org for help.
     </div>
 @endif
 

@@ -320,7 +320,7 @@ class PostUserVariablesTest extends \Tests\SlimTests\SlimTestCase {
         $variableCategoryNames = QMVariableCategory::getVariableCategoryNames();
         $err = "Variable category \"$variableCategoryName\" doesn't exist. Current variable categories are: ".
             implode(', ', $variableCategoryNames).'. Please send an email to '.
-            'mike@quantimo.do if you want to add a new variable category.';
+            'help@curedao.org if you want to add a new variable category.';
         $this->assertResponseIsError(QMException::CODE_NOT_FOUND, $err, $response);
     }
     public function testPostVariableWithUnknownUnit(){

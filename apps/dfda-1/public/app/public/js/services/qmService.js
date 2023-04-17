@@ -2317,7 +2317,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                                 return deferred.promise;
                             }
                         }
-                        self.notFoundText = "No variables found. Please try another wording or contact mike@quantimo.do.";
+                        self.notFoundText = "No variables found. Please try another wording or contact help@curedao.org.";
                         if(query === self.lastApiQuery && self.lastResults){
                             logDebug("Why are we researching with the same query?", query);
                             deferred.resolve(self.lastResults);
@@ -5528,7 +5528,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
             qmService.showInfoToast("Thank you! One moment please...", 30);
             function upgradeErrorHandler(response){
                 qmLog.error("Upgrade failed", null, response);
-                var message = 'Please try again or contact mike@quantimo.do for help.';
+                var message = 'Please try again or contact help@curedao.org for help.';
                 if(response.error){
                     message = response.error + '  ' + message;
                 }
@@ -6289,7 +6289,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                 "Additional Information: " + '\r\n';
             addAppInformationToTemplate(template, function(template){
                 var emailBody = encodeURIComponent(template);
-                var emailAddress = 'mike@quantimo.do';
+                var emailAddress = 'help@curedao.org';
                 var fallbackUrl = 'http://help.quantimo.do';
                 qmLog.error("Bug Report", template);
                 if(qm.platform.isMobile()){

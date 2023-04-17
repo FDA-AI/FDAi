@@ -150,7 +150,7 @@ angular.module('starter').controller('SearchPageCtrl', ["$scope", "$q", "$state"
                     return deferred.promise;
                 }
             }
-            self.notFoundText = "No variables found. Please try another wording or contact mike@quantimo.do.";
+            self.notFoundText = "No variables found. Please try another wording or contact help@curedao.org.";
             if (query === self.lastApiQuery && self.lastResults) {
                 logDebug("Why are we researching with the same query?", query);
                 deferred.resolve(self.lastResults);
