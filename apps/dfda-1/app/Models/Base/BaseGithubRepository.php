@@ -515,7 +515,7 @@ class BaseGithubRepository extends BaseModel
 		self::FIELD_CREATED_AT => 'The time the record was originally created',
 		self::FIELD_DELETED_AT => 'The time the record was deleted',
 		self::FIELD_UPDATED_AT => 'The time the record was last modified',
-		self::FIELD_USER_ID => 'The QuantiModo user ID for the owner of the record',
+		self::FIELD_USER_ID => 'The user ID for the owner of the record',
 		self::FIELD_GITHUB_REPOSITORY_ID => 'Github repository id Example: 158861117',
 		self::FIELD_NODE_ID => 'Example: MDEwOlJlcG9zaXRvcnkxNTg4NjExMTc=',
 		self::FIELD_NAME => 'Example: qm-api',

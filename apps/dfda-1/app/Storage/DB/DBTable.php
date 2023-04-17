@@ -238,7 +238,7 @@ class DBTable extends Table {
                 created_at             timestamp        default CURRENT_TIMESTAMP not null COMMENT 'The time the record was originally created',
                 deleted_at             timestamp                                  null COMMENT 'The time the record was deleted',
                 updated_at             timestamp        default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP COMMENT 'The time the record was last modified',
-                user_id                bigint unsigned                            not null COMMENT 'The QuantiModo user ID for the owner of the record',
+                user_id                bigint unsigned                            not null COMMENT 'The user ID for the owner of the record',
                 $additionalFields
             );
             alter table {$this->getName()} add constraint {$this->getName()}_client_id_fk

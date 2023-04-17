@@ -277,7 +277,7 @@ class HtmlHelper {
 	 * @return string
 	 */
 	public static function getHelpInstructionsHTML(): string{
-		return "<p>Please <a href=\"mailto:mike@quantimo.do\">contact mike@quantimo.do</a> for assistance. </p>";
+		return "<p>Please <a href=\"mailto:help@curedao.org\">contact help@curedao.org</a> for assistance. </p>";
 	}
 	/**
 	 * @param string $all

@@ -155,7 +155,7 @@ class StudyHtml extends StaticModel {
             if(AppMode::isApiRequest()){
                 $html .= "
                     <p style=\"text-align: center;\">
-                        Relationship charts are being generated.  Check back soon or contact mike@quantimo.do.
+                        Relationship charts are being generated.  Check back soon or contact help@curedao.org.
                     </p>
                 ";
                 $this->getHasCauseAndEffect()->queue($e->getMessage());

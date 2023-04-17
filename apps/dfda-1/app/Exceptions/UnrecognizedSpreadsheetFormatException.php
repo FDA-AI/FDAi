@@ -18,7 +18,7 @@ class UnrecognizedSpreadsheetFormatException extends Exception{
      */
     public function __construct(SpreadsheetImportRequest $importRequest, $code = 400, Throwable $previous = null){
         $message = "Could not identify the format of the submitted spreadsheet.  " .
-            "Please convert to the following format or email mike@quantimo.do to create a custom converter for you.  ".
+            "Please convert to the following format or email help@curedao.org to create a custom converter for you.  ".
             "The current standard format is as follows: ".GeneralSpreadsheetImporter::LONG_DESCRIPTION;
         $importRequest->setStatusError($message);
         parent::__construct($message, $code, $previous);

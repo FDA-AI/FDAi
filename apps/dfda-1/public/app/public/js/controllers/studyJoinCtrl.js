@@ -92,7 +92,7 @@ angular.module('starter').controller('StudyJoinCtrl', ["$scope", "$state", "qmSe
             }, function(error){
                 qmService.hideLoader();
                 qmLog.error(error);
-                qmService.showMaterialAlert("Could not join study!", "Please contact mike@quantimo.do and he'll fix it for you.  Thanks!");
+                qmService.showMaterialAlert("Could not join study!", "Please contact help@curedao.org and he'll fix it for you.  Thanks!");
             });
         };
         $scope.showMoreInfo = function(){

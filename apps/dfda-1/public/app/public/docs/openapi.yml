@@ -2,9 +2,8 @@ openapi: 3.0.1
 x-stoplight:
   id: e2dd35f0e728f
 info:
-  title: QuAnTiMoDo API
-  description: A data platform for accelerating clinical research
-  termsOfService: 'https://quantimo.do/tos'
+  title: Decentralized FDA API
+  description: A platform for quantifying the effects of every drug, supplement, food, and other factor on your health.
   contact:
     name: hello@quantimo.do
   license:
@@ -393,7 +392,7 @@ paths:
       tags:
         - measurements
       summary: Upload a spreadsheet with measurements
-      description: 'Import from a spreadsheet containing a Variable Name, Value, Measurement Event Time, and Abbreviated Unit Name field.  Here is an <a href="http://bit.ly/2jz7CNl" target="_blank">example spreadsheet</a> with allowed column names, units and time format.'
+      description: 'Import from a spreadsheet containing a Variable Name, Value, Measurement Event Time, and Abbreviated Unit Name field.  Here is an <a href="https://bit.ly/2jz7CNl" target="_blank">example spreadsheet</a> with allowed column names, units and time format.'
       operationId: measurementSpreadsheetUpload
       requestBody:
         content:
