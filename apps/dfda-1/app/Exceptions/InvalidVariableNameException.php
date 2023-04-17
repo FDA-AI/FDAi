@@ -29,13 +29,13 @@ class InvalidVariableNameException extends Exception implements ProvidesSolution
     public function getSolution(): Solution{
         if($this->alreadyExists()){
             return BaseSolution::create("Rename this Variable")
-                ->setSolutionDescription("Contact mike@quantimo.do if you need assistance")
+                ->setSolutionDescription("Contact help@curedao.org if you need assistance")
                 ->setDocumentationLinks([
                     "Change Name" => $this->getVariable()->getEditUrl()
                 ]);
         } else {
             return BaseSolution::create("Select a Different Name")
-                ->setSolutionDescription("Contact mike@quantimo.do if you need assistance")
+                ->setSolutionDescription("Contact help@curedao.org if you need assistance")
                 ->setDocumentationLinks([
                     "Search Available Variables" => Variable::getDataLabIndexUrl()
                 ]);

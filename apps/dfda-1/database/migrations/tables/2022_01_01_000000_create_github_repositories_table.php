@@ -19,7 +19,7 @@ class CreateGithubRepositoriesTable extends Migration
             $table->timestamp('created_at')->useCurrent()->comment('The time the record was originally created');
             $table->softDeletes()->comment('The time the record was deleted');
             $table->timestamp('updated_at')->comment('The time the record was last modified');
-            $table->bigInteger('user_id')->nullable()->index('github_repositories_wp_users_ID_fk')->comment('The QuantiModo user ID for the owner of the record');
+            $table->bigInteger('user_id')->nullable()->index('github_repositories_wp_users_ID_fk')->comment('The user ID for the owner of the record');
             $table->integer('github_repository_id')->unique('github_repositories_github_repository_id_uindex')->comment('Github repository id Example: 158861117');
             $table->string('node_id')->comment('Example: MDEwOlJlcG9zaXRvcnkxNTg4NjExMTc=');
             $table->string('name')->comment('Example: qm-api');

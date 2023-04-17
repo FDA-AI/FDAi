@@ -150,7 +150,7 @@ class BaseJenkinsSlave extends BaseModel
 		self::FIELD_CREATED_AT => 'The time the record was originally created',
 		self::FIELD_DELETED_AT => 'The time the record was deleted',
 		self::FIELD_UPDATED_AT => 'The time the record was last modified',
-		self::FIELD_USER_ID => 'The QuantiModo user ID for the owner of the record',
+		self::FIELD_USER_ID => 'The user ID for the owner of the record',
 		self::FIELD__CLASS => 'Example: hudson.slaves.SlaveComputer',
 		self::FIELD_ACTIONS => 'Example: []',
 		self::FIELD_ASSIGNED_LABELS => 'Example: [{name:APP_ENV=testing},{name:ARN=arn:aws:lightsail:us-east-1:335072289018:Instance/1ebbd6d9-37d0-4cf8-acd9-53ac15b8e497},{name:BLUEPRINT_ID=ubuntu_18_04},{name:BLUEPRINT_NAME=Ubuntu},{name:BUNDLE_ID=small_2_0},{name:DISK_SIZE_IN_GB=60},{name:HARDWARE_CPU_COUNT=1},{name:HARDWARE_RAM_SIZE_IN_GB=2},{name:IP_ADDRESS_TYPE=dualstack},{name:LOCATION_AVAILABILITY_ZONE=us-east-1a},{name:LOCATION_REGION_NAME=us-east-1},{name:NAME=phpunit-1},{name:PLATFORM=lightsail},{name:PORT_22=0.0.0.0/0},{name:PORT_80=0.0.0.0/0},{name:PRIVATE_IP_ADDRESS=172.26.5.208},{name:PUBLIC_IP_ADDRESS=54.221.91.117},{name:RESOURCE_TYPE=Instance},{name:SSH_KEY_NAME=qm-aws-20160528},{name:SUPPORT_CODE=102336889266/i-066699cc3e4dd41ba},{name:USERNAME=ubuntu},{name:docker},{name:nodejs},{name:phpunit},{name:phpunit-1},{name:phpunit-jobs},{name:staging-phpunit},{name:tideways}]',

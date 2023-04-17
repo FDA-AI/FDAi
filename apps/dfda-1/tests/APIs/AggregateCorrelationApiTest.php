@@ -84,14 +84,14 @@ class AggregateCorrelationApiTest extends UnitTestCase
 				                            array (
 					                            'populationTraitScatterPlot' =>
 						                            array (
-							                            'chartId' => 'trait-correlation-between-bupropion-sr-intake-and-overall-mood',
+							                            'chartId' => 'trait-relationship-between-bupropion-sr-intake-and-overall-mood',
 							                            'chartTitle' => 'Trait Correlation Between Bupropion Sr Intake and Overall Mood',
 							                            'explanation' => 'People with higher Bupropion Sr Intake usually have lower Overall Mood',
 							                            'highchartConfig' =>
 								                            array (
 									                            'chart' =>
 										                            array (
-											                            'renderTo' => 'trait-correlation-between-bupropion-sr-intake-and-overall-mood-chart-container',
+											                            'renderTo' => 'trait-relationship-between-bupropion-sr-intake-and-overall-mood-chart-container',
 											                            'type' => 'scatter',
 											                            'zoomType' => 'xy',
 										                            ),
@@ -227,12 +227,12 @@ class AggregateCorrelationApiTest extends UnitTestCase
 										                            array (
 											                            'enabled' => true,
 										                            ),
-									                            'id' => 'trait-correlation-between-bupropion-sr-intake-and-overall-mood',
+									                            'id' => 'trait-relationship-between-bupropion-sr-intake-and-overall-mood',
 									                            'themeName' => 'white',
 									                            'divHeight' => NULL,
 									                            'type' => 'Population Trait Correlation Scatter Plot',
 								                            ),
-							                            'id' => 'trait-correlation-between-bupropion-sr-intake-and-overall-mood',
+							                            'id' => 'trait-relationship-between-bupropion-sr-intake-and-overall-mood',
 							                            'imageGeneratedAt' => NULL,
 							                            'imageUrl' => NULL,
 							                            'jpgUrl' => NULL,

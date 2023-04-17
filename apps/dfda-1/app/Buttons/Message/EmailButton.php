@@ -15,7 +15,7 @@ class EmailButton extends QMButton {
 	 * @param string $email
 	 * @param string $title
 	 */
-	public function __construct(string $email = "mike@quantimo.do", $title = "Email mike@quantimo.do"){
+	public function __construct(string $email = "help@curedao.org", $title = "Email help@curedao.org"){
 		parent::__construct();
 		$this->setIonIcon(IonIcon::email);
 		$url = "mailto:$email";

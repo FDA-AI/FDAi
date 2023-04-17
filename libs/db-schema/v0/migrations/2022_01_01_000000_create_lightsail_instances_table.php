@@ -19,7 +19,7 @@ class CreateLightsailInstancesTable extends Migration
             $table->timestamp('created_at')->useCurrent()->comment('The time the record was originally created');
             $table->softDeletes()->comment('The time the record was deleted');
             $table->timestamp('updated_at')->comment('The time the record was last modified');
-            $table->unsignedBigInteger('user_id')->index('lightsail_instances_wp_users_ID_fk')->comment('The QuantiModo user ID for the owner of the record');
+            $table->unsignedBigInteger('user_id')->index('lightsail_instances_wp_users_ID_fk')->comment('The user ID for the owner of the record');
             $table->string('name')->comment('Example: cc-wp');
             $table->string('arn')->comment('Example: arn:aws:lightsail:us-east-1:335072289018:Instance/14eb6cec-1c74-429a-96f5-8f8f5e5fbbc1');
             $table->string('support_code')->comment('Example: 102336889266/i-005d61af88d99927e');

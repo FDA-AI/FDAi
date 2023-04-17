@@ -146,7 +146,7 @@ class MoodPandaConnector extends PasswordConnector {
         if(!$userId){
             throw new CredentialsNotFoundException($this,
                 "I couldn't find this MoodPanda user. Please check https://moodpanda.com/Account/Privacy/ ".
-                "and disable privacy mode or contact mike@quantimo.do for help");
+                "and disable privacy mode or contact help@curedao.org for help");
         }
         return $userId;
     }
