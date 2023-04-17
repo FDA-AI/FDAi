@@ -265,7 +265,7 @@ abstract class QMVariableCategory extends DBModel {
         }
         $allNames = self::getVariableCategoryNames();
         $errorMessage = "Variable category \"$name\" doesn't exist. Current variable categories are: ".
-            implode(', ', $allNames).'. Please send an email to '.'mike@quantimo.do if you want to add a new variable category.';
+            implode(', ', $allNames).'. Please send an email to '.'help@curedao.org if you want to add a new variable category.';
         if($throwException){
             throw new VariableCategoryNotFoundException($errorMessage);
         }

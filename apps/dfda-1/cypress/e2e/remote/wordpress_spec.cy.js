@@ -35,7 +35,7 @@ describe('WordPress', function(){
     })
     it('Clicks to email mike', function(){
         cy.visit('https://quantimo.do')
-        cy.get('a[href="mailto:mike@quantimo.do"]').should('exist')
+        cy.get('a[href="mailto:help@curedao.org"]').should('exist')
     })
     it('Checks the data sources page', function(){
         cy.visit('https://quantimo.do')

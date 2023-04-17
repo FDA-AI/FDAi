@@ -122,7 +122,7 @@ comment on column github_repositories.deleted_at is 'The time the record was del
 
 comment on column github_repositories.updated_at is 'The time the record was last modified';
 
-comment on column github_repositories.user_id is 'The QuantiModo user ID for the owner of the record';
+comment on column github_repositories.user_id is 'The user ID for the owner of the record';
 
 comment on column github_repositories.github_repository_id is 'Github repository id Example: 158861117';
 

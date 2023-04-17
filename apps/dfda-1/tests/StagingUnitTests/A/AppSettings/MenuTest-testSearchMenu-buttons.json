@@ -162,10 +162,10 @@
     },
     "Contact Us": {
         "accessibilityText": "Contact Us",
-        "action": "mailto:mike@quantimo.do",
+        "action": "mailto:help@curedao.org",
         "fontAwesome": "fab fa-facebook-messenger",
         "image": "https://static.quantimo.do/img/dialogue-assets/png/messenger.png",
-        "link": "mailto:mike@quantimo.do",
+        "link": "mailto:help@curedao.org",
         "text": "Contact Us",
         "timestamps": true,
         "title": "Contact Us",

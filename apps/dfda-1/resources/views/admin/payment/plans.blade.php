@@ -64,7 +64,7 @@
                         Current Plan
                     </a>
                 @else
-                    <a href="mailto:mike@quantimo.do" class="btn btn-primary btn-block" role="button">
+                    <a href="mailto:help@curedao.org" class="btn btn-primary btn-block" role="button">
                         <strong><i class="fa fa-envelope-o"></i> Contact Us</strong>
                     </a>
                 @endif

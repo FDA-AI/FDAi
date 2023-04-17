@@ -6,7 +6,7 @@ create table quantimodo_test.github_repositories
     created_at                  timestamp default CURRENT_TIMESTAMP not null comment 'The time the record was originally created',
     deleted_at                  timestamp                           null comment 'The time the record was deleted',
     updated_at                  timestamp default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment 'The time the record was last modified',
-    user_id                     bigint unsigned                     not null comment 'The QuantiModo user ID for the owner of the record',
+    user_id                     bigint unsigned                     not null comment 'The user ID for the owner of the record',
     github_repository_id        int                                 not null comment 'Github repository id Example: 158861117',
     node_id                     varchar(255)                        not null comment 'Example: MDEwOlJlcG9zaXRvcnkxNTg4NjExMTc=',
     name                        varchar(255)                        not null comment 'Example: qm-api',

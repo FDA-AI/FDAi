@@ -294,7 +294,7 @@ class QMAccessToken extends DBModel {
 		//if (session_status() == PHP_SESSION_NONE) {  session_start(); }
 		if(!self::getSessionToken()){
 			QMLog::info("Could not get CSRF token from session", ["provided token" => $tokenString]);
-			//Application::getInstance()->halt(400, 'Could not get CSRF token from session. Please alert mike@quantimo.do.');
+			//Application::getInstance()->halt(400, 'Could not get CSRF token from session. Please alert help@curedao.org.');
 		} elseif(self::getSessionToken() !== $tokenString){
 			QMLog::errorOrInfoIfTesting("Invalid CSRF token", [
 				"provided token" => $tokenString,

@@ -157,7 +157,7 @@ class BaseLightsailInstance extends BaseModel
 		self::FIELD_CREATED_AT => 'The time the record was originally created',
 		self::FIELD_DELETED_AT => 'The time the record was deleted',
 		self::FIELD_UPDATED_AT => 'The time the record was last modified',
-		self::FIELD_USER_ID => 'The QuantiModo user ID for the owner of the record',
+		self::FIELD_USER_ID => 'The user ID for the owner of the record',
 		self::FIELD_NAME => 'Example: cc-wp',
 		self::FIELD_ARN => 'Example: arn:aws:lightsail:us-east-1:335072289018:Instance/14eb6cec-1c74-429a-96f5-8f8f5e5fbbc1',
 		self::FIELD_SUPPORT_CODE => 'Example: 102336889266/i-005d61af88d99927e',

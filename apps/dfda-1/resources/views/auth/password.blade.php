@@ -20,7 +20,7 @@
                     @if ( isset($errors) && $errors->any() )
                         <div class="alert alert-danger alert-dismissable">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            {{ $errors->first('email', ':message') }}  Please try again or contact mike@quantimo.do for help.
+                            {{ $errors->first('email', ':message') }}  Please try again or contact help@curedao.org for help.
                         </div>
                     @endif
                     <form action="" class="omb_loginForm" autocomplete="off" method="POST">
