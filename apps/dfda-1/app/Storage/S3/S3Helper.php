@@ -37,7 +37,7 @@ use Spatie\MediaLibrary\MediaCollections\Exceptions\MimeTypeNotAllowed;
 use Storage;
 abstract class S3Helper {
 	public const DISK_NAME = null;
-	protected const BUCKET = null;
+	protected const TIMEOUT = 60;
 	public const S3_REGION = 'us-east-1';
 	public const BASE_S3_PATH = null;
 	const S3CMD_CONFIG = "configs/.s3cfg";
@@ -51,10 +51,10 @@ abstract class S3Helper {
         $fileNameWithExtension = basename($url);
         return $fileNameWithExtension;
     }
-    /**
-     * @param string $s3Path
-     * @return int
-     */
+	/**
+	 * @param string $s3Path
+	 * @return int|null
+	 */
     public static function getSecondsSinceLastModified(string $s3Path): ?int{
         $lastModified = static::lastModified($s3Path);
         if (!$lastModified) {
@@ -101,7 +101,7 @@ abstract class S3Helper {
             QMLog::infoWithoutContext(static::url($s3Path) . " last modified  " .
                 TimeHelper::timeSinceHumanString($lastModified));
         } /** @noinspection PhpRedundantCatchClauseInspection */ catch (QMFileNotFoundException | \League\Flysystem\FileNotFoundException $e) {
-            QMLog::infoWithoutContext(static::BUCKET . ": " . $e->getMessage());
+            QMLog::infoWithoutContext(static::getBucketName() . ": " . $e->getMessage());
             $lastModified = 0;
         }
         return static::$lastModified[$s3Path] = $lastModified;
@@ -137,11 +137,11 @@ abstract class S3Helper {
             throw $e;
         }
         if($result){
-            QMLog::info("Uploaded $s3Path to ".static::BUCKET);
+            QMLog::info("Uploaded $s3Path to ".static::getBucketName());
             if($deleteLocal){FileHelper::deleteFile($absoluteFilePath, __METHOD__);}
             return $s3Path;
         }
-        le("Could not upload $s3Path");throw new \LogicException();
+        le("Could not upload $s3Path");
     }
     /**
      * @param string $s3Path
@@ -165,11 +165,11 @@ abstract class S3Helper {
         }
         if($result){
             try {
-                $url = static::getUrlForS3BucketAndPath(static::BUCKET . '/' . $s3Path);
+                $url = static::getUrlForS3BucketAndPath(static::getBucketName() . '/' . $s3Path);
             } catch (InvalidS3PathException $e) {
                 le($e);
             }
-            if($log){QMLog::info("Uploaded $s3Path to " . static::BUCKET . ". See at:\n => $url");}
+            if($log){QMLog::info("Uploaded $s3Path to " . static::getBucketName() . ". See at:\n => $url");}
             return $url;
         }
         le("Could not upload $s3Path");
@@ -188,7 +188,7 @@ abstract class S3Helper {
      * @return string
      */
     public static function url(string $s3Path): string {
-        if (!static::BUCKET) {
+        if (!static::getBucketName()) {
 	        [
 		        $bucket,
 		        $s3Path,
@@ -210,7 +210,7 @@ abstract class S3Helper {
      * @return string
      */
     public static function getObjectUrl(string $s3Path): string {
-        $url = static::getS3Client()->getObjectUrl(static::BUCKET, $s3Path);
+        $url = static::getS3Client()->getObjectUrl(static::getBucketName(), $s3Path);
         return $url;
     }
     /**
@@ -305,7 +305,7 @@ abstract class S3Helper {
      * @return bool
      */
     public static function existsAndNotExpired(string $s3Path, int $maxAgeInSeconds = 0): bool {
-        if (!static::BUCKET) {
+        if (!static::getBucketName()) {
 	        [
 		        $bucket,
 		        $s3Path,
@@ -340,7 +340,7 @@ abstract class S3Helper {
         $directory = static::removeBucketFromS3PathIfNecessary($directory);
         $directory = static::prefixWithBaseS3PathIfNecessary($directory);
         $directory = str_replace('\\', '/', $directory); // Fix windows paths
-        QMLog::error("Deleting $directory from S3 bucket " . static::BUCKET);
+        QMLog::error("Deleting $directory from S3 bucket " . static::getBucketName());
         return static::disk()->deleteDirectory($directory);
     }
     /**
@@ -348,7 +348,7 @@ abstract class S3Helper {
      * @return bool
      */
     public static function deleteAllFilesDirectory(string $directory): bool{
-        QMLog::error("Deleting all files in $directory from S3 bucket " . static::BUCKET);
+        QMLog::error("Deleting all files in $directory from S3 bucket " . static::getBucketName());
         $disk = static::disk();
         $files = $disk->allFiles($directory);
         return $disk->delete($files);
@@ -362,7 +362,7 @@ abstract class S3Helper {
         le("Not implemented yet!");
         /** @noinspection PhpUnreachableStatementInspection */
         $directory = static::prefixWithBaseS3PathIfNecessary($directory);
-        QMLog::error("Deleting $directory from S3 bucket " . static::BUCKET);
+        QMLog::error("Deleting $directory from S3 bucket " . static::getBucketName());
         $disk = static::disk();
         $deletedDir = 'deleted/'.$directory;
         $disk->makeDirectory($deletedDir);
@@ -534,15 +534,15 @@ abstract class S3Helper {
 		    le("Could not delete $s3Path!  Make sure you don't have versioning turned on.  Error: " . $e->getMessage());
 		}
     }
-    /**
-     * @param string $s3Path
-     * @return mixed|string
-     */
+	/**
+	 * @param string $s3Path
+	 * @return string
+	 */
     protected static function removeBucketFromS3PathIfNecessary(string $s3Path): string{
         $s3Path = QMStr::after(S3Private::getBucketName() . '/', $s3Path, $s3Path);
         $s3Path = QMStr::after(S3Public::getBucketName() . '/', $s3Path, $s3Path);
-        if(static::BUCKET){
-            $s3Path = QMStr::after(static::BUCKET . '/', $s3Path, $s3Path);
+        if(static::getBucketName()){
+            $s3Path = QMStr::after(static::getBucketName() . '/', $s3Path, $s3Path);
         }
         return $s3Path;
     }
@@ -666,7 +666,7 @@ Make sure you ran:
             return null;
         }
         $path = FileHelper::absPath($path);
-        \App\Logging\ConsoleLog::info("Uploading $path to $s3Path in ".static::BUCKET);
+        \App\Logging\ConsoleLog::info("Uploading $path to $s3Path in ".static::getBucketName());
         try {
             static::put($s3Path, file_get_contents($path));
             return static::url($s3Path);
@@ -780,11 +780,11 @@ Make sure you ran:
         }
         if($result){
             try {
-                $url = static::getUrlForS3BucketAndPath(static::BUCKET . '/' . $s3Path);
+                $url = static::getUrlForS3BucketAndPath(static::getBucketName() . '/' . $s3Path);
             } catch (InvalidS3PathException $e) {
                 le($e);
             }
-            QMLog::info("Uploaded $s3Path to " . static::BUCKET . ". See at:\n => $url");
+            QMLog::info("Uploaded $s3Path to " . static::getBucketName() . ". See at:\n => $url");
             return $url;
         }
         le("Could not upload $s3Path");
@@ -816,6 +816,7 @@ Make sure you ran:
         $map = [
             S3Public::getBucketName() => S3Public::DISK_NAME,
             S3Private::getBucketName() => S3Private::DISK_NAME,
+	        S3PrivateGlobal::getBucketName() => S3PrivateGlobal::DISK_NAME,
         ];
         return $map[$bucket];
     }
@@ -952,5 +953,22 @@ Make sure you ran:
 		if(FileHelper::fileExists($absoluteDownloadPath)){return;}
 		static::download($s3Path, $absoluteDownloadPath);
 	}
-	abstract public static function getBucketName(): string;
+	abstract public static function getBucketName(): ?string;
+	abstract protected static function getLocalFileSystemConfig(): array;
+	public static function getConfig(): array{
+		$bucket = static::getBucketName();
+		if(!$bucket){
+			return static::getLocalFileSystemConfig();
+		}
+		return [
+			'driver' => 's3',
+			'key' => env('STORAGE_ACCESS_KEY_ID'),
+			'secret' => env('STORAGE_SECRET_ACCESS_KEY'),
+			'region' => static::S3_REGION,
+			'bucket' => env('STORAGE_BUCKET_PRIVATE', $bucket),
+			'url' => env('STORAGE_URL'),
+			'endpoint' => env('STORAGE_ENDPOINT'),
+			'options' => ['timeout' => static::TIMEOUT,],
+		];
+	}
 }

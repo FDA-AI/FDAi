@@ -21,7 +21,6 @@ use Spatie\MediaLibrary\MediaCollections\Exceptions\MimeTypeNotAllowed;
  */
 class S3Public extends S3Helper {
 	public const DISK_NAME = 's3-public';
-	protected const BUCKET = "static.quantimo.do";
 	public const S3_CACHED_ORIGIN = "https://static.quantimo.do/";
 	/**
      * Write the contents of a file.
@@ -68,7 +67,15 @@ class S3Public extends S3Helper {
     public static function makeACLPublicRecursive(string $folder = null){
 	    ThisComputer::exec("s3cmd setacl s3://static.quantimo.do/$folder --acl-public --recursive");
     }
-	public static function getBucketName(): string{
-		return Env::getRequired('STORAGE_BUCKET_PUBLIC'); 
+	public static function getBucketName(): ?string{
+		return Env::get('STORAGE_BUCKET_PUBLIC');
+	}
+	protected static function getLocalFileSystemConfig(): array{
+		return [
+			'driver' => 'local',
+			'root' => storage_path('app/public'),
+			'url' => env('APP_URL').'/storage',
+			'visibility' => 'public',
+		];
 	}
 }

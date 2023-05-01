@@ -17,7 +17,15 @@ class S3Private extends S3Helper {
         /** @noinspection PhpUnhandledExceptionInspection */
         return self::getUrlForS3BucketAndPath(static::getBucketName() . "/$s3Path");
     }
-	public static function getBucketName(): string{
-		return Env::getRequired('STORAGE_BUCKET_PRIVATE');
+	public static function getBucketName(): ?string{
+		return Env::get('STORAGE_BUCKET_PRIVATE');
+	}
+	protected static function getLocalFileSystemConfig(): array{
+		return [
+			'driver' => 'local',
+			'root' => storage_path('app/private'),
+			'url' => env('APP_URL').'/private',
+			'visibility' => 'private',
+		];
 	}
 }
