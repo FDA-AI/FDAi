@@ -9,8 +9,7 @@
     "build": "nx build",
     "test": "nx test",
     "api-spec": "nx generate @trumbitta/nx-plugin-openapi:api-spec",
-    "api-lib": "nx generate @trumbitta/nx-plugin-openapi:api-lib",
-    "docs": "nx run docs:serve --verbose"
+    "api-lib": "nx generate @trumbitta/nx-plugin-openapi:api-lib"
   },
   "private": true,
   "dependencies": {
