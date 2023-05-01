@@ -518,7 +518,6 @@ abstract class QMDB extends Connection {
 		return base_path('data/property_models.json');
 	}
 	/**
-	 * @param string $connection
 	 * @return void
 	 */
 	public static function migrateForeignKeys(): void{
@@ -531,7 +530,6 @@ abstract class QMDB extends Connection {
 		]);
 	}
 	/**
-	 * @param string $connection
 	 * @return void
 	 */
 	public static function migrateTables(): void{
@@ -1351,7 +1349,7 @@ abstract class QMDB extends Connection {
 	public static function pdo(): PDO{
 		return static::db()->getPdo();
 	}
-	public static function assertLogging(){
+	public static function assertLogging(): void{
 		if(!DB::logging()){
 			le("DB NOT LOGGING!");
 		}
@@ -1359,7 +1357,7 @@ abstract class QMDB extends Connection {
 	/**
 	 * @throws InvalidDatabaseCredentialsException
 	 */
-	public static function createReadonlyUser(){
+	public static function createReadonlyUser(): void{
 		$testDbCredentials = static::credentialsCommand();
 		$testDbName = static::getDbName();
 		static::exec("mysql $testDbCredentials $testDbName << EOF
@@ -1438,6 +1436,9 @@ abstract class QMDB extends Connection {
 	public static function getExternalHost(): string{
 		return Migrations::getHost();
 	}
+	/**
+	 * @throws \App\Exceptions\NoInternetException
+	 */
 	public static function getExternalDbUrl(): string{
 		$url = static::getMySQLDbUrl();
 		$url = str_replace(static::getHost(), ThisComputer::getCurrentServerExternalIp(), $url);
@@ -3107,9 +3108,6 @@ ORDER BY S.relname;
             
             ');
 	}
-	/**
-	 * @throws \Doctrine\DBAL\Schema\SchemaException
-	 */
 	public static function populateDocsTable(): void {
 		$models = BaseModel::getNonAbstractModelsWithTables();
 		$json = $allTableDocs = [];

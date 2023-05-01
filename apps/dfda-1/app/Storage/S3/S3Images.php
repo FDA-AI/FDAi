@@ -23,7 +23,7 @@ class S3Images extends S3Public {
         }
         $s3Path = $key . '.' . $type;
         $options = [
-            'Bucket'      => static::BUCKET,
+            'Bucket'      => static::getBucketName(),
             'Key'         => $s3Path,
             'Body'        => $imageData,
             'ContentType' => $contentType,

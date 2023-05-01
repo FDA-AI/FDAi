@@ -14,7 +14,6 @@ class CsvFile extends AbstractSpreadsheetFile {
 	 * @param string $sourceJsonPath
 	 * @param string|null $outputPath
 	 * @return void
-	 * @throws \App\Exceptions\QMFileNotFoundException
 	 */
 	public static function jsonToCsv(string $sourceJsonPath, string $outputPath = null){
 		if(!$outputPath){
@@ -22,8 +21,7 @@ class CsvFile extends AbstractSpreadsheetFile {
 		}
 		$sourceArray = JsonFile::getArray($sourceJsonPath);
 		$headers =  self::getHeaders($sourceArray);
-		$csv = self::arrayToCsv($headers, $sourceArray, $outputPath);
-		FileHelper::write($outputPath, $csv);
+		self::arrayToCsv($headers, $sourceArray, $outputPath);
 	}
 	public static function getDefaultFolderRelative(): string{
 		return DynamicFolder::STORAGE . "/" . static::getDefaultExtension();
@@ -59,6 +57,7 @@ class CsvFile extends AbstractSpreadsheetFile {
 			}
 			fputcsv($file, $row);
 		}
+		fclose($file);
 	}
 	private static function getHeaders(array $arr){
 		$headers = [];
