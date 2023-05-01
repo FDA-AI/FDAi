@@ -75,37 +75,11 @@ return [
             ]
         ],
 
-        S3Private::DISK_NAME => [
-            'driver' => 's3',
-            'key' => env('STORAGE_ACCESS_KEY_ID'),
-            'secret' => env('STORAGE_SECRET_ACCESS_KEY'),
-            'region' => S3Private::S3_REGION,
-            'bucket' => env('STORAGE_BUCKET_PRIVATE', S3Private::getBucketName()),
-            'url' => env('STORAGE_URL'),
-            'endpoint' => env('STORAGE_ENDPOINT'),
-            'options' => ['timeout' => $timeout,],
-        ],
+        S3Private::DISK_NAME => S3Private::getConfig(),
 
-	    S3PrivateGlobal::DISK_NAME => [
-		    'driver' => 's3',
-		    'key' => env('STORAGE_ACCESS_KEY_ID'),
-		    'secret' => env('STORAGE_SECRET_ACCESS_KEY'),
-		    'region' => S3PrivateGlobal::S3_REGION,
-		    'bucket' => S3PrivateGlobal::getBucketName(),
-		    'url' => env('STORAGE_URL'),
-		    'endpoint' => env('STORAGE_ENDPOINT'),
-		    'options' => ['timeout' => $timeout,],
-	    ],
+	    S3PrivateGlobal::DISK_NAME => S3PrivateGlobal::getConfig(),
 
-        S3Public::DISK_NAME  => [
-            'driver'   => 's3',
-	        'key' => env('STORAGE_ACCESS_KEY_ID'),
-	        'secret' => env('STORAGE_SECRET_ACCESS_KEY'),
-            'region'   => S3Public::S3_REGION,
-            'visibility' => 'public',
-            'bucket'   =>  S3Public::getBucketName(), //qm-private.sfo2.digitaloceanspaces.com
-            'options' => ['timeout' => $timeout,],
-        ],
+        S3Public::DISK_NAME  => S3Public::getConfig(),
 
         's3' => [
             'driver' => 's3',

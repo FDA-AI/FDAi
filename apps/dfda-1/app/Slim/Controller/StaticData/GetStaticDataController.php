@@ -106,9 +106,9 @@ class GetStaticDataController extends GetController {
 		return S3Helper::loggedInUserAuthorizedForThisId($s3UserId);
 	}
 	/**
-	 * @return string
+	 * @return string|null
 	 */
-	public static function getBucketName(): string{
+	public static function getBucketName(): ?string{
 		$bucketName = QMRequest::getParam('bucket');
 		if($bucketName){
 			return $bucketName;

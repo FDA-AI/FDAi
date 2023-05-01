@@ -386,13 +386,11 @@ if (! function_exists('qm_csrf_field')) {
 function le($e, $meta = null){
     if (function_exists('xdebug_break')) {xdebug_break();}
 	//ConsoleLog::exception($e, $meta);
-		if($e instanceof \Throwable){
+	if($e instanceof \Throwable){
 		/** @var \LogicException $e */
 		throw $e;
 	}
-		if($meta){
-			$e .= QMLog::print_r($meta, true);
-		}
+	if($meta){$e .= QMLog::print_r($meta, true);}
 	throw new LogicException($e);
 }
 /**
