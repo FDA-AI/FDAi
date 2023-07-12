@@ -33,7 +33,7 @@ angular.module('starter').controller('UpgradeCtrl', ["$scope", "$state", "$ionic
             return;
         }
         if(qm.platform.isChromeExtension()){
-            chrome.tabs.create({url: qm.api.getQMApiOrigin() + '/upgrade'});
+            chrome.tabs.create({url: qm.api.getQMOrigin() + '/upgrade'});
             window.close();
             return;
         }
@@ -322,7 +322,7 @@ angular.module('starter').controller('UpgradeCtrl', ["$scope", "$state", "$ionic
             function showErrorAlert(){
                 alert = $mdDialog.alert({
                     title: error.errorMessage,
-                    textContent: "Please try again or contact help@curedao.org with Error Code: " + error.errorCode + ", Error Message: " + error.errorMessage + ", Product ID: " + getProductId(baseProductId),
+                    textContent: "Please try again or contact mike@quantimo.do with Error Code: " + error.errorCode + ", Error Message: " + error.errorMessage + ", Product ID: " + getProductId(baseProductId),
                     ok: 'OK'
                 });
                 $mdDialog.show(alert).finally(function(){
