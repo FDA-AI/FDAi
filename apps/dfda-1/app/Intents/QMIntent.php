@@ -46,11 +46,11 @@ abstract class QMIntent extends DBModel {
      */
     abstract public function fulfillIntent();
     /**
-     * @param string|array $paramNames
+     * @param array|string $paramNames
      * @param bool $lowercase
      * @return mixed
      */
-    public function getParam($paramNames, bool $lowercase = true){
+    public function getParam(array|string $paramNames, bool $lowercase = true){
         if(is_string($paramNames)){
             $paramNames = [$paramNames];
         }
@@ -143,8 +143,7 @@ abstract class QMIntent extends DBModel {
             return $parameters;
         }
         foreach($contexts as $context){
-            /** @var Context $context */
-            foreach($context->getParameters() as $key => $value){
+	        foreach($context->getParameters() as $key => $value){
                 if($value !== null && $value !== ""){
                     $parameters[$key] = $value;
                 }

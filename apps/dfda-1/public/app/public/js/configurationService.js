@@ -1326,7 +1326,7 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
             qmService.showInfoToast("Saving app settings...");
             qmService.showFullScreenLoader();
             $timeout(function(){ // Allow time to show toast first
-				var url = qm.api.getQMApiOrigin() + '/api/v1/appSettings';
+				var url = qm.api.getQMOrigin() + '/api/v1/appSettings';
 				url = qm.urlHelper.addUrlQueryParamsToUrlString({'includeClientSecret': true}, url);
                 qm.api.post(url, appSettings, function(response){
                     //qmService.processAndSaveAppSettings(response.appSettings, successHandler);  // We'll over-write changes while posting
@@ -1612,7 +1612,7 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
         return deferred.promise;
     };
     configurationService.getEmbeddableJs = function(){
-        return '<script src="https://cdn.rawgit.com/QuantiModo/quantimodo-embed-js/0.0.1/quantimodo-embed.min.js"></script>' +
+        return '<script public="https://cdn.rawgit.com/QuantiModo/quantimodo-embed-js/0.0.1/quantimodo-embed.min.js"></script>' +
             '<script>' +
             'window.QuantiModoIntegration.options = {clientId: "' + $rootScope.appSettings.clientId + '"}; ' +
             'window.QuantiModoIntegration.createSingleFloatingActionButton();' +

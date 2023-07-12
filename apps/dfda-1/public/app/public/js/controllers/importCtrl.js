@@ -140,7 +140,7 @@ angular.module('starter').controller('ImportCtrl', ["$scope", "$ionicLoading", "
                 qmService.showFullScreenLoader();
                 var body = {file: file, "connectorName": connector.name};
                 file.upload = Upload.upload({
-                    url: qm.api.getQMApiOrigin() + '/api/v2/spreadsheetUpload?clientId=' +
+                    url: qm.api.getQMOrigin() + '/api/v2/spreadsheetUpload?clientId=' +
                          $rootScope.appSettings.clientId + "&access_token=" + $rootScope.user.accessToken, data: body
                 });
                 file.upload.then(function(response){
@@ -158,7 +158,7 @@ angular.module('starter').controller('ImportCtrl', ["$scope", "$ionicLoading", "
                     if(response.status > 0){
                         button.text = "Upload Failed";
                         qmLog.error("Upload failed!");
-                        qmService.showMaterialAlert("Upload failed!", "Please contact help@curedao.org and he'll fix it. ");
+                        qmService.showMaterialAlert("Upload failed!", "Please contact mike@quantimo.do and he'll fix it. ");
                         $scope.errorMsg = response.status + ': ' + response.data;
                     }
                 }, function(evt){
