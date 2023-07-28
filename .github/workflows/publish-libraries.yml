@@ -1,0 +1,33 @@
+name: Publish to npm
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npx nx build text-2-measurements
+
+      - name: Test
+        run: npx nx test text-2-measurements
+
+      - name: Publish
+        run: npx nx npm publish text-2-measurements
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
