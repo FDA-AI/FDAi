@@ -32,6 +32,7 @@
       ],
       "@curedao/sdk-typescript-node": ["libs/sdk-typescript-node/src/index.ts"],
       "@curedao/test-helpers": ["libs/test-helpers/src/index.ts"],
+      "@curedao/text-2-measurements": ["libs/text-2-measurements/src/index.ts"],
       "@curedao/url-helper": ["libs/url-helper/src/index.ts"]
     }
   },
