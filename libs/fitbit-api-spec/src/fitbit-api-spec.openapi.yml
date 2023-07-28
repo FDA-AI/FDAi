@@ -3978,7 +3978,7 @@ paths:
         "400":
           content: {}
           description: The request had bad syntax or was inherently impossible to
-            be satified.
+            be satisfied.
         "401":
           content: {}
           description: The request requires user authentication.
