@@ -14,7 +14,7 @@ class TrackingReminderNotificationIntent extends QMIntent {
         parent::__construct();
     }
     /**
-     * @return mixed|void
+     * @return void
      * @throws \App\Exceptions\TrackingReminderNotificationNotFoundException
      */
     public function fulfillIntent(){

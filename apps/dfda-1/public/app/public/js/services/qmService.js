@@ -662,7 +662,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                                 }
                             }
                             qmLog.authDebug("qmApiMobileConnect login: Setting final_callback_url to " + final_callback_url);
-                            var url = qm.api.getExpressUrl('/api/v1/connectors/' + connector.name + '/connect?client_id=' +
+                            var url = qm.api.getQuantiModoUrl('/api/v1/connectors/' + connector.name + '/connect?client_id=' +
                                 qm.api.getClientId() + '&final_callback_url=' + encodeURIComponent(final_callback_url))
                                 //+ '&client_secret=' + qm.api.getClientSecret());
                             if(options){
@@ -714,7 +714,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                     return deferred.promise;
                 },
                 getConnectUrl: function(connector, params){
-                    var url = qm.api.getExpressUrl('/auth/' + connector.name);
+                    var url = qm.api.getQuantiModoUrl('/auth/' + connector.name);
                     params.final_callback_url = window.location.href;
                     if(qm.platform.isChromeExtension()){params.final_callback_url = chrome.identity.getRedirectURL();}
                     params.clientId = qm.api.getClientId();
@@ -3009,7 +3009,9 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                 qmLog.info("actionSheetButtons", card.actionSheetButtons);
                 card.actionSheetButtons = card.actionSheetButtons.map(function(button){
                     if(button.html){
-                        button.text = button.html;
+						// Don't do this until you fix the size of the images which are huge because width is set to
+	                    // 100%
+                        // button.text = button.html;
                     }
                     return button;
                 });
@@ -5744,7 +5746,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                 userVote: 1
             });
             var subjectLine = "Help us discover the effect of " + causeVariableName + " on " + effectVariableName;
-            var studyLinkStatic = qm.api.getQMApiOrigin() + "/api/v2/study?causeVariableName=" +
+            var studyLinkStatic = qm.api.getQMOrigin() + "/api/v2/study?causeVariableName=" +
                                   encodeURIComponent(causeVariableName) + '&effectVariableName=' + encodeURIComponent(effectVariableName);
             var bodyText = "Please join my study at " + studyLinkStatic + " .  Have a great day!";
             return {
@@ -5758,7 +5760,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
             if(study && study.studyLinks){
                 return study.studyLinks.studyLinkStatic;
             }
-            return qm.api.getQMApiOrigin() + '/api/v2/study?causeVariableName=' + encodeURIComponent(causeVariableName) + '&effectVariableName=' + encodeURIComponent(effectVariableName);
+            return qm.api.getQMOrigin() + '/api/v2/study?causeVariableName=' + encodeURIComponent(causeVariableName) + '&effectVariableName=' + encodeURIComponent(effectVariableName);
         };
         qmService.getWikipediaArticle = function(title){
             var deferred = $q.defer();
@@ -6069,9 +6071,18 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
             return planFeatureCards;
         };
         qmService.showFullScreenLoader = function(duration){
+			//return;
             duration = duration || 15;
-	        var templateUrl = "templates/loaders/triangles-loader.html"
-	        $ionicLoading.show({templateUrl: templateUrl, duration: duration * 1000});
+            if(typeof psychedelicLoader === "undefined"){
+                qmLog.error("psychedelicLoader undefined!");
+            } else {
+                psychedelicLoader.start();
+            }
+            debugger
+	        // var templateUrl = "templates/loaders/triangles-loader.html"
+	        // I think the high GPU usage crashes the browser
+	        // $ionicLoading.show({templateUrl: templateUrl, duration: duration * 1000});
+	        //$ionicLoading.show({template: '<div class="loader"></div>', duration: duration * 1000});
         };
         qmService.hideLoader = function(){
 			//debugger
