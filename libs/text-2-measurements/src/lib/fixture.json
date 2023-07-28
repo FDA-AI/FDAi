@@ -1,0 +1,52 @@
+{
+  "tests": [
+    {
+      "statement": "I ate a bowl of oatmeal for breakfast.",
+      "expected": {
+        "measurements": [
+          {
+            "itemType": "measurement",
+            "variableName": "oatmeal",
+            "value": 1,
+            "unitName": "Serving",
+            "startAt": "breakfast",
+            "combinationOperation": "SUM",
+            "variableCategoryName": "Foods"
+          }
+        ]
+      }
+    },
+    {
+      "statement": "Took 500mg of Paracetamol at 10 AM.",
+      "expected": {
+        "measurements": [
+          {
+            "itemType": "measurement",
+            "variableName": "Paracetamol",
+            "value": 500,
+            "unitName": "Milligrams",
+            "startAt": "10 AM",
+            "combinationOperation": "SUM",
+            "variableCategoryName": "Treatments"
+          }
+        ]
+      }
+    },
+    {
+      "statement": "Experienced a headache around midday, severity was 3 out of 5.",
+      "expected": {
+        "measurements": [
+          {
+            "itemType": "measurement",
+            "variableName": "Experienced a headache around midday",
+            "value": 3,
+            "unitName": "1 to 5 Rating",
+            "startAt": "midday",
+            "combinationOperation": "MEAN",
+            "variableCategoryName": "Symptoms"
+          }
+        ]
+      }
+    }
+  ]
+}

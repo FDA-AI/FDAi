@@ -3137,6 +3137,13 @@ ORDER BY S.relname;
 				$tableName = $model->getTable();
 				$tableName = DBTable::toDisplayName($tableName);
 				$arr['table'] = $tableName;
+				foreach(DBTable::TABLE_ALIASES as $alias => $table){
+					$str = str_replace($table, $alias, json_encode($arr));
+					$table = ucfirst(QMStr::camelize($table));
+					$alias = ucfirst(QMStr::camelize($alias));
+					$str = str_replace($table, $alias, json_encode($arr));
+					$arr = json_decode($str);
+				}
 				$json[] = $arr;
 			}
 		}

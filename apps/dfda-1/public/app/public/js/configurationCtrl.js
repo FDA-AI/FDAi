@@ -244,7 +244,7 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
         var body = {file: file};
         qmService.showFullScreenLoader();
         file.upload = Upload.upload({
-            url: qm.api.getQMApiOrigin() + '/api/v2/upload?clientId=' + $rootScope.appSettings.clientId +
+            url: qm.api.getQMOrigin() + '/api/v2/upload?clientId=' + $rootScope.appSettings.clientId +
                  '&filename=' + fileName + "&accessToken=" + $rootScope.user.accessToken + "&encrypt=" + encrypt,
             data: body
         });
@@ -303,7 +303,7 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
             body.encrypt = true;
         }
         file.upload = Upload.upload({
-            url: qm.api.getQMApiOrigin() + '/api/v2/upload?clientId=' + $rootScope.appSettings.clientId +
+            url: qm.api.getQMOrigin() + '/api/v2/upload?clientId=' + $rootScope.appSettings.clientId +
                  '&filename=' + fileName + '&accessToken=' + $rootScope.user.accessToken, data: body
         });
         file.upload.then(function(response){
@@ -393,7 +393,7 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
             if(!query){
                 query = dataToPass.currentIcon;
             }
-            self.notFoundText = "No ionIcons matching " + query + " were found.  Please try another wording or contact help@curedao.org.";
+            self.notFoundText = "No ionIcons matching " + query + " were found.  Please try another wording or contact mike@quantimo.do.";
             var deferred = $q.defer();
             configurationService.getIonIcons(query)
                 .then(function(results){

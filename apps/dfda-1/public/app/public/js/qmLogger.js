@@ -122,9 +122,7 @@ var qmLog = {
         //     return false;
         // }
         qmLog.authDebugEnabled = value;
-        if(qmLog.authDebugEnabled && window.localStorage){
-            qm.storage.setItem('authDebugEnabled', value);
-        }
+        qm.storage.setItem('authDebugEnabled', value);
         return qmLog.authDebugEnabled;
     },
     itemAndThrowException: function(item, message, propertiesToLog){
@@ -611,7 +609,7 @@ var qmLog = {
         if(qmLog.isDebugMode()){
             qmLog.globalMetaData.local_storage = qm.storage.getLocalStorageList();
         } // Too slow to do for every error
-        qmLog.globalMetaData.api = {log: qm.api.requestLog, ApiOrigin: qm.api.getExpressUrl()};
+        qmLog.globalMetaData.api = {log: qm.api.requestLog, ApiOrigin: qm.api.getQuantiModoUrl()};
         var as = qm.getAppSettings();
         if(as){
             qmLog.globalMetaData.api.client_id = qm.api.getClientId();

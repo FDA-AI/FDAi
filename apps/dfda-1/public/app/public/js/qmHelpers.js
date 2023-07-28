@@ -217,12 +217,13 @@ var qm = {
             if(!qm.Quantimodo){qm.Quantimodo = Quantimodo}
             var qmApiClient = qm.Quantimodo.ApiClient.instance;
             var quantimodo_oauth2 = qmApiClient.authentications.quantimodo_oauth2;
-            qmApiClient.basePath = qm.api.getExpressUrl('/api');
+            //qmApiClient.basePath = qm.api.getExpressUrl('/api');
+	        qmApiClient.basePath = qm.api.getQMApiOrigin();
             quantimodo_oauth2.accessToken = qm.auth.getAccessTokenFromUrlUserOrStorage();
             var message = "API Request to " + qmApiClient.basePath + " for " + functionName;
             if(params.reason){message += " because " + params.reason;}
             delete params.reason;
-            qmLog.debug(message, params);
+            qmLog.info(message, params);
             qm.api.requestLog.push({
                 time: qm.timeHelper.getCurrentLocalDateAndTime(),
                 name: functionName,
@@ -554,7 +555,7 @@ var qm = {
             }
             var subDomain = qm.urlHelper.getSubDomain();
             subDomain = subDomain.replace('qm-', '');
-            if(subDomain === 'web' ||
+            if(subDomain === 'web' || 
                subDomain === 'staging-web' ||
                subDomain === 'feature' ||
                subDomain === 'dev-web'){
@@ -591,84 +592,27 @@ var qm = {
                 }
             }
         },
-        apiOrigins:{
-            production: 'https://app.quantimo.do',
-            staging: 'https://staging.quantimo.do',
-            localhost: 'http://localhost:80',
-	        localQM: 'https://local.quantimo.do',
-            remoteLocal: 'https://utopia.quantimo.do',
-        },
-        getExpressOrigin: function(){
-            return qm.api.getExpressOrigin();
-        },
-	    validateQMApiOrigin: function(origin){
-		    if(origin === window.location.origin){return origin;}
-			if(origin.endsWith(".quantimo.do")){return origin;}
-			qmLog.errorAndExceptionTestingOrDevelopment("Invalid QM API origin: " + origin)
-		    return qm.api.apiOrigins.production;
+	    getQMOrigin: function(){
+		    var origin;
+		    if(qm.appMode.isBackEnd()){
+			    origin = process.env.QM_API_ORIGIN || "https://app.quantimo.do";
+		    } else {
+			    origin = qm.urlHelper.getParam(qm.items.apiOrigin);
+			    if(origin && origin !== qm.storage.getItem(qm.items.apiOrigin)){
+				    qm.storage.setItem(qm.items.apiOrigin, origin);
+			    }
+			    if(!origin){origin = qm.storage.getItem(qm.items.apiOrigin);}
+			    if(!origin){origin = window.location.origin;}
+		    }
+		    if(origin.indexOf("http") === -1){origin = "https://" + origin;}
+		    origin = origin.replace("https://https", "https");
+			origin = origin.replace("/api", "");
+			return origin;
 	    },
         getQMApiOrigin: function(){
-            if(qm.appMode.isBackEnd() && process.env.QM_API_ORIGIN){
-                return process.env.QM_API_ORIGIN;
-            }
-            var apiOrigin = qm.urlHelper.getParam(qm.items.apiOrigin);
-            if(apiOrigin && apiOrigin !== qm.storage.getItem(qm.items.apiOrigin)){
-                qm.storage.setItem(qm.items.apiOrigin, apiOrigin);
-            }
-            // if(typeof window !== "undefined" && !apiOrigin){
-            //     return window.location.origin;
-            // }
-            if(!apiOrigin && qm.appMode.isDebug() && qm.platform.isMobile() && (!qm.getUser() || qm.getUser().id === 230)){
-                apiOrigin = qm.api.apiOrigins.remoteLocal;
-            }
-            if(!apiOrigin){
-                apiOrigin = qm.storage.getItem(qm.items.apiOrigin);
-            }
-            if(qm.appMode.isBrowser() && window.location.host.indexOf('dev-') === 0){
-                return qm.api.apiOrigins.localQM;
-            }
-            if(qm.appMode.isBackEnd()){
-                apiOrigin= qm.env.getEnv('QM_API_ORIGIN')
-                if(apiOrigin){return apiOrigin;}
-                var stage = qm.env.getEnv('RELEASE_STAGE')
-                if(stage === "staging"){
-                    apiOrigin = qm.api.apiOrigins.staging;
-                    qmLog.info("Using apiOrigin "+apiOrigin+" because release stage is staging")
-                    return apiOrigin;
-                }
-            }
-            if(!apiOrigin){
-                var appSettings = qm.appsManager.getAppSettingsFromMemory();
-                if(appSettings && appSettings.apiOrigin){
-                    apiOrigin = appSettings.apiOrigin;
-                }
-            }
-            if(!apiOrigin && !qm.appMode.isBrowser()){
-                apiOrigin = qm.api.apiOrigins.production; // Don't use anything else or I get CORS errors
-            }
-            if(!apiOrigin && window.location.origin.indexOf('staging.quantimo.do') !== -1){
-                apiOrigin = qm.api.apiOrigins.staging;
-            }
-	        if(!apiOrigin && window.location.origin.indexOf('local.quantimo.do') !== -1){
-		        apiOrigin = qm.api.apiOrigins.localQM;
-	        }
-            if(!apiOrigin && window.location.origin.indexOf('localhost') !== -1){
-                apiOrigin = qm.api.apiOrigins.production;
-            }
-            if(!apiOrigin && window.location.origin.indexOf('utopia.quantimo.do') !== -1){
-                apiOrigin = qm.api.apiOrigins.remoteLocal;
-            }
-            if(!apiOrigin && window.location.origin.indexOf('localhost:8100') !== -1){
-                apiOrigin = qm.api.apiOrigins.production; // Don't use anything else or I get CORS errors
-            } // Ionic serve
-            if(!apiOrigin){
-                apiOrigin = qm.api.apiOrigins.production; // Don't use anything else or I get CORS errors
-            }
-            if(apiOrigin.indexOf("http") === -1){
-                apiOrigin = "https://" + apiOrigin;
-            }
-            apiOrigin = apiOrigin.replace("https://https", "https");
-            return qm.api.validateQMApiOrigin(apiOrigin);
+			var origin = qm.api.getQMOrigin();
+			var apiOrigin = origin + '/api';
+            return apiOrigin;
         },
         postViaFetch: function(url, body, successHandler, errorHandler){
             //var headers = new Headers()
@@ -773,12 +717,12 @@ var qm = {
                 if(token){
                     logUrl = qm.urlHelper.addUrlQueryParamsToUrlString({access_token: token}, url)
                 }
-                logUrl = logUrl.replace(qm.api.getQMApiOrigin(), "https://local.quantimo.do")
+                logUrl = logUrl.replace(qm.api.getQMOrigin(), "https://local.quantimo.do")
                 qmLog.info("DEBUG URL with token:\n\t" + logUrl);
             }
         },
         getViaXhrOrFetch: function(url, successHandler, errorHandler){
-            url = qm.urlHelper.prefixExpressOriginIfNecessary(url);
+            url = qm.urlHelper.prefixQMAPIOriginIfNecessary(url);
             qm.api.logRequestUrl(url, "GET")
             if(typeof XMLHttpRequest !== "undefined"){
                 qm.api.getViaXhr(url, successHandler, errorHandler);
@@ -789,7 +733,7 @@ var qm = {
         getAppSettingsUrl: function(clientId, callback){
             function generateUrl(clientId, clientSecret){
                 // Can't use QM SDK in service worker
-                var settingsUrl = qm.api.getQMApiOrigin() + '/api/v1/appSettings?clientId=' + clientId;
+                var settingsUrl = qm.api.getQMOrigin() + '/api/v1/appSettings?clientId=' + clientId;
                 if(clientSecret){
                     settingsUrl += "&clientSecret=" + clientSecret;
                 }
@@ -811,7 +755,7 @@ var qm = {
             }
         },
         getViaFetch: function(url, successHandler, errorHandler){
-            url = qm.urlHelper.prefixExpressOriginIfNecessary(url);
+            url = qm.urlHelper.prefixQMAPIOriginIfNecessary(url);
             qmLog.pushDebug("Making get request to " + url);
             fetch(url, {
                 method: 'get',
@@ -904,15 +848,10 @@ var qm = {
 			return url;
         },
         getQuantiModoUrl: function(path){
+	        if(typeof path === "undefined"){path = "";}
             if(path.indexOf("http") === 0){return path;}
-            if(typeof path === "undefined"){path = "";}
             if(path.indexOf("/") !== 0){path = "/" + path;}
-            return qm.api.getQMApiOrigin() + path;
-        },
-        getExpressUrl: function(path){
-            if(typeof path === "undefined"){path = "";}
-            if(path.indexOf("http") === 0){return path;}
-            return qm.urlHelper.prefixExpressOriginIfNecessary(path);
+            return qm.api.getQMOrigin() + path;
         },
         getLocalStorageNameForRequest: function(type, route){
             return 'last_' + type + '_' + route.replace('/', '_') + '_request_at';
@@ -1024,7 +963,7 @@ var qm = {
             }
             delete params.force;
             qm.auth.getAccessTokenFromAnySource().then(function(accessToken){
-                var url = qm.urlHelper.prefixExpressOriginIfNecessary(route);
+                var url = qm.urlHelper.prefixQMAPIOriginIfNecessary(route);
                 url = qm.urlHelper.addUrlQueryParamsToUrlString(qm.api.addGlobalParams({}), url);
                 url = qm.urlHelper.addUrlQueryParamsToUrlString(params, url);
                 qm.api.getViaXhrOrFetch(url, successHandler, requestSpecificErrorHandler);
@@ -2154,7 +2093,7 @@ var qm = {
             if(appSettings && appSettings.redirectUri){
                 return appSettings.redirectUri;
             }
-            return qm.api.getQMApiOrigin() + '/callback/';
+            return qm.api.getQMOrigin() + '/callback/';
         },
         getAccessTokenFromUrlAndSetLocalStorageFlags: function(){
             if(qm.auth.accessTokenFromUrl){
@@ -2339,7 +2278,7 @@ var qm = {
 			    return true;
 		    }
 		    let logout = qm.urlHelper.getParam('logout');
-		    return qm.boolHelper.isTruthy(logout) &&
+		    return qm.boolHelper.isTruthy(logout) && 
 		           !qm.urlHelper.urlContains("logout=0");  // Handles screwed up redirect urls with logout=0%2Fapp%2Flogin
 	    },
 	    loginIfNecessary: async function(){
@@ -2352,7 +2291,7 @@ var qm = {
     },
     aws: {
         getSecretAccessKeyId: function (){
-            return qm.env.getEnv('STORAGE_SECRET_ACCESS_KEY')
+            return qm.env.getEnv('AWS_SECRET_ACCESS_KEY')
         },
     },
     buildInfoHelper: {
@@ -3068,7 +3007,7 @@ var qm = {
         getConnectUrl: function(connectorName, params){
             params = params || {}
             if(typeof connectorName !== "string"){connectorName = connectorName.name;}
-            var url = qm.api.getExpressUrl('/auth/' + connectorName);
+            var url = qm.api.getQuantiModoUrl('/auth/' + connectorName);
 			if(params && params.link){
 				url = params.link;
 				delete params.link;
@@ -3479,9 +3418,9 @@ var qm = {
                     ],
                     "user": {
                         "lastSeen": "2018-08-07T16:26:13Z",
-                        "idToken": "",
+                        "idToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjlhMzNiNWVkYjQ5ZDA4NjdhODY3MmQ5NTczYjFlMGQyMzc1ODg2ZTEifQ.eyJhdWQiOiI5MTg3NjEzMjU0OTEtazJ0Y3VkbGg5ZHEyMjdtb2RrMWhnbmlvMDR1aGhvNWQuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTg0NDQ2OTMxODQ4Mjk1NTUzNjIiLCJoZCI6InRoaW5rYnludW1iZXJzLm9yZyIsImVtYWlsIjoibUB0aGlua2J5bnVtYmVycy5vcmciLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZXhwIjoxNTMzNzYxMjU1LCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJqdGkiOiJlODFlY2Q4YTA5NmVhOGQ0YmVmOTk0YWMwYTVjZjlmZDczMjBkMTU4IiwiaWF0IjoxNTMzNzU3NjU1LCJuYmYiOjE1MzM3NTczNTUsIm5hbWUiOiJNaWtlIFNpbm4iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDYuZ29vZ2xldXNlcmNvbnRlbnQuY29tLy1CSHI0aHlVV3FaVS9BQUFBQUFBQUFBSS9BQUFBQUFBSUcyOC8yTHYwZW43MzhJSS9zOTYtYy9waG90by5qcGciLCJnaXZlbl9uYW1lIjoiTWlrZSIsImZhbWlseV9uYW1lIjoiU2lubiJ9.qzSwaFXvQiPeKRAX4iCN1hbZMnwRucXF_bgHGxvHL_kJVyeOtjxNBXI8OdJsG1JTrO5J7wSRowbIMpaWdfREjxL6mh_J6nCsF7Q6iIOscCUlfvbHs7Qhqo_nutEXJxrObUFUUMVGvGFXvhkql0kawsgr_YVlCFc7iD4zJC9ljyCOjBJbe3rZBvoQwkOk_4shnRKL0OShHezrfQR4uUHR2etNQwMDva3JZzB9kXGndKYZgbQr1221s6Yklza1VSy0BuIFGQOHZsM5ig5EeQ7PQ7EfQ3gIT2O6u1O0rPQ42j7YNqrXZ2OT4ZRE6x0v4r4QEq8qAZkRqqaeNH7ab4pySA",
                         "locale": "en-US",
-                        "userId": ""
+                        "userId": "ABwppHHxfsyj2umsF4FaFTEIOzSDJf2jDveTQtBP5CJH-KLJYugjxHPpR_uRxBLovyUADcMpHA"
                     },
                     "conversation": {
                         "conversationId": "1533757655027",
@@ -3746,9 +3685,9 @@ var qm = {
                     ],
                     "user": {
                         "lastSeen": "2018-08-08T20:22:25Z",
-                        "idToken": "",
+                        "idToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjlhMzNiNWVkYjQ5ZDA4NjdhODY3MmQ5NTczYjFlMGQyMzc1ODg2ZTEifQ.eyJhdWQiOiI5MTg3NjEzMjU0OTEtazJ0Y3VkbGg5ZHEyMjdtb2RrMWhnbmlvMDR1aGhvNWQuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTg0NDQ2OTMxODQ4Mjk1NTUzNjIiLCJoZCI6InRoaW5rYnludW1iZXJzLm9yZyIsImVtYWlsIjoibUB0aGlua2J5bnVtYmVycy5vcmciLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZXhwIjoxNTMzNzYzODk5LCJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJqdGkiOiI0NTNhYTgzNDMwOTlmNzRjODMzZjdjY2RkZTA1ODViMjVjN2NjOTkwIiwiaWF0IjoxNTMzNzYwMjk5LCJuYmYiOjE1MzM3NTk5OTksIm5hbWUiOiJNaWtlIFNpbm4iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDYuZ29vZ2xldXNlcmNvbnRlbnQuY29tLy1CSHI0aHlVV3FaVS9BQUFBQUFBQUFBSS9BQUFBQUFBSUcyOC8yTHYwZW43MzhJSS9zOTYtYy9waG90by5qcGciLCJnaXZlbl9uYW1lIjoiTWlrZSIsImZhbWlseV9uYW1lIjoiU2lubiJ9.Tl8oQIoNlou3p2Yy4a2MaxEJMftKn1ovDFfzgV8MkMFoqEGDkoNvGNbmJyDKGfS6B1kZwY7wBNuDTguKEpR9lTE6lj2Q4oQA4BzgLp_tYN8gohijJJDw3knwJ1q_A4KRfy7wBvV5xjI1nF74Q1wkpgDfmU275tjqp-xiuiHVEqMyp0gliCuD8eAZvgX_CpmjPxubqKi6f9mXW5wfp-z-1YfujQ2eT0XCMEOWFWddtr8-_Jm2_z_K_ua5LXHw5bU8S2ym0IqPkF4Kqa6GYJOSWrjmiC_pnBALpD4ME9wNOvTnNkp3ntfKtKE_HLz2v4LqrOPMDu0p0_BLOMqrUxclbg",
                         "locale": "en-US",
-                        "userId": ""
+                        "userId": "ABwppHHxfsyj2umsF4FaFTEIOzSDJf2jDveTQtBP5CJH-KLJYugjxHPpR_uRxBLovyUADcMpHA"
                     },
                     "conversation": {
                         "conversationId": "1533759866859",
@@ -4037,10 +3976,10 @@ var qm = {
             return qm.env.getEnv('ENCRYPTION_SECRET')
         },
         getAwsSecret: function (){
-            return qm.env.getEnv('STORAGE_SECRET_ACCESS_KEY')
+            return qm.env.getEnv('AWS_SECRET_ACCESS_KEY')
         },
         getAwsId: function (){
-            return qm.env.getEnv(['QM_STORAGE_ACCESS_KEY_ID', 'STORAGE_ACCESS_KEY_ID'])
+            return qm.env.getEnv(['QM_AWS_ACCESS_KEY_ID', 'AWS_ACCESS_KEY_ID'])
         },
         getReleaseStage: function(){
             return qm.env.getEnv('RELEASE_STAGE')
@@ -4061,12 +4000,6 @@ var qm = {
                 }, errorHandler);
             }, errorHandler);
         },
-        getFeedApiInstance: function(params){
-            qm.api.configureClient(arguments.callee.name, params);
-            var apiInstance = new qm.Quantimodo.FeedApi();
-            // apiInstance.cache = !params || !params.noCache; Should be done in qm.api.configureClient
-            return apiInstance;
-        },
         getFeedFromLocalForage: function(successHandler, errorHandler){
             qm.localForage.getItem(qm.items.feed)
                 .then(successHandler, errorHandler);
@@ -4083,7 +4016,7 @@ var qm = {
                 successHandler(cards);
             }, function(error){
                 qmLog.error(error);
-                qm.feed.getFeedApiInstance(params).getFeed(params, callback);
+	            qm.api.get("v3/feed", [], params, callback, errorHandler);
             });
         },
         handleFeedResponse: function(cards){
@@ -9644,6 +9577,9 @@ var qm = {
         },
         joinStudy: function(body, successHandler, errorHandler){
             function callback(error, data, response){
+				if(response && response.body && response.body.study){
+					data = response.body.study;
+				}
                 var study = qm.studyHelper.processAndSaveStudy(data);
                 if(!study.causeVariable || !study.effectVariable){
                     if(error){
@@ -10012,7 +9948,7 @@ var qm = {
             return !qm.boolHelper.isFalsey(value);
         },
         isFalsey: function(value) {
-            return value === "false" || value === false || value === 0 || value === "0" || !value
+            return value === "false" || value === false || value === 0 || value === "0" || !value 
                    || value.indexOf("0%2F") === 0; // TODO: Fix redirect urls
         }
     },
@@ -11638,19 +11574,6 @@ var qm = {
             }
             return window.location.href;
         },
-        getExpressOrigin: function(){
-            if(qm.appMode.isBackEnd()){
-                return qm.env.getRequiredEnv('EXPRESS_ORIGIN')
-            }
-            return window.location.origin;
-        },
-        prefixExpressOriginIfNecessary: function(pathOrUrl){
-            if(pathOrUrl.indexOf('http') === 0){
-                return pathOrUrl;
-            }
-            if(pathOrUrl.indexOf('/') !== 0){pathOrUrl = '/' + pathOrUrl;}
-            return qm.api.getQMApiOrigin() + pathOrUrl;
-        },
 	    prefixQMAPIOriginIfNecessary: function(pathOrUrl){
 		    if(pathOrUrl.indexOf('http') === 0){
 			    return pathOrUrl;
@@ -11658,7 +11581,9 @@ var qm = {
 		    if(pathOrUrl.indexOf('/') !== 0 && !qm.urlHelper.urlContains('C:/')){
 				pathOrUrl = '/' + pathOrUrl;
 			}
-		    return qm.api.getQMApiOrigin() + pathOrUrl;
+		    let url = qm.api.getQMApiOrigin() + pathOrUrl
+		    url = url.replace('api/api', 'api')
+		    return url;
 	    },
         indexOfCurrentUrl: function(needle){
             var currentUrl = qm.urlHelper.getCurrentUrl();
@@ -11905,16 +11830,15 @@ var qm = {
             var deferred = Q.defer();
             qmLog.authDebug("Getting user from API...");
             // Sdk doesn't return timezone
-            let path = '/api/v1/user';
-			path = qm.api.getQMApiOrigin() + path;
-            qm.api.getViaXhrOrFetch(path, function(user){
+            var path = '/api/v1/user';
+	        var url = qm.api.getQMOrigin() + path;
+            qm.api.getViaXhrOrFetch(url, function(user){
                 user.id = parseInt(user.id);
                 if(user && typeof user.displayName !== "undefined"){
                     qmLog.info("Got user " + user.id + " from API: " + user.loginName)
                     qm.userHelper.setUser(user);
                     deferred.resolve(user)
                 }else{
-                    var url = qm.urlHelper.prefixExpressOriginIfNecessary(path);
                     var err = "getViaXhrOrFetch successHandler was called but we still did not get user from "+url;
                     if(user.error && user.error.message){
                         err += "\nError: " + user.error.message;
@@ -11977,7 +11901,7 @@ var qm = {
                     }, errorHandler, params, 'getUsersFromApi');
                 });
             } catch(e) {
-                throw "Could not get users from " + qm.api.getExpressUrl() + " because " + e.message
+                throw "Could not get users from " + qm.api.getQuantiModoUrl() + " because " + e.message
             }
         },
         updateUserSettings: function(params, successHandler, errorHandler){
@@ -12011,25 +11935,24 @@ var qm = {
         },
         getFromLocalStorage: function(params){
             if(!params){params = {};}
-            params.includePublic = true;
             var commonVariables = qm.arrayHelper.filterByRequestParams(qm.staticData.commonVariables, params);
             if(!params.sort){commonVariables = qm.variablesHelper.defaultVariableSort(commonVariables);}
             return commonVariables;
         },
 	    getFromLocalStorageOrApi: function(params){
-          if(!params){params = {};}
-          params.includePublic = true;
-          var deferred = Q.defer();
-          var local = qm.commonVariablesHelper.getFromLocalStorage(params);
-          if(local && local.length > 0){
-            deferred.resolve(local);
-          }
-          qm.variablesHelper.getFromLocalStorageOrApi(params).then(function(variables){
-            deferred.resolve(variables);
-          }, function(error){
-            deferred.reject(error);
-          });
-          return deferred.promise;
+			var deferred = Q.defer();
+			var local = qm.commonVariablesHelper.getFromLocalStorage(params);   
+			if(local && local.length > 0){
+				deferred.resolve(local);
+			}
+		    qm.api.get('/api/v3/variables', [], params, function(variables){
+			    if(variables.data){variables = variables.data;}
+			    if(variables.variables){variables = variables.variables;}
+			    deferred.resolve(variables);
+		    }, function(error){
+			    deferred.reject(error);
+		    });
+			return deferred.promise;
 	    }
     },
     userVariables: {
@@ -13205,11 +13128,11 @@ var qm = {
                 return;
             }
             if(qm.webNotifications.tokenJustPosted && qm.webNotifications.tokenJustPosted === deviceTokenString){
-                qmLog.debug("Just posted "+deviceTokenString+" already");
+                qmLog.info("Just posted "+deviceTokenString+" already");
                 return;
             }
             qm.webNotifications.tokenJustPosted = deviceTokenString;
-            qmLog.debug("Got token: " + deviceTokenString);
+            qmLog.info("Got token: " + deviceTokenString);
             qm.api.configureClient(arguments.callee.name);
             var apiInstance = new qm.Quantimodo.NotificationsApi();
             function callback(error, data, response){
@@ -13267,7 +13190,7 @@ var qm = {
     },
 	web3: {
 		getDigitalTwin: async function(){
-			var dt = await qm.api.getAsync('/api/v6/digitalTwin');
+			var dt = await qm.api.getAsync('/api/v6/digitalTwin');	
 			if(!dt){
 				dt = await qm.web3.mintDigitalTwin();
 			}
@@ -13448,8 +13371,8 @@ var qm = {
 			try {
 				await provider.send("eth_requestAccounts", []);
 				const address = await provider.getSigner().getAddress();
-				let qmApiOrigin = qm.api.getQMApiOrigin()
-				let response = await fetch(qmApiOrigin + '/auth/nonce/' + type + '?eth_address=' + address, {
+				let origin = qm.api.getQMOrigin()
+				let response = await fetch(origin + '/auth/nonce/' + type + '?eth_address=' + address, {
 					method: 'GET',
 					headers: {
 						'Content-Type': 'application/json',
@@ -13463,7 +13386,7 @@ var qm = {
 				const signature = await provider.getSigner().signMessage(message);
 				console.log(signature);
 
-				response = await fetch(qmApiOrigin+'/auth/web3/' + type, {
+				response = await fetch(origin+'/auth/web3/' + type, {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json'

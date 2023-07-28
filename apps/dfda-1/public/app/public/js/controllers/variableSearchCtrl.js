@@ -52,9 +52,15 @@ angular.module('starter').controller('VariableSearchCtrl',
                 })
             }
         });
+		function goToState(state, params){
+			debugger
+			params = JSON.parse(JSON.stringify(params));
+			params.measurement = null; // We send the measurement back after adding, so it might be stale
+			qmService.goToState(state, params);
+		}
         function saveTagged(selected) {
             if ($scope.state.userTagVariableObject.unitAbbreviatedName !== '/5') {
-                qmService.goToState(getNextState(), {
+                goToState(getNextState(), {
                     userTaggedVariableObject: selected,
                     fromState: $scope.state.fromState,
                     fromStateParams: {variableObject: $scope.state.userTagVariableObject},
@@ -69,7 +75,7 @@ angular.module('starter').controller('VariableSearchCtrl',
                 }).then(function () {
                     qmService.hideLoader();
                     if ($scope.state.fromState) {
-                        qmService.goToState($scope.state.fromState, {variableName: $scope.state.userTagVariableObject.name});
+                        goToState($scope.state.fromState, {variableName: $scope.state.userTagVariableObject.name});
                     } else {
                         qmService.goToDefaultState();
                     }
@@ -87,7 +93,7 @@ angular.module('starter').controller('VariableSearchCtrl',
         }
         function saveTag(selected) {
             if ($scope.state.userTaggedVariableObject.unitAbbreviatedName !== '/5') {
-                qmService.goToState(getNextState(), {
+                goToState(getNextState(), {
                     userTaggedVariableObject: $scope.state.userTaggedVariableObject,
                     fromState: $scope.state.fromState,
                     fromStateParams: {variableObject: $scope.state.userTaggedVariableObject},
@@ -102,7 +108,7 @@ angular.module('starter').controller('VariableSearchCtrl',
                 }).then(function () {
                     qmService.hideLoader();
                     if ($scope.state.fromState) {
-                        qmService.goToState($scope.state.fromState, {variableName: $scope.state.userTaggedVariableObject.name});
+                        goToState($scope.state.fromState, {variableName: $scope.state.userTaggedVariableObject.name});
                     } else {
                         qmService.goToDefaultState();
                     }
@@ -128,9 +134,9 @@ angular.module('starter').controller('VariableSearchCtrl',
                     doneState: $scope.state.doneState
                 });
             }else if(next.indexOf('predictor') !== -1){
-                qmService.goToState(next, {effectVariableName: selected.name});
+                goToState(next, {effectVariableName: selected.name});
             }else if(next.indexOf('outcome') !== -1){
-                qmService.goToState(next, {causeVariableName: selected.name});
+                goToState(next, {causeVariableName: selected.name});
             }else if($scope.state.userTaggedVariableObject){
                 saveTag(selected);
             }else if($scope.state.userTagVariableObject){
@@ -138,12 +144,12 @@ angular.module('starter').controller('VariableSearchCtrl',
             }else{
                 $scope.state.variableName = selected.name;
                 $scope.state.variableObject = selected;
-                qmService.goToState(next, $scope.state);
+                goToState(next, $scope.state);
             }
         };
         $scope.goToStateFromVariableSearch = function(stateName, params){
             if(!params){params = $stateParams;}
-            qmService.goToState(stateName, params);
+            goToState(stateName, params);
         };
         // when a query is searched in the search box
         function showAddVariableButtonIfNecessary(variables){
@@ -297,7 +303,7 @@ angular.module('starter').controller('VariableSearchCtrl',
             }
             qmLog.info($state.current.name + ': ' + '$scope.addNewVariable: ' + JSON.stringify(variableObject));
             $scope.state.variableObject = variableObject;
-            qmService.goToState(getNextState(), $scope.state);
+            goToState(getNextState(), $scope.state);
         };
         function setHelpText(){
             if($scope.state.userTaggedVariableObject){
