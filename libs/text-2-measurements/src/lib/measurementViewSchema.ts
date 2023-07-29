@@ -109,12 +109,36 @@ export type MeasurementSet = {
 
 export interface Measurement {
   itemType: 'measurement',
-  variableName: string;
-  value: number;
+  variableName: string;  // variableName is the name of the treatment, symptom, food, drink, etc.
+  // For example, if the answer is "I took 5 mg of NMN", then this variableName is "NMN".
+  // For example, if the answer is "I have been having trouble concentrating today", then this variableName is "Concentration".
+  value: number; // value is the number of units of the treatment, symptom, food, drink, etc.
+  // For example, if the answer is "I took 5 mg of NMN", then this value is 5.
+  // For example, if the answer is "I have been feeling very tired and fatigued today", you would return two measurements
+  // with the value 5 like this:
+  // {variableName: "Tiredness", value: 5, unitName: "1 to 5 Rating", startAt: "00:00:00", endAt: "23:59:59", combinationOperation: "MEAN", variableCategoryName: "Symptoms"}
+  // {variableName: "Fatigue", value: 5, unitName: "1 to 5 Rating", startAt: "00:00:00", endAt: "23:59:59", combinationOperation: "MEAN", variableCategoryName: "Symptoms"}
+  // For example, if the answer is "I have been having trouble concentrating today", then this value is 1 and the object
+  // would be {variableName: "Concentration", value: 1, unitName: "1 to 5 Rating", startAt: "00:00:00", endAt: "23:59:59", combinationOperation: "MEAN", variableCategoryName: "Symptoms"}
+  // For example, if the answer is "I also took magnesium 200mg, Omega3 one capsule 500mg", then the measurements would be:
+  // {variableName: "Magnesium", value: 200, unitName: "Milligrams", startAt: "00:00:00", endAt: "23:59:59", combinationOperation: "SUM", variableCategoryName: "Treatments"}
+  // {variableName: "Omega3", value: 500, unitName: "Milligrams", startAt: "00:00:00", endAt: "23:59:59", combinationOperation: "SUM", variableCategoryName: "Treatments"}
   unitName: UnitName;
-  startAt: string;
-  combinationOperation: "SUM" | "MEAN";
-  variableCategoryName: VariableCategoryName;
+  // unitName is the unit of the treatment, symptom, food, drink, etc.
+  // For example, if the answer is "I took 5 mg of NMN", then this unitName is "Milligrams".
+  startDate: string|null;  // startDate should be the date the measurement was taken in the format "YYYY-MM-DD" or null if no date is known
+  startTime: string|null;  // startAt should be the time the measurement was taken in
+  // the format "HH:MM:SS".  For instance, midday would be "12:00:00".
+  // ex. The term `breakfast` would be a typical breakfast time of "08:00:00".
+  // ex. The term `lunch` would be a typical lunchtime of "12:00:00".
+  // ex. The term `dinner` would be a typical dinner time of "18:00:00".
+  // If no time or date is known, then startTime should be null.
+  endAt: string|null;
+  // If a time range is given, then endAt should be the end of that period. It should also be in the format "HH:MM:SS".
+  combinationOperation: "SUM" | "MEAN"; // combinationOperation is the operation used to combine multiple measurements of the same variableName
+  variableCategoryName: VariableCategoryName; // variableCategoryName is the category of the variableName
+  // For example, if the answer is "I took 5 mg of NMN", then this variableCategoryName is "Treatments".
+  notes?: string; // notes is any additional information about the measurement and the text fragment that was used to create it
 }
 
 // Use this type for measurement items that match nothing else
