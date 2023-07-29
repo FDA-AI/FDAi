@@ -126,19 +126,20 @@ export interface Measurement {
   unitName: UnitName;
   // unitName is the unit of the treatment, symptom, food, drink, etc.
   // For example, if the answer is "I took 5 mg of NMN", then this unitName is "Milligrams".
-  startDate: string|null;  // startDate should be the date the measurement was taken in the format "YYYY-MM-DD" or null if no date is known
-  startTime: string|null;  // startAt should be the time the measurement was taken in
+  startDateLocal: string|null;  // startDate should be the date the measurement was taken in the format "YYYY-MM-DD" or null if no date is known
+  startTimeLocal: string|null;  // startAt should be the time the measurement was taken in
   // the format "HH:MM:SS".  For instance, midday would be "12:00:00".
   // ex. The term `breakfast` would be a typical breakfast time of "08:00:00".
   // ex. The term `lunch` would be a typical lunchtime of "12:00:00".
   // ex. The term `dinner` would be a typical dinner time of "18:00:00".
   // If no time or date is known, then startTime should be null.
-  endAt: string|null;
+  endDateLocal: string|null;
+  endTimeLocal: string|null;
   // If a time range is given, then endAt should be the end of that period. It should also be in the format "HH:MM:SS".
   combinationOperation: "SUM" | "MEAN"; // combinationOperation is the operation used to combine multiple measurements of the same variableName
   variableCategoryName: VariableCategoryName; // variableCategoryName is the category of the variableName
   // For example, if the answer is "I took 5 mg of NMN", then this variableCategoryName is "Treatments".
-  notes?: string; // notes is any additional information about the measurement and the text fragment that was used to create it
+  originalText: string; // the text fragment that was used to create this measurement
 }
 
 // Use this type for measurement items that match nothing else
