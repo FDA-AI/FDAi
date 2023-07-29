@@ -53,7 +53,7 @@ function printMeasurementSet(measurementSet: MeasurementSet) {
   if (measurementSet.measurements && measurementSet.measurements.length > 0) {
     for (const measurement of measurementSet.measurements) {
       if(isMeasurement(measurement)) {
-        const symptomStr = `${measurement.variableName} ${measurement.value} ${measurement.unitName} ${measurement.startAt} ${measurement.variableCategoryName}`;
+        const symptomStr = `${measurement.variableName} ${measurement.value} ${measurement.unitName} ${measurement.startTime} ${measurement.variableCategoryName}`;
         console.log(symptomStr);
         continue;
       }

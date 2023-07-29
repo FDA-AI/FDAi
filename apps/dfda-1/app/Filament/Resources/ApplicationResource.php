@@ -114,62 +114,62 @@ class ApplicationResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('client.client_id'),
-                Tables\Columns\TextColumn::make('user.ID'),
-                Tables\Columns\TextColumn::make('outcome_variable.name'),
-                Tables\Columns\TextColumn::make('predictor_variable.name'),
-                Tables\Columns\TextColumn::make('wp_post.ID'),
-                Tables\Columns\TextColumn::make('organization_id'),
+//                Tables\Columns\TextColumn::make('user.ID'),
+//                Tables\Columns\TextColumn::make('outcome_variable.name'),
+//                Tables\Columns\TextColumn::make('predictor_variable.name'),
+//                Tables\Columns\TextColumn::make('wp_post.ID'),
+//                Tables\Columns\TextColumn::make('organization_id'),
                 Tables\Columns\TextColumn::make('app_display_name'),
                 Tables\Columns\TextColumn::make('app_description'),
-                Tables\Columns\TextColumn::make('long_description'),
+//                Tables\Columns\TextColumn::make('long_description'),
                 Tables\Columns\TextColumn::make('icon_url'),
-                Tables\Columns\TextColumn::make('text_logo'),
-                Tables\Columns\TextColumn::make('splash_screen'),
-                Tables\Columns\TextColumn::make('homepage_url'),
+//                Tables\Columns\TextColumn::make('text_logo'),
+//                Tables\Columns\TextColumn::make('splash_screen'),
+//                Tables\Columns\TextColumn::make('homepage_url'),
                 Tables\Columns\TextColumn::make('app_type'),
-                Tables\Columns\TextColumn::make('app_design'),
+//                Tables\Columns\TextColumn::make('app_design'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime(),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime(),
-                Tables\Columns\IconColumn::make('enabled')
-                    ->boolean(),
-                Tables\Columns\IconColumn::make('stripe_active')
-                    ->boolean(),
-                Tables\Columns\TextColumn::make('stripe_id'),
-                Tables\Columns\TextColumn::make('stripe_subscription'),
-                Tables\Columns\TextColumn::make('stripe_plan'),
-                Tables\Columns\TextColumn::make('last_four'),
-                Tables\Columns\TextColumn::make('trial_ends_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('subscription_ends_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('company_name'),
-                Tables\Columns\TextColumn::make('country'),
-                Tables\Columns\TextColumn::make('address'),
-                Tables\Columns\TextColumn::make('state'),
-                Tables\Columns\TextColumn::make('city'),
-                Tables\Columns\TextColumn::make('zip'),
-                Tables\Columns\TextColumn::make('plan_id'),
-                Tables\Columns\TextColumn::make('exceeding_call_count'),
-                Tables\Columns\TextColumn::make('exceeding_call_charge'),
-                Tables\Columns\IconColumn::make('study')
-                    ->boolean(),
-                Tables\Columns\IconColumn::make('billing_enabled')
-                    ->boolean(),
-                Tables\Columns\IconColumn::make('physician')
-                    ->boolean(),
-                Tables\Columns\TextColumn::make('additional_settings'),
-                Tables\Columns\TextColumn::make('app_status'),
-                Tables\Columns\IconColumn::make('build_enabled')
-                    ->boolean(),
-                Tables\Columns\TextColumn::make('number_of_collaborators_where_app'),
-                Tables\Columns\IconColumn::make('is_public')
-                    ->boolean(),
-                Tables\Columns\TextColumn::make('sort_order'),
-                Tables\Columns\TextColumn::make('slug'),
+//                Tables\Columns\TextColumn::make('deleted_at')
+//                    ->dateTime(),
+//                Tables\Columns\IconColumn::make('enabled')
+//                    ->boolean(),
+//                Tables\Columns\IconColumn::make('stripe_active')
+//                    ->boolean(),
+//                Tables\Columns\TextColumn::make('stripe_id'),
+//                Tables\Columns\TextColumn::make('stripe_subscription'),
+//                Tables\Columns\TextColumn::make('stripe_plan'),
+//                Tables\Columns\TextColumn::make('last_four'),
+//                Tables\Columns\TextColumn::make('trial_ends_at')
+//                    ->dateTime(),
+//                Tables\Columns\TextColumn::make('subscription_ends_at')
+//                    ->dateTime(),
+//                Tables\Columns\TextColumn::make('company_name'),
+//                Tables\Columns\TextColumn::make('country'),
+//                Tables\Columns\TextColumn::make('address'),
+//                Tables\Columns\TextColumn::make('state'),
+//                Tables\Columns\TextColumn::make('city'),
+//                Tables\Columns\TextColumn::make('zip'),
+//                Tables\Columns\TextColumn::make('plan_id'),
+//                Tables\Columns\TextColumn::make('exceeding_call_count'),
+//                Tables\Columns\TextColumn::make('exceeding_call_charge'),
+//                Tables\Columns\IconColumn::make('study')
+//                    ->boolean(),
+//                Tables\Columns\IconColumn::make('billing_enabled')
+//                    ->boolean(),
+//                Tables\Columns\IconColumn::make('physician')
+//                    ->boolean(),
+//                Tables\Columns\TextColumn::make('additional_settings'),
+//                Tables\Columns\TextColumn::make('app_status'),
+//                Tables\Columns\IconColumn::make('build_enabled')
+//                    ->boolean(),
+//                Tables\Columns\TextColumn::make('number_of_collaborators_where_app'),
+//                Tables\Columns\IconColumn::make('is_public')
+//                    ->boolean(),
+//                Tables\Columns\TextColumn::make('sort_order'),
+//                Tables\Columns\TextColumn::make('slug'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
@@ -184,14 +184,14 @@ class ApplicationResource extends Resource
                 Tables\Actions\RestoreBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -200,8 +200,8 @@ class ApplicationResource extends Resource
             'view' => Pages\ViewApplication::route('/{record}'),
             'edit' => Pages\EditApplication::route('/{record}/edit'),
         ];
-    }    
-    
+    }
+
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()
