@@ -1,2 +1,2 @@
-export * from './lib/text-2-measurements';
+export * from './lib/statement-2-measurements';
 

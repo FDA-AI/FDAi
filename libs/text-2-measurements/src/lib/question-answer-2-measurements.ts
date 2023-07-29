@@ -148,7 +148,8 @@ function createPrompt(question, answer, categories, units) {
  
  Transform the above conversation into a JSON array containing objects with the following keys: 
 1. combinationOperation - SUM or MEAN. If the answer is \"I took 5 mg of NMN\", then this value is \"SUM\". If the answer is a rating, then this value is \"MEAN\".
-2. startAt - Current time in UTC.  For example, \"2021-01-01T00:00:00Z\".
+2. startDateLocal - Current time in UTC.  For example, \"2021-01-01\".
+3. startTimeLocal - Current time in UTC.  For example, \"00:00:00\".
 3. unitName - Can be one of the following: ${units}.
 4. value - Numerical value.  
 5. variableCategoryName - Can be one of the following: ${categories}.
