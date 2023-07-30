@@ -5,20 +5,24 @@ import {
   createLanguageModel,
   createJsonTranslator
 } from "typechat";
-import { Measurement } from "./measurementViewSchema";
-import { MeasurementSet } from "./measurementViewSchema";
+import { Measurement } from "./measurementSchema";
+import { MeasurementSet } from "./measurementSchema";
 
 // TODO: use local .env file.
 config({ path: path.join(__dirname, "../../.env") });
 
 const model = createLanguageModel(process.env);
-const viewSchema = fs.readFileSync(
-  path.join(__dirname, "measurementViewSchema.ts"),
+let viewSchema = fs.readFileSync(
+  path.join(__dirname, "measurementSchema.ts"),
   "utf8"
 );
-const translator = createJsonTranslator<MeasurementSet>(model, viewSchema, "MeasurementSet");
 
-export async function processStatement(statement: string): Promise<MeasurementSet> {
+export async function processStatement(statement: string, localDateTime?: Date|string|undefined): Promise<MeasurementSet> {
+  if(localDateTime) {
+    viewSchema += "\n// The current local datetime is " + localDateTime + ".";
+  }
+  const translator =
+    createJsonTranslator<MeasurementSet>(model, viewSchema, "MeasurementSet");
   const response = await translator.translate(statement);
   if (!response.success) {
     console.log(response);
@@ -53,8 +57,10 @@ function printMeasurementSet(measurementSet: MeasurementSet) {
   if (measurementSet.measurements && measurementSet.measurements.length > 0) {
     for (const measurement of measurementSet.measurements) {
       if(isMeasurement(measurement)) {
-        const symptomStr = `${measurement.variableName} ${measurement.value} ${measurement.unitName} ${measurement.startTime} ${measurement.variableCategoryName}`;
-        console.log(symptomStr);
+        const s = `
+        ${measurement.value} ${measurement.unitName} ${measurement.variableName} 
+         ${measurement.startTimeLocal} ${measurement.variableCategoryName}`;
+        console.log(s);
         continue;
       }
       console.log(measurement);
