@@ -1,0 +1,82 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "The Decentralized FDA",
+  "logo": {
+    "light": "/docs/logo/dfda-icon-small.png",
+    "dark": "/docs/logo/dfda-icon-small.png",
+    "href": "https://dfda.earth"
+  },
+  "favicon": "/docs/logo/dfda-favicon.png",
+  "colors": {
+    "primary": "#0D9373",
+    "light": "#07C983",
+    "dark": "#0D9373",
+    "anchors": {
+      "from": "#0D9373",
+      "to": "#07C983"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:hi@dfda.earth"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://dashboard.dfda.earth"
+  },
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "Documentation",
+      "icon": "book-open-cover",
+      "url": "https://dfda.earth/docs"
+    },
+    {
+      "name": "Community",
+      "icon": "slack",
+      "url": "https://dfda.earth/community"
+    },
+    {
+      "name": "Blog",
+      "icon": "newspaper",
+      "url": "https://dfda.earth/blog"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": ["introduction", "quickstart", "development"]
+    },
+    {
+      "group": "Essentials",
+      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
+    },
+    {
+      "group": "API Documentation",
+      "pages": ["api-reference/introduction"]
+    },
+    {
+      "group": "Endpoint Examples",
+      "pages": [
+        "api-reference/endpoint/get",
+        "api-reference/endpoint/create",
+        "api-reference/endpoint/delete"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/dfda",
+    "github": "https://github.com/dfda",
+    "linkedin": "https://www.linkedin.com/company/mintsearch"
+  },
+  "openapi": "",
+  "components": {},
+  "info": {}
+}
