@@ -1,7 +1,7 @@
 ---
 title: DeSci DAO AI Agent Framework
 description: How to create a truly autonomous DAO that actually accelerates scientific progress
-tags: dao, ai, automation, desci
+tags: [dao, ai, automation, desci]
 ---
 
 # Problem:
