@@ -5,23 +5,23 @@ description: A platform to discover how millions of factors like foods, drugs, a
 > This is a work in progress. Contributions are welcome! It's our goal to avoid any duplication of effort. So please include existing projects that would be interested in fulfilling any part of this global framework.
 
 # Mission
-Maximize average healthy human lifespan and minimize net suffering by quantifying the effects of every food, additive, supplement, and medical intervention.
+Minimize suffering by quantifying the acute, cumulative, multifactorial, and personalized effects of every food, additive, supplement, and medical intervention.
 
-# Overview
+# Hypothesis
 
-![dfda-stack-diagram-white-background.svg](images/dfda-stack-diagram-white-background.svg)
+In the 90's, Microsoft spent billions hiring thousands of PhDs to create Encarta, the greatest encyclopedia in history.  A decade later, Wikipedia was created.  Despite widespread skepticism, Wikipedia was generating 50 times more information than Encarta with 1/1000th the budget and the same error rate.  This is the power of crowdsourcing and open collaboration.
 
-The Wikipedia model demonstrates the tremendous power of crowdsourcing and open collaboration. Despite Microsoft spending billions of dollars hiring thousands of expert PhDs to create Encarta, Wikipedia garnered over 50 times more content in just a few years—all from volunteers. Moreover, studies have shown Wikipedia's accuracy on scientific topics rivals leading encyclopedias. 
-
-The Decentralized FDA aims to produce a 50X acceleration in clinical discovery by replicating this model for clinical research. By crowdsourcing real-world data and observations from patients, clinicians, and researchers, the Decentralized FDA could enable orders of magnitude more insights and discovery than the current closed research system. 
-
-Rather than a few expensive clinical trials conducted by pharmaceutical companies, the Decentralized FDA would facilitate a massive decentralized clinical trial encompassing millions of patients. This "Wikipedization" of evidence-based research can unlock lifesaving knowledge at a fraction of the cost and time of traditional methods. Just as Wikipedia democratized access to knowledge, the Decentralized FDA can democratize health research and empower people with actionable data to improve lives.
+The current system is failing the billions of people are suffering from chronic diseases.  The Decentralized FDA aims to produce a 50X acceleration in clinical discovery by replicating this model for clinical research. By crowdsourcing real-world data and observations from patients, clinicians, and researchers, the Decentralized FDA could enable orders of magnitude more insights and discovery than the current closed research system.
 
 # Architecture
 
 This is a very high-level overview of the architecture.  It's a work in progress.  Please contribute!
 
-We've implemented an initial monolithic prototype of this architecture in [apps/centralized-dfda](../apps/centralized-dfda). It would better be described as a Centralized Decentralized FDA.  Our goal is to create a decentralized, simplified, more modular, version of this broken into the components below.  
+![dfda-stack-diagram-white-background.svg](images/dfda-stack-diagram-white-background.svg)
+
+## Initial Prototype
+
+We've implemented an initial monolithic prototype of this architecture in [apps/dfda-1](../apps/dfda-1). It would better be described as a Centralized Decentralized FDA.  Our goal is to create a decentralized, simplified, more modular, version of this broken into the components below.  
 
 We don't want to reinvent the wheel in any way, so if there's an existing project that can fulfill the requirements of the components, please let us know or contribute!
 
@@ -40,13 +40,15 @@ dFDA Gateway API Nodes make it easy for data silos, such as hospitals and digita
    - **Multiple Data Format Options:** Provide multiple data format options for data export, including CSV, JSON, and XML.
    - **Data Structure Options:** Client applications should be able to request should be able to request data in various formats such as FHIR, HL7, and the Common Data Model (CDM).
 
-**Potential Implementations, Components or Inspiration**
+### Potential Implementations, Components or Inspiration
 
-There's a monolithic implementation of this in [apps/centralized-dfda](../apps/centralized-dfda).  However, we want to a simplified more configurable version into existing data silos. Feel free to add links to any other open-source projects that could better fulfill this role.
+There's a monolithic implementation of this in [apps/dfda-1](../apps/dfda-1).
+
+Please make a pull request and add links to any other open-source projects that could better fulfill this role.
 
 ## 2. PersonalFDA Nodes
 
-PersonalFDA Nodes are applications that can run on your phone or computer. They import, store, and analyze your data to identify how various factors affect your health.  They can also be used to share anonymous analytical results with the broader dFDA in a secure and privacy-preserving manner.  
+PersonalFDA Nodes are applications that can run on your phone or computer. They import, store, and analyze your data to identify how various factors affect your health.  They can also be used to share anonymous analytical results with the Clinipedia dFDA Wiki in a secure and privacy-preserving manner.  
 
 PersonalFDA Nodes are composed of two components, a Digital Twin Safe and an AI agent called Optimitron (or some better name) that uses causal inference to estimate how various factors affect your health.
 
