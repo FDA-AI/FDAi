@@ -121,7 +121,7 @@ The Clinipedia wiki contains the aggregate of all available data on the effects 
 - [Psychonaut Wiki](https://psychonautwiki.org/wiki/Psychoactive_substance_index)
 - [Journal of Citizen Science](https://studies.crowdsourcingcures.org/)
 
-![outcome-labels.png](features/outcome-labels/outcome-labels.png)
+![outcome-labels.png](components/outcome-labels/outcome-labels.png)
 
 # Coordination Platform
 
