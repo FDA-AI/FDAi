@@ -1,19 +1,56 @@
 ---
 title: The Decentralized FDA
-description: A platform to discover how millions of factors like foods, drugs, and supplements affect human health.
+description: A platform to help the FDA and global regulatory agencies quantify the effects of millions of factors like foods, drugs, and supplements affect human health.
 ---
 > This is a work in progress. Contributions are welcome! It's our goal to avoid any duplication of effort. So please include existing projects that would be interested in fulfilling any part of this global framework.
 
-# Mission
-Minimize suffering by quantifying the acute, cumulative, multifactorial, and personalized effects of every food, additive, supplement, and medical intervention.
+# Problems the dFDA Solves
 
-# Hypothesis
+The current system of clinical research, diagnosis, and treatment is miserably failing the billions of people are suffering from chronic diseases.
 
-In the 90's, Microsoft spent billions hiring thousands of PhDs to create Encarta, the greatest encyclopedia in history.  A decade later, Wikipedia was created.  Despite widespread skepticism, Wikipedia was generating 50 times more information than Encarta with 1/1000th the budget and the same error rate.  This is the power of crowdsourcing and open collaboration.
+It takes over [10 years and 2.6 billion dollars](https://www.semanticscholar.org/paper/Innovation-in-the-pharmaceutical-industry%3A-New-of-DiMasiGrabowski/3275f31c072ac11c6ca7a5260bd535720f07df41) to bring a drug to market (including failed attempts). 
+It costs [$41k](https://www.clinicalleader.com/doc/getting-a-handle-on-clinical-trial-costs-0001) per subject in Phase III clinical trials.
 
-The current system is failing the billions of people are suffering from chronic diseases.  The Decentralized FDA aims to produce a 50X acceleration in clinical discovery by replicating this model for clinical research. By crowdsourcing real-world data and observations from patients, clinicians, and researchers, the Decentralized FDA could enable orders of magnitude more insights and discovery than the current closed research system.
+The high costs lead to:
 
-# Architecture
+**1. No Data on Unpatentable Molecules**
+
+We still know next to nothing about the long-term effects of 99.9% of the 4 pounds of over [7,000](https://www.dailymail.co.uk/health/article-8757191/Are-additives-food-making-ill.html) different synthetic or natural compounds. This is because there's only sufficient incentive to research patentable molecules.
+
+![chemicals-in-our-diet.svg](images/chemicals-in-our-diet.svg)
+
+**2. Lack of Incentive to Discover Every Application of Off-Patent Treatments**
+
+Thousands of drugs were found to work for other diseases after the patent expired. Unfortunately, there isn't financial incentive to do any more research on them at this point.
+
+**3. No Long-Term Outcome Data**
+
+It's not financially feasible to collect a participant's data for years or decades. Thus, we don't know if the long-term effects of a drug are worse than the initial benefits.
+
+**4. Negative Results Aren't Published**
+
+Pharmaceutical companies tend to only report "positive" results. That leads to other companies wasting money repeating research on the same dead ends.
+
+**5. Trials Exclude a Vast Majority of The Population**
+
+One investigation found that only [14.5%](https://www.ncbi.nlm.nih.gov/pubmed/14628985) of patients with major depressive disorder fulfilled eligibility requirements for enrollment in an antidepressant trial. Furthermore, most patient sample sizes are very small and sometimes include only 20 people.
+
+
+**6. We Only Know 0.000000002% of What is Left to be Researched**
+
+**6. We've only studied [0.000000002%](https://www.centerwatch.com/articles/12702-new-mit-study-puts-clinical-research-success-rate-at-14-percent) of the [166 billion](https://www.nature.com/articles/549445a) potential medicinal molecules.
+
+![studied-molecules-chart-no-background.svg](images/studied-molecules-chart-no-background.svg)
+
+
+
+# Our Hypothesis
+
+So in the 90's, Microsoft spent billions hiring thousands of PhDs to create Encarta, the greatest encyclopedia in history.  A decade later, when Wikipedia was created, the general consensus was that it was going to be a dumpster fire of lies.  Surprisingly, Wikipedia ended up generating information 50X faster than Encarta and was about 1000X cheaper without any loss in accuracy.  This is the magical power of crowdsourcing and open collaboration.
+
+Our crazy theory is that we can accomplish the same great feat in the realm of clinical research.  By crowdsourcing real-world data and observations from patients, clinicians, and researchers, we hope the Decentralized FDA could also generate clinical discoveries 50X and 1000X times cheaper than current systems.
+
+# Technical Architecture
 
 This is a very high-level overview of the architecture.  It's a work in progress.  Please contribute!
 
@@ -21,34 +58,30 @@ This is a very high-level overview of the architecture.  It's a work in progress
 
 ## Initial Prototype
 
-We've implemented an initial monolithic prototype of this architecture in [apps/dfda-1](../apps/dfda-1). It would better be described as a Centralized Decentralized FDA.  Our goal is to create a decentralized, simplified, more modular, version of this broken into the components below.  
+We've implemented an initial monolithic prototype of this architecture in [apps/dfda-1](../apps/dfda-1). It would better be described as a Centralized Decentralized FDA.  However, our goal is to a new, decentralized, simplified, modular, version of this broken into the components below.  
 
-We don't want to reinvent the wheel in any way, so if there's an existing project that can fulfill the requirements of the components, please let us know or contribute!
+We don't want to reinvent the wheel in any way, so if there's an existing project that fulfills the requirements of a component, please [let us know](https://github.com/decentralized-fda/decentralized-fda/discussions) or contribute!
 
 ## 1. Data Silo API Gateway Nodes
 
 dFDA Gateway API Nodes make it easy for data silos, such as hospitals and digital health apps, to let people export and save their data locally in their [PersonalFDA Nodes](#2-personalfda-nodes). 
 
-### Requirements
-   - **OAuth2 Protected API:** Provides a secure, OAuth2-protected API for people to easily access their data.
-   - **Personal Access Token Management** - Individuals should be able to create labeled access tokens that they can use to access their data.  They should be able to label their access tokens and monitor the usage of each token.  They should also be able to revoke access tokens at any time and set an expiration date.
-   - **Developer Portal:** Developer portal for data silos to easily register and manage their 3rd party application, so they can allow users to share data with their application.
-   - **OpenAPI Documentation:** Provide OpenAPI documentation for the API, making it easy for data silos to integrate.
-   - **Software Development Kits (SDKs):** Provide SDKs for popular programming languages to make it easy for developers to integrate the API into their applications.
-   - **Data Encryption:** Implement robust encryption protocols to safeguard sensitive health data.
-   - **HIPAA and GDPR Compliance:** Ensure compliance with HIPAA and GDPR privacy regulations.
-   - **Multiple Data Format Options:** Provide multiple data format options for data export, including CSV, JSON, and XML.
-   - **Data Structure Options:** Client applications should be able to request should be able to request data in various formats such as FHIR, HL7, and the Common Data Model (CDM).
+### Tentative Requirements
+   - OAuth2 Protected API
+   - Personal Access Token Management
+   - Developer Portal
+   - OpenAPI Documentation
+   - Software Development Kits (SDKs)
+   - Data Encryption
+   - HIPAA and GDPR Compliance
+   - Multiple Data Format Options
+   - Data Structure Options
 
-### Potential Implementations, Components or Inspiration
-
-There's a monolithic implementation of this in [apps/dfda-1](../apps/dfda-1).
-
-Please make a pull request and add links to any other open-source projects that could better fulfill this role.
+**[👉 Learn More](components/data-silo-api-gateways.md)**
 
 ## 2. PersonalFDA Nodes
 
-PersonalFDA Nodes are applications that can run on your phone or computer. They import, store, and analyze your data to identify how various factors affect your health.  They can also be used to share anonymous analytical results with the Clinipedia dFDA Wiki in a secure and privacy-preserving manner.  
+PersonalFDA Nodes are applications that can run on your phone or computer. They import, store, and analyze your data to identify how various factors affect your health.  They can also be used to share anonymous analytical results with the [Clinipedia dFDA Wiki](#3-clinipediathe-wikipedia-of-clinical-research) in a secure and privacy-preserving manner.  
 
 PersonalFDA Nodes are composed of two components, a Digital Twin Safe and an AI agent called Optimitron (or some better name) that uses causal inference to estimate how various factors affect your health.
 
@@ -56,30 +89,16 @@ PersonalFDA Nodes are composed of two components, a Digital Twin Safe and an AI 
 
 ![digital-twin-safe-cover.png](images/digital-twin-safe-cover.png)
 
-A tool for self-sovereign storage of personal data that enables effortless data sharing with clinical safety and efficacy studies.
+A local application for self-sovereign import and storage of personal data.
 
 #### Requirements
-   - **Data Import** from all your apps and wearables, so you can centrally own, control, and share all your digital exhaust.
-   - **Quantum-Resistant Data Encryption** to safeguard sensitive health data.
-   - **Sync to Between Trusted Devices** like your phone or computer or a family member's device to avoid data loss in the case of device failure.
-   - **Multifactorial and Biometric Security** because, let's face it, your password is going to get hacked or lost. 
+   - [Data Import](components/mhealth-data-import/mhealth-data-import.md)
+   - Quantum-Resistant Data Encryption
+   - Sync Data Between Trusted Devices
+   - Multifactorial and Biometric Security
+   - Data Sharing Controls
 
-#### Possible Technologies and Frameworks
-- **[Obsidian](https://obsidian.md/)** is a personal knowledge base based on the [Electron](https://www.electronjs.org/) framework. It could be a good foundation for a Digital Twin Safe because it has a:
-  - open-source license
-  - plugin architecture that could be used to implement a variety of features in a modular way
-  - built-in peer to peer sync feature
-  - robust encryption system
-  - and can be built for desktop and mobile
-- **[Electron](https://www.electronjs.org/)** is a lower-level framework for creating native applications with web technologies like JavaScript, HTML, and CSS. The main benefit of Electron for the Digital Twin Safe is that it allows you to create cross-platform desktop applications using web technologies. 
-- **[Expo](https://expo.io/)** is a set of tools and services built around React Native and native platforms that help you develop, build, deploy, and quickly iterate on iOS, Android, and web apps from the same JavaScript/TypeScript codebase.
-   
-#### Potential Implementations, Components or Inspiration
-- [Modified Gnosis Safe](/digital-twin-safe)
-- [Weavechain](https://weavechain.com/)
-- [Crowdsourcing Cures App](https://app.crowdsourcingcures.org/app/public/#/app/intro)
-
-![digital-twin-safe-screenshot-home](https://user-images.githubusercontent.com/2808553/200402565-72bc85a3-deb2-4f1a-a9b1-bde108e63d87.png)
+**[👉 Learn More](components/digital-twin-safe.md)**
 
 ### 2.2. Optimitron AI Agent
 
@@ -105,81 +124,48 @@ Ideally, Optimitron AI agent will be able to further improve the precision and a
 
 ## 3. Clinipedia—The Wikipedia of Clinical Research
 
-The Clinipedia wiki contains the aggregate of all available data on the effects of every food, drug, supplement, and medical intervention on human health.  It requires the following features:
-
-   - **Knowledge Base:** Inspiration could be taken from the Psychonaut Wiki. It's a modified version of MediaWiki with additional quantitative metadata storage regarding the pharmacokinetics of various substances.  This could be expanded to document the quantitative effects of every factor on specific health outcomes.
-   - **Editing Authorization:** A robust authorization mechanism to maintain content integrity and trustworthiness.
-   - **AI-Powered Data Population:** Leverage AI to efficiently populate the wiki with initial research and data.
-   - **Data Silos Directory:** Compile a comprehensive directory of existing data sources, facilitating integration with the Digital Twin Safe.
-   - **Reputation Scoring:** Develop a transparent and reliable reputation-weighted voting system for intervention approval.
-   - **Comparative Policy Analysis** - Aggregate existing approval and certification data from existing national regulatory bodies
-   - **Food and Drug Outcome Labels** - Ultimately, the most useful output of a decentralized FDA would be **Outcome Labels** list the degree to which the product is likely to improve or worsen specific health outcomes or symptoms. These are derived from real-world data (RWD) and subject to Futarchical-weighted review by the board members of the dFDA.
-   - **Publish Meta-Analyses** - Generate meta-analyses from all completed studies at ClinicalTrials.gov
-   - **Certification of Intervention Manufacturers/Sources** via a Decentralized Web of Trust derived from end-user data and reviews traced back using an NFT-tracked supply chain
-   - **Intervention Ranking** - Elevate the most promising yet little/known or researched treatments
-   - **Decentralized Clinical Trial Coordination and Protocols** - Not only would this increase knowledge but also access and availability of new and innovated treatments to those who need them urgently.
-   
-**Potential Implementations, Components or Inspiration**
-- [Psychonaut Wiki](https://psychonautwiki.org/wiki/Psychoactive_substance_index)
-- [Journal of Citizen Science](https://studies.crowdsourcingcures.org/)
+The Clinipedia wiki should be a global knowledge repository containing the aggregate of all available data on the effects of every food, drug, supplement, and medical intervention on human health.  
 
 ![outcome-labels.png](components/outcome-labels/outcome-labels.png)
 
-# Coordination Platform
+### Tentative Requirements
+   - Editing Authorization and Conflict Resolution Mechanisms
+   - AI Agent Generated Meta-Analyses Combining All Existing Research on Each Intervention/Outcome Pair
+   - Directory of Data Silos and Instructions for Individuals to Export Their Data to their Digital Twin Safes
+   - Inter-Jurisdictional Comparative Policy Analysis of the Outcomes of Regulatory Decisions
+   - Outcome Labels List the Degree to Which the Product is Likely to Improve or Worsen Specific Health Outcomes or Symptoms
+   - Certification of Intervention Manufacturers/Sources 
+   - Intervention Effectiveness Ranking for Specific Outcomes or Conditions
+   - Decentralized Clinical Trial Coordination and Protocols
 
-The primary initial deliverable a coordination platform. This platform would act as the nexus for facilitating cooperation, communication, and collaborative actions among various stakeholders. It's designed to harness the collective capabilities of existing entities towards achieving the shared vision of accelerated clinical discovery and better health outcomes.
+**[👉 Learn More or Contribute to the Clinipedia](components/clinipedia.md)**
 
-The coordination platform should ideally provide:
+# AI Collective Intelligence Platform
 
-1. **Communication Channels**: Enable seamless communication among stakeholders, fostering a community of shared knowledge and goals.
-  
-2. **Resource Sharing Mechanisms**: Facilitate the sharing of data, technologies, expertise, and other resources among partners.
-  
-3. **Decentralized Collaborative Workspaces**: Provide tools and spaces for collaborative research, data analysis, and project development.
-  
-4. **Partnership Agreements**: Streamline the formation and management of partnerships, ensuring clarity on roles, responsibilities, and contributions.
-  
-5. **Project Management Tools**: Offer tools for planning, tracking, and managing collaborative projects, ensuring alignment and progress towards shared goals.
-  
-6. **Knowledge Repository**: Create a centralized or federated repository for collective knowledge, research findings, and best practices.
-  
-7. **Legal and Regulatory Guidance**: Provide guidance on navigating the legal and regulatory landscape for collaborative endeavors, ensuring compliance and mitigating risks.
-  
-8. **Impact Tracking**: Implement tools for monitoring, evaluation, and reporting on the impact and outcomes of collaborative projects.
+A collective intelligence coordination platform is needed for facilitating cooperation, communication, and collaborative actions among contributors. 
 
-9. **Reputation Scoring**: Implement a reputation system to incentivize contributions and reward quality.
+## Desired Features
 
-The coordination platform encapsulates a digital environment where stakeholders can come together to synergistically work towards the broader objectives of the dFDA initiative. Through this platform, the barriers to collaboration are minimized, and the pace of innovation and discovery is expected to accelerate, aligning with the overarching mission of maximizing human lifespan and minimizing net suffering.
+1. Communication Channels
+2. Resource Sharing Mechanisms
+3. Decentralized Collaborative Workspaces
+4. Partnership Agreements
+5. Project Management
+6. Knowledge Repository
+7. Legal and Regulatory Guidance
+8. Impact Tracking
+9. Reputation Scoring
 
-# Roadmap and Milestones
+**[👉 Learn More or Contribute to the dFDA Collaboration Framework](components/dfda-collaboration-framework.md)**
 
-## 1: Establish Foundation
-**Objective:** Lay down the groundwork for the Decentralized FDA, defining its scope, audience, and core values.
+# To-Do List
 
-**Tasks:**
-1. **Define Project Scope and Goals:** Clearly outline what the Decentralized FDA aims to achieve, its target audience, and its core mission.
-2. **Framing and Naming:** Develop a strong framing narrative and decide on a compelling name for the initiative.
-3. **Identify Target Audience:** List potential board members, disease advocacy organizations, and other key stakeholders.
-4. **Initial Stakeholder Engagement:** Begin outreach to potential board members and key stakeholders to introduce them to the project and gauge interest.
+1. Establish Foundation
+2. Build Board of Directors
+3. Establish Collaborations and Partnerships
+4. Data Silo Gateway API Nodes
+5. PersonalFDA Nodes
+6. Clinipedia dFDA Wiki
 
-
-## 2: Building the Board of Directors
-**Objective:** Assemble a diverse and influential Board of Directors to guide and support the initiative.
-
-**Tasks:**
-1. **Credibility and Reach:** Identify and onboard individuals with credibility, reach, and a passion for the project’s mission.
-2. **Funding Strategies:** Develop strategies for funding, exploring options like health-focused prizes, grants, and private investments.
-3. **Define Value Proposition for Board Members:** Clearly articulate what’s in it for them, outlining the impact and benefits of their involvement.
-
-## 3: Collaborations and Partnerships
-**Objective:** Identify and engage with entities already working in similar domains to foster collaboration and knowledge sharing.
-
-**Tasks:**
-1. **Research Potential Collaborators:** Identify entities, initiatives, and experts working on similar projects.
-2. **Initiate Outreach:** Reach out to potential collaborators to explore partnership opportunities.
-3. **Develop Collaborative Projects:** Work on joint initiatives, sharing knowledge and resources for mutual benefit.
-
-## 4: Develop the Data Silo Gateway API Nodes
-## 5: Develop the PersonalFDA Nodes
-## 6: Creating the Clinipedia dFDA Wiki
+**[👉 Click Here for a Detailed Roadmap and Milestones](roadmap.md)**
 
