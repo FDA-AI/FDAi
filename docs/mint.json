@@ -2,11 +2,11 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "The Decentralized FDA",
   "logo": {
-    "light": "/docs/logo/dfda-icon-small.png",
-    "dark": "/docs/logo/dfda-icon-small.png",
-    "href": "https://dfda.earth"
+    "light": "/logo/dfda-wide-text-logo-white-background.png",
+    "dark": "/logo/dfda-wide-text-logo-white-text.png",
+    "href": "/"
   },
-  "favicon": "/docs/logo/dfda-favicon.png",
+  "favicon": "/logo/dfda-favicon.png",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
@@ -19,7 +19,7 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@dfda.earth"
+      "url": "mailto:hi@crowdsourcingcures.org"
     }
   ],
   "topbarCtaButton": {
@@ -36,7 +36,7 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://dfda.earth/docs"
+      "url": "https://docs.dfda.earth"
     },
     {
       "name": "Community",
@@ -46,37 +46,24 @@
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://dfda.earth/blog"
+      "url": "https://crowdsourcingcures.org"
     }
   ],
   "navigation": [
     {
-      "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
+      "group": "Overview",
+      "pages": ["home", "roadmap"]
     },
     {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
-      ]
+      "group": "Components",
+      "pages": ["components/digital-twin-safe", "components/clinipedia", "components/data-silo-api-gateways"]
     }
+
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/dfda",
-    "github": "https://github.com/dfda",
+    "twitter": "https://twitter.com/FDADAO",
+    "github": "https://github.com/decentralized-fda",
     "linkedin": "https://www.linkedin.com/company/mintsearch"
   },
-  "openapi": "",
-  "components": {},
-  "info": {}
+  "openapi": "api-reference/openapi.json"
 }
