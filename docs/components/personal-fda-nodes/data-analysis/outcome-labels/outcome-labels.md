@@ -1,4 +1,4 @@
-# 🏷 Outcome Labels Plugin
+# 🏷 Outcome Labels
 
 ![outcome-labels-plugin.png](outcome-labels.PNG)
 
@@ -10,13 +10,13 @@ But how useful is it to the average person to know the amount of Riboflavin in s
 
 Telling the average person the amount of riboflavin in something isn’t going to achieve this. This is evidenced by the fact that these labels have existed for decades and during this time, we’ve only seen increases in most diseases they were intended to reduce.
 
-We have created a new and improved **Outcomes Label** that instead lists the degree to which the product is likely to improve or worsen specific health outcomes or symptoms. We currently have generated Outcome Labels for thousands of foods, drugs, and nutritional supplements that can be found at [studies.crowdsourcingcures.org](https://studies.crowdsourcingcures.org/?swcfpc=1). These labels are derived from the analysis of 10 million data points anonymously donated by over 10,000 study participants via the app at [app.crowdsourcingcures.org](https://app.crowdsourcingcures.org/?swcfpc=1#/app/intro).
+We have created a new and improved **Outcomes Label** that instead lists the degree to which the product is likely to improve or worsen specific health outcomes or symptoms. We currently have generated Outcome Labels for thousands of foods, drugs, and nutritional supplements that can be found at [studies.crowdsourcingcures.org](https://studies.crowdsourcingcures.org). These labels are derived from the analysis of 10 million data points anonymously donated by over 10,000 study participants via the app at [app.crowdsourcingcures.org](https://app.crowdsourcingcures.org).
 
 ![](https://crowdsourcingcures.org/wp-content/uploads/2021/05/nutrition-facts-vs-outcome-labels-melatonin-1024x592.png)
 
 ## Data Quantity
 
-We've collected over 10 million data points on symptom severity and influencing factors from over 10,000 people. Predictive machine learning algorithms are applied to reveal effectiveness and side-effects of treatments and the degree to which hidden dietary and environmental improve or exacerbate chronic illnesses.
+We've collected over 10 million data points on symptom severity and influencing factors from over 10,000 people. Predictive machine learning algorithms are applied to reveal effectiveness and side effects of treatments and the degree to which hidden dietary and environmental improve or exacerbate chronic illnesses.
 
 These analytical results have been used to publish 90,000 studies on the effects of various treatments and food ingredients on symptom severity.
 
