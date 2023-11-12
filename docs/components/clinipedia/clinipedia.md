@@ -1,5 +1,6 @@
-![clinipedia-wide-logo.png](../images/clinipedia-wide-logo.png)
 # The Wikipedia of Clinical Research
+
+![clinipedia_globe_circle.png](clinipedia_globe_circle.png)
 
 The Clinipedia wiki contains the aggregate of all available data on the effects of every food, drug, supplement, and medical intervention on human health.  It requires the following features:
 
@@ -9,7 +10,7 @@ The Clinipedia wiki contains the aggregate of all available data on the effects 
    - **Data Silos Directory:** Compile a comprehensive directory of existing data sources, facilitating integration with the Digital Twin Safe.
    - **Reputation Scoring:** Develop a transparent and reliable reputation-weighted voting system for intervention approval.
    - **Comparative Policy Analysis** - Aggregate existing approval and certification data from existing national regulatory bodies.  For instance, numerous countries have outlawed the use of glyphosate which can harm the gut microbiome.  This data could be used to generate a comparative policy analysis to inform the FDA's decision-making process.
-   - **Food and Drug Outcome Labels** - Ultimately, the most useful output of a decentralized FDA would be [Outcome Labels](outcome-labels/outcome-labels.md) list the degree to which the product is likely to improve or worsen specific health outcomes or symptoms. These are derived from real-world data (RWD) and subject to Futarchical-weighted review by the board members of the dFDA. [👉 Learn More](outcome-labels/outcome-labels.md)
+   - **Food and Drug Outcome Labels** - Ultimately, the most useful output of a decentralized FDA would be [Outcome Labels](../data-analysis/outcome-labels/outcome-labels.md) list the degree to which the product is likely to improve or worsen specific health outcomes or symptoms. These are derived from real-world data (RWD) and subject to Futarchical-weighted review by the board members of the dFDA. [👉 Learn More](../data-analysis/outcome-labels/outcome-labels.md)
    - **Publish Meta-Analyses** - Generate meta-analyses from all completed studies at ClinicalTrials.gov
    - **Certification of Intervention Manufacturers/Sources** via a Decentralized Web of Trust derived from end-user data and reviews traced back using an NFT-tracked supply chain
    - **Intervention Ranking** - Elevate the most promising yet little/known or researched treatments
@@ -19,4 +20,4 @@ The Clinipedia wiki contains the aggregate of all available data on the effects 
 - [Psychonaut Wiki](https://psychonautwiki.org/wiki/Psychoactive_substance_index) - A modified version of MediaWiki with additional quantitative metadata storage regarding the pharmacokinetics of various substances.
 - [Journal of Citizen Science](https://studies.crowdsourcingcures.org/) - Published outcome labels based on analysis of real-world data (RWD) from the [Crowdsourcing Cures](https://crowdsourcingcures.org/).
 
-![outcome-labels.png](outcome-labels/outcome-labels.png)
+![outcome-labels.png](../data-analysis/outcome-labels/outcome-labels.png)
