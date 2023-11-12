@@ -1,4 +1,4 @@
-# 🖥 Data Analysis Plugins
+# 📈 Data Analysis
 
 ![](data-analysis.PNG)
 
