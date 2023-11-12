@@ -2,13 +2,20 @@
 title: 💊 The Decentralized FDA 🌎
 description: A platform to help the FDA and global regulatory agencies quantify the effects of millions of factors like foods, drugs, and supplements affect human health.
 ---
-> 🚧 WORK IN PROGRESS! 🚧 <br></br><br></br>
->Contributions are eternally appreciated! <br></br><br></br>
->It's our goal to avoid any duplication of effort. So please include existing projects that would be interested in fulfilling any part of this global framework.
+> 🚧 **WORK IN PROGRESS!** 🚧 <br></br>
+>Contributions are eternally appreciated! <br></br>
+>It's our goal to avoid any duplication of effort. So please include existing projects that would be interested in fulfilling any part of this global framework. <br></br>
+> 
+> 📢 **Call for Grant Applications** <br></br>
+> Crowdsourcing Cures is currently accepting grant applications from individuals or organizations interested in contributing to this project. Please apply by sending your proposal to [hello@crowdsourcingcures.org](mailto:hello@crowdsourcingcures.org)
+by December 1st.<br></br>
 
 # 😕 Why the hell are we doing this?
 
 The current system of clinical research, diagnosis, and treatment is miserably failing the billions of people are suffering from chronic diseases.
+
+<details>
+  <summary>👉 Click to learn more about why it sucks... </summary>
 
 It takes over [10 years and 2.6 billion dollars](https://www.semanticscholar.org/paper/Innovation-in-the-pharmaceutical-industry%3A-New-of-DiMasiGrabowski/3275f31c072ac11c6ca7a5260bd535720f07df41) to bring a drug to market (including failed attempts).
 It costs [$41k](https://www.clinicalleader.com/doc/getting-a-handle-on-clinical-trial-costs-0001) per subject in Phase III clinical trials.
@@ -43,14 +50,34 @@ One investigation found that only [14.5%](https://www.ncbi.nlm.nih.gov/pubmed/14
 We've only studied [0.000000002%](https://www.centerwatch.com/articles/12702-new-mit-study-puts-clinical-research-success-rate-at-14-percent) of the [166 billion](https://www.nature.com/articles/549445a) potential medicinal molecules.
 
 ![studied-molecules-chart-no-background.svg](images/studied-molecules-chart-no-background.svg)
-
-
+</details>
 
 # 🧪 Our Hypothesis
 
+By harnessing global collective intelligence and oceans of real-world data we hope to generate discoveries 50X faster and 1000X cheaper than current systems.
+
+<details>
+  <summary>👉 Click to learn more about what's possible...</summary>
+
 So in the 90's, Microsoft spent billions hiring thousands of PhDs to create Encarta, the greatest encyclopedia in history.  A decade later, when Wikipedia was created, the general consensus was that it was going to be a dumpster fire of lies.  Surprisingly, Wikipedia ended up generating information 50X faster than Encarta and was about 1000X cheaper without any loss in accuracy.  This is the magical power of crowdsourcing and open collaboration.
 
-Our crazy theory is that we can accomplish the same great feat in the realm of clinical research.  By crowdsourcing real-world data and observations from patients, clinicians, and researchers, we hope the Decentralized FDA could also generate clinical discoveries 50X and 1000X times cheaper than current systems.
+Our crazy theory is that we can accomplish the same great feat in the realm of clinical research.  By crowdsourcing real-world data and observations from patients, clinicians, and researchers, we hope the Decentralized FDA could also generate clinical discoveries 50X faster and 1000X cheaper than current systems.
+
+
+## The Potential of Real-World Evidence-Based Studies
+
+- **Diagnostics** - Data mining and analysis to identify causes of illness
+- **Preventative medicine** - Predictive analytics and data analysis of genetic, lifestyle, and social circumstances
+  to prevent disease
+- **Precision medicine** - Leveraging aggregate data to drive hyper-personalized care
+- **Medical research** - Data-driven medical and pharmacological research to cure disease and discover new treatments and medicines
+- **Reduction of adverse medication events** - Harnessing of big data to spot medication errors and flag potential
+  adverse reactions
+- **Cost reduction** - Identification of value that drives better patient outcomes for long-term savings
+- **Population health** - Monitor big data to identify disease trends and health strategies based on demographics,
+  geography, and socioeconomic
+
+</details>
 
 # 🖥️ Technical Architecture
 
