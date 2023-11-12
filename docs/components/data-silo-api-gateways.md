@@ -1,6 +1,6 @@
 ## Data Silo API Gateway Nodes
 
-dFDA Gateway API Nodes make it easy for data silos, such as hospitals and digital health apps, to let people export and save their data locally in their [PersonalFDA Nodes](../home.mdx#2-personalfda-nodes). 
+dFDA Gateway API Nodes make it easy for data silos, such as hospitals and digital health apps, to let people export and save their data locally in their [PersonalFDA Nodes](../home.md#2-personalfda-nodes). 
 
 ### Requirements
    - **OAuth2 Protected API:** Provides a secure, OAuth2-protected API for people to easily access their data.
