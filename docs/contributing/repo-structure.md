@@ -4,7 +4,7 @@ stoplight-id: sz5hf6lkwwyg5
 
 # CureDAO Monorepo
 
-The goal of this monorepo is to acheive maximum interoperability and minimum duplication of effort between the various projects in the digital health ecosystem.  
+The goal of this monorepo is to achieve maximum interoperability and minimum duplication of effort between the various projects in the digital health ecosystem.  
 
 ## Why a monorepo?
 

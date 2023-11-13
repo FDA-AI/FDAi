@@ -1,63 +1,28 @@
 ---
 title: 💊 The Decentralized FDA 🌎
-description: A global federation to help the FDA and global regulatory agencies quantify the effects of millions of factors like foods, drugs, and supplements affect human health.
+description: A global federation to help regulatory agencies by quantifying the effects of millions of factors like foods, drugs, and supplements affect human health and happiness.
 ---
-
 # 💊 The Decentralized FDA 🌎
 
 A global federation to help the FDA and global regulatory agencies quantify the effects of millions of factors like foods, drugs, and supplements affect human health.
 
+🤝 **Join Us**: Whether you're a developer, researcher, health professional, regulatory, or simply passionate about health innovation, your contribution can make a monumental difference!
 
-<details>
-  <summary>🚧 WORK IN PROGRESS</summary>
+[👉 Tell Us About Your Project!](#)
 
-Contributions are eternally appreciated! 
+# 🛟 Help Wanted!
+
+Code or documentation improvements are eternally appreciated! 
 
 It's our goal to avoid any duplication of effort. So please include existing projects that would be interested in fulfilling any part of this global framework.
-</details>
-<br>
+
+**[👉 Click Here to Contribute](contributing.md)**
 
 # 😕 Why are we doing this?
 
 The current system of clinical research, diagnosis, and treatment is miserably failing the billions of people are suffering from chronic diseases.
 
-<details>
-  <summary>👉 Click to learn more about why it sucks... </summary>
-
-It takes over [10 years and 2.6 billion dollars](https://www.semanticscholar.org/paper/Innovation-in-the-pharmaceutical-industry%3A-New-of-DiMasiGrabowski/3275f31c072ac11c6ca7a5260bd535720f07df41) to bring a drug to market (including failed attempts).
-It costs [$41k](https://www.clinicalleader.com/doc/getting-a-handle-on-clinical-trial-costs-0001) per subject in Phase III clinical trials.
-
-The high costs lead to:
-
-⚛️ **1. No Data on Unpatentable Molecules**
-
-We still know next to nothing about the long-term effects of 99.9% of the 4 pounds of over [7,000](https://www.dailymail.co.uk/health/article-8757191/Are-additives-food-making-ill.html) different synthetic or natural compounds. This is because there's only sufficient incentive to research patentable molecules.
-
-![chemicals-in-our-diet.svg](images/chemicals-in-our-diet.svg)
-
-🤑 **2. Lack of Incentive to Discover Every Application of Off-Patent Treatments**
-
-Thousands of drugs were found to work for other diseases after the patent expired. Unfortunately, there isn't financial incentive to do any more research on them at this point.
-
-📆 **3. No Long-Term Outcome Data**
-
-It's not financially feasible to collect a participant's data for years or decades. Thus, we don't know if the long-term effects of a drug are worse than the initial benefits.
-
-🤐 **4. Negative Results Aren't Published**
-
-Pharmaceutical companies tend to only report "positive" results. That leads to other companies wasting money repeating research on the same dead ends.
-
-🎯 **5. Trials Exclude a Vast Majority of The Population**
-
-One investigation found that only [14.5%](https://www.ncbi.nlm.nih.gov/pubmed/14628985) of patients with major depressive disorder fulfilled eligibility requirements for enrollment in an antidepressant trial. Furthermore, most patient sample sizes are very small and sometimes include only 20 people.
-
-
-🤏 **6. We Only Know 0.000000002% of What is Left to be Researched**
-
-We've only studied [0.000000002%](https://www.centerwatch.com/articles/12702-new-mit-study-puts-clinical-research-success-rate-at-14-percent) of the [166 billion](https://www.nature.com/articles/549445a) potential medicinal molecules.
-
-![studied-molecules-chart-no-background.svg](images/studied-molecules-chart-no-background.svg)
-</details>
+👉 [Click to learn more about why it sucks...](stuff-that-sucks.md)
 
 # 🧪 Our Hypothesis
 
@@ -104,79 +69,62 @@ We don't want to reinvent the wheel in any way, so if there's an existing projec
 
 ![dfda-gateway-api-node-silo.png](components/data-silo-gateway-api-nodes/dfda-gateway-api-node-silo.png)
 
-dFDA Gateway API Nodes make it easy for data silos, such as hospitals and digital health apps, to let people export and save their data locally in their [PersonalFDA Nodes](#2-personalfda-nodes).
+[dFDA Gateway API Nodes](components/data-silo-gateway-api-nodes) should make it easy for data silos, such as hospitals and digital health apps, to let people export and save their data locally in their [PersonalFDA Nodes](#2-personalfda-nodes).
 
 **👉 [Learn More About Gateway APIs](components/data-silo-gateway-api-nodes/data-silo-api-gateways.md)**
 
 ## 2. PersonalFDA Nodes
 
-PersonalFDA Nodes are applications that can run on your phone or computer. They import, store, and analyze your data to identify how various factors affect your health.  They can also be used to share anonymous analytical results with the [Clinipedia dFDA Wiki](#3-clinipediathe-wikipedia-of-clinical-research) in a secure and privacy-preserving manner.
+[PersonalFDA Nodes](components/personal-fda-nodes/personal-fda-nodes.md) are applications that can run on your phone or computer. They import, store, and analyze your data to identify how various factors affect your health.  They can also be used to share anonymous analytical results with the [Clinipedia dFDA Wiki](#3-clinipediathe-wikipedia-of-clinical-research) in a secure and privacy-preserving manner.
 
-PersonalFDA Nodes are composed of two components, a Digital Twin Safe and an AI agent called Optimitron (or some better name) that uses causal inference to estimate how various factors affect your health.
+[PersonalFDA Nodes](components/personal-fda-nodes/personal-fda-nodes.md) are composed of two components, a [Digital Twin Safe](components/personal-fda-nodes/digital-twin-safe/digital-twin-safe.md) and a [personal AI agent](components/personal-fda-nodes/data-analysis/optimiton-ai-agent/optomitron-ai-agent.md) applies causal inference algorithms to estimate how various factors affect your health.
 
-### 2.1. Digital Twin Safe
+### 2.1. Digital Twin Safes
 
-![digital-twin-safe-cover.png](components/personal-fda-nodes/digital-twin-safe/digital-twin-safe-cover.png)
+![digital-twin-safe-no-text.png](components/personal-fda-nodes/digital-twin-safe/digital-twin-safe-no-text.png)
+
+
 
 A local application for self-sovereign import and storage of personal data.
 
 **👉[Learn More or Contribute to Digital Twin Safe](components/personal-fda-nodes/digital-twin-safe/digital-twin-safe.md)**
 
-### 2.2. Optimitron AI Agent
+### 2.2. Personal AI Agents
 
-Optimitron is an AI agent that lives in your PersonalFDA node that uses causal inference to estimate how various factors affect your health.
+[Personal AI agents](components/personal-fda-nodes/data-analysis/optimiton-ai-agent/optomitron-ai-agent.md) that live in your [PersonalFDA nodes](components/personal-fda-nodes/personal-fda-nodes.md) and use [causal inference](components/personal-fda-nodes/data-analysis/optimiton-ai-agent/optomitron-ai-agent.md) to estimate how various factors affect your health.
 
-![data-import-and-analysis.gif](images/data-import-and-analysis.gif)
+[![data-import-and-analysis.gif](images/data-import-and-analysis.gif)](components/personal-fda-nodes/data-analysis/optimiton-ai-agent/optomitron-ai-agent.md)
 
 **👉[Learn More About Optimitron](components/personal-fda-nodes/data-analysis/optimiton-ai-agent/optomitron-ai-agent.md)**
 
 
 ## 3. Clinipedia—The Wikipedia of Clinical Research
 
-![clinipedia_globe_circle.png](components/clinipedia/clinipedia_globe_circle.png)
+[![clinipedia_globe_circle.png](components/clinipedia/clinipedia_globe_circle.png)](components/clinipedia/clinipedia.md)
 
-The Clinipedia wiki should be a global knowledge repository containing the aggregate of all available data on the effects of every food, drug, supplement, and medical intervention on human health.
-
-![outcome-labels.png](components/personal-fda-nodes/data-analysis/outcome-labels/outcome-labels.png)
-
-### Tentative Requirements
-   - Editing Authorization and Conflict Resolution Mechanisms
-   - AI Agent Generated Meta-Analyses Combining All Existing Research on Each Intervention/Outcome Pair
-   - Directory of Data Silos and Instructions for Individuals to Export Their Data to their Digital Twin Safes
-   - Inter-Jurisdictional Comparative Policy Analysis of the Outcomes of Regulatory Decisions
-   - Outcome Labels List the Degree to Which the Product is Likely to Improve or Worsen Specific Health Outcomes or Symptoms
-   - Certification of Intervention Manufacturers/Sources
-   - Intervention Effectiveness Ranking for Specific Outcomes or Conditions
-   - Decentralized Clinical Trial Coordination and Protocols
+The [Clinipedia wiki](components/clinipedia/clinipedia.md) should be a global knowledge repository containing the aggregate of all available data on the effects of every food, drug, supplement, and medical intervention on human health.
 
 **[👉 Learn More or Contribute to the Clinipedia](components/clinipedia/clinipedia.md)**
 
-# AI Collective Intelligence Platform
+### 3.1 Outcome Labels
+
+A key component of Clinipedia are [**Outcome Labels**](components/personal-fda-nodes/data-analysis/outcome-labels/outcome-labels.md) that list the degree to which the product is likely to improve or worsen specific health outcomes or symptoms.
+
+![outcome-labels.png](components/personal-fda-nodes/data-analysis/outcome-labels/outcome-labels.png)
+
+**👉 [Learn More About Outcome Labels](components/personal-fda-nodes/data-analysis/outcome-labels/outcome-labels.md)**
+
+# Human-AI Collective Intelligence Platform
 
 A collective intelligence coordination platform is needed for facilitating cooperation, communication, and collaborative actions among contributors.
 
-## Desired Features
-
-1. Communication Channels
-2. Resource Sharing Mechanisms
-3. Decentralized Collaborative Workspaces
-4. Partnership Agreements
-5. Project Management
-6. Knowledge Repository
-7. Legal and Regulatory Guidance
-8. Impact Tracking
-9. Reputation Scoring
-
 **[👉 Learn More or Contribute to the dFDA Collaboration Framework](components/human-ai-collective-intelligence-platform/dfda-collaboration-framework.md)**
 
-# To-Do List
+# Roadmap
 
-1. Establish Foundation
-2. Build Board of Directors
-3. Establish Collaborations and Partnerships
-4. Data Silo Gateway API Nodes
-5. PersonalFDA Nodes
-6. Clinipedia dFDA Wiki
+We'd love your help and input in determining an optimal roadmap for this project.
 
-**[👉 Click Here for a Detailed Roadmap and Milestones](roadmap.md)**
+**[👉 Click Here for a Detailed Roadmap](roadmap.md)**
+
+
 
