@@ -6,11 +6,11 @@ PersonalFDA Nodes are composed of two components, a Digital Twin Safe and an AI 
 
 ### 2.1. Digital Twin Safe
 
-![digital-twin-safe.png](digital-twin-safe/digital-twin-safe.png)
+![digital-twin-safe.png](../digital-twin-safe/digital-twin-safe.png)
 
 A local application for self-sovereign import and storage of personal data.
 
-**👉 [Learn More or Contribute to Digital Twin Safe](digital-twin-safe/digital-twin-safe.md)**
+**👉 [Learn More or Contribute to Digital Twin Safe](../digital-twin-safe/digital-twin-safe.md)**
 
 ### 2.2. Optimitron AI Agent
 
@@ -18,4 +18,4 @@ A local application for self-sovereign import and storage of personal data.
 
 Optimitron is an AI agent that lives in your PersonalFDA node that uses causal inference to estimate how various factors affect your health.
 
-**👉 [Learn More](data-analysis/optimiton-ai-agent/optomitron-ai-agent.md)**
+**👉 [Learn More](../optimiton-ai-agent/optomitron-ai-agent.md)**

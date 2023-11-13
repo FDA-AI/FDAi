@@ -77,25 +77,25 @@ We don't want to reinvent the wheel in any way, so if there's an existing projec
 
 [PersonalFDA Nodes](components/personal-fda-nodes/personal-fda-nodes.md) are applications that can run on your phone or computer. They import, store, and analyze your data to identify how various factors affect your health.  They can also be used to share anonymous analytical results with the [Clinipedia dFDA Wiki](#3-clinipediathe-wikipedia-of-clinical-research) in a secure and privacy-preserving manner.
 
-[PersonalFDA Nodes](components/personal-fda-nodes/personal-fda-nodes.md) are composed of two components, a [Digital Twin Safe](components/personal-fda-nodes/digital-twin-safe/digital-twin-safe.md) and a [personal AI agent](components/personal-fda-nodes/data-analysis/optimiton-ai-agent/optomitron-ai-agent.md) applies causal inference algorithms to estimate how various factors affect your health.
+[PersonalFDA Nodes](components/personal-fda-nodes/personal-fda-nodes.md) are composed of two components, a [Digital Twin Safe](components/digital-twin-safe/digital-twin-safe.md) and a [personal AI agent](components/optimiton-ai-agent/optomitron-ai-agent.md) applies causal inference algorithms to estimate how various factors affect your health.
 
 ### 2.1. Digital Twin Safes
 
-![digital-twin-safe-no-text.png](components/personal-fda-nodes/digital-twin-safe/digital-twin-safe-no-text.png)
+![digital-twin-safe-no-text.png](components/digital-twin-safe/digital-twin-safe-no-text.png)
 
 
 
 A local application for self-sovereign import and storage of personal data.
 
-**👉[Learn More or Contribute to Digital Twin Safe](components/personal-fda-nodes/digital-twin-safe/digital-twin-safe.md)**
+**👉[Learn More or Contribute to Digital Twin Safe](components/digital-twin-safe/digital-twin-safe.md)**
 
 ### 2.2. Personal AI Agents
 
-[Personal AI agents](components/personal-fda-nodes/data-analysis/optimiton-ai-agent/optomitron-ai-agent.md) that live in your [PersonalFDA nodes](components/personal-fda-nodes/personal-fda-nodes.md) and use [causal inference](components/personal-fda-nodes/data-analysis/optimiton-ai-agent/optomitron-ai-agent.md) to estimate how various factors affect your health.
+[Personal AI agents](components/optimiton-ai-agent/optomitron-ai-agent.md) that live in your [PersonalFDA nodes](components/personal-fda-nodes/personal-fda-nodes.md) and use [causal inference](components/optimiton-ai-agent/optomitron-ai-agent.md) to estimate how various factors affect your health.
 
-[![data-import-and-analysis.gif](images/data-import-and-analysis.gif)](components/personal-fda-nodes/data-analysis/optimiton-ai-agent/optomitron-ai-agent.md)
+[![data-import-and-analysis.gif](images/data-import-and-analysis.gif)](components/optimiton-ai-agent/optomitron-ai-agent.md)
 
-**👉[Learn More About Optimitron](components/personal-fda-nodes/data-analysis/optimiton-ai-agent/optomitron-ai-agent.md)**
+**👉[Learn More About Optimitron](components/optimiton-ai-agent/optomitron-ai-agent.md)**
 
 
 ## 3. Clinipedia—The Wikipedia of Clinical Research
@@ -108,11 +108,11 @@ The [Clinipedia wiki](components/clinipedia/clinipedia.md) should be a global kn
 
 ### 3.1 Outcome Labels
 
-A key component of Clinipedia are [**Outcome Labels**](components/personal-fda-nodes/data-analysis/outcome-labels/outcome-labels.md) that list the degree to which the product is likely to improve or worsen specific health outcomes or symptoms.
+A key component of Clinipedia are [**Outcome Labels**](components/outcome-labels/outcome-labels.md) that list the degree to which the product is likely to improve or worsen specific health outcomes or symptoms.
 
-![outcome-labels.png](components/personal-fda-nodes/data-analysis/outcome-labels/outcome-labels.png)
+![outcome-labels.png](components/outcome-labels/outcome-labels.png)
 
-**👉 [Learn More About Outcome Labels](components/personal-fda-nodes/data-analysis/outcome-labels/outcome-labels.md)**
+**👉 [Learn More About Outcome Labels](components/outcome-labels/outcome-labels.md)**
 
 # Human-AI Collective Intelligence Platform
 

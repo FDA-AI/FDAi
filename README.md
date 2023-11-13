@@ -29,8 +29,8 @@ dFDa-1 is an initial prototype of the decentralized FDA located in [apps/dfda-1]
 * [Data Aggregation](#data-aggregation)
 * [Data Analysis](#data-analysis)
   * [🏷️Outcome Labels](#-outcome-labels)
-  * [🔮Predictor Search Engine](docs/features/predictor-search-engine/predictor-search-engine.md)
-  * [Root Cause Analysis](docs/features/root-cause-analysis-reports/root-cause-analysis-reports.md)
+  * [🔮Predictor Search Engine](docs/components/predictor-search-engine/predictor-search-engine.md)
+  * [Root Cause Analysis](docs/components/root-cause-analysis-reports/root-cause-analysis-reports.md)
   * [📜Observational Mega-Studies](https://www.curedao.org/blog/observational-studies-plugin)
 * [Real-Time Decision Support Notifications](https://www.curedao.org/blog/optomitron)
 * [No Code Health App Builder](https://www.curedao.org/blog/no-code-health-app-builder)
@@ -117,25 +117,25 @@ It then pairs every combination of variables and identifies likely causal relati
 
 ### 🏷 Outcome Labels
 
-![outcome-labels-plugin.png](docs/features/outcome-labels/outcome-labels.png)
+![outcome-labels-plugin.png](docs/components/outcome-labels/outcome-labels.png)
 
-[More info about outcome labels](docs/features/outcome-labels/outcome-labels.md)
+[More info about outcome labels](docs/components/outcome-labels/outcome-labels.md)
 
 ### Real-time Decision Support Notifications
 
-![](docs/features/real-time-decision-support/notifications-screenshot.png)
+![](docs/components/real-time-decision-support/notifications-screenshot.png)
 
-[More info about real time decision support](docs/features/outcome-labels/outcome-labels.md)
+[More info about real time decision support](docs/components/outcome-labels/outcome-labels.md)
 
 ### 📈 Predictor Search Engine
 
-![Predictor Search](docs/features/predictor-search-engine/predictor-search-simple-list-zoom.png)
+![Predictor Search](docs/components/predictor-search-engine/predictor-search-simple-list-zoom.png)
 
 ### Auto-Generated Observational Studies
 
-![](docs/features/observational-studies/observational-studies.png)
+![](docs/components/observational-studies/observational-studies.png)
 
-[More info about observational studies](docs/features/observational-studies/observational-studies.md)
+[More info about observational studies](docs/components/observational-studies/observational-studies.md)
 
 ## Demos
 
