@@ -1,16 +1,23 @@
 ---
 title: 💊 The Decentralized FDA 🌎
-description: A platform to help the FDA and global regulatory agencies quantify the effects of millions of factors like foods, drugs, and supplements affect human health.
+description: A global federation to help the FDA and global regulatory agencies quantify the effects of millions of factors like foods, drugs, and supplements affect human health.
 ---
-> 🚧 **WORK IN PROGRESS!** 🚧 <br></br>
->Contributions are eternally appreciated! <br></br>
->It's our goal to avoid any duplication of effort. So please include existing projects that would be interested in fulfilling any part of this global framework. <br></br>
-> 
-> 📢 **Call for Grant Applications** <br></br>
-> Crowdsourcing Cures is currently accepting grant applications from individuals or organizations interested in contributing to this project. Please apply by sending your proposal to [hello@crowdsourcingcures.org](mailto:hello@crowdsourcingcures.org)
-by December 1st.<br></br>
 
-# 😕 Why the hell are we doing this?
+# 💊 The Decentralized FDA 🌎
+
+A global federation to help the FDA and global regulatory agencies quantify the effects of millions of factors like foods, drugs, and supplements affect human health.
+
+
+<details>
+  <summary>🚧 WORK IN PROGRESS</summary>
+
+Contributions are eternally appreciated! 
+
+It's our goal to avoid any duplication of effort. So please include existing projects that would be interested in fulfilling any part of this global framework.
+</details>
+<br>
+
+# 😕 Why are we doing this?
 
 The current system of clinical research, diagnosis, and treatment is miserably failing the billions of people are suffering from chronic diseases.
 
@@ -59,6 +66,8 @@ By harnessing global collective intelligence and oceans of real-world data we ho
 <details>
   <summary>👉 Click to learn more about what's possible...</summary>
 
+## Global Scale Clinical Research + Collective Intelligence = 🤯
+
 So in the 90's, Microsoft spent billions hiring thousands of PhDs to create Encarta, the greatest encyclopedia in history.  A decade later, when Wikipedia was created, the general consensus was that it was going to be a dumpster fire of lies.  Surprisingly, Wikipedia ended up generating information 50X faster than Encarta and was about 1000X cheaper without any loss in accuracy.  This is the magical power of crowdsourcing and open collaboration.
 
 Our crazy theory is that we can accomplish the same great feat in the realm of clinical research.  By crowdsourcing real-world data and observations from patients, clinicians, and researchers, we hope the Decentralized FDA could also generate clinical discoveries 50X faster and 1000X cheaper than current systems.
@@ -93,20 +102,11 @@ We don't want to reinvent the wheel in any way, so if there's an existing projec
 
 ## 1. Data Silo API Gateway Nodes
 
+![dfda-gateway-api-node-silo.png](components/data-silo-gateway-api-nodes/dfda-gateway-api-node-silo.png)
+
 dFDA Gateway API Nodes make it easy for data silos, such as hospitals and digital health apps, to let people export and save their data locally in their [PersonalFDA Nodes](#2-personalfda-nodes).
 
-### Tentative Requirements
-   - OAuth2 Protected API
-   - Personal Access Token Management
-   - Developer Portal
-   - OpenAPI Documentation
-   - Software Development Kits (SDKs)
-   - Data Encryption
-   - HIPAA and GDPR Compliance
-   - Multiple Data Format Options
-   - Data Structure Options
-
-**👉[Learn More](components/data-silo-api-gateways.md)**
+**👉 [Learn More About Gateway APIs](components/data-silo-gateway-api-nodes/data-silo-api-gateways.md)**
 
 ## 2. PersonalFDA Nodes
 
@@ -116,18 +116,11 @@ PersonalFDA Nodes are composed of two components, a Digital Twin Safe and an AI 
 
 ### 2.1. Digital Twin Safe
 
-![digital-twin-safe-cover.png](images/digital-twin-safe-cover.png)
+![digital-twin-safe-cover.png](components/personal-fda-nodes/digital-twin-safe/digital-twin-safe-cover.png)
 
 A local application for self-sovereign import and storage of personal data.
 
-#### Requirements
-   - [Data Import](components/mhealth-data-import/mhealth-data-import.md)
-   - Quantum-Resistant Data Encryption
-   - Sync Data Between Trusted Devices
-   - Multifactorial and Biometric Security
-   - Data Sharing Controls
-
-**👉[Learn More or Contribute to Digital Twin Safe](components/digital-twin-safe.md)**
+**👉[Learn More or Contribute to Digital Twin Safe](components/personal-fda-nodes/digital-twin-safe/digital-twin-safe.md)**
 
 ### 2.2. Optimitron AI Agent
 
@@ -135,27 +128,16 @@ Optimitron is an AI agent that lives in your PersonalFDA node that uses causal i
 
 ![data-import-and-analysis.gif](images/data-import-and-analysis.gif)
 
-Optimitron is an AI assistant that asks you about your symptoms and potential factors. Then she applies pharmacokinetic predictive analysis to inform you of the most important things you can do to minimize symptom severity.
+**👉[Learn More About Optimitron](components/personal-fda-nodes/data-analysis/optimiton-ai-agent/optomitron-ai-agent.md)**
 
-[![Click Here for Demo Video](images/optimitron-ai-assistant.png)](https://youtu.be/hd50A74o8YI)
-
-[Or Try the Prototype Here](https://demo.curedao.org/app/public/#/app/chat)
-
-#### Data Analysis
-
-Currently, we've implemented causal inference analysis of sparse time series data that takes into account onset delays and other factors.
-
-![causal-inference-vertical.svg](images/causal-inference-vertical.svg)
-
-We're working on implementing a more robust pharmacokinetic predictive model control recurrent neural network.
-
-Ideally, Optimitron AI agent will be able to further improve the precision and accuracy of the real-time recommendations over time by leveraging reinforcement learning and community contributions.
 
 ## 3. Clinipedia—The Wikipedia of Clinical Research
 
+![clinipedia_globe_circle.png](components/clinipedia/clinipedia_globe_circle.png)
+
 The Clinipedia wiki should be a global knowledge repository containing the aggregate of all available data on the effects of every food, drug, supplement, and medical intervention on human health.
 
-![outcome-labels.png](components/outcome-labels/outcome-labels.png)
+![outcome-labels.png](components/personal-fda-nodes/data-analysis/outcome-labels/outcome-labels.png)
 
 ### Tentative Requirements
    - Editing Authorization and Conflict Resolution Mechanisms
@@ -167,7 +149,7 @@ The Clinipedia wiki should be a global knowledge repository containing the aggre
    - Intervention Effectiveness Ranking for Specific Outcomes or Conditions
    - Decentralized Clinical Trial Coordination and Protocols
 
-**[👉 Learn More or Contribute to the Clinipedia](components/clinipedia.md)**
+**[👉 Learn More or Contribute to the Clinipedia](components/clinipedia/clinipedia.md)**
 
 # AI Collective Intelligence Platform
 
@@ -185,7 +167,7 @@ A collective intelligence coordination platform is needed for facilitating coope
 8. Impact Tracking
 9. Reputation Scoring
 
-**[👉 Learn More or Contribute to the dFDA Collaboration Framework](components/dfda-collaboration-framework.md)**
+**[👉 Learn More or Contribute to the dFDA Collaboration Framework](components/human-ai-collective-intelligence-platform/dfda-collaboration-framework.md)**
 
 # To-Do List
 
