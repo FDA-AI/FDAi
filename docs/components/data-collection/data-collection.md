@@ -2,8 +2,7 @@
 
 ![](data-collection.PNG)
 
-It all begins with self-tracking and initial data collection.\
-This can be done using wearable sensors, third-party applications, and client applications.
+Data collection can be done using wearable sensors, third-party applications, and client applications.
 
 ![Diagram showing data collection ranging from human and public data
 sources ultimately ending up at the aggregation layer(30)](data-collection-flow-chart.png)

@@ -1,9 +1,6 @@
 # The Decentralized FDA Mono-Repo
 
-The mission of the Decentralized FDA is to create a decentralized, open-source, and community-driven platform for
-discovering the positive and negative effects of every food, supplement, drug, and treatment on every measurable aspect of human health.
-
-![Platform Diagram](assets/platform.png)
+Libraries and tools to help people and organizations quantify the positive and negative effects of every food, supplement, drug, and treatment on every measurable aspect of human health and happiness.
 
 # Why a Monorepo
 
@@ -22,19 +19,16 @@ dFDa-1 is an initial prototype of the decentralized FDA located in [apps/dfda-1]
 
 ## dFDA v1 Features
 
-* [Data Collection](#data-collection)
-  * [📱Mobile App](#reminder-inbox)
-  * [🌐Web App](#-web-app)
-  * [📈Data Visualizations](#-data-visualizations)
-* [Data Aggregation](#data-aggregation)
+* [Data Collection](docs/components/data-collection/data-collection.md)
+* [Data Import](docs/components/data-import/data-import.md)
 * [Data Analysis](#data-analysis)
   * [🏷️Outcome Labels](#-outcome-labels)
   * [🔮Predictor Search Engine](docs/components/predictor-search-engine/predictor-search-engine.md)
-  * [Root Cause Analysis](docs/components/root-cause-analysis-reports/root-cause-analysis-reports.md)
-  * [📜Observational Mega-Studies](https://www.curedao.org/blog/observational-studies-plugin)
+  * [🥕 Root Cause Analysis Reports](docs/components/root-cause-analysis-reports/root-cause-analysis-reports.md)
+  * [📜Observational Mega-Studies](docs/components/observational-studies/observational-studies.md)
 * [Real-Time Decision Support Notifications](https://www.curedao.org/blog/optomitron)
 * [No Code Health App Builder](https://www.curedao.org/blog/no-code-health-app-builder)
-* [AI Robot Doctor](https://www.curedao.org/blog/optomitron)
+* [Personal AI Agent](docs/components/optimiton-ai-agent/optomitron-ai-agent.md)
 * [Chrome Extension](https://www.curedao.org/blog/chrome-extension)
 
 <p align="center">
@@ -50,64 +44,17 @@ Collects and aggregate data on symptoms, diet, sleep, exercise, weather, medicat
 of life-tracking apps and devices. Analyzes data to reveal hidden factors exacerbating or improving symptoms of
 chronic illness.
 
-# Benefits
-
-- Automatically identify food sensitivities
-- Determine personalized optimal daily values for dietary intake.
-- Quantify the effectiveness of drugs, supplements, and treatments.
-- Calculate optimal doses of nutrients, ingredients, and other wellness factors.
-- Determine optimal environmental parameters such as humidity, temperature, and light exposure.
-- Determine the optimal amount of physical activity and the best forms of physical activity, intensity, and duration.
-- Determine the optimal amount of sleep and the optimal time to go to sleep, and the optimal conditions for sleep.
-- Determine the amount of time it takes to build a tolerance to a drug and the length of the withdrawal period from the drug.
-
-# Features
-
-- Easily track mood, symptoms, or any outcome you want to optimize in a fraction of a second
-- Add notes with your ratings
-- Create reminders to track treatments, symptoms, emotions, diet, physical activity, and anything else that could influence your outcome of interest
-- Import your data from over 30 other apps and devices like
-- Analyze your data to identify which hidden factors are most likely to be influencing your mood or symptoms and their optimal daily values
-- View mood trends, helping to identify triggers for symptoms and identify the potential effects of treatments
-- Export and email your data to your healthcare provider
-- Create and publish studies using your data or aggregated user data
-- Search for predictors and see the most significant factors influencing your conditions and their optimal daily values
-- Make informed changes and optimize your life!
-
-# Data Aggregation
-
-The Connector Framework imports and normalizes data on all quantifiable aspects of human existence (sleep, mood, medication, diet, exercise, etc.) from dozens of applications and devices including:
-
-- Oura – Sleep Duration, Sleep Quality, Steps, Physical Activity
-- Pollution - Air Quality, Noise Level, Particulate Matter
-- Netatmo - Ambient Temperature, Humidity, Air Quality
-- Rescuetime – Productivity and Time Tracking
-- WhatPulse – Keystroke and Mouse Behaviour
-- Fitbit – Sleep Duration, Sleep Quality, Steps, Physical Activity
-- Withings – Blood Pressure, Weight, Environmental CO2 Levels, Ambient Temperature
-- Weather – Local Humidity, Cloud Cover, Temperature
-- Facebook – Social Interaction, Likes
-- GitHub – Productivity and Code Commits
-- MyFitnessPal – Food and Nutrient Intake
-- MoodPanda – Basic Reported Mood
-- MoodScope – Detailed Reported Mood
-- Sleep as Android – Snoring, Deep Sleep, Reported Sleep Rating
-- RunKeeper – Physical Activity
-- MyNetDiary – Food and Nutrient Intake, Vital Signs
-
-# Data Collection
-
 ## Web Notifications
 
 Web and mobile push notifications with action buttons.
 
-![web notification action buttons](assets/web-notification-action-buttons.png)
+![web notification action buttons](docs/components/data-collection/web-notification-action-buttons.png)
 
 ## Chrome Extension
 
 By using the Chrome Extension, you can track your mood, symptoms, or any outcome you want to optimize in a fraction of a second using a unique popup interface.
 
-![Chrome Extension](assets/chrome-extension.png)
+![Chrome Extension](docs/components/browser-extension/chrome-extension.png)
 
 ## Data Analysis
 
@@ -146,134 +93,135 @@ Currently, the main apps are the [Demo Data Collection, Import, and Analysis App
 
 Try the [Demo Data Collection, Import, and Analysis App](https://app.curedao.org)
 
-## API
 
-For more info about the types of data you can store and get from the API, try out our
-[Interactive API Explorer](https://curedao.readme.io) with the access token `demo`.
+# [API Reference](docs/api-reference/api-reference.md)
 
-## Quick Start
 
-1. Fork the project
-2. Click the `Open in Gitpod` button below in YOUR forked repo.
-3. Allow Gitpod to open port 5555.  It should then open the project in a new tab.
+---
+title: 💊 The Decentralized FDA 🌎
+description: A global federation to help regulatory agencies by quantifying the effects of millions of factors like foods, drugs, and supplements affect human health and happiness.
+---
+# 💊 The Decentralized FDA 🌎
 
-[![Open in Gitpod](https://camo.githubusercontent.com/1eb1ddfea6092593649f0117f7262ffa8fbd3017/68747470733a2f2f676974706f642e696f2f627574746f6e2f6f70656e2d696e2d676974706f642e737667)](https://gitpod-referer.now.sh/api/gitpod-referer-redirect)
+A global federation to help the FDA and global regulatory agencies quantify the effects of millions of factors like foods, drugs, and supplements affect human health.
 
-## Local Development
+🤝 **Join Us**: Whether you're a developer, researcher, health professional, regulatory, or simply passionate about health innovation, your contribution can make a monumental difference!
 
-**Step 1**
-🔧 Fork the project
+[👉 Tell Us About Your Project!](#)
 
-**Step 2**
-⏬ Clone your forked version
+# 🛟 Help Wanted!
 
-**Step 3**
-See the README's in the [apps](apps) and [libs](libs) folders for instructions on how to install and run the various projects.
+Code or documentation improvements are eternally appreciated!
 
-# Using the API
+It's our goal to avoid any duplication of effort. So please include existing projects that would be interested in fulfilling any part of this global framework.
 
-_Application Programming Interface Specification_
+**[👉 Click Here to Contribute](docs/contributing.md)**
 
-The API facilitates storage and retrieval of any type of human generated data.
+# 😕 Why are we doing this?
 
-The API is documented in this [OpenAPI Specification](libs/dfda-api-spec/src/dfda-api-spec.openapi.yml).
+The current system of clinical research, diagnosis, and treatment is miserably failing the billions of people are suffering from chronic diseases.
 
-It can be edited by:
+👉 [Click to learn more about why it sucks...](docs/stuff-that-sucks.md)
 
-1. downloading Stoplight Studio [here](https://stoplight.io/studio/)
-2. opening this repo folder as a local project
+# 🧪 Our Hypothesis
 
-## API Usage
+By harnessing global collective intelligence and oceans of real-world data we hope to generate discoveries 50X faster and 1000X cheaper than current systems.
 
-Interactive API documentation is available at https://curedao.readme.io.  However, we have some examples below.
+<details>
+  <summary>👉 Click to learn more about what's possible...</summary>
 
-### Get Commonly Used Variables, Units, and Variable Categories
+## Global Scale Clinical Research + Collective Intelligence = 🤯
 
-You can include the scripts in `data` folder following scripts in your HTML to get the commonly used variables, units, and variable categories.
+So in the 90's, Microsoft spent billions hiring thousands of PhDs to create Encarta, the greatest encyclopedia in history.  A decade later, when Wikipedia was created, the general consensus was that it was going to be a dumpster fire of lies.  Surprisingly, Wikipedia ended up generating information 50X faster than Encarta and was about 1000X cheaper without any loss in accuracy.  This is the magical power of crowdsourcing and open collaboration.
 
-```javascript
-<script src="https://static.quantimo.do/data/variables.js"></script>
-<script src="https://static.quantimo.do/data/units.js"></script>
-<script src="https://static.quantimo.do/data/variableCategories.js"></script>
-```
+Our crazy theory is that we can accomplish the same great feat in the realm of clinical research.  By crowdsourcing real-world data and observations from patients, clinicians, and researchers, we hope the Decentralized FDA could also generate clinical discoveries 50X faster and 1000X cheaper than current systems.
 
-Then they'll be available in:
 
-- Variable Categories: `qm.staticData.variableCategories`
-- Units: `qm.staticData.units`
-- Variables: `qm.staticData.commonVariables`
+## The Potential of Real-World Evidence-Based Studies
 
-### Less Common Variables
+- **Diagnostics** - Data mining and analysis to identify causes of illness
+- **Preventative medicine** - Predictive analytics and data analysis of genetic, lifestyle, and social circumstances
+  to prevent disease
+- **Precision medicine** - Leveraging aggregate data to drive hyper-personalized care
+- **Medical research** - Data-driven medical and pharmacological research to cure disease and discover new treatments and medicines
+- **Reduction of adverse medication events** - Harnessing of big data to spot medication errors and flag potential
+  adverse reactions
+- **Cost reduction** - Identification of value that drives better patient outcomes for long-term savings
+- **Population health** - Monitor big data to identify disease trends and health strategies based on demographics,
+  geography, and socioeconomic
 
-There are over 87,000 additional variables accessible via the following API endpoint:
+</details>
 
-https://curedao.readme.io/reference/getvariables
+# 🖥️ Technical Architecture
 
-```javascript
-const options = {
-  method: 'GET',
-  headers: {Accept: 'application/json', Authorization: 'Bearer demo'}
-};
+This is a very high-level overview of the architecture.  It's a work in progress.  Please contribute!
 
-fetch('https://app.quantimo.do/api/v3/variables?limit=100', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
-```
+![dfda-stack-diagram-white-background.svg](docs/images/dfda-stack-diagram-white-background.svg)
 
-## Getting Started
+## 🚧 Initial Prototype
 
-### Authentication
+We've implemented an initial monolithic prototype of this architecture in [apps/dfda-1](apps/dfda-1). It would better be described as a Centralized Decentralized FDA.  However, our goal is to a new, decentralized, simplified, modular, version of this broken into the components below.
 
-To use the CureDAO API, you first need to get an access token as described below.  Once you have the token, include it in any of the [API requests documented here](https://curedao.org/api-docs) using the `Authorization` header in the format `Bearer YOUR_TOKEN_HERE`.
+We don't want to reinvent the wheel in any way, so if there's an existing project that fulfills the requirements of a component, please [let us know](https://github.com/decentralized-fda/decentralized-fda/discussions) or contribute!
 
-#### Option 1: Use Demo Data
+## 1. Data Silo API Gateway Nodes
 
-If you don't have your own data yet, you can use the access token `demo` in the `Authorization` header in the format `Bearer demo`.
+![dfda-gateway-api-node-silo.png](docs/components/data-silo-gateway-api-nodes/dfda-gateway-api-node-silo.png)
 
-#### Option 2: Access Your Own Data
+[dFDA Gateway API Nodes](docs/components/data-silo-gateway-api-nodes) should make it easy for data silos, such as hospitals and digital health apps, to let people export and save their data locally in their [PersonalFDA Nodes](#2-personalfda-nodes).
 
-- Go to the [Settings](https://app.curedao.org/#/app/settings)
-- Click copy your Personal Access Token
-- Include it in your [API requests](https://curedao.org/api-docs) using the `Authorization` header in the format `Bearer YOUR_TOKEN_HERE`
+**👉 [Learn More About Gateway APIs](docs/components/data-silo-gateway-api-nodes/data-silo-api-gateways.md)**
 
-#### Option 3: Use it in Your Own App
+## 2. PersonalFDA Nodes
 
-- Go to the [App Builder](https://builder.curedao.org/#/app/configuration)
-- Click `New App` and fill out the form
-- Follow the OAuth integration instructions in the `Integration Guide` link
+[PersonalFDA Nodes](docs/components/personal-fda-nodes/personal-fda-nodes.md) are applications that can run on your phone or computer. They import, store, and analyze your data to identify how various factors affect your health.  They can also be used to share anonymous analytical results with the [Clinipedia dFDA Wiki](#3-clinipediathe-wikipedia-of-clinical-research) in a secure and privacy-preserving manner.
 
-### Common API Usage Examples
+[PersonalFDA Nodes](docs/components/personal-fda-nodes/personal-fda-nodes.md) are composed of two components, a [Digital Twin Safe](docs/components/digital-twin-safe/digital-twin-safe.md) and a [personal AI agent](docs/components/optimiton-ai-agent/optomitron-ai-agent.md) applies causal inference algorithms to estimate how various factors affect your health.
 
-Instead of using this SDK, you can also use the requests in our [interactive API documentation](https://curedao.org/api-docs).  Just click the dots to the right of the "LANGUAGE" section and select `Node` or `Javascript`.  Then you can just copy the request for usage in your project.
+### 2.1. Digital Twin Safes
 
-Here are some common usages:
+![digital-twin-safe-no-text.png](docs/components/digital-twin-safe/digital-twin-safe-no-text.png)aider
 
-- [Get Units](https://curedao.readme.io/reference/getunits)
-- [Get Variables](https://curedao.readme.io/reference/getvariables)
-- [Get Variable Categories](https://curedao.readme.io/reference/getvariablecategories)
-- [Get a Specific Variable](https://curedao.readme.io/reference/getvariables)
-- [Save a Measurement](https://curedao.readme.io/reference/postmeasurements)
-- [Get Measurements](https://curedao.readme.io/reference/getmeasurements)
+A local application for self-sovereign import and storage of personal data.
 
-### [Get Variables](https://curedao.readme.io/reference/getvariables)
+**👉[Learn More or Contribute to Digital Twin Safe](docs/components/digital-twin-safe/digital-twin-safe.md)**
 
-![How to Get Variables](https://user-images.githubusercontent.com/2808553/187514806-a3261932-106a-49b9-b760-2b4b52b384c7.png)
+### 2.2. Personal AI Agents
 
-### [Get a Specific Variable](https://curedao.readme.io/reference/getvariables)
+[Personal AI agents](docs/components/optimiton-ai-agent/optomitron-ai-agent.md) that live in your [PersonalFDA nodes](docs/components/personal-fda-nodes/personal-fda-nodes.md) and use [causal inference](docs/components/optimiton-ai-agent/optomitron-ai-agent.md) to estimate how various factors affect your health.
 
-![How to Get a Variable](https://user-images.githubusercontent.com/2808553/187515384-cb1a721b-4534-4e5c-9c94-544288b49780.png)
+[![data-import-and-analysis.gif](docs/images/data-import-and-analysis.gif)](docs/components/optimiton-ai-agent/optomitron-ai-agent.md)
 
-### [Save a Measurement](https://curedao.readme.io/reference/postmeasurements)
+**👉[Learn More About Optimitron](docs/components/optimiton-ai-agent/optomitron-ai-agent.md)**
 
-![Save a Measurement](https://user-images.githubusercontent.com/2808553/187521885-e9e1dee3-c07c-4073-a503-315ce345fc52.png)
 
-### [Get Measurements](https://curedao.readme.io/reference/getmeasurements)
+## 3. Clinipedia—The Wikipedia of Clinical Research
 
-![Get Measurements](https://user-images.githubusercontent.com/2808553/187522064-9f176e08-53f4-47cb-8084-8feb8cdb3428.png)
+[![clinipedia_globe_circle.png](docs/components/clinipedia/clinipedia_globe_circle.png)](docs/components/clinipedia/clinipedia.md)
 
-# Contribution Guide
+The [Clinipedia wiki](docs/components/clinipedia/clinipedia.md) should be a global knowledge repository containing the aggregate of all available data on the effects of every food, drug, supplement, and medical intervention on human health.
 
-- [Add an API](docs/contributing/add-an-api.md)
-- [Repo Structure](docs/contributing/repo-structure.md)
-- [Editing API Specifications](docs/contributing/editing-api-specs.md)
+**[👉 Learn More or Contribute to the Clinipedia](docs/components/clinipedia/clinipedia.md)**
+
+### 3.1 Outcome Labels
+
+A key component of Clinipedia are [**Outcome Labels**](docs/components/outcome-labels/outcome-labels.md) that list the degree to which the product is likely to improve or worsen specific health outcomes or symptoms.
+
+![outcome-labels.png](docs/components/outcome-labels/outcome-labels.png)
+
+**👉 [Learn More About Outcome Labels](docs/components/outcome-labels/outcome-labels.md)**
+
+# Human-AI Collective Intelligence Platform
+
+A collective intelligence coordination platform is needed for facilitating cooperation, communication, and collaborative actions among contributors.
+
+**[👉 Learn More or Contribute to the dFDA Collaboration Framework](docs/components/human-ai-collective-intelligence-platform/dfda-collaboration-framework.md)**
+
+# Roadmap
+
+We'd love your help and input in determining an optimal roadmap for this project.
+
+**[👉 Click Here for a Detailed Roadmap](docs/roadmap.md)**
+
+
+
