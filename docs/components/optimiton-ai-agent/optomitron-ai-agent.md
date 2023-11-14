@@ -14,7 +14,7 @@ Optimitron is an AI assistant that asks you about your symptoms and potential fa
 
 Currently, we've implemented causal inference analysis of sparse time series data that takes into account onset delays and other factors.
 
-![causal-inference-vertical.svg](../personal-fda-nodes/data-analysis/causal-inference-vertical.svg)
+![causal-inference-vertical.svg](../data-analysis/causal-inference-vertical.svg)
 
 We're working on implementing a more robust pharmacokinetic predictive model control recurrent neural network.
 
