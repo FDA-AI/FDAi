@@ -19,7 +19,7 @@ class RootCauseTest extends SlimStagingTestCase{
         $user = QMUser::find($userId);
         $correlations = $user->getCorrelations();
         $this->assertGreaterThan(827, count($correlations));
-//        $c = QMUserCorrelation::findByNamesOrIds($userId, "Sleep Quality", $primaryOutcomeName);
+//        $c = QMUserVariableRelationship::findByNamesOrIds($userId, "Sleep Quality", $primaryOutcomeName);
 //        $c->analyzeFullyIfNecessaryAndSave(__FUNCTION__);
 	    $user->primaryOutcomeVariableId = null;
         $primaryOutcome = $user->calculatePrimaryOutcomeVariable();

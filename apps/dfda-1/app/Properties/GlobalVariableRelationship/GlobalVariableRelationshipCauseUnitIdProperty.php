@@ -31,7 +31,7 @@ class GlobalVariableRelationshipCauseUnitIdProperty extends BaseCauseUnitIdPrope
         }
         $unique = array_unique($values);
         if(count($unique) !== 1){
-            $recalculated = $aggregateCorrelation->recalculateUserCorrelationsWithWrongCauseUnitId();
+            $recalculated = $aggregateCorrelation->recalculateUserVariableRelationshipsWithWrongCauseUnitId();
             $newValues = $aggregateCorrelation->pluckFromCorrelations(Correlation::FIELD_CAUSE_UNIT_ID);
             $uniqueAfter = array_unique($newValues);
             if(count($uniqueAfter) !== 1){

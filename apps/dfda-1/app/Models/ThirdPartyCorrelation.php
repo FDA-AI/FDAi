@@ -5,7 +5,7 @@
  */
 
 namespace App\Models;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Models\Base\BaseThirdPartyCorrelation;
 use App\Traits\HasCauseAndEffect;
 use App\Traits\HasDBModel;
@@ -173,7 +173,7 @@ class ThirdPartyCorrelation extends BaseThirdPartyCorrelation {
 	public const DEFAULT_SEARCH_FIELD = 'effect_variable.' . Variable::FIELD_NAME;
 	public const DEFAULT_ORDERINGS = [self::FIELD_QM_SCORE => self::ORDER_DIRECTION_DESC];
 	public const FONT_AWESOME = FontAwesome::VIAL_SOLID;
-	public static function getSlimClass(): string{ return QMUserCorrelation::class; }
+	public static function getSlimClass(): string{ return QMUserVariableRelationship::class; }
 	use SoftDeletes, HasDBModel;
 	protected $casts = [
 		'cause_variable_id' => 'int',

@@ -14,7 +14,7 @@ use App\Astral\Lenses\FollowingLens;
 use App\Astral\UserVariableBaseAstralResource;
 use App\Buttons\QMButton;
 use App\Buttons\RelationshipButtons\User\UserConnectionsButton;
-use App\Buttons\RelationshipButtons\User\UserCorrelationsButton;
+use App\Buttons\RelationshipButtons\User\UserVariableRelationshipsButton;
 use App\Buttons\RelationshipButtons\User\UserMeasurementsButton;
 use App\Buttons\RelationshipButtons\User\UserStudiesButton;
 use App\Buttons\RelationshipButtons\User\UserTrackingRemindersButton;
@@ -23,7 +23,7 @@ use App\Buttons\RelationshipButtons\User\UserVotesButton;
 use App\Buttons\RelationshipButtons\UserVariable\UserVariableTrackingReminderNotificationsButton;
 use App\Buttons\States\SettingsStateButton;
 use App\Cards\TrackingReminderNotificationCard;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\DataSources\Connectors\Exceptions\ConnectorDisabledException;
 use App\DataSources\Connectors\FacebookConnector;
 use App\DataSources\Connectors\FitbitConnector;
@@ -1791,7 +1791,7 @@ class User extends BaseWpUser
 		return UserUserVariablesButton::instance($this);
 	}
 	public function getNumberOfCorrelationsButton(): QMButton{
-		return UserCorrelationsButton::instance($this);
+		return UserVariableRelationshipsButton::instance($this);
 	}
 	public function getNumberOfConnectionsButton(): QMButton{
 		return UserConnectionsButton::instance($this);
@@ -2963,7 +2963,7 @@ class User extends BaseWpUser
 				continue;
 			}
 			$correlation =
-				QMUserCorrelation::findByNamesOrIds($this->getId(), $row->cause_variable_id, $row->effect_variable_id);
+				QMUserVariableRelationship::findByNamesOrIds($this->getId(), $row->cause_variable_id, $row->effect_variable_id);
 			if(!$correlation){
 				$this->logError("No correlation for $row->cause_variable_id, $row->effect_variable_id");
 				continue;
@@ -3672,7 +3672,7 @@ class User extends BaseWpUser
         $cards = [];
         $noCorrelations = $aggregateCorrelationIds = $userVariableRelationshipIds = [];
         foreach($notifications as $n){
-            if($id = $n->bestUserCorrelationId){
+            if($id = $n->bestUserVariableRelationshipId){
                 $userVariableRelationshipIds[] = $id;
             } elseif($id = $n->bestGlobalVariableRelationshipId){
                 $aggregateCorrelationIds[] = $id;
@@ -3695,7 +3695,7 @@ class User extends BaseWpUser
         foreach($notifications as $n){
             $cards[] = $n->getOptionsListCard();
             if($includeStudyCards){
-                if($id = $n->bestUserCorrelationId){
+                if($id = $n->bestUserVariableRelationshipId){
                     $cards[] = $correlations[$id]->getCard();
                 } elseif($id = $n->bestGlobalVariableRelationshipId){
                     $cards[] = $aggregateCorrelations[$id]->getCard();

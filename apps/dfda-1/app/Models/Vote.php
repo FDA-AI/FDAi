@@ -11,7 +11,7 @@ use App\Buttons\Vote\VoteDeleteButton;
 use App\Buttons\Vote\VoteDownButton;
 use App\Buttons\Vote\VoteUpButton;
 use App\Cards\QMCard;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Models\Base\BaseVote;
 use App\Properties\Base\BaseCauseVariableIdProperty;
 use App\Properties\Base\BaseClientIdProperty;
@@ -420,7 +420,7 @@ class Vote extends BaseVote {
 	 * @return int
 	 */
 	public static function setQMScoreToZero(): int{
-		return QMUserCorrelation::writable()->where('user_id', QMAuth::getQMUser()->id)
+		return QMUserVariableRelationship::writable()->where('user_id', QMAuth::getQMUser()->id)
 			->where(self::FIELD_CAUSE_VARIABLE_ID, BaseCauseVariableIdProperty::fromRequest(true))
 			->where(self::FIELD_EFFECT_VARIABLE_ID, BaseEffectVariableIdProperty::fromRequest(true))->update([
 				Correlation::FIELD_QM_SCORE => 0,

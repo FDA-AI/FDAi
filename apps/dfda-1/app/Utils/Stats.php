@@ -4,7 +4,7 @@
 *  Contributors: ADD YOUR NAME HERE, Mike P. Sinn
  */
 namespace App\Utils;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\ExceptionHandler;
 use App\Logging\QMLog;
 use App\Types\QMArr;
@@ -151,13 +151,13 @@ class Stats {
 	}
 	/**
 	 * Calculates QM Score
-	 * @param QMUserCorrelation $correlation
+	 * @param QMUserVariableRelationship $correlation
 	 * @param $numberOfPairs
 	 * @param $causeArray
 	 * @param $effectArray
 	 * @return float
 	 */
-	public static function qmScore(QMUserCorrelation $correlation, int $numberOfPairs, array $causeArray,
+	public static function qmScore(QMUserVariableRelationship $correlation, int $numberOfPairs, array $causeArray,
 		array $effectArray){
 		if($correlation->avgDailyValuePredictingHighOutcome === null ||
 			$correlation->avgDailyValuePredictingLowOutcome === null){

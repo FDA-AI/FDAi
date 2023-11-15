@@ -51,7 +51,7 @@
 ║ getOrCreateQMTrackingReminder │ tracking_reminder_no │ tracking_reminder_id=2 & tracking_reminder_id=not null &... ║
 ║ firstOrCreate                 │ tracking_reminder_no │ insert ('system', 1, 1, 1, 2, '?', '?', '?')                ║
 ║ firstOrCreateNotification     │ tracking_reminders   │ set `latest_tracking_reminder_notification_notify_at` = ... ║
-║ setBestUserCorrelation        │ correlations         │ user_id=1 & cause_variable_id=6059732 & effect_variable_... ║
+║ setBestUserVariableRelationship        │ correlations         │ user_id=1 & cause_variable_id=6059732 & effect_variable_... ║
 ║ getBestEffectCorrelation      │ correlations         │ cause_user_variable_id=3 & effect_user_variable_id <> 3 ... ║
 ║ UserVariableDataSourcesCou... │ user_variable_client │ user_variable_id=3 & user_variable_id=not null & deleted... ║
 ║ UserVariableEarliestSource... │ user_variable_client │ user_id=1 & client_id in ('?', '?', '?', '?', '?', '?', ... ║
@@ -62,7 +62,7 @@
 ║ UserVariableNumberOfUserCo... │ correlations         │ cause_variable_id=6059732 & user_id=1 & deleted_at=null     ║
 ║ UserVariableNumberOfUserCo... │ correlations         │ effect_variable_id=6059732 & user_id=1 & deleted_at=null    ║
 ║ getOrCreateById               │ user_variables       │ user_id=1 & variable_id=1 & deleted_at=null limit 1         ║
-║ setBestUserCorrelation        │ correlations         │ user_id=1 & cause_variable_id=6059732 & effect_variable_... ║
+║ setBestUserVariableRelationship        │ correlations         │ user_id=1 & cause_variable_id=6059732 & effect_variable_... ║
 ║ getBestEffectCorrelation      │ correlations         │ cause_user_variable_id=3 & effect_user_variable_id <> 3 ... ║
 ║ UserVariableNumberOfUserCo... │ correlations         │ cause_variable_id=6059732 & user_id=1 & deleted_at=null     ║
 ║ updateFromUserVariable        │ user_variables       │ set `number_of_user_variables` = 1, `outcome` = 0, `newe... ║

@@ -8,7 +8,7 @@ namespace App\Properties\Correlation;
 use App\Models\Correlation;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseEarliestMeasurementStartAtProperty;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationEarliestMeasurementStartAtProperty extends BaseEarliestMeasurementStartAtProperty
 {
     use CorrelationProperty;
@@ -16,7 +16,7 @@ class CorrelationEarliestMeasurementStartAtProperty extends BaseEarliestMeasurem
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return int
      */
     public static function calculate($model) {

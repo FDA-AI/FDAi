@@ -37,7 +37,7 @@ class GlobalVariableRelationshipIsPublicProperty extends BaseIsPublicProperty
     public static function updateAll(){
         CorrelationGlobalVariableRelationshipIdProperty::updateAll();
         CorrelationIsPublicProperty::updateAll();
-        self::setPublicWhereUserCorrelationIsPublic();
+        self::setPublicWhereUserVariableRelationshipIsPublic();
         self::setPrivateWhereOneVariableIsPrivate();
         self::setPublicWhereBothVariablesArePublic();
     }
@@ -65,7 +65,7 @@ class GlobalVariableRelationshipIsPublicProperty extends BaseIsPublicProperty
             })->update([GlobalVariableRelationship::FIELD_IS_PUBLIC => false]);
         QMLog::info("Set $updated global variable relationships PRIVATE where the effect was private");
     }
-    protected static function setPublicWhereUserCorrelationIsPublic(): void{
+    protected static function setPublicWhereUserVariableRelationshipIsPublic(): void{
         Writable::statementStatic("
             update global_variable_relationships ac
             join correlations c on ac.id = c.global_variable_relationship_id

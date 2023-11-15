@@ -6,7 +6,7 @@
 
 namespace App\PhpUnitJobs\Cleanup;
 use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Models\GlobalVariableRelationship;
 use App\Models\WpPost;
 use App\Models\WpTerm;
@@ -88,7 +88,7 @@ class WPCleanUpJobTest extends JobTestCase {
             GlobalVariableRelationship::FIELD_WP_POST_ID   => null
         ];
         QMGlobalVariableRelationship::writable()->update($array);
-        QMUserCorrelation::writable()->update($array);
+        QMUserVariableRelationship::writable()->update($array);
         $result = QMStudy::writable()->update($array);
         //QMWordPressApi::deleteAllPosts();
         WpPost::deleteAllPosts();

@@ -1275,8 +1275,8 @@ export type UserVariable = {
   numberOfTrackingReminders?: number
   numberOfUniqueDailyValues?: number
   numberOfUniqueValues?: number
-  numberOfUserCorrelationsAsCause?: number
-  numberOfUserCorrelationsAsEffect?: number
+  numberOfUserVariableRelationshipsAsCause?: number
+  numberOfUserVariableRelationshipsAsEffect?: number
   numberOfUserVariables?: number
   onsetDelay?: number
   onsetDelayInHours?: number

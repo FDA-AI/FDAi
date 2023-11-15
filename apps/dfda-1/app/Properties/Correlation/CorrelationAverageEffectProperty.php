@@ -11,7 +11,7 @@ use App\Models\Correlation;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseAverageEffectProperty;
 use App\Utils\Stats;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Slim\Model\Measurement\Pair;
 class CorrelationAverageEffectProperty extends BaseAverageEffectProperty
 {

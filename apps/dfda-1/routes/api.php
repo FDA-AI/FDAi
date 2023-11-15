@@ -124,8 +124,8 @@ Route::prefix('v3')->group(function () {
 	Route::get('userVariables', \App\Slim\Controller\Variable\GetVariablesController::class . '@get');
 	Route::get('variableCategories', \App\Slim\Controller\VariableCategory\GetVariableCategoryController::class . '@get');
 	Route::get('variables', \App\Slim\Controller\Variable\GetVariablesController::class . '@get');
-	Route::get('variables/:variableName/causes', \App\Slim\Controller\Correlation\GetUserCorrelationController::class . '@get');
-	Route::get('variables/:variableName/effects', \App\Slim\Controller\Correlation\GetUserCorrelationController::class . '@get');
+	Route::get('variables/:variableName/causes', \App\Slim\Controller\Correlation\GetUserVariableRelationshipController::class . '@get');
+	Route::get('variables/:variableName/effects', \App\Slim\Controller\Correlation\GetUserVariableRelationshipController::class . '@get');
 	Route::get('variables/:variableName/public/causes', \App\Slim\Controller\Correlation\GetAggregatedCorrelationController::class . '@get');
 	Route::get('variables/:variableName/public/effects', \App\Slim\Controller\Correlation\GetAggregatedCorrelationController::class . '@get');
 	Route::get('variables/common', \App\Slim\Controller\Variable\GetCommonVariableController::class . '@get');

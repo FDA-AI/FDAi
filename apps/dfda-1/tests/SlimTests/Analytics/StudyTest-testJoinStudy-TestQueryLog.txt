@@ -21,7 +21,7 @@
 ║ unDeleteIfNecessary           │ user_variables       │ user_id=1 & variable_id=1276                                ║
 ║ createOrUnDeleteById          │ user_variables       │ insert (null, null, '?', null, null, null, -1, null, nul... ║
 ║ findInMemoryOrDBWhere         │ user_variables       │ (user_id=1 & variable_id=1276) & user_variables.deleted_... ║
-║ QMUserCorrelation::findByIds  │ correlations         │ cause_variable_id=1276 & effect_variable_id=1919 & user_... ║
+║ QMUserVariableRelationship::findByIds  │ correlations         │ cause_variable_id=1276 & effect_variable_id=1919 & user_... ║
 ║ findInMemoryOrDBWhere         │ user_variables       │ (user_id=1 & variable_id=1919) & user_variables.deleted_... ║
 ║ unDeleteIfNecessary           │ user_variables       │ user_id=1 & variable_id=1919                                ║
 ║ createOrUnDeleteById          │ user_variables       │ insert (null, null, '?', null, null, null, -1, null, nul... ║

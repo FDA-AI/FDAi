@@ -14,8 +14,8 @@ class QMUserVariableV3 extends QMUserVariable {
     public $defaultUnitAbbreviatedName;
     public $defaultUnitId;
     public $defaultUnitName;
-    public $numberOfUserCorrelationsAsCause;
-    public $numberOfUserCorrelationsAsEffect;
+    public $numberOfUserVariableRelationshipsAsCause;
+    public $numberOfUserVariableRelationshipsAsEffect;
     public $userUnitAbbreviatedName;
     public $userUnitId;
     public $userUnitName;
@@ -41,8 +41,8 @@ class QMUserVariableV3 extends QMUserVariable {
                 $key = "variableCategory".ucfirst($key);
                 $userVariableV4->$key = $value;
             }
-            $userVariableV4->numberOfUserCorrelationsAsCause = $userVariableV4->numberOfCorrelationsAsCause;
-            $userVariableV4->numberOfUserCorrelationsAsEffect = $userVariableV4->numberOfCorrelationsAsEffect;
+            $userVariableV4->numberOfUserVariableRelationshipsAsCause = $userVariableV4->numberOfCorrelationsAsCause;
+            $userVariableV4->numberOfUserVariableRelationshipsAsEffect = $userVariableV4->numberOfCorrelationsAsEffect;
         }
         return $variables;
     }

@@ -1,5 +1,5 @@
 <?php /** @var \App\Studies\QMUserStudy $model */ ?>
-@if($c = $model->getQMUserCorrelationIfPossible())
+@if($c = $model->getQMUserVariableRelationshipIfPossible())
     {!! $model->getGaugeAndImagesWithTagLine() !!}
     {!! $model->getJoinButtonHTML() !!}
 <div id="charts-container">
@@ -8,7 +8,7 @@
     {!! $model->getEffectUserVariable()->getChartsButtonHtml() !!}
     {!! \App\Charts\CorrelationCharts\PredictorDistributionColumnChart::generateInline($c) !!}
     {!! \App\Charts\CorrelationCharts\OutcomeDistributionColumnChart::generateInline($c) !!}
-    {!! \App\Charts\CorrelationCharts\UserCorrelationScatterPlot::generateInline($c) !!}
+    {!! \App\Charts\CorrelationCharts\UserVariableRelationshipScatterPlot::generateInline($c) !!}
     {!! \App\Charts\CorrelationCharts\CorrelationsOverDurationsOfActionChart::generateInline($c) !!}
     {!! \App\Charts\CorrelationCharts\CorrelationsOverOnsetDelaysChart::generateInline($c) !!}
     {!! \App\Charts\CorrelationCharts\PairsOverTimeLineChart::generateInline($c) !!}

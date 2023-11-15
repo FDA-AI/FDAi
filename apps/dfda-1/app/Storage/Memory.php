@@ -6,7 +6,7 @@
 
 namespace App\Storage;
 use App\AppSettings\AppSettings;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\DataSources\QMConnector;
 use App\DevOps\XDebug;
 use App\Logging\ConsoleLog;
@@ -275,22 +275,22 @@ class Memory {
         return " (took ".self::getDurationInSeconds($logMessageIfComplete)." seconds)";
     }
     /**
-     * @param QMUserCorrelation $c
+     * @param QMUserVariableRelationship $c
      */
-    public static function addNewlyCalculatedUserCorrelation(QMUserCorrelation $c){
+    public static function addNewlyCalculatedUserVariableRelationship(QMUserVariableRelationship $c){
         self::set($c->getUniqueIndexIdsSlug(), $c, self::NEWLY_CALCULATED_USER_VARIABLE_RELATIONSHIPS);
     }
     /**
      * @param int $userId
      * @param int $causeId
      * @param int $effectId
-     * @return QMUserCorrelation
+     * @return QMUserVariableRelationship
      */
-    public static function getNewlyCalculatedUserCorrelation(int $userId, int $causeId, int $effectId): ?QMUserCorrelation {
+    public static function getNewlyCalculatedUserVariableRelationship(int $userId, int $causeId, int $effectId): ?QMUserVariableRelationship {
         $all = self::getByPrimaryKey(self::NEWLY_CALCULATED_USER_VARIABLE_RELATIONSHIPS);
         if(!$all){return null;}
         return collect($all)->filter(function($one) use($userId, $causeId, $effectId){
-            /** @var QMUserCorrelation $one */
+            /** @var QMUserVariableRelationship $one */
             return $one->userId === $userId &&
                 $one->causeVariableId === $causeId &&
                 $one->effectVariableId === $effectId;

@@ -28,7 +28,7 @@ use App\Exceptions\VariableCategoryNotFoundException;
 use App\Utils\AppMode;
 use App\Charts\BarChartButton;
 use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Models\Vote;
 use App\Utils\QMProfile;
 use App\UI\CssHelper;
@@ -144,7 +144,7 @@ class RootCauseAnalysisSection extends AnalyticalReport {
     public function getPositiveUpVotedCorrelations(): array {
         $correlations = $this->getCorrelations();
         $filtered = Arr::where($correlations, static function($correlation){
-            /** @var QMUserCorrelation $correlation */
+            /** @var QMUserVariableRelationship $correlation */
             $upVoted = $correlation->userUpVoted();
             $coefficient = $correlation->getCorrelationCoefficient();
             $result = $coefficient > self::CORRELATION_THRESHOLD
@@ -156,23 +156,23 @@ class RootCauseAnalysisSection extends AnalyticalReport {
         return $filtered;
     }
     /**
-     * @return QMUserCorrelation[]
+     * @return QMUserVariableRelationship[]
      */
     public function getNegativeUpVotedCorrelations(): array {
         $correlations = $this->getUpVotedCorrelations();
         $correlations = Arr::where($correlations, static function ($correlation) {
-            /** @var QMUserCorrelation $correlation */
+            /** @var QMUserVariableRelationship $correlation */
             return $correlation->getCorrelationCoefficient() < -1 * self::CORRELATION_THRESHOLD;
         });
         return $correlations;
     }
     /**
-     * @return QMUserCorrelation[]
+     * @return QMUserVariableRelationship[]
      */
     public function getNeutralCorrelations(): array {
         $correlations = $this->getCorrelations();
         $correlations = Arr::where($correlations, static function($correlation){
-            /** @var QMUserCorrelation $correlation */
+            /** @var QMUserVariableRelationship $correlation */
             return $correlation->getCorrelationCoefficient() > -1 * self::CORRELATION_THRESHOLD &&
                 $correlation->getCorrelationCoefficient() < self::CORRELATION_THRESHOLD
                 && !$correlation->userDownVoted()
@@ -182,24 +182,24 @@ class RootCauseAnalysisSection extends AnalyticalReport {
         return $correlations;
     }
     /**
-     * @return QMUserCorrelation[]
+     * @return QMUserVariableRelationship[]
      */
     public function getNeedsReviewCorrelations(): array {
         $correlations = $this->getCorrelations();
         $needReview = Arr::where($correlations, static function($correlation){
-            /** @var QMUserCorrelation $correlation */
+            /** @var QMUserVariableRelationship $correlation */
             $didNotVote = $correlation->userDidNotVote();
             return $didNotVote;
         });
         return $needReview;
     }
     /**
-     * @return QMUserCorrelation[]
+     * @return QMUserVariableRelationship[]
      */
     public function getFlaggedCorrelations(): array {
         $correlations = $this->getCorrelations();
         $flagged = Arr::where($correlations, static function($correlation){
-            /** @var QMUserCorrelation $correlation */
+            /** @var QMUserVariableRelationship $correlation */
             return $correlation->userDownVoted();
         });
         return $flagged;
@@ -313,7 +313,7 @@ class RootCauseAnalysisSection extends AnalyticalReport {
         return $html;
     }
     /**
-     * @param QMUserCorrelation[] $correlations
+     * @param QMUserVariableRelationship[] $correlations
      * @param string $subSectionTitle
      * @return string
      */
@@ -324,7 +324,7 @@ class RootCauseAnalysisSection extends AnalyticalReport {
         return RootCauseAnalysisSection::correlationsToTableHtml($correlations, $subSectionTitle);
     }
     /**
-     * @param QMUserCorrelation[] $correlations
+     * @param QMUserVariableRelationship[] $correlations
      * @param string $subSectionTitle
      * @return string
      */
@@ -482,7 +482,7 @@ class RootCauseAnalysisSection extends AnalyticalReport {
         return $html;
     }
     /**
-     * @param Correlation[]|QMUserCorrelation[] $correlations
+     * @param Correlation[]|QMUserVariableRelationship[] $correlations
      * @return int
      */
     protected static function getMaxChange(array $correlations): int {
@@ -495,7 +495,7 @@ class RootCauseAnalysisSection extends AnalyticalReport {
     }
     /**
      * @param QMCorrelation|Correlation $c
-     * @param Correlation[]|QMUserCorrelation[] $correlations
+     * @param Correlation[]|QMUserVariableRelationship[] $correlations
      * @return float|int
      */
     public static function getBarWidth($c, array $correlations) {
@@ -541,7 +541,7 @@ class RootCauseAnalysisSection extends AnalyticalReport {
         if ($max && $count >= $max) {
             return $body;
         }
-        $correlations = $this->getDownVotedUserCorrelations();
+        $correlations = $this->getDownVotedUserVariableRelationships();
         if ($correlations) {
             $body .= RootCauseAnalysisSection::generateListSectionHtml("Flagged or Flawed Studies from Your Data",
                 self::FLAGGED_DESCRIPTION,
@@ -602,20 +602,20 @@ class RootCauseAnalysisSection extends AnalyticalReport {
         return $list;
     }
     /**
-     * @return QMUserCorrelation[]
+     * @return QMUserVariableRelationship[]
      */
     public function getUpVotedCorrelations(): array {
         if($this->upVoted !== null){return $this->upVoted;}
         $limit = $this->getMaximumCorrelations();
         if ($limit && !$this->correlations) {
-            $correlations = QMUserCorrelation::getUpVotedCorrelationsByEffect($this->getUserId(),
+            $correlations = QMUserVariableRelationship::getUpVotedCorrelationsByEffect($this->getUserId(),
                 $this->getOutcomeVariableId(),
                 $limit, $this->getPredictorVariableCategoryName());
             return $this->upVoted = $correlations;
         }
         $correlations = $this->getOrSetCorrelations();
         $upVoted = Arr::where($correlations, static function ($correlation) {
-            /** @var QMUserCorrelation $correlation */
+            /** @var QMUserVariableRelationship $correlation */
             return $correlation->userUpVoted();
         });
         return $this->upVoted = $upVoted;
@@ -627,38 +627,38 @@ class RootCauseAnalysisSection extends AnalyticalReport {
         return $this->outcomeVariableId;
     }
     /**
-     * @return QMUserCorrelation[]
+     * @return QMUserVariableRelationship[]
      */
-    public function getDownVotedUserCorrelations(): array {
+    public function getDownVotedUserVariableRelationships(): array {
         if($this->downVoted !== null){return $this->downVoted;}
         $correlations = $this->getOrSetCorrelations();
         $downVoted = Arr::where($correlations, static function ($correlation) {
-            /** @var QMUserCorrelation $correlation */
+            /** @var QMUserVariableRelationship $correlation */
             return $correlation->userDownVoted();
         });
         return $this->downVoted = $downVoted;
     }
     /**
-     * @return QMUserCorrelation[]
+     * @return QMUserVariableRelationship[]
      */
     public function getNonVotedCorrelations(): array {
         if($this->nonVoted !== null){return $this->nonVoted;}
         $limit = $this->getMaximumCorrelations();
         if ($limit && !$this->correlations) {
-            $correlations = QMUserCorrelation::getNonVotedCorrelationsByEffect($this->getUserId(),
+            $correlations = QMUserVariableRelationship::getNonVotedCorrelationsByEffect($this->getUserId(),
                 $this->getOutcomeVariableId(),
                 $limit, $this->getPredictorVariableCategoryName());
             return $this->nonVoted = $correlations;
         }
         $correlations = $this->getOrSetCorrelations();
         $nonVoted = Arr::where($correlations, static function ($correlation) {
-            /** @var QMUserCorrelation $correlation */
+            /** @var QMUserVariableRelationship $correlation */
             return $correlation->userDidNotVote();
         });
         return $this->nonVoted = $nonVoted;
     }
     /**
-     * @return QMUserCorrelation[]
+     * @return QMUserVariableRelationship[]
      */
     public function getOrSetCorrelations(): array {
         $correlations = $this->correlations;
@@ -667,7 +667,7 @@ class RootCauseAnalysisSection extends AnalyticalReport {
         return $correlations;
     }
     /**
-     * @return QMUserCorrelation[]
+     * @return QMUserVariableRelationship[]
      */
     protected function setCorrelations(): array {
         $v = $this->getOutcomeVariable();

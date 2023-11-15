@@ -10,7 +10,7 @@ use App\Buttons\States\StudyJoinStateButton;
 use App\Cards\DownloadButtonsQMCard;
 use App\Charts\HighchartExport;
 use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\BaseException;
 use App\Exceptions\DuplicateFailedAnalysisException;
 use App\Exceptions\ExceptionHandler;
@@ -540,7 +540,7 @@ class StudyHtml extends StaticModel {
         return $this->tagLineHtml = $html;
     }
     /**
-     * @return QMGlobalVariableRelationship|QMUserCorrelation
+     * @return QMGlobalVariableRelationship|QMUserVariableRelationship
      * @throws NotEnoughDataException
      */
     private function getHasCorrelationCoefficient(){

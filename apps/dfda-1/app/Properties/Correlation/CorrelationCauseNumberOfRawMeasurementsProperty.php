@@ -9,7 +9,7 @@ use App\Models\Correlation;
 use App\Properties\UserVariable\UserVariableNumberOfRawMeasurementsWithTagsJoinsChildrenProperty;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseCauseNumberOfRawMeasurementsProperty;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationCauseNumberOfRawMeasurementsProperty extends BaseCauseNumberOfRawMeasurementsProperty
 {
     use CorrelationProperty;
@@ -17,7 +17,7 @@ class CorrelationCauseNumberOfRawMeasurementsProperty extends BaseCauseNumberOfR
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return int
      */
     public static function calculate($model): int {

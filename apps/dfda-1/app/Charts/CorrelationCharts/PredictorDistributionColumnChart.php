@@ -8,21 +8,21 @@ namespace App\Charts\CorrelationCharts;
 use App\Charts\DistributionColumnChart;
 use App\Charts\QMHighcharts\ColumnHighchartConfig;
 use App\Charts\QMHighcharts\HighchartConfig;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\NotEnoughDataException;
 use App\Studies\QMUserStudy;
 use App\Types\QMStr;
 use App\Utils\Stats;
 class PredictorDistributionColumnChart extends CorrelationChart {
 	/**
-	 * @param QMUserCorrelation|QMUserStudy|null $c
+	 * @param QMUserVariableRelationship|QMUserStudy|null $c
 	 */
 	public function __construct($c = null){
 		if(!$c){
 			return;
 		}
 		try {
-			$c = $c->getQMUserCorrelation();
+			$c = $c->getQMUserVariableRelationship();
 		} catch (NotEnoughDataException $e) {
 			return;
 		}
@@ -36,7 +36,7 @@ class PredictorDistributionColumnChart extends CorrelationChart {
 		return $t;
 	}
 	public function getSubtitleAttribute(): string{
-		$c = $this->getQMUserCorrelation();
+		$c = $this->getQMUserVariableRelationship();
 		$str = "Typical values for " . $this->getEffectVariableDisplayName() . " following a given amount of " .
 			$this->getCauseVariableDisplayName() . " over the previous " . $c->getDurationOfActionHumanString() . ". ";
 		$this->setExplanation($str);
@@ -50,7 +50,7 @@ class PredictorDistributionColumnChart extends CorrelationChart {
 		$config = new ColumnHighchartConfig(ColumnHighchartConfig::DEFAULT_MIN_MAX_BUFFER, $this);
 		$config->setTitle($this->getTitleAttribute());
 		$config->setSubtitle($this->getSubtitleAttribute());
-		$c = $this->getQMUserCorrelation();
+		$c = $this->getQMUserVariableRelationship();
 		$cuv = $c->getCauseQMVariable();
 		$euv = $c->getEffectQMVariable();
 		$config->addSeriesArray('Average ' . $this->getEffectVariableDisplayName() . ' Following ' .
@@ -62,7 +62,7 @@ class PredictorDistributionColumnChart extends CorrelationChart {
 		$this->setTooltipOnConfig($config);
 		return $this->setHighchartConfig($config);
 	}
-	private function getQMUserCorrelation(): QMUserCorrelation{
+	private function getQMUserVariableRelationship(): QMUserVariableRelationship{
 		return $this->sourceObject;
 	}
 	/**
@@ -70,7 +70,7 @@ class PredictorDistributionColumnChart extends CorrelationChart {
 	 * @throws NotEnoughDataException
 	 */
 	protected function generateSeriesData(): array{
-		$correlation = $this->getQMUserCorrelation();
+		$correlation = $this->getQMUserVariableRelationship();
 		$pairs = $correlation->getPairsBasedOnDailyCauseValues();
 		$effectValuesByCauseValue = [];
 		foreach($pairs as $pair){
@@ -97,7 +97,7 @@ class PredictorDistributionColumnChart extends CorrelationChart {
 	 * @param ColumnHighchartConfig $config
 	 */
 	private function setTooltipOnConfig(ColumnHighchartConfig $config): void{
-		$c = $this->getQMUserCorrelation();
+		$c = $this->getQMUserVariableRelationship();
 		$cuv = $c->getCauseQMVariable();
 		$euv = $c->getEffectQMVariable();
 		$causeName = $cuv->getDisplayNameAttribute();

@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\UserVariable;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Exceptions\UserVariableNotFoundException;
@@ -39,7 +39,7 @@ class UserVariableLastProcessedDailyValueProperty extends BaseLastProcessedDaily
      * @throws \App\Exceptions\StupidVariableNameException
      */
     public static function updateAll(){
-        $rows = QMUserCorrelation::readonly()
+        $rows = QMUserVariableRelationship::readonly()
             ->select([
                 Correlation::TABLE . '.' . Correlation::FIELD_USER_ID,
                 Correlation::TABLE . '.' . Correlation::FIELD_CAUSE_VARIABLE_ID,
@@ -58,7 +58,7 @@ class UserVariableLastProcessedDailyValueProperty extends BaseLastProcessedDaily
             $byUser[$row->user_id][] = $row;
         }
         foreach ($rows as $row) {
-            $c = QMUserCorrelation::getExistingUserCorrelationByVariableIds($row->user_id, $row->cause_variable_id, $row->effect_variable_id);
+            $c = QMUserVariableRelationship::getExistingUserVariableRelationshipByVariableIds($row->user_id, $row->cause_variable_id, $row->effect_variable_id);
             $v = QMUserVariable::getByNameOrId($row->user_id, $row->cause_variable_id);
             $v->analyzeFully(__FUNCTION__, true);
             if ($v->lastProcessedDailyValue === null) {

@@ -20,10 +20,10 @@ class GlobalVariableRelationshipNumberOfPairsProperty extends BaseNumberOfPairsP
     /**
      * @param QMGlobalVariableRelationship|GlobalVariableRelationship $model
      * @return float
-     * @throws \App\Exceptions\NoUserCorrelationsToAggregateException
+     * @throws \App\Exceptions\NoUserVariableRelationshipsToAggregateException
      */
     public static function calculate($model): float{
-        $val = $model->summedUserCorrelationValue(static::NAME);
+        $val = $model->summedUserVariableRelationshipValue(static::NAME);
         $model->setAttribute(static::NAME, $val);
         return $val;
     }

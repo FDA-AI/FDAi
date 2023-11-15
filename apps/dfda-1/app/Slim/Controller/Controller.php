@@ -3,7 +3,7 @@
 *  Contributors: ADD YOUR NAME HERE, Mike P. Sinn
  */ /** @noinspection PhpUnused */
 namespace App\Slim\Controller;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\AccessTokenExpiredException;
 use App\Exceptions\BadRequestException;
 use App\Exceptions\InvalidClientIdException;
@@ -414,7 +414,7 @@ abstract class Controller {
     public static function getBodyAsArrayAndReplaceLegacyKeys(bool $includeClientId, array $legacyKeys = null): array{
         $body = QMRequest::body();
         if($legacyKeys){
-            $body = QMArr::replaceLegacyKeys($body, QMUserCorrelation::getLegacyRequestParameters());
+            $body = QMArr::replaceLegacyKeys($body, QMUserVariableRelationship::getLegacyRequestParameters());
         }
 		if(!$includeClientId){
 			unset($body['clientId']);

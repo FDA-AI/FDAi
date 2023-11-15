@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */ /** @noinspection PhpUnhandledExceptionInspection */
 /** @noinspection PhpDocMissingThrowsInspection */
 namespace Tests\UnitTests\Products;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\DataSources\Connectors\AmazonConnector;
 use App\DataSources\Connectors\GmailConnector;
 use App\Models\TrackingReminder;
@@ -181,9 +181,9 @@ class AmazonTest extends UnitTestCase {
         $this->createBananaMeasurements();
         $this->createMoodMeasurements();
         $this->getOrSetAuthenticatedUser(1)->analyzeFully(__METHOD__);
-        $rows = QMUserCorrelation::readonly()->getArray();
+        $rows = QMUserVariableRelationship::readonly()->getArray();
         $this->assertCount(3, $rows);
-        $correlations = $this->getOrSetAuthenticatedUser(1)->setAllUserCorrelations();
+        $correlations = $this->getOrSetAuthenticatedUser(1)->setAllUserVariableRelationships();
         $this->assertCount(3, $correlations);
         $this->makeSureAllUserVariableUnitIdsAreNull();
     }

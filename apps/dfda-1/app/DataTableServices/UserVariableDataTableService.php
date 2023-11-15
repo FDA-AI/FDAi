@@ -25,10 +25,10 @@ class UserVariableDataTableService extends BaseDataTableService
                 return $v->latest_tagged_measurement_start_at;
             })
             ->addColumn(UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE, function(UserVariable $v) {
-                return $v->getNumberOfUserCorrelationsWhereCauseButton()->getLink();
+                return $v->getNumberOfUserVariableRelationshipsWhereCauseButton()->getLink();
             })
             ->addColumn(UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT, function(UserVariable $v) {
-                return $v->getNumberOfUserCorrelationsWhereEffectButton()->getLink();
+                return $v->getNumberOfUserVariableRelationshipsWhereEffectButton()->getLink();
             })
             ->addColumn(UserVariable::FIELD_NUMBER_OF_MEASUREMENTS, function(UserVariable $v) {
                 return $v->getNumberOfMeasurementsButton()->getLink();

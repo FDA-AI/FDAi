@@ -348,7 +348,7 @@ class WpPost extends BaseWpPost {
 		"Models" => null,
 		"GradeReports" => self::CATEGORY_GRADE_REPORTS,
 		"UserVariables" => self::CATEGORY_INDIVIDUAL_PARTICIPANT_VARIABLE_OVERVIEWS,
-		"UserCorrelations" => self::CATEGORY_INDIVIDUAL_CASE_STUDIES,
+		"UserVariableRelationships" => self::CATEGORY_INDIVIDUAL_CASE_STUDIES,
 	];
 	/**
 	 * @param string $name

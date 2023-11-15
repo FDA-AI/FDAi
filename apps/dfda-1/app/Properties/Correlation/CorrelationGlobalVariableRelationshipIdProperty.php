@@ -12,7 +12,7 @@ use App\Storage\DB\Writable;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseGlobalVariableRelationshipIdProperty;
 use App\Traits\PropertyTraits\IsCalculated;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationGlobalVariableRelationshipIdProperty extends BaseGlobalVariableRelationshipIdProperty
 {
     use CorrelationProperty;
@@ -20,7 +20,7 @@ class CorrelationGlobalVariableRelationshipIdProperty extends BaseGlobalVariable
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation|Correlation $model
+     * @param QMUserVariableRelationship|Correlation $model
      * @return mixed|void
      */
     public static function calculate($model){

@@ -31,8 +31,8 @@ class UserVariableNumberOfCorrelationsProperty extends BaseNumberOfCorrelationsP
      */
     public static function calculate($model){
         $numberOfCorrelations =
-            UserVariableNumberOfUserCorrelationsAsCauseProperty::calculate($model) +
-            UserVariableNumberOfUserCorrelationsAsEffectProperty::calculate($model);
+            UserVariableNumberOfUserVariableRelationshipsAsCauseProperty::calculate($model) +
+            UserVariableNumberOfUserVariableRelationshipsAsEffectProperty::calculate($model);
 	    $model->setAttribute(static::NAME, $numberOfCorrelations);
         return $numberOfCorrelations;
     }

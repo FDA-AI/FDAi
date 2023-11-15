@@ -688,7 +688,7 @@ abstract class DBModel extends StaticModel {
 			}
 			$qb =
 				$laravelClass::withTrashed();  // If we already have the DBModel we may as well get the trashed laravel
-			//model, or it causes exception: Could not get laravel model for QMUserCorrelation because it's deleted!
+			//model, or it causes exception: Could not get laravel model for QMUserVariableRelationship because it's deleted!
 			foreach($unique as $key => $value){
 				if($value === null){
 					le("$key is null in unique index!");

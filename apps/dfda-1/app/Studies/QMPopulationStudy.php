@@ -8,7 +8,7 @@ namespace App\Studies;
 use App\Buttons\StudyButton;
 use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\NotEnoughDataException;
 use App\Models\GlobalVariableRelationship;
 use App\Models\Study;
@@ -122,7 +122,7 @@ class QMPopulationStudy extends QMStudy {
             QMGlobalVariableRelationship::getByIds($this->getCauseVariableId(), $this->getEffectVariableId());
     }
     /**
-     * @return QMGlobalVariableRelationship|QMUserCorrelation
+     * @return QMGlobalVariableRelationship|QMUserVariableRelationship
      * @throws NotEnoughDataException
      */
     public function getCreateOrRecalculateStatistics(): QMCorrelation{

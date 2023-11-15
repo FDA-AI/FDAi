@@ -28,7 +28,7 @@ use App\Cards\VariableStatisticsCard;
 use App\Charts\ChartGroup;
 use App\Charts\VariableCharts\VariableChartChartGroup;
 use App\Correlations\CorrelationsAndExplanationResponseBody;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\DataSources\QMDataSource;
 use App\Exceptions\AlreadyAnalyzedException;
 use App\Exceptions\AlreadyAnalyzingException;
@@ -1732,7 +1732,7 @@ class Variable extends BaseVariable implements HasMedia {
 		return $this->getQMUnit();
 	}
 	/**
-	 * @return QMUserCorrelation[]
+	 * @return QMUserVariableRelationship[]
 	 * @throws TooSlowToAnalyzeException
 	 */
 	public function correlate(): array{

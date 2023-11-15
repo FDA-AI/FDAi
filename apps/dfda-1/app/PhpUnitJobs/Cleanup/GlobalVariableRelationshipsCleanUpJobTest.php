@@ -5,11 +5,11 @@
 /** @noinspection PhpUnhandledExceptionInspection */
 namespace App\PhpUnitJobs\Cleanup;
 use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\InsufficientVarianceException;
 use App\Exceptions\NotEnoughMeasurementsForCorrelationException;
-use App\Exceptions\NoUserCorrelationsToAggregateException;
+use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Exceptions\UserVariableNotFoundException;
 use App\Logging\QMLog;
@@ -28,14 +28,14 @@ use App\Storage\DB\Writable;
 use App\Variables\QMUserVariable;
 use Exception;
 class GlobalVariableRelationshipsCleanUpJobTest extends JobTestCase {
-    public function testCalculateUserCorrelations(){
+    public function testCalculateUserVariableRelationships(){
         GlobalVariableRelationshipNumberOfCorrelationsProperty::updateAll();
         GlobalVariableRelationshipEffectFollowUpPercentChangeFromBaselineProperty::analyzeWhereNull();
         //GlobalVariableRelationshipNumberOfCorrelationsProperty::fixInvalidRecords();
     }
-    public function testDeleteGlobalVariableRelationshipsWithoutUserCorrelations() {
+    public function testDeleteGlobalVariableRelationshipsWithoutUserVariableRelationships() {
         GlobalVariableRelationshipNumberOfCorrelationsProperty::fixInvalidRecords();
-        $aggCorrRows = GlobalVariableRelationshipsCleanUpJobTest::getAggregateRowsWithoutUserCorrelations();
+        $aggCorrRows = GlobalVariableRelationshipsCleanUpJobTest::getAggregateRowsWithoutUserVariableRelationships();
         QMLog::count($aggCorrRows, "global variable relationships without user variable relationships");
         foreach ($aggCorrRows as $row) {
             $c = QMGlobalVariableRelationship::getByNamesOrIds($row->cause_variable_id, $row->effect_variable_id);
@@ -44,8 +44,8 @@ class GlobalVariableRelationshipsCleanUpJobTest extends JobTestCase {
             $c->hardDelete($message);
         }
     }
-    public function testDeleteWebsiteGlobalVariableRelationshipsWithoutUserCorrelations(){
-        $aggCorrRows = GlobalVariableRelationshipsCleanUpJobTest::getAggregateRowsWithoutUserCorrelations();
+    public function testDeleteWebsiteGlobalVariableRelationshipsWithoutUserVariableRelationships(){
+        $aggCorrRows = GlobalVariableRelationshipsCleanUpJobTest::getAggregateRowsWithoutUserVariableRelationships();
         $total = count($aggCorrRows);
         $i = 0;
         foreach ($aggCorrRows as $aggCorrRow){
@@ -69,9 +69,9 @@ class GlobalVariableRelationshipsCleanUpJobTest extends JobTestCase {
             }
         }
     }
-    public function testCreateUserCorrelationForOrphanAggregates(){
-        $aggCorrRows = GlobalVariableRelationshipsCleanUpJobTest::getAggregateRowsWithoutUserCorrelations();
-        GlobalVariableRelationshipsCleanUpJobTest::createUserCorrelationForOrphanAggregates($aggCorrRows);
+    public function testCreateUserVariableRelationshipForOrphanAggregates(){
+        $aggCorrRows = GlobalVariableRelationshipsCleanUpJobTest::getAggregateRowsWithoutUserVariableRelationships();
+        GlobalVariableRelationshipsCleanUpJobTest::createUserVariableRelationshipForOrphanAggregates($aggCorrRows);
     }
     public static function fixAggregatedCorrelationsWithPredictorValueOutsideAllowedRangeForVariable(){
         QMLog::infoWithoutContext('=== '.__FUNCTION__.' ===');
@@ -142,7 +142,7 @@ class GlobalVariableRelationshipsCleanUpJobTest extends JobTestCase {
      * @param int $causeVariableId
      * @param int $effectVariableId
      * @throws AlreadyAnalyzingException
-     * @throws NoUserCorrelationsToAggregateException
+     * @throws NoUserVariableRelationshipsToAggregateException
      * @throws TooSlowToAnalyzeException
      * @throws \App\Exceptions\AlreadyAnalyzedException
      * @throws \App\Exceptions\DuplicateFailedAnalysisException
@@ -161,7 +161,7 @@ class GlobalVariableRelationshipsCleanUpJobTest extends JobTestCase {
     /**
      * @return array
      */
-    private static function getAggregateRowsWithoutUserCorrelations(): array{
+    private static function getAggregateRowsWithoutUserVariableRelationships(): array{
         $aggCorrRows = Writable::selectStatic("
             select ac.cause_variable_id,
                    ac.effect_variable_id,
@@ -180,7 +180,7 @@ class GlobalVariableRelationshipsCleanUpJobTest extends JobTestCase {
      * @param $aggCorrRows
      * @throws TooSlowToAnalyzeException
      */
-    private static function createUserCorrelationForOrphanAggregates($aggCorrRows): void{
+    private static function createUserVariableRelationshipForOrphanAggregates($aggCorrRows): void{
         $i = 0;
         $total = count($aggCorrRows);
         foreach ($aggCorrRows as $aggCorrRow) {
@@ -220,7 +220,7 @@ class GlobalVariableRelationshipsCleanUpJobTest extends JobTestCase {
                     continue;
                 }
                 try {
-                    $c = new QMUserCorrelation(null, $cause, $effect);
+                    $c = new QMUserVariableRelationship(null, $cause, $effect);
                     $c->analyzeFully(__FUNCTION__);
                     //continue;
                 } catch (InsufficientVarianceException $e) {

@@ -9,7 +9,7 @@ use App\Logging\QMLog;
 use App\Models\Correlation;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseLatestMeasurementStartAtProperty;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationLatestMeasurementStartAtProperty extends BaseLatestMeasurementStartAtProperty
 {
     use CorrelationProperty;
@@ -17,7 +17,7 @@ class CorrelationLatestMeasurementStartAtProperty extends BaseLatestMeasurementS
     public $parentClass = Correlation::class;
     use \App\Traits\PropertyTraits\IsCalculated;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float|null
      * @noinspection PhpMissingReturnTypeInspection
      */

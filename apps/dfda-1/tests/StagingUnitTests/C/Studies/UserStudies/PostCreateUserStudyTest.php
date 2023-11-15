@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */
 /** @noinspection PhpUnusedLocalVariableInspection */
 namespace Tests\StagingUnitTests\C\Studies\UserStudies;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Studies\QMStudy;
 use App\Studies\StudyText;
 use Tests\SlimStagingTestCase;
@@ -12,7 +12,7 @@ class PostCreateUserStudyTest extends SlimStagingTestCase
     public function testPostCreateUserStudyTest(): void{
         $causeVariableNameOrId = "Outdoor Humidity";
         $effectVariableNameOrId = "Overall Mood";
-        QMUserCorrelation::getOrCreateUserCorrelation(230, $causeVariableNameOrId,
+        QMUserVariableRelationship::getOrCreateUserVariableRelationship(230, $causeVariableNameOrId,
             $effectVariableNameOrId);
 		$expectedString = '';
 		$this->slimEnvironmentSettings = [

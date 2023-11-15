@@ -12,7 +12,7 @@ use App\Charts\UserVariableCharts\UserVariableChartGroup;
 use App\Computers\ThisComputer;
 use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\DataSources\QMClient;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\BadRequestException;
@@ -602,8 +602,8 @@ trait ApiTestTrait
             'numberOfGlobalVariableRelationshipsAsEffect',
             'numberOfCorrelations',
             'numberOfUserVariables',
-            'numberOfUserCorrelationsAsCause',
-            'numberOfUserCorrelationsAsEffect',
+            'numberOfUserVariableRelationshipsAsCause',
+            'numberOfUserVariableRelationshipsAsEffect',
         ];
         DBUnitTestCase::checkIntAttributes($intAttributes, $variable);
         $floatAttributes = [
@@ -861,9 +861,9 @@ trait ApiTestTrait
         return $this->getAndDecodeBody('v1/studies/created')->studies;
     }
     /**
-     * @param QMUserCorrelation|object|array $correlation
+     * @param QMUserVariableRelationship|object|array $correlation
      */
-    public function checkUserCorrelationObject($correlation){
+    public function checkUserVariableRelationshipObject($correlation){
         if(is_array($correlation)){
             $correlation = (object)$correlation;
         }
@@ -1322,7 +1322,7 @@ trait ApiTestTrait
         return $v;
     }
     /**
-     * @return QMUserCorrelation
+     * @return QMUserVariableRelationship
      * @throws BadRequestException
      */
     public function seedWithNegativeLinearPredictiveCorrelation(){
@@ -1339,10 +1339,10 @@ trait ApiTestTrait
         return $this->checkNegativeCorrelation($correlation);
     }
     /**
-     * @param QMUserCorrelation $nc
-     * @return QMUserCorrelation
+     * @param QMUserVariableRelationship $nc
+     * @return QMUserVariableRelationship
      */
-    protected function checkNegativeCorrelation(QMUserCorrelation $nc): QMUserCorrelation{
+    protected function checkNegativeCorrelation(QMUserVariableRelationship $nc): QMUserVariableRelationship{
         $this->assertNotNull($nc);
         $this->assertEquals(-1, $nc->correlationCoefficient);
         $this->assertEquals(-1, $nc->strongestPearsonCorrelationCoefficient);
@@ -1361,7 +1361,7 @@ trait ApiTestTrait
         return $nc;
     }
     /**
-     * @return QMUserCorrelation
+     * @return QMUserVariableRelationship
      * @throws BadRequestException
      */
     public function seedWithPositiveLinearPredictiveCorrelation(){
@@ -1370,7 +1370,7 @@ trait ApiTestTrait
         $user = $this->getCauseUserVariable()->getQMUser();
         $user->analyzeFully(__FUNCTION__);
         $this->assertEquals(1, Correlation::count(), "We should have 1 correlation!");
-        $correlations = QMUserCorrelation::getUserCorrelations([]);
+        $correlations = QMUserVariableRelationship::getUserVariableRelationships([]);
         $this->checkOptimalValueMessageAndStudyCardsForUserVariables();
         $this->assertEquals(1, $correlations[0]->strongestPearsonCorrelationCoefficient);
         return $this->checkCorrelationPropertiesAndStudyText($correlations[0]);
@@ -1709,10 +1709,10 @@ trait ApiTestTrait
         }
     }
     /**
-     * @param QMUserCorrelation $correlation
-     * @return QMUserCorrelation
+     * @param QMUserVariableRelationship $correlation
+     * @return QMUserVariableRelationship
      */
-    private function checkCorrelationPropertiesAndStudyText(QMUserCorrelation $correlation): QMUserCorrelation{
+    private function checkCorrelationPropertiesAndStudyText(QMUserVariableRelationship $correlation): QMUserVariableRelationship{
         $this->assertGreaterThan(0.7 * self::NUMBER_OF_GENERATED_MEASUREMENTS,
             (float)$correlation->avgDailyValuePredictingHighOutcome);
         $this->assertLessThan(0.3 * self::NUMBER_OF_GENERATED_MEASUREMENTS,
@@ -1725,10 +1725,10 @@ trait ApiTestTrait
         return $correlation;
     }
     /**
-     * @return QMUserCorrelation
+     * @return QMUserVariableRelationship
      * @throws BadRequestException
      */
-    public function seedWithPositivePurchaseCorrelation(): QMUserCorrelation{
+    public function seedWithPositivePurchaseCorrelation(): QMUserVariableRelationship{
         QMBaseTestCase::deleteUserVariablesMeasurementsRemindersAndCorrelations();
         $causeMeasurements = [];
         $effectMeasurements = [];
@@ -1837,7 +1837,7 @@ trait ApiTestTrait
         return $v;
     }
     /**
-     * @return QMUserCorrelation
+     * @return QMUserVariableRelationship
      * @throws BadRequestException
      */
     public function seedWithPositiveRandomizedPredictiveCorrelationOverTime(){
@@ -1863,7 +1863,7 @@ trait ApiTestTrait
     }
     /**
      * @param bool $correlateOverTime
-     * @return QMUserCorrelation
+     * @return QMUserVariableRelationship
      */
     public function calculateCorrelation(bool $correlateOverTime = true){
         $userId = 1;
@@ -1879,7 +1879,7 @@ trait ApiTestTrait
         }
         $effect->analyzeFullyIfNecessary(__FUNCTION__);
         $allCorrelationObjects = $effect->calculateCorrelationsIfNecessary();
-        $correlations = QMUserCorrelation::getUserCorrelations(['userId' => $userId]);
+        $correlations = QMUserVariableRelationship::getUserVariableRelationships(['userId' => $userId]);
         $correlations[0]->addStudyHtmlChartsImages();
         $this->assertCount(1, $correlations,
             'We should only have 1 correlation for CauseVariableName and EffectVariableName');
@@ -1930,7 +1930,7 @@ trait ApiTestTrait
         Memory::flush();
     }
     /**
-     * @param QMUserCorrelation|QMGlobalVariableRelationship|object $correlation
+     * @param QMUserVariableRelationship|QMGlobalVariableRelationship|object $correlation
      * @param bool $studyCorrelation
      */
     public function checkSharedCorrelationV4Properties($correlation, bool $studyCorrelation = false){
@@ -2071,7 +2071,7 @@ trait ApiTestTrait
         }
     }
     /**
-     * @return QMUserCorrelation
+     * @return QMUserVariableRelationship
      * @throws BadRequestException
      */
     public function seedWithUncorrelatedCorrelationOverTime(){
@@ -2524,10 +2524,10 @@ trait ApiTestTrait
         return $c->findInMemoryOrNewQMStudy();
     }
     /**
-     * @return QMUserCorrelation
+     * @return QMUserVariableRelationship
      * @throws BadRequestException
      */
-    public function seedWithPositiveLinearCorrelation(): QMUserCorrelation
+    public function seedWithPositiveLinearCorrelation(): QMUserVariableRelationship
     {
         QMBaseTestCase::deleteUserVariablesMeasurementsRemindersAndCorrelations();
         $causeMeasurementItems = [];

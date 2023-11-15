@@ -11,7 +11,7 @@ use App\Traits\PropertyTraits\IsCalculated;
 use App\Traits\VariableValueTraits\EffectVariableValueTrait;
 use App\Properties\Base\BaseAverageEffectFollowingLowCauseProperty;
 use App\Traits\PropertyTraits\CorrelationProperty;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationAverageEffectFollowingLowCauseProperty extends BaseAverageEffectFollowingLowCauseProperty
 {
     use EffectVariableValueTrait, CorrelationProperty;
@@ -19,7 +19,7 @@ class CorrelationAverageEffectFollowingLowCauseProperty extends BaseAverageEffec
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float
      * @throws \App\Exceptions\NotEnoughDataException
      * @throws \App\Exceptions\TooSlowToAnalyzeException

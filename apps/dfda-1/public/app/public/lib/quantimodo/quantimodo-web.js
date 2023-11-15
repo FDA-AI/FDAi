@@ -25849,11 +25849,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('numberOfUniqueValues')) {
         obj['numberOfUniqueValues'] = ApiClient.convertToType(data['numberOfUniqueValues'], 'Number');
       }
-      if (data.hasOwnProperty('numberOfUserCorrelationsAsCause')) {
-        obj['numberOfUserCorrelationsAsCause'] = ApiClient.convertToType(data['numberOfUserCorrelationsAsCause'], 'Number');
+      if (data.hasOwnProperty('numberOfUserVariableRelationshipsAsCause')) {
+        obj['numberOfUserVariableRelationshipsAsCause'] = ApiClient.convertToType(data['numberOfUserVariableRelationshipsAsCause'], 'Number');
       }
-      if (data.hasOwnProperty('numberOfUserCorrelationsAsEffect')) {
-        obj['numberOfUserCorrelationsAsEffect'] = ApiClient.convertToType(data['numberOfUserCorrelationsAsEffect'], 'Number');
+      if (data.hasOwnProperty('numberOfUserVariableRelationshipsAsEffect')) {
+        obj['numberOfUserVariableRelationshipsAsEffect'] = ApiClient.convertToType(data['numberOfUserVariableRelationshipsAsEffect'], 'Number');
       }
       if (data.hasOwnProperty('numberOfUserVariables')) {
         obj['numberOfUserVariables'] = ApiClient.convertToType(data['numberOfUserVariables'], 'Number');
@@ -26460,12 +26460,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['numberOfCorrelations'] = undefined;
   /**
-   * numberOfGlobalVariableRelationshipsAsCause plus numberOfUserCorrelationsAsCause
+   * numberOfGlobalVariableRelationshipsAsCause plus numberOfUserVariableRelationshipsAsCause
    * @member {Number} numberOfCorrelationsAsCause
    */
   exports.prototype['numberOfCorrelationsAsCause'] = undefined;
   /**
-   * numberOfGlobalVariableRelationshipsAsEffect plus numberOfUserCorrelationsAsEffect
+   * numberOfGlobalVariableRelationshipsAsEffect plus numberOfUserVariableRelationshipsAsEffect
    * @member {Number} numberOfCorrelationsAsEffect
    */
   exports.prototype['numberOfCorrelationsAsEffect'] = undefined;
@@ -26496,14 +26496,14 @@ exports.cleanHeader = function(header, shouldStripCookie){
   exports.prototype['numberOfUniqueValues'] = undefined;
   /**
    * Ex: 115
-   * @member {Number} numberOfUserCorrelationsAsCause
+   * @member {Number} numberOfUserVariableRelationshipsAsCause
    */
-  exports.prototype['numberOfUserCorrelationsAsCause'] = undefined;
+  exports.prototype['numberOfUserVariableRelationshipsAsCause'] = undefined;
   /**
    * Ex: 29014
-   * @member {Number} numberOfUserCorrelationsAsEffect
+   * @member {Number} numberOfUserVariableRelationshipsAsEffect
    */
-  exports.prototype['numberOfUserCorrelationsAsEffect'] = undefined;
+  exports.prototype['numberOfUserVariableRelationshipsAsEffect'] = undefined;
   /**
    * Ex: 2
    * @member {Number} numberOfUserVariables

@@ -1,6 +1,6 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\StagingUnitTests\C\Studies\UserStudies;
-use App\Charts\CorrelationCharts\UserCorrelationScatterPlot;
+use App\Charts\CorrelationCharts\UserVariableRelationshipScatterPlot;
 use App\Charts\QMHighcharts\ScatterHighchartConfig;
 use App\DataSources\Connectors\QuantiModoConnector;
 use App\Properties\Base\BaseAccessTokenProperty;
@@ -17,7 +17,7 @@ class GetUserStudyForExistingCorrelationTest extends SlimStagingTestCase {
         $study = $this->callAndCheckResponse($expectedString);
         $this->compareObjectFixture('participantInstructions', $study->participantInstructions);
         $charts = $study->studyCharts;
-        /** @var UserCorrelationScatterPlot $scatter */
+        /** @var UserVariableRelationshipScatterPlot $scatter */
         $scatter = $charts->correlationScatterPlot;
         /** @var ScatterHighchartConfig $hc */
         $hc = $scatter->highchartConfig;

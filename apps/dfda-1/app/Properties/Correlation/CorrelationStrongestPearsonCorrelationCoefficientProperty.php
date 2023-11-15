@@ -9,14 +9,14 @@ use App\Models\Correlation;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseStrongestPearsonCorrelationCoefficientProperty;
 use App\Traits\PropertyTraits\IsCalculated;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationStrongestPearsonCorrelationCoefficientProperty extends BaseStrongestPearsonCorrelationCoefficientProperty
 {
     use CorrelationProperty, IsCalculated;
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float
      * @throws \App\Exceptions\NotEnoughDataException
      * @throws \App\Exceptions\TooSlowToAnalyzeException

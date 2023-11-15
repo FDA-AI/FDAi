@@ -13,7 +13,7 @@ use App\Charts\ChartGroup;
 use App\Charts\CorrelationCharts\CorrelationChartGroup;
 use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\AlreadyAnalyzedException;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\BadRequestException;
@@ -23,7 +23,7 @@ use App\Exceptions\InsufficientVarianceException;
 use App\Exceptions\ModelValidationException;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\NotEnoughMeasurementsForCorrelationException;
-use App\Exceptions\NoUserCorrelationsToAggregateException;
+use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Exceptions\SecretException;
 use App\Exceptions\StupidVariableNameException;
 use App\Exceptions\TooSlowToAnalyzeException;
@@ -545,10 +545,10 @@ abstract class QMStudy extends DBModel {
         return $this->effectVariableDisplayName = $name;
     }
     /**
-     * @return QMGlobalVariableRelationship|QMUserCorrelation
+     * @return QMGlobalVariableRelationship|QMUserVariableRelationship
      * @throws InsufficientVarianceException
      * @throws NotEnoughMeasurementsForCorrelationException
-     * @throws NoUserCorrelationsToAggregateException
+     * @throws NoUserVariableRelationshipsToAggregateException
      */
     abstract public function getCreateOrRecalculateStatistics(): QMCorrelation;
     /**
@@ -596,7 +596,7 @@ abstract class QMStudy extends DBModel {
     }
     /**
      * @return QMPopulationStudy|QMUserStudy|null
-     * @throws NoUserCorrelationsToAggregateException
+     * @throws NoUserVariableRelationshipsToAggregateException
      * @throws NotEnoughDataException
      * @throws UserVariableNotFoundException
      */
@@ -820,11 +820,11 @@ categories:'.
         return $string;
     }
 	/**
-	 * @return null|QMUserCorrelation|QMGlobalVariableRelationship|QMCorrelation|HasCorrelationCoefficient
+	 * @return null|QMUserVariableRelationship|QMGlobalVariableRelationship|QMCorrelation|HasCorrelationCoefficient
 	 */
     abstract public function setHasCorrelationCoefficientFromDatabase();
     /**
-     * @return null|QMUserCorrelation|QMGlobalVariableRelationship|QMCorrelation|HasCorrelationCoefficient
+     * @return null|QMUserVariableRelationship|QMGlobalVariableRelationship|QMCorrelation|HasCorrelationCoefficient
      */
     public function getHasCorrelationCoefficientFromDatabase(){
         $fromDB = $this->correlationFromDatabase;
@@ -1102,7 +1102,7 @@ categories:'.
         $cause = $this->getOrSetCauseQMVariable();
         $cuv = $cause->findQMUserVariable($user->id);
         $this->causeVariable = $cuv;
-        $uc = $this->statistics = $this->findQMUserCorrelation($user->getId());
+        $uc = $this->statistics = $this->findQMUserVariableRelationship($user->getId());
         if($uc){$this->type = StudyTypeProperty::TYPE_INDIVIDUAL;}
         $euv = $this->getOrSetEffectQMVariable()->findQMUserVariable($user->id);
         $this->effectVariable = $euv;
@@ -1147,7 +1147,7 @@ categories:'.
 	        static::TYPE);
     }
     /**
-     * @param QMGlobalVariableRelationship[]|QMUserCorrelation[] $correlations
+     * @param QMGlobalVariableRelationship[]|QMUserVariableRelationship[] $correlations
      * @return QMUserStudy[]|QMPopulationStudy[]
      */
     public static function convertCorrelationsToStudies(array $correlations): array{
@@ -1788,7 +1788,7 @@ categories:'.
      */
     public function getPHPUnitTestUrl(): string{
         if($this->typeIsIndividual()){
-            return QMUserCorrelation::generatePHPUnitTestUrlForAnalyze($this->getCauseQMVariable(),
+            return QMUserVariableRelationship::generatePHPUnitTestUrlForAnalyze($this->getCauseQMVariable(),
                 $this->getEffectQMVariable());
         }
         return QMGlobalVariableRelationship::generatePHPUnitTestUrlForAnalyze($this->getCauseVariable(),
@@ -1971,12 +1971,12 @@ categories:'.
     public function hasIds(): bool{
         return isset($this->causeVariableId);
     }
-    public function findUserCorrelation(int $userId): ?Correlation {
+    public function findUserVariableRelationship(int $userId): ?Correlation {
         return Correlation::findByIds($userId, $this->getCauseVariableId(),
             $this->getEffectVariableId());
     }
-    public function findQMUserCorrelation(int $userId): ?QMUserCorrelation {
-        return QMUserCorrelation::findByIds($userId, $this->getCauseVariableId(),
+    public function findQMUserVariableRelationship(int $userId): ?QMUserVariableRelationship {
+        return QMUserVariableRelationship::findByIds($userId, $this->getCauseVariableId(),
             $this->getEffectVariableId());
     }
 	/**

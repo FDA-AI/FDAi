@@ -786,7 +786,7 @@ class RouteConfiguration {
 			self::FIELD_PATH => '/v1/variables/:variableName/causes',
 			self::FIELD_AUTH => false,
 			self::FIELD_AUTH_SCOPE => '',
-			self::FIELD_CONTROLLER => 'Correlation\\GetUserCorrelationController',
+			self::FIELD_CONTROLLER => 'Correlation\\GetUserVariableRelationshipController',
 			self::FIELD_CACHE_MAX_AGE_IN_DAYS => 1,
 		],
 		[
@@ -794,7 +794,7 @@ class RouteConfiguration {
 			self::FIELD_PATH => '/v1/variables/:variableName/effects',
 			self::FIELD_AUTH => true,
 			self::FIELD_AUTH_SCOPE => '',
-			self::FIELD_CONTROLLER => 'Correlation\\GetUserCorrelationController',
+			self::FIELD_CONTROLLER => 'Correlation\\GetUserVariableRelationshipController',
 			self::FIELD_CACHE_MAX_AGE_IN_DAYS => 1,
 		],
 		// Votes

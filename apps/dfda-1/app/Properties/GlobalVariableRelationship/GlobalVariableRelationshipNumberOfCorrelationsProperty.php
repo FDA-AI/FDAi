@@ -76,7 +76,7 @@ class GlobalVariableRelationshipNumberOfCorrelationsProperty extends BaseNumberO
         $where0 = self::getWithoutCorrelations();
         foreach($where0 as $ac){
             try {
-                $correlations[$ac->getLogMetaDataString()] = $ac->recalculateUserCorrelations();
+                $correlations[$ac->getLogMetaDataString()] = $ac->recalculateUserVariableRelationships();
             } catch (AlreadyAnalyzedException | TooSlowToAnalyzeException |
             DuplicateFailedAnalysisException | AlreadyAnalyzingException $e) {
                 le($e);

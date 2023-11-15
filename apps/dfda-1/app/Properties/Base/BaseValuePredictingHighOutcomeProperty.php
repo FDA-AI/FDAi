@@ -10,7 +10,7 @@ use App\Logging\QMLog;
 use App\UI\ImageUrls;
 use App\UI\FontAwesome;
 use App\Properties\BaseProperty;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class BaseValuePredictingHighOutcomeProperty extends BaseProperty{
 	use IsFloat;
 	public $dbInput = 'float,10,0';

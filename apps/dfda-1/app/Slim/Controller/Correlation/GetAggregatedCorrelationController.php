@@ -3,12 +3,12 @@
 *  Contributors: ADD YOUR NAME HERE, Mike P. Sinn
  */ /** @noinspection PhpUnused */
 namespace App\Slim\Controller\Correlation;
-use App\Exceptions\NoUserCorrelationsToAggregateException;
+use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Slim\View\Request\Correlation\GetAggregatedCorrelationRequest;
 use App\Utils\APIHelper;
 class GetAggregatedCorrelationController extends GetCorrelationController {
 	/**
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 */
 	public function get(){
 		$this->setCacheControlHeader(5 * 60);

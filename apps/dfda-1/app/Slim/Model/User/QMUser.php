@@ -13,7 +13,7 @@ use App\Buttons\States\OnboardingStateButton;
 use App\Buttons\States\RemindersManageStateButton;
 use App\Buttons\States\StudyCreationStateButton;
 use App\Cards\TrackingReminderNotificationCard;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\DataSources\Connectors\Exceptions\ConnectorDisabledException;
 use App\DataSources\Connectors\GithubConnector;
 use App\DataSources\Connectors\WeatherConnector;
@@ -146,7 +146,7 @@ class QMUser extends PublicUser {
 	public $newestDataAt;
 	public $reasonForAnalysis;
 	public $userErrorMessage;
-	protected $allUserCorrelations;
+	protected $allUserVariableRelationships;
 	protected $allUserTags;
 	protected $allUserVariables;
 	protected $allValidAccessTokens;
@@ -1486,7 +1486,7 @@ class QMUser extends PublicUser {
 	 * @param int $variableId
 	 * @param int|null $causeVariableCategoryId
 	 * @param int $limit
-	 * @return QMUserCorrelation[]
+	 * @return QMUserVariableRelationship[]
 	 */
 	public function getCorrelationsForOutcome(int $variableId, int $causeVariableCategoryId = null,
 		int $limit = 0): array{
@@ -1508,13 +1508,13 @@ class QMUser extends PublicUser {
 		} else{
 			$this->logInfoWithoutContext("Getting correlations for variable $variableId...");
 		}
-		$correlations = QMUserCorrelation::getUserCorrelations($params);
+		$correlations = QMUserVariableRelationship::getUserVariableRelationships($params);
 		return $this->correlationsForOutcome[$key] = $correlations;
 	}
 	/**
 	 * @return Correlation[]
 	 */
-	public function setAllUserCorrelations(): array{
+	public function setAllUserVariableRelationships(): array{
 		$this->logInfo("Getting all user variable relationships!  WARNING: THIS USES A LOT OF MEMORY! TODO: Use laravel models");
 		$rows = $this->getCorrelations();
 		$this->logInfo("Got " . $rows->count() .
@@ -1542,19 +1542,19 @@ class QMUser extends PublicUser {
 	/**
 	 * @param int $causeVariableId
 	 * @param int $effectVariableId
-	 * @return null|QMUserCorrelation
+	 * @return null|QMUserVariableRelationship
 	 */
-	public function getExistingCorrelation(int $causeVariableId, int $effectVariableId): ?QMUserCorrelation{
+	public function getExistingCorrelation(int $causeVariableId, int $effectVariableId): ?QMUserVariableRelationship{
 		$correlations =
-			$this->allUserCorrelations ?? [];  // Only use this if already set because it uses too much memory
+			$this->allUserVariableRelationships ?? [];  // Only use this if already set because it uses too much memory
 		foreach($correlations as $c){
 			$currentCauseId = $c->causeVariableId ?? $c->cause_variable_id;
 			$currentEffectId = $c->effectVariableId ?? $c->effect_variable_id;
 			if($currentCauseId === $causeVariableId && $currentEffectId === $effectVariableId){
-				return QMUserCorrelation::instantiateIfNecessary($c);
+				return QMUserVariableRelationship::instantiateIfNecessary($c);
 			}
 		}
-		$c = QMUserCorrelation::getExistingUserCorrelationByVariableIds($this->getId(), $causeVariableId,
+		$c = QMUserVariableRelationship::getExistingUserVariableRelationshipByVariableIds($this->getId(), $causeVariableId,
 			$effectVariableId);
 		return $c ?: null;
 	}
@@ -1816,7 +1816,7 @@ class QMUser extends PublicUser {
 		if($score = QMFileCache::get($key)){
 			return $this->averageQmScore = $score;
 		}
-		$score = QMUserCorrelation::readonly()->where(Correlation::FIELD_USER_ID, $this->id)
+		$score = QMUserVariableRelationship::readonly()->where(Correlation::FIELD_USER_ID, $this->id)
 			->average(Correlation::FIELD_QM_SCORE);
 		$month = 60 * 60 * 24 * 30;
 		if($score){
@@ -2352,7 +2352,7 @@ class QMUser extends PublicUser {
 		$cards = [];
 		$noCorrelations = $aggregateCorrelationIds = $userVariableRelationshipIds = [];
 		foreach($notifications as $n){
-			if($id = $n->bestUserCorrelationId){
+			if($id = $n->bestUserVariableRelationshipId){
 				$userVariableRelationshipIds[] = $id;
 			} elseif($id = $n->bestGlobalVariableRelationshipId){
 				$aggregateCorrelationIds[] = $id;
@@ -2375,7 +2375,7 @@ class QMUser extends PublicUser {
 		foreach($notifications as $n){
 			$cards[] = $n->getOptionsListCard();
 			if($includeStudyCards){
-				if($id = $n->bestUserCorrelationId){
+				if($id = $n->bestUserVariableRelationshipId){
 					$cards[] = $correlations[$id]->getCard();
 				} elseif($id = $n->bestGlobalVariableRelationshipId){
 					$cards[] = $aggregateCorrelations[$id]->getCard();

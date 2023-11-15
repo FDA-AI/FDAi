@@ -7,21 +7,21 @@
 namespace App\Charts\CorrelationCharts;
 use App\Charts\QMHighcharts\CorrelationsOverDurationsOfActionHighchart;
 use App\Charts\QMHighcharts\HighchartConfig;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Logging\QMLog;
 use App\Studies\QMUserStudy;
 class CorrelationsOverDurationsOfActionChart extends CorrelationChart {
 	/**
-	 * @param QMUserCorrelation|QMUserStudy|null $c
+	 * @param QMUserVariableRelationship|QMUserStudy|null $c
 	 */
 	public function __construct($c = null){
 		if(!$c){
 			return;
 		}
 		try {
-			$c = $c->getQMUserCorrelation();
+			$c = $c->getQMUserVariableRelationship();
 		} catch (NotEnoughDataException $e) {
 			return;
 		}

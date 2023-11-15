@@ -17,7 +17,7 @@ use App\Charts\GlobalVariableRelationshipCharts\GlobalVariableRelationshipChartG
 use App\Charts\ChartGroup;
 use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\AlreadyAnalyzedException;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\CommonVariableNotFoundException;
@@ -34,7 +34,7 @@ use App\Astral\Actions\AnalyzeAction;
 use App\Astral\Actions\FavoriteAction;
 use App\Astral\Actions\LikeAction;
 use App\Astral\Actions\PHPUnitAction;
-use App\Astral\Lenses\GlobalVariableRelationshipsWithNoUserCorrelationsLens;
+use App\Astral\Lenses\GlobalVariableRelationshipsWithNoUserVariableRelationshipsLens;
 use App\Astral\Lenses\GlobalVariableRelationshipsWithNullChangeLens;
 use App\Astral\Lenses\FavoritesLens;
 use App\Astral\Lenses\LikesLens;
@@ -529,15 +529,15 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 		}
 		return "Relationship Between " . $this->getCauseVariableName() . " and " . $this->getEffectVariableName();
 	}
-	public function getUserCorrelationsAdminUrl(): string{
+	public function getUserVariableRelationshipsAdminUrl(): string{
 		return Correlation::generateDataLabIndexUrl([
 			Correlation::FIELD_CAUSE_VARIABLE_ID => $this->getCauseVariableId(),
 			Correlation::FIELD_EFFECT_VARIABLE_ID => $this->getEffectVariableId(),
 		]);
 	}
-	public function getUserCorrelationsAdminLink(): string{
+	public function getUserVariableRelationshipsAdminLink(): string{
 		$num = $this->number_of_correlations;
-		$url = $this->getUserCorrelationsAdminUrl();
+		$url = $this->getUserVariableRelationshipsAdminUrl();
 		return "<a href='$url' target='_blank'>$num</a>";
 	}
 	public function getGaugeLink(array $params = [], int $maxLength = 50,
@@ -713,7 +713,7 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 	/**
 	 * @return array
 	 */
-	public function recalculateUserCorrelationsWithWrongCauseUnitId(): array{
+	public function recalculateUserVariableRelationshipsWithWrongCauseUnitId(): array{
 		$correlations = $this->getCorrelations();
 		$recalculated = [];
 		foreach($correlations as $correlation){
@@ -731,7 +731,7 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 	/**
 	 * @return array
 	 */
-	public function recalculateUserCorrelations(): array{
+	public function recalculateUserVariableRelationships(): array{
 		$cause = $this->getCauseVariable();
 		$qb = $cause->user_variables(true);
 		$qb->whereNotIn(UserVariable::TABLE . '.' . UserVariable::FIELD_USER_ID,
@@ -743,7 +743,7 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 			$effectUV = UserVariable::findByNameOrId($causeUV->user_id,
 				$this->getEffectVariableId());
 			if($effectUV){
-				$uc = new QMUserCorrelation(null, $causeUV->getDBModel(), $effectUV->getDBModel());
+				$uc = new QMUserVariableRelationship(null, $causeUV->getDBModel(), $effectUV->getDBModel());
 				try {
 					$uc->analyze(__FUNCTION__);
 				} catch (AlreadyAnalyzedException | AlreadyAnalyzingException | DuplicateFailedAnalysisException |
@@ -950,7 +950,7 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 	public function getLenses(Request $request): array{
 		$lenses = parent::getLenses($request);
 		$lenses[] = new GlobalVariableRelationshipsWithNullChangeLens($this);
-		$lenses[] = new GlobalVariableRelationshipsWithNoUserCorrelationsLens($this);
+		$lenses[] = new GlobalVariableRelationshipsWithNoUserVariableRelationshipsLens($this);
 		$lenses[] = new FavoritesLens();
 		$lenses[] = new LikesLens();
 		return $lenses;
@@ -1326,11 +1326,11 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 		return $this->correlations;
 	}
 	/**
-	 * @return QMUserCorrelation[]
+	 * @return QMUserVariableRelationship[]
 	 */
-	public function getQMUserCorrelations(): array{
+	public function getQMUserVariableRelationships(): array{
 		$correlations = $this->getCorrelations();
-		$correlations = QMUserCorrelation::toDBModels($correlations);
+		$correlations = QMUserVariableRelationship::toDBModels($correlations);
 		return $correlations;
 	}
 	public function getPublicCorrelations(): Collection{
@@ -1455,10 +1455,10 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 	public function getJoined(): bool{
 		$userId = QMAuth::id(false);
 		if(!$userId){return false;}
-		$c = $this->findUserCorrelationInMemory($userId);
+		$c = $this->findUserVariableRelationshipInMemory($userId);
 		return $c !== null;
 	}
-	public function findUserCorrelationInMemory(int $userId): ?Correlation{
+	public function findUserVariableRelationshipInMemory(int $userId): ?Correlation{
 		return Correlation::findInMemoryByIds($userId, $this->cause_variable_id, $this->effect_variable_id);
 	}
     /**

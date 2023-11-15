@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */
 /** @noinspection PhpDocMissingThrowsInspection */
 namespace Tests\StagingUnitTests\Analyzable;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Models\Correlation;
 use App\Models\Variable;
 use App\Variables\QMCommonVariable;
@@ -14,7 +14,7 @@ class AnalyzableTest extends SlimStagingTestCase {
 	 * @covers \App\Charts\QMChart::getUniqueIndexIdsSlug
 	 */
 	public function testSlugs(){
-        $c = QMUserCorrelation::findByNamesOrIds(17901, 5954747, 1398);
+        $c = QMUserVariableRelationship::findByNamesOrIds(17901, 5954747, 1398);
         $getUniqueIndexIdsSlug = $c->getUniqueIndexIdsSlug();
         $this->assertEquals("correlations-user-17901-cause-variable-5954747-effect-variable-1398",
             $getUniqueIndexIdsSlug);
@@ -30,8 +30,8 @@ class AnalyzableTest extends SlimStagingTestCase {
 //        $v->analyzeFullyAndSave("testing");
 //        $this->assertTrue(true);
 //    }
-    public function testUserCorrelationAnalysisUsesCommonMinMaxNotUser(): void{
-        $c = QMUserCorrelation::getOrCreateUserCorrelation(230, 1508, 1282);
+    public function testUserVariableRelationshipAnalysisUsesCommonMinMaxNotUser(): void{
+        $c = QMUserVariableRelationship::getOrCreateUserVariableRelationship(230, 1508, 1282);
         $c->analyzeFully(__FUNCTION__);
         $this->checkTestDuration(15);
         $this->checkQueryCount(37);
@@ -69,12 +69,12 @@ class AnalyzableTest extends SlimStagingTestCase {
     }
 
 	/**
-	 * @covers \App\Variables\QMUserCorrelation::analysisJobsTest
+	 * @covers \App\Variables\QMUserVariableRelationship::analysisJobsTest
 	 */
-    public function testUserCorrelationAnalysisJob(): void{
+    public function testUserVariableRelationshipAnalysisJob(): void{
         if($this->skipIfQueued(static::JOB_NAME)){return;}
         // Too slow: UserCleanUpJobTest::deleteOldTestUsers();
-        QMUserCorrelation::analysisJobsTest();
+        QMUserVariableRelationship::analysisJobsTest();
         $this->assertTrue(true);
     }
 }

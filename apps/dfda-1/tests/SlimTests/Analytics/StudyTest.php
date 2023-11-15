@@ -8,10 +8,10 @@ use App\AppSettings\AppSettings;
 use App\Buttons\QMButton;
 use App\Cards\QMCard;
 use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\DataSources\QMClient;
 use App\Exceptions\NotEnoughDataException;
-use App\Exceptions\NoUserCorrelationsToAggregateException;
+use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Exceptions\UnauthorizedException;
 use App\Logging\QMLog;
 use App\Mail\QMSendgrid;
@@ -387,7 +387,7 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
         $this->assertGreaterThan(20, $correlation->averageDailyHighCause);
         $this->assertLessThan(15, $correlation->averageDailyLowCause);
     }
-    public function testNegativeLinearCorrelation(): QMUserCorrelation{
+    public function testNegativeLinearCorrelation(): QMUserVariableRelationship{
         QMBaseTestCase::deleteUserVariablesMeasurementsRemindersAndCorrelations();
         $causeMeasurementItems = [];
         $effectMeasurementItems = [];
@@ -405,7 +405,7 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
         $this->seedWithPositiveLinearCauseEffectMeasurements();
         $cause = $this->getCauseUserVariable();
         $effect = $this->getEffectUserVariable();
-        $c = new QMUserCorrelation(null, $cause, $effect);
+        $c = new QMUserVariableRelationship(null, $cause, $effect);
         $pairs = $c->setPairs();
         $actual = collect($pairs)->map(function($pair){
             /** @var Pair $pair */
@@ -415,7 +415,7 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
         $u = QMUser::demo();
         $u->analyzeFully(__FUNCTION__);
         $this->assertEquals(1, Correlation::count());
-        $positiveCorrelations = QMUserCorrelation::getUserCorrelations([]);
+        $positiveCorrelations = QMUserVariableRelationship::getUserVariableRelationships([]);
         $this->checkOptimalValueMessageAndStudyCardsForUserVariables();
         $positiveCorrelation = $positiveCorrelations[0];
         if(EnvOverride::isLocal()){$positiveCorrelation->saveStudyHtmlToResponsesRepo("positive", __FUNCTION__);}
@@ -478,7 +478,7 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
     /**
      * @param array $requestData
      * @return QMUserStudy
-     * @throws NoUserCorrelationsToAggregateException
+     * @throws NoUserVariableRelationshipsToAggregateException
      */
     public function publishStudyThatHasNotBeenAnalyzedYet(array $requestData): object {
         $requestData['shareUserMeasurements'] = true;
@@ -494,12 +494,12 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
         //if(!$studyResponse->publishedAt){throw new LogicException("No study->publishedAt!");}
         $correlations = GlobalVariableRelationship::all();
         //$this->assertCount(1, $correlations, "should have 1 global variable relationship after publishing");
-        $numberOfUserCorrelations = Correlation::count();
-        if($numberOfUserCorrelations > 1){
-            $correlations = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships([]);
+        $numberOfUserVariableRelationships = Correlation::count();
+        if($numberOfUserVariableRelationships > 1){
+            $correlations = QMUserVariableRelationship::getOrCreateUserOrGlobalVariableRelationships([]);
             foreach ($correlations as $correlation){$correlation->logInfo("");}
         }
-        $this->assertEquals(1, $numberOfUserCorrelations, "should have 1 user variable relationship after publishing");
+        $this->assertEquals(1, $numberOfUserVariableRelationships, "should have 1 user variable relationship after publishing");
         $this->assertGreaterThanOrEqual(1, Study::count(), "should have 1 study after publishing");
 		$s = $user->l()->studies->first();
 		$this->assertTrue((bool) $s->is_public);
@@ -1016,7 +1016,7 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
     }
     /**
      * @return array
-     * @throws NoUserCorrelationsToAggregateException
+     * @throws NoUserVariableRelationshipsToAggregateException
      * @throws NotEnoughDataException
      */
     public function publishQueueAndAnalyze(): array{

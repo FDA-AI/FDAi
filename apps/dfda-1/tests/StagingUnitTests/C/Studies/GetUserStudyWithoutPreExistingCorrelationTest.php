@@ -2,7 +2,7 @@
 /** @noinspection PhpUnusedLocalVariableInspection */
 namespace Tests\StagingUnitTests\C\Studies;
 use App\Computers\ThisComputer;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Files\TestArtifacts\TestQueryLogFile;
 use App\Models\Correlation;
 use App\Models\User;
@@ -25,7 +25,7 @@ class GetUserStudyWithoutPreExistingCorrelationTest extends SlimStagingTestCase 
         $cause = UserVariable::findByNameOrId(UserIdProperty::USER_ID_MIKE, $cause);
         $effect = 'Overall Mood';
         $effect = UserVariable::findByNameOrId(UserIdProperty::USER_ID_MIKE, $effect);
-        $c = QMUserCorrelation::findOrCreate(UserIdProperty::USER_ID_MIKE, $cause->name,
+        $c = QMUserVariableRelationship::findOrCreate(UserIdProperty::USER_ID_MIKE, $cause->name,
             $effect->name);
         $sentence = $c->getTagLine();
         $u = User::mike();
@@ -43,7 +43,7 @@ class GetUserStudyWithoutPreExistingCorrelationTest extends SlimStagingTestCase 
         $cause = QMUserVariable::getByNameOrId(UserIdProperty::USER_ID_MIKE, $cause);
         $effect = 'Number of Farts';
         $effect = QMUserVariable::getByNameOrId(UserIdProperty::USER_ID_MIKE, $effect);
-        $c = QMUserCorrelation::findOrCreate(UserIdProperty::USER_ID_MIKE, $cause->name,
+        $c = QMUserVariableRelationship::findOrCreate(UserIdProperty::USER_ID_MIKE, $cause->name,
             $effect->name);
         $c->analyzeFully(__FUNCTION__);
         $this->assertLessThan(0, $c->effectFollowUpPercentChangeFromBaseline);

@@ -19,7 +19,7 @@
 ║ UserVariableBestEffectVari... │ correlations         │ cause_user_variable_id=151457 & cause_user_variable_id=n... ║
 ║ findInMemoryOrDBWhere         │ user_variables       │ (user_id=71812 & variable_id=87494) & deleted_at=null li... ║
 ║ getVariable                   │ variables            │ id=87494 & deleted_at=null limit 1                          ║
-║ setBestUserCorrelation        │ correlations         │ user_id=71812 & cause_variable_id=5974942 & effect_varia... ║
+║ setBestUserVariableRelationship        │ correlations         │ user_id=71812 & cause_variable_id=5974942 & effect_varia... ║
 ║ setBestCorrelationAsCause     │ correlations         │ cause_user_variable_id=151457 & cause_user_variable_id=n... ║
 ║ findByData                    │ user_variable_client │ variable_id LIKE 5974942 & user_id LIKE 71812 & deleted_... ║
 ║ UserVariableEarliestSource... │ user_variable_client │ user_id=71812 & client_id in ('?') & deleted_at=null        ║
@@ -32,7 +32,7 @@
 ║ UserVariableNumberOfTracki... │ tracking_reminders   │ user_variable_id=151457 & deleted_at=null                   ║
 ║ UserVariableNumberOfUserCo... │ correlations         │ cause_user_variable_id=151457 & cause_user_variable_id=n... ║
 ║ UserVariableNumberOfUserCo... │ correlations         │ effect_user_variable_id=151457 & effect_user_variable_id... ║
-║ setBestUserCorrelation        │ correlations         │ user_id=71812 & cause_variable_id=5974942 & effect_varia... ║
+║ setBestUserVariableRelationship        │ correlations         │ user_id=71812 & cause_variable_id=5974942 & effect_varia... ║
 ║ setBestCorrelationAsCause     │ correlations         │ cause_user_variable_id=151457 & cause_user_variable_id=n... ║
 ║ UserVariableNumberOfUserCo... │ correlations         │ cause_user_variable_id=151457 & cause_user_variable_id=n... ║
 ║ analyzeFully                  │ user_variables       │ set status = 'CORRELATE', analysis_ended_at = '?', user_... ║

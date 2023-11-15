@@ -11,7 +11,7 @@
 ║ getUserVoteValue              │ votes                │ global_variable_relationship_id=65674583 & aggregate_correlatio... ║
 ║ QMStudy::getUser              │ wp_users             │ ID=230 & deleted_at=null limit 1                            ║
 ║ findInMemoryOrDBWhere         │ user_variables       │ (user_id=18535 & variable_id=53530) & deleted_at=null li... ║
-║ QMUserCorrelation::findByIds  │ correlations         │ cause_variable_id=53530 & effect_variable_id=1398 & user... ║
+║ QMUserVariableRelationship::findByIds  │ correlations         │ cause_variable_id=53530 & effect_variable_id=1398 & user... ║
 ║ findInMemoryOrDBWhere         │ user_variables       │ (user_id=18535 & variable_id=1398) & deleted_at=null lim... ║
 ║ firstOrCreateTrackingReminder │ tracking_reminders   │ user_variable_id=64889 & user_variable_id=not null & del... ║
 ║ firstOrCreateTrackingReminder │ tracking_reminders   │ user_variable_id=64885 & user_variable_id=not null & del... ║

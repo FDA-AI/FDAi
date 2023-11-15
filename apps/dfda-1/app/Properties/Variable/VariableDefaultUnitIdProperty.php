@@ -8,7 +8,7 @@ namespace App\Properties\Variable;
 use App\Correlations\QMGlobalVariableRelationship;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\InvalidStringException;
-use App\Exceptions\NoUserCorrelationsToAggregateException;
+use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Exceptions\UserVariableNotFoundException;
 use App\Logging\QMLog;
@@ -160,7 +160,7 @@ class VariableDefaultUnitIdProperty extends BaseDefaultUnitIdProperty {
             }
             try {
                 QMGlobalVariableRelationship::analyzeAggregatedCorrelationsForVariable($variableId);
-            } catch (NoUserCorrelationsToAggregateException $e) {
+            } catch (NoUserVariableRelationshipsToAggregateException $e) {
             } catch (AlreadyAnalyzingException $e) {
             }
         }

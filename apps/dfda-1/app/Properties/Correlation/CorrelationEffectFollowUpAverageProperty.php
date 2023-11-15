@@ -10,7 +10,7 @@ use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseEffectFollowUpAverageProperty;
 use App\Utils\Stats;
 use Illuminate\Support\Arr;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationEffectFollowUpAverageProperty extends BaseEffectFollowUpAverageProperty
 {
     use CorrelationProperty;
@@ -18,7 +18,7 @@ class CorrelationEffectFollowUpAverageProperty extends BaseEffectFollowUpAverage
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float|null
      * @throws \App\Exceptions\NotEnoughDataException
      * @throws \App\Exceptions\TooSlowToAnalyzeException

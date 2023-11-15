@@ -21,7 +21,7 @@ class GlobalVariableRelationshipCauseChangesProperty extends BaseCauseChangesPro
      * @return int
      */
     public static function calculate($model): int {
-        $val = $model->summedUserCorrelationValue(static::NAME);
+        $val = $model->summedUserVariableRelationshipValue(static::NAME);
         $model->setAttribute(static::NAME, $val);
         return $val;
     }

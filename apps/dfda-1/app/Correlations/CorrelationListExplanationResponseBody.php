@@ -156,7 +156,7 @@ abstract class CorrelationListExplanationResponseBody extends QMResponseBody {
         return $this->html;
     }
     /**
-     * @return GlobalVariableRelationship[]|QMUserCorrelation[]
+     * @return GlobalVariableRelationship[]|QMUserVariableRelationship[]
      */
     public function getCorrelations(): array {
         return QMArr::toArray($this->correlations);

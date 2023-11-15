@@ -6,7 +6,7 @@
 
 namespace App\Properties\GlobalVariableRelationship;
 use App\Exceptions\NotEnoughDataException;
-use App\Exceptions\NoUserCorrelationsToAggregateException;
+use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
@@ -29,7 +29,7 @@ class GlobalVariableRelationshipPredictivePearsonCorrelationCoefficientProperty 
 //		    /** @var Correlation[] $userVariableRelationships */
 //		    $userVariableRelationships = $model->getCorrelations();
 //			foreach($userVariableRelationships as $userVariableRelationship){
-//				$correlation = $userVariableRelationship->getQMUserCorrelation();
+//				$correlation = $userVariableRelationship->getQMUserVariableRelationship();
 //				try {
 //					$predictive = $correlation->getPredictivePearsonCorrelationCoefficient();
 //				} catch (NotEnoughDataException $e) {
@@ -39,10 +39,10 @@ class GlobalVariableRelationshipPredictivePearsonCorrelationCoefficientProperty 
 //					le($e);
 //				}
 //			}
-		    $val = $model->weightedAvgFromUserCorrelations(static::NAME);
+		    $val = $model->weightedAvgFromUserVariableRelationships(static::NAME);
 		    $model->setAttribute(static::NAME, $val);
 		    return $val;
-	    } catch (NoUserCorrelationsToAggregateException $e) {
+	    } catch (NoUserVariableRelationshipsToAggregateException $e) {
 			$model->logError(__METHOD__.": ".$e->getMessage());
 		    return null;
 	    }

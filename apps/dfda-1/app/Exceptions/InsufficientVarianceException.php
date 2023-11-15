@@ -5,20 +5,20 @@
  */
 
 namespace App\Exceptions;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Properties\Correlation\CorrelationCauseChangesProperty;
 class InsufficientVarianceException extends NotEnoughDataException {
     /**
-     * @var QMUserCorrelation
+     * @var QMUserVariableRelationship
      */
     public $userVariableRelationship;
     /**
      * InsufficientVarianceException constructor.
-     * @param QMUserCorrelation $correlation
+     * @param QMUserVariableRelationship $correlation
      * @param string $problemDetails
      * @param string|null $internalErrorMessage
      */
-    public function __construct(QMUserCorrelation $correlation, string $problemDetails = '',
+    public function __construct(QMUserVariableRelationship $correlation, string $problemDetails = '',
                                 string $internalErrorMessage = null){
         $this->analyzable = $this->userVariableRelationship = $correlation;
         $causeEffect = $correlation->getCauseAndEffectString();

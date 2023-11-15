@@ -12,7 +12,7 @@ use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Models\BaseModel;
 use App\Properties\Base\BaseAggregateQmScoreProperty;
 use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Traits\PropertyTraits\IsCalculated;
 class GlobalVariableRelationshipAggregateQmScoreProperty extends BaseAggregateQmScoreProperty
 {
@@ -41,7 +41,7 @@ class GlobalVariableRelationshipAggregateQmScoreProperty extends BaseAggregateQm
             if (!$changeSpread) {
                 $changeSpread = 1;
             } // We don't want QM Score to be 0
-            $value *= (1 - exp(-$changeSpread / QMUserCorrelation::SIGNIFICANT_CHANGE_SPREAD));
+            $value *= (1 - exp(-$changeSpread / QMUserVariableRelationship::SIGNIFICANT_CHANGE_SPREAD));
         }
         $c->setAttribute(static::NAME, $value);
         return $value;

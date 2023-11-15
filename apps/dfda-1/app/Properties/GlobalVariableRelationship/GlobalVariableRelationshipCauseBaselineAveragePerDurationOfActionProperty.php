@@ -20,7 +20,7 @@ class GlobalVariableRelationshipCauseBaselineAveragePerDurationOfActionProperty 
      * @return float
      */
     public static function calculate($model): float{
-        $val = $model->weightedAvgFromUserCorrelations(static::NAME);
+        $val = $model->weightedAvgFromUserVariableRelationships(static::NAME);
         $model->setAttribute(static::NAME, $val);
         return $val;
     }

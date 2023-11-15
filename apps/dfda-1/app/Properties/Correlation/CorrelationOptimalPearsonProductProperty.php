@@ -10,7 +10,7 @@ use App\Models\Correlation;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseOptimalPearsonProductProperty;
 use App\Utils\Stats;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationOptimalPearsonProductProperty extends BaseOptimalPearsonProductProperty
 {
     use CorrelationProperty;
@@ -18,7 +18,7 @@ class CorrelationOptimalPearsonProductProperty extends BaseOptimalPearsonProduct
     public $parentClass = Correlation::class;
     use \App\Traits\PropertyTraits\IsCalculated;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float|null
      * @noinspection PhpMissingReturnTypeInspection
      */
@@ -31,7 +31,7 @@ class CorrelationOptimalPearsonProductProperty extends BaseOptimalPearsonProduct
     }
     /**
      * @param array $causeMeasurementValueArrayFromPairs
-     * @param QMUserCorrelation $c
+     * @param QMUserVariableRelationship $c
      * @return float
      */
     public static function calculateOptimalPearsonProduct(array $causeMeasurementValueArrayFromPairs, $c){

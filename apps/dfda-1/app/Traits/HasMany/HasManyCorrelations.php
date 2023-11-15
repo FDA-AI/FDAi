@@ -5,7 +5,7 @@
  */
 
 namespace App\Traits\HasMany;
-use App\Exceptions\NoUserCorrelationsToAggregateException;
+use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Logging\QMLog;
 use App\Models\Correlation;
 use App\Utils\Stats;
@@ -13,51 +13,51 @@ trait HasManyCorrelations {
 	/**
 	 * @param string $attribute
 	 * @return array
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 */
-	public function getUserCorrelationValues(string $attribute): array{
+	public function getUserVariableRelationshipValues(string $attribute): array{
 		$userVariableRelationships = $this->getCorrelations();
 		if(!$userVariableRelationships->count()){
-			throw new NoUserCorrelationsToAggregateException($this);
+			throw new NoUserVariableRelationshipsToAggregateException($this);
 		}
 		return $userVariableRelationships->pluck($attribute)->all();
 	}
 	/**
 	 * @param string $attribute
 	 * @return float
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 */
-	public function summedUserCorrelationValue(string $attribute): float{
-		$values = $this->getUserCorrelationValues($attribute);
+	public function summedUserVariableRelationshipValue(string $attribute): float{
+		$values = $this->getUserVariableRelationshipValues($attribute);
 		return Stats::sum($values);
 	}
 	/**
 	 * @param string $attribute
 	 * @return float
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 */
-	public function averageUserCorrelationValue(string $attribute): float{
-		$values = $this->getUserCorrelationValues($attribute);
+	public function averageUserVariableRelationshipValue(string $attribute): float{
+		$values = $this->getUserVariableRelationshipValues($attribute);
 		return Stats::average($values);
 	}
 	/**
 	 * @param string $attribute
 	 * @return float
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 */
-	public function minimumUserCorrelationValue(string $attribute): float{
-		$values = $this->getUserCorrelationValues($attribute);
+	public function minimumUserVariableRelationshipValue(string $attribute): float{
+		$values = $this->getUserVariableRelationshipValues($attribute);
 		return min($values);
 	}
 	/**
 	 * @param string $attribute
 	 * @return float
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 */
-	public function weightedAvgFromUserCorrelations(string $attribute): ?float{
+	public function weightedAvgFromUserVariableRelationships(string $attribute): ?float{
 		$correlations = $this->getCorrelations();
 		if(!$correlations->count()){
-			throw new NoUserCorrelationsToAggregateException($this);
+			throw new NoUserVariableRelationshipsToAggregateException($this);
 		}
 		$numerators = [];
 		$avgStatisticalSignificance = $correlations->avg('statistical_significance');
@@ -79,7 +79,7 @@ trait HasManyCorrelations {
 		}
 		if(!$weightedValues){
 			$this->logError("No weighted values for attribute $attribute");
-			throw new NoUserCorrelationsToAggregateException($this);
+			throw new NoUserVariableRelationshipsToAggregateException($this);
 		}
 		$weightedAvg = Stats::average($weightedValues);
 		return $weightedAvg;

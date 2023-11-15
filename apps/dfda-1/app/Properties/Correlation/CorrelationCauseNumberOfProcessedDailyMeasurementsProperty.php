@@ -10,7 +10,7 @@ use App\Models\Correlation;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseCauseNumberOfProcessedDailyMeasurementsProperty;
 use App\Traits\PropertyTraits\IsCalculated;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationCauseNumberOfProcessedDailyMeasurementsProperty extends BaseCauseNumberOfProcessedDailyMeasurementsProperty
 {
     use CorrelationProperty;
@@ -18,7 +18,7 @@ class CorrelationCauseNumberOfProcessedDailyMeasurementsProperty extends BaseCau
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return int
      * @throws \App\Exceptions\NotEnoughDataException
      */

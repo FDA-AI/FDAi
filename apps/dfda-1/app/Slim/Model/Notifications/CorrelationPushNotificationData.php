@@ -5,15 +5,15 @@
  */
 
 namespace App\Slim\Model\Notifications;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 /** Class CorrelationNotificationData
  * @package App\Slim\Model\Notifications
  */
 class CorrelationPushNotificationData extends PushNotificationData {
 	/**
-	 * @param QMUserCorrelation $c
+	 * @param QMUserVariableRelationship $c
 	 */
-	public function __construct(QMUserCorrelation $c){
+	public function __construct(QMUserVariableRelationship $c){
 		parent::__construct();
 		$title = $c->getPredictorExplanationTitle(false);
 		if(empty($title)){

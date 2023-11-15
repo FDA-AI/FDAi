@@ -15,7 +15,7 @@ class AggregatedCorrelationsTest extends \Tests\SlimTests\SlimTestCase {
         $aggregateCorrelations = $this->getAndDecodeBody($apiUrl, $parameters);
         foreach ($aggregateCorrelations as $aggregateCorrelation) {
             $this->assertEquals(86400, $aggregateCorrelation->durationOfAction);
-            $this->checkUserCorrelationObject($aggregateCorrelation);
+            $this->checkUserVariableRelationshipObject($aggregateCorrelation);
         }
     }
     /**

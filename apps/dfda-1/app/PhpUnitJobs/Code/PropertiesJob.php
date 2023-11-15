@@ -3,7 +3,7 @@
 *  Contributors: ADD YOUR NAME HERE, Mike P. Sinn
  */ /** @noinspection PhpUnhandledExceptionInspection */
 namespace App\PhpUnitJobs\Code;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Files\FileFinder;
 use App\Files\PHP\PhpClassFile;
 use App\Models\IpDatum;
@@ -35,6 +35,6 @@ class PropertiesJob extends JobTestCase {
 		BasePropertyGenerator::generatePropertyTraits();
 	}
 	public function getGenerateSnakeCamelCaseMap(){
-		QMStr::outputSnakeCamelCaseMapsForObject(QMUserCorrelation::getUserCorrelations(['limit' => 1])[0]);
+		QMStr::outputSnakeCamelCaseMapsForObject(QMUserVariableRelationship::getUserVariableRelationships(['limit' => 1])[0]);
 	}
 }

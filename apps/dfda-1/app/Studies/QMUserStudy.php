@@ -9,9 +9,9 @@ use App\Buttons\StudyButton;
 use App\Charts\ChartGroup;
 use App\Charts\CorrelationCharts\CorrelationChartGroup;
 use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\NotEnoughDataException;
-use App\Exceptions\NoUserCorrelationsToAggregateException;
+use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Exceptions\UnauthorizedException;
 use App\Logging\QMLog;
 use App\Models\Correlation;
@@ -66,15 +66,15 @@ class QMUserStudy extends QMStudy {
         return $this->joined;
     }
     /**
-     * @return QMUserCorrelation
+     * @return QMUserVariableRelationship
      */
-    public function setHasCorrelationCoefficientFromDatabase(): ?QMUserCorrelation{
-        $c = QMUserCorrelation::findByNamesOrIds($this->getUserId(),
+    public function setHasCorrelationCoefficientFromDatabase(): ?QMUserVariableRelationship{
+        $c = QMUserVariableRelationship::findByNamesOrIds($this->getUserId(),
             $this->getCauseVariableId(), $this->getEffectVariableId());
         return $this->correlationFromDatabase = $c;
     }
     /**
-     * @return QMUserCorrelation
+     * @return QMUserVariableRelationship
      * @throws NotEnoughDataException
      */
     public function getCreateOrRecalculateStatistics(): QMCorrelation {
@@ -204,7 +204,7 @@ class QMUserStudy extends QMStudy {
         if($this->userId){
             return (int)$this->userId;
         }
-        /** @var QMUserCorrelation $c */
+        /** @var QMUserVariableRelationship $c */
         if($c = $this->getHasCorrelationCoefficientIfSet()){
             return $this->userId = $c->getUserId();
         }
@@ -222,7 +222,7 @@ class QMUserStudy extends QMStudy {
     }
 	/**
 	 * @return QMUserStudy[]
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 * @throws NotEnoughDataException
 	 * @throws \App\Exceptions\AlreadyAnalyzedException
 	 * @throws \App\Exceptions\AlreadyAnalyzingException
@@ -231,7 +231,7 @@ class QMUserStudy extends QMStudy {
 	 */
     public static function getUserStudies(): array{
         $requestParams = qm_request()->query();
-        $userVariableRelationships = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships($requestParams);
+        $userVariableRelationships = QMUserVariableRelationship::getOrCreateUserOrGlobalVariableRelationships($requestParams);
         $studies = QMStudy::convertCorrelationsToStudies($userVariableRelationships);
         return $studies;
     }
@@ -390,7 +390,7 @@ class QMUserStudy extends QMStudy {
         return parent::getStudyIfExists($causeNameOrId, $effectNameOrId, $userId, StudyTypeProperty::TYPE_INDIVIDUAL);
     }
 	/**
-	 * @return QMUserCorrelation
+	 * @return QMUserVariableRelationship
 	 * @throws \App\Exceptions\AnalysisException
 	 * @throws \App\Exceptions\NotEnoughDataException
 	 * @throws \App\Exceptions\StupidVariableNameException
@@ -398,7 +398,7 @@ class QMUserStudy extends QMStudy {
     public function createStatistics(): QMCorrelation {
         $cause = $this->getOrSetCauseQMVariable();
         $effect = $this->getOrSetEffectQMVariable();
-        $c = new QMUserCorrelation(null, $cause, $effect);
+        $c = new QMUserVariableRelationship(null, $cause, $effect);
         $c->analyzeFullyOrQueue("A study is being created");
         return $c;
     }
@@ -440,10 +440,10 @@ class QMUserStudy extends QMStudy {
         return IonIcon::person;
     }
     /**
-     * @return QMUserCorrelation
+     * @return QMUserVariableRelationship
      * @throws NotEnoughDataException
      */
-    public function getQMUserCorrelation():QMUserCorrelation{
+    public function getQMUserVariableRelationship():QMUserVariableRelationship{
         return $this->getHasCorrelationCoefficient();
     }
     protected static function generateIndexButtons(): array{
@@ -454,7 +454,7 @@ class QMUserStudy extends QMStudy {
     public function getStudyType(): string{
         return StudyTypeProperty::TYPE_INDIVIDUAL;
     }
-    public function getQMUserCorrelationIfPossible():?QMUserCorrelation{
+    public function getQMUserVariableRelationshipIfPossible():?QMUserVariableRelationship{
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->getHasCorrelationCoefficientIfSet();
     }

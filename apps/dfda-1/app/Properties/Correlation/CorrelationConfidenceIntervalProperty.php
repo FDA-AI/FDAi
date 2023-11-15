@@ -15,7 +15,7 @@ class CorrelationConfidenceIntervalProperty extends BaseConfidenceIntervalProper
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
 	/**
-	 * @param \App\Correlations\QMUserCorrelation|Correlation $model
+	 * @param \App\Correlations\QMUserVariableRelationship|Correlation $model
 	 * @throws \App\Exceptions\InsufficientVarianceException
 	 * @throws \App\Exceptions\NotEnoughDataException
 	 * @throws \App\Exceptions\TooSlowToAnalyzeException

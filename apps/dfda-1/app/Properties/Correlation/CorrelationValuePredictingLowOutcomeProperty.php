@@ -13,7 +13,7 @@ use App\Traits\PropertyTraits\IsCalculated;
 use App\Traits\VariableValueTraits\CauseDailyVariableValueTrait;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseValuePredictingLowOutcomeProperty;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Slim\Model\Measurement\Pair;
 class CorrelationValuePredictingLowOutcomeProperty extends BaseValuePredictingLowOutcomeProperty
 {
@@ -54,7 +54,7 @@ class CorrelationValuePredictingLowOutcomeProperty extends BaseValuePredictingLo
         }
     }
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float
      * @throws InvalidVariableValueException
      * @throws \App\Exceptions\InsufficientVarianceException
@@ -66,7 +66,7 @@ class CorrelationValuePredictingLowOutcomeProperty extends BaseValuePredictingLo
         $lowEffectPairs = CorrelationValuePredictingLowOutcomeProperty::getPairsWithEffectValueBelow(
             $model->getLowEffectCutoffMaximumValue(),
             $model->getPairsBasedOnDailyCauseValues());
-        $val = QMUserCorrelation::calculateAverageCauseForPairSubset($lowEffectPairs);
+        $val = QMUserVariableRelationship::calculateAverageCauseForPairSubset($lowEffectPairs);
         $model->setAvgDailyValuePredictingLowOutcome($val);
         $model->setAttribute(static::NAME, $val);
         return $val;

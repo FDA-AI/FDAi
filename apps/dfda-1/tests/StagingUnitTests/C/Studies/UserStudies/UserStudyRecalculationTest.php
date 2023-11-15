@@ -1,6 +1,6 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\StagingUnitTests\C\Studies\UserStudies;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Properties\Base\BaseAccessTokenProperty;
 use App\Variables\QMUserVariable;
 use Tests\SlimStagingTestCase;
@@ -20,7 +20,7 @@ class UserStudyRecalculationTest extends SlimStagingTestCase {
 		$cause = QMUserVariable::findByNameIdSynonymOrSpending(230, self::CAUSE_VARIABLE_NAME);
 		$min = $cause->minimumAllowedValueInCommonUnit;
         $this->checkMeasurements($cause, $min);
-        $correlation = QMUserCorrelation::findByNamesOrIds(230, self::CAUSE_VARIABLE_NAME,
+        $correlation = QMUserVariableRelationship::findByNamesOrIds(230, self::CAUSE_VARIABLE_NAME,
             "Overall Mood");
 		$study = $correlation->findInMemoryOrNewQMStudy();
 		//$study->publishToJekyll(false);
@@ -71,13 +71,13 @@ class UserStudyRecalculationTest extends SlimStagingTestCase {
       'requestDuration' => 1.0503511428833008,
     ];
     /**
-     * @param QMUserCorrelation|null $correlation
+     * @param QMUserVariableRelationship|null $correlation
      * @param float $min
      * @param QMUserVariable $cause
      * @throws \App\Exceptions\NotEnoughMeasurementsForCorrelationException
      * @throws \App\Exceptions\TooManyMeasurementsException
      */
-    private function checkPairs(?QMUserCorrelation $correlation, float $min, QMUserVariable $cause): void{
+    private function checkPairs(?QMUserVariableRelationship $correlation, float $min, QMUserVariable $cause): void{
         $pairs = $correlation->getPairs();
         foreach($pairs as $pair){
             if($pair->causeMeasurementValue < $min){

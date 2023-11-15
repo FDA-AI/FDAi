@@ -20,7 +20,7 @@ class GlobalVariableRelationshipEffectChangesProperty extends BaseEffectChangesP
      * @return float
      */
     public static function calculate($model){
-        $val = $model->summedUserCorrelationValue(static::NAME);
+        $val = $model->summedUserVariableRelationshipValue(static::NAME);
         $model->setAttribute(static::NAME, $val);
         return $val;
     }
