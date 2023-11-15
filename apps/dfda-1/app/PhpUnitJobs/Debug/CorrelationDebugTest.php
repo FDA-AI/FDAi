@@ -15,7 +15,7 @@ class CorrelationDebugTest extends JobTestCase {
      * @group Production
      */
     public function testCorrelationPush(): void{
-        $correlations = QMUserCorrelation::getOrCreateUserOrAggregateCorrelations(['userId' => 230]);
+        $correlations = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships(['userId' => 230]);
         $c = $correlations[0];
         $c->sendPushNotification();
     }

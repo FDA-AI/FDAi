@@ -171,7 +171,7 @@ class VariablesSearchTest extends \Tests\SlimTests\SlimTestCase {
         Writable::db()
             ->table('variables')
             ->where('id', 1398)
-            ->update(['number_of_aggregate_correlations_as_effect' => 2]);
+            ->update(['number_of_global_variable_relationships_as_effect' => 2]);
         $this->setAuthenticatedUser(1);
         $searchTerm = 'Mood Overall';
         $variables = $this->searchVariables($searchTerm,

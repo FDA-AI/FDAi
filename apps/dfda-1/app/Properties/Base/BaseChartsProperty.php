@@ -15,7 +15,7 @@ use App\UI\ImageUrls;
 use App\UI\FontAwesome;
 use App\Properties\BaseProperty;
 use App\Types\ObjectHelper;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Fields\Field;
 use App\Fields\Text;
 use OpenApi\Generator;
@@ -41,7 +41,7 @@ class BaseChartsProperty extends BaseProperty{
     public $phpType = ChartGroup::class;
 	public $title = 'Charts';
 	public $type = PhpTypes::ARRAY;
-	public const NAME = AggregateCorrelation::FIELD_CHARTS;
+	public const NAME = GlobalVariableRelationship::FIELD_CHARTS;
 	public static function handleTooLong(int $id): BaseModel{
         /** @var HasCharts|BaseModel $model */
         $model = static::findParent($id);

@@ -9,7 +9,7 @@ use App\CodeGenerators\Swagger\SwaggerJson;
 use App\DataSources\QMClient;
 use App\Files\PHP\ConstantGenerator;
 use App\Logging\QMLog;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Application;
 use App\Models\Connection;
 use App\Models\Connector;
@@ -257,7 +257,7 @@ class DBJob extends JobTestCase {
 	}
 	public function testGenerateWpPostColumnMigrations(){
 		$tables = [
-			AggregateCorrelation::TABLE,
+			GlobalVariableRelationship::TABLE,
 			Application::TABLE,
 			Connection::TABLE,
 			Connector::TABLE,

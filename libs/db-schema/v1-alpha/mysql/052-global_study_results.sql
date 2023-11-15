@@ -64,15 +64,15 @@ create table if not exists global_study_results
     effect_follow_up_percent_change_from_baseline                float                                                           not null comment 'Outcome Average at Follow-Up (The average value seen for the outcome during the duration of action following the onset delay of the treatment)',
     z_score                                                      float                                                           not null comment 'The absolute value of the change over duration of action following the onset delay of treatment divided by the baseline outcome relative standard deviation. A.K.A The number of standard deviations from the mean. A zScore > 2 means pValue < 0.05 and is typically considered statistically significant.',
     charts                                                       json                                                            not null,
-    number_of_variables_where_best_aggregate_correlation         int unsigned                                                    not null comment 'Number of Variables for this Best Aggregate Correlation.
-                    [Formula: update aggregate_correlations
+    number_of_variables_where_best_global_variable_relationship         int unsigned                                                    not null comment 'Number of Variables for this Best Global Variable Relationship.
+                    [Formula: update global_variable_relationships
                         left join (
-                            select count(id) as total, best_aggregate_correlation_id
+                            select count(id) as total, best_global_variable_relationship_id
                             from variables
-                            group by best_aggregate_correlation_id
+                            group by best_global_variable_relationship_id
                         )
-                        as grouped on aggregate_correlations.id = grouped.best_aggregate_correlation_id
-                    set aggregate_correlations.number_of_variables_where_best_aggregate_correlation = count(grouped.total)]',
+                        as grouped on global_variable_relationships.id = grouped.best_global_variable_relationship_id
+                    set global_variable_relationships.number_of_variables_where_best_global_variable_relationship = count(grouped.total)]',
     deletion_reason                                              varchar(280)                                                    null comment 'The reason the variable was deleted.',
     record_size_in_kb                                            int                                                             null,
     is_public                                                    tinyint(1)                                                      not null,
@@ -87,31 +87,31 @@ create table if not exists global_study_results
     confidence_level                                             enum ('HIGH', 'MEDIUM', 'LOW')                                  not null comment 'Describes the confidence that the strength level will remain consist in the future.  The more data there is, the lesser the chance that the findings are a spurious correlation. ',
     relationship                                                 enum ('POSITIVE', 'NEGATIVE', 'NONE')                           not null comment 'If higher predictor values generally precede HIGHER outcome values, the relationship is considered POSITIVE.  If higher predictor values generally precede LOWER outcome values, the relationship is considered NEGATIVE. ',
     slug                                                         varchar(200)                                                    null comment 'The slug is the part of a URL that identifies a page in human-readable keywords.',
-    constraint aggregate_correlations_pk
+    constraint global_variable_relationships_pk
         unique (cause_variable_id, effect_variable_id),
-    constraint aggregate_correlations_slug_uindex
+    constraint global_variable_relationships_slug_uindex
         unique (slug),
     constraint cause_variable_id_effect_variable_id_uindex
         unique (cause_variable_id, effect_variable_id),
-    constraint aggregate_correlations_cause_unit_id_fk
+    constraint global_variable_relationships_cause_unit_id_fk
         foreign key (cause_unit_id) references units (id),
-    constraint aggregate_correlations_cause_variable_category_id_fk
+    constraint global_variable_relationships_cause_variable_category_id_fk
         foreign key (cause_variable_category_id) references variable_categories (id),
-    constraint aggregate_correlations_client_id_fk
+    constraint global_variable_relationships_client_id_fk
         foreign key (client_id) references oa_clients (client_id),
-    constraint aggregate_correlations_effect_variable_category_id_fk
+    constraint global_variable_relationships_effect_variable_category_id_fk
         foreign key (effect_variable_category_id) references variable_categories (id),
-    constraint aggregate_correlations_wp_posts_ID_fk
+    constraint global_variable_relationships_wp_posts_ID_fk
         foreign key (wp_post_id) references wp_posts (ID)
             on update cascade on delete set null
 )
     comment 'Stores Calculated Aggregated Correlation Coefficients' charset = utf8;
 
-create index aggregate_correlations_effect_variable_id_index
+create index global_variable_relationships_effect_variable_id_index
     on global_study_results (effect_variable_id);
 
 alter table global_variables
-    add constraint variables_aggregate_correlations_id_fk
-        foreign key (best_aggregate_correlation_id) references global_study_results (id)
+    add constraint variables_global_variable_relationships_id_fk
+        foreign key (best_global_variable_relationship_id) references global_study_results (id)
             on delete set null;
 

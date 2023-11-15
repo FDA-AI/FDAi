@@ -6,7 +6,7 @@ use App;
 use App\Buttons\Admin\IgnitionButton;
 use App\Buttons\Admin\PHPUnitButton;
 use App\Computers\ThisComputer;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\DevOps\Jenkins\Build;
 use App\DevOps\XDebug;
 use App\Exceptions\DiffException;
@@ -34,7 +34,7 @@ use App\Logging\QMIgnition;
 use App\Logging\QMLog;
 use App\Logging\SolutionButton;
 use App\Menus\Admin\DebugMenu;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\Correlation;
 use App\Models\Measurement;
@@ -2184,7 +2184,7 @@ DIFF:
     /**
      * @return void
      */
-    protected function createAggregateCorrelations(): void
+    protected function createGlobalVariableRelationships(): void
     {
         $v = Variable::first();
         $this->assertIsInt($v->id);
@@ -2192,7 +2192,7 @@ DIFF:
         $this->checkUserVariables();
         $this->analyzeUsersAndCheckCorrelations();
         //$this->checkCommonVariables();
-        $this->checkAggregateCorrelations();
+        $this->checkGlobalVariableRelationships();
     }
     /**
      * @param int $userId
@@ -2310,7 +2310,7 @@ DIFF:
         $this->assertCorrelationAnalysisCompleted();
     }
     /**
-     * @param Correlation|AggregateCorrelation|Variable|UserVariable|BaseModel $m
+     * @param Correlation|GlobalVariableRelationship|Variable|UserVariable|BaseModel $m
      */
     public function assertAnalysisCompleted(BaseModel $m){
         $this->assertNull($m->deleted_at, "$m is deleted");
@@ -2326,16 +2326,16 @@ DIFF:
             $this->assertAnalysisCompleted($correlation);
         }
     }
-    public function checkAggregateCorrelations(): void{
-        sleep(1); // Make sure `aggregate_correlations`.`analysis_started_at` < ?
+    public function checkGlobalVariableRelationships(): void{
+        sleep(1); // Make sure `global_variable_relationships`.`analysis_started_at` < ?
         $this->assertCorrelationAnalysisCompleted();
-        $analyzed = QMAggregateCorrelation::analyzeWaitingStaleStuck();
+        $analyzed = QMGlobalVariableRelationship::analyzeWaitingStaleStuck();
         $this->assertCount(1, $analyzed,
-            "We should have 1 stale AGGREGATE Correlation because we should have updated newest_data_at on ".
-            "AGGREGATE correlation after analyzing 2nd USER correlation");
-        $correlations = AggregateCorrelation::all();
+            "We should have 1 stale GLOBAL Variable Relationship because we should have updated newest_data_at on ".
+            "GLOBAL variable relationship after analyzing 2nd USER correlation");
+        $correlations = GlobalVariableRelationship::all();
         $this->assertCount(1, $correlations);
-        /** @var AggregateCorrelation $ac */
+        /** @var GlobalVariableRelationship $ac */
         $ac = $correlations->first();
         $this->assertNotNull($ac->charts);
         $post = $ac->getWpPostIfExists();

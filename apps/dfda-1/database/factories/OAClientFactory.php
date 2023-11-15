@@ -35,7 +35,7 @@ class OAClientFactory extends Factory
             'deleted_at' => null,
             'earliest_measurement_start_at' => $this->faker->date('Y-m-d H:i:s'),
             'latest_measurement_start_at' => $this->faker->date('Y-m-d H:i:s'),
-            'number_of_aggregate_correlations' => $this->faker->randomDigitNotNull,
+            'number_of_global_variable_relationships' => $this->faker->randomDigitNotNull,
             'number_of_applications' => $this->faker->randomDigitNotNull,
             'number_of_oauth_access_tokens' => $this->faker->randomDigitNotNull,
             'number_of_oauth_authorization_codes' => $this->faker->randomDigitNotNull,

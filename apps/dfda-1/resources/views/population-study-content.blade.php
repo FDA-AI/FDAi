@@ -1,10 +1,10 @@
 <?php /** @var \App\Studies\QMPopulationStudy $model */ ?>
 {!! $model->getGaugeAndImagesWithTagLine() !!}
 {!! $model->getJoinButtonHTML() !!}
-@if( $ac = $model->findAggregateCorrelation() )
+@if( $ac = $model->findGlobalVariableRelationship() )
 <div id="charts-container">
     @include('h2-heading-bar', ['title' => "Charts"])
-    {!! \App\Charts\AggregateCorrelationCharts\PopulationTraitCorrelationScatterPlot::generateInline($ac) !!}
+    {!! \App\Charts\GlobalVariableRelationshipCharts\PopulationTraitCorrelationScatterPlot::generateInline($ac) !!}
 
     @include('h2-heading-bar', ['title' => $ac->getCauseVariableDisplayName()." Charts"])
     {!! \App\Charts\VariableCharts\VariableChartChartGroup::generateDescriptiveCharts($ac->getCauseVariable()) !!}

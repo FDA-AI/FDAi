@@ -18,7 +18,7 @@ class CreateCorrelationUsefulnessVotesTable extends Migration
             $table->integer('cause_variable_id')->index('correlation_usefulness_votes_cause_variables_id_fk');
             $table->integer('effect_variable_id')->index('correlation_usefulness_votes_effect_variables_id_fk');
             $table->integer('correlation_id')->nullable()->index('correlation_usefulness_votes_correlations_id_fk');
-            $table->integer('aggregate_correlation_id')->nullable()->index('correlation_usefulness_votes_aggregate_correlations_id_fk');
+            $table->integer('global_variable_relationship_id')->nullable()->index('correlation_usefulness_votes_global_variable_relationships_id_fk');
             $table->bigInteger('user_id');
             $table->integer('vote')->comment('The opinion of the data owner on whether or not knowledge of this 
                     relationship is useful in helping them improve an outcome of interest. 

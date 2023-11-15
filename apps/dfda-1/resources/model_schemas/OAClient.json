@@ -156,7 +156,7 @@
         "comment": "Time at which the Oauth Client was Latest Measurement Start At.  in the format YYYY-MM-DD HH:MM:SS in the UTC timezone. "
     },
     {
-        "name": "number_of_aggregate_correlations",
+        "name": "number_of_global_variable_relationships",
         "dbType": "integer,false,true",
         "htmlType": null,
         "validations": null,
@@ -166,7 +166,7 @@
         "inForm": true,
         "inIndex": true,
         "inView": true,
-        "comment": "Number of Aggregate Correlations. Number of Global Population Studies for this Client.\n                [Formula: \n                    update oa_clients\n                        left join (\n                            select count(id) as total, client_id\n                            from aggregate_correlations\n                            group by client_id\n                        )\n                        as grouped on oa_clients.client_id = grouped.client_id\n                    set oa_clients.number_of_aggregate_correlations = count(grouped.total)\n                ]\n                . "
+        "comment": "Number of Global Variable Relationships. Number of Global Population Studies for this Client.\n                [Formula: \n                    update oa_clients\n                        left join (\n                            select count(id) as total, client_id\n                            from global_variable_relationships\n                            group by client_id\n                        )\n                        as grouped on oa_clients.client_id = grouped.client_id\n                    set oa_clients.number_of_global_variable_relationships = count(grouped.total)\n                ]\n                . "
     },
     {
         "name": "number_of_applications",
@@ -317,7 +317,7 @@
     },
     {
         "type": "relation",
-        "relation": "1tm,AggregateCorrelation,client_id"
+        "relation": "1tm,GlobalVariableRelationship,client_id"
     },
     {
         "type": "relation",

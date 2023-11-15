@@ -24,7 +24,7 @@ use App\DataSources\QMClient;
 use App\Logging\QMLog;
 use App\Menus\DynamicMenu;
 use App\Menus\QMMenu;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
 use App\Models\Study;
 use App\Models\Variable;
@@ -284,7 +284,7 @@ trait HasCauseAndEffect {
 	 * @noinspection PhpUnused
 	 */
 	public static function excludeAppsWebsitesLocationsPayments($qb){
-		$qb->whereNotIn(AggregateCorrelation::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
+		$qb->whereNotIn(GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
 			VariableCategory::getAppsLocationsWebsiteIds());
 		return $qb;
 	}
@@ -825,13 +825,13 @@ trait HasCauseAndEffect {
 		return $this->getEffectVariable()->getDisplayNameWithCategoryOrUnitSuffix();
 	}
 	/**
-	 * @return QMCorrelation|AggregateCorrelation|\App\Models\Correlation|null
+	 * @return QMCorrelation|GlobalVariableRelationship|\App\Models\Correlation|null
 	 */
 	public function getHasCorrelationCoefficientIfSet(){
 		if($this instanceof QMCorrelation){
 			return $this;
 		}
-		if($this instanceof Correlation || $this instanceof AggregateCorrelation){
+		if($this instanceof Correlation || $this instanceof GlobalVariableRelationship){
 			return $this;
 		}
 		if(property_exists($this, 'statistics')){

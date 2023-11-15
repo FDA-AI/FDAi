@@ -5,8 +5,8 @@
  */
 
 namespace App\Charts\VariableCharts;
-use App\Charts\AggregateCorrelationCharts\AggregateCorrelationsNetworkGraphQMChart;
-use App\Charts\AggregateCorrelationCharts\AggregateCorrelationsSankeyQMChart;
+use App\Charts\GlobalVariableRelationshipCharts\GlobalVariableRelationshipsNetworkGraphQMChart;
+use App\Charts\GlobalVariableRelationshipCharts\GlobalVariableRelationshipsSankeyQMChart;
 use App\Charts\ChartGroup;
 use App\Charts\DistributionColumnChart;
 use App\Charts\MonthlyColumnChart;
@@ -21,7 +21,7 @@ class VariableChartChartGroup extends ChartGroup {
 	public $monthlyColumnChart;
 	public $yearlyColumnChart;
 	/**
-	 * @var AggregateCorrelationsSankeyQMChart
+	 * @var GlobalVariableRelationshipsSankeyQMChart
 	 */
 	public $aggregateCorrelationsSankeyChart;
 	public $aggregateCorrelationsNetworkGraphChart;
@@ -39,9 +39,9 @@ class VariableChartChartGroup extends ChartGroup {
 		$this->monthlyColumnChart = new MonthlyColumnChart($variable);
 		$this->yearlyColumnChart = new YearlyColumnChart($variable);
 		$this->aggregateCorrelationsSankeyChart =
-			new AggregateCorrelationsSankeyQMChart($variable, null, Correlation::MAX_LIMIT);
+			new GlobalVariableRelationshipsSankeyQMChart($variable, null, Correlation::MAX_LIMIT);
 		$this->aggregateCorrelationsNetworkGraphChart =
-			new AggregateCorrelationsNetworkGraphQMChart($variable, null, Correlation::MAX_LIMIT);
+			new GlobalVariableRelationshipsNetworkGraphQMChart($variable, null, Correlation::MAX_LIMIT);
 		parent::__construct($variable);
 	}
 	public function unsetPrivateAndProtectedProperties(){
@@ -61,8 +61,8 @@ class VariableChartChartGroup extends ChartGroup {
 		$charts[] = $this->getWeekdayColumnChart();
 		$charts[] = $this->getMonthlyColumnChart();
 		$charts[] = $this->getYearlyColumnChart();
-		$charts[] = $this->getAggregateCorrelationsSankeyChart();
-		$charts[] = $this->getAggregateCorrelationsNetworkGraphChart();
+		$charts[] = $this->getGlobalVariableRelationshipsSankeyChart();
+		$charts[] = $this->getGlobalVariableRelationshipsNetworkGraphChart();
 		return $charts;
 	}
 	/**
@@ -88,25 +88,25 @@ class VariableChartChartGroup extends ChartGroup {
 		return $this->weekdayColumnChart = $c;
 	}
 	/**
-	 * @return AggregateCorrelationsSankeyQMChart
+	 * @return GlobalVariableRelationshipsSankeyQMChart
 	 */
-	public function getAggregateCorrelationsSankeyChart(): AggregateCorrelationsSankeyQMChart{
+	public function getGlobalVariableRelationshipsSankeyChart(): GlobalVariableRelationshipsSankeyQMChart{
 		if($this->aggregateCorrelationsSankeyChart){
-			$c = AggregateCorrelationsSankeyQMChart::instantiateIfNecessary($this->aggregateCorrelationsSankeyChart);
+			$c = GlobalVariableRelationshipsSankeyQMChart::instantiateIfNecessary($this->aggregateCorrelationsSankeyChart);
 		} else{
-			$c = new AggregateCorrelationsSankeyQMChart($this->getSourceObject());
+			$c = new GlobalVariableRelationshipsSankeyQMChart($this->getSourceObject());
 		}
 		return $this->aggregateCorrelationsSankeyChart = $c;
 	}
 	/**
-	 * @return AggregateCorrelationsNetworkGraphQMChart
+	 * @return GlobalVariableRelationshipsNetworkGraphQMChart
 	 */
-	public function getAggregateCorrelationsNetworkGraphChart(): AggregateCorrelationsNetworkGraphQMChart{
+	public function getGlobalVariableRelationshipsNetworkGraphChart(): GlobalVariableRelationshipsNetworkGraphQMChart{
 		if($this->aggregateCorrelationsNetworkGraphChart){
 			$c =
-				AggregateCorrelationsNetworkGraphQMChart::instantiateIfNecessary($this->aggregateCorrelationsNetworkGraphChart);
+				GlobalVariableRelationshipsNetworkGraphQMChart::instantiateIfNecessary($this->aggregateCorrelationsNetworkGraphChart);
 		} else{
-			$c = new AggregateCorrelationsNetworkGraphQMChart($this->getSourceObject());
+			$c = new GlobalVariableRelationshipsNetworkGraphQMChart($this->getSourceObject());
 		}
 		return $this->aggregateCorrelationsNetworkGraphChart = $c;
 	}

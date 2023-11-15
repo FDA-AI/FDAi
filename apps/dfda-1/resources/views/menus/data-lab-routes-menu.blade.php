@@ -1,12 +1,12 @@
 <ul style="display: none;" id="searchable-menu-list" class="sidebar-menu">
 <li>
 	<a href="/datalab/aggregateCorrelations" target="_blank" title="Examination of the likely effects of a predictor variable on an outcome variable on average for the entire population @ datalab/aggregateCorrelations">
-		<i class="fas fa-vials"></i>List Aggregate Correlations
+		<i class="fas fa-vials"></i>List Global Variable Relationships
 	</a>
 </li>
 <li>
 	<a href="/datalab/aggregateCorrelations/create" target="_blank" title="Examination of the likely effects of a predictor variable on an outcome variable on average for the entire population @ datalab/aggregateCorrelations/create">
-		<i class="fas fa-vials"></i>Create Aggregate Correlation
+		<i class="fas fa-vials"></i>Create Global Variable Relationship
 	</a>
 </li>
 <li>

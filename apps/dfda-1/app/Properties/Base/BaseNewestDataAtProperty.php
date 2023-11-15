@@ -10,7 +10,7 @@ use App\Types\PhpTypes;
 use App\UI\ImageUrls;
 use App\UI\FontAwesome;
 use App\Properties\BaseProperty;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 class BaseNewestDataAtProperty extends BaseProperty{
 	use IsDateTime;
 	public $dbInput = 'datetime:nullable';
@@ -30,7 +30,7 @@ class BaseNewestDataAtProperty extends BaseProperty{
 	public $isFillable = true;
 	public $isOrderable = true;
 	public $isSearchable = false;
-    public const NAME = AggregateCorrelation::FIELD_NEWEST_DATA_AT;
+    public const NAME = GlobalVariableRelationship::FIELD_NEWEST_DATA_AT;
     public $name = self::NAME;
 	public $canBeChangedToNull = true;
 	public $phpType = PhpTypes::STRING;

@@ -30,7 +30,7 @@ trait HasCommonTag {
 			return $this->parentModel;
 		}
 		/** @var BaseModel|DBModel $this */
-		if($l = $this->getRelationIfLoaded('aggregate_correlation')){
+		if($l = $this->getRelationIfLoaded('global_variable_relationship')){
 			return $l;
 		}
 		$id = $this->getCommonTagId();

@@ -2,7 +2,7 @@
 namespace Tests\UnitTests;
 use App\Buttons\RelationshipButtons\Measurement\MeasurementConnectorButton;
 use App\Buttons\RelationshipButtons\Measurement\MeasurementUnitButton;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\Correlation;
 use App\Models\Measurement;
@@ -20,19 +20,19 @@ class InterestingRelationshipsMenuTest extends UnitTestCase
         $c->save();
         $this->assertNotNull($c->getCauseUserVariable());
         $this->assertNotNull($c->getEffectUserVariable());
-        $ac = AggregateCorrelation::firstOrFakeSave();
-        $c->getOrCreateQMAggregateCorrelation();
+        $ac = GlobalVariableRelationship::firstOrFakeSave();
+        $c->getOrCreateQMGlobalVariableRelationship();
         $this->assertEquals('Bupropion Sr', $ac->getCauseVariableName());
         $this->assertEquals('Overall Mood', $ac->getEffectVariableName());
         $this->assertRelationshipButtonTitles($c, [
             0 => 'Bupropion Sr',
             1 => 'Overall Mood',
-            2 => 'Aggregate Correlation',
+            2 => 'Global Variable Relationship',
         ]);
         $this->assertRelationshipButtonSubTitles($c, [
             0 => 'Cause User Variable',
             1 => 'Effect User Variable',
-            2 => 'Aggregate Correlation',
+            2 => 'Global Variable Relationship',
         ]);
         $this->assertRelationshipButtonIcons($c, [
             0 => 'fas fa-briefcase-medical',

@@ -1263,8 +1263,8 @@ export type UserVariable = {
 	mostCommonUnitId?: number
 	mostCommonValue?: number
 	name: string
-	numberOfAggregateCorrelationsAsCause?: number
-	numberOfAggregateCorrelationsAsEffect?: number
+	numberOfGlobalVariableRelationshipsAsCause?: number
+	numberOfGlobalVariableRelationshipsAsEffect?: number
 	numberOfChanges?: number
 	numberOfCorrelations?: number
 	numberOfCorrelationsAsCause?: number
@@ -1669,5 +1669,5 @@ export async function uploadLifeForceImage(): Promise<string> {
 }
 
 export async function getContracts(): Promise<any> {
-	
+
 }

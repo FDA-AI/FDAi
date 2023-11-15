@@ -22,11 +22,11 @@
 ║ getMeasurementsInCommonUnit   │ measurements         │ user_id=18535 & deleted_at=null & variable_id=6059957 or... ║
 ║ getUserMetaValue              │ wp_usermeta          │ user_id in (18535) & deleted_at=null                        ║
 ║ getCorrelationsAsCause        │ correlations         │ cause_user_variable_id=248121 & cause_user_variable_id=n... ║
-║ getAggregateCorrelationsAs... │ aggregate_correlatio │ effect_variable_id=6059957 & effect_variable_id=not null... ║
+║ getGlobalVariableRelationshipsAs... │ aggregate_correlatio │ effect_variable_id=6059957 & effect_variable_id=not null... ║
 ║ getMeasurementsInCommonUnit   │ measurements         │ user_id=18535 & deleted_at=null & variable_id=1273 order... ║
 ║ getCorrelationsAsEffect       │ correlations         │ effect_user_variable_id=248122 & effect_user_variable_id... ║
-║ getAggregateCorrelationsAs... │ aggregate_correlatio │ effect_variable_id=1273 & effect_variable_id=not null & ... ║
-║ getAggregateCorrelationsAs... │ variables            │ id in (1272, 1280, 1285, 1357, 1480, 1481, 1486, 1622, 8... ║
+║ getGlobalVariableRelationshipsAs... │ aggregate_correlatio │ effect_variable_id=1273 & effect_variable_id=not null & ... ║
+║ getGlobalVariableRelationshipsAs... │ variables            │ id in (1272, 1280, 1285, 1357, 1480, 1481, 1486, 1622, 8... ║
 ║ saveSession                   │ sessions             │ id=? limit 1 (Not preparing query because the fixtures c... ║
 ║ saveSession                   │ sessions             │ insert (?, ?, ?, ?, ?, ?) (Not preparing query because t... ║
 ╚═══════════════════════════════╧══════════════════════╧═════════════════════════════════════════════════════════════╝

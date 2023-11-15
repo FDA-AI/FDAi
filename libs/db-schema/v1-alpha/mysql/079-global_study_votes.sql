@@ -11,12 +11,12 @@ create table if not exists global_study_votes
     cause_variable_id        int unsigned                        not null,
     effect_variable_id       int unsigned                        not null,
     correlation_id           int                                 null,
-    aggregate_correlation_id int                                 null,
+    global_variable_relationship_id int                                 null,
     is_public                tinyint(1)                          null,
     constraint votes_user_id_cause_variable_id_effect_variable_id_uindex
         unique (user_id, cause_variable_id, effect_variable_id),
-    constraint votes_aggregate_correlations_id_fk
-        foreign key (aggregate_correlation_id) references global_study_results (id)
+    constraint votes_global_variable_relationships_id_fk
+        foreign key (global_variable_relationship_id) references global_study_results (id)
             on delete set null,
     constraint votes_cause_variable_id_fk
         foreign key (cause_variable_id) references global_variables (id),

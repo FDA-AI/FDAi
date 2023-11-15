@@ -55,8 +55,8 @@ class VariableSearchResult extends DBModel {
 	public $manualTracking;
 	public $name;
 	public $numberCommonTaggedBy;
-	public $numberOfAggregateCorrelationsAsCause;
-	public $numberOfAggregateCorrelationsAsEffect;
+	public $numberOfGlobalVariableRelationshipsAsCause;
+	public $numberOfGlobalVariableRelationshipsAsEffect;
 	public $numberOfCommonTags;
 	public $numberOfCorrelations;
 	public $numberOfCorrelationsAsCause;
@@ -259,7 +259,7 @@ class VariableSearchResult extends DBModel {
 		if($num !== null){
 			return $num;
 		}
-		$ac = $this->getNumberOfAggregateCorrelationsAsCause();
+		$ac = $this->getNumberOfGlobalVariableRelationshipsAsCause();
 		$uc = $this->numberOfUserCorrelationsAsCause;
 		return $this->numberOfCorrelationsAsCause = $ac + $uc;
 	}
@@ -270,7 +270,7 @@ class VariableSearchResult extends DBModel {
 		if($num = $this->numberOfCorrelationsAsEffect){
 			return $num;
 		}
-		$ac = $this->getNumberOfAggregateCorrelationsAsEffect();
+		$ac = $this->getNumberOfGlobalVariableRelationshipsAsEffect();
 		$uc = $this->numberOfUserCorrelationsAsEffect;
 		return $this->numberOfCorrelationsAsEffect = $ac + $uc;
 	}
@@ -412,20 +412,20 @@ class VariableSearchResult extends DBModel {
 	/**
 	 * @return int
 	 */
-	public function getNumberOfAggregateCorrelationsAsEffect(): ?int{
-		$num = $this->numberOfAggregateCorrelationsAsEffect ?? $this->dbRow->numberOfCorrelationsAsEffect ??
+	public function getNumberOfGlobalVariableRelationshipsAsEffect(): ?int{
+		$num = $this->numberOfGlobalVariableRelationshipsAsEffect ?? $this->dbRow->numberOfCorrelationsAsEffect ??
 			$this->numberOfCorrelationsAsEffect ??
 			$this->getAttributeFromVariableIfSet(Variable::FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_EFFECT);
-		return $this->numberOfAggregateCorrelationsAsEffect = $num;
+		return $this->numberOfGlobalVariableRelationshipsAsEffect = $num;
 	}
 	/**
 	 * @return int
 	 */
-	public function getNumberOfAggregateCorrelationsAsCause(): ?int{
-		$num = $this->numberOfAggregateCorrelationsAsCause ?? $this->dbRow->numberOfCorrelationsAsCause ??
+	public function getNumberOfGlobalVariableRelationshipsAsCause(): ?int{
+		$num = $this->numberOfGlobalVariableRelationshipsAsCause ?? $this->dbRow->numberOfCorrelationsAsCause ??
 			$this->numberOfCorrelationsAsCause ??
 			$this->getAttributeFromVariableIfSet(Variable::FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_CAUSE);
-		return $this->numberOfAggregateCorrelationsAsCause = $num;
+		return $this->numberOfGlobalVariableRelationshipsAsCause = $num;
 	}
 	/**
 	 * @param string $attribute
@@ -444,9 +444,9 @@ class VariableSearchResult extends DBModel {
 	/**
 	 * @return int
 	 */
-	public function getNumberOfAggregateCorrelations(): ?int{
-		$c = $this->getNumberOfAggregateCorrelationsAsCause();
-		$e = $this->getNumberOfAggregateCorrelationsAsEffect();
+	public function getNumberOfGlobalVariableRelationships(): ?int{
+		$c = $this->getNumberOfGlobalVariableRelationshipsAsCause();
+		$e = $this->getNumberOfGlobalVariableRelationshipsAsEffect();
 		return $this->numberOfCorrelations = $c + $e;
 	}
 	/**
@@ -633,7 +633,7 @@ class VariableSearchResult extends DBModel {
 	 */
 	public function populateByLaravelVariable(Variable $v): void{
 		// From Variable
-		$this->bestAggregateCorrelationId = $v->best_aggregate_correlation_id;
+		$this->bestGlobalVariableRelationshipId = $v->best_global_variable_relationship_id;
 		$this->commonAdditionalMetaData = $v->additional_meta_data;
 		$this->commonAlias = $v->common_alias;
 		$this->commonBestCauseVariableId = $v->best_cause_variable_id;
@@ -658,8 +658,8 @@ class VariableSearchResult extends DBModel {
 		$this->setMinimumAllowedValue($v->minimum_allowed_value ?? $minimumValue);
 		$this->setVariableName($v->name);
 		$this->setNumberCommonTaggedBy($v->number_common_tagged_by);
-		$this->numberOfAggregateCorrelationsAsCause = $v->number_of_aggregate_correlations_as_cause;
-		$this->numberOfAggregateCorrelationsAsEffect = $v->number_of_aggregate_correlations_as_effect;
+		$this->numberOfGlobalVariableRelationshipsAsCause = $v->number_of_global_variable_relationships_as_cause;
+		$this->numberOfGlobalVariableRelationshipsAsEffect = $v->number_of_global_variable_relationships_as_effect;
 		$this->setNumberOfCommonTags($v->number_of_common_tags);
 		$this->numberOfUserVariables = $v->number_of_user_variables;
 		$this->setOutcome($v->outcome); // Too complicated to use user variable outcomes

@@ -3,7 +3,7 @@ namespace Tests\ConnectorTests;
 use App\DataSources\LocationBasedConnector;
 use App\DataSources\QMConnector;
 use App\Exceptions\NoChangesException;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Connection;
 use App\Models\Measurement;
 use App\Properties\Connection\ConnectionConnectStatusProperty;
@@ -89,7 +89,7 @@ abstract class LocationBasedConnectorTestCase extends ConnectorTestCase {
 		}
 	}
 	protected function connectImportDisconnectLocationConnector(): void{
-		AggregateCorrelation::deleteAll();
+		GlobalVariableRelationship::deleteAll();
 		if($this->weShouldSkip()){
 			return;
 		}

@@ -11,7 +11,7 @@
 /** Created by Reliese Model.
  */
 namespace App\Models\Base;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\Correlation;
 use App\Models\CorrelationCausalityVote;
@@ -108,7 +108,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property float $z_score
  * @property Carbon $experiment_end_at
  * @property Carbon $experiment_start_at
- * @property int $aggregate_correlation_id
+ * @property int $global_variable_relationship_id
  * @property Carbon $aggregated_at
  * @property int $usefulness_vote
  * @property int $causality_vote
@@ -128,7 +128,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $strength_level
  * @property string $confidence_level
  * @property string $relationship
- * @property AggregateCorrelation $aggregate_correlation
+ * @property GlobalVariableRelationship $global_variable_relationship
  * @property Unit $cause_unit
  * @property VariableCategory $cause_variable_category
  * @property Variable $cause_variable
@@ -157,7 +157,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Base\BaseCorrelation onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation query()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
- *     whereAggregateCorrelationId($value)
+ *     whereGlobalVariableRelationshipId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereAggregatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereAnalysisEndedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
@@ -296,7 +296,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 abstract class BaseCorrelation extends BaseModel {
 	use SoftDeletes;
 	use Compoships;
-	public const FIELD_AGGREGATE_CORRELATION_ID = 'aggregate_correlation_id';
+	public const FIELD_AGGREGATE_CORRELATION_ID = 'global_variable_relationship_id';
 	public const FIELD_AGGREGATED_AT = 'aggregated_at';
 	public const FIELD_ANALYSIS_ENDED_AT = 'analysis_ended_at';
 	public const FIELD_ANALYSIS_REQUESTED_AT = 'analysis_requested_at';
@@ -699,16 +699,16 @@ abstract class BaseCorrelation extends BaseModel {
 		self::FIELD_RELATIONSHIP => 'If higher predictor values generally precede HIGHER outcome values, the relationship is considered POSITIVE.  If higher predictor values generally precede LOWER outcome values, the relationship is considered NEGATIVE. ',
 	];
 	protected array $relationshipInfo = [
-		'aggregate_correlation' => [
+		'global_variable_relationship' => [
 			'relationshipType' => 'BelongsTo',
-			'qualifiedUserClassName' => AggregateCorrelation::class,
-			'foreignKeyColumnName' => 'aggregate_correlation_id',
+			'qualifiedUserClassName' => GlobalVariableRelationship::class,
+			'foreignKeyColumnName' => 'global_variable_relationship_id',
 			'foreignKey' => Correlation::FIELD_AGGREGATE_CORRELATION_ID,
 			'otherKeyColumnName' => 'id',
-			'otherKey' => AggregateCorrelation::FIELD_ID,
-			'ownerKeyColumnName' => 'aggregate_correlation_id',
+			'otherKey' => GlobalVariableRelationship::FIELD_ID,
+			'ownerKeyColumnName' => 'global_variable_relationship_id',
 			'ownerKey' => Correlation::FIELD_AGGREGATE_CORRELATION_ID,
-			'methodName' => 'aggregate_correlation',
+			'methodName' => 'global_variable_relationship',
 		],
 		'cause_unit' => [
 			'relationshipType' => 'BelongsTo',
@@ -849,8 +849,8 @@ abstract class BaseCorrelation extends BaseModel {
 			'methodName' => 'votes',
 		],
 	];
-	public function aggregate_correlation(): BelongsTo{
-		return $this->belongsTo(AggregateCorrelation::class,
+	public function global_variable_relationship(): BelongsTo{
+		return $this->belongsTo(GlobalVariableRelationship::class,
 			[self::FIELD_CAUSE_VARIABLE_ID, self::FIELD_EFFECT_VARIABLE_ID],
 			[self::FIELD_CAUSE_VARIABLE_ID, self::FIELD_EFFECT_VARIABLE_ID]);
 	}

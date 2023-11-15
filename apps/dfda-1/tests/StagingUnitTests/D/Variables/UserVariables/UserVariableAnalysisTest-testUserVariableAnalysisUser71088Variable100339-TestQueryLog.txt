@@ -58,8 +58,8 @@
 ║ UserVariableNumberOfTracki... │ tracking_reminders   │ user_variable_id=146202 & deleted_at=null                   ║
 ║ UserVariableNumberOfUserCo... │ correlations         │ cause_user_variable_id=146202 & cause_user_variable_id=n... ║
 ║ UserVariableNumberOfUserCo... │ correlations         │ effect_user_variable_id=146202 & effect_user_variable_id... ║
-║ getAggregateCorrelation       │ aggregate_correlatio │ id=65701213 & deleted_at=null limit 1                       ║
-║ AggregateCorrelation::getV... │ votes                │ aggregate_correlation_id in (65701213) & deleted_at=null    ║
+║ getGlobalVariableRelationship       │ aggregate_correlatio │ id=65701213 & deleted_at=null limit 1                       ║
+║ GlobalVariableRelationship::getV... │ votes                │ global_variable_relationship_id in (65701213) & deleted_at=null    ║
 ║ calculateNumberOfTrackingR... │ tracking_reminders   │ user_variable_id=146202 & user_variable_id=not null & de... ║
 ║ analyzeFully                  │ user_variables       │ set status = 'UPDATED', analysis_ended_at = '?', user_va... ║
 ║ getMeasurementsInCommonUnit   │ measurements         │ user_id=71088 & deleted_at=null & variable_id=100339 ord... ║

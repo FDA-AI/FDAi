@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Variable;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\InvalidStringException;
 use App\Exceptions\NoUserCorrelationsToAggregateException;
@@ -159,7 +159,7 @@ class VariableDefaultUnitIdProperty extends BaseDefaultUnitIdProperty {
                 $cv->logError(__METHOD__.": ".$e->getMessage());
             }
             try {
-                QMAggregateCorrelation::analyzeAggregatedCorrelationsForVariable($variableId);
+                QMGlobalVariableRelationship::analyzeAggregatedCorrelationsForVariable($variableId);
             } catch (NoUserCorrelationsToAggregateException $e) {
             } catch (AlreadyAnalyzingException $e) {
             }

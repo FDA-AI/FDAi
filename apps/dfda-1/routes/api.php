@@ -214,7 +214,7 @@ Route::prefix('v3')->group(function () {
 Route::prefix('v6')->group(function () {
     //Route::apiResource('purchases', 'API\PurchaseAPIController');
     //Route::apiResource('subscriptions', 'API\SubscriptionAPIController');
-    Route::apiResource('aggregate_correlations', API\AggregateCorrelationAPIController::class);
+    Route::apiResource('global_variable_relationships', API\GlobalVariableRelationshipAPIController::class);
     //Route::apiResource('analyze', API\UserStudyAPIController::class);
     Route::apiResource('applications', API\ApplicationAPIController::class);
     Route::apiResource('collaborators', API\CollaboratorAPIController::class);

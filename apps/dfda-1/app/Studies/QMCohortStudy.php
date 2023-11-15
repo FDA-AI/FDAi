@@ -8,9 +8,9 @@ namespace App\Studies;
 use App\AppSettings\AppSettings;
 use App\AppSettings\HostAppSettings;
 use App\Buttons\StudyButton;
-use App\Charts\AggregateCorrelationCharts\AggregateCorrelationChartGroup;
+use App\Charts\GlobalVariableRelationshipCharts\GlobalVariableRelationshipChartGroup;
 use App\Charts\ChartGroup;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMCorrelation;
 use App\Correlations\QMUserCorrelation;
 use App\DataSources\QMClient;
@@ -192,29 +192,29 @@ class QMCohortStudy extends QMStudy {
         return $id;
     }
     /**
-     * @return AggregateCorrelationChartGroup
+     * @return GlobalVariableRelationshipChartGroup
      * @throws NotEnoughDataException
      */
     public function setCharts(): ChartGroup {
-        return $this->studyCharts = new AggregateCorrelationChartGroup($this->getHasCorrelationCoefficient());
+        return $this->studyCharts = new GlobalVariableRelationshipChartGroup($this->getHasCorrelationCoefficient());
     }
     /**
-     * @return QMAggregateCorrelation
+     * @return QMGlobalVariableRelationship
      */
-    public function setHasCorrelationCoefficientFromDatabase(): ?QMAggregateCorrelation{
+    public function setHasCorrelationCoefficientFromDatabase(): ?QMGlobalVariableRelationship{
         return $this->correlationFromDatabase =
-            QMAggregateCorrelation::getSingleAggregatedCorrelationByVariableNames($this->getCauseVariableName(),
+            QMGlobalVariableRelationship::getSingleAggregatedCorrelationByVariableNames($this->getCauseVariableName(),
                 $this->getEffectVariableName());
     }
     /**
-     * @return QMAggregateCorrelation|QMUserCorrelation
+     * @return QMGlobalVariableRelationship|QMUserCorrelation
      * @throws NotEnoughDataException
      */
     public function getCreateOrRecalculateStatistics(): QMCorrelation{
         if($c = $this->getHasCorrelationCoefficientIfSet()){
             return $c;
         }
-        $c = $this->getOrCreateAggregateCorrelation(); // TODO: Limit to people who joined the study
+        $c = $this->getOrCreateGlobalVariableRelationship(); // TODO: Limit to people who joined the study
         return $this->setStatistics($c);
     }
     /**
@@ -228,10 +228,10 @@ class QMCohortStudy extends QMStudy {
      * @throws NotEnoughDataException
      */
     public function createStatistics(): QMCorrelation{
-        return $this->createAggregateCorrelation();
+        return $this->createGlobalVariableRelationship();
     }
     /**
-     * @return QMAggregateCorrelation
+     * @return QMGlobalVariableRelationship
      * @throws NotEnoughDataException
      */
     public function getHasCorrelationCoefficient(){

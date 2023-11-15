@@ -6,17 +6,17 @@
 
 namespace App\Studies;
 use App\Buttons\StudyButton;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMCorrelation;
 use App\Correlations\QMUserCorrelation;
 use App\Exceptions\NotEnoughDataException;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Study;
 use App\Properties\Study\StudyIdProperty;
 use App\Properties\Study\StudyTypeProperty;
 use App\Storage\S3\S3Public;
 use App\Traits\HasCorrelationCoefficient;
-use App\Traits\HasModel\HasAggregateCorrelation;
+use App\Traits\HasModel\HasGlobalVariableRelationship;
 use App\UI\IonIcon;
 use Illuminate\View\View;
 use App\Slim\Model\User\QMUser;
@@ -24,7 +24,7 @@ use App\Slim\Model\User\QMUser;
  * @package app/Studies
  */
 class QMPopulationStudy extends QMStudy {
-    use HasAggregateCorrelation;
+    use HasGlobalVariableRelationship;
 	const TYPE = StudyTypeProperty::TYPE_POPULATION;
     public const COLLECTION_NAME = "PopulationStudy";
     public const CLASS_PARENT_CATEGORY = Study::CLASS_CATEGORY;
@@ -115,38 +115,38 @@ class QMPopulationStudy extends QMStudy {
         return parent::updateDbRow($arr, $reason);
     }
     /**
-     * @return QMAggregateCorrelation
+     * @return QMGlobalVariableRelationship
      */
-    public function setHasCorrelationCoefficientFromDatabase(): ?QMAggregateCorrelation{
+    public function setHasCorrelationCoefficientFromDatabase(): ?QMGlobalVariableRelationship{
         return $this->correlationFromDatabase =
-            QMAggregateCorrelation::getByIds($this->getCauseVariableId(), $this->getEffectVariableId());
+            QMGlobalVariableRelationship::getByIds($this->getCauseVariableId(), $this->getEffectVariableId());
     }
     /**
-     * @return QMAggregateCorrelation|QMUserCorrelation
+     * @return QMGlobalVariableRelationship|QMUserCorrelation
      * @throws NotEnoughDataException
      */
     public function getCreateOrRecalculateStatistics(): QMCorrelation{
         if($c = $this->getHasCorrelationCoefficientIfSet()){
             return $c;
         }
-        $c = $this->getOrCreateAggregateCorrelation();
+        $c = $this->getOrCreateGlobalVariableRelationship();
         return $this->setStatistics($c);
     }
     /**
      * @return string
      */
     public function getCategoryDescription(): string{
-        return AggregateCorrelation::CLASS_DESCRIPTION;
+        return GlobalVariableRelationship::CLASS_DESCRIPTION;
     }
     /**
      * @return QMCorrelation
      * @throws NotEnoughDataException
      */
     public function createStatistics(): QMCorrelation{
-        return $this->createAggregateCorrelation();
+        return $this->createGlobalVariableRelationship();
     }
 	/**
-	 * @return AggregateCorrelation|HasCorrelationCoefficient
+	 * @return GlobalVariableRelationship|HasCorrelationCoefficient
 	 * @throws \App\Exceptions\DuplicateFailedAnalysisException
 	 * @throws \App\Exceptions\ModelValidationException
 	 * @throws \App\Exceptions\NotEnoughDataException
@@ -154,9 +154,9 @@ class QMPopulationStudy extends QMStudy {
 	 * @throws \App\Exceptions\TooSlowToAnalyzeException
 	 */
     public function getHasCorrelationCoefficient(){
-        $c = $this->findAggregateCorrelation();
+        $c = $this->findGlobalVariableRelationship();
 		if(!$c){
-			$c = $this->createAggregateCorrelation();
+			$c = $this->createGlobalVariableRelationship();
 		}
 		return $c;
     }
@@ -179,7 +179,7 @@ class QMPopulationStudy extends QMStudy {
         ]);
     }
     public static function generateIndexButtons(): array{
-        $correlations = AggregateCorrelation::getUpVoted();
+        $correlations = GlobalVariableRelationship::getUpVoted();
         return StudyButton::toButtons($correlations);
     }
     public function getShowContentView(array $params = []): View{
@@ -209,27 +209,27 @@ class QMPopulationStudy extends QMStudy {
 	 * @return float|null
 	 */
 	public function getCorrelationCoefficient(int $precision = null): ?float{
-		$c = $this->findAggregateCorrelation();
+		$c = $this->findGlobalVariableRelationship();
 		if(!$c){return null;}
 		return $c->getCorrelationCoefficient($precision);
 	}
 	/**
-	 * @return \App\Models\AggregateCorrelation
+	 * @return \App\Models\GlobalVariableRelationship
 	 */
-	public function findAggregateCorrelation():?AggregateCorrelation{
+	public function findGlobalVariableRelationship():?GlobalVariableRelationship{
 		if($this->statistics === false){
 			return null;
 		}
-		if($this->statistics instanceof AggregateCorrelation){
+		if($this->statistics instanceof GlobalVariableRelationship){
             return $this->statistics;
         }
-		if($this->statistics instanceof QMAggregateCorrelation){
+		if($this->statistics instanceof QMGlobalVariableRelationship){
 			return $this->statistics->l();
 		}
 		if($this->statistics instanceof NotEnoughDataException){
 			return null;
 		}
-		$c = AggregateCorrelation::findByVariableNamesOrIds($this->getCauseVariableId(),
+		$c = GlobalVariableRelationship::findByVariableNamesOrIds($this->getCauseVariableId(),
 			$this->getEffectVariableId());
 		if(!$c){
 			$this->statistics = false;

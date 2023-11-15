@@ -18,8 +18,8 @@ class CreateCorrelationsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedInteger('cause_variable_id')->index('correlations_cause_variable_id_fk');
             $table->unsignedInteger('effect_variable_id')->index('correlations_effect_variable_id_fk');
-            $table->double('qm_score')->nullable()->comment('A number representative of the relative importance of the relationship based on the strength, 
-                    usefulness, and plausible causality.  The higher the number, the greater the perceived importance.  
+            $table->double('qm_score')->nullable()->comment('A number representative of the relative importance of the relationship based on the strength,
+                    usefulness, and plausible causality.  The higher the number, the greater the perceived importance.
                     This value can be used for sorting relationships by importance.  ');
             $table->float('forward_pearson_correlation_coefficient', 10, 4)->nullable()->comment('Pearson correlation coefficient between cause and effect measurements');
             $table->double('value_predicting_high_outcome')->nullable()->comment('cause value that predicts an above average effect value (in default unit for cause variable)');
@@ -94,10 +94,10 @@ class CreateCorrelationsTable extends Migration
             $table->float('z_score', 10, 0)->nullable()->comment('The absolute value of the change over duration of action following the onset delay of treatment divided by the baseline outcome relative standard deviation. A.K.A The number of standard deviations from the mean. A zScore > 2 means pValue < 0.05 and is typically considered statistically significant.');
             $table->timestamp('experiment_start_at')->nullable()->default(null)->comment('The earliest data used in the analysis. ');
             $table->timestamp('experiment_end_at')->nullable()->default(null)->comment('The latest data used in the analysis. ');
-            $table->integer('aggregate_correlation_id')->nullable()->index('correlations_aggregate_correlations_id_fk');
+            $table->integer('global_variable_relationship_id')->nullable()->index('correlations_global_variable_relationships_id_fk');
             $table->timestamp('aggregated_at')->nullable();
-            $table->integer('usefulness_vote')->nullable()->comment('The opinion of the data owner on whether or not knowledge of this relationship is useful. 
-                        -1 corresponds to a down vote. 1 corresponds to an up vote. 0 corresponds to removal of a 
+            $table->integer('usefulness_vote')->nullable()->comment('The opinion of the data owner on whether or not knowledge of this relationship is useful.
+                        -1 corresponds to a down vote. 1 corresponds to an up vote. 0 corresponds to removal of a
                         previous vote.  null corresponds to never having voted before.');
             $table->integer('causality_vote')->nullable()->comment('The opinion of the data owner on whether or not there is a plausible mechanism of action
                         by which the predictor variable could influence the outcome variable.');

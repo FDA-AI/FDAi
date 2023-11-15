@@ -11,9 +11,9 @@ create table correlation_causality_votes
     correlation_id           integer
         constraint correlation_causality_votes_correlations_id_fk
             references correlations,
-    aggregate_correlation_id integer
-        constraint correlation_causality_votes_aggregate_correlations_id_fk
-            references aggregate_correlations,
+    global_variable_relationship_id integer
+        constraint correlation_causality_votes_global_variable_relationships_id_fk
+            references global_variable_relationships,
     user_id                  bigint                                 not null
         constraint "correlation_causality_votes_wp_users_ID_fk"
             references wp_users,
@@ -44,8 +44,8 @@ create index correlation_causality_votes_effect_variables_id_fk
 create index correlation_causality_votes_correlations_id_fk
     on correlation_causality_votes (correlation_id);
 
-create index correlation_causality_votes_aggregate_correlations_id_fk
-    on correlation_causality_votes (aggregate_correlation_id);
+create index correlation_causality_votes_global_variable_relationships_id_fk
+    on correlation_causality_votes (global_variable_relationship_id);
 
 create index correlation_causality_votes_client_id_fk
     on correlation_causality_votes (client_id);

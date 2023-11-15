@@ -22,7 +22,7 @@ use App\Slim\Middleware\QMAuth;
 use App\Storage\DB\QMQB;
 use App\Storage\DB\Writable;
 use App\Studies\QMUserStudy;
-use App\Traits\HasModel\HasAggregateCorrelation;
+use App\Traits\HasModel\HasGlobalVariableRelationship;
 use App\Traits\HasModel\HasCorrelation;
 use App\Traits\HasModel\HasUser;
 use App\Traits\ModelTraits\IsVote;
@@ -130,11 +130,11 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property-read Variable $effect_variable
 
  * @property int|null $correlation_id
- * @property int|null $aggregate_correlation_id
- * @property-read AggregateCorrelation|null $aggregate_correlation
+ * @property int|null $global_variable_relationship_id
+ * @property-read GlobalVariableRelationship|null $global_variable_relationship
  * @property-read Correlation|null $correlation
  * @property mixed $raw
- * @method static Builder|Vote whereAggregateCorrelationId($value)
+ * @method static Builder|Vote whereGlobalVariableRelationshipId($value)
  * @method static Builder|Vote whereCorrelationId($value)
  * @property bool|null $is_public
  * @method static Builder|Vote whereIsPublic($value)
@@ -144,7 +144,7 @@ class Vote extends BaseVote {
     use HasFactory;
 
 	use SearchesRelations, IsVote, Compoships;
-	use HasUser, HasCorrelation, HasAggregateCorrelation;
+	use HasUser, HasCorrelation, HasGlobalVariableRelationship;
 	public const CLASS_CATEGORY             = "Studies";
 	public const CLASS_DESCRIPTION          = "Vote thumbs down button for relationships that you think are coincidences and thumbs up for correlations with a plausible causal explanation. ";
 	public const CLASS_DESCRIPTION_EXTENDED = "I am really good at finding correlations and even compensating for various onset delays and durations of action. However, you are much better than me at knowing if there's a way that a given factor could plausibly influence an outcome. You can help me learn and get better at my predictions. " .
@@ -251,8 +251,8 @@ class Vote extends BaseVote {
 	//            ->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $this->getEffectVariableId())
 	//            ->first();
 	//    }
-	//    public function getAggregateCorrelation(): ?AggregateCorrelation {
-	//        return AggregateCorrelation::query()
+	//    public function getGlobalVariableRelationship(): ?GlobalVariableRelationship {
+	//        return GlobalVariableRelationship::query()
 	//            ->where(Correlation::FIELD_CAUSE_VARIABLE_ID, $this->getCauseVariableId())
 	//            ->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $this->getEffectVariableId())
 	//            ->first();
@@ -329,7 +329,7 @@ class Vote extends BaseVote {
 		$qb->columns[] = 'votes.cause_variable_id as causeVariableId';
 		$qb->columns[] = 'votes.effect_variable_id as effectVariableId';
 		$qb->columns[] = 'votes.correlation_id as correlationId';
-		$qb->columns[] = 'votes.aggregate_correlation_id as aggregateCorrelationId';
+		$qb->columns[] = 'votes.global_variable_relationship_id as aggregateCorrelationId';
 		$qb->columns[] = 'votes.cause_variable_id as causeId';
 		$qb->columns[] = 'votes.effect_variable_id as effectId';
 		$qb->columns[] = 'votes.user_id as userId';
@@ -533,10 +533,10 @@ class Vote extends BaseVote {
 		}
 		return $this->value === Vote::UP_VALUE;
 	}
-	public function findAggregateCorrelation(): ?AggregateCorrelation{
-		return AggregateCorrelation::findByData([
-			AggregateCorrelation::FIELD_CAUSE_VARIABLE_ID => $this->getCauseVariableId(),
-			AggregateCorrelation::FIELD_EFFECT_VARIABLE_ID => $this->getEffectVariableId(),
+	public function findGlobalVariableRelationship(): ?GlobalVariableRelationship{
+		return GlobalVariableRelationship::findByData([
+			GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_ID => $this->getCauseVariableId(),
+			GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_ID => $this->getEffectVariableId(),
 		]);
 	}
 	public function getCorrelation(): ?Correlation{

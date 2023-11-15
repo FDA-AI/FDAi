@@ -36,11 +36,11 @@ class CreateVariableCategoriesTable extends Migration
             $table->unsignedBigInteger('wp_post_id')->nullable()->index('variable_categories_wp_posts_ID_fk');
             $table->enum('filling_type', ['zero', 'none', 'interpolation', 'value'])->nullable();
             $table->unsignedInteger('number_of_outcome_population_studies')->nullable()->comment('Number of Global Population Studies for this Cause Variable Category.
-                [Formula: 
+                [Formula:
                     update variable_categories
                         left join (
                             select count(id) as total, cause_variable_category_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by cause_variable_category_id
                         )
                         as grouped on variable_categories.id = grouped.cause_variable_category_id
@@ -48,11 +48,11 @@ class CreateVariableCategoriesTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_predictor_population_studies')->nullable()->comment('Number of Global Population Studies for this Effect Variable Category.
-                [Formula: 
+                [Formula:
                     update variable_categories
                         left join (
                             select count(id) as total, effect_variable_category_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by effect_variable_category_id
                         )
                         as grouped on variable_categories.id = grouped.effect_variable_category_id
@@ -60,7 +60,7 @@ class CreateVariableCategoriesTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_outcome_case_studies')->nullable()->comment('Number of Individual Case Studies for this Cause Variable Category.
-                [Formula: 
+                [Formula:
                     update variable_categories
                         left join (
                             select count(id) as total, cause_variable_category_id
@@ -72,7 +72,7 @@ class CreateVariableCategoriesTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_predictor_case_studies')->nullable()->comment('Number of Individual Case Studies for this Effect Variable Category.
-                [Formula: 
+                [Formula:
                     update variable_categories
                         left join (
                             select count(id) as total, effect_variable_category_id

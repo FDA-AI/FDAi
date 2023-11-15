@@ -6,7 +6,7 @@
 
 namespace App\Files\JavaScript;
 use App\Folders\DynamicFolder;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
 use App\Models\Variable;
 use App\Properties\Base\BaseUpdatedAtProperty;
@@ -50,7 +50,7 @@ class VariableShowJavaScriptFile extends ShowJavaScriptFile {
 			/** @var Correlation $c */
 			return abs($c->effect_follow_up_percent_change_from_baseline);
 		});
-		/** @var AggregateCorrelation $correlation */
+		/** @var GlobalVariableRelationship $correlation */
 		foreach($predictors as $correlation){
 			$pData[] = $correlation->getPredictorButtonData($maxChange);
 		}
@@ -73,10 +73,10 @@ class VariableShowJavaScriptFile extends ShowJavaScriptFile {
 			$outcomes = $v->getPublicOutcomes();
 		}
 		$maxChange = $outcomes->max(function($c){
-			/** @var Correlation|AggregateCorrelation $c */
+			/** @var Correlation|GlobalVariableRelationship $c */
 			return abs($c->effect_follow_up_percent_change_from_baseline);
 		});
-		/** @var AggregateCorrelation $correlation */
+		/** @var GlobalVariableRelationship $correlation */
 		foreach($outcomes as $correlation){
             $correlation->logId();
             $correlation->logName();

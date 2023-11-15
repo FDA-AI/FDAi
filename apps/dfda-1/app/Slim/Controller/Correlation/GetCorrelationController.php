@@ -4,7 +4,7 @@
  */ /** @noinspection PhpUnused */
 namespace App\Slim\Controller\Correlation;
 use App\Correlations\CorrelationsAndExplanationResponseBody;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMUserCorrelation;
 use App\Exceptions\AlreadyAnalyzedException;
 use App\Exceptions\AlreadyAnalyzingException;
@@ -105,11 +105,11 @@ class GetCorrelationController extends GetController {
 	 * @throws TooSlowToAnalyzeException
 	 * @throws UnauthorizedException
 	 */
-	public function getOrCreateUserOrAggregateCorrelationsWithStudyHtmlChartsImages(array $params = null): array{
+	public function getOrCreateUserOrGlobalVariableRelationshipsWithStudyHtmlChartsImages(array $params = null): array{
 		if(!$params){
 			$params = GetCorrelationController::getCorrelationRequestParams();
 		}
-		$correlations = QMUserCorrelation::getOrCreateUserOrAggregateCorrelations($params);
+		$correlations = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships($params);
 		if(QMRequest::urlContains('/studies')){
 			return $correlations;
 		}  // This will be done in the study instantiation
@@ -119,7 +119,7 @@ class GetCorrelationController extends GetController {
 		return $correlations;
 	}
 	/**
-	 * @return QMAggregateCorrelation|QMUserCorrelation
+	 * @return QMGlobalVariableRelationship|QMUserCorrelation
 	 * @throws AlreadyAnalyzedException
 	 * @throws AlreadyAnalyzingException
 	 * @throws DuplicateFailedAnalysisException
@@ -132,7 +132,7 @@ class GetCorrelationController extends GetController {
 		if(request()->input('aggregated')){
 			return $this->getAggregatedCorrelations(GetCorrelationController::getCorrelationRequestParams());
 		}
-		return $this->getOrCreateUserOrAggregateCorrelationsWithStudyHtmlChartsImages();
+		return $this->getOrCreateUserOrGlobalVariableRelationshipsWithStudyHtmlChartsImages();
 	}
 	/**
 	 * @param $correlations
@@ -235,12 +235,12 @@ class GetCorrelationController extends GetController {
 		if(!isset($params['fallbackToAggregatedCorrelations'])){
 			$params['fallbackToAggregatedCorrelations'] = true;
 		}
-		$correlations = QMUserCorrelation::getOrCreateUserOrAggregateCorrelations($params);
+		$correlations = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships($params);
 		return $correlations;
 	}
 	/**
 	 * @param array $params
-	 * @return QMAggregateCorrelation[]
+	 * @return QMGlobalVariableRelationship[]
 	 * @throws AlreadyAnalyzedException
 	 * @throws AlreadyAnalyzingException
 	 * @throws NoUserCorrelationsToAggregateException
@@ -249,7 +249,7 @@ class GetCorrelationController extends GetController {
 	 * @throws TooSlowToAnalyzeException
 	 */
 	public function getAggregatedCorrelationsWithExplanation(array $params = []): array{
-		$correlations = QMUserCorrelation::getOrCreateUserOrAggregateCorrelations($params);
+		$correlations = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships($params);
 		return $correlations;
 	}
 	/**
@@ -267,7 +267,7 @@ class GetCorrelationController extends GetController {
 		if(GetController::getCommonOnly()){
 			$correlations = $this->getAggregatedCorrelations(GetCorrelationController::getCorrelationRequestParams());
 		} else{
-			$correlations = $this->getOrCreateUserOrAggregateCorrelationsWithStudyHtmlChartsImages();
+			$correlations = $this->getOrCreateUserOrGlobalVariableRelationshipsWithStudyHtmlChartsImages();
 		}
 		return new CorrelationsAndExplanationResponseBody($correlations, $params);
 	}

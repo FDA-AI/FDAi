@@ -48,7 +48,7 @@ use App\Traits\HasCauseAndEffect;
 use App\Traits\HasCorrelationCoefficient;
 use App\Traits\HasDBModel;
 use App\Traits\HasFiles;
-use App\Traits\HasModel\HasAggregateCorrelation;
+use App\Traits\HasModel\HasGlobalVariableRelationship;
 use App\Traits\HasModel\HasUser;
 use App\Traits\HasName;
 use App\Traits\HasVotes;
@@ -164,7 +164,7 @@ use Titasgailius\SearchRelations\SearchesRelations;
 class Study extends BaseStudy implements HasMedia {
     use HasFactory;
 
-	use SoftDeletes, HasDBModel, HasAggregateCorrelation;
+	use SoftDeletes, HasDBModel, HasGlobalVariableRelationship;
 	use HasVotes;
 	use Compoships;
 	use SearchesRelations;
@@ -469,11 +469,11 @@ class Study extends BaseStudy implements HasMedia {
 		return $fields;
 	}
 	/**
-	 * @return AggregateCorrelation
+	 * @return GlobalVariableRelationship
 	 * @throws NotEnoughDataException
 	 */
-	public function findAggregateCorrelation(): ?AggregateCorrelation{
-		return $this->getHasCorrelationCoefficient()->findAggregateCorrelation();
+	public function findGlobalVariableRelationship(): ?GlobalVariableRelationship{
+		return $this->getHasCorrelationCoefficient()->findGlobalVariableRelationship();
 	}
 	public function setIsPublicAttribute(bool $value){
 		$this->attributes[self::FIELD_IS_PUBLIC] = $value;
@@ -694,7 +694,7 @@ class Study extends BaseStudy implements HasMedia {
 	 * @return string
 	 */
 	public function getCategoryDescription(): string{
-		return AggregateCorrelation::CLASS_DESCRIPTION;
+		return GlobalVariableRelationship::CLASS_DESCRIPTION;
 	}
 	/**
 	 * @param bool $arrows

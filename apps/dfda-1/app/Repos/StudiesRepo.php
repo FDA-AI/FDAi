@@ -19,7 +19,7 @@ class StudiesRepo extends GitRepo {
 	}
 	public static function testPublish(){
 		static::checkout(static::DEFAULT_BRANCH);
-		//VoteAggregateCorrelationIdProperty::updateAll();
+		//VoteGlobalVariableRelationshipIdProperty::updateAll();
 		//VoteCorrelationIdProperty::updateAll();
 		$ket = Variable::findByName("Prozac");
 		$t = $ket->treatment();

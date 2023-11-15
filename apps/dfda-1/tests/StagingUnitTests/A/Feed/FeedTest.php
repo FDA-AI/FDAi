@@ -2,7 +2,7 @@
 namespace Tests\StagingUnitTests\A\Feed;
 use App\Cards\QMCard;
 use App\Cards\TrackingReminderNotificationCard;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Logging\QMLog;
 use App\Properties\Base\BaseAccessTokenProperty;
 use App\Properties\Study\StudyUserTitleProperty;
@@ -12,8 +12,8 @@ use Tests\SlimStagingTestCase;
 class FeedTest extends SlimStagingTestCase
 {
     public const DISABLED_UNTIL = "2021-11-11";
-    public function testAggregateCorrelationButtons(){
-        $c = QMAggregateCorrelation::find(65694280);
+    public function testGlobalVariableRelationshipButtons(){
+        $c = QMGlobalVariableRelationship::find(65694280);
         $card = $c->findInMemoryOrNewQMStudy()->getCard();
         $buttons = $card->getButtons();
         foreach($buttons as $b){

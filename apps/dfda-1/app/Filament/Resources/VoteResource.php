@@ -37,8 +37,8 @@ class VoteResource extends Resource
                     ->required(),
                 Forms\Components\Select::make('correlation_id')
                     ->relationship('correlation', 'id'),
-                Forms\Components\Select::make('aggregate_correlation_id')
-                    ->relationship('aggregate_correlation', 'id'),
+                Forms\Components\Select::make('global_variable_relationship_id')
+                    ->relationship('global_variable_relationship', 'id'),
                 Forms\Components\TextInput::make('value')
                     ->required(),
                 Forms\Components\Toggle::make('is_public'),
@@ -56,7 +56,7 @@ class VoteResource extends Resource
                 Tables\Columns\TextColumn::make('cause_variable.name'),
                 Tables\Columns\TextColumn::make('effect_variable.name'),
                 Tables\Columns\TextColumn::make('correlation.id'),
-                Tables\Columns\TextColumn::make('aggregate_correlation.id'),
+                Tables\Columns\TextColumn::make('global_variable_relationship.id'),
                 Tables\Columns\TextColumn::make('value'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),

@@ -43,8 +43,8 @@
 ║ UserVariableNumberOfTracki... │ tracking_reminders   │ user_variable_id=25360 & deleted_at=null                    ║
 ║ UserVariableNumberOfUserCo... │ correlations         │ cause_user_variable_id=25360 & cause_user_variable_id=no... ║
 ║ UserVariableNumberOfUserCo... │ correlations         │ effect_user_variable_id=25360 & effect_user_variable_id=... ║
-║ getAggregateCorrelation       │ aggregate_correlatio │ id=65827291 & deleted_at=null limit 1                       ║
-║ AggregateCorrelation::getV... │ votes                │ aggregate_correlation_id in (65827291) & deleted_at=null    ║
+║ getGlobalVariableRelationship       │ aggregate_correlatio │ id=65827291 & deleted_at=null limit 1                       ║
+║ GlobalVariableRelationship::getV... │ votes                │ global_variable_relationship_id in (65827291) & deleted_at=null    ║
 ║ analyzeFully                  │ user_variables       │ set status = 'CORRELATE', analysis_ended_at = '?', user_... ║
 ║ getMeasurementsInCommonUnit   │ measurements         │ user_id=230 & deleted_at=null & variable_id=86672 order ... ║
 ║ setCommonTaggedVariables      │ variables            │ user_variables.deleted_at=null & common_tags.tagged_vari... ║
@@ -96,7 +96,7 @@
 ║ UserVariableNumberOfUserCo... │ correlations         │ effect_user_variable_id=25422 & effect_user_variable_id=... ║
 ║ getEffectVariable             │ variables            │ id=5956900 & deleted_at=null limit 1                        ║
 ║ getEffectUserVariable         │ user_variables       │ id=48003 & deleted_at=null limit 1                          ║
-║ getAggregateCorrelation       │ aggregate_correlatio │ id=65849209 & deleted_at=null limit 1                       ║
-║ AggregateCorrelation::getV... │ votes                │ aggregate_correlation_id in (65849209) & deleted_at=null    ║
+║ getGlobalVariableRelationship       │ aggregate_correlatio │ id=65849209 & deleted_at=null limit 1                       ║
+║ GlobalVariableRelationship::getV... │ votes                │ global_variable_relationship_id in (65849209) & deleted_at=null    ║
 ║ analyzeFully                  │ user_variables       │ set status = 'CORRELATE', analysis_ended_at = '?', user_... ║
 ╚═══════════════════════════════╧══════════════════════╧═════════════════════════════════════════════════════════════╝

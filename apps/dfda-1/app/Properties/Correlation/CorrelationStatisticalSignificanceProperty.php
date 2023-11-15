@@ -47,7 +47,7 @@ class CorrelationStatisticalSignificanceProperty extends BaseStatisticalSignific
             $model->allPairsSignificance;
         if($val < 0.001){
             // The current mysql column format converts anything less to 0.
-            // We have to divide by this when calculating aggregate correlations
+            // We have to divide by this when calculating global variable relationships
             // So we set to 0.001 to avoid division by 0
             $val = 0.001;
         }

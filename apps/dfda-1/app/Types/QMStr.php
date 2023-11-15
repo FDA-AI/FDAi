@@ -12,7 +12,7 @@ use App\Files\FileHelper;
 use App\Files\PHP\ConstantGenerator;
 use App\Files\PHP\PhpClassFile;
 use App\Logging\QMLog;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\Correlation;
 use App\Models\User;
@@ -2213,7 +2213,7 @@ class QMStr {
 		if($table === Correlation::TABLE){
 			return "Individual Case Studies";
 		}
-		if($table === AggregateCorrelation::TABLE){
+		if($table === GlobalVariableRelationship::TABLE){
 			return "Global Population Studies";
 		}
 		$title = str_replace("wp_", "", $table);

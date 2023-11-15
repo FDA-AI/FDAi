@@ -91,16 +91,16 @@ trait OAClientTrait {
 	public function setLatestMeasurementStartAt(string $latestMeasurementStartAt): void{
 		$this->setAttribute(OAClient::FIELD_LATEST_MEASUREMENT_START_AT, $latestMeasurementStartAt);
 	}
-	public function getNumberOfAggregateCorrelations(): ?int{
+	public function getNumberOfGlobalVariableRelationships(): ?int{
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[OAClient::FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS] ?? null;
 		} else{
 			/** @var QMClient $this */
-			return $this->numberOfAggregateCorrelations;
+			return $this->numberOfGlobalVariableRelationships;
 		}
 	}
-	public function setNumberOfAggregateCorrelations(int $numberOfAggregateCorrelations): void{
-		$this->setAttribute(OAClient::FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS, $numberOfAggregateCorrelations);
+	public function setNumberOfGlobalVariableRelationships(int $numberOfGlobalVariableRelationships): void{
+		$this->setAttribute(OAClient::FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS, $numberOfGlobalVariableRelationships);
 	}
 	public function getNumberOfApplications(): ?int{
 		if(property_exists($this, 'attributes') && $this->attributes){

@@ -6,7 +6,7 @@
 
 namespace App\Properties\Base;
 use App\Traits\PropertyTraits\IsString;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
 use App\Traits\PropertyTraits\IsNumberOfRelated;
 use App\UI\ImageUrls;

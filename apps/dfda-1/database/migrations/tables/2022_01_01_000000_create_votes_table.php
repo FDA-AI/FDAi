@@ -24,7 +24,7 @@ class CreateVotesTable extends Migration
             $table->integer('cause_variable_id')->index();
             $table->integer('effect_variable_id')->index();
             $table->integer('correlation_id')->nullable()->index('votes_correlations_id_fk');
-            $table->integer('aggregate_correlation_id')->nullable()->index('votes_aggregate_correlations_id_fk');
+            $table->integer('global_variable_relationship_id')->nullable()->index('votes_global_variable_relationships_id_fk');
             $table->boolean('is_public')->nullable();
 
             $table->unique(['user_id', 'cause_variable_id', 'effect_variable_id'], 'votes_user_id_cause_variable_id_effect_variable_id_uindex');

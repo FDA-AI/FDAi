@@ -16,7 +16,7 @@ class DeleteVariableJob extends JobTestCase {
             $variable->hardDeleteWithRelations(__FUNCTION__);
         }
         foreach ($v as $variable) {
-            $strongest = $variable->getBestAggregateCorrelation();
+            $strongest = $variable->getBestGlobalVariableRelationship();
             $cause = $strongest->getCauseVariable()->getNameOrTitle();
             $variable->analyzeFully(__FUNCTION__);
         }

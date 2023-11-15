@@ -12,20 +12,20 @@ create table if not exists oa_clients
     deleted_at                                timestamp                           null,
     earliest_measurement_start_at             timestamp                           null,
     latest_measurement_start_at               timestamp                           null,
-    number_of_aggregate_correlations          int unsigned                        null comment 'Number of Global Population Studies for this Client.
-                [Formula: 
+    number_of_global_variable_relationships          int unsigned                        null comment 'Number of Global Population Studies for this Client.
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by client_id
                         )
                         as grouped on bshaffer_oauth_clients.client_id = grouped.client_id
-                    set bshaffer_oauth_clients.number_of_aggregate_correlations = count(grouped.total)
+                    set bshaffer_oauth_clients.number_of_global_variable_relationships = count(grouped.total)
                 ]
                 ',
     number_of_applications                    int unsigned                        null comment 'Number of Applications for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
@@ -37,7 +37,7 @@ create table if not exists oa_clients
                 ]
                 ',
     number_of_oauth_access_tokens             int unsigned                        null comment 'Number of OAuth Access Tokens for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(access_token) as total, client_id
@@ -49,7 +49,7 @@ create table if not exists oa_clients
                 ]
                 ',
     number_of_oauth_authorization_codes       int unsigned                        null comment 'Number of OAuth Authorization Codes for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(authorization_code) as total, client_id
@@ -61,7 +61,7 @@ create table if not exists oa_clients
                 ]
                 ',
     number_of_oauth_refresh_tokens            int unsigned                        null comment 'Number of OAuth Refresh Tokens for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(refresh_token) as total, client_id
@@ -73,7 +73,7 @@ create table if not exists oa_clients
                 ]
                 ',
     number_of_button_clicks                   int unsigned                        null comment 'Number of Button Clicks for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
@@ -85,7 +85,7 @@ create table if not exists oa_clients
                 ]
                 ',
     number_of_collaborators                   int unsigned                        null comment 'Number of Collaborators for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
@@ -97,7 +97,7 @@ create table if not exists oa_clients
                 ]
                 ',
     number_of_common_tags                     int unsigned                        null comment 'Number of Common Tags for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
@@ -109,7 +109,7 @@ create table if not exists oa_clients
                 ]
                 ',
     number_of_connections                     int unsigned                        null comment 'Number of Connections for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
@@ -121,7 +121,7 @@ create table if not exists oa_clients
                 ]
                 ',
     number_of_connector_imports               int unsigned                        null comment 'Number of Connector Imports for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
@@ -133,7 +133,7 @@ create table if not exists oa_clients
                 ]
                 ',
     number_of_connectors                      int unsigned                        null comment 'Number of Connectors for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
@@ -145,7 +145,7 @@ create table if not exists oa_clients
                 ]
                 ',
     number_of_correlations                    int unsigned                        null comment 'Number of Individual Case Studies for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id

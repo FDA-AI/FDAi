@@ -70,8 +70,8 @@ class VariableFactory extends Factory
             //'most_common_source_name' => FitbitConnector::NAME,
             //'most_common_value' => $this->faker->randomDigitNotNull,
             //'newest_data_at' => $this->faker->date('Y-m-d H:i:s'),
-            //'number_of_aggregate_correlations_as_cause' => $this->faker->randomDigitNotNull,
-            //'number_of_aggregate_correlations_as_effect' => $this->faker->randomDigitNotNull,
+            //'number_of_global_variable_relationships_as_cause' => $this->faker->randomDigitNotNull,
+            //'number_of_global_variable_relationships_as_effect' => $this->faker->randomDigitNotNull,
             //'number_of_measurements' => $this->faker->randomDigitNotNull,
             //'number_of_soft_deleted_measurements' => $this->faker->randomDigitNotNull,
             //'number_of_unique_values' => $this->faker->randomDigitNotNull,
@@ -93,7 +93,7 @@ class VariableFactory extends Factory
             //'user_error_message' => $this->faker->word,
             //'wikipedia_title' => $this->faker->word,
             //'wp_post_id' => null,
-            //'best_aggregate_correlation_id' => $this->faker->randomDigitNotNull
+            //'best_global_variable_relationship_id' => $this->faker->randomDigitNotNull
             //'client_id' => BaseClientIdProperty::CLIENT_ID_OAUTH_TEST_CLIENT,
             //'created_at' => $this->faker->date('Y-m-d H:i:s'),
             //'default_value' => $this->faker->randomDigitNotNull,

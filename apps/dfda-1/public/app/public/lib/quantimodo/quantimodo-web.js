@@ -25816,11 +25816,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
-      if (data.hasOwnProperty('numberOfAggregateCorrelationsAsCause')) {
-        obj['numberOfAggregateCorrelationsAsCause'] = ApiClient.convertToType(data['numberOfAggregateCorrelationsAsCause'], 'Number');
+      if (data.hasOwnProperty('numberOfGlobalVariableRelationshipsAsCause')) {
+        obj['numberOfGlobalVariableRelationshipsAsCause'] = ApiClient.convertToType(data['numberOfGlobalVariableRelationshipsAsCause'], 'Number');
       }
-      if (data.hasOwnProperty('numberOfAggregateCorrelationsAsEffect')) {
-        obj['numberOfAggregateCorrelationsAsEffect'] = ApiClient.convertToType(data['numberOfAggregateCorrelationsAsEffect'], 'Number');
+      if (data.hasOwnProperty('numberOfGlobalVariableRelationshipsAsEffect')) {
+        obj['numberOfGlobalVariableRelationshipsAsEffect'] = ApiClient.convertToType(data['numberOfGlobalVariableRelationshipsAsEffect'], 'Number');
       }
       if (data.hasOwnProperty('numberOfChanges')) {
         obj['numberOfChanges'] = ApiClient.convertToType(data['numberOfChanges'], 'Number');
@@ -26441,14 +26441,14 @@ exports.cleanHeader = function(header, shouldStripCookie){
   exports.prototype['name'] = undefined;
   /**
    * Ex: 1
-   * @member {Number} numberOfAggregateCorrelationsAsCause
+   * @member {Number} numberOfGlobalVariableRelationshipsAsCause
    */
-  exports.prototype['numberOfAggregateCorrelationsAsCause'] = undefined;
+  exports.prototype['numberOfGlobalVariableRelationshipsAsCause'] = undefined;
   /**
    * Ex: 310
-   * @member {Number} numberOfAggregateCorrelationsAsEffect
+   * @member {Number} numberOfGlobalVariableRelationshipsAsEffect
    */
-  exports.prototype['numberOfAggregateCorrelationsAsEffect'] = undefined;
+  exports.prototype['numberOfGlobalVariableRelationshipsAsEffect'] = undefined;
   /**
    * Number of changes
    * @member {Number} numberOfChanges
@@ -26460,12 +26460,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['numberOfCorrelations'] = undefined;
   /**
-   * numberOfAggregateCorrelationsAsCause plus numberOfUserCorrelationsAsCause
+   * numberOfGlobalVariableRelationshipsAsCause plus numberOfUserCorrelationsAsCause
    * @member {Number} numberOfCorrelationsAsCause
    */
   exports.prototype['numberOfCorrelationsAsCause'] = undefined;
   /**
-   * numberOfAggregateCorrelationsAsEffect plus numberOfUserCorrelationsAsEffect
+   * numberOfGlobalVariableRelationshipsAsEffect plus numberOfUserCorrelationsAsEffect
    * @member {Number} numberOfCorrelationsAsEffect
    */
   exports.prototype['numberOfCorrelationsAsEffect'] = undefined;

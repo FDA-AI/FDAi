@@ -4,7 +4,7 @@
 namespace Tests\SlimTests\Variables;
 use App\Exceptions\NoChangesException;
 use App\Exceptions\QMException;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
 use App\Models\Measurement;
 use App\Models\UserVariable;
@@ -36,7 +36,7 @@ class MeasurementsV1Test extends \Tests\SlimTests\SlimTestCase {
 	public function setUp(): void{
 		parent::setUp();
 		Measurement::deleteAll();
-		AggregateCorrelation::deleteAll();
+		GlobalVariableRelationship::deleteAll();
 		Correlation::deleteAll();
 		UserVariable::deleteAll();		
 	}

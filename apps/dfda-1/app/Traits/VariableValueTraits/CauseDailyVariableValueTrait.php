@@ -5,14 +5,14 @@
  */
 
 namespace App\Traits\VariableValueTraits;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
 use App\Models\Variable;
 use App\Variables\QMVariable;
 trait CauseDailyVariableValueTrait {
 	use DailyVariableValueTrait;
 	public function getVariable(): Variable{
-		/** @var AggregateCorrelation|Correlation $correlation */
+		/** @var GlobalVariableRelationship|Correlation $correlation */
 		$correlation = $this->getParentModel();
 		return $correlation->getCauseVariable();
 	}

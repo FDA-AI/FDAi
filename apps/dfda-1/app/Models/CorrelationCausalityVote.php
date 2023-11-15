@@ -5,12 +5,12 @@
  */
 
 namespace App\Models;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Models\Vote;
 use App\Models\Base\BaseCorrelationCausalityVote;
 use App\Studies\StudyLinks;
 use App\Traits\HasCauseAndEffect;
-use App\Traits\HasModel\HasAggregateCorrelation;
+use App\Traits\HasModel\HasGlobalVariableRelationship;
 use App\Traits\HasModel\HasUser;
 use App\Traits\ModelTraits\IsVote;
 use Awobaz\Compoships\Compoships;
@@ -22,7 +22,7 @@ use Illuminate\Support\Carbon;
  * @property int $cause_variable_id
  * @property int $effect_variable_id
  * @property int|null $correlation_id
- * @property int|null $aggregate_correlation_id
+ * @property int|null $global_variable_relationship_id
  * @property int $user_id
  * @property int $vote The opinion of the data owner on whether or not there is a plausible
  *                                 mechanism of action by which the predictor variable could influence the outcome
@@ -31,7 +31,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon $updated_at
  * @property Carbon|null $deleted_at
  * @property string|null $client_id
- * @property-read AggregateCorrelation|null $aggregate_correlation
+ * @property-read GlobalVariableRelationship|null $global_variable_relationship
  * @property-read OAClient|null $oa_client
  * @property-read Variable $cause_variable
  * @property-read Correlation|null $correlation
@@ -45,7 +45,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|CorrelationCausalityVote newQuery()
  * @method static Builder|CorrelationCausalityVote query()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\CorrelationCausalityVote
- *     whereAggregateCorrelationId($value)
+ *     whereGlobalVariableRelationshipId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\CorrelationCausalityVote
  *     whereCauseVariableId($value)
  * @method static Builder|CorrelationCausalityVote whereClientId($value)
@@ -64,7 +64,7 @@ use Illuminate\Support\Carbon;
  * @property-read OAClient|null $client
  */
 class CorrelationCausalityVote extends BaseCorrelationCausalityVote {
-	use Compoships, HasUser, IsVote, HasAggregateCorrelation;
+	use Compoships, HasUser, IsVote, HasGlobalVariableRelationship;
 	public const CLASS_DESCRIPTION = "User vote indicating whether or not there is a plausible mechanism by which a given factor could influence a given outcome. ";
 	public const CLASS_CATEGORY = Study::CLASS_CATEGORY;
 

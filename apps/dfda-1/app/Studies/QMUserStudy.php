@@ -231,7 +231,7 @@ class QMUserStudy extends QMStudy {
 	 */
     public static function getUserStudies(): array{
         $requestParams = qm_request()->query();
-        $userCorrelations = QMUserCorrelation::getOrCreateUserOrAggregateCorrelations($requestParams);
+        $userCorrelations = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships($requestParams);
         $studies = QMStudy::convertCorrelationsToStudies($userCorrelations);
         return $studies;
     }

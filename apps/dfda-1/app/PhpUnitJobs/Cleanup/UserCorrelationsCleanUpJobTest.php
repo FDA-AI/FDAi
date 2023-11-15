@@ -14,7 +14,7 @@ use App\Exceptions\UnauthorizedException;
 use App\Logging\QMLog;
 use App\Models\Correlation;
 use App\PhpUnitJobs\JobTestCase;
-use App\Properties\AggregateCorrelation\AggregateCorrelationDataSourceNameProperty;
+use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipDataSourceNameProperty;
 use App\Properties\Correlation\CorrelationChartsProperty;
 use App\Slim\View\Request\Variable\GetCommonVariablesRequest;
 use App\Utils\UrlHelper;
@@ -55,7 +55,7 @@ class UserCorrelationsCleanUpJobTest extends JobTestCase {
             //->select([UserCorrelation::FIELD_USER_ID])
             //->selectRaw("MIN(updated_at) as min_updated_at")
             ->where(Correlation::FIELD_UPDATED_AT, '<', db_date($date))
-            ->where(Correlation::FIELD_DATA_SOURCE_NAME, AggregateCorrelationDataSourceNameProperty::DATA_SOURCE_NAME_USER)
+            ->where(Correlation::FIELD_DATA_SOURCE_NAME, GlobalVariableRelationshipDataSourceNameProperty::DATA_SOURCE_NAME_USER)
             ->whereNull(Correlation::FIELD_DELETED_AT)
             ->orderBy(Correlation::FIELD_UPDATED_AT, 'asc')
             //->groupBy(self::FIELD_USER_ID)

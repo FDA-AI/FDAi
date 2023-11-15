@@ -7,7 +7,7 @@
 namespace App\Charts;
 use App\Buttons\QMButton;
 use App\Charts\QMHighcharts\HighchartConfig;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMUserCorrelation;
 use App\Exceptions\ExceptionHandler;
 use App\Exceptions\HighchartExportException;
@@ -134,7 +134,7 @@ abstract class ChartGroup extends StaticModel {
 		return $this->getSourceObject()->getIsPublic();
 	}
 	/**
-	 * @return QMVariable|QMUserCorrelation|QMAggregateCorrelation|QMUserVariable|QMCommonVariable
+	 * @return QMVariable|QMUserCorrelation|QMGlobalVariableRelationship|QMUserVariable|QMCommonVariable
 	 */
 	protected function getSourceObject(){
 		return $this->sourceObject;

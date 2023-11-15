@@ -7,7 +7,7 @@ namespace App\PhpUnitJobs;
 use App\Buttons\Admin\ClockworkButton;
 use App\Buttons\Admin\PHPStormButton;
 use App\Computers\ThisComputer;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMUserCorrelation;
 use App\Exceptions\UserVariableNotFoundException;
 use App\Logging\QMLog;
@@ -199,9 +199,9 @@ class JobTestCase extends TestCase {
         $this->assertLessThan(86400 / 60, $minutesAgo, "Last USER correlation update was more than a day ago!");
     }
     protected function checkAggregatedCorrelationStats(){
-        $numberUpdatedInLastDay = QMAggregateCorrelation::logNumberAnalyzedInLastDay();
+        $numberUpdatedInLastDay = QMGlobalVariableRelationship::logNumberAnalyzedInLastDay();
         $this->assertGreaterThan(0, $numberUpdatedInLastDay, "No AGGREGATED correlations in last 24 hours!");
-        $mostRecent = QMAggregateCorrelation::getMostRecentlyAnalyzed();
+        $mostRecent = QMGlobalVariableRelationship::getMostRecentlyAnalyzed();
         $this->assertLessThan(86400 / 60 + 10, $mostRecent->getMinutesSinceUpdatedAt(),
             "Last AGGREGATED correlation update was more than a day ago!");
     }

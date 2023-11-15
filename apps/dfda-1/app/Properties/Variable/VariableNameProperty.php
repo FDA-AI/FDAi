@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Variable;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\DataSources\Connectors\RescueTimeConnector;
 use App\Exceptions\ExceptionHandler;
 use App\Exceptions\InvalidAttributeException;
@@ -765,7 +765,7 @@ class VariableNameProperty extends BaseNameProperty
         }
         Memory::flush();
         try {
-            QMAggregateCorrelation::analyzeAggregatedCorrelationsForVariable($newId);
+            QMGlobalVariableRelationship::analyzeAggregatedCorrelationsForVariable($newId);
         } catch (NoUserCorrelationsToAggregateException $e) {
             le($e);
         }

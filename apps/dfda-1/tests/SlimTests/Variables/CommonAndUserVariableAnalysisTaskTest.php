@@ -3,7 +3,7 @@
 namespace Tests\SlimTests\Variables;
 use App\Buttons\RelationshipButtons\UserVariable\UserVariableBestUserCorrelationButton;
 use App\Buttons\RelationshipButtons\UserVariable\UserVariableDefaultUnitButton;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Measurement;
 use App\Models\UserVariable;
 use App\Models\Variable;

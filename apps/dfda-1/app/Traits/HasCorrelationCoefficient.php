@@ -8,7 +8,7 @@ namespace App\Traits;
 use App\Buttons\QMButton;
 use App\Buttons\StudyButton;
 use App\Charts\BarChartButton;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMCorrelation;
 use App\Correlations\QMUserCorrelation;
 use App\DataSources\QMClient;
@@ -30,7 +30,7 @@ use App\Models\Correlation;
 use App\Models\Study;
 use App\Models\Variable;
 use App\Models\WpPost;
-use App\Properties\AggregateCorrelation\AggregateCorrelationDataSourceNameProperty;
+use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipDataSourceNameProperty;
 use App\Properties\Base\BaseConfidenceLevelProperty;
 use App\Properties\Base\BaseEffectFollowUpPercentChangeFromBaselineProperty;
 use App\Properties\Base\BaseFontAwesomeProperty;
@@ -234,7 +234,7 @@ trait HasCorrelationCoefficient {
 		return QMStudy::findInMemoryOrDB($this->getStudyId());
 	}
 	/**
-	 * @return \App\Correlations\QMCorrelation|\App\Models\AggregateCorrelation|\App\Models\Correlation|\App\Traits\HasCorrelationCoefficient
+	 * @return \App\Correlations\QMCorrelation|\App\Models\GlobalVariableRelationship|\App\Models\Correlation|\App\Traits\HasCorrelationCoefficient
 	 */
 	public function getHasCorrelationCoefficient(){
 		return $this;
@@ -634,7 +634,7 @@ trait HasCorrelationCoefficient {
 		} catch (NotEnoughDataException $e) {
 			$title = $this->getStudyQuestion();
 		}
-		if($this instanceof QMAggregateCorrelation && stripos($title, "Population") === false){
+		if($this instanceof QMGlobalVariableRelationship && stripos($title, "Population") === false){
 			$title .= " for Population";
 		}
 		$title = BaseUserStudyTextProperty::humanizeStudyText($title);
@@ -1542,7 +1542,7 @@ trait HasCorrelationCoefficient {
 	 * @return bool
 	 */
 	public function isBoring(): bool{
-		if($this->getDataSourceName() === AggregateCorrelationDataSourceNameProperty::DATA_SOURCE_NAME_MedDRA){
+		if($this->getDataSourceName() === GlobalVariableRelationshipDataSourceNameProperty::DATA_SOURCE_NAME_MedDRA){
 			$this->logError("Data source is MedDRA");
 			return true;
 		}

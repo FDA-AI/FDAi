@@ -81,7 +81,7 @@ create table quantimodo_test.correlations
     z_score                                                      float                                                           null comment 'The absolute value of the change over duration of action following the onset delay of treatment divided by the baseline outcome relative standard deviation. A.K.A The number of standard deviations from the mean. A zScore > 2 means pValue < 0.05 and is typically considered statistically significant.',
     experiment_start_at                                          timestamp default '0000-00-00 00:00:00'                         not null comment 'The earliest data used in the analysis. ',
     experiment_end_at                                            timestamp default '0000-00-00 00:00:00'                         not null comment 'The latest data used in the analysis. ',
-    aggregate_correlation_id                                     int                                                             null,
+    global_variable_relationship_id                                     int                                                             null,
     aggregated_at                                                timestamp                                                       null,
     usefulness_vote                                              int                                                             null comment 'The opinion of the data owner on whether or not knowledge of this relationship is useful.
                         -1 corresponds to a down vote. 1 corresponds to an up vote. 0 corresponds to removal of a
@@ -111,8 +111,8 @@ create table quantimodo_test.correlations
         unique (slug),
     constraint correlations_user_id_cause_variable_id_effect_variable_id_uindex
         unique (user_id, cause_variable_id, effect_variable_id),
-    constraint correlations_aggregate_correlations_id_fk
-        foreign key (aggregate_correlation_id) references quantimodo_test.aggregate_correlations (id),
+    constraint correlations_global_variable_relationships_id_fk
+        foreign key (global_variable_relationship_id) references quantimodo_test.global_variable_relationships (id),
     constraint correlations_cause_unit_id_fk
         foreign key (cause_unit_id) references quantimodo_test.units (id),
     constraint correlations_cause_variable_category_id_fk

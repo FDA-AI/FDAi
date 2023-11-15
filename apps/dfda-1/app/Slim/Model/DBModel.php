@@ -389,7 +389,7 @@ abstract class DBModel extends StaticModel {
 		}
 		if(count($unique) > 1){
 			unset($arr['id']);
-		} // Can't update aggregate correlations otherwise
+		} // Can't update global variable relationships otherwise
 		$arr = self::shrinkUpdateArr($arr);
 		$l = $this->l();
 		foreach($arr as $key => $value){

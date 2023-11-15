@@ -377,7 +377,7 @@ $maxInCommonUnit $commonUnit->abbreviatedName for variable $this->name";
 		$qb->columns[] = Variable::TABLE . '.' . Variable::FIELD_OPTIMAL_VALUE_MESSAGE .
 			' as commonVariableOptimalValueMessage';
 		$qb->columns[] = Variable::TABLE . '.' . Variable::FIELD_BEST_AGGREGATE_CORRELATION_ID .
-			' as bestAggregateCorrelationId';
+			' as bestGlobalVariableRelationshipId';
 		$qb->columns[] = Variable::TABLE . '.' . Variable::FIELD_NUMBER_OF_UNIQUE_VALUES .
 			' as commonNumberOfUniqueValues';
 		$qb->columns[] = Variable::TABLE . '.' . Variable::FIELD_MAXIMUM_ALLOWED_VALUE .

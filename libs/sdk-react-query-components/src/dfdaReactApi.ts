@@ -1264,8 +1264,8 @@ export type UserVariable = {
   mostCommonUnitId?: number
   mostCommonValue?: number
   name: string
-  numberOfAggregateCorrelationsAsCause?: number
-  numberOfAggregateCorrelationsAsEffect?: number
+  numberOfGlobalVariableRelationshipsAsCause?: number
+  numberOfGlobalVariableRelationshipsAsEffect?: number
   numberOfChanges?: number
   numberOfCorrelations?: number
   numberOfCorrelationsAsCause?: number

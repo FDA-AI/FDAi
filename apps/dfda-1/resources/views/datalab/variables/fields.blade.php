@@ -147,10 +147,10 @@
     {!! Form::number('number_of_measurements', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Number Of Aggregate Correlations As Cause Field -->
+<!-- Number Of Global Variable Relationships As Cause Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('number_of_aggregate_correlations_as_cause', 'Number Of Aggregate Correlations As Cause:') !!}
-    {!! Form::number('number_of_aggregate_correlations_as_cause', null, ['class' => 'form-control']) !!}
+    {!! Form::label('number_of_global_variable_relationships_as_cause', 'Number Of Global Variable Relationships As Cause:') !!}
+    {!! Form::number('number_of_global_variable_relationships_as_cause', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Most Common Original Unit Id Field -->
@@ -165,10 +165,10 @@
     {!! Form::number('most_common_value', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Number Of Aggregate Correlations As Effect Field -->
+<!-- Number Of Global Variable Relationships As Effect Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('number_of_aggregate_correlations_as_effect', 'Number Of Aggregate Correlations As Effect:') !!}
-    {!! Form::number('number_of_aggregate_correlations_as_effect', null, ['class' => 'form-control']) !!}
+    {!! Form::label('number_of_global_variable_relationships_as_effect', 'Number Of Global Variable Relationships As Effect:') !!}
+    {!! Form::number('number_of_global_variable_relationships_as_effect', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Number Of Unique Values Field -->
@@ -565,10 +565,10 @@
     {!! Form::number('creator_user_id', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Best Aggregate Correlation Id Field -->
+<!-- Best Global Variable Relationship Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('best_aggregate_correlation_id', 'Best Aggregate Correlation Id:') !!}
-    {!! Form::number('best_aggregate_correlation_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('best_global_variable_relationship_id', 'Best Global Variable Relationship Id:') !!}
+    {!! Form::number('best_global_variable_relationship_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

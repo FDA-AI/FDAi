@@ -17,9 +17,9 @@ class CommonVariableWordPressPostTest extends SlimStagingTestCase
         $this->assertGreaterThan(0, count($correlations));
         $correlations = $v->getCorrelationsAsEffect();
         $this->assertGreaterThan(1000, count($correlations));
-        $correlations = $v->getAggregateCorrelationsAsCause();
+        $correlations = $v->getGlobalVariableRelationshipsAsCause();
         $this->assertGreaterThan(0, count($correlations));
-        $correlations = $v->getAggregateCorrelationsAsEffect();
+        $correlations = $v->getGlobalVariableRelationshipsAsEffect();
         $this->assertGreaterThan(0, count($correlations));
         $this->assertNotContains("haven’t found any relationships with", $content);
         $this->assertContains(SleepDurationCommonVariable::NAME, $content);

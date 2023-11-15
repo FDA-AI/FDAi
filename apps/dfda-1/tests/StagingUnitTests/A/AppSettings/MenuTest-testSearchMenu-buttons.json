@@ -10,19 +10,19 @@
         "title": "About Us",
         "tooltip": "A better world through data"
     },
-    "Aggregate Correlations": {
-        "accessibilityText": "Aggregate Correlations",
+    "Global Variable Relationships": {
+        "accessibilityText": "Global Variable Relationships",
         "action": "https://staging.quantimo.do/datalab/aggregateCorrelations",
         "backgroundColor": "#886aea",
         "color": "#886aea",
         "fontAwesome": "fas fa-vials",
-        "html": "<span id=\"app-buttons-data-lab-index-data-lab-index-button\" style=\"color: #886aea;\"><img class=\"md-user-avatar\" style=\"width: 100%;\" src=\"https://static.quantimo.do/img/science/png/flasks.png\"/>Aggregate Correlations</span>",
+        "html": "<span id=\"app-buttons-data-lab-index-data-lab-index-button\" style=\"color: #886aea;\"><img class=\"md-user-avatar\" style=\"width: 100%;\" src=\"https://static.quantimo.do/img/science/png/flasks.png\"/>Global Variable Relationships</span>",
         "id": "app-buttons-data-lab-index-data-lab-index-button",
         "image": "https://static.quantimo.do/img/science/png/flasks.png",
         "link": "https://staging.quantimo.do/datalab/aggregateCorrelations",
-        "text": "Aggregate Correlations",
+        "text": "Global Variable Relationships",
         "timestamps": true,
-        "title": "Aggregate Correlations",
+        "title": "Global Variable Relationships",
         "tooltip": "Examination of the likely effects of a predictor variable on an outcome variable on average for the entire population"
     },
     "App Builder": {

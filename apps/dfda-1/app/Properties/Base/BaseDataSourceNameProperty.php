@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Base;
-use App\Properties\AggregateCorrelation\AggregateCorrelationDataSourceNameProperty;
+use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipDataSourceNameProperty;
 use App\Traits\PropertyTraits\IsString;
 use App\Types\PhpTypes;
 use App\UI\ImageUrls;
@@ -48,7 +48,7 @@ class BaseDataSourceNameProperty extends BaseNameProperty {
         $names = self::getDataSourceNames();
         $thirdPartyNames = [];
         foreach ($names as $key => $value) {
-            if ($value !== AggregateCorrelationDataSourceNameProperty::DATA_SOURCE_NAME_USER) {
+            if ($value !== GlobalVariableRelationshipDataSourceNameProperty::DATA_SOURCE_NAME_USER) {
                 $thirdPartyNames[] = $value;
             }
         }

@@ -38,12 +38,12 @@ class GetCommonVariablesRequest extends GetVariableRequest {
 		'id' => Variable::TABLE . '.id',
 		'lastUpdated' => Variable::TABLE . '.updated_at',
 		'name' => Variable::TABLE . '.name',
-		'numberOfCorrelationsAsCause' => Variable::TABLE . '.number_of_aggregate_correlations_as_cause',
-		'numberOfAggregateCorrelationsAsCause' => Variable::TABLE .
-			'.number_of_aggregate_correlations_as_cause',
-		'numberOfCorrelationsAsEffect' => Variable::TABLE . '.number_of_aggregate_correlations_as_effect',
-		'numberOfAggregateCorrelationsAsEffect' => Variable::TABLE .
-			'.number_of_aggregate_correlations_as_effect',
+		'numberOfCorrelationsAsCause' => Variable::TABLE . '.number_of_global_variable_relationships_as_cause',
+		'numberOfGlobalVariableRelationshipsAsCause' => Variable::TABLE .
+			'.number_of_global_variable_relationships_as_cause',
+		'numberOfCorrelationsAsEffect' => Variable::TABLE . '.number_of_global_variable_relationships_as_effect',
+		'numberOfGlobalVariableRelationshipsAsEffect' => Variable::TABLE .
+			'.number_of_global_variable_relationships_as_effect',
 		'numberOfMeasurements' => Variable::TABLE . '.number_of_measurements',
 		'numberOfRawMeasurements' => Variable::TABLE . '.number_of_measurements',
 		'numberOfUserVariables' => Variable::TABLE . '.number_of_user_variables',
@@ -132,11 +132,11 @@ class GetCommonVariablesRequest extends GetVariableRequest {
 			$this->sort = $sortField;
 		}
 		if(!$this->sort && $this->getNumberOfCorrelationsAsCause()){
-			$this->sort = '-numberOfAggregateCorrelationsAsCause';
+			$this->sort = '-numberOfGlobalVariableRelationshipsAsCause';
 			$this->outcome = false;
 		}
 		if(!$this->sort && $this->getNumberOfCorrelationsAsEffect()){
-			$this->sort = '-numberOfAggregateCorrelationsAsEffect';
+			$this->sort = '-numberOfGlobalVariableRelationshipsAsEffect';
 			$this->outcome = false;
 		}
 		return $this->sort;
@@ -286,10 +286,10 @@ class GetCommonVariablesRequest extends GetVariableRequest {
 			$qb->join('correlations AS c', Variable::TABLE . '.id', '=', 'c.effect_variable_id');
 		}
 		if($publicEffectOrCause == 'cause'){
-			$qb->join('aggregate_correlations AS ac', Variable::TABLE . '.id', '=', 'ac.cause_variable_id');
+			$qb->join('global_variable_relationships AS ac', Variable::TABLE . '.id', '=', 'ac.cause_variable_id');
 		}
 		if($publicEffectOrCause == 'effect'){
-			$qb->join('aggregate_correlations AS ac', Variable::TABLE . '.id', '=', 'ac.effect_variable_id');
+			$qb->join('global_variable_relationships AS ac', Variable::TABLE . '.id', '=', 'ac.effect_variable_id');
 		}
 	}
 	/**

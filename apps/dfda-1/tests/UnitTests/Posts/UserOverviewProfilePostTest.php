@@ -15,7 +15,7 @@ use App\UI\ImageHelper;
 use App\Variables\CommonVariables\EmotionsCommonVariables\OverallMoodCommonVariable;
 use App\Variables\QMUserVariable;
 
-use Database\Seeders\AggregateCorrelationsTableSeeder;
+use Database\Seeders\GlobalVariableRelationshipsTableSeeder;
 use Tests\Traits\TestsCharts;
 use Tests\UnitTestCase;
 class UserOverviewProfilePostTest extends UnitTestCase {
@@ -26,7 +26,7 @@ class UserOverviewProfilePostTest extends UnitTestCase {
     protected function setupDB(){
 	    TestDB::resetTestDB();
 	    User::query()->update([User::FIELD_ANALYSIS_ENDED_AT => null]);
-        //AggregateCorrelationsTableSeeder::deleteAggregateCorrelations();
+        //GlobalVariableRelationshipsTableSeeder::deleteGlobalVariableRelationships();
         Variable::query()->update([Variable::FIELD_CHARTS => null]);
         $this->createTreatmentOutcomeMeasurements();
         //$this->createTreatmentOutcomeMeasurementsFromFixtures();
@@ -56,8 +56,8 @@ class UserOverviewProfilePostTest extends UnitTestCase {
         $treatment = $this->getTreatmentUserVariable();
         $c = $mood->getBestUserCorrelation();
         //$this->compareChartGroup($c->getChartGroup(), 'user-correlation');
-        $ac = $c->getOrCreateQMAggregateCorrelation();
-        $this->compareChartGroup($ac->getChartGroup(), 'aggregate-correlation');
+        $ac = $c->getOrCreateQMGlobalVariableRelationship();
+        $this->compareChartGroup($ac->getChartGroup(), 'global-variable-relationship');
         $this->compareChartGroup($mood->getChartGroup(), 'user-variable');
         $cv = $mood->getCommonVariable();
         $this->assertCount(1, $cv->getPredictors());

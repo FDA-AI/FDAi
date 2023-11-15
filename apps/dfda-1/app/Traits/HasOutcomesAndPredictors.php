@@ -14,7 +14,7 @@ use App\Correlations\CorrelationsAndExplanationResponseBody;
 use App\Correlations\QMCorrelation;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\NotEnoughMeasurementsForCorrelationException;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
 use App\Models\Variable;
 use App\Models\VariableCategory;
@@ -338,7 +338,7 @@ trait HasOutcomesAndPredictors {
 		return $response->getHtml();
 	}
 	/**
-	 * @return AggregateCorrelation[]|Collection
+	 * @return GlobalVariableRelationship[]|Collection
 	 */
 	public function getCorrelationsChartTitle(): string{
 		if($this->isOutcome()){
@@ -350,7 +350,7 @@ trait HasOutcomesAndPredictors {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return AggregateCorrelation[]|Correlation[]|Collection
+	 * @return GlobalVariableRelationship[]|Correlation[]|Collection
 	 */
 	public function getOutcomesOrPredictors(int $limit = null, string $variableCategoryName = null): ?Collection{
 		if($this->isOutcome()){
@@ -363,7 +363,7 @@ trait HasOutcomesAndPredictors {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return AggregateCorrelation[]|Correlation[]|Collection
+	 * @return GlobalVariableRelationship[]|Correlation[]|Collection
 	 */
 	public function getPublicOutcomesOrPredictors(int $limit = null, string $variableCategoryName = null): ?Collection{
 		if($variableCategoryName){

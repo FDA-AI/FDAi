@@ -19,7 +19,7 @@ use Illuminate\Support\Carbon;
  * @property int $cause_variable_id
  * @property int $effect_variable_id
  * @property int|null $correlation_id
- * @property int|null $aggregate_correlation_id
+ * @property int|null $global_variable_relationship_id
  * @property int $user_id
  * @property int $vote The opinion of the data owner on whether or not knowledge of this
  *                     relationship is useful in helping them improve an outcome of interest.
@@ -29,7 +29,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon $updated_at
  * @property Carbon|null $deleted_at
  * @property string|null $client_id
- * @property-read AggregateCorrelation|null $aggregate_correlation
+ * @property-read GlobalVariableRelationship|null $global_variable_relationship
  * @property-read OAClient|null $oa_client
  * @property-read Variable $cause_variable
  * @property-read Correlation|null $correlation
@@ -43,7 +43,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|CorrelationUsefulnessVote newQuery()
  * @method static Builder|CorrelationUsefulnessVote query()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\CorrelationUsefulnessVote
- *     whereAggregateCorrelationId($value)
+ *     whereGlobalVariableRelationshipId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\CorrelationUsefulnessVote
  *     whereCauseVariableId($value)
  * @method static Builder|CorrelationUsefulnessVote whereClientId($value)

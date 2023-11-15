@@ -11,7 +11,7 @@
 /** Created by Reliese Model.
  */
 namespace App\Models\Base;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Application;
 use App\Models\BaseModel;
 use App\Models\Button;
@@ -68,7 +68,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon $deleted_at
  * @property Carbon $earliest_measurement_start_at
  * @property Carbon $latest_measurement_start_at
- * @property int $number_of_aggregate_correlations
+ * @property int $number_of_global_variable_relationships
  * @property int $number_of_applications
  * @property int $number_of_oauth_access_tokens
  * @property int $number_of_oauth_authorization_codes
@@ -92,7 +92,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $number_of_variables
  * @property int $number_of_votes
  * @property \App\Models\User $user
- * @property Collection|AggregateCorrelation[] $aggregate_correlations
+ * @property Collection|GlobalVariableRelationship[] $global_variable_relationships
  * @property Application $application
  * @property Collection|ButtonClick[] $button_clicks
  * @property Collection|Button[] $buttons
@@ -129,7 +129,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Collection|Variable[] $variables
  * @property Collection|Vote[] $votes
  * @package App\Models\Base
- * @property-read int|null $aggregate_correlations_count
+ * @property-read int|null $global_variable_relationships_count
  * @property-read int|null $oa_access_tokens_count
  * @property-read int|null $oa_authorization_codes_count
  * @property-read int|null $oa_refresh_tokens_count
@@ -186,7 +186,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseOAClient
  *     whereLatestMeasurementStartAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseOAClient
- *     whereNumberOfAggregateCorrelations($value)
+ *     whereNumberOfGlobalVariableRelationships($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseOAClient whereNumberOfApplications($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseOAClient whereNumberOfButtonClicks($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseOAClient
@@ -238,7 +238,7 @@ abstract class BaseOAClient extends BaseModel {
 	public const FIELD_GRANT_TYPES = 'grant_types';
 	public const FIELD_ICON_URL = 'icon_url';
 	public const FIELD_LATEST_MEASUREMENT_START_AT = 'latest_measurement_start_at';
-	public const FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS = 'number_of_aggregate_correlations';
+	public const FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS = 'number_of_global_variable_relationships';
 	public const FIELD_NUMBER_OF_APPLICATIONS = 'number_of_applications';
 	public const FIELD_NUMBER_OF_BUTTON_CLICKS = 'number_of_button_clicks';
 	public const FIELD_NUMBER_OF_COLLABORATORS = 'number_of_collaborators';
@@ -357,11 +357,11 @@ abstract class BaseOAClient extends BaseModel {
                     update oa_clients
                         left join (
                             select count(id) as total, client_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by client_id
                         )
                         as grouped on oa_clients.client_id = grouped.client_id
-                    set oa_clients.number_of_aggregate_correlations = count(grouped.total)
+                    set oa_clients.number_of_global_variable_relationships = count(grouped.total)
                 ]
                 ',
 		self::FIELD_NUMBER_OF_APPLICATIONS => 'Number of Applications for this Client.
@@ -608,12 +608,12 @@ abstract class BaseOAClient extends BaseModel {
 			'ownerKey' => OAClient::FIELD_USER_ID,
 			'methodName' => 'user',
 		],
-		'aggregate_correlations' => [
+		'global_variable_relationships' => [
 			'relationshipType' => 'HasMany',
-			'qualifiedUserClassName' => AggregateCorrelation::class,
-			'foreignKey' => AggregateCorrelation::FIELD_CLIENT_ID,
-			'localKey' => AggregateCorrelation::FIELD_CLIENT_ID,
-			'methodName' => 'aggregate_correlations',
+			'qualifiedUserClassName' => GlobalVariableRelationship::class,
+			'foreignKey' => GlobalVariableRelationship::FIELD_CLIENT_ID,
+			'localKey' => GlobalVariableRelationship::FIELD_CLIENT_ID,
+			'methodName' => 'global_variable_relationships',
 		],
 		'application' => [
 			'relationshipType' => 'HasOne',
@@ -865,9 +865,9 @@ abstract class BaseOAClient extends BaseModel {
 		return $this->belongsTo(\App\Models\User::class, OAClient::FIELD_USER_ID, \App\Models\User::FIELD_ID,
 			OAClient::FIELD_USER_ID);
 	}
-	public function aggregate_correlations(): HasMany{
-		return $this->hasMany(AggregateCorrelation::class, AggregateCorrelation::FIELD_CLIENT_ID,
-			AggregateCorrelation::FIELD_CLIENT_ID);
+	public function global_variable_relationships(): HasMany{
+		return $this->hasMany(GlobalVariableRelationship::class, GlobalVariableRelationship::FIELD_CLIENT_ID,
+			GlobalVariableRelationship::FIELD_CLIENT_ID);
 	}
 	public function application(): HasOne{
 		return $this->hasOne(Application::class, Application::FIELD_CLIENT_ID, Application::FIELD_CLIENT_ID);

@@ -30,7 +30,7 @@ class CorrelationFactory extends Factory
         //$exampleValues = Correlation::getExampleValues();
         //return $exampleValues;
         return [
-            'aggregate_correlation_id' => null,
+            'global_variable_relationship_id' => null,
             'aggregated_at' => $this->faker->date('Y-m-d H:i:s'),
             'analysis_ended_at' => $this->faker->date('Y-m-d H:i:s'),
             'analysis_requested_at' => $this->faker->date('Y-m-d H:i:s'),

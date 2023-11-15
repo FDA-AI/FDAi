@@ -591,7 +591,7 @@ class QMRoute extends \Illuminate\Routing\Route {
 				$documented[] = $route;
 			}
 		}
-		//return [self::findByUri('api/v6/aggregate_correlations', 'GET')];
+		//return [self::findByUri('api/v6/global_variable_relationships', 'GET')];
 		return $documented;
 	}
 	/**

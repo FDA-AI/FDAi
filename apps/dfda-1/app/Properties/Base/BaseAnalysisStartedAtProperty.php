@@ -11,7 +11,7 @@ use App\Types\PhpTypes;
 use App\UI\ImageUrls;
 use App\UI\FontAwesome;
 use App\Properties\BaseProperty;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use OpenApi\Generator;
 class BaseAnalysisStartedAtProperty extends BaseProperty{
 	use IsDateTime;
@@ -32,7 +32,7 @@ class BaseAnalysisStartedAtProperty extends BaseProperty{
 	public $isFillable = true;
 	public $isOrderable = true;
 	public $isSearchable = false;
-    public const NAME = AggregateCorrelation::FIELD_ANALYSIS_STARTED_AT;
+    public const NAME = GlobalVariableRelationship::FIELD_ANALYSIS_STARTED_AT;
     public $name = self::NAME;
 	public $canBeChangedToNull = true;
 	public $phpType = PhpTypes::STRING;

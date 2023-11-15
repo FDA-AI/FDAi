@@ -52,8 +52,8 @@ class VariableResource extends Resource
 //                    ->relationship('best_effect_variable', 'name'),
 //                Forms\Components\Select::make('wp_post_id')
 //                    ->relationship('wp_post', 'ID'),
-//                Forms\Components\Select::make('best_aggregate_correlation_id')
-//                    ->relationship('best_aggregate_correlation', 'id'),
+//                Forms\Components\Select::make('best_global_variable_relationship_id')
+//                    ->relationship('best_global_variable_relationship', 'id'),
                 Forms\Components\TextInput::make('name')->required()->maxLength(125),
 //                Forms\Components\TextInput::make('number_of_user_variables')
 //                    ->required(),
@@ -78,10 +78,10 @@ class VariableResource extends Resource
 //                Forms\Components\TextInput::make('median'),
 //                Forms\Components\TextInput::make('minimum_allowed_value'),
 //                Forms\Components\TextInput::make('minimum_recorded_value'),
-//                Forms\Components\TextInput::make('number_of_aggregate_correlations_as_cause'),
+//                Forms\Components\TextInput::make('number_of_global_variable_relationships_as_cause'),
 //                Forms\Components\TextInput::make('most_common_original_unit_id'),
 //                Forms\Components\TextInput::make('most_common_value'),
-//                Forms\Components\TextInput::make('number_of_aggregate_correlations_as_effect'),
+//                Forms\Components\TextInput::make('number_of_global_variable_relationships_as_effect'),
 //                Forms\Components\TextInput::make('number_of_unique_values'),
 //                Forms\Components\TextInput::make('onset_delay'),
 //                Forms\Components\Toggle::make('outcome'),
@@ -217,7 +217,7 @@ class VariableResource extends Resource
 //                Tables\Columns\TextColumn::make('best_cause_variable.name'),
 //                Tables\Columns\TextColumn::make('best_effect_variable.name'),
 //                Tables\Columns\TextColumn::make('wp_post.ID'),
-//                Tables\Columns\TextColumn::make('best_aggregate_correlation.id'),
+//                Tables\Columns\TextColumn::make('best_global_variable_relationship.id'),
 	                      ImageColumn::make('image_url')->label(null),
                 Tables\Columns\TextColumn::make('name')->searchable(),
 //                Tables\Columns\TextColumn::make('number_of_user_variables'),
@@ -240,10 +240,10 @@ class VariableResource extends Resource
 //                Tables\Columns\TextColumn::make('median'),
 //                Tables\Columns\TextColumn::make('minimum_allowed_value'),
 //                Tables\Columns\TextColumn::make('minimum_recorded_value'),
-//                Tables\Columns\TextColumn::make('number_of_aggregate_correlations_as_cause'),
+//                Tables\Columns\TextColumn::make('number_of_global_variable_relationships_as_cause'),
 //                Tables\Columns\TextColumn::make('most_common_original_unit_id'),
 //                Tables\Columns\TextColumn::make('most_common_value'),
-//                Tables\Columns\TextColumn::make('number_of_aggregate_correlations_as_effect'),
+//                Tables\Columns\TextColumn::make('number_of_global_variable_relationships_as_effect'),
 //                Tables\Columns\TextColumn::make('number_of_unique_values'),
 //                Tables\Columns\TextColumn::make('onset_delay'),
 //                Tables\Columns\IconColumn::make('outcome')

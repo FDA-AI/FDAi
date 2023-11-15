@@ -11,7 +11,7 @@
 /** Created by Reliese Model.
  */
 namespace App\Models\Base;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Application;
 use App\Models\BaseModel;
 use App\Models\Connection;
@@ -59,7 +59,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $client_id
  * @property int $record_size_in_kb
  * @property \App\Models\User $user
- * @property Collection|AggregateCorrelation[] $aggregate_correlations
+ * @property Collection|GlobalVariableRelationship[] $global_variable_relationships
  * @property Collection|Application[] $applications
  * @property Collection|Connection[] $connections
  * @property Collection|Connector[] $connectors
@@ -73,7 +73,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Collection|WpTermRelationship[] $wp_term_relationships
  * @property Collection|\App\Models\User[] $users
  * @package App\Models\Base
- * @property-read int|null $aggregate_correlations_count
+ * @property-read int|null $global_variable_relationships_count
  * @property-read int|null $applications_count
  * @property-read int|null $connections_count
  * @property-read int|null $connectors_count
@@ -261,12 +261,12 @@ abstract class BaseWpPost extends BaseModel {
 			'ownerKey' => WpPost::FIELD_POST_AUTHOR,
 			'methodName' => 'user',
 		],
-		'aggregate_correlations' => [
+		'global_variable_relationships' => [
 			'relationshipType' => 'HasMany',
-			'qualifiedUserClassName' => AggregateCorrelation::class,
-			'foreignKey' => AggregateCorrelation::FIELD_WP_POST_ID,
-			'localKey' => AggregateCorrelation::FIELD_ID,
-			'methodName' => 'aggregate_correlations',
+			'qualifiedUserClassName' => GlobalVariableRelationship::class,
+			'foreignKey' => GlobalVariableRelationship::FIELD_WP_POST_ID,
+			'localKey' => GlobalVariableRelationship::FIELD_ID,
+			'methodName' => 'global_variable_relationships',
 		],
 		'applications' => [
 			'relationshipType' => 'HasMany',
@@ -357,8 +357,8 @@ abstract class BaseWpPost extends BaseModel {
 		return $this->belongsTo(\App\Models\User::class, WpPost::FIELD_POST_AUTHOR, \App\Models\User::FIELD_ID,
 			WpPost::FIELD_POST_AUTHOR);
 	}
-	public function aggregate_correlations(): HasMany{
-		return $this->hasMany(AggregateCorrelation::class, AggregateCorrelation::FIELD_WP_POST_ID, static::FIELD_ID);
+	public function global_variable_relationships(): HasMany{
+		return $this->hasMany(GlobalVariableRelationship::class, GlobalVariableRelationship::FIELD_WP_POST_ID, static::FIELD_ID);
 	}
 	public function applications(): HasMany{
 		return $this->hasMany(Application::class, Application::FIELD_WP_POST_ID, static::FIELD_ID);

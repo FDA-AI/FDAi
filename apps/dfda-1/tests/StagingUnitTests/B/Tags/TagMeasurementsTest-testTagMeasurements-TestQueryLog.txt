@@ -39,8 +39,8 @@
 ║ UserVariableNumberOfUserCo... │ correlations         │ effect_user_variable_id=50846 & effect_user_variable_id=... ║
 ║ getEffectVariable             │ variables            │ id=1398 & deleted_at=null limit 1                           ║
 ║ getEffectUserVariable         │ user_variables       │ id=24750 & deleted_at=null limit 1                          ║
-║ getAggregateCorrelation       │ aggregate_correlatio │ id=65688677 & deleted_at=null limit 1                       ║
-║ AggregateCorrelation::getV... │ votes                │ aggregate_correlation_id in (65688677) & deleted_at=null    ║
+║ getGlobalVariableRelationship       │ aggregate_correlatio │ id=65688677 & deleted_at=null limit 1                       ║
+║ GlobalVariableRelationship::getV... │ votes                │ global_variable_relationship_id in (65688677) & deleted_at=null    ║
 ║ analyzeFully                  │ user_variables       │ set status = 'CORRELATE', analysis_ended_at = '?', user_... ║
 ║ getCorrelationsAsCause        │ correlations         │ cause_user_variable_id=50846 & cause_user_variable_id=no... ║
 ║ findArrayInMemoryOrDB         │ variables            │ id in (6053848, 1876, 102685, 6054547, 1906, 86779, 8673... ║

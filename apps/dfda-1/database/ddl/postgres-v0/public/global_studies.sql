@@ -2,9 +2,9 @@ create table global_studies
 (
     id                            integer                                           not null
         primary key,
-    aggregate_correlation_id      integer
-        constraint global_studies_aggregate_correlations_id_fk
-            references aggregate_correlations,
+    global_variable_relationship_id      integer
+        constraint global_studies_global_variable_relationships_id_fk
+            references global_variable_relationships,
     cause_variable_id             integer                                           not null
         constraint global_studies_cause_variable_id_variables_id_fk
             references variables,
@@ -51,7 +51,7 @@ create table global_studies
 
 comment on column global_studies.id is 'Unique ID for the user study';
 
-comment on column global_studies.aggregate_correlation_id is 'ID of associated analytical results';
+comment on column global_studies.global_variable_relationship_id is 'ID of associated analytical results';
 
 comment on column global_studies.cause_variable_id is 'Variable ID of the predictor variable';
 
@@ -76,8 +76,8 @@ comment on column global_studies.slug is 'The slug is the part of a URL that ide
 alter table global_studies
     owner to postgres;
 
-create index global_studies_aggregate_correlations_id_fk
-    on global_studies (aggregate_correlation_id);
+create index global_studies_global_variable_relationships_id_fk
+    on global_studies (global_variable_relationship_id);
 
 create index global_studies_cause_variable_id
     on global_studies (cause_variable_id);

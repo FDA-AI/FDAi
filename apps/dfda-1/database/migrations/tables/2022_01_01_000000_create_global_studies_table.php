@@ -15,7 +15,7 @@ class CreateGlobalStudiesTable extends Migration
     {
          Schema::create('global_studies', function (Blueprint $table) {
             $table->integer('id')->primary()->comment('Unique ID for the user study');
-            $table->integer('aggregate_correlation_id')->nullable()->index('global_studies_aggregate_correlations_id_fk')->comment('ID of associated analytical results');
+            $table->integer('global_variable_relationship_id')->nullable()->index('global_studies_global_variable_relationships_id_fk')->comment('ID of associated analytical results');
             $table->integer('cause_variable_id')->index('global_studies_cause_variable_id')->comment('Variable ID of the predictor variable');
             $table->integer('effect_variable_id')->index('global_studies_effect_variable_id')->comment('Variable ID of the outcome variable');
             $table->integer('cause_user_variable_id')->comment('Variable ID of the predictor variable');

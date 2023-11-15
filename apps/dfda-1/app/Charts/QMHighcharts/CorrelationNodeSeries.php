@@ -5,7 +5,7 @@
  */
 
 namespace App\Charts\QMHighcharts;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
 use App\Models\Variable;
 use App\Variables\QMVariable;
@@ -14,12 +14,12 @@ class CorrelationNodeSeries extends NodeSeries {
 	/**
 	 * @param string $name
 	 * @param Variable|QMVariable $variable
-	 * @param Correlation[]|AggregateCorrelation[]|Collection $correlations
+	 * @param Correlation[]|GlobalVariableRelationship[]|Collection $correlations
 	 */
 	public function __construct(string $name, $variable, $correlations){
 		parent::__construct($name);
 		$withoutSelf = CorrelationNodeSeries::sortAndFilterCorrelations($correlations);
-		/** @var Correlation|AggregateCorrelation $c */
+		/** @var Correlation|GlobalVariableRelationship $c */
 		foreach($withoutSelf as $c){
 			$cause = addslashes($c->getCauseVariableName());
 			$effect = addslashes($c->getEffectVariableName());

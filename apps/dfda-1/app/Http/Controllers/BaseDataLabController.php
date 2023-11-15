@@ -215,7 +215,7 @@ class BaseDataLabController extends Controller {
 		return "datalab.$route." . $function;
 	}
 	/**
-	 * Display a listing of the AggregateCorrelationController.
+	 * Display a listing of the GlobalVariableRelationshipController.
 	 * @return Factory|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\View
      */
 	public function dashboard(){

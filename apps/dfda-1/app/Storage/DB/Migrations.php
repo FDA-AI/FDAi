@@ -253,10 +253,10 @@ class '.$CLASS.' extends Migration{
                 if(stripos($countField, "number_of_correlations_where_cause_") !== false){
                     $countField = "number_of_outcome_case_studies";
                 }
-                if(stripos($countField, "number_of_aggregate_correlations_where_cause_") !== false){
+                if(stripos($countField, "number_of_global_variable_relationships_where_cause_") !== false){
                     $countField = "number_of_outcome_population_studies";
                 }
-                if(stripos($countField, "number_of_aggregate_correlations_where_effect_") !== false){
+                if(stripos($countField, "number_of_global_variable_relationships_where_effect_") !== false){
                     $countField = "number_of_predictor_population_studies";
                 }
                 $exists = Writable::columnExists($referencedTable, $countField);

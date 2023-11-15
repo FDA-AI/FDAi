@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Variable;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\Variable;
 use App\Traits\PropertyTraits\IsCalculated;
@@ -23,9 +23,9 @@ class VariableBestEffectVariableIdProperty extends BaseBestEffectVariableIdPrope
      * @return int
      */
     public static function calculate($v){
-        $best = AggregateCorrelation::whereCauseVariableId($v->getVariableIdAttribute())
-            ->where(AggregateCorrelation::FIELD_EFFECT_VARIABLE_ID, "<>", $v->getVariableIdAttribute())
-            ->orderBy(AggregateCorrelation::FIELD_AGGREGATE_QM_SCORE, BaseModel::ORDER_DIRECTION_DESC)
+        $best = GlobalVariableRelationship::whereCauseVariableId($v->getVariableIdAttribute())
+            ->where(GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_ID, "<>", $v->getVariableIdAttribute())
+            ->orderBy(GlobalVariableRelationship::FIELD_AGGREGATE_QM_SCORE, BaseModel::ORDER_DIRECTION_DESC)
             ->first();
         if(!$best){
             $val = null;
@@ -46,9 +46,9 @@ class VariableBestEffectVariableIdProperty extends BaseBestEffectVariableIdPrope
         if($new && !$v->optimal_value_message){
             $this->throwException("There should be an optimal_value_message since not null");
         }
-        $num = $v->number_of_aggregate_correlations_as_cause;
+        $num = $v->number_of_global_variable_relationships_as_cause;
         if($num && !$new){
-            $this->throwException("There should be a best effect because there are $num number_of_aggregate_correlations_as_cause");
+            $this->throwException("There should be a best effect because there are $num number_of_global_variable_relationships_as_cause");
         }
     }
 }

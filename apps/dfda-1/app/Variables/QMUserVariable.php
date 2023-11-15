@@ -53,7 +53,7 @@ use App\Exceptions\UserVariableNotFoundException;
 use App\Jobs\UserVariableCorrelationJob;
 use App\Logging\QMLog;
 use App\Mail\RootCauseAnalysisEmail;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\CommonTag;
 use App\Models\Correlation;
@@ -6683,7 +6683,7 @@ class QMUserVariable extends QMVariable {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return AggregateCorrelation[]|Correlation[]|Collection
+	 * @return GlobalVariableRelationship[]|Correlation[]|Collection
 	 */
 	public function getOutcomesOrPredictors(int $limit = null, string $variableCategoryName = null): ?Collection{
 		return $this->l()->getOutcomesOrPredictors($limit, $variableCategoryName);

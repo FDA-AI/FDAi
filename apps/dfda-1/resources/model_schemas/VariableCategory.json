@@ -295,11 +295,11 @@
     },
     {
         "type": "relation",
-        "relation": "1tm,AggregateCorrelation,cause_variable_category_id"
+        "relation": "1tm,GlobalVariableRelationship,cause_variable_category_id"
     },
     {
         "type": "relation",
-        "relation": "1tm,AggregateCorrelation,effect_variable_category_id"
+        "relation": "1tm,GlobalVariableRelationship,effect_variable_category_id"
     },
     {
         "type": "relation",

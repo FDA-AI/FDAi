@@ -6,7 +6,7 @@
 
 namespace App\Properties\Base;
 use App\Correlations\QMCorrelation;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\Correlation;
 use App\Properties\BaseProperty;
@@ -235,7 +235,7 @@ class BaseEffectFollowUpPercentChangeFromBaselineProperty extends BaseProperty{
             $c->getChangeFromBaseline());
     }
     /**
-     * @return Correlation|AggregateCorrelation
+     * @return Correlation|GlobalVariableRelationship
      */
     public function getParentModel(): BaseModel{
         return parent::getParentModel();

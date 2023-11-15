@@ -11,7 +11,7 @@ use App\Cards\QMCard;
 use App\Cards\StudyCard;
 use App\Charts\ChartGroup;
 use App\Charts\CorrelationCharts\CorrelationChartGroup;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMCorrelation;
 use App\Correlations\QMUserCorrelation;
 use App\Exceptions\AlreadyAnalyzedException;
@@ -545,7 +545,7 @@ abstract class QMStudy extends DBModel {
         return $this->effectVariableDisplayName = $name;
     }
     /**
-     * @return QMAggregateCorrelation|QMUserCorrelation
+     * @return QMGlobalVariableRelationship|QMUserCorrelation
      * @throws InsufficientVarianceException
      * @throws NotEnoughMeasurementsForCorrelationException
      * @throws NoUserCorrelationsToAggregateException
@@ -631,7 +631,7 @@ abstract class QMStudy extends DBModel {
 	    }
 		$uc->save();
 		try {
-			QMAggregateCorrelation::getOrCreateByIds($uc->getCauseVariableId(),
+			QMGlobalVariableRelationship::getOrCreateByIds($uc->getCauseVariableId(),
 			                                         $uc->getEffectVariableId());
 		} catch (TooSlowToAnalyzeException $e){
 		    QMLog::warning($e->getMessage());
@@ -820,11 +820,11 @@ categories:'.
         return $string;
     }
 	/**
-	 * @return null|QMUserCorrelation|QMAggregateCorrelation|QMCorrelation|HasCorrelationCoefficient
+	 * @return null|QMUserCorrelation|QMGlobalVariableRelationship|QMCorrelation|HasCorrelationCoefficient
 	 */
     abstract public function setHasCorrelationCoefficientFromDatabase();
     /**
-     * @return null|QMUserCorrelation|QMAggregateCorrelation|QMCorrelation|HasCorrelationCoefficient
+     * @return null|QMUserCorrelation|QMGlobalVariableRelationship|QMCorrelation|HasCorrelationCoefficient
      */
     public function getHasCorrelationCoefficientFromDatabase(){
         $fromDB = $this->correlationFromDatabase;
@@ -1147,7 +1147,7 @@ categories:'.
 	        static::TYPE);
     }
     /**
-     * @param QMAggregateCorrelation[]|QMUserCorrelation[] $correlations
+     * @param QMGlobalVariableRelationship[]|QMUserCorrelation[] $correlations
      * @return QMUserStudy[]|QMPopulationStudy[]
      */
     public static function convertCorrelationsToStudies(array $correlations): array{
@@ -1688,10 +1688,10 @@ categories:'.
 		if(!$this->getStudyHtml()->fullStudyHtml){le('!$this->getStudyHtml()->fullStudyHtml');}
     }
     /**
-     * @return QMAggregateCorrelation|null
+     * @return QMGlobalVariableRelationship|null
      * @throws NotEnoughDataException
      */
-    protected function getOrCreateAggregateCorrelation(): ?QMAggregateCorrelation {
+    protected function getOrCreateGlobalVariableRelationship(): ?QMGlobalVariableRelationship {
         if($this->statistics instanceof NotEnoughDataException){
             throw $this->statistics;
         }
@@ -1706,23 +1706,23 @@ categories:'.
                 return null;
             }
         }
-        $c = QMAggregateCorrelation::getOrCreateByIds($causeVariable->getVariableIdAttribute(),
+        $c = QMGlobalVariableRelationship::getOrCreateByIds($causeVariable->getVariableIdAttribute(),
             $effectVariable->getVariableIdAttribute());
         return $c;
     }
 	/**
-	 * @return QMAggregateCorrelation
+	 * @return QMGlobalVariableRelationship
 	 * @throws DuplicateFailedAnalysisException
 	 * @throws ModelValidationException
 	 * @throws NotEnoughDataException
 	 * @throws StupidVariableNameException
 	 * @throws TooSlowToAnalyzeException
 	 */
-    protected function createAggregateCorrelation(): QMAggregateCorrelation {
+    protected function createGlobalVariableRelationship(): QMGlobalVariableRelationship {
         if($this->statistics instanceof NotEnoughDataException){
             throw $this->statistics;
         }
-        $c = new QMAggregateCorrelation(null, $this->getCauseVariableId(), $this->getEffectVariableId());
+        $c = new QMGlobalVariableRelationship(null, $this->getCauseVariableId(), $this->getEffectVariableId());
         try {
             $c->analyzeFullyAndSave(__FUNCTION__);
         } catch (AlreadyAnalyzedException | AlreadyAnalyzingException $e) {
@@ -1791,7 +1791,7 @@ categories:'.
             return QMUserCorrelation::generatePHPUnitTestUrlForAnalyze($this->getCauseQMVariable(),
                 $this->getEffectQMVariable());
         }
-        return QMAggregateCorrelation::generatePHPUnitTestUrlForAnalyze($this->getCauseVariable(),
+        return QMGlobalVariableRelationship::generatePHPUnitTestUrlForAnalyze($this->getCauseVariable(),
             $this->getEffectVariable());
     }
     /**

@@ -120,7 +120,7 @@ use Str;
  * update units
  * left join (
  * select count(id) as total, cause_unit_id
- * from aggregate_correlations
+ * from global_variable_relationships
  * group by cause_unit_id
  * )
  * as grouped on units.id = grouped.cause_unit_id
@@ -253,7 +253,7 @@ use Str;
  *                     update units
  *                         left join (
  *                             select count(id) as total, cause_unit_id
- *                             from aggregate_correlations
+ *                             from global_variable_relationships
  *                             group by cause_unit_id
  *                         )
  *                         as grouped on units.id = grouped.cause_unit_id
@@ -330,10 +330,10 @@ use Str;
  *                         )
  *                         as grouped on units.id = grouped.default_unit_id
  *                     set units.number_of_variables_where_default_unit = count(grouped.total)]
- * @property-read Collection|AggregateCorrelation[] $aggregateCorrelations
- * @property-read int|null $aggregate_correlations_count
- * @property-read Collection|AggregateCorrelation[] $aggregate_correlations_where_cause_unit
- * @property-read int|null $aggregate_correlations_where_cause_unit_count
+ * @property-read Collection|GlobalVariableRelationship[] $aggregateCorrelations
+ * @property-read int|null $global_variable_relationships_count
+ * @property-read Collection|GlobalVariableRelationship[] $global_variable_relationships_where_cause_unit
+ * @property-read int|null $global_variable_relationships_where_cause_unit_count
  * @property-read Collection|CommonTag[] $commonTags
  * @property-read int|null $common_tags_count
  * @property-read Collection|CommonTag[] $common_tags_where_tag_variable_unit
@@ -454,7 +454,7 @@ class Unit extends BaseUnit {
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 **/
 	public function aggregateCorrelations(): \Illuminate\Database\Eloquent\Relations\HasMany{
-		return $this->hasMany(AggregateCorrelation::class, 'cause_unit_id');
+		return $this->hasMany(GlobalVariableRelationship::class, 'cause_unit_id');
 	}
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany

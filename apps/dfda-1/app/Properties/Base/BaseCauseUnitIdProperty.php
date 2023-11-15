@@ -8,7 +8,7 @@ namespace App\Properties\Base;
 use App\UI\ImageUrls;
 use App\UI\FontAwesome;
 use App\Units\MilligramsUnit;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use OpenApi\Generator;
 class BaseCauseUnitIdProperty extends BaseUnitIdProperty{
 	public const NAME = 'cause_unit_id';
@@ -27,7 +27,7 @@ class BaseCauseUnitIdProperty extends BaseUnitIdProperty{
 	public $isFillable = true;
 	public $isOrderable = true;
 	public $isSearchable = false;
-	public $name = AggregateCorrelation::FIELD_CAUSE_UNIT_ID;
+	public $name = GlobalVariableRelationship::FIELD_CAUSE_UNIT_ID;
 	public $phpType = \App\Types\PhpTypes::INTEGER;
 	public $rules = 'nullable|integer|min:1|max:65535';
 	public $title = 'Cause Unit';

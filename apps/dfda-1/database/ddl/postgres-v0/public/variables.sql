@@ -36,10 +36,10 @@ create table variables
     median                                              double precision,
     minimum_allowed_value                               double precision,
     minimum_recorded_value                              double precision,
-    number_of_aggregate_correlations_as_cause           integer,
+    number_of_global_variable_relationships_as_cause           integer,
     most_common_original_unit_id                        integer,
     most_common_value                                   double precision,
-    number_of_aggregate_correlations_as_effect          integer,
+    number_of_global_variable_relationships_as_effect          integer,
     number_of_unique_values                             integer,
     onset_delay                                         integer,
     outcome                                             boolean,
@@ -107,9 +107,9 @@ create table variables
     number_of_soft_deleted_measurements                 integer,
     charts                                              json,
     creator_user_id                                     bigint                                                not null,
-    best_aggregate_correlation_id                       integer
-        constraint variables_aggregate_correlations_id_fk
-            references aggregate_correlations
+    best_global_variable_relationship_id                       integer
+        constraint variables_global_variable_relationships_id_fk
+            references global_variable_relationships
             on delete set null,
     filling_type                                        varchar(255)
         constraint variables_filling_type_check
@@ -190,13 +190,13 @@ comment on column variables.minimum_allowed_value is 'Minimum reasonable value f
 
 comment on column variables.minimum_recorded_value is 'Minimum recorded value of this variable';
 
-comment on column variables.number_of_aggregate_correlations_as_cause is 'Number of aggregate correlations for which this variable is the cause variable';
+comment on column variables.number_of_global_variable_relationships_as_cause is 'Number of global variable relationships for which this variable is the cause variable';
 
 comment on column variables.most_common_original_unit_id is 'Most common Unit ID';
 
 comment on column variables.most_common_value is 'Most common value';
 
-comment on column variables.number_of_aggregate_correlations_as_effect is 'Number of aggregate correlations for which this variable is the effect variable';
+comment on column variables.number_of_global_variable_relationships_as_effect is 'Number of global variable relationships for which this variable is the effect variable';
 
 comment on column variables.number_of_unique_values is 'Number of unique values';
 
@@ -237,7 +237,7 @@ comment on column variables.number_of_outcome_population_studies is 'Number of G
                     update variables
                         left join (
                             select count(id) as total, cause_variable_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by cause_variable_id
                         )
                         as grouped on variables.id = grouped.cause_variable_id
@@ -250,7 +250,7 @@ comment on column variables.number_of_predictor_population_studies is 'Number of
                     update variables
                         left join (
                             select count(id) as total, effect_variable_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by effect_variable_id
                         )
                         as grouped on variables.id = grouped.effect_variable_id
@@ -508,6 +508,6 @@ create index variables_best_effect_variable_id_fk
 create index "variables_wp_posts_ID_fk"
     on variables (wp_post_id);
 
-create index variables_aggregate_correlations_id_fk
-    on variables (best_aggregate_correlation_id);
+create index variables_global_variable_relationships_id_fk
+    on variables (best_global_variable_relationship_id);
 

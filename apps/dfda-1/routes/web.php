@@ -62,7 +62,7 @@ use App\Http\Middleware\QMAuthenticate;
 use App\Mail\PhysicianInvitationEmail;
 use App\Mail\PostListMail;
 use App\Menus\SearchMenu;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
 use App\Models\User;
 use App\Models\UserVariable;
@@ -126,7 +126,7 @@ Route::prefix('studies')
         Route::get('/', [StudiesController::class, 'index'])->name('studies-index');
         Route::get('/cause/{causeNameOrId}/effect/{effectNameOrId}',
             function($causeNameOrId, $effectNameOrId){
-                return AggregateCorrelation::findByVariableNamesOrIds($causeNameOrId, $effectNameOrId)
+                return GlobalVariableRelationship::findByVariableNamesOrIds($causeNameOrId, $effectNameOrId)
                     ->getShowPageView();
             })->where('causeNameOrId', '.*')  // '.*' allows forward slashes https://laravel.com/docs/5.8/routing#redirect-routes
             ->where('effectNameOrId', '.*');  // '.*' allows forward slashes https://laravel.com/docs/5.8/routing#redirect-routes
@@ -373,7 +373,7 @@ Route::prefix('admin')->middleware(AdminMiddleware::NAME)->group(function () {
 // DATALAB
 Route::prefix('datalab')->middleware(QMAuthenticate::NAME)->group(function () {
     Route::get('/', [BaseDataLabController::class, 'dashboard'], ["as" => 'datalab']);
-    Route::resource('aggregateCorrelations', DataLab\AggregateCorrelationController::class, ["as" => 'datalab']);
+    Route::resource('aggregateCorrelations', DataLab\GlobalVariableRelationshipController::class, ["as" => 'datalab']);
     Route::resource('applications', DataLab\ApplicationController::class, ["as" => 'datalab']);
     Route::resource('collaborators', DataLab\CollaboratorController::class, ["as" => 'datalab']);
     Route::resource('commonTags', DataLab\CommonTagController::class, ["as" => 'datalab']);
@@ -434,15 +434,15 @@ Route::middleware(QMAuthenticate::NAME)->group(function () {
     Route::get('notification-test', function(){
         return view('notification-test');
     });
-    Route::get('aggregate-correlations-list', function (){
-        $aggregateCorrelations = AggregateCorrelation::query()->limit(10)->get();
+    Route::get('global-variable-relationships-list', function (){
+        $aggregateCorrelations = GlobalVariableRelationship::query()->limit(10)->get();
         $headers = ['Cause', 'Effect', 'Score'];
         $rows = [];
         foreach($aggregateCorrelations as $c){
             $rows[]= [$c->getCauseVariable()->name, $c->getEffectVariable()->name, $c->aggregate_qm_score];
         }
         return view('pages.correlations_list', ['headers' => $headers, 'rows' => $rows]);
-    })->name('aggregate-correlations-list');
+    })->name('global-variable-relationships-list');
     Route::get('/food/{query}', function ($query) {
         $body = FoodCentralWrapper::search($query);
         return JsonResponse::create($body);

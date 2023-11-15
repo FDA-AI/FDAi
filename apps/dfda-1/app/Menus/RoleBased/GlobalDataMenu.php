@@ -6,7 +6,7 @@
 
 namespace App\Menus\RoleBased;
 use App\Menus\QMMenu;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\User;
 use App\Models\Variable;
 use App\Models\VariableCategory;
@@ -29,7 +29,7 @@ class GlobalDataMenu extends QMMenu {
 	public function getTooltip(): string{ return $this->tooltip; }
 	public function getButtons(): array{
 		$buttons = [];
-		$buttons[] = AggregateCorrelation::getAstralIndexButton();
+		$buttons[] = GlobalVariableRelationship::getAstralIndexButton();
 		$buttons[] = Variable::getAstralIndexButton();
 		$buttons[] = VariableCategory::getAstralIndexButton();
 		$buttons[] = Variable::getIndexButton()->fontAwesome(FontAwesome::STUDY)->image(ImageUrls::STUDY)

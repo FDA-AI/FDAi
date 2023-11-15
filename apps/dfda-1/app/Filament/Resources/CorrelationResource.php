@@ -52,8 +52,8 @@ class CorrelationResource extends Resource
                 Forms\Components\Select::make('effect_user_variable_id')
                     ->relationship('effect_user_variable', 'id')
                     ->required(),
-                Forms\Components\Select::make('aggregate_correlation_id')
-                    ->relationship('aggregate_correlation', 'id'),
+                Forms\Components\Select::make('global_variable_relationship_id')
+                    ->relationship('global_variable_relationship', 'id'),
                 Forms\Components\TextInput::make('qm_score'),
                 Forms\Components\TextInput::make('forward_pearson_correlation_coefficient'),
                 Forms\Components\TextInput::make('value_predicting_high_outcome'),
@@ -208,7 +208,7 @@ class CorrelationResource extends Resource
                 Tables\Columns\TextColumn::make('effect_variable_category.name'),
                 Tables\Columns\TextColumn::make('cause_user_variable.id'),
                 Tables\Columns\TextColumn::make('effect_user_variable.id'),
-                Tables\Columns\TextColumn::make('aggregate_correlation.id'),
+                Tables\Columns\TextColumn::make('global_variable_relationship.id'),
                 Tables\Columns\TextColumn::make('qm_score'),
                 Tables\Columns\TextColumn::make('forward_pearson_correlation_coefficient'),
                 Tables\Columns\TextColumn::make('value_predicting_high_outcome'),

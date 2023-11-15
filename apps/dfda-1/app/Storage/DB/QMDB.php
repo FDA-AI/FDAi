@@ -26,7 +26,7 @@ use App\Files\Json\JsonFile;
 use App\Logging\ConsoleLog;
 use App\Logging\QMLog;
 use App\Logging\QMLogLevel;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\Correlation;
 use App\Models\Measurement;
@@ -93,7 +93,7 @@ abstract class QMDB extends Connection {
 	public const DRIVER_MYSQL           = 'mysql';
 	public const DRIVER_SQLITE           = 'sqlite';
 	public const LARGE_TABLES = [
-		AggregateCorrelation::TABLE,
+		GlobalVariableRelationship::TABLE,
 		Correlation::TABLE,
 		Measurement::TABLE,
 		UserVariable::TABLE,
@@ -148,7 +148,7 @@ abstract class QMDB extends Connection {
 		'correlations' => 13470.14,
 		'measurements' => 4676.41,
 		'user_variables' => 3066.61,
-		'aggregate_correlations' => 898.11,
+		'global_variable_relationships' => 898.11,
 		'variables' => 884.69,
 		'telescope_entries' => 745.86,
 		'studies' => 717.83,
@@ -335,7 +335,7 @@ abstract class QMDB extends Connection {
 		'wp_action*',
 		'oauth_*',
 		'activations',                 // 6 records
-		//'aggregate_correlations', // 37663 records
+		//'global_variable_relationships', // 37663 records
 		'api_keys',                    // 17 records
 		//'applications', // 538 records
 		'billing_plans',               // 6 records
@@ -443,8 +443,8 @@ abstract class QMDB extends Connection {
 	public const TYPE_TIMESTAMP = 'timestamp';
 	public const TYPE_TIMESTAMP_ON_UPDATE_CURRENT_TIMESTAMP = 'timestamp on update CURRENT_TIMESTAMP';
 	public const VIEWS = [
-		'aggregate_correlations_aggregated_by_cause_variable_id',
-		'aggregate_correlations_aggregated_by_effect_variable_id',
+		'global_variable_relationships_aggregated_by_cause_variable_id',
+		'global_variable_relationships_aggregated_by_effect_variable_id',
 		'average_votes',
 		'common_tags_aggregated_by_tag_variable_id',
 		'common_tags_aggregated_by_tagged_variable_id',

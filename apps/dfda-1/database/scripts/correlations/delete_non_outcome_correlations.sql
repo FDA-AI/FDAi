@@ -1,12 +1,12 @@
 delete
-	`aggregate_correlations`
+	`global_variable_relationships`
 FROM
 	(
 		(
-			`aggregate_correlations`
+			`global_variable_relationships`
 			JOIN `variables` ON (
 				(
-					`aggregate_correlations`.`effect_variable_id` = `variables`.`id`
+					`global_variable_relationships`.`effect_variable_id` = `variables`.`id`
 				)
 			)
 		)
@@ -48,8 +48,8 @@ LIMIT 1000;
 
 UPDATE
 variables
-INNER JOIN `variables` ON number_of_aggregate_correlations_as_effect.id = `variables`.id
-set variables.number_of_aggregate_correlations_as_effect = number_of_aggregate_correlations_as_effect.number_of_aggregate_correlations_as_effect;
+INNER JOIN `variables` ON number_of_global_variable_relationships_as_effect.id = `variables`.id
+set variables.number_of_global_variable_relationships_as_effect = number_of_global_variable_relationships_as_effect.number_of_global_variable_relationships_as_effect;
 
 
 UPDATE

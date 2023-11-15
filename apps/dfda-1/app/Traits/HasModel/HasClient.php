@@ -6,7 +6,7 @@
 
 namespace App\Traits\HasModel;
 use App\Buttons\QMButton;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\OAClient;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 trait HasClient {
@@ -34,8 +34,8 @@ trait HasClient {
 	}
 	public function client(): BelongsTo{ return $this->oa_client(); }
 	public function oa_client(): BelongsTo{
-		return $this->belongsTo(OAClient::class, AggregateCorrelation::FIELD_CLIENT_ID, OAClient::FIELD_CLIENT_ID,
-			AggregateCorrelation::FIELD_CLIENT_ID);
+		return $this->belongsTo(OAClient::class, GlobalVariableRelationship::FIELD_CLIENT_ID, OAClient::FIELD_CLIENT_ID,
+			GlobalVariableRelationship::FIELD_CLIENT_ID);
 	}
 	public function getClient():OAClient{
 		$clientId = $this->getClientId();

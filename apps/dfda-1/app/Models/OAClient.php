@@ -55,8 +55,8 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property Carbon|null $latest_measurement_start_at
  * @method static Builder|OAClient whereEarliestMeasurementStartAt($value)
  * @method static Builder|OAClient whereLatestMeasurementStartAt($value)
- * @property-read Collection|AggregateCorrelation[] $aggregate_correlations
- * @property-read int|null $aggregate_correlations_count
+ * @property-read Collection|GlobalVariableRelationship[] $global_variable_relationships
+ * @property-read int|null $global_variable_relationships_count
  * @property-read Application $application
  * @property-read Collection|OAAccessToken[] $oa_access_tokens
  * @property-read int|null $oa_access_tokens_count
@@ -125,16 +125,16 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property-read Collection|UserVariableClient[] $user_variable_clients
  * @property-read int|null $user_variable_clients_count
  * @method static Builder|BaseModel nPerGroup($group, $n = 10)
- * @property int|null $number_of_aggregate_correlations Number of Global Population Studies for this Client.
+ * @property int|null $number_of_global_variable_relationships Number of Global Population Studies for this Client.
  *                 [Formula:
  *                     update oa_clients
  *                         left join (
  *                             select count(id) as total, client_id
- *                             from aggregate_correlations
+ *                             from global_variable_relationships
  *                             group by client_id
  *                         )
  *                         as grouped on oa_clients.client_id = grouped.client_id
- *                     set oa_clients.number_of_aggregate_correlations = count(grouped.total)
+ *                     set oa_clients.number_of_global_variable_relationships = count(grouped.total)
  *                 ]
  * @property int|null $number_of_applications Number of Applications for this Client.
  *                 [Formula:
@@ -260,7 +260,7 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @method static Builder|BaseModel applyRequestParams($request)
  * @method static Builder|BaseModel exclude($columns)
  * @method static Builder|BaseModel excludeLargeColumns()
- * @method static Builder|OAClient whereNumberOfAggregateCorrelations($value)
+ * @method static Builder|OAClient whereNumberOfGlobalVariableRelationships($value)
  * @method static Builder|OAClient whereNumberOfApplications($value)
  * @method static Builder|OAClient whereNumberOfButtonClicks($value)
  * @method static Builder|OAClient whereNumberOfCollaborators($value)

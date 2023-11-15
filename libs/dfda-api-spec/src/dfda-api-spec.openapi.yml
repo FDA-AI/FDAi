@@ -762,38 +762,38 @@ paths:
       description: |-
         The client provides an authorization token obtained from `/api/v3/oauth2/authorize` to this endpoint and receives an access token. The access token can then be used to query API endpoints.
 
-        ### Request an Access Token 
-        After the user approves your access to the given scope from the `/v1/oauth2/authorize` endpoint, you'll receive an authorization code to request an access token. 
+        ### Request an Access Token
+        After the user approves your access to the given scope from the `/v1/oauth2/authorize` endpoint, you'll receive an authorization code to request an access token.
 
-        This time make a `POST` request to `/api/v1/oauth/access_token` with parameters including: 
-        * `grant_type` Can be `authorization_code` or `refresh_token`. 
+        This time make a `POST` request to `/api/v1/oauth/access_token` with parameters including:
+        * `grant_type` Can be `authorization_code` or `refresh_token`.
 
         Since we are getting the `access_token` for the first time, we don't have a `refresh_token`
 
         So this must be `authorization_code`
 
-        * `code` - Authorization code you received with the previous request. 
+        * `code` - Authorization code you received with the previous request.
 
-        * `redirect_uri` Your application's redirect URL. 
+        * `redirect_uri` Your application's redirect URL.
 
-        ### Refreshing Access Token Access 
+        ### Refreshing Access Token Access
 
-        Tokens expire at some point. To continue using the API, you need to refresh them with `refresh_token` you received along with the `access_token` 
+        Tokens expire at some point. To continue using the API, you need to refresh them with `refresh_token` you received along with the `access_token`
 
-        To do this, make a `POST` request to `/api/v1/oauth/access_token` with the correct parameters, which are: 
-        * `grant_type` This time grant type must be `refresh_token` since we have it. 
+        To do this, make a `POST` request to `/api/v1/oauth/access_token` with the correct parameters, which are:
+        * `grant_type` This time grant type must be `refresh_token` since we have it.
         * `clientId` Your application's client id.
-        * `client_secret` Your application's client secret. 
-        * `refresh_token` The refresh token you received with the `access_token`. 
+        * `client_secret` Your application's client secret.
+        * `refresh_token` The refresh token you received with the `access_token`.
 
-        Every request you make to this endpoint will give you a new refresh token and make the old one expire. 
+        Every request you make to this endpoint will give you a new refresh token and make the old one expire.
 
-        So you can keep getting new access tokens with new refresh tokens. 
+        So you can keep getting new access tokens with new refresh tokens.
 
-        ### Using Access Token 
-        Currently, we support two ways for this. You can't use both at the same time. 
-        * Adding access token to the request header as `Authorization: Bearer {access_token}` 
-        * Adding to the URL as a query parameter `?access_token={access_token}` 
+        ### Using Access Token
+        Currently, we support two ways for this. You can't use both at the same time.
+        * Adding access token to the request header as `Authorization: Bearer {access_token}`
+        * Adding to the URL as a query parameter `?access_token={access_token}`
 
         You can read more about OAuth2 from [here](https://oauth.net/2/)
       operationId: getAccessToken
@@ -5519,10 +5519,10 @@ components:
         name:
           type: string
           description: 'Ex: Trader Joes Bedtime Tea / Sleepytime Tea (any Brand)'
-        numberOfAggregateCorrelationsAsCause:
+        numberOfGlobalVariableRelationshipsAsCause:
           type: integer
           description: 'Ex: 1'
-        numberOfAggregateCorrelationsAsEffect:
+        numberOfGlobalVariableRelationshipsAsEffect:
           type: integer
           description: 'Ex: 310'
         numberOfChanges:
@@ -5535,10 +5535,10 @@ components:
           format: int32
         numberOfCorrelationsAsCause:
           type: integer
-          description: numberOfAggregateCorrelationsAsCause plus numberOfUserCorrelationsAsCause
+          description: numberOfGlobalVariableRelationshipsAsCause plus numberOfUserCorrelationsAsCause
         numberOfCorrelationsAsEffect:
           type: integer
-          description: numberOfAggregateCorrelationsAsEffect plus numberOfUserCorrelationsAsEffect
+          description: numberOfGlobalVariableRelationshipsAsEffect plus numberOfUserCorrelationsAsEffect
         numberOfProcessedDailyMeasurements:
           type: integer
           description: Number of processed measurements
@@ -6054,10 +6054,10 @@ components:
         name:
           type: string
           description: 'Ex: Trader Joes Bedtime Tea / Sleepytime Tea (any Brand)'
-        numberOfAggregateCorrelationsAsCause:
+        numberOfGlobalVariableRelationshipsAsCause:
           type: integer
           description: 'Ex: 1'
-        numberOfAggregateCorrelationsAsEffect:
+        numberOfGlobalVariableRelationshipsAsEffect:
           type: integer
           description: 'Ex: 310'
         numberOfChanges:
@@ -6070,10 +6070,10 @@ components:
           format: int32
         numberOfCorrelationsAsCause:
           type: integer
-          description: numberOfAggregateCorrelationsAsCause plus numberOfUserCorrelationsAsCause
+          description: numberOfGlobalVariableRelationshipsAsCause plus numberOfUserCorrelationsAsCause
         numberOfCorrelationsAsEffect:
           type: integer
-          description: numberOfAggregateCorrelationsAsEffect plus numberOfUserCorrelationsAsEffect
+          description: numberOfGlobalVariableRelationshipsAsEffect plus numberOfUserCorrelationsAsEffect
         numberOfProcessedDailyMeasurements:
           type: integer
           description: Number of processed measurements

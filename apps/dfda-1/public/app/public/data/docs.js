@@ -4860,11 +4860,11 @@ qm.staticData.docs = {
                     "description": "Ex: Trader Joes Bedtime Tea \/ Sleepytime Tea (any Brand)",
                     "type": "string"
                 },
-                "numberOfAggregateCorrelationsAsCause": {
+                "numberOfGlobalVariableRelationshipsAsCause": {
                     "description": "Ex: 1",
                     "type": "integer"
                 },
-                "numberOfAggregateCorrelationsAsEffect": {
+                "numberOfGlobalVariableRelationshipsAsEffect": {
                     "description": "Ex: 310",
                     "type": "integer"
                 },
@@ -4879,11 +4879,11 @@ qm.staticData.docs = {
                     "type": "integer"
                 },
                 "numberOfCorrelationsAsCause": {
-                    "description": "numberOfAggregateCorrelationsAsCause plus numberOfUserCorrelationsAsCause",
+                    "description": "numberOfGlobalVariableRelationshipsAsCause plus numberOfUserCorrelationsAsCause",
                     "type": "integer"
                 },
                 "numberOfCorrelationsAsEffect": {
-                    "description": "numberOfAggregateCorrelationsAsEffect plus numberOfUserCorrelationsAsEffect",
+                    "description": "numberOfGlobalVariableRelationshipsAsEffect plus numberOfUserCorrelationsAsEffect",
                     "type": "integer"
                 },
                 "numberOfProcessedDailyMeasurements": {

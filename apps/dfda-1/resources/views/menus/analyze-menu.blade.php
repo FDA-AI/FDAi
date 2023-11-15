@@ -6,7 +6,7 @@
     </a>
     <ul class="treeview-menu">
         <li class="{{ Request::is('datalab/aggregateCorrelations*') ? 'active' : '' }}">
-            <a href="{{ route('datalab.aggregateCorrelations.index') }}"><i class="fa fa-line-chart"></i><span>Aggregate Correlations</span></a>
+            <a href="{{ route('datalab.aggregateCorrelations.index') }}"><i class="fa fa-line-chart"></i><span>Global Variable Relationships</span></a>
         </li>
         <li class="{{ Request::is('datalab/commonTags*') ? 'active' : '' }}">
             <a href="{{ route('datalab.commonTags.index') }}"><i class="fa fa-tags"></i><span>Common Tags</span></a>

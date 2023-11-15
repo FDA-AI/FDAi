@@ -58,7 +58,7 @@ class StudyText extends StaticModel {
     public $tagLine;
     /**
      * Study constructor.
-     * @param QMCorrelation|Correlation|\App\Models\AggregateCorrelation|null $hasCorrelationCoefficient
+     * @param QMCorrelation|Correlation|\App\Models\GlobalVariableRelationship|null $hasCorrelationCoefficient
      * @param HasCauseAndEffect|QMStudy null $hasCauseAndEffect
      * @param null $cached
      */

@@ -3,7 +3,7 @@
 *  Contributors: ADD YOUR NAME HERE, Mike P. Sinn
  */ /** @noinspection PhpUnused */
 namespace App\Slim\Controller;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Exceptions\NotEnoughMeasurementsException;
 use App\Files\FileHelper;
 use App\Files\MimeContentTypeHelper;
@@ -123,14 +123,14 @@ abstract class GetController extends Controller {
 	}
 	/**
 	 * @param array $params
-	 * @return QMAggregateCorrelation[]
+	 * @return QMGlobalVariableRelationship[]
 	 */
 	public function getAggregatedCorrelations(array $params): array{
 		$params['numberOfUsers'] = '(gt)1';
-		$correlations = QMAggregateCorrelation::getAggregateCorrelations($params);
+		$correlations = QMGlobalVariableRelationship::getGlobalVariableRelationships($params);
 		if(!count($correlations)){
 			unset($params['numberOfUsers']);
-			$correlations = QMAggregateCorrelation::getAggregateCorrelations($params);
+			$correlations = QMGlobalVariableRelationship::getGlobalVariableRelationships($params);
 		}
 		if(!QMRequest::urlContains('/studies')){ // This will be done in the study instantiation
 			foreach($correlations as $correlation){

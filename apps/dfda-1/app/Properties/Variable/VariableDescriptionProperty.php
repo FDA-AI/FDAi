@@ -20,7 +20,7 @@ class VariableDescriptionProperty extends BaseDescriptionProperty {
 		$isPredictor = $v->isPredictor();
 		$displayName = $v->getTitleAttribute();
 		$NumberOfUserVariables = $v->getNumberOfUserVariables();
-		$studies = $v->getNumberOfAggregateCorrelations();
+		$studies = $v->getNumberOfGlobalVariableRelationships();
 		if($studies){
 			return "$studies studies";
 		}

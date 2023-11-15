@@ -1,6 +1,6 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\StagingUnitTests\C\Studies\UserStudies;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Studies\QMStudy;
 use App\Variables\CommonVariables\EmotionsCommonVariables\AlertnessCommonVariable;
 use App\Variables\CommonVariables\TreatmentsCommonVariables\FlaxOilCommonVariable;
@@ -15,7 +15,7 @@ class SoSimpleTest extends SlimStagingTestCase {
 	}
     public function testPopulationStudyShowHtml(){
         $this->skipTest("Changes too much");
-        $study = AggregateCorrelation::findByVariableNamesOrIds(FlaxOilCommonVariable::NAME,
+        $study = GlobalVariableRelationship::findByVariableNamesOrIds(FlaxOilCommonVariable::NAME,
             AlertnessCommonVariable::NAME);
         $this->compareHtmlPage('study', $study->getShowPageHtml());
     }

@@ -2,7 +2,7 @@
 /** @noinspection PhpUnhandledExceptionInspection */ /** @noinspection ForgottenDebugOutputInspection */
 namespace Tests\SlimTests\Controllers;
 use App\Logging\QMLog;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Measurement;
 use App\Models\TrackingReminder;
 use App\Models\TrackingReminderNotification;
@@ -58,7 +58,7 @@ class DialogFlowTest extends \Tests\SlimTests\SlimTestCase
      * @throws InvalidTimestampException
      */
     public function testYesNoNotificationTrack(){
-        AggregateCorrelation::deleteAll();
+        GlobalVariableRelationship::deleteAll();
         $this->createYesNoReminderAndNotifications();
         $this->assertEquals(0, Measurement::count());
         $r = $this->postAndGetDecodedBody('/api/v1/dialogflow', $this->getHiPostData());

@@ -350,7 +350,7 @@
         "comment": "Number of Raw Measurements. Number of measurements. Filter variables by the total number of measurements that they have. This could be used of you want to filter or sort by popularity. (type: string) "
     },
     {
-        "name": "number_of_aggregate_correlations_as_cause",
+        "name": "number_of_global_variable_relationships_as_cause",
         "dbType": "integer,false,true",
         "htmlType": null,
         "validations": null,
@@ -360,7 +360,7 @@
         "inForm": true,
         "inIndex": true,
         "inView": true,
-        "comment": "Number of Aggregate Correlations as Cause. Number of aggregate correlations for which this variable is the cause variable. Ex: 1 (type: integer) "
+        "comment": "Number of Global Variable Relationships as Cause. Number of global variable relationships for which this variable is the cause variable. Ex: 1 (type: integer) "
     },
     {
         "name": "most_common_original_unit_id",
@@ -389,7 +389,7 @@
         "comment": "Most common value. Calculated Statistic: Most common value. Unit: User-specified or common. (type: number) "
     },
     {
-        "name": "number_of_aggregate_correlations_as_effect",
+        "name": "number_of_global_variable_relationships_as_effect",
         "dbType": "integer,false,true",
         "htmlType": null,
         "validations": null,
@@ -399,7 +399,7 @@
         "inForm": true,
         "inIndex": true,
         "inView": true,
-        "comment": "Number of Aggregate Correlations as Effect. Number of aggregate correlations for which this variable is the effect variable. Ex: 310 (type: integer) "
+        "comment": "Number of Global Variable Relationships as Effect. Number of global variable relationships for which this variable is the effect variable. Ex: 310 (type: integer) "
     },
     {
         "name": "number_of_unique_values",
@@ -816,7 +816,7 @@
         "comment": "Best Effect Variable ID. "
     },
     {
-        "name": "best_aggregate_correlation_id",
+        "name": "best_global_variable_relationship_id",
         "dbType": "integer,false",
         "htmlType": null,
         "validations": null,
@@ -826,11 +826,11 @@
         "inForm": true,
         "inIndex": true,
         "inView": true,
-        "comment": "Best Aggregate Correlation ID. "
+        "comment": "Best Global Variable Relationship ID. "
     },
     {
         "type": "relation",
-        "relation": "mt1,AggregateCorrelation,best_aggregate_correlation_id"
+        "relation": "mt1,GlobalVariableRelationship,best_global_variable_relationship_id"
     },
     {
         "type": "relation",
@@ -850,11 +850,11 @@
     },
     {
         "type": "relation",
-        "relation": "1tm,AggregateCorrelation,cause_variable_id"
+        "relation": "1tm,GlobalVariableRelationship,cause_variable_id"
     },
     {
         "type": "relation",
-        "relation": "1tm,AggregateCorrelation,effect_variable_id"
+        "relation": "1tm,GlobalVariableRelationship,effect_variable_id"
     },
     {
         "type": "relation",

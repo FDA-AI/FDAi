@@ -5,11 +5,11 @@ create table if not exists global_study_usefulness_votes
     cause_variable_id        int(11) unsigned                    not null,
     effect_variable_id       int(11) unsigned                    not null,
     correlation_id           int                                 null,
-    aggregate_correlation_id int                                 null,
+    global_variable_relationship_id int                                 null,
     user_id                  bigint unsigned                     not null,
-    vote                     int                                 not null comment 'The opinion of the data owner on whether or not knowledge of this 
-                    relationship is useful in helping them improve an outcome of interest. 
-                    -1 corresponds to a down vote. 1 corresponds to an up vote. 0 corresponds to removal of a 
+    vote                     int                                 not null comment 'The opinion of the data owner on whether or not knowledge of this
+                    relationship is useful in helping them improve an outcome of interest.
+                    -1 corresponds to a down vote. 1 corresponds to an up vote. 0 corresponds to removal of a
                     previous vote.  null corresponds to never having voted before.',
     created_at               timestamp default CURRENT_TIMESTAMP not null,
     updated_at               timestamp default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP,
@@ -18,8 +18,8 @@ create table if not exists global_study_usefulness_votes
     is_public                tinyint(1)                          null,
     constraint correlation_usefulness_votes_user_cause_effect_uindex
         unique (user_id, cause_variable_id, effect_variable_id),
-    constraint correlation_usefulness_votes_aggregate_correlations_id_fk
-        foreign key (aggregate_correlation_id) references global_study_results (id),
+    constraint correlation_usefulness_votes_global_variable_relationships_id_fk
+        foreign key (global_variable_relationship_id) references global_study_results (id),
     constraint correlation_usefulness_votes_cause_variables_id_fk
         foreign key (cause_variable_id) references global_variables (id),
     constraint correlation_usefulness_votes_client_id_fk

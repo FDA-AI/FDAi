@@ -43,7 +43,7 @@ class OAClientResource extends Resource
                     ->maxLength(255),
                 Forms\Components\DateTimePicker::make('earliest_measurement_start_at'),
                 Forms\Components\DateTimePicker::make('latest_measurement_start_at'),
-                Forms\Components\TextInput::make('number_of_aggregate_correlations'),
+                Forms\Components\TextInput::make('number_of_global_variable_relationships'),
                 Forms\Components\TextInput::make('number_of_applications'),
                 Forms\Components\TextInput::make('number_of_oauth_access_tokens'),
                 Forms\Components\TextInput::make('number_of_oauth_authorization_codes'),
@@ -94,7 +94,7 @@ class OAClientResource extends Resource
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('latest_measurement_start_at')
                     ->dateTime(),
-                Tables\Columns\TextColumn::make('number_of_aggregate_correlations'),
+                Tables\Columns\TextColumn::make('number_of_global_variable_relationships'),
                 Tables\Columns\TextColumn::make('number_of_applications'),
                 Tables\Columns\TextColumn::make('number_of_oauth_access_tokens'),
                 Tables\Columns\TextColumn::make('number_of_oauth_authorization_codes'),

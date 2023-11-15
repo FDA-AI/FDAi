@@ -11,7 +11,7 @@
 /** Created by Reliese Model.
  */
 namespace App\Models\Base;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\Correlation;
 use App\Models\Measurement;
@@ -75,8 +75,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $controllable
  * @property Unit $default_unit
  * @property WpPost $wp_post
- * @property Collection|AggregateCorrelation[] $aggregate_correlations_where_cause_variable_category
- * @property Collection|AggregateCorrelation[] $aggregate_correlations_where_effect_variable_category
+ * @property Collection|GlobalVariableRelationship[] $global_variable_relationships_where_cause_variable_category
+ * @property Collection|GlobalVariableRelationship[] $global_variable_relationships_where_effect_variable_category
  * @property Collection|Correlation[] $correlations_where_cause_variable_category
  * @property Collection|Correlation[] $correlations_where_effect_variable_category
  * @property Collection|Measurement[] $measurements
@@ -89,8 +89,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Collection|VariablePredictorCategory[] $variable_predictor_categories
  * @property Collection|Variable[] $variables
  * @package App\Models\Base
- * @property-read int|null $aggregate_correlations_where_cause_variable_category_count
- * @property-read int|null $aggregate_correlations_where_effect_variable_category_count
+ * @property-read int|null $global_variable_relationships_where_cause_variable_category_count
+ * @property-read int|null $global_variable_relationships_where_effect_variable_category_count
  * @property-read int|null $correlations_where_cause_variable_category_count
  * @property-read int|null $correlations_where_effect_variable_category_count
  * @property mixed $raw
@@ -304,7 +304,7 @@ abstract class BaseVariableCategory extends BaseModel {
                     update variable_categories
                         left join (
                             select count(id) as total, cause_variable_category_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by cause_variable_category_id
                         )
                         as grouped on variable_categories.id = grouped.cause_variable_category_id
@@ -316,7 +316,7 @@ abstract class BaseVariableCategory extends BaseModel {
                     update variable_categories
                         left join (
                             select count(id) as total, effect_variable_category_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by effect_variable_category_id
                         )
                         as grouped on variable_categories.id = grouped.effect_variable_category_id
@@ -412,19 +412,19 @@ abstract class BaseVariableCategory extends BaseModel {
 			'ownerKey' => VariableCategory::FIELD_WP_POST_ID,
 			'methodName' => 'wp_post',
 		],
-		'aggregate_correlations_where_cause_variable_category' => [
+		'global_variable_relationships_where_cause_variable_category' => [
 			'relationshipType' => 'HasMany',
-			'qualifiedUserClassName' => AggregateCorrelation::class,
-			'foreignKey' => AggregateCorrelation::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
-			'localKey' => AggregateCorrelation::FIELD_ID,
-			'methodName' => 'aggregate_correlations_where_cause_variable_category',
+			'qualifiedUserClassName' => GlobalVariableRelationship::class,
+			'foreignKey' => GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
+			'localKey' => GlobalVariableRelationship::FIELD_ID,
+			'methodName' => 'global_variable_relationships_where_cause_variable_category',
 		],
-		'aggregate_correlations_where_effect_variable_category' => [
+		'global_variable_relationships_where_effect_variable_category' => [
 			'relationshipType' => 'HasMany',
-			'qualifiedUserClassName' => AggregateCorrelation::class,
-			'foreignKey' => AggregateCorrelation::FIELD_EFFECT_VARIABLE_CATEGORY_ID,
-			'localKey' => AggregateCorrelation::FIELD_ID,
-			'methodName' => 'aggregate_correlations_where_effect_variable_category',
+			'qualifiedUserClassName' => GlobalVariableRelationship::class,
+			'foreignKey' => GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID,
+			'localKey' => GlobalVariableRelationship::FIELD_ID,
+			'methodName' => 'global_variable_relationships_where_effect_variable_category',
 		],
 		'correlations_where_cause_variable_category' => [
 			'relationshipType' => 'HasMany',
@@ -512,12 +512,12 @@ abstract class BaseVariableCategory extends BaseModel {
 		return $this->belongsTo(WpPost::class, VariableCategory::FIELD_WP_POST_ID, WpPost::FIELD_ID,
 			VariableCategory::FIELD_WP_POST_ID);
 	}
-	public function aggregate_correlations_where_cause_variable_category(): HasMany{
-		return $this->hasMany(AggregateCorrelation::class, AggregateCorrelation::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
+	public function global_variable_relationships_where_cause_variable_category(): HasMany{
+		return $this->hasMany(GlobalVariableRelationship::class, GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
 			static::FIELD_ID);
 	}
-	public function aggregate_correlations_where_effect_variable_category(): HasMany{
-		return $this->hasMany(AggregateCorrelation::class, AggregateCorrelation::FIELD_EFFECT_VARIABLE_CATEGORY_ID,
+	public function global_variable_relationships_where_effect_variable_category(): HasMany{
+		return $this->hasMany(GlobalVariableRelationship::class, GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID,
 			static::FIELD_ID);
 	}
 	public function correlations_where_cause_variable_category(): HasMany{

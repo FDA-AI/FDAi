@@ -23,11 +23,11 @@ create table if not exists variable_categories
     wp_post_id                                   bigint unsigned                                 null,
     filling_type                                 enum ('zero', 'none', 'interpolation', 'value') null,
     number_of_outcome_population_studies         int unsigned                                    null comment 'Number of Global Population Studies for this Cause Variable Category.
-                [Formula: 
+                [Formula:
                     update variable_categories
                         left join (
                             select count(id) as total, cause_variable_category_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by cause_variable_category_id
                         )
                         as grouped on variable_categories.id = grouped.cause_variable_category_id
@@ -35,11 +35,11 @@ create table if not exists variable_categories
                 ]
                 ',
     number_of_predictor_population_studies       int unsigned                                    null comment 'Number of Global Population Studies for this Effect Variable Category.
-                [Formula: 
+                [Formula:
                     update variable_categories
                         left join (
                             select count(id) as total, effect_variable_category_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by effect_variable_category_id
                         )
                         as grouped on variable_categories.id = grouped.effect_variable_category_id
@@ -47,7 +47,7 @@ create table if not exists variable_categories
                 ]
                 ',
     number_of_outcome_case_studies               int unsigned                                    null comment 'Number of Individual Case Studies for this Cause Variable Category.
-                [Formula: 
+                [Formula:
                     update variable_categories
                         left join (
                             select count(id) as total, cause_variable_category_id
@@ -59,7 +59,7 @@ create table if not exists variable_categories
                 ]
                 ',
     number_of_predictor_case_studies             int unsigned                                    null comment 'Number of Individual Case Studies for this Effect Variable Category.
-                [Formula: 
+                [Formula:
                     update variable_categories
                         left join (
                             select count(id) as total, effect_variable_category_id

@@ -33,6 +33,6 @@
     {{\App\Models\Measurement::count()}} measurements for
     {{\App\Models\Variable::count()}} variables from
     {{\App\Models\User::count()}} users.
-    Using this data, QuantiModo generated {{\App\Models\AggregateCorrelation::count()}} natural language studies on
+    Using this data, QuantiModo generated {{\App\Models\GlobalVariableRelationship::count()}} natural language studies on
     the effects of various factors on symptoms of chronic illness.
 </p>

@@ -8,7 +8,7 @@ namespace App\Studies;
 use App\Buttons\States\PredictorSearchStateButton;
 use App\Computers\ThisComputer;
 use App\Correlations\QMCorrelation;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
 use App\Repos\ImagesRepo;
 use App\Traits\HasCauseAndEffect;
@@ -39,7 +39,7 @@ class StudyImages {
 	public $avatar;
 	/**
 	 * StudyImages constructor.
-	 * @param AggregateCorrelation|Correlation|QMCorrelation|null $hasCorrelationCoefficient
+	 * @param GlobalVariableRelationship|Correlation|QMCorrelation|null $hasCorrelationCoefficient
 	 * @param HasCauseAndEffect|QMStudy|null $hasCauseAndEffect
 	 */
 	public function __construct($hasCorrelationCoefficient = null, $hasCauseAndEffect = null){
@@ -222,13 +222,13 @@ class StudyImages {
 		       self::getCauseEffectFileName($causeCategory, $effectCategory) . '_robot-600-315.png';
 	}
 	/**
-	 * @return QMCorrelation|AggregateCorrelation|Correlation
+	 * @return QMCorrelation|GlobalVariableRelationship|Correlation
 	 */
 	public function getCorrelation() {
 		return $this->hasCorrelationCoefficient;
 	}
 	/**
-	 * @param AggregateCorrelation[]|Collection $correlations
+	 * @param GlobalVariableRelationship[]|Collection $correlations
 	 * @param string|null $title
 	 * @param string|null $description
 	 * @param bool $addSharingButtons

@@ -8,7 +8,7 @@ namespace App\Correlations;
 use App\Buttons\Links\HelpButton;
 use App\Cards\StartTrackingQMCard;
 use App\Logging\QMLog;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Slim\Model\QMResponseBody;
 use App\Slim\View\Request\QMRequest;
 use App\Studies\QMStudy;
@@ -30,7 +30,7 @@ abstract class CorrelationListExplanationResponseBody extends QMResponseBody {
     protected $correlations;
     /**
      * CorrelationListExplanationResponseBody constructor.
-     * @param AggregateCorrelation[]|Collection|null $correlations
+     * @param GlobalVariableRelationship[]|Collection|null $correlations
      */
     public function __construct($correlations = null){
         parent::__construct();
@@ -156,7 +156,7 @@ abstract class CorrelationListExplanationResponseBody extends QMResponseBody {
         return $this->html;
     }
     /**
-     * @return AggregateCorrelation[]|QMUserCorrelation[]
+     * @return GlobalVariableRelationship[]|QMUserCorrelation[]
      */
     public function getCorrelations(): array {
         return QMArr::toArray($this->correlations);

@@ -10,7 +10,7 @@ use App\Traits\PropertyTraits\IsInt;
 use App\UI\ImageUrls;
 use App\UI\FontAwesome;
 use App\Properties\BaseProperty;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use Doctrine\DBAL\Types\Types;
 use OpenApi\Generator;
 class BaseDurationOfActionProperty extends BaseProperty{
@@ -34,7 +34,7 @@ class BaseDurationOfActionProperty extends BaseProperty{
 	public $isSearchable = false;
 	public $maximum = 7776000;
 	public $minimum = 600;
-    public const NAME = AggregateCorrelation::FIELD_DURATION_OF_ACTION;
+    public const NAME = GlobalVariableRelationship::FIELD_DURATION_OF_ACTION;
     public $name = self::NAME;
 	public $phpType = \App\Types\PhpTypes::INTEGER;
 	public $rules = 'max:7776000|numeric|nullable';

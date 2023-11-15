@@ -30,7 +30,7 @@
 ║ UserVariableNumberOfTracki... │ tracking_reminders   │ user_variable_id=222365 & deleted_at=null                   ║
 ║ UserVariableNumberOfUserCo... │ correlations         │ cause_user_variable_id=222365 & cause_user_variable_id=n... ║
 ║ UserVariableNumberOfUserCo... │ correlations         │ effect_user_variable_id=222365 & effect_user_variable_id... ║
-║ getAggregateCorrelation       │ aggregate_correlatio │ id=65804783 & deleted_at=null limit 1                       ║
-║ AggregateCorrelation::getV... │ votes                │ aggregate_correlation_id in (65804783) & deleted_at=null    ║
+║ getGlobalVariableRelationship       │ aggregate_correlatio │ id=65804783 & deleted_at=null limit 1                       ║
+║ GlobalVariableRelationship::getV... │ votes                │ global_variable_relationship_id in (65804783) & deleted_at=null    ║
 ║ analyzeFully                  │ user_variables       │ set status = 'CORRELATE', analysis_ended_at = '?', user_... ║
 ╚═══════════════════════════════╧══════════════════════╧═════════════════════════════════════════════════════════════╝

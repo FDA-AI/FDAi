@@ -2,7 +2,7 @@ create table quantimodo_test.global_studies
 (
     id                            int                                   not null comment 'Unique ID for the user study'
         primary key,
-    aggregate_correlation_id      int                                   null comment 'ID of associated analytical results',
+    global_variable_relationship_id      int                                   null comment 'ID of associated analytical results',
     cause_variable_id             int unsigned                          not null comment 'Variable ID of the predictor variable',
     effect_variable_id            int unsigned                          not null comment 'Variable ID of the outcome variable',
     cause_user_variable_id        int unsigned                          not null comment 'Variable ID of the predictor variable',
@@ -37,8 +37,8 @@ create table quantimodo_test.global_studies
         unique (slug),
     constraint user_cause_effect
         unique (user_id, cause_variable_id, effect_variable_id),
-    constraint global_studies_aggregate_correlations_id_fk
-        foreign key (aggregate_correlation_id) references quantimodo_test.aggregate_correlations (id),
+    constraint global_studies_global_variable_relationships_id_fk
+        foreign key (global_variable_relationship_id) references quantimodo_test.global_variable_relationships (id),
     constraint global_studies_cause_variable_id_variables_id_fk
         foreign key (cause_variable_id) references quantimodo_test.variables (id),
     constraint global_studies_client_id_fk

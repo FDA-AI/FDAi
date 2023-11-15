@@ -5,8 +5,8 @@ create table if not exists user_study_results
     user_id                                                      bigint unsigned                                                 not null,
     cause_variable_id                                            int unsigned                                                    not null,
     effect_variable_id                                           int unsigned                                                    not null,
-    qm_score                                                     double                                                          null comment 'A number representative of the relative importance of the relationship based on the strength, 
-                    usefulness, and plausible causality.  The higher the number, the greater the perceived importance.  
+    qm_score                                                     double                                                          null comment 'A number representative of the relative importance of the relationship based on the strength,
+                    usefulness, and plausible causality.  The higher the number, the greater the perceived importance.
                     This value can be used for sorting relationships by importance.  ',
     forward_pearson_correlation_coefficient                      float(10, 4)                                                    null comment 'Pearson correlation coefficient between cause and effect measurements',
     value_predicting_high_outcome                                double                                                          null comment 'cause value that predicts an above average effect value (in default unit for cause variable)',
@@ -81,10 +81,10 @@ create table if not exists user_study_results
     z_score                                                      float                                                           null comment 'The absolute value of the change over duration of action following the onset delay of treatment divided by the baseline outcome relative standard deviation. A.K.A The number of standard deviations from the mean. A zScore > 2 means pValue < 0.05 and is typically considered statistically significant.',
     experiment_end_at                                            timestamp                                                       not null comment 'The latest data used in the analysis. ',
     experiment_start_at                                          timestamp                                                       not null comment 'The earliest data used in the analysis. ',
-    aggregate_correlation_id                                     int                                                             null,
+    global_variable_relationship_id                                     int                                                             null,
     aggregated_at                                                timestamp                                                       null,
-    usefulness_vote                                              int                                                             null comment 'The opinion of the data owner on whether or not knowledge of this relationship is useful. 
-                        -1 corresponds to a down vote. 1 corresponds to an up vote. 0 corresponds to removal of a 
+    usefulness_vote                                              int                                                             null comment 'The opinion of the data owner on whether or not knowledge of this relationship is useful.
+                        -1 corresponds to a down vote. 1 corresponds to an up vote. 0 corresponds to removal of a
                         previous vote.  null corresponds to never having voted before.',
     causality_vote                                               int                                                             null comment 'The opinion of the data owner on whether or not there is a plausible mechanism of action
                         by which the predictor variable could influence the outcome variable.',
@@ -111,8 +111,8 @@ create table if not exists user_study_results
         unique (slug),
     constraint correlations_user_id_cause_variable_id_effect_variable_id_uindex
         unique (user_id, cause_variable_id, effect_variable_id),
-    constraint correlations_aggregate_correlations_id_fk
-        foreign key (aggregate_correlation_id) references global_study_results (id),
+    constraint correlations_global_variable_relationships_id_fk
+        foreign key (global_variable_relationship_id) references global_study_results (id),
     constraint correlations_cause_unit_id_fk
         foreign key (cause_unit_id) references units (id),
     constraint correlations_cause_variable_category_id_fk

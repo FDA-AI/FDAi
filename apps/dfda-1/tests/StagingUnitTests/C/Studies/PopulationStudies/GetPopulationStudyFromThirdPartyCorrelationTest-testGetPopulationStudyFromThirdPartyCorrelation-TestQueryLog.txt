@@ -5,7 +5,7 @@
 ║ findByNameOrId                │ variables            │ id=93614 & deleted_at=null limit 1                          ║
 ║ findByNameOrId                │ variables            │ id=1398 & deleted_at=null limit 1                           ║
 ║ findByVariableNamesOrIds      │ aggregate_correlatio │ cause_variable_id=93614 & effect_variable_id=1398 & dele... ║
-║ QMAggregateCorrelation::ge... │ votes                │ aggregate_correlation_id in (20543321) & deleted_at=null    ║
+║ QMGlobalVariableRelationship::ge... │ votes                │ global_variable_relationship_id in (20543321) & deleted_at=null    ║
 ║ QMStudy::getUser              │ wp_users             │ ID=230 & deleted_at=null limit 1                            ║
 ║ getTestSystemAndDeletedUse... │ wp_users             │ user_login LIKE '?' or user_login LIKE '?' or user_login... ║
 ║ getPublicOutcomes             │ aggregate_correlatio │ cause_variable_id=93614 & cause_variable_id=not null & i... ║

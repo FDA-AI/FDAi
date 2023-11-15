@@ -143,10 +143,10 @@
     <p>{{ $variable->number_of_measurements }}</p>
 </div>
 
-<!-- Number Of Aggregate Correlations As Cause Field -->
+<!-- Number Of Global Variable Relationships As Cause Field -->
 <div class="form-group">
-    {!! Form::label('number_of_aggregate_correlations_as_cause', 'Number Of Aggregate Correlations As Cause:') !!}
-    <p>{{ $variable->number_of_aggregate_correlations_as_cause }}</p>
+    {!! Form::label('number_of_global_variable_relationships_as_cause', 'Number Of Global Variable Relationships As Cause:') !!}
+    <p>{{ $variable->number_of_global_variable_relationships_as_cause }}</p>
 </div>
 
 <!-- Most Common Original Unit Id Field -->
@@ -161,10 +161,10 @@
     <p>{{ $variable->most_common_value }}</p>
 </div>
 
-<!-- Number Of Aggregate Correlations As Effect Field -->
+<!-- Number Of Global Variable Relationships As Effect Field -->
 <div class="form-group">
-    {!! Form::label('number_of_aggregate_correlations_as_effect', 'Number Of Aggregate Correlations As Effect:') !!}
-    <p>{{ $variable->number_of_aggregate_correlations_as_effect }}</p>
+    {!! Form::label('number_of_global_variable_relationships_as_effect', 'Number Of Global Variable Relationships As Effect:') !!}
+    <p>{{ $variable->number_of_global_variable_relationships_as_effect }}</p>
 </div>
 
 <!-- Number Of Unique Values Field -->
@@ -341,11 +341,11 @@
     <p>{{ $variable->best_effect_variable_id }}</p>
 </div>
 
-<!-- Best Aggregate Correlation Field -->
+<!-- Best Global Variable Relationship Field -->
 {{--
 <div class="form-group">
-    {!! Form::label('best_aggregate_correlation_id', 'Best Aggregate Correlation:') !!}
-    <p>{{ $variable->best_aggregate_correlation_id }}</p>
+    {!! Form::label('best_global_variable_relationship_id', 'Best Global Variable Relationship:') !!}
+    <p>{{ $variable->best_global_variable_relationship_id }}</p>
 </div>
 --}}
 
@@ -502,9 +502,9 @@
     <p>{{ $variable->creator_user_id }}</p>
 </div>
 
-<!-- Best Aggregate Correlation Id Field -->
+<!-- Best Global Variable Relationship Id Field -->
 <div class="form-group">
-    {!! Form::label('best_aggregate_correlation_id', 'Best Aggregate Correlation Id:') !!}
-    <p>{{ $variable->best_aggregate_correlation_id }}</p>
+    {!! Form::label('best_global_variable_relationship_id', 'Best Global Variable Relationship Id:') !!}
+    <p>{{ $variable->best_global_variable_relationship_id }}</p>
 </div>
 
