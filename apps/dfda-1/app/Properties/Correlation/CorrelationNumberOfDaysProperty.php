@@ -9,7 +9,7 @@ use App\Exceptions\NotEnoughMeasurementsForCorrelationException;
 use App\Models\Correlation;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseNumberOfDaysProperty;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationNumberOfDaysProperty extends BaseNumberOfDaysProperty
 {
     use CorrelationProperty;
@@ -17,7 +17,7 @@ class CorrelationNumberOfDaysProperty extends BaseNumberOfDaysProperty
     public $parentClass = Correlation::class;
     use \App\Traits\PropertyTraits\IsCalculated;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float|int
      * @throws NotEnoughMeasurementsForCorrelationException
      * @throws \App\Exceptions\NotEnoughDataException
@@ -41,7 +41,7 @@ class CorrelationNumberOfDaysProperty extends BaseNumberOfDaysProperty
     }
     /**
      * @param $numberOfDays
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @throws NotEnoughMeasurementsForCorrelationException
      * @noinspection PhpParameterNameChangedDuringInheritanceInspection
      */

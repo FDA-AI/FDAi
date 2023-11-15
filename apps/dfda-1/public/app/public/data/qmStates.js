@@ -526,7 +526,7 @@ var qmStates = [
             "excludeSingularBloodPressure": true,
             "variableSearchParameters": {
                 "includePublic": false,
-                "numberOfUserCorrelations": "(gt)1"
+                "numberOfUserVariableRelationships": "(gt)1"
             },
             "hideNavigationMenu": null,
             "title": "Select a Variable",

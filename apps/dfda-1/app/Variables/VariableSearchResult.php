@@ -65,8 +65,8 @@ class VariableSearchResult extends DBModel {
 	public $numberOfMeasurements;
 	public $numberOfTrackingReminders;
 	public $numberOfUniqueValues;
-	public $numberOfUserCorrelationsAsCause;
-	public $numberOfUserCorrelationsAsEffect;
+	public $numberOfUserVariableRelationshipsAsCause;
+	public $numberOfUserVariableRelationshipsAsEffect;
 	public $numberOfUserVariables;
 	public $outcome;
 	public $pngUrl;
@@ -260,7 +260,7 @@ class VariableSearchResult extends DBModel {
 			return $num;
 		}
 		$ac = $this->getNumberOfGlobalVariableRelationshipsAsCause();
-		$uc = $this->numberOfUserCorrelationsAsCause;
+		$uc = $this->numberOfUserVariableRelationshipsAsCause;
 		return $this->numberOfCorrelationsAsCause = $ac + $uc;
 	}
 	/**
@@ -271,7 +271,7 @@ class VariableSearchResult extends DBModel {
 			return $num;
 		}
 		$ac = $this->getNumberOfGlobalVariableRelationshipsAsEffect();
-		$uc = $this->numberOfUserCorrelationsAsEffect;
+		$uc = $this->numberOfUserVariableRelationshipsAsEffect;
 		return $this->numberOfCorrelationsAsEffect = $ac + $uc;
 	}
 	/**

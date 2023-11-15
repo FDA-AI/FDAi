@@ -11,7 +11,7 @@ use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseAverageForwardPearsonCorrelationOverOnsetDelaysProperty;
 use App\Traits\PropertyTraits\IsCalculated;
 use App\Types\QMStr;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationAverageForwardPearsonCorrelationOverOnsetDelaysProperty extends BaseAverageForwardPearsonCorrelationOverOnsetDelaysProperty
 {
     use CorrelationProperty;
@@ -19,7 +19,7 @@ class CorrelationAverageForwardPearsonCorrelationOverOnsetDelaysProperty extends
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float
      * @throws \App\Exceptions\NotEnoughDataException
      * @throws \App\Exceptions\TooSlowToAnalyzeException

@@ -5,6 +5,6 @@
  */
 
 namespace App\Correlations;
-class QMThirdPartyCorrelation extends QMUserCorrelation {
+class QMThirdPartyCorrelation extends QMUserVariableRelationship {
     public const TABLE = 'third_party_correlations';
 }

@@ -9,7 +9,7 @@ if(!isset($table)){
 $pluralTitle = qm_request()->getPluralTitle();
 $pluralClass = qm_request()->getPluralClassName();
 $jobName = $pluralClass;
-if($jobName === "Correlations"){$jobName = "UserCorrelations";}
+if($jobName === "Correlations"){$jobName = "UserVariableRelationships";}
 ?>
 @isadmin
     <a href='http://quantimodo2.asuscomm.com:8082/view/Jobs/job/{{ $jobName }}-job/' target="_blank">

@@ -454,8 +454,8 @@ abstract class QMCorrelation extends DBModel {
     /**
      * @param string $causeVariableName
      * @param string $effectVariableName
-     * @param QMGlobalVariableRelationship[]|QMCorrelation[]|QMUserCorrelation[] $correlations
-     * @return QMCorrelation[]|QMUserCorrelation[]|QMGlobalVariableRelationship[]
+     * @param QMGlobalVariableRelationship[]|QMCorrelation[]|QMUserVariableRelationship[] $correlations
+     * @return QMCorrelation[]|QMUserVariableRelationship[]|QMGlobalVariableRelationship[]
      */
     protected static function putExactMatchFirst(string $causeVariableName, string $effectVariableName, array $correlations): array{
         $sorted = [];
@@ -1441,7 +1441,7 @@ abstract class QMCorrelation extends DBModel {
      * @return int
      */
     public static function deleteByEffectId(int $effectId, string $reason): int {
-        $qb = QMUserCorrelation::writable()->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $effectId);
+        $qb = QMUserVariableRelationship::writable()->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $effectId);
         $c = $qb->count();
         QMLog::error("Deleting $c user variable relationships where effect...");
         $deletedUser = $qb->hardDelete($reason, true);

@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Models\Correlation;
@@ -19,11 +19,11 @@ class CorrelationReversePearsonCorrelationCoefficientProperty extends BaseRevers
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
 	/**
-	 * @param QMUserCorrelation $model
+	 * @param QMUserVariableRelationship $model
 	 * @return float
 	 */
 	public static function calculate($model): float {
-		$c = new QMUserCorrelation(null, $model->getEffectQMVariable(), $model->getCauseQMVariable());
+		$c = new QMUserVariableRelationship(null, $model->getEffectQMVariable(), $model->getCauseQMVariable());
 		try {
 			$val = CorrelationForwardPearsonCorrelationCoefficientProperty::calculate($c);
 		} catch (NotEnoughDataException|TooSlowToAnalyzeException $e) {

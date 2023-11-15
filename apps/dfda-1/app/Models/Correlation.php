@@ -19,7 +19,7 @@ use App\Buttons\RelationshipButtons\RelationshipButton;
 use App\Charts\ChartGroup;
 use App\Charts\CorrelationCharts\CorrelationChartGroup;
 use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\IncompatibleUnitException;
 use App\Exceptions\InvalidStringException;
 use App\Exceptions\InvalidVariableValueException;
@@ -545,7 +545,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	public const FONT_AWESOME_CAUSES  = FontAwesome::SIGN_IN_ALT_SOLID;
 	public const FONT_AWESOME_EFFECTS = FontAwesome::SIGN_OUT_ALT_SOLID;
 	public static function getSlimClass(): string{
-		return QMUserCorrelation::class;
+		return QMUserVariableRelationship::class;
 	}
 	public static function getUniqueIndexColumns(): array{
 		return [
@@ -806,13 +806,13 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		return $this->votes;
 	}
 	/**
-	 * @return QMUserCorrelation
+	 * @return QMUserVariableRelationship
 	 */
 	public function getDBModel(): DBModel{
 		if($dbm = $this->getDBModelFromMemory()){
 			return $dbm;
 		}
-		$dbm = new QMUserCorrelation();
+		$dbm = new QMUserVariableRelationship();
 		$dbm->setLaravelModel($this);
 		$cause = $this->getCauseUserVariable();
 		$dbm->setCauseVariable($cause->getDBModel());
@@ -820,7 +820,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		$dbm->setEffectVariable($effect->getDBModel());
 		$dbm->populateByLaravelModel($this);
 		$dbm->populateDefaultFields();
-		foreach(QMUserCorrelation::DB_FIELD_NAME_TO_PROPERTY_NAME_MAP as $db => $prop){
+		foreach(QMUserVariableRelationship::DB_FIELD_NAME_TO_PROPERTY_NAME_MAP as $db => $prop){
 			$dbm->$prop = $this->getAttribute($db);
 		}
 		$dbm->userVote = $this->getUserVoteValue();
@@ -1566,7 +1566,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_AGGREGATED_AT] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->aggregatedAt;
 		}
 	}
@@ -1577,7 +1577,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_ANALYSIS_REQUESTED_AT] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->analysisRequestedAt;
 		}
 	}
@@ -1588,7 +1588,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_ANALYSIS_STARTED_AT] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->analysisStartedAt;
 		}
 	}
@@ -1599,7 +1599,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_CAUSE_FILLING_VALUE] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->causeFillingValue;
 		}
 	}
@@ -1610,7 +1610,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_CAUSE_NUMBER_OF_PROCESSED_DAILY_MEASUREMENTS] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->causeNumberOfProcessedDailyMeasurements;
 		}
 	}
@@ -1618,7 +1618,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_CAUSE_NUMBER_OF_RAW_MEASUREMENTS] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->causeNumberOfRawMeasurements;
 		}
 	}
@@ -1629,7 +1629,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_CAUSE_UNIT_ID] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->causeUnitId;
 		}
 	}
@@ -1652,7 +1652,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->getCorrelationsOverDelaysAttribute();
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->correlationsOverDelays;
 		}
 	}
@@ -1667,7 +1667,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->getCorrelationsOverDurationsAttribute();
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->correlationsOverDurations;
 		}
 	}
@@ -1685,7 +1685,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_DELETED_AT] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->deletedAt;
 		}
 	}
@@ -1696,7 +1696,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_DELETION_REASON] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->deletionReason;
 		}
 	}
@@ -1710,7 +1710,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_EARLIEST_MEASUREMENT_START_AT] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->earliestMeasurementStartAt;
 		}
 	}
@@ -1733,7 +1733,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_EFFECT_NUMBER_OF_RAW_MEASUREMENTS] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->effectNumberOfRawMeasurements;
 		}
 	}
@@ -1759,7 +1759,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_INTERESTING_VARIABLE_CATEGORY_PAIR] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->interestingVariableCategoryPair;
 		}
 	}
@@ -1770,7 +1770,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_INTERNAL_ERROR_MESSAGE] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->internalErrorMessage;
 		}
 	}
@@ -1778,7 +1778,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_LATEST_MEASUREMENT_START_AT] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->latestMeasurementStartAt;
 		}
 	}
@@ -1792,7 +1792,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_NUMBER_OF_DAYS] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->numberOfDays;
 		}
 	}
@@ -1812,7 +1812,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_REASON_FOR_ANALYSIS] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->reasonForAnalysis;
 		}
 	}
@@ -1820,7 +1820,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_RECORD_SIZE_IN_KB] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->recordSizeInKb;
 		}
 	}
@@ -1831,7 +1831,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_USER_ERROR_MESSAGE] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->userErrorMessage;
 		}
 	}
@@ -1839,7 +1839,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(property_exists($this, 'attributes') && $this->attributes){
 			return $this->attributes[Correlation::FIELD_WP_POST_ID] ?? null;
 		} else{
-			/** @var QMUserCorrelation $this */
+			/** @var QMUserVariableRelationship $this */
 			return $this->wpPostId;
 		}
 	}
@@ -1934,7 +1934,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		$c = $this->getDBModel();
 		return $c->getOrSetCharts();
 	}
-	public function getQMUserCorrelation(): QMUserCorrelation{ return $this->getDBModel(); }
+	public function getQMUserVariableRelationship(): QMUserVariableRelationship{ return $this->getDBModel(); }
 	public function getCauseUrl(): string{
 		$url = UserVariable::generateShowUrl($this->getCauseUserVariableId());
 		try {

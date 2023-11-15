@@ -8,7 +8,7 @@ namespace App\Charts\CorrelationCharts;
 use App\Charts\DistributionColumnChart;
 use App\Charts\QMHighcharts\ColumnHighchartConfig;
 use App\Charts\QMHighcharts\HighchartConfig;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\NotEnoughMeasurementsForCorrelationException;
 use App\Studies\QMUserStudy;
@@ -17,14 +17,14 @@ use App\Utils\Stats;
 class OutcomeDistributionColumnChart extends CorrelationChart {
 	const SIGNIFICANT_FIGURES = 2; // Results in a maximum of 10 bins, I think?
 	/**
-	 * @param QMUserCorrelation|QMUserStudy|null $c
+	 * @param QMUserVariableRelationship|QMUserStudy|null $c
 	 */
 	public function __construct($c = null){
 		if(!$c){
 			return;
 		}
 		try {
-			$c = $c->getQMUserCorrelation();
+			$c = $c->getQMUserVariableRelationship();
 		} catch (NotEnoughDataException $e) {
 			return;
 		}
@@ -54,7 +54,7 @@ class OutcomeDistributionColumnChart extends CorrelationChart {
 		$this->setTooltipOnConfig($config);
 		return $this->setHighchartConfig($config);
 	}
-	private function getQMUserCorrelation(): QMUserCorrelation{
+	private function getQMUserVariableRelationship(): QMUserVariableRelationship{
 		return $this->sourceObject;
 	}
 	/**
@@ -62,7 +62,7 @@ class OutcomeDistributionColumnChart extends CorrelationChart {
 	 * @throws NotEnoughDataException
 	 */
 	protected function generateSeriesData(): array{
-		$c = $this->getQMUserCorrelation();
+		$c = $this->getQMUserVariableRelationship();
 		$pairs = $c->setPairsBasedOnDailyEffectValues();
 		$causeValuesByEffectValue = [];
 		foreach($pairs as $pair){
@@ -87,7 +87,7 @@ class OutcomeDistributionColumnChart extends CorrelationChart {
 	 * @param ColumnHighchartConfig $config
 	 */
 	public function setTooltipOnConfig(ColumnHighchartConfig $config): void{
-		$c = $this->getQMUserCorrelation();
+		$c = $this->getQMUserVariableRelationship();
 		$cuv = $c->getCauseQMVariable();
 		$euv = $c->getEffectQMVariable();
 		$causeName = $cuv->getDisplayNameAttribute();

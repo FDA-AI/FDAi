@@ -16,7 +16,7 @@
 ║ unDeleteIfNecessary           │ user_variables       │ user_id=1 & variable_id=1276                                ║
 ║ insertIntoMySQL               │ user_variables       │ insert (null, null, '?', '?', null, null, null, -1, null... ║
 ║ createOrUnDeleteById          │ user_variables       │ user_id=1 & variable_id=1276 & deleted_at=null limit 1      ║
-║ QMUserCorrelation::findByIds  │ correlations         │ cause_variable_id=1276 & effect_variable_id=1919 & user_... ║
+║ QMUserVariableRelationship::findByIds  │ correlations         │ cause_variable_id=1276 & effect_variable_id=1919 & user_... ║
 ║ findByNameOrId                │ user_variables       │ user_id=1 & variable_id=1919 & deleted_at=null limit 1      ║
 ║ unDeleteIfNecessary           │ user_variables       │ user_id=1 & variable_id=1919                                ║
 ║ insertIntoMySQL               │ user_variables       │ insert (null, null, '?', '?', null, null, null, -1, null... ║

@@ -11,7 +11,7 @@ use App\CodeGenerators\Swagger\SwaggerDefinition;
 use App\Computers\ThisComputer;
 use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\AlreadyAnalyzedException;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\BadRequestException;
@@ -24,7 +24,7 @@ use App\Exceptions\InvalidAttributeException;
 use App\Exceptions\InvalidVariableValueException;
 use App\Exceptions\ModelValidationException;
 use App\Exceptions\NotEnoughDataException;
-use App\Exceptions\NoUserCorrelationsToAggregateException;
+use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Exceptions\QMException;
 use App\Exceptions\StupidVariableNameException;
 use App\Exceptions\TooSlowToAnalyzeException;
@@ -564,8 +564,8 @@ class QMCommonVariable extends QMVariable {
             'numberOfAggregatedCorrelationsAsEffect' => 'numberOfCorrelationsAsEffect',
             'numberOfGlobalVariableRelationshipsAsCause'   => 'numberOfCorrelationsAsCause',
             'numberOfGlobalVariableRelationshipsAsEffect'  => 'numberOfCorrelationsAsEffect',
-            'numberOfUserCorrelationsAsCause'        => 'numberOfCorrelationsAsCause',
-            'numberOfUserCorrelationsAsEffect'       => 'numberOfCorrelationsAsEffect',
+            'numberOfUserVariableRelationshipsAsCause'        => 'numberOfCorrelationsAsCause',
+            'numberOfUserVariableRelationshipsAsEffect'       => 'numberOfCorrelationsAsEffect',
             'categoryName'                           => 'variableCategoryName',
         ];
     }
@@ -1732,14 +1732,14 @@ class QMCommonVariable extends QMVariable {
      * @throws AlreadyAnalyzedException
      * @throws AlreadyAnalyzingException
      * @throws ModelValidationException
-     * @throws NoUserCorrelationsToAggregateException
+     * @throws NoUserVariableRelationshipsToAggregateException
      * @throws NotEnoughDataException
      * @throws TooSlowToAnalyzeException
      * @throws DuplicateFailedAnalysisException
      * @throws StupidVariableNameException
      */
     public function recalculateAllCorrelationsWithInvalidValues(){
-        $userVariableRelationships = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships([
+        $userVariableRelationships = QMUserVariableRelationship::getOrCreateUserOrGlobalVariableRelationships([
             'causeVariableId' => $this->id,
             'limit'           => 0
         ]);

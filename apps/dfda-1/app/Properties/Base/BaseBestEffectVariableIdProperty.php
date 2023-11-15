@@ -21,7 +21,7 @@ class BaseBestEffectVariableIdProperty extends BaseEffectVariableIdProperty{
      * @return int
      */
     public static function calculate($uv){
-        $best = $uv->getBestUserCorrelation();
+        $best = $uv->getBestUserVariableRelationship();
         $uv->setAttribute(static::NAME, $best->id);
         return $best->id;
     }

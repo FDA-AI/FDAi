@@ -3,7 +3,7 @@
 *  Contributors: ADD YOUR NAME HERE, Mike P. Sinn
  */ /** @noinspection PhpUnused */
 namespace App\Slim\Controller;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Slim\View\Request\QMRequest;
 use App\Variables\QMCommonVariable;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -32,7 +32,7 @@ abstract class PostController extends Controller {
 	 */
 	public function getCauseVariableName(bool $throwException = false): ?string{
 		$requestBody =
-            static::getBodyAsArrayAndReplaceLegacyKeys(false, QMUserCorrelation::getLegacyRequestParameters());
+            static::getBodyAsArrayAndReplaceLegacyKeys(false, QMUserVariableRelationship::getLegacyRequestParameters());
 		if(isset($requestBody['causeVariableName'])){
 			return $requestBody['causeVariableName'];
 		}
@@ -56,7 +56,7 @@ abstract class PostController extends Controller {
 	 */
 	public function getEffectVariableName(bool $throwException = false): ?string{
 		$requestBody =
-            static::getBodyAsArrayAndReplaceLegacyKeys(false, QMUserCorrelation::getLegacyRequestParameters());
+            static::getBodyAsArrayAndReplaceLegacyKeys(false, QMUserVariableRelationship::getLegacyRequestParameters());
 		if(isset($requestBody['effectVariableName'])){
 			return $requestBody['effectVariableName'];
 		}
@@ -80,7 +80,7 @@ abstract class PostController extends Controller {
 	 */
 	public function getCauseVariableId(bool $throwException = false): ?int{
 		$requestBody =
-            static::getBodyAsArrayAndReplaceLegacyKeys(false, QMUserCorrelation::getLegacyRequestParameters());
+            static::getBodyAsArrayAndReplaceLegacyKeys(false, QMUserVariableRelationship::getLegacyRequestParameters());
 		if(isset($requestBody['causeVariableId'])){
 			return (int)$requestBody['causeVariableId'];
 		}
@@ -101,7 +101,7 @@ abstract class PostController extends Controller {
 	 */
 	public function getEffectVariableId(bool $throwException = false): ?int{
 		$requestBody =
-            static::getBodyAsArrayAndReplaceLegacyKeys(false, QMUserCorrelation::getLegacyRequestParameters());
+            static::getBodyAsArrayAndReplaceLegacyKeys(false, QMUserVariableRelationship::getLegacyRequestParameters());
 		if(isset($requestBody['effectVariableId'])){
 			return (int)$requestBody['effectVariableId'];
 		}

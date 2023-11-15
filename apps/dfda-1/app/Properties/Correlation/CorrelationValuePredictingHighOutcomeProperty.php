@@ -12,7 +12,7 @@ use App\Traits\PropertyTraits\IsCalculated;
 use App\Traits\VariableValueTraits\CauseDailyVariableValueTrait;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseValuePredictingHighOutcomeProperty;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Slim\Model\Measurement\Pair;
 class CorrelationValuePredictingHighOutcomeProperty extends BaseValuePredictingHighOutcomeProperty
 {
@@ -82,7 +82,7 @@ class CorrelationValuePredictingHighOutcomeProperty extends BaseValuePredictingH
         $this->validateCauseValue($this->getDBValue(), $this->name, null);
     }
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float
      * @throws \App\Exceptions\InsufficientVarianceException
      * @throws \App\Exceptions\InvalidVariableValueException
@@ -93,7 +93,7 @@ class CorrelationValuePredictingHighOutcomeProperty extends BaseValuePredictingH
     public static function calculate($model): float{
         $pairs = CorrelationValuePredictingHighOutcomeProperty::getPairsWithEffectValueAbove(
             $model->getHighEffectCutoffMinimumValue(), $model->getPairsBasedOnDailyCauseValues());
-        $val = QMUserCorrelation::calculateAverageCauseForPairSubset($pairs);
+        $val = QMUserVariableRelationship::calculateAverageCauseForPairSubset($pairs);
         $model->setAvgDailyValuePredictingHighOutcome($val);
         $model->setAttribute(static::NAME, $val);
         return $val;

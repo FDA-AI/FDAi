@@ -46,7 +46,7 @@ class GlobalVariableRelationshipEffectFollowUpPercentChangeFromBaselineProperty 
             }
             try {
                 try {
-                    $ac->recalculateUserCorrelations();
+                    $ac->recalculateUserVariableRelationships();
                     $ac->analyze(__FUNCTION__);
                 } catch (NotEnoughDataException $e) {
                     QMLog::error($e->getMessage()."\nDelete me at: ".$ac->getDataLabDeleteUrl());

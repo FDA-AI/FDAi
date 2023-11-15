@@ -12,7 +12,7 @@ use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseCauseChangesProperty;
 use App\Traits\PropertyTraits\IsCalculated;
 use App\Utils\Stats;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationCauseChangesProperty extends BaseCauseChangesProperty
 {
     use CorrelationProperty;
@@ -20,7 +20,7 @@ class CorrelationCauseChangesProperty extends BaseCauseChangesProperty
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return int
      * @throws NotEnoughDataException
      * @throws \App\Exceptions\TooSlowToAnalyzeException
@@ -34,7 +34,7 @@ class CorrelationCauseChangesProperty extends BaseCauseChangesProperty
     }
     /**
      * @param int $causeChanges
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @throws InsufficientVarianceException
      * @noinspection PhpParameterNameChangedDuringInheritanceInspection
      */

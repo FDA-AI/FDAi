@@ -27,7 +27,7 @@ use App\Cards\HelpQMCard;
 use App\Cards\VariableStatisticsCard;
 use App\Charts\ChartGroup;
 use App\Charts\UserVariableCharts\UserVariableChartGroup;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\DataSources\QMDataSource;
 use App\Exceptions\BadRequestException;
 use App\Exceptions\IncompatibleUnitException;
@@ -303,7 +303,7 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property int|null $best_cause_variable_id
  * @property int|null $best_effect_variable_id
  * @property string|null $best_user_variable_relationship_id
- * @property QMUserCorrelation $best_user_variable_relationship
+ * @property QMUserVariableRelationship $best_user_variable_relationship
  * @property float|null $user_maximum_allowed_daily_value
  * @property float|null $user_minimum_allowed_daily_value
  * @property float|null $user_minimum_allowed_non_zero_value
@@ -318,7 +318,7 @@ use Titasgailius\SearchRelations\SearchesRelations;
  *     whereAverageSecondsBetweenMeasurements($value)
  * @method static Builder|UserVariable whereBestCauseVariableId($value)
  * @method static Builder|UserVariable whereBestEffectVariableId($value)
- * @method static Builder|UserVariable whereBestUserCorrelation($value)
+ * @method static Builder|UserVariable whereBestUserVariableRelationship($value)
  * @method static Builder|UserVariable whereCombinationOperation($value)
  * @method static Builder|UserVariable whereDataSourcesCount($value)
  * @method static Builder|UserVariable whereDeletedAt($value)
@@ -340,9 +340,9 @@ use Titasgailius\SearchRelations\SearchesRelations;
  *     whereNumberOfRawMeasurementsWithTagsJoinsChildren($value)
  * @method static Builder|UserVariable whereNumberOfTrackingReminders($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserVariable
- *     whereNumberOfUserCorrelationsAsCause($value)
+ *     whereNumberOfUserVariableRelationshipsAsCause($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserVariable
- *     whereNumberOfUserCorrelationsAsEffect($value)
+ *     whereNumberOfUserVariableRelationshipsAsEffect($value)
  * @method static Builder|UserVariable whereOptimalValueMessage($value)
  * @method static Builder|UserVariable whereOutcomeOfInterest($value)
  * @method static Builder|UserVariable wherePredictorOfInterest($value)
@@ -421,7 +421,7 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property-read int|null $user_variable_clients_count
  * @property-read VariableCategory|null $variable_category
  * @property-read WpPost|null $wp_post
- * @method static Builder|UserVariable whereBestUserCorrelationId($value)
+ * @method static Builder|UserVariable whereBestUserVariableRelationshipId($value)
  * @method static Builder|BaseModel applyRequestParams($request)
  * @method static Builder|BaseModel exclude($columns)
  * @method static Builder|BaseModel excludeLargeColumns()
@@ -858,7 +858,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	}
 	/**
 	 * @param array $userVariableIds
-	 * @return QMUserCorrelation[]
+	 * @return QMUserVariableRelationship[]
 	 * @throws TooSlowToAnalyzeException
 	 */
 	public function correlate(array $userVariableIds = []): array{
@@ -1639,7 +1639,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		return Measurement::bulkInsert($values, $this);
 	}
 	/**
-	 * @return QMUserCorrelation[]
+	 * @return QMUserVariableRelationship[]
 	 */
 	public function calculateCorrelationsIfNecessary(): ?array{
 		$dbm = $this->getQMUserVariable();
@@ -1673,7 +1673,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 			null);
 	}
 	/**
-	 * @return QMUserCorrelation[]
+	 * @return QMUserVariableRelationship[]
 	 * @throws TooSlowToAnalyzeException
 	 */
 	public function correlateAll(): array{
@@ -1682,7 +1682,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		return $this->correlate($userVariableIds);
 	}
 	/**
-	 * @return QMUserCorrelation[]
+	 * @return QMUserVariableRelationship[]
 	 * @throws TooSlowToAnalyzeException
 	 */
 	public function correlateAsEffect(): array{
@@ -1705,7 +1705,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		return $dbm->getOutcomesOrPredictors($limit, $variableCategoryName);
 	}
 	/**
-	 * @return QMUserCorrelation[]
+	 * @return QMUserVariableRelationship[]
 	 * @throws \App\Exceptions\TooSlowToAnalyzeException
 	 */
 	public function correlateIfNecessary(): array{
@@ -1724,7 +1724,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	public function weShouldCalculateCorrelations(): bool{
 		$percentChangeRequired = \App\Utils\Env::get('REQUIRED_NEW_MEASUREMENT_PERCENT_FOR_CORRELATION');
 		if(!$percentChangeRequired){
-			$percentChangeRequired = QMUserCorrelation::REQUIRED_NEW_MEASUREMENT_PERCENT_FOR_CORRELATION;
+			$percentChangeRequired = QMUserVariableRelationship::REQUIRED_NEW_MEASUREMENT_PERCENT_FOR_CORRELATION;
 		}
 		$currentRaw = $this->getOrCalculateNumberOfMeasurements();
 		$currentRawWithTags = $this->getOrCalculateNumberOfRawMeasurementsWithTagsJoinsChildren();
@@ -1754,9 +1754,9 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		}
 		$lastCorrelated = $this->getLastCorrelatedAt();
 		$lastCorrelatedString = "last correlated " . TimeHelper::timeSinceHumanString($lastCorrelated);
-		if(strtotime($lastCorrelated) < strtotime(QMUserCorrelation::ALGORITHM_MODIFIED_AT)){
-			$this->logInfo("Need to calculate correlations because $lastCorrelatedString and UserCorrelation::ALGORITHM_MODIFIED_AT was " .
-				QMUserCorrelation::ALGORITHM_MODIFIED_AT);
+		if(strtotime($lastCorrelated) < strtotime(QMUserVariableRelationship::ALGORITHM_MODIFIED_AT)){
+			$this->logInfo("Need to calculate correlations because $lastCorrelatedString and UserVariableRelationship::ALGORITHM_MODIFIED_AT was " .
+				QMUserVariableRelationship::ALGORITHM_MODIFIED_AT);
 			return true;
 		}
 		$requiredNewRawMeasurements = (1 + $percentChangeRequired / 100) * $atLastCorrelation;
@@ -2001,7 +2001,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		if($this->isStupidVariable()){
 			le("Not posting stupid variable $this");
 		}
-		if($this->getNumberOfUserCorrelations()){
+		if($this->getNumberOfUserVariableRelationships()){
 			return;
 		}
 		if($this->getNumberOfRawMeasurementsWithTagsJoinsChildren()){
@@ -2153,7 +2153,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		return $this->attributes[UserVariable::FIELD_AVERAGE_SECONDS_BETWEEN_MEASUREMENTS] ?? null;
 	}
 	public function getBadgeText(): ?string{
-		return $this->getNumberOfUserCorrelations();
+		return $this->getNumberOfUserVariableRelationships();
 	}
 	public function getBestCauseVariableId(): ?int{
 		return $this->attributes[UserVariable::FIELD_BEST_CAUSE_VARIABLE_ID] ?? null;
@@ -2172,7 +2172,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	 * @return GlobalVariableRelationship|Correlation
 	 */
 	public function getCorrelation(): ?BaseModel{
-		$best = $this->getBestUserCorrelation();
+		$best = $this->getBestUserVariableRelationship();
 		if(!$best){
 			$best = $this->getBestGlobalVariableRelationship();
 		}
@@ -2184,13 +2184,13 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		return $this->attributes[UserVariable::FIELD_BEST_EFFECT_VARIABLE_ID] ?? null;
 	}
 	/** @noinspection PhpUnused */
-	public function getBestUserCorrelationId(): ?int{
+	public function getBestUserVariableRelationshipId(): ?int{
 		return $this->attributes[UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID] ?? null;
 	}
 	/**
 	 * @return string
 	 */
-	public function getBestUserCorrelationLink(): string{
+	public function getBestUserVariableRelationshipLink(): string{
 		$id = $this->best_user_variable_relationship_id;
 		if(!$id){
 			return "N/A";
@@ -2516,11 +2516,11 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 			$this->getNumberOfTrackingRemindersButton(),
 			$this->getCommonVariableButton(),
 		];
-		if($this->isOutcome() || $this->getNumberOfUserCorrelationsAsEffectAttribute()){
-			$arr[] = $this->getNumberOfUserCorrelationsWhereEffectButton();
+		if($this->isOutcome() || $this->getNumberOfUserVariableRelationshipsAsEffectAttribute()){
+			$arr[] = $this->getNumberOfUserVariableRelationshipsWhereEffectButton();
 		}
-		if($this->isPredictor() || $this->getNumberOfUserCorrelationsAsCauseAttribute()){
-			$arr[] = $this->getNumberOfUserCorrelationsWhereCauseButton();
+		if($this->isPredictor() || $this->getNumberOfUserVariableRelationshipsAsCauseAttribute()){
+			$arr[] = $this->getNumberOfUserVariableRelationshipsWhereCauseButton();
 		}
 		$u = QMAuth::getQMUser();
 		if(!$u || $u->getId() !== $this->getUserId()){
@@ -2560,7 +2560,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		$b = new UserVariableVariableButton($this);
 		return $b;
 	}
-	public function getNumberOfUserCorrelationsWhereEffectButton(): QMButton{
+	public function getNumberOfUserVariableRelationshipsWhereEffectButton(): QMButton{
 		$number = $this->number_of_user_variable_relationships_as_effect;
 		if($number === null){
 			$number = "N/A";
@@ -2578,7 +2578,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		}
 		return $this->getQMVariableCategory()->predictor;
 	}
-	public function getNumberOfUserCorrelationsWhereCauseButton(): QMButton{
+	public function getNumberOfUserVariableRelationshipsWhereCauseButton(): QMButton{
 		$number = $this->number_of_user_variable_relationships_as_cause;
 		if($number === null){
 			$number = "N/A";
@@ -3112,7 +3112,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 			"Median" => $u->getValueAndUnitString($this->getMedian()),
 			"Minimum Allowed Value" => $u->getValueAndUnitString($this->getMinimumAllowedValueAttribute()),
 			"Number of Changes" => $this->getNumberOfChanges(),
-			"Number of Correlations" => $this->getNumberOfUserCorrelations(),
+			"Number of Correlations" => $this->getNumberOfUserVariableRelationships(),
 			"Number of Measurements" => $this->getNumberOfMeasurements(),
 			"Onset Delay" => TimeHelper::convertSecondsToHumanString($this->getOnsetDelay()),
 			"Standard Deviation" => $this->getStandardDeviationAttribute(),
@@ -3699,7 +3699,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	 * @return GlobalVariableRelationship|Correlation
 	 */
 	public function setBestCorrelation(){
-		$best = $this->setBestUserCorrelation();
+		$best = $this->setBestUserVariableRelationship();
 		if($best){
 			return $best;
 		}
@@ -3709,8 +3709,8 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	public function setBestEffectVariableId(int $bestEffectVariableId): void{
 		$this->setAttribute(UserVariable::FIELD_BEST_EFFECT_VARIABLE_ID, $bestEffectVariableId);
 	}
-	public function setBestUserCorrelationId(int $bestUserCorrelationId): void{
-		$this->setAttribute(UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID, $bestUserCorrelationId);
+	public function setBestUserVariableRelationshipId(int $bestUserVariableRelationshipId): void{
+		$this->setAttribute(UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID, $bestUserVariableRelationshipId);
 	}
 	public function setCauseOnly(bool $causeOnly): void{
 		$this->setAttribute(UserVariable::FIELD_CAUSE_ONLY, $causeOnly);
@@ -3766,7 +3766,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	public function setEarliestFillingTime(int $earliestFillingTime): void{
 		$this->setAttribute(UserVariable::FIELD_EARLIEST_FILLING_TIME, $earliestFillingTime);
 	}
-	public function getNumberOfUserCorrelationsAsCauseAttribute(): ?int{
+	public function getNumberOfUserVariableRelationshipsAsCauseAttribute(): ?int{
 		return $this->attributes[UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE] ?? null;
 	}
 	/**
@@ -3776,7 +3776,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		$this->attributes[self::FIELD_EARLIEST_FILLING_TIME] = time_or_null($value);
 	}
 
-	public function getNumberOfUserCorrelationsAsEffectAttribute(): ?int{
+	public function getNumberOfUserVariableRelationshipsAsEffectAttribute(): ?int{
 		return $this->attributes[UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT] ?? null;
 	}
 	/**
@@ -4133,8 +4133,8 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	public function setNumberOfUserChildren(int $numberOfUserChildren): void{
 		$this->setAttribute(UserVariable::FIELD_NUMBER_OF_USER_CHILDREN, $numberOfUserChildren);
 	}
-	public function setNumberOfUserCorrelationsAsCause(int $numberOfUserCorrelationsWhereCause): void{
-		$this->setAttribute(UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE, $numberOfUserCorrelationsWhereCause);
+	public function setNumberOfUserVariableRelationshipsAsCause(int $numberOfUserVariableRelationshipsWhereCause): void{
+		$this->setAttribute(UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE, $numberOfUserVariableRelationshipsWhereCause);
 	}
 
 	public function setNumberOfUserFoods(int $numberOfUserFoods): void{
@@ -4301,7 +4301,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		}
 	}
 	public function getNumberOfSubtitle(): string{
-		if($num = $this->getNumberOfUserCorrelations()){
+		if($num = $this->getNumberOfUserVariableRelationships()){
 			return "$num Studies";
 		}
 		return $this->getNumberOfMeasurements() . " Measurements";
@@ -4317,8 +4317,8 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 			}
 		}
 	}
-	public function getNumberOfUserCorrelations(): int{
-		return $this->getNumberOfUserCorrelationsAsCauseAttribute() + $this->getNumberOfUserCorrelationsAsEffectAttribute();
+	public function getNumberOfUserVariableRelationships(): int{
+		return $this->getNumberOfUserVariableRelationshipsAsCauseAttribute() + $this->getNumberOfUserVariableRelationshipsAsEffectAttribute();
 	}
 	public function getClientId(): ?string{
 		return $this->attributes[UserVariable::FIELD_CLIENT_ID] ?? null;

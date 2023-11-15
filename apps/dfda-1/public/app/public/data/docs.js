@@ -4879,11 +4879,11 @@ qm.staticData.docs = {
                     "type": "integer"
                 },
                 "numberOfCorrelationsAsCause": {
-                    "description": "numberOfGlobalVariableRelationshipsAsCause plus numberOfUserCorrelationsAsCause",
+                    "description": "numberOfGlobalVariableRelationshipsAsCause plus numberOfUserVariableRelationshipsAsCause",
                     "type": "integer"
                 },
                 "numberOfCorrelationsAsEffect": {
-                    "description": "numberOfGlobalVariableRelationshipsAsEffect plus numberOfUserCorrelationsAsEffect",
+                    "description": "numberOfGlobalVariableRelationshipsAsEffect plus numberOfUserVariableRelationshipsAsEffect",
                     "type": "integer"
                 },
                 "numberOfProcessedDailyMeasurements": {
@@ -4908,11 +4908,11 @@ qm.staticData.docs = {
                     "description": "Ex: 2",
                     "type": "integer"
                 },
-                "numberOfUserCorrelationsAsCause": {
+                "numberOfUserVariableRelationshipsAsCause": {
                     "description": "Ex: 115",
                     "type": "integer"
                 },
-                "numberOfUserCorrelationsAsEffect": {
+                "numberOfUserVariableRelationshipsAsEffect": {
                     "description": "Ex: 29014",
                     "type": "integer"
                 },

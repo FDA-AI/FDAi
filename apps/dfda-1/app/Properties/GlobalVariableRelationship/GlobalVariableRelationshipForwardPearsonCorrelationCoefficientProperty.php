@@ -19,12 +19,12 @@ class GlobalVariableRelationshipForwardPearsonCorrelationCoefficientProperty ext
     /**
      * @param QMGlobalVariableRelationship $model
      * @return float
-     * @throws \App\Exceptions\NoUserCorrelationsToAggregateException
+     * @throws \App\Exceptions\NoUserVariableRelationshipsToAggregateException
      */
     public static function calculate($model): float{
-        $val = $model->weightedAvgFromUserCorrelations(static::NAME);
+        $val = $model->weightedAvgFromUserVariableRelationships(static::NAME);
         if($val === null){
-            $val = $model->weightedAvgFromUserCorrelations(static::NAME);
+            $val = $model->weightedAvgFromUserVariableRelationships(static::NAME);
         }
         $model->setAttribute(static::NAME, $val);
         return $val;

@@ -10,7 +10,7 @@ use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseCauseTreatmentAveragePerDurationOfActionProperty;
 use App\Utils\Stats;
 use Illuminate\Support\Arr;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationCauseTreatmentAveragePerDurationOfActionProperty extends BaseCauseTreatmentAveragePerDurationOfActionProperty
 {
     use CorrelationProperty;
@@ -18,7 +18,7 @@ class CorrelationCauseTreatmentAveragePerDurationOfActionProperty extends BaseCa
     public $parentClass = Correlation::class;
     use \App\Traits\PropertyTraits\IsCalculated;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return int
      * @throws \App\Exceptions\NotEnoughDataException
      * @throws \App\Exceptions\TooSlowToAnalyzeException

@@ -10,7 +10,7 @@ use App\Buttons\StudyButton;
 use App\Charts\BarChartButton;
 use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\DataSources\QMClient;
 use App\Exceptions\AlreadyAnalyzedException;
 use App\Exceptions\IncompatibleUnitException;
@@ -337,7 +337,7 @@ trait HasCorrelationCoefficient {
 	 * @return bool
 	 */
 	public function typeIsIndividual(): bool{
-		return $this instanceof Correlation || $this instanceof QMUserCorrelation;
+		return $this instanceof Correlation || $this instanceof QMUserVariableRelationship;
 	}
 	/**
 	 * @return string
@@ -896,7 +896,7 @@ trait HasCorrelationCoefficient {
 	 * @return string
 	 */
 	public function getOptimalValueWithDurationOfActionSentence(bool $addressingUser = null): string{
-		if($this instanceof QMUserCorrelation && $this->effectFollowUpPercentChangeFromBaseline !== null &&
+		if($this instanceof QMUserVariableRelationship && $this->effectFollowUpPercentChangeFromBaseline !== null &&
 			$this->zScore !== null){
 			$message = $this->changeFromBaselineSentence($addressingUser);
 			if(stripos($message, "above average.") !== false){

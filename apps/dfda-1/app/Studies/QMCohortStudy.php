@@ -12,7 +12,7 @@ use App\Charts\GlobalVariableRelationshipCharts\GlobalVariableRelationshipChartG
 use App\Charts\ChartGroup;
 use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\DataSources\QMClient;
 use App\Exceptions\ClientNotFoundException;
 use App\Exceptions\NotEnoughDataException;
@@ -207,7 +207,7 @@ class QMCohortStudy extends QMStudy {
                 $this->getEffectVariableName());
     }
     /**
-     * @return QMGlobalVariableRelationship|QMUserCorrelation
+     * @return QMGlobalVariableRelationship|QMUserVariableRelationship
      * @throws NotEnoughDataException
      */
     public function getCreateOrRecalculateStatistics(): QMCorrelation{

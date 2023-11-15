@@ -5498,10 +5498,10 @@ components:
           format: int32
         numberOfCorrelationsAsCause:
           type: integer
-          description: numberOfGlobalVariableRelationshipsAsCause plus numberOfUserCorrelationsAsCause
+          description: numberOfGlobalVariableRelationshipsAsCause plus numberOfUserVariableRelationshipsAsCause
         numberOfCorrelationsAsEffect:
           type: integer
-          description: numberOfGlobalVariableRelationshipsAsEffect plus numberOfUserCorrelationsAsEffect
+          description: numberOfGlobalVariableRelationshipsAsEffect plus numberOfUserVariableRelationshipsAsEffect
         numberOfProcessedDailyMeasurements:
           type: integer
           description: Number of processed measurements
@@ -5519,10 +5519,10 @@ components:
         numberOfUniqueValues:
           type: integer
           description: 'Ex: 2'
-        numberOfUserCorrelationsAsCause:
+        numberOfUserVariableRelationshipsAsCause:
           type: integer
           description: 'Ex: 115'
-        numberOfUserCorrelationsAsEffect:
+        numberOfUserVariableRelationshipsAsEffect:
           type: integer
           description: 'Ex: 29014'
         numberOfUserVariables:
@@ -6033,10 +6033,10 @@ components:
           format: int32
         numberOfCorrelationsAsCause:
           type: integer
-          description: numberOfGlobalVariableRelationshipsAsCause plus numberOfUserCorrelationsAsCause
+          description: numberOfGlobalVariableRelationshipsAsCause plus numberOfUserVariableRelationshipsAsCause
         numberOfCorrelationsAsEffect:
           type: integer
-          description: numberOfGlobalVariableRelationshipsAsEffect plus numberOfUserCorrelationsAsEffect
+          description: numberOfGlobalVariableRelationshipsAsEffect plus numberOfUserVariableRelationshipsAsEffect
         numberOfProcessedDailyMeasurements:
           type: integer
           description: Number of processed measurements
@@ -6054,10 +6054,10 @@ components:
         numberOfUniqueValues:
           type: integer
           description: 'Ex: 2'
-        numberOfUserCorrelationsAsCause:
+        numberOfUserVariableRelationshipsAsCause:
           type: integer
           description: 'Ex: 115'
-        numberOfUserCorrelationsAsEffect:
+        numberOfUserVariableRelationshipsAsEffect:
           type: integer
           description: 'Ex: 29014'
         numberOfUserVariables:

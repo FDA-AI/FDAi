@@ -3,7 +3,7 @@
 *  Contributors: ADD YOUR NAME HERE, Mike P. Sinn
  */ /** @noinspection PhpUnused */
 namespace App\Slim\Controller\Correlation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\QMException;
 use App\Slim\Controller\PostController;
 use App\Types\QMArr;
@@ -12,7 +12,7 @@ use App\Types\QMArr;
  */
 class PostCorrelationController extends PostController {
 	public function post(){
-		QMUserCorrelation::makeCorrelation($this->getCauseVariableId(true), $this->getEffectVariableId(true),
+		QMUserVariableRelationship::makeCorrelation($this->getCauseVariableId(true), $this->getEffectVariableId(true),
 			$this->getCorrelationCoefficient());
 		return $this->writeJsonWithGlobalFields(201, ['status' => 'ok']);
 	}
@@ -21,7 +21,7 @@ class PostCorrelationController extends PostController {
 	 */
 	public function getCorrelationCoefficient(){
 		$requestBody = $this->getRequestJsonBodyAsArray(false);
-		$requestBody = QMArr::replaceLegacyKeys($requestBody, QMUserCorrelation::getLegacyRequestParameters());
+		$requestBody = QMArr::replaceLegacyKeys($requestBody, QMUserVariableRelationship::getLegacyRequestParameters());
 		if(empty($requestBody['correlationCoefficient'])){
 			throw new QMException(400, 'correlationCoefficient is not specified');
 		}

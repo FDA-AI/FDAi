@@ -167,7 +167,7 @@ class SwaggerDefinition extends StaticModel {
         $definitionName = str_replace("Effect", "", $definitionName);
         $definitionName = str_replace("Available", "", $definitionName);
         $definitionName = str_replace("Default", "", $definitionName);
-        $definitionName = str_replace("UserCorrelation", "Correlation", $definitionName);
+        $definitionName = str_replace("UserVariableRelationship", "Correlation", $definitionName);
         $definitionName = str_replace("CorrelationDataSource", "DataSource", $definitionName);
         $definitionName = str_replace("StudyPair", "Pair", $definitionName);
         $definitionName = str_replace("StudyChart", "Chart", $definitionName);

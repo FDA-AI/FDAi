@@ -8,7 +8,7 @@ use App\Buttons\Admin\ClockworkButton;
 use App\Buttons\Admin\PHPStormButton;
 use App\Computers\ThisComputer;
 use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\UserVariableNotFoundException;
 use App\Logging\QMLog;
 use App\Models\OAClient;
@@ -192,10 +192,10 @@ class JobTestCase extends TestCase {
         }
         return $this->debugEffectUserVariable;
     }
-    protected function checkUserCorrelationStats(){
-        $numberUpdatedInLastDay = QMUserCorrelation::logNumberAnalyzedInLastDay();
+    protected function checkUserVariableRelationshipStats(){
+        $numberUpdatedInLastDay = QMUserVariableRelationship::logNumberAnalyzedInLastDay();
         $this->assertGreaterThan(0, $numberUpdatedInLastDay, "No USER correlations in last 24 hours!");
-        $minutesAgo = QMUserCorrelation::getMostRecent()->getMinutesSinceUpdatedAt();
+        $minutesAgo = QMUserVariableRelationship::getMostRecent()->getMinutesSinceUpdatedAt();
         $this->assertLessThan(86400 / 60, $minutesAgo, "Last USER correlation update was more than a day ago!");
     }
     protected function checkAggregatedCorrelationStats(){
@@ -223,7 +223,7 @@ class JobTestCase extends TestCase {
     protected function checkUpdateStats(){
         $this->checkAggregatedCorrelationStats();
         $this->checkCommonVariableStats();
-        $this->checkUserCorrelationStats();
+        $this->checkUserVariableRelationshipStats();
         $this->checkUserVariableStats();
     }
     /**

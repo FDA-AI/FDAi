@@ -7,7 +7,7 @@
 namespace App\Exceptions;
 use App\Solutions\ViewAnalyzableDataSolution;
 use Facade\IgnitionContracts\Solution;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Variables\QMUserVariable;
 class NotEnoughMeasurementsForCorrelationException extends NotEnoughDataException {
     const GET_HELP_IF_YOU_HAVE_ENOUGH_DATA = "Please create a ticket at http://help.quantimo.do if you think you should already have enough data.";
@@ -21,17 +21,17 @@ class NotEnoughMeasurementsForCorrelationException extends NotEnoughDataExceptio
     public $causeUserVariable;
     public $effectUserVariable;
     /**
-     * @var QMUserCorrelation|null
+     * @var QMUserVariableRelationship|null
      */
     public $correlation;
     /**
      * @param string $problemDetails
-     * @param QMUserCorrelation $c
+     * @param QMUserVariableRelationship $c
      * @param QMUserVariable|null $cause
      * @param QMUserVariable|null $effect
      */
     public function __construct(string $problemDetails,
-                                QMUserCorrelation $c,
+                                QMUserVariableRelationship $c,
                                 QMUserVariable $cause = null,
                                 QMUserVariable $effect = null){
         if(!$cause){$cause = $c->getOrSetCauseQMVariable();}
@@ -48,13 +48,13 @@ class NotEnoughMeasurementsForCorrelationException extends NotEnoughDataExceptio
      * @param QMUserVariable|null $cause
      * @param QMUserVariable|null $effect
      * @param string $message
-     * @param QMUserCorrelation|null $c
+     * @param QMUserVariableRelationship|null $c
      * @return string
      */
     public static function getNotEnoughDataAndTrackingInstructionsHtml(QMUserVariable $cause = null,
                                                                        QMUserVariable $effect = null,
                                                                        string $message = '',
-                                                                       QMUserCorrelation $c = null): string{
+                                                                       QMUserVariableRelationship $c = null): string{
         $message .= "\n".self::DATA_REQUIREMENT_FOR_CORRELATIONS_HTML."\n";
         if($cause){
             $message .= "\n".$cause->getDataQuantityHTML()."\n";
@@ -81,7 +81,7 @@ class NotEnoughMeasurementsForCorrelationException extends NotEnoughDataExceptio
         $arr['View '.$cause->name] = $cause->getUrl();
         $effect = $this->getEffectUserVariable();
         $arr['View '.$effect->name] = $effect->getUrl();
-        $correlation = $this->getQMUserCorrelation();
+        $correlation = $this->getQMUserVariableRelationship();
         if($correlation){
             $arr['View Study'] = $correlation->getUrl();
         }
@@ -100,13 +100,13 @@ class NotEnoughMeasurementsForCorrelationException extends NotEnoughDataExceptio
         return $this->effectUserVariable;
     }
     /**
-     * @return QMUserCorrelation|null
+     * @return QMUserVariableRelationship|null
      */
-    public function getQMUserCorrelation(): ?QMUserCorrelation{
+    public function getQMUserVariableRelationship(): ?QMUserVariableRelationship{
         return $this->correlation;
     }
     public function getSolution(): Solution{
-        $s = new ViewAnalyzableDataSolution($this->getQMUserCorrelation());
+        $s = new ViewAnalyzableDataSolution($this->getQMUserVariableRelationship());
 		$s->setDocumentationLinks($this->getDocumentationLinks());
         return $s;
     }

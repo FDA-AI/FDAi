@@ -11,7 +11,7 @@ use App\Models\Correlation;
 use App\Properties\Base\BaseCorrelationsOverDelaysProperty;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Traits\PropertyTraits\IsCalculated;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Utils\AppMode;
 class CorrelationCorrelationsOverDelaysProperty extends BaseCorrelationsOverDelaysProperty
 {
@@ -22,8 +22,8 @@ class CorrelationCorrelationsOverDelaysProperty extends BaseCorrelationsOverDela
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
-     * @return QMUserCorrelation[]
+     * @param QMUserVariableRelationship $model
+     * @return QMUserVariableRelationship[]
      * @throws NotEnoughDataException
      * @throws TooSlowToAnalyzeException
      */
@@ -51,14 +51,14 @@ class CorrelationCorrelationsOverDelaysProperty extends BaseCorrelationsOverDela
         return $correlations;
     }
     /**
-     * @param QMUserCorrelation $model
-     * @return QMUserCorrelation[]
+     * @param QMUserVariableRelationship $model
+     * @return QMUserVariableRelationship[]
      * @noinspection PhpParameterNameChangedDuringInheritanceInspection
      */
     public static function pluckOrDefault($model): ?array{
         if($correlations = $model->getCorrelationsByHyperParameters()){
             $byOnset = collect($correlations)->filter(function($c){
-                /** @var QMUserCorrelation $c */
+                /** @var QMUserVariableRelationship $c */
                 return $c->getDurationOfAction() === self::DURATION;
             });
             if($byOnset){return $byOnset->all();}
@@ -66,8 +66,8 @@ class CorrelationCorrelationsOverDelaysProperty extends BaseCorrelationsOverDela
         return null;
     }
     /**
-     * @param QMUserCorrelation $model
-     * @return QMUserCorrelation[]
+     * @param QMUserVariableRelationship $model
+     * @return QMUserVariableRelationship[]
      * @throws NotEnoughDataException
      * @throws TooSlowToAnalyzeException
      */

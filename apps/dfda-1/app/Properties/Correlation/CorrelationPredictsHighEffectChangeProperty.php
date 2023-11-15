@@ -9,7 +9,7 @@ use App\Models\Correlation;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BasePredictsHighEffectChangeProperty;
 use App\Utils\Stats;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationPredictsHighEffectChangeProperty extends BasePredictsHighEffectChangeProperty
 {
     use CorrelationProperty;
@@ -17,7 +17,7 @@ class CorrelationPredictsHighEffectChangeProperty extends BasePredictsHighEffect
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float
      */
     public static function calculate($model){

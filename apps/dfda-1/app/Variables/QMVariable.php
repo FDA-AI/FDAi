@@ -23,7 +23,7 @@ use App\Charts\UserVariableCharts\UserVariableChartGroup;
 use App\Charts\VariableCharts\VariableChartChartGroup;
 use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\DataSources\Connectors\QuantiModoConnector;
 use App\DataSources\Connectors\RescueTimeConnector;
 use App\DataSources\QMDataSource;
@@ -2276,7 +2276,7 @@ abstract class QMVariable extends VariableSearchResult {
 			$this->bestPopulationStudyCard = false;
 			return null;
 		}
-		/** @var QMUserCorrelation $correlation */
+		/** @var QMUserVariableRelationship $correlation */
 		return $this->bestPopulationStudyCard = $correlation->getOptionsListCard();
 	}
 	/**
@@ -3234,7 +3234,7 @@ abstract class QMVariable extends VariableSearchResult {
 	public function getCorrelationsAsEffect(int $limit = null, string $variableCategoryName = null){
 		$correlations = $this->userVariableRelationshipsAsEffect;
 		if($correlations === null){
-			$correlations = $this->setUserCorrelationsAsEffect($limit, $variableCategoryName);
+			$correlations = $this->setUserVariableRelationshipsAsEffect($limit, $variableCategoryName);
 		}
 		if($variableCategoryName){
 			return HasCauseAndEffect::filterByCauseCategory($correlations, $variableCategoryName);
@@ -3249,7 +3249,7 @@ abstract class QMVariable extends VariableSearchResult {
 	public function getCorrelationsAsCause(int $limit = null, string $variableCategoryName = null){
 		$correlations = $this->userVariableRelationshipsAsCause;
 		if($correlations === null){
-			$correlations = $this->setUserCorrelationsAsCause();
+			$correlations = $this->setUserVariableRelationshipsAsCause();
 		}
 		if($variableCategoryName){
 			return HasCauseAndEffect::filterByEffectCategory($correlations, $variableCategoryName);
@@ -3261,7 +3261,7 @@ abstract class QMVariable extends VariableSearchResult {
 	 * @param string|null $variableCategoryName
 	 * @return Correlation[]|Collection
 	 */
-	public function setUserCorrelationsAsCause(int $limit = null, string $variableCategoryName = null){
+	public function setUserVariableRelationshipsAsCause(int $limit = null, string $variableCategoryName = null){
 		$qb = Correlation::whereUserId($this->getUserId())
 			->where(Correlation::FIELD_CAUSE_VARIABLE_ID, $this->getVariableIdAttribute())->limit(0);
 		if($variableCategoryName){
@@ -3277,7 +3277,7 @@ abstract class QMVariable extends VariableSearchResult {
 	 * @param string|null $variableCategoryName
 	 * @return Correlation[]|Collection
 	 */
-	public function setUserCorrelationsAsEffect(int $limit = null, string $variableCategoryName = null){
+	public function setUserVariableRelationshipsAsEffect(int $limit = null, string $variableCategoryName = null){
 		$this->logInfo(__FUNCTION__ . " limit $limit");
 		$qb = Correlation::whereUserId($this->getUserId())
 			->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $this->getVariableIdAttribute())->limit($limit);
@@ -3292,7 +3292,7 @@ abstract class QMVariable extends VariableSearchResult {
 	/**
 	 * @return Correlation[]|Collection
 	 */
-	public function getUserCorrelations(){
+	public function getUserVariableRelationships(){
 		$cause = $this->getCorrelationsAsCause();
 		$effect = $this->getCorrelationsAsEffect();
 		return $cause->merge($effect);

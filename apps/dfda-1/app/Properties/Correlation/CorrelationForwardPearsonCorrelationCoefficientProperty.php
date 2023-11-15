@@ -10,7 +10,7 @@ use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseForwardPearsonCorrelationCoefficientProperty;
 use App\Traits\PropertyTraits\IsCalculated;
 use App\Utils\Stats;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationForwardPearsonCorrelationCoefficientProperty extends BaseForwardPearsonCorrelationCoefficientProperty
 {
     use CorrelationProperty;
@@ -18,7 +18,7 @@ class CorrelationForwardPearsonCorrelationCoefficientProperty extends BaseForwar
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float|int|null
      * @throws \App\Exceptions\NotEnoughDataException
      * @throws \App\Exceptions\TooSlowToAnalyzeException

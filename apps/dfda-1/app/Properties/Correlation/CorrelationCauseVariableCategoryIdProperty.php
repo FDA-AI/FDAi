@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Logging\QMLog;
 use App\Models\Correlation;
 use App\Models\Variable;
@@ -22,7 +22,7 @@ class CorrelationCauseVariableCategoryIdProperty extends BaseCauseVariableCatego
      */
     public static function deleteCorrelationsWithBoringCauseCategories(): array
     {
-        $rows = QMUserCorrelation::readonly()
+        $rows = QMUserVariableRelationship::readonly()
             ->select([
                 Correlation::TABLE . '.' . Correlation::FIELD_USER_ID,
                 Correlation::TABLE . '.' . Correlation::FIELD_CAUSE_VARIABLE_ID,

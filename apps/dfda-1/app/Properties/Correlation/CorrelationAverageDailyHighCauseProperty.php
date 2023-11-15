@@ -12,7 +12,7 @@ use App\Properties\Base\BaseAverageDailyHighCauseProperty;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Types\QMArr;
 use App\Utils\Stats;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Slim\Model\Measurement\Pair;
 class CorrelationAverageDailyHighCauseProperty extends BaseAverageDailyHighCauseProperty
 {
@@ -37,14 +37,14 @@ class CorrelationAverageDailyHighCauseProperty extends BaseAverageDailyHighCause
         return $highCausePairs;
     }
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return mixed|void
      * @throws \App\Exceptions\NotEnoughDataException
      * @throws \App\Exceptions\TooSlowToAnalyzeException
      */
     public static function calculate($model){
         $pairs = $model->getHighCausePairs();
-        $val = QMUserCorrelation::calculateAverageCauseForPairSubset($pairs);
+        $val = QMUserVariableRelationship::calculateAverageCauseForPairSubset($pairs);
         $cause = $model->getCauseQMVariable();
         $dailyMeasurements = $cause->getValidDailyMeasurementsWithTags();
         $max = QMArr::max($dailyMeasurements, 'value');

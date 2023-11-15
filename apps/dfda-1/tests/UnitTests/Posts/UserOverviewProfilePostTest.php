@@ -54,7 +54,7 @@ class UserOverviewProfilePostTest extends UnitTestCase {
         $this->assertFalse($mood->needToAnalyze());
         $this->assertFalse($mood->weShouldCalculateCorrelations());
         $treatment = $this->getTreatmentUserVariable();
-        $c = $mood->getBestUserCorrelation();
+        $c = $mood->getBestUserVariableRelationship();
         //$this->compareChartGroup($c->getChartGroup(), 'user-variable-relationship');
         $ac = $c->getOrCreateQMGlobalVariableRelationship();
         $this->compareChartGroup($ac->getChartGroup(), 'global-variable-relationship');

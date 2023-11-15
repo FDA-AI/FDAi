@@ -12,18 +12,21 @@ function generateCaseVariations(term) {
   const upperCase = term.toUpperCase();
   const titleCase = term.replace(/\w\S*/g, w => w.replace(/^\w/, c => c.toUpperCase()));
   const camelCase = lowerCase.charAt(0).toLowerCase() + titleCase.slice(1).replace(/\s/g, '');
+  const specificCamelCase = camelCase.charAt(0).toUpperCase() + camelCase.slice(1);
   const snakeCase = lowerCase.replace(/ /g, '_');
   const kebabCase = lowerCase.replace(/ /g, '-');
   const screamingSnakeCase = upperCase.replace(/ /g, '_');
-  return [lowerCase, titleCase, camelCase, snakeCase, kebabCase, upperCase, screamingSnakeCase];
+  return [lowerCase, titleCase, camelCase, specificCamelCase, snakeCase, kebabCase, upperCase, screamingSnakeCase];
 }
 
 async function renameEntity(entityPath, searchVariations, replaceVariations) {
+
   const entityName = path.basename(entityPath);
   let newName = entityName;
 
   searchVariations.forEach((variation, index) => {
-    newName = newName.split(variation).join(replaceVariations[index]);
+    let split = newName.split(variation);
+    newName = split.join(replaceVariations[index]);
   });
 
   if (newName !== entityName) {
@@ -51,34 +54,24 @@ async function replaceInFile(filePath, searchVariations, replaceVariations) {
   }
 }
 
-async function readGitignore(directory) {
-  try {
-    const gitignorePath = path.join(directory, '.gitignore');
-    const gitignoreContent = await fs.readFile(gitignorePath, 'utf8');
-    return gitignoreContent.split(/\r?\n/).filter(line => line && !line.startsWith('#')).map(line => line.trim());
-  } catch (err) {
-    console.log(`No .gitignore found in ${directory}, or error reading it.`);
-    return [];
-  }
+function isIgnored(filePath, ignorePatterns, excludedDirs, rootDir) {
+  const relativePath = path.relative(rootDir, filePath);
+  return excludedDirs.some(dir => relativePath.startsWith(dir + path.sep)) ||
+    ignorePatterns.some(pattern => relativePath === pattern || relativePath.startsWith(pattern + path.sep));
 }
 
-function isIgnored(name, ignorePatterns) {
-  return ignorePatterns.some(pattern => name === pattern || name.startsWith(pattern + '/'));
-}
-
-
-async function processDirectory(directory, searchVariations, replaceVariations, allowedExtensions, ignorePatterns) {
+async function processDirectory(directory, searchVariations, replaceVariations, allowedExtensions, ignorePatterns, excludedDirs, rootDir) {
   const files = await fs.readdir(directory, { withFileTypes: true });
 
   for (const file of files) {
-    if (isIgnored(file.name, ignorePatterns)) {
+    const filePath = path.join(directory, file.name);
+
+    if (isIgnored(filePath, ignorePatterns, excludedDirs, rootDir)) {
       continue;
     }
 
-    const filePath = path.join(directory, file.name);
     if (file.isDirectory()) {
-      const dirIgnorePatterns = await readGitignore(filePath);
-      await processDirectory(filePath, searchVariations, replaceVariations, allowedExtensions, dirIgnorePatterns);
+      await processDirectory(filePath, searchVariations, replaceVariations, allowedExtensions, ignorePatterns, excludedDirs, rootDir);
       await renameEntity(filePath, searchVariations, replaceVariations);
     } else {
       const extension = path.extname(file.name).toLowerCase();
@@ -93,9 +86,38 @@ async function processDirectory(directory, searchVariations, replaceVariations, 
 async function startProcessing() {
   const searchVariations = generateCaseVariations(search_term);
   const replaceVariations = generateCaseVariations(replace_term);
-  const ignorePatterns = await readGitignore(target_directory);
+  const ignorePatterns = await collectGitignorePatterns(target_directory);
 
-  await processDirectory(target_directory, searchVariations, replaceVariations, allowed_extensions, ignorePatterns);
+  await processDirectory(target_directory, searchVariations, replaceVariations, allowed_extensions, ignorePatterns, excluded_dirs, target_directory);
 }
+
+async function readGitignore(directory) {
+  const gitignorePath = path.join(directory, '.gitignore');
+  try {
+    const gitignoreContent = await fs.readFile(gitignorePath, 'utf8');
+    return gitignoreContent.split(/\r?\n/).filter(line => line && !line.startsWith('#')).map(line => line.trim());
+  } catch (err) {
+    return [];
+  }
+}
+
+async function collectGitignorePatterns(startPath) {
+  let patterns = [];
+  let currentPath = startPath;
+
+  while (true) {
+    const parentPatterns = await readGitignore(currentPath);
+    patterns = [...patterns, ...parentPatterns];
+
+    const parentPath = path.dirname(currentPath);
+    if (parentPath === currentPath) {
+      break;
+    }
+    currentPath = parentPath;
+  }
+
+  return patterns;
+}
+
 
 startProcessing().catch(err => console.error(err));

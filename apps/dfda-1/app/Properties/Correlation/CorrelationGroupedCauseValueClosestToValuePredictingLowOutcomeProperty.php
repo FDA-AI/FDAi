@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Models\Correlation;
 use App\Properties\Base\BaseGroupedCauseValueClosestToValuePredictingLowOutcomeProperty;
 use App\Traits\PropertyTraits\CorrelationProperty;
@@ -24,7 +24,7 @@ class CorrelationGroupedCauseValueClosestToValuePredictingLowOutcomeProperty ext
     public static function calculate($model): float{
         $low = $model->getDailyValuePredictingLowOutcome();
         if($low === null){le("No avgDailyValuePredicting LOW Outcome");}
-        if($model->getDirection() === QMUserCorrelation::DIRECTION_HIGHER){
+        if($model->getDirection() === QMUserVariableRelationship::DIRECTION_HIGHER){
             $value = $model->calculateClosestCauseValueGroupedOverDurationOfAction($low, null, $low);
         } else {
             $value = $model->calculateClosestCauseValueGroupedOverDurationOfAction($low, $low);

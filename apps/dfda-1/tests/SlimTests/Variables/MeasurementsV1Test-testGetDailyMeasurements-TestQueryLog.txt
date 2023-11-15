@@ -56,7 +56,7 @@
 ║ getTrackingReminders          │ tracking_reminders   │ tracking_reminders.user_id in (1) & tracking_reminders.d... ║
 ║ getPrimaryOutcomeFromVaria... │ variables            │ user_variables.deleted_at=null & user_variables.user_id=... ║
 ║ getPrimaryOutcomeFromVaria... │ variables            │ user_variables.deleted_at=null & user_variables.user_id=... ║
-║ setBestUserCorrelation        │ correlations         │ user_id=1 & cause_variable_id=6059841 & effect_variable_... ║
+║ setBestUserVariableRelationship        │ correlations         │ user_id=1 & cause_variable_id=6059841 & effect_variable_... ║
 ║ setBestCorrelationAsCause     │ correlations         │ correlations.cause_user_variable_id=1 & correlations.cau... ║
 ║ findByData                    │ user_variable_client │ variable_id LIKE 6059841 & user_id LIKE 1 & user_variabl... ║
 ║ UserVariableEarliestSource... │ user_variable_client │ user_id=1 & client_id in ('?') & user_variable_clients.d... ║
@@ -71,7 +71,7 @@
 ║ UserVariableNumberOfUserCo... │ correlations         │ correlations.effect_user_variable_id=1 & correlations.ef... ║
 ║ getPrimaryOutcomeFromVaria... │ variables            │ user_variables.deleted_at=null & user_variables.user_id=... ║
 ║ getPrimaryOutcomeFromVaria... │ variables            │ user_variables.deleted_at=null & user_variables.user_id=... ║
-║ setBestUserCorrelation        │ correlations         │ user_id=1 & cause_variable_id=6059841 & effect_variable_... ║
+║ setBestUserVariableRelationship        │ correlations         │ user_id=1 & cause_variable_id=6059841 & effect_variable_... ║
 ║ setBestCorrelationAsCause     │ correlations         │ correlations.cause_user_variable_id=1 & correlations.cau... ║
 ║ UserVariableNumberOfUserCo... │ correlations         │ correlations.cause_user_variable_id=1 & correlations.cau... ║
 ║ updateFromUserVariable        │ user_variables       │ set number_of_user_variables = 1, newest_data_at = '?', ... ║

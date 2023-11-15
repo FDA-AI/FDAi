@@ -14,7 +14,7 @@ use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseNumberOfPairsProperty;
 use App\Traits\PropertyTraits\IsCalculated;
 use App\Types\TimeHelper;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationNumberOfPairsProperty extends BaseNumberOfPairsProperty
 {
     use CorrelationProperty;
@@ -22,7 +22,7 @@ class CorrelationNumberOfPairsProperty extends BaseNumberOfPairsProperty
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return int
      * @throws \App\Exceptions\NotEnoughDataException
      * @throws \App\Exceptions\TooSlowToAnalyzeException

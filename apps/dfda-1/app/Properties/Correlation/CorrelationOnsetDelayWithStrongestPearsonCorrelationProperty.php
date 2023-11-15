@@ -9,7 +9,7 @@ use App\Models\Correlation;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseOnsetDelayWithStrongestPearsonCorrelationProperty;
 use App\Traits\PropertyTraits\IsCalculated;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationOnsetDelayWithStrongestPearsonCorrelationProperty extends BaseOnsetDelayWithStrongestPearsonCorrelationProperty
 {
     use CorrelationProperty;
@@ -17,7 +17,7 @@ class CorrelationOnsetDelayWithStrongestPearsonCorrelationProperty extends BaseO
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float
      * @throws \App\Exceptions\NotEnoughDataException
      * @throws \App\Exceptions\TooSlowToAnalyzeException

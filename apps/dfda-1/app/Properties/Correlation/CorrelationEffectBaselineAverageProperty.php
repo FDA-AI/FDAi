@@ -10,7 +10,7 @@ use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseEffectBaselineAverageProperty;
 use App\Traits\PropertyTraits\IsCalculated;
 use App\Utils\Stats;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationEffectBaselineAverageProperty extends BaseEffectBaselineAverageProperty
 {
     use CorrelationProperty;
@@ -18,7 +18,7 @@ class CorrelationEffectBaselineAverageProperty extends BaseEffectBaselineAverage
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float|null
      * @throws \App\Exceptions\NotEnoughDataException
      * @throws \App\Exceptions\TooSlowToAnalyzeException

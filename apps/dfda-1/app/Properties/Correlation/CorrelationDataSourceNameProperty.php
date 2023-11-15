@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Models\Correlation;
 use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipDataSourceNameProperty;
 use App\Properties\Base\BaseDataSourceNameProperty;
@@ -19,10 +19,10 @@ class CorrelationDataSourceNameProperty extends BaseDataSourceNameProperty
     /**
      * @return int
      */
-    public static function fixDataSourceNamesForUserCorrelations()
+    public static function fixDataSourceNamesForUserVariableRelationships()
     {
         $names = BaseDataSourceNameProperty::get3rdPartyDataSourceNames();
-        $result = QMUserCorrelation::writable()
+        $result = QMUserVariableRelationship::writable()
             ->whereNotIn(Correlation::FIELD_DATA_SOURCE_NAME, $names)
             ->update([Correlation::FIELD_DATA_SOURCE_NAME => GlobalVariableRelationshipDataSourceNameProperty::DATA_SOURCE_NAME_USER]);
         return $result;

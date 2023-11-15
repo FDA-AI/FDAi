@@ -10,7 +10,7 @@ use App\Models\Correlation;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseZScoreProperty;
 use App\Traits\PropertyTraits\IsCalculated;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationZScoreProperty extends BaseZScoreProperty
 {
     use CorrelationProperty;
@@ -18,7 +18,7 @@ class CorrelationZScoreProperty extends BaseZScoreProperty
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float|null
      * @throws \App\Exceptions\NotEnoughDataException
      * @throws \App\Exceptions\TooSlowToAnalyzeException

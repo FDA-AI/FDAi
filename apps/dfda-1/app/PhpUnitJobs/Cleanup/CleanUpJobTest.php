@@ -11,7 +11,7 @@ use App\Astral\Actions\DeleteTestUsersAction;
 use App\Properties\Connection\ConnectionNumberOfMeasurementsProperty;
 use App\Properties\Measurement\MeasurementConnectionIdProperty;
 use App\Properties\User\UserNumberOfPatientsProperty;
-use App\Properties\UserVariable\UserVariableNumberOfUserCorrelationsAsEffectProperty;
+use App\Properties\UserVariable\UserVariableNumberOfUserVariableRelationshipsAsEffectProperty;
 use App\Properties\Variable\VariableClientIdProperty;
 use App\Properties\Variable\VariableIsPublicProperty;
 use App\Storage\DB\Writable;
@@ -40,7 +40,7 @@ class CleanUpJobTest extends JobTestCase {
     	S3Private::deleteSecretFiles();
         VariableIsPublicProperty::updateAll();
         VariableClientIdProperty::updateAll();
-        UserVariableNumberOfUserCorrelationsAsEffectProperty::updateAll();
+        UserVariableNumberOfUserVariableRelationshipsAsEffectProperty::updateAll();
         MeasurementConnectionIdProperty::fixNulls();
         ConnectionNumberOfMeasurementsProperty::updateAll();
         UserNumberOfPatientsProperty::updateAll();

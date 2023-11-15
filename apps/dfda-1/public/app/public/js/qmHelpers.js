@@ -3196,7 +3196,7 @@ var qm = {
             }
             apiInstance.getCorrelations(params, callback);
         },
-        getUserCorrelationsFromApi: function(params, successHandler, errorHandler){
+        getUserVariableRelationshipsFromApi: function(params, successHandler, errorHandler){
             params = qm.api.addGlobalParams(params);
             var cachedData = qm.api.cacheGet(params, qm.items.userVariableRelationships);
             if(cachedData && successHandler){

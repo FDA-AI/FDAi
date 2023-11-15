@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpDocMissingThrowsInspection */
 /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\SlimTests\Variables;
-use App\Buttons\RelationshipButtons\UserVariable\UserVariableBestUserCorrelationButton;
+use App\Buttons\RelationshipButtons\UserVariable\UserVariableBestUserVariableRelationshipButton;
 use App\Buttons\RelationshipButtons\UserVariable\UserVariableDefaultUnitButton;
 use App\Models\GlobalVariableRelationship;
 use App\Models\Measurement;
@@ -126,7 +126,7 @@ class CommonAndUserVariableAnalysisTaskTest extends \Tests\SlimTests\SlimTestCas
         $c = $l->best_user_variable_relationship_id;
         if($c){
             $this->assertNotNull($c, $l->print());
-            $b = $l->getRelationshipButton(UserVariableBestUserCorrelationButton::class);
+            $b = $l->getRelationshipButton(UserVariableBestUserVariableRelationshipButton::class);
             $this->assertEquals("Best User Variable Relationship", $b->title);
         }
         $b = $l->getRelationshipButton(UserVariableDefaultUnitButton::class);

@@ -10,7 +10,7 @@ use App\Exceptions\NotEnoughMeasurementsForCorrelationException;
 use App\Models\Correlation;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseExperimentStartAtProperty;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Traits\PropertyTraits\IsCalculated;
 class CorrelationExperimentStartAtProperty extends BaseExperimentStartAtProperty
 {
@@ -19,7 +19,7 @@ class CorrelationExperimentStartAtProperty extends BaseExperimentStartAtProperty
     public $parentClass = Correlation::class;
     use IsCalculated;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return string
      * @throws NotEnoughMeasurementsForCorrelationException
      */

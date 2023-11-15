@@ -11,14 +11,14 @@ use App\Models\Correlation;
 use App\Properties\Measurement\MeasurementStartTimeProperty;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseEffectNumberOfProcessedDailyMeasurementsProperty;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationEffectNumberOfProcessedDailyMeasurementsProperty extends BaseEffectNumberOfProcessedDailyMeasurementsProperty
 {
     use CorrelationProperty;
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $uc
+     * @param QMUserVariableRelationship $uc
      * @return mixed|void
      * @throws \App\Exceptions\NotEnoughMeasurementsForCorrelationException
      * @throws \App\Exceptions\NotEnoughOverlappingDataException

@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\UnitTests\Variables;
 use App\Properties\Correlation\CorrelationOptimalPearsonProductProperty;
-use App\Correlations\QMUserCorrelationV1;
+use App\Correlations\QMUserVariableRelationshipV1;
 use App\Utils\Stats;
 use Tests\UnitTestCase;
 class VariableCalculationHelperTest extends UnitTestCase
@@ -13,7 +13,7 @@ class VariableCalculationHelperTest extends UnitTestCase
     }
     public function testOptimalPearsonProduct() {
         $causeArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-        $correlationObject = new QMUserCorrelationV1();
+        $correlationObject = new QMUserVariableRelationshipV1();
         $correlationObject->avgDailyValuePredictingHighOutcome = 7;
         $correlationObject->avgDailyValuePredictingLowOutcome = 2;
         $correlationObject->correlationCoefficient = 0.5;

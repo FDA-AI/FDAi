@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Models\Correlation;
 use App\Properties\Base\BaseAverageDailyLowCauseProperty;
 use App\Slim\Model\Measurement\Pair;
@@ -18,7 +18,7 @@ class CorrelationAverageDailyLowCauseProperty extends BaseAverageDailyLowCausePr
 	public $parentClass = Correlation::class;
 	public $table = Correlation::TABLE;
 	/**
-	 * @param QMUserCorrelation $model
+	 * @param QMUserVariableRelationship $model
 	 * @return bool|float
 	 * @throws \App\Exceptions\InvalidAttributeException
 	 * @throws \App\Exceptions\InvalidVariableValueException
@@ -27,7 +27,7 @@ class CorrelationAverageDailyLowCauseProperty extends BaseAverageDailyLowCausePr
 	 */
 	public static function calculate($model){
 		$pairs = $model->getLowCausePairs();
-		$val = QMUserCorrelation::calculateAverageCauseForPairSubset($pairs);
+		$val = QMUserVariableRelationship::calculateAverageCauseForPairSubset($pairs);
 		$cause = $model->getCauseQMVariable();
 		$cause->validateValueForCommonVariableAndUnit($val, static::NAME);
 		$dailyMeasurements = $cause->getValidDailyMeasurementsWithTags();

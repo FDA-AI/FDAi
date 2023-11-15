@@ -24,7 +24,7 @@ class UserVariableOptimalValueMessageProperty extends BaseOptimalValueMessagePro
      */
     public static function calculate($uv): ?string{
         $msg = self::getNotEnoughDataMessage($uv);
-        $c = $uv->setBestUserCorrelation();
+        $c = $uv->setBestUserVariableRelationship();
         $l = $uv->l();
 		$dbm = $uv->getDBModel();
 	    $dbm->setBestStudyLink();
@@ -38,14 +38,14 @@ class UserVariableOptimalValueMessageProperty extends BaseOptimalValueMessagePro
         }
         if(!$l->best_user_variable_relationship_id){
             if($dbm->isOutcome()){
-                if($correlationsAsEffect = $dbm->calculateNumberOfUserCorrelationsAsEffect()){
-	                $dbm->setBestUserCorrelation();
+                if($correlationsAsEffect = $dbm->calculateNumberOfUserVariableRelationshipsAsEffect()){
+	                $dbm->setBestUserVariableRelationship();
 	                $dbm->throwLogicException("No BEST_USER_VARIABLE_RELATIONSHIP_ID even though we have $correlationsAsEffect correlations as a effect! ".
                         Correlation::getDataLabIndexUrl([Correlation::FIELD_EFFECT_USER_VARIABLE_ID => $dbm->getUserVariableId()]));
                 }
             }else{
-                if($correlationsAsCause = $dbm->calculateNumberOfUserCorrelationsAsCause()){
-	                $dbm->setBestUserCorrelation();
+                if($correlationsAsCause = $dbm->calculateNumberOfUserVariableRelationshipsAsCause()){
+	                $dbm->setBestUserVariableRelationship();
 	                $dbm->throwLogicException("No BEST_USER_VARIABLE_RELATIONSHIP_ID even though we have $correlationsAsCause correlations as a cause!".
                         Correlation::getDataLabIndexUrl([Correlation::FIELD_CAUSE_USER_VARIABLE_ID => $dbm->getVariableIdAttribute()]));
                 }

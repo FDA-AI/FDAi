@@ -20,7 +20,7 @@ class CorrelationCauseUnitIdProperty extends BaseCauseUnitIdProperty
     public function showOnIndex(): bool {return false;}
     public function showOnDetail(): bool {return false;}
 	/**
-	 * @param Correlation|\App\Correlations\QMUserCorrelation $model
+	 * @param Correlation|\App\Correlations\QMUserVariableRelationship $model
 	 * @return int
 	 */
 	public static function calculate($model): int{

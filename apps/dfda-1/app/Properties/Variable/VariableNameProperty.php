@@ -12,7 +12,7 @@ use App\Exceptions\InvalidAttributeException;
 use App\Exceptions\InvalidStringException;
 use App\Exceptions\InvalidVariableNameException;
 use App\Exceptions\ModelValidationException;
-use App\Exceptions\NoUserCorrelationsToAggregateException;
+use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Exceptions\StupidVariableNameException;
 use App\Fields\Text;
 use App\Files\FileHelper;
@@ -766,7 +766,7 @@ class VariableNameProperty extends BaseNameProperty
         Memory::flush();
         try {
             QMGlobalVariableRelationship::analyzeAggregatedCorrelationsForVariable($newId);
-        } catch (NoUserCorrelationsToAggregateException $e) {
+        } catch (NoUserVariableRelationshipsToAggregateException $e) {
             le($e);
         }
         $v = QMCommonVariable::find($newId);

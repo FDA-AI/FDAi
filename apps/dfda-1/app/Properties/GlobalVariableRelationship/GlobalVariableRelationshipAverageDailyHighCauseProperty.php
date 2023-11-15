@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\GlobalVariableRelationship;
-use App\Exceptions\NoUserCorrelationsToAggregateException;
+use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Models\GlobalVariableRelationship;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BaseAverageDailyHighCauseProperty;
@@ -22,8 +22,8 @@ class GlobalVariableRelationshipAverageDailyHighCauseProperty extends BaseAverag
      */
     public static function calculate($model): float{
 	    try {
-		    $val = $model->weightedAvgFromUserCorrelations(static::NAME);
-	    } catch (NoUserCorrelationsToAggregateException $e) {
+		    $val = $model->weightedAvgFromUserVariableRelationships(static::NAME);
+	    } catch (NoUserVariableRelationshipsToAggregateException $e) {
 			le($e);
 	    }
 	    $model->setAttribute(static::NAME, $val);

@@ -69,7 +69,7 @@
 ║ UserVariableBestEffectVari... │ correlations         │ cause_user_variable_id=25422 & cause_user_variable_id=no... ║
 ║ UserVariableBestEffectVari... │ user_variables       │ id in (47997) & deleted_at=null                             ║
 ║ UserVariableBestEffectVari... │ variables            │ id in (5956894) & deleted_at=null                           ║
-║ setBestUserCorrelation        │ correlations         │ id=119134362 & deleted_at=null limit 1                      ║
+║ setBestUserVariableRelationship        │ correlations         │ id=119134362 & deleted_at=null limit 1                      ║
 ║ findByData                    │ user_variable_client │ variable_id LIKE 86672 & user_id LIKE 230 & deleted_at=n... ║
 ║ findByData                    │ user_variable_client │ variable_id LIKE 86672 & user_id LIKE 230 & deleted_at=n... ║
 ║ findByData                    │ user_variable_client │ variable_id LIKE 86672 & user_id LIKE 230 & deleted_at=n... ║

@@ -3,7 +3,7 @@
 *  Contributors: ADD YOUR NAME HERE, Mike P. Sinn
  */ /** @noinspection PhpUnused */
 namespace App\Slim\Controller\Study;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Models\Study;
 use App\Properties\Base\BaseCauseVariableIdProperty;
 use App\Properties\Base\BaseEffectVariableIdProperty;
@@ -29,7 +29,7 @@ class JoinStudyController extends PostController {
 			BaseEffectVariableIdProperty::nameOrIdFromRequest(true), QMStudy::DEFAULT_PRINCIPAL_INVESTIGATOR_ID,
 			StudyTypeProperty::TYPE_POPULATION);
 		$study->joinStudy();
-		if($study->statistics instanceof QMUserCorrelation){
+		if($study->statistics instanceof QMUserVariableRelationship){
 			return;
 		}
 		$app->writeJsonWithoutGlobalFields(201, ['study' => $study]);

@@ -12,7 +12,7 @@ use App\Properties\Base\BaseCauseBaselineAveragePerDayProperty;
 use App\Traits\PropertyTraits\IsCalculated;
 use App\Utils\Stats;
 use Illuminate\Support\Arr;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Slim\Model\Measurement\Pair;
 class CorrelationCauseBaselineAveragePerDayProperty extends BaseCauseBaselineAveragePerDayProperty
 {

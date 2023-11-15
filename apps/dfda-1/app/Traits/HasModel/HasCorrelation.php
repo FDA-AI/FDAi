@@ -6,7 +6,7 @@
 
 namespace App\Traits\HasModel;
 use App\Buttons\QMButton;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\InvalidVariableValueException;
 use App\Models\BaseModel;
 use App\Models\Correlation;
@@ -38,7 +38,7 @@ trait HasCorrelation {
 		$id = $this->getCorrelationId();
 		$correlation = Correlation::findInMemoryOrDB($id);
 		if(!$correlation){
-			$dbm = QMUserCorrelation::getExistingUserCorrelationByVariableIds($this->getUserId(),
+			$dbm = QMUserVariableRelationship::getExistingUserVariableRelationshipByVariableIds($this->getUserId(),
 				$this->getCauseVariableId(), $this->getEffectVariableId());
 			if($dbm){
 				$correlation = $dbm->l();

@@ -5,17 +5,17 @@
  */
 
 namespace App\Exceptions;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class NotEnoughOverlappingDataException extends NotEnoughDataException {
     /**
-     * @var QMUserCorrelation
+     * @var QMUserVariableRelationship
      */
     public $userVariableRelationship;
     /**
      * NotEnoughBaselineDataException constructor.
-     * @param QMUserCorrelation $c
+     * @param QMUserVariableRelationship $c
      */
-    public function __construct(QMUserCorrelation $c){
+    public function __construct(QMUserVariableRelationship $c){
         $this->analyzable = $this->userVariableRelationship = $c;
         $causeEffect = $c->getCauseAndEffectString();
         $problemDetails = "Not Enough Overlapping $causeEffect Data";

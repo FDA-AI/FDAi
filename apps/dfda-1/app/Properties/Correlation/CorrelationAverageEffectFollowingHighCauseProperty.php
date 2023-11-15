@@ -9,7 +9,7 @@ use App\Models\Correlation;
 use App\Traits\VariableValueTraits\EffectDailyVariableValueTrait;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseAverageEffectFollowingHighCauseProperty;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationAverageEffectFollowingHighCauseProperty extends BaseAverageEffectFollowingHighCauseProperty
 {
     use CorrelationProperty, EffectDailyVariableValueTrait;
@@ -17,7 +17,7 @@ class CorrelationAverageEffectFollowingHighCauseProperty extends BaseAverageEffe
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float
      * @throws \App\Exceptions\NotEnoughDataException
      * @throws \App\Exceptions\TooSlowToAnalyzeException

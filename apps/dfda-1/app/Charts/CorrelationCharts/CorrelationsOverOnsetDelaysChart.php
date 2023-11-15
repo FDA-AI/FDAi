@@ -7,7 +7,7 @@
 namespace App\Charts\CorrelationCharts;
 use App\Charts\QMHighcharts\CorrelationsOverOnsetDelaysHighchart;
 use App\Charts\QMHighcharts\HighchartConfig;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\AnalysisException;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\NotEnoughMeasurementsForCorrelationException;
@@ -15,14 +15,14 @@ use App\Exceptions\TooSlowToAnalyzeException;
 use App\Studies\QMUserStudy;
 class CorrelationsOverOnsetDelaysChart extends CorrelationChart {
 	/**
-	 * @param QMUserCorrelation|QMUserStudy|null $c
+	 * @param QMUserVariableRelationship|QMUserStudy|null $c
 	 */
 	public function __construct($c = null){
 		if(!$c){
 			return;
 		}
 		try {
-			$c = $c->getQMUserCorrelation();
+			$c = $c->getQMUserVariableRelationship();
 		} catch (NotEnoughDataException $e) {
 			return;
 		}
@@ -55,7 +55,7 @@ class CorrelationsOverOnsetDelaysChart extends CorrelationChart {
 		if($arr = $l->getCorrelationsOverDelays()){
 			$config = new CorrelationsOverOnsetDelaysHighchart($c, $this);
 		} else{
-			$config = $c->getQMUserCorrelation()->calculateCorrelationsOverOnsetDelaysAndGenerateChartConfig();
+			$config = $c->getQMUserVariableRelationship()->calculateCorrelationsOverOnsetDelaysAndGenerateChartConfig();
 		}
 		$config->setTitle($this->getTitleAttribute());
 		$config->setSubtitle($this->getSubtitleAttribute());

@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\GlobalVariableRelationship;
-use App\Exceptions\NoUserCorrelationsToAggregateException;
+use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Models\GlobalVariableRelationship;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BaseAverageEffectProperty;
@@ -19,10 +19,10 @@ class GlobalVariableRelationshipAverageEffectProperty extends BaseAverageEffectP
 	/**
 	 * @param QMGlobalVariableRelationship|GlobalVariableRelationship $model
 	 * @return float
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 */
     public static function calculate($model): float{
-        $val = $model->weightedAvgFromUserCorrelations(static::NAME);
+        $val = $model->weightedAvgFromUserVariableRelationships(static::NAME);
         $model->setAttribute(static::NAME, $val);
         return $val;
     }

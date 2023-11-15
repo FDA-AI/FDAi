@@ -9,7 +9,7 @@ use App\Models\Correlation;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseEffectBaselineStandardDeviationProperty;
 use App\Utils\Stats;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationEffectBaselineStandardDeviationProperty extends BaseEffectBaselineStandardDeviationProperty
 {
     use CorrelationProperty;
@@ -17,7 +17,7 @@ class CorrelationEffectBaselineStandardDeviationProperty extends BaseEffectBasel
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float|null
      * @throws \App\Exceptions\NotEnoughDataException
      * @throws \App\Exceptions\TooSlowToAnalyzeException

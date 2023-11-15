@@ -6,15 +6,15 @@ use App\Variables\QMVariable;
 use Tests\SlimStagingTestCase;
 class OutcomeVariablesWithCorrelationsTest extends SlimStagingTestCase {
     public function testOutcomeUserVariablesWithCorrelations(){
-        //UserVariableNumberOfUserCorrelationsAsEffectProperty::updateAll();
-        //UserVariableNumberOfUserCorrelationsAsCauseProperty::updateAll();
-        //$this->assertEquals(0, UserVariableNumberOfUserCorrelationsAsEffectProperty::whereNull()->count());
-        //$this->assertEquals(0, UserVariableNumberOfUserCorrelationsAsCauseProperty::whereNull()->count());
+        //UserVariableNumberOfUserVariableRelationshipsAsEffectProperty::updateAll();
+        //UserVariableNumberOfUserVariableRelationshipsAsCauseProperty::updateAll();
+        //$this->assertEquals(0, UserVariableNumberOfUserVariableRelationshipsAsEffectProperty::whereNull()->count());
+        //$this->assertEquals(0, UserVariableNumberOfUserVariableRelationshipsAsCauseProperty::whereNull()->count());
 		$expectedString = '';
         /** @var QMVariable[] $variables */
         $variables = $this->callAndCheckResponse($expectedString);
         $this->assertCount(50, $variables, 
-            "If this is larger than 50, something is fucking up the UserVariableNumberOfUserCorrelationsAsEffectProperty counts");
+            "If this is larger than 50, something is fucking up the UserVariableNumberOfUserVariableRelationshipsAsEffectProperty counts");
 		foreach ($variables as $variable){
 		    $this->assertNotFalse(stripos($variable->subtitle, "studies"),
                 "subtitle ($variable->subtitle) should contain studies");

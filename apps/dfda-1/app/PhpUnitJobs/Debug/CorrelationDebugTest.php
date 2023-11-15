@@ -4,7 +4,7 @@
  */ /** @noinspection PhpUnhandledExceptionInspection */
 /** @noinspection PhpUnusedLocalVariableInspection */
 namespace App\PhpUnitJobs\Debug;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Variables\QMUserVariable;
 use App\PhpUnitJobs\JobTestCase;
 use App\Slim\Model\User\QMUser;
@@ -15,7 +15,7 @@ class CorrelationDebugTest extends JobTestCase {
      * @group Production
      */
     public function testCorrelationPush(): void{
-        $correlations = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships(['userId' => 230]);
+        $correlations = QMUserVariableRelationship::getOrCreateUserOrGlobalVariableRelationships(['userId' => 230]);
         $c = $correlations[0];
         $c->sendPushNotification();
     }
@@ -34,7 +34,7 @@ class CorrelationDebugTest extends JobTestCase {
         $userId = 230;
         $cause = QMUserVariable::getByNameOrId($userId, "Sleep Quality");
         $effect = QMUserVariable::getByNameOrId($userId, "Headache Severity");
-        $c = new QMUserCorrelation(null, $cause, $effect);
+        $c = new QMUserVariableRelationship(null, $cause, $effect);
         $c->analyzeFully(__FUNCTION__);
     }
     /**

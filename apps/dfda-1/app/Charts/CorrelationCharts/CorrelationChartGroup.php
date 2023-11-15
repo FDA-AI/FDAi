@@ -8,7 +8,7 @@ namespace App\Charts\CorrelationCharts;
 use App\Charts\ChartGroup;
 use App\Charts\QMChart;
 use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\NotEnoughDataException;
 use App\Studies\QMUserStudy;
 use App\Variables\QMVariable;
@@ -32,14 +32,14 @@ class CorrelationChartGroup extends ChartGroup {
 	public $correlationsOverOnsetDelaysLineChart;
 	public const CHART_SPEARMAN = false;
 	/**
-	 * @param QMUserCorrelation|QMUserStudy|null $c
+	 * @param QMUserVariableRelationship|QMUserStudy|null $c
 	 */
 	public function __construct($c = null){
 		if(!$c){
 			return;
 		}
 		try {
-			$c = $c->getQMUserCorrelation();
+			$c = $c->getQMUserVariableRelationship();
 		} catch (NotEnoughDataException $e) {
 			return;
 		}
@@ -52,10 +52,10 @@ class CorrelationChartGroup extends ChartGroup {
 		$this->setCorrelationsOverDurationsChart();
 	}
 	/**
-	 * @return UserCorrelationScatterPlot
+	 * @return UserVariableRelationshipScatterPlot
 	 */
-	protected function setCorrelationScatterPlot(): UserCorrelationScatterPlot{
-		return $this->correlationScatterPlot = new UserCorrelationScatterPlot($this->getSourceObject());
+	protected function setCorrelationScatterPlot(): UserVariableRelationshipScatterPlot{
+		return $this->correlationScatterPlot = new UserVariableRelationshipScatterPlot($this->getSourceObject());
 	}
 	/**
 	 * @return PairsOverTimeLineChart
@@ -77,14 +77,14 @@ class CorrelationChartGroup extends ChartGroup {
 		return $this->outcomeDistributionColumnChart = new OutcomeDistributionColumnChart($this->getSourceObject());
 	}
 	/**
-	 * @return UserCorrelationScatterPlot
+	 * @return UserVariableRelationshipScatterPlot
 	 */
-	public function getCorrelationScatterPlot(): UserCorrelationScatterPlot{
+	public function getCorrelationScatterPlot(): UserVariableRelationshipScatterPlot{
 		if(!$this->correlationScatterPlot){
 			$this->setCorrelationScatterPlot();
 		}
 		return $this->correlationScatterPlot =
-			UserCorrelationScatterPlot::instantiateIfNecessary($this->correlationScatterPlot);
+			UserVariableRelationshipScatterPlot::instantiateIfNecessary($this->correlationScatterPlot);
 	}
 	/**
 	 * @return CorrelationsOverOnsetDelaysChart
@@ -232,7 +232,7 @@ class CorrelationChartGroup extends ChartGroup {
 		return $this->sourceObject;
 	}
 	public static function generateNonTemporalCharts($c): string{
-		return UserCorrelationScatterPlot::generateInline($c) .
+		return UserVariableRelationshipScatterPlot::generateInline($c) .
 			CorrelationsOverDurationsOfActionChart::generateInline($c) .
 			CorrelationsOverOnsetDelaysChart::generateInline($c) . OutcomeDistributionColumnChart::generateInline($c) .
 			PredictorDistributionColumnChart::generateInline($c);

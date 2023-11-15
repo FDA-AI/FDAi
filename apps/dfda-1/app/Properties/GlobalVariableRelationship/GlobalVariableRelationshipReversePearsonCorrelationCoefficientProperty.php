@@ -20,7 +20,7 @@ class GlobalVariableRelationshipReversePearsonCorrelationCoefficientProperty ext
      * @return float
      */
     public static function calculate($model){
-        $val = $model->weightedAvgFromUserCorrelations(static::NAME);
+        $val = $model->weightedAvgFromUserVariableRelationships(static::NAME);
         $model->setAttribute(static::NAME, $val);
         return $val;
     }

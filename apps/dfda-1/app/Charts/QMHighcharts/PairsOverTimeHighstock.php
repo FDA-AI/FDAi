@@ -6,12 +6,12 @@
 
 namespace App\Charts\QMHighcharts;
 use App\Charts\QMChart;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class PairsOverTimeHighstock extends MultivariateHighstock {
 	protected $correlationId;
 	protected $correlation;
 	/**
-	 * @param QMUserCorrelation|int $correlationOrId
+	 * @param QMUserVariableRelationship|int $correlationOrId
 	 * @param QMChart|null $QMChart
 	 */
 	public function __construct($correlationOrId = null, QMChart $QMChart = null){
@@ -19,7 +19,7 @@ class PairsOverTimeHighstock extends MultivariateHighstock {
 		if(is_int($correlationOrId)){
 			$this->correlationId = $correlationOrId;
 		} else{
-			/** @var QMUserCorrelation $correlationOrId */
+			/** @var QMUserVariableRelationship $correlationOrId */
 			$this->correlationId = $correlationOrId->id;
 			$this->correlation = $correlationOrId;
 		}
@@ -30,14 +30,14 @@ class PairsOverTimeHighstock extends MultivariateHighstock {
 		return [$c->getCauseQMVariable(), $c->getEffectQMVariable()];
 	}
 	/**
-	 * @return QMUserCorrelation
+	 * @return QMUserVariableRelationship
 	 */
-	public function getCorrelation(): QMUserCorrelation{
+	public function getCorrelation(): QMUserVariableRelationship{
 		if($c = $this->correlation){
 			return $c;
 		}
 		if($this->correlationId){
-			return $this->correlation = QMUserCorrelation::find($this->correlationId);
+			return $this->correlation = QMUserVariableRelationship::find($this->correlationId);
 		}
 		throw new \LogicException("No correlation");
 	}

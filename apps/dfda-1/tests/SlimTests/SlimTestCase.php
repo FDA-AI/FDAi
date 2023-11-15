@@ -16,7 +16,7 @@ use App\Charts\UserVariableCharts\UserVariableChartGroup;
 use App\Computers\ThisComputer;
 use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\DataSources\QMClient;
 use App\DataSources\QMConnector;
 use App\Exceptions\AlreadyAnalyzingException;
@@ -530,8 +530,8 @@ abstract class SlimTestCase extends UnitTestCase {
 		$doesNotHave = [
 			'commonUnitAbbreviatedName',
 			'commonUnitName',
-			//'numberOfUserCorrelationsAsCause',  // Why shouldn't we have this?
-			//'numberOfUserCorrelationsAsEffect',
+			//'numberOfUserVariableRelationshipsAsCause',  // Why shouldn't we have this?
+			//'numberOfUserVariableRelationshipsAsEffect',
 			//            'numberOfAggregatedCorrelationsAsCause',
 			//            'numberOfAggregatedCorrelationsAsEffect',
 			//            'numberOfGlobalVariableRelationshipsAsCause',
@@ -592,8 +592,8 @@ abstract class SlimTestCase extends UnitTestCase {
 			'numberOfGlobalVariableRelationshipsAsEffect',
 			'numberOfCorrelations',
 			'numberOfUserVariables',
-			'numberOfUserCorrelationsAsCause',
-			'numberOfUserCorrelationsAsEffect'
+			'numberOfUserVariableRelationshipsAsCause',
+			'numberOfUserVariableRelationshipsAsEffect'
 		];
 		DBUnitTestCase::checkIntAttributes($intAttributes, $variable);
 		$floatAttributes = [
@@ -677,7 +677,7 @@ abstract class SlimTestCase extends UnitTestCase {
 		Memory::resetClearOrDeleteAll();
 		$this->truncateTrackingReminders();
 		$this->truncateTable(QMMeasurement::TABLE);
-		$this->truncateTable(QMUserCorrelation::TABLE);
+		$this->truncateTable(QMUserVariableRelationship::TABLE);
 		$this->truncateTable(QMTrackingReminderNotification::TABLE);
 		$this->truncateTable(QMUserVariable::TABLE);
 		$this->truncateTable(QMCommonTag::TABLE);
@@ -793,8 +793,8 @@ abstract class SlimTestCase extends UnitTestCase {
 			QMLog::error(__METHOD__.": ".$e->getMessage());
 		}
 	}
-	protected function addDummyMeasurementsForUserCorrelations(){
-		$userVariableRelationships = QMUserCorrelation::readonly()->getArray();
+	protected function addDummyMeasurementsForUserVariableRelationships(){
+		$userVariableRelationships = QMUserVariableRelationship::readonly()->getArray();
 		foreach($userVariableRelationships as $userVariableRelationship){
 			$this->addDummyMeasurementRowForVariable($userVariableRelationship->cause_variable_id);
 			try {
@@ -805,9 +805,9 @@ abstract class SlimTestCase extends UnitTestCase {
 		}
 	}
 	protected function addDummyMeasurementsAndUpdateAggregatedCorrelations(){
-		$this->addDummyMeasurementsForUserCorrelations();
-		QMUserCorrelation::writable()->whereNull(QMUserCorrelation::FIELD_DATA_SOURCE_NAME)->update([
-			                                                                                            QMUserCorrelation::FIELD_DATA_SOURCE_NAME => GlobalVariableRelationshipDataSourceNameProperty::DATA_SOURCE_NAME_USER
+		$this->addDummyMeasurementsForUserVariableRelationships();
+		QMUserVariableRelationship::writable()->whereNull(QMUserVariableRelationship::FIELD_DATA_SOURCE_NAME)->update([
+			                                                                                            QMUserVariableRelationship::FIELD_DATA_SOURCE_NAME => GlobalVariableRelationshipDataSourceNameProperty::DATA_SOURCE_NAME_USER
 		                                                                                            ]);
 		self::deleteAndRecreateAllAggregatedCorrelations();
 		QMDB::flushQueryLogs(__METHOD__);
@@ -1109,7 +1109,7 @@ abstract class SlimTestCase extends UnitTestCase {
 	}
 	/**
 	 * @param bool $correlateOverTime
-	 * @return QMUserCorrelation
+	 * @return QMUserVariableRelationship
 	 */
 	public function calculateCorrelation(bool $correlateOverTime = true){
 		$userId = 1;
@@ -1123,7 +1123,7 @@ abstract class SlimTestCase extends UnitTestCase {
 		lei($effect->onsetDelay === null);
 		$effect->analyzeFullyIfNecessary(__FUNCTION__);
 		$allCorrelationObjects = $effect->calculateCorrelationsIfNecessary();
-		$correlations = QMUserCorrelation::getUserCorrelations(['userId' => $userId]);
+		$correlations = QMUserVariableRelationship::getUserVariableRelationships(['userId' => $userId]);
 		$correlations[0]->addStudyHtmlChartsImages();
 		$this->assertCount(1, $correlations,
 		                   'We should only have 1 correlation for CauseVariableName and EffectVariableName');
@@ -1267,8 +1267,8 @@ abstract class SlimTestCase extends UnitTestCase {
 			'numberOfRawMeasurements',
 			'numberOfMeasurements',
 			'numberOfUniqueDailyValues',
-			'numberOfUserCorrelationsAsCause',
-			'numberOfUserCorrelationsAsEffect',
+			'numberOfUserVariableRelationshipsAsCause',
+			'numberOfUserVariableRelationshipsAsEffect',
 			'numberOfRawMeasurementsWithTagsJoinsChildrenAtLastAnalysis',
 			'earliestMeasurementTime',
 			'latestMeasurementTime',
@@ -1311,8 +1311,8 @@ abstract class SlimTestCase extends UnitTestCase {
 	public function checkUserVariableObjectStructureV4($uv){
 		$this->checkSharedQmVariableObjectStructureV4($uv);
 		$doesNotHave = [
-			//'numberOfUserCorrelationsAsCause', // Why not?
-			//'numberOfUserCorrelationsAsEffect',
+			//'numberOfUserVariableRelationshipsAsCause', // Why not?
+			//'numberOfUserVariableRelationshipsAsEffect',
 		];
 		$this->checkDoesNotHaveAttributes($doesNotHave, $uv);
 		$stringAttributes = [
@@ -1406,9 +1406,9 @@ abstract class SlimTestCase extends UnitTestCase {
 		$this->checkNotNullAttributes($notNullAttributes, $ac);
 	}
 	/**
-	 * @param QMUserCorrelation $correlation
+	 * @param QMUserVariableRelationship $correlation
 	 */
-	public function checkUserCorrelationObject($correlation){
+	public function checkUserVariableRelationshipObject($correlation){
 		if(is_array($correlation)){
 			$correlation = (object)$correlation;
 		}
@@ -1584,7 +1584,7 @@ abstract class SlimTestCase extends UnitTestCase {
 		$this->checkNotNullAttributes($this->getNotNullAttributes(), $c);
 	}
 	/**
-	 * @param QMUserCorrelation|QMGlobalVariableRelationship|object $correlation
+	 * @param QMUserVariableRelationship|QMGlobalVariableRelationship|object $correlation
 	 * @param bool $studyCorrelation
 	 */
 	public function checkSharedCorrelationV4Properties($correlation, $studyCorrelation = false){
@@ -1679,7 +1679,7 @@ abstract class SlimTestCase extends UnitTestCase {
 		$this->saveCauseAndEffectMeasurementItems($causeMeasurementItems, $effectMeasurementItems);
 	}
 	/**
-	 * @return QMUserCorrelation
+	 * @return QMUserVariableRelationship
 	 * @throws BadRequestException
 	 */
 	public function seedWithPositiveRandomizedPredictiveCorrelationOverTime(){
@@ -1756,7 +1756,7 @@ abstract class SlimTestCase extends UnitTestCase {
 		}
 	}
 	/**
-	 * @return QMUserCorrelation
+	 * @return QMUserVariableRelationship
 	 * @throws BadRequestException
 	 */
 	public function seedWithUncorrelatedCorrelationOverTime(){
@@ -1784,7 +1784,7 @@ abstract class SlimTestCase extends UnitTestCase {
 		$this->assertGreaterThan($min, $actual, $message);
 	}
 	/**
-	 * @return QMUserCorrelation
+	 * @return QMUserVariableRelationship
 	 * @throws BadRequestException
 	 */
 	public function seedWithNegativeLinearPredictiveCorrelation(){
@@ -1801,7 +1801,7 @@ abstract class SlimTestCase extends UnitTestCase {
 		return $this->checkNegativeCorrelation($correlation);
 	}
 	/**
-	 * @return QMUserCorrelation
+	 * @return QMUserVariableRelationship
 	 * @throws BadRequestException
 	 */
 	public function seedWithPositiveLinearPredictiveCorrelation(){
@@ -1810,16 +1810,16 @@ abstract class SlimTestCase extends UnitTestCase {
 		$user = $this->getCauseUserVariable()->getQMUser();
 		$user->analyzeFully(__FUNCTION__);
 		$this->assertEquals(1, Correlation::count(), "We should have 1 correlation!");
-		$correlations = QMUserCorrelation::getUserCorrelations([]);
+		$correlations = QMUserVariableRelationship::getUserVariableRelationships([]);
 		$this->checkOptimalValueMessageAndStudyCardsForUserVariables();
 		$this->assertEquals(1, $correlations[0]->strongestPearsonCorrelationCoefficient);
 		return $this->checkCorrelationPropertiesAndStudyText($correlations[0]);
 	}
 	/**
-	 * @return QMUserCorrelation
+	 * @return QMUserVariableRelationship
 	 * @throws BadRequestException
 	 */
-	public function seedWithPositivePurchaseCorrelation(): QMUserCorrelation {
+	public function seedWithPositivePurchaseCorrelation(): QMUserVariableRelationship {
 		QMBaseTestCase::deleteUserVariablesMeasurementsRemindersAndCorrelations();
 		$causeMeasurements = [];
 		$effectMeasurements = [];
@@ -2593,10 +2593,10 @@ abstract class SlimTestCase extends UnitTestCase {
 		$this->checkFloatAttributes($floatAttributes, $aggregatedCorrelation);
 	}
 	/**
-	 * @param QMUserCorrelation $correlation
-	 * @return QMUserCorrelation
+	 * @param QMUserVariableRelationship $correlation
+	 * @return QMUserVariableRelationship
 	 */
-	private function checkCorrelationPropertiesAndStudyText(QMUserCorrelation $correlation): QMUserCorrelation{
+	private function checkCorrelationPropertiesAndStudyText(QMUserVariableRelationship $correlation): QMUserVariableRelationship{
 		$this->assertGreaterThan(0.7 * self::NUMBER_OF_GENERATED_MEASUREMENTS, (float)$correlation->avgDailyValuePredictingHighOutcome);
 		$this->assertLessThan(0.3 * self::NUMBER_OF_GENERATED_MEASUREMENTS, (float)$correlation->avgDailyValuePredictingLowOutcome);
 		$this->assertGreaterThan(0.7 * self::NUMBER_OF_GENERATED_MEASUREMENTS, (float)$correlation->averageDailyHighCause);
@@ -2627,10 +2627,10 @@ abstract class SlimTestCase extends UnitTestCase {
 		}
 	}
 	/**
-	 * @param QMUserCorrelation $nc
-	 * @return QMUserCorrelation
+	 * @param QMUserVariableRelationship $nc
+	 * @return QMUserVariableRelationship
 	 */
-	protected function checkNegativeCorrelation($nc): QMUserCorrelation{
+	protected function checkNegativeCorrelation($nc): QMUserVariableRelationship{
 		$this->assertNotNull($nc);
 		$this->assertEquals(-1, $nc->correlationCoefficient);
 		$this->assertEquals(-1, $nc->strongestPearsonCorrelationCoefficient);

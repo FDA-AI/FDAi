@@ -9,7 +9,7 @@ use App\Charts\QMHighcharts\BaseHighstock;
 use App\Charts\QMHighcharts\HighchartConfig;
 use App\Charts\QMHighcharts\HighstockSeries;
 use App\Charts\QMHighcharts\PairsOverTimeHighstock;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\InvalidSourceDataException;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\TooSlowToAnalyzeException;
@@ -28,14 +28,14 @@ class PairsOverTimeLineChart extends CorrelationChart {
 	 */
 	public $yAxis;
 	/**
-	 * @param QMUserCorrelation|QMUserStudy|null $c
+	 * @param QMUserVariableRelationship|QMUserStudy|null $c
 	 */
 	public function __construct($c = null){
 		if(!$c){
 			return;
 		}
 		try {
-			$c = $c->getQMUserCorrelation();
+			$c = $c->getQMUserVariableRelationship();
 		} catch (NotEnoughDataException $e) {
 			return;
 		}

@@ -22,11 +22,11 @@ class GetStudiesAnonymouslyTest extends SlimStagingTestCase
 		    QMLog::info($study->title);
             $stats = $study->statistics;
             $titles[] = $study->title;
-            $numberOfUserCorrelations = Correlation::whereCauseVariableId($study->causeVariableId)
+            $numberOfUserVariableRelationships = Correlation::whereCauseVariableId($study->causeVariableId)
                 ->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $study->effectVariableId)
                 ->count();
-            $this->assertGreaterThan(1, $numberOfUserCorrelations,
-                $study->title." only has $numberOfUserCorrelations user variable relationships");
+            $this->assertGreaterThan(1, $numberOfUserVariableRelationships,
+                $study->title." only has $numberOfUserVariableRelationships user variable relationships");
         }
 		$this->assertArrayEquals(array (
             0 => 'Higher Daily Step Count Predicts Very Slightly Higher Overall Mood for Population',

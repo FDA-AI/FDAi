@@ -8,7 +8,7 @@ namespace App\Properties\Correlation;
 use App\Models\Correlation;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseQmScoreProperty;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationQmScoreProperty extends BaseQmScoreProperty
 {
     use CorrelationProperty;
@@ -17,7 +17,7 @@ class CorrelationQmScoreProperty extends BaseQmScoreProperty
     public $parentClass = Correlation::class;
     use \App\Traits\PropertyTraits\IsCalculated;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float|null
      * @noinspection PhpMissingReturnTypeInspection
      */
@@ -27,11 +27,11 @@ class CorrelationQmScoreProperty extends BaseQmScoreProperty
         return $val;
     }
     /**
-     * @param QMUserCorrelation $uc
+     * @param QMUserVariableRelationship $uc
      * @param $reversePearsonCorrelationSpread
      * @return float
      */
-    public static function calculateQmScore(QMUserCorrelation $uc, $reversePearsonCorrelationSpread): float{
+    public static function calculateQmScore(QMUserVariableRelationship $uc, $reversePearsonCorrelationSpread): float{
         $coefficient = $uc->getCorrelationCoefficient();
         $significance = $uc->getStatisticalSignificance();
         if(self::USE_SIMPLIFIED_QM_SCORE || !$reversePearsonCorrelationSpread){

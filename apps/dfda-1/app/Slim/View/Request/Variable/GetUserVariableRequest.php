@@ -603,8 +603,8 @@ class GetUserVariableRequest extends GetVariableRequest {
 			'numberOfAggregatedCorrelationsAsEffect' => 'numberOfCorrelationsAsEffect',
 			'numberOfGlobalVariableRelationshipsAsCause' => 'numberOfCorrelationsAsCause',
 			'numberOfGlobalVariableRelationshipsAsEffect' => 'numberOfCorrelationsAsEffect',
-			'numberOfUserCorrelationsAsCause' => 'numberOfCorrelationsAsCause',
-			'numberOfUserCorrelationsAsEffect' => 'numberOfCorrelationsAsEffect',
+			'numberOfUserVariableRelationshipsAsCause' => 'numberOfCorrelationsAsCause',
+			'numberOfUserVariableRelationshipsAsEffect' => 'numberOfCorrelationsAsEffect',
 			'source' => 'sourceName',
 		];
 	}
@@ -690,7 +690,7 @@ class GetUserVariableRequest extends GetVariableRequest {
 			'minimum_recorded_value' => 'minimumRecordedValueInCommonUnit',
 			'most_common_connector_id' => 'userVariableMostCommonConnectorId',
 			'number_of_changes' => null,
-			'number_of_correlations' => 'numberOfUserCorrelations',
+			'number_of_correlations' => 'numberOfUserVariableRelationships',
 			'number_of_measurements_with_tags_at_last_correlation' => null,
 			'number_of_processed_daily_measurements' => null,
 			'number_of_measurements' => null,

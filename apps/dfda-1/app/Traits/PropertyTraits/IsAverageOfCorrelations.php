@@ -6,7 +6,7 @@
 
 namespace App\Traits\PropertyTraits;
 use App\Correlations\QMGlobalVariableRelationship;
-use App\Exceptions\NoUserCorrelationsToAggregateException;
+use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Models\GlobalVariableRelationship;
 use App\Storage\DB\Writable;
 trait IsAverageOfCorrelations {
@@ -14,10 +14,10 @@ trait IsAverageOfCorrelations {
 	/**
 	 * @param QMGlobalVariableRelationship|GlobalVariableRelationship $model
 	 * @return float
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 */
 	public static function calculate($model): float{
-		return $model->averageUserCorrelationValue(static::NAME);
+		return $model->averageUserVariableRelationshipValue(static::NAME);
 	}
 	public static function updateAll(){
 		$prop = new static();

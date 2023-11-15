@@ -8,7 +8,7 @@ namespace App\Properties\Correlation;
 use App\Models\Correlation;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseStatisticalSignificanceProperty;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Models\Vote;
 use App\Traits\PropertyTraits\IsCalculated;
 use App\Variables\QMUserVariable;
@@ -24,7 +24,7 @@ class CorrelationStatisticalSignificanceProperty extends BaseStatisticalSignific
         parent::validate();
     }
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float
      */
     public static function calculate($model){

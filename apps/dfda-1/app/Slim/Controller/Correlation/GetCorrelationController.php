@@ -5,13 +5,13 @@
 namespace App\Slim\Controller\Correlation;
 use App\Correlations\CorrelationsAndExplanationResponseBody;
 use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\AlreadyAnalyzedException;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\DuplicateFailedAnalysisException;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\NotEnoughMeasurementsForCorrelationException;
-use App\Exceptions\NoUserCorrelationsToAggregateException;
+use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Exceptions\UnauthorizedException;
 use App\Properties\Base\BaseCauseVariableIdProperty;
@@ -31,7 +31,7 @@ class GetCorrelationController extends GetController {
 	 * @throws AlreadyAnalyzedException
 	 * @throws AlreadyAnalyzingException
 	 * @throws DuplicateFailedAnalysisException
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 * @throws NotEnoughDataException
 	 * @throws TooSlowToAnalyzeException
 	 * @throws UnauthorizedException
@@ -61,7 +61,7 @@ class GetCorrelationController extends GetController {
 	 * @throws AlreadyAnalyzedException
 	 * @throws AlreadyAnalyzingException
 	 * @throws DuplicateFailedAnalysisException
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 * @throws NotEnoughDataException
 	 * @throws TooSlowToAnalyzeException
 	 * @throws UnauthorizedException
@@ -85,7 +85,7 @@ class GetCorrelationController extends GetController {
 	 * @throws AlreadyAnalyzedException
 	 * @throws AlreadyAnalyzingException
 	 * @throws DuplicateFailedAnalysisException
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 * @throws NotEnoughDataException
 	 * @throws TooSlowToAnalyzeException
 	 * @throws UnauthorizedException
@@ -96,11 +96,11 @@ class GetCorrelationController extends GetController {
 	}
 	/**
 	 * @param array|null $params
-	 * @return QMUserCorrelation
+	 * @return QMUserVariableRelationship
 	 * @throws AlreadyAnalyzedException
 	 * @throws AlreadyAnalyzingException
 	 * @throws DuplicateFailedAnalysisException
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 * @throws NotEnoughDataException
 	 * @throws TooSlowToAnalyzeException
 	 * @throws UnauthorizedException
@@ -109,7 +109,7 @@ class GetCorrelationController extends GetController {
 		if(!$params){
 			$params = GetCorrelationController::getCorrelationRequestParams();
 		}
-		$correlations = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships($params);
+		$correlations = QMUserVariableRelationship::getOrCreateUserOrGlobalVariableRelationships($params);
 		if(QMRequest::urlContains('/studies')){
 			return $correlations;
 		}  // This will be done in the study instantiation
@@ -119,11 +119,11 @@ class GetCorrelationController extends GetController {
 		return $correlations;
 	}
 	/**
-	 * @return QMGlobalVariableRelationship|QMUserCorrelation
+	 * @return QMGlobalVariableRelationship|QMUserVariableRelationship
 	 * @throws AlreadyAnalyzedException
 	 * @throws AlreadyAnalyzingException
 	 * @throws DuplicateFailedAnalysisException
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 * @throws NotEnoughDataException
 	 * @throws TooSlowToAnalyzeException
 	 * @throws UnauthorizedException
@@ -184,7 +184,7 @@ class GetCorrelationController extends GetController {
 	 * @throws AlreadyAnalyzedException
 	 * @throws AlreadyAnalyzingException
 	 * @throws DuplicateFailedAnalysisException
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 * @throws NotEnoughDataException
 	 * @throws TooSlowToAnalyzeException
 	 * @throws UnauthorizedException
@@ -223,19 +223,19 @@ class GetCorrelationController extends GetController {
 	}
 	/**
 	 * @param array $params
-	 * @return QMUserCorrelation[]
+	 * @return QMUserVariableRelationship[]
 	 * @throws AlreadyAnalyzedException
 	 * @throws AlreadyAnalyzingException
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 * @throws DuplicateFailedAnalysisException
 	 * @throws NotEnoughDataException
 	 * @throws TooSlowToAnalyzeException
 	 */
-	public function getUserCorrelationsWithExplanation(array $params = []): array{
+	public function getUserVariableRelationshipsWithExplanation(array $params = []): array{
 		if(!isset($params['fallbackToAggregatedCorrelations'])){
 			$params['fallbackToAggregatedCorrelations'] = true;
 		}
-		$correlations = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships($params);
+		$correlations = QMUserVariableRelationship::getOrCreateUserOrGlobalVariableRelationships($params);
 		return $correlations;
 	}
 	/**
@@ -243,13 +243,13 @@ class GetCorrelationController extends GetController {
 	 * @return QMGlobalVariableRelationship[]
 	 * @throws AlreadyAnalyzedException
 	 * @throws AlreadyAnalyzingException
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 * @throws DuplicateFailedAnalysisException
 	 * @throws NotEnoughDataException
 	 * @throws TooSlowToAnalyzeException
 	 */
 	public function getAggregatedCorrelationsWithExplanation(array $params = []): array{
-		$correlations = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships($params);
+		$correlations = QMUserVariableRelationship::getOrCreateUserOrGlobalVariableRelationships($params);
 		return $correlations;
 	}
 	/**
@@ -258,7 +258,7 @@ class GetCorrelationController extends GetController {
 	 * @throws AlreadyAnalyzedException
 	 * @throws AlreadyAnalyzingException
 	 * @throws DuplicateFailedAnalysisException
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 * @throws NotEnoughDataException
 	 * @throws TooSlowToAnalyzeException
 	 * @throws UnauthorizedException

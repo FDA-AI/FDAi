@@ -26,7 +26,7 @@ class GlobalVariableRelationshipDataTableService extends BaseDataTableService
             ->addEffectSize()
             ->addEffectImageNameDropDown()
             ->addMiddleColumn(GlobalVariableRelationship::FIELD_NUMBER_OF_CORRELATIONS, function(GlobalVariableRelationship $m) {
-                return $m->getUserCorrelationsAdminLink();
+                return $m->getUserVariableRelationshipsAdminLink();
             })
             ->addMiddleColumn(GlobalVariableRelationship::FIELD_AGGREGATE_QM_SCORE, function(GlobalVariableRelationship $m) {
                 return QMStr::truncate(Stats::roundByNumberOfSignificantDigits($m->aggregate_qm_score, 3), 10);

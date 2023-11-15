@@ -23,7 +23,7 @@ class CorrelationsAndExplanationResponseBody extends QMResponseBody {
         $this->correlations = $correlations;
         $this->explanation = new AggregatedCorrelationListExplanationResponseBody($requestParams, $correlations);
         if(isset($correlations[0], $correlations[0]->userId) && $correlations){
-            $this->explanation = new UserCorrelationListExplanationResponseBody($requestParams, $correlations);
+            $this->explanation = new UserVariableRelationshipListExplanationResponseBody($requestParams, $correlations);
         }
     }
     /**
@@ -42,7 +42,7 @@ class CorrelationsAndExplanationResponseBody extends QMResponseBody {
         if($filters['aggregate'] ?? false){
             $correlations = QMGlobalVariableRelationship::getGlobalVariableRelationships($filters);
         } else {
-            $correlations = QMUserCorrelation::getUserCorrelations($filters);
+            $correlations = QMUserVariableRelationship::getUserVariableRelationships($filters);
         }
         return new CorrelationsAndExplanationResponseBody($correlations, $filters);
     }

@@ -4,7 +4,7 @@
  */ /** @noinspection PhpUnhandledExceptionInspection */
 namespace App\PhpUnitJobs\Cleanup;
 use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
 use App\PhpUnitJobs\JobTestCase;
@@ -21,10 +21,10 @@ class CorrelationsCleanUpJob extends JobTestCase {
         $variables = QMVariable::getStupidVariables();
         foreach($variables as $v){
             $deleted = false;
-            $deleted = $deleted || QMUserCorrelation::writable()
+            $deleted = $deleted || QMUserVariableRelationship::writable()
                     ->where(Correlation::FIELD_CAUSE_VARIABLE_ID, $v->getVariableIdAttribute())
                     ->hardDelete(__METHOD__, true);
-            $deleted = $deleted || QMUserCorrelation::writable()
+            $deleted = $deleted || QMUserVariableRelationship::writable()
                     ->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $v->getVariableIdAttribute())
                     ->hardDelete(__METHOD__, true);
             $deleted = $deleted || QMGlobalVariableRelationship::writable()

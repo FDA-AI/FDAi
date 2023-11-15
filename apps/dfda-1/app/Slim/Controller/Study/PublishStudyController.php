@@ -6,14 +6,14 @@ namespace App\Slim\Controller\Study;
 use App\Exceptions\AlreadyAnalyzedException;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\NotEnoughDataException;
-use App\Exceptions\NoUserCorrelationsToAggregateException;
+use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Exceptions\UserVariableNotFoundException;
 use App\Properties\UserVariable\UserVariableIsPublicProperty;
 use App\Slim\Controller\PostController;
 use App\Studies\QMStudy;
 class PublishStudyController extends PostController {
 	/**
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 * @throws UserVariableNotFoundException
 	 * @throws AlreadyAnalyzedException
 	 * @throws AlreadyAnalyzingException

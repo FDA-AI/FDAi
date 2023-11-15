@@ -8,7 +8,7 @@ namespace App\Properties\Correlation;
 use App\Models\Correlation;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BasePearsonCorrelationWithNoOnsetDelayProperty;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationPearsonCorrelationWithNoOnsetDelayProperty extends BasePearsonCorrelationWithNoOnsetDelayProperty
 {
     use CorrelationProperty;
@@ -16,7 +16,7 @@ class CorrelationPearsonCorrelationWithNoOnsetDelayProperty extends BasePearsonC
     public $parentClass = Correlation::class;
     use \App\Traits\PropertyTraits\IsCalculated;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float|null
      * @throws \App\Exceptions\NotEnoughDataException
      * @throws \App\Exceptions\TooSlowToAnalyzeException
@@ -24,7 +24,7 @@ class CorrelationPearsonCorrelationWithNoOnsetDelayProperty extends BasePearsonC
      */
     public static function calculate($model) {
         $overDelays = $model->getOverDelays();
-        /** @var QMUserCorrelation $zero */
+        /** @var QMUserVariableRelationship $zero */
         $zero = collect($overDelays)
             ->where('onsetDelay', 0)
             ->where('durationOfAction', CorrelationCorrelationsOverDelaysProperty::DURATION)

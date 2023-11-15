@@ -12,7 +12,7 @@ use App\Buttons\Sharing\TwitterSharingButton;
 use App\Buttons\States\StudyJoinStateButton;
 use App\Buttons\States\StudyStateButton;
 use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Models\Vote;
 use App\Slim\Model\StaticModel;
 use App\Slim\View\Request\QMRequest;

@@ -178,7 +178,7 @@ class VariablesSearchTest extends \Tests\SlimTests\SlimTestCase {
             [
                 'includePublic'                    => true,
                 'fallbackToAggregatedCorrelations' => true,
-                'numberOfUserCorrelationsAsEffect' => '(gt)1',
+                'numberOfUserVariableRelationshipsAsEffect' => '(gt)1',
                 Variable::FIELD_OUTCOME      => "true"
             ]);
         $this->assertCount(1, $variables);

@@ -23,7 +23,7 @@ use App\Cards\StudyCard;
 use App\Charts\ChartGroup;
 use App\Charts\UserVariableCharts\UserVariableChartGroup;
 use App\CodeGenerators\Swagger\SwaggerDefinition;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\UnauthorizedException;
 use App\Http\Controllers\API\MeasurementAPIController;
 use App\Models\UserTag;
@@ -88,8 +88,8 @@ use App\Properties\UserVariable\UserVariableLatestSourceMeasurementStartAtProper
 use App\Properties\UserVariable\UserVariableLatestTaggedMeasurementStartAtProperty;
 use App\Properties\UserVariable\UserVariableNumberOfMeasurementsProperty;
 use App\Properties\UserVariable\UserVariableNumberOfRawMeasurementsWithTagsJoinsChildrenProperty;
-use App\Properties\UserVariable\UserVariableNumberOfUserCorrelationsAsCauseProperty;
-use App\Properties\UserVariable\UserVariableNumberOfUserCorrelationsAsEffectProperty;
+use App\Properties\UserVariable\UserVariableNumberOfUserVariableRelationshipsAsCauseProperty;
+use App\Properties\UserVariable\UserVariableNumberOfUserVariableRelationshipsAsEffectProperty;
 use App\Properties\UserVariable\UserVariableOptimalValueMessageProperty;
 use App\Properties\UserVariable\UserVariableStatusProperty;
 use App\Properties\Variable\VariableIdProperty;
@@ -176,7 +176,7 @@ class QMUserVariable extends QMVariable {
 	private $userTaggedVariableRows;
 	private $userVariableIdsToCorrelateWith;
 	private static $userVariableButtons;
-	protected $bestUserCorrelation;
+	protected $bestUserVariableRelationship;
 	protected $commonVariableFillingValue;
 	protected $commonVariableValence;
 	protected $dailyValuesWithTagsAndFilling;
@@ -193,7 +193,7 @@ class QMUserVariable extends QMVariable {
 	protected $mostCommonOriginalUnitId;
 	protected $mostCommonValueInUserUnit;
 	protected $newUserUnitId;
-	protected $numberOfUserCorrelations;
+	protected $numberOfUserVariableRelationships;
 	protected $processedMeasurements;
 	protected $processedMeasurementsInUserUnit;
 	protected $trackingReminderNotifications;
@@ -212,7 +212,7 @@ class QMUserVariable extends QMVariable {
 	protected $wpPostId;
 	public $actionArray;
 	public $alias;
-	public $bestUserCorrelationId;
+	public $bestUserVariableRelationshipId;
 	public $bestUserStudyCard;
 	public $bestUserStudyLink;
 	public $chartsLinkDynamic;
@@ -439,7 +439,7 @@ class QMUserVariable extends QMVariable {
 		'median' => 'medianInCommonUnit',
 		'minimum_recorded_value' => 'minimumRecordedValueInCommonUnit',
 		'most_common_connector_id' => 'userVariableMostCommonConnectorId',
-		'number_of_correlations' => 'numberOfUserCorrelations',
+		'number_of_correlations' => 'numberOfUserVariableRelationships',
 		'number_of_unique_values' => 'userNumberOfUniqueValues',
 		'number_of_user_variable_relationships_as_cause' => 'numberOfCorrelationsAsCause',
 		'number_of_user_variable_relationships_as_effect' => 'numberOfCorrelationsAsEffect',
@@ -1832,7 +1832,7 @@ class QMUserVariable extends QMVariable {
 		return $keep;
 	}
 	/**
-	 * @return QMUserCorrelation[]
+	 * @return QMUserVariableRelationship[]
 	 * @throws TooSlowToAnalyzeException
 	 */
 	public function correlateAsEffect(): array{
@@ -1855,7 +1855,7 @@ class QMUserVariable extends QMVariable {
 				le($e);
 			}
 			try {
-				$c = QMUserCorrelation::findOrCreate($this->getUserId(), $cause->getVariableIdAttribute(),
+				$c = QMUserVariableRelationship::findOrCreate($this->getUserId(), $cause->getVariableIdAttribute(),
 					$this->getVariableIdAttribute());
 				$c->analyzeIfNecessary(__FUNCTION__);
 				$correlations[$cause->getVariableName()] = $c;
@@ -1891,7 +1891,7 @@ class QMUserVariable extends QMVariable {
 	}
 	/**
 	 * @param array $userVariableIds
-	 * @return QMUserCorrelation[]
+	 * @return QMUserVariableRelationship[]
 	 * @throws \App\Exceptions\TooSlowToAnalyzeException
 	 */
 	public function correlate(array $userVariableIds = []): array{
@@ -1928,10 +1928,10 @@ class QMUserVariable extends QMVariable {
 				$this->logInfo("$b downvoted as both cause and effect so skipping it...");
 				continue;
 			}
-			if(!$bDownVotedAsEffect && QMUserCorrelation::shouldWeCalculate($this, $b)){
+			if(!$bDownVotedAsEffect && QMUserVariableRelationship::shouldWeCalculate($this, $b)){
 				$c = $this->tryToCalculateForPair($this, $b);
 			}
-			if(!$bDownVotedAsCause && QMUserCorrelation::shouldWeCalculate($b, $this)){
+			if(!$bDownVotedAsCause && QMUserVariableRelationship::shouldWeCalculate($b, $this)){
 				$c = $this->tryToCalculateForPair($b, $this);
 			}
 			if(isset($c)){
@@ -4327,7 +4327,7 @@ class QMUserVariable extends QMVariable {
 			self::FIELD_LAST_CORRELATED_AT => now_at(),
 		]);
 		if($userVariableRelationships){
-			GoogleAnalyticsEvent::logEventToGoogleAnalytics("CalculatedUserCorrelationsForVariable",
+			GoogleAnalyticsEvent::logEventToGoogleAnalytics("CalculatedUserVariableRelationshipsForVariable",
 				$this->getVariableName(), count($userVariableRelationships), $this->getUserId(), $this->getClientId());
 		}
 	}
@@ -4548,27 +4548,27 @@ class QMUserVariable extends QMVariable {
 	/**
 	 * @return Correlation
 	 */
-	public function getBestUserCorrelation(): ?Correlation{
-		$c = $this->bestUserCorrelation;
+	public function getBestUserVariableRelationship(): ?Correlation{
+		$c = $this->bestUserVariableRelationship;
 		if($c){
 			return $c;
 		}
 		if($c === false){
 			return null;
 		}
-		$c = $this->setBestUserCorrelation();
+		$c = $this->setBestUserVariableRelationship();
 		if(!$c){
-			$this->bestUserCorrelation = false;
+			$this->bestUserVariableRelationship = false;
 			return null;
 		}
-		return $this->bestUserCorrelation = $c;
+		return $this->bestUserVariableRelationship = $c;
 	}
 	/**
 	 * @return Correlation
 	 */
-	public function setBestUserCorrelation(): ?Correlation{
-		if($id = $this->bestUserCorrelationId){
-			return $this->bestUserCorrelation = Correlation::findInMemoryOrDB($id);
+	public function setBestUserVariableRelationship(): ?Correlation{
+		if($id = $this->bestUserVariableRelationshipId){
+			return $this->bestUserVariableRelationship = Correlation::findInMemoryOrDB($id);
 		}
 		$c = false;
 		if($this->isOutcome()){
@@ -4589,10 +4589,10 @@ class QMUserVariable extends QMVariable {
 			}
 		}
 		if(!$c){
-			$this->bestUserCorrelation = false;
+			$this->bestUserVariableRelationship = false;
 			return null;
 		}
-		return $this->bestUserCorrelation = $c;
+		return $this->bestUserVariableRelationship = $c;
 	}
 	/**
 	 * @return NotificationButton[] $actionArray
@@ -4787,7 +4787,7 @@ class QMUserVariable extends QMVariable {
 	}
 	/**
 	 * Get correlation coefficients for all variables in database
-	 * @return QMUserCorrelation[]
+	 * @return QMUserVariableRelationship[]
 	 * @throws TooSlowToAnalyzeException
 	 */
 	public function calculateCorrelationsIfNecessary(): ?array{
@@ -5236,13 +5236,13 @@ class QMUserVariable extends QMVariable {
 	 * @return QMUserStudy
 	 */
 	public function getBestUserStudy(): QMUserStudy{
-		return $this->getBestUserCorrelation()->findInMemoryOrNewQMStudy();
+		return $this->getBestUserVariableRelationship()->findInMemoryOrNewQMStudy();
 	}
 	/**
 	 * @return false|StudyCard
 	 */
 	public function setBestUserStudyCard(){
-		$correlation = $this->getBestUserCorrelation();
+		$correlation = $this->getBestUserVariableRelationship();
 		if(!$correlation){
 			return $this->bestUserStudyCard = false;
 		}
@@ -5348,34 +5348,34 @@ class QMUserVariable extends QMVariable {
 	/**
 	 * @return int
 	 */
-	public function getOrCalculateNumberOfUserCorrelationsAsCause(): ?int{
-		$number = $this->numberOfUserCorrelationsAsCause;
+	public function getOrCalculateNumberOfUserVariableRelationshipsAsCause(): ?int{
+		$number = $this->numberOfUserVariableRelationshipsAsCause;
 		if($number === null){
-			return $this->calculateNumberOfUserCorrelationsAsCause();
+			return $this->calculateNumberOfUserVariableRelationshipsAsCause();
 		}
-		return $this->numberOfUserCorrelationsAsCause = $number;
+		return $this->numberOfUserVariableRelationshipsAsCause = $number;
 	}
 	/**
 	 * @return int
 	 */
-	public function calculateNumberOfUserCorrelationsAsCause(): ?int{
-		return UserVariableNumberOfUserCorrelationsAsCauseProperty::calculate($this);
+	public function calculateNumberOfUserVariableRelationshipsAsCause(): ?int{
+		return UserVariableNumberOfUserVariableRelationshipsAsCauseProperty::calculate($this);
 	}
 	/**
 	 * @return int
 	 */
-	public function getOrCalculateNumberOfUserCorrelationsAsEffect(): ?int{
-		$number = $this->numberOfUserCorrelationsAsEffect;
+	public function getOrCalculateNumberOfUserVariableRelationshipsAsEffect(): ?int{
+		$number = $this->numberOfUserVariableRelationshipsAsEffect;
 		if($number === null){
-			$number = $this->calculateNumberOfUserCorrelationsAsEffect();
+			$number = $this->calculateNumberOfUserVariableRelationshipsAsEffect();
 		}
 		return $number;
 	}
 	/**
 	 * @return int
 	 */
-	public function calculateNumberOfUserCorrelationsAsEffect(): int{
-		return UserVariableNumberOfUserCorrelationsAsEffectProperty::calculate($this);
+	public function calculateNumberOfUserVariableRelationshipsAsEffect(): int{
+		return UserVariableNumberOfUserVariableRelationshipsAsEffectProperty::calculate($this);
 	}
 
 	/**
@@ -5383,7 +5383,7 @@ class QMUserVariable extends QMVariable {
 	 * @param string|null $variableCategoryName
 	 * @return Collection|Correlation[]
 	 */
-	public function setUserCorrelationsAsEffect(int $limit = null, string $variableCategoryName = null): ?Collection{
+	public function setUserVariableRelationshipsAsEffect(int $limit = null, string $variableCategoryName = null): ?Collection{
 		$qb = $this->getUserVariable()->best_correlations_where_effect_user_variable()->with([
 			'cause_variable',
 			'cause_user_variable',
@@ -5403,7 +5403,7 @@ class QMUserVariable extends QMVariable {
 	 * @param string|null $variableCategoryName
 	 * @return Correlation[]|Collection
 	 */
-	public function setUserCorrelationsAsCause(int $limit = null, string $variableCategoryName = null): ?Collection{
+	public function setUserVariableRelationshipsAsCause(int $limit = null, string $variableCategoryName = null): ?Collection{
 		$qb = $this->getUserVariable()->best_correlations_where_cause_user_variable()->with([
 			'effect_variable',
 			'effect_user_variable',
@@ -5727,10 +5727,10 @@ class QMUserVariable extends QMVariable {
 	/**
 	 * @param QMUserVariable $cause
 	 * @param QMUserVariable $effect
-	 * @return QMUserCorrelation
+	 * @return QMUserVariableRelationship
 	 */
-	private function tryToCalculateForPair(QMUserVariable $cause, QMUserVariable $effect): ?QMUserCorrelation{
-		$c = new QMUserCorrelation(null, $cause, $effect);
+	private function tryToCalculateForPair(QMUserVariable $cause, QMUserVariable $effect): ?QMUserVariableRelationship{
+		$c = new QMUserVariableRelationship(null, $cause, $effect);
 		try {
 			$c->analyzeFullyAndSave(__FUNCTION__);
 			return $c;
@@ -6096,7 +6096,7 @@ class QMUserVariable extends QMVariable {
 	}
 	public function shrink(){
 		parent::shrink();
-		$this->bestUserCorrelation = null;
+		$this->bestUserVariableRelationship = null;
 	}
 	public function getCategoryName(): string{
 		return WpPost::CATEGORY_INDIVIDUAL_PARTICIPANT_VARIABLE_OVERVIEWS;
@@ -6131,12 +6131,12 @@ class QMUserVariable extends QMVariable {
 		return $html;
 	}
 	/**
-	 * @param QMUserCorrelation $c
+	 * @param QMUserVariableRelationship $c
 	 */
-	public function updateBestCorrelationAsCause(QMUserCorrelation $c): void{
+	public function updateBestCorrelationAsCause(QMUserVariableRelationship $c): void{
 		$l = $this->l();
 		$l->optimal_value_message = $c->getHigherPredictsAndOptimalValueSentenceWithDurationOfAction();
-		$this->bestUserCorrelation = $this->bestCorrelationWhereCause = $c->l();
+		$this->bestUserVariableRelationship = $this->bestCorrelationWhereCause = $c->l();
 		$l->best_user_variable_relationship_id = $c->getId();
 		$l->best_effect_variable_id = $c->getEffectVariableId();
 		try {
@@ -6147,13 +6147,13 @@ class QMUserVariable extends QMVariable {
 		$this->setBestStudyLink();
 	}
 	/**
-	 * @param QMUserCorrelation $c
+	 * @param QMUserVariableRelationship $c
 	 */
-	public function updateBestCorrelationAsEffect(QMUserCorrelation $c): void{
-		$this->bestUserCorrelation = $this->bestCorrelationWhereEffect = $c->l();
+	public function updateBestCorrelationAsEffect(QMUserVariableRelationship $c): void{
+		$this->bestUserVariableRelationship = $this->bestCorrelationWhereEffect = $c->l();
 		$l = $this->l();
 		$l->optimal_value_message = $c->getHigherPredictsAndOptimalValueSentenceWithDurationOfAction();
-		$this->bestUserCorrelation = $this->bestCorrelationWhereCause = $c->l();
+		$this->bestUserVariableRelationship = $this->bestCorrelationWhereCause = $c->l();
 		$l->best_user_variable_relationship_id = $c->getId();
 		$l->best_cause_variable_id = $c->getCauseVariableId();
 		try {
@@ -6199,9 +6199,9 @@ class QMUserVariable extends QMVariable {
 			[QMTrackingReminderNotification::FIELD_USER_VARIABLE_ID => $this->getUserVariableId()]);
 		return $this->trackingReminderNotifications = $arr;
 	}
-	public function getNumberOfUserCorrelations(): int{
-		return $this->getOrCalculateNumberOfUserCorrelationsAsCause() +
-			$this->getOrCalculateNumberOfUserCorrelationsAsEffect();
+	public function getNumberOfUserVariableRelationships(): int{
+		return $this->getOrCalculateNumberOfUserVariableRelationshipsAsCause() +
+			$this->getOrCalculateNumberOfUserVariableRelationshipsAsEffect();
 	}
 	public function getParentAnalyzables(): array{
 		return [$this->getCommonVariable()];

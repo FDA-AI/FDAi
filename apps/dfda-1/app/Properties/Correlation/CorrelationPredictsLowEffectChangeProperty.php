@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\InsufficientVarianceException;
 use App\Exceptions\NotEnoughMeasurementsForCorrelationException;
 use App\Exceptions\TooSlowToAnalyzeException;
@@ -21,7 +21,7 @@ class CorrelationPredictsLowEffectChangeProperty extends BasePredictsLowEffectCh
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return float
      * @throws InsufficientVarianceException
      * @throws NotEnoughMeasurementsForCorrelationException
@@ -54,15 +54,15 @@ class CorrelationPredictsLowEffectChangeProperty extends BasePredictsLowEffectCh
      */
     public static function fixNullPredictsLowEffectChange()
     {
-        $rows = QMUserCorrelation::readonly()->whereNull(Correlation::FIELD_PREDICTS_LOW_EFFECT_CHANGE)->getArray();
+        $rows = QMUserVariableRelationship::readonly()->whereNull(Correlation::FIELD_PREDICTS_LOW_EFFECT_CHANGE)->getArray();
         foreach ($rows as $row) {
             $c =
-                QMUserCorrelation::findByNamesOrIds($row->user_id, $row->cause_variable_id,
+                QMUserVariableRelationship::findByNamesOrIds($row->user_id, $row->cause_variable_id,
                     $row->effect_variable_id);
             $c->analyzeFully(__FUNCTION__);
 		if($c->predictsLowEffectChange === null){le('$c->predictsLowEffectChange === null');}
             $c =
-                QMUserCorrelation::findByNamesOrIds($row->user_id, $row->cause_variable_id,
+                QMUserVariableRelationship::findByNamesOrIds($row->user_id, $row->cause_variable_id,
                     $row->effect_variable_id);
 		if($c->predictsLowEffectChange === null){le('$c->predictsLowEffectChange === null');}
         }

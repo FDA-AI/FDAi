@@ -9,11 +9,11 @@ use App\Types\TimeHelper;
 use App\Variables\QMCommonVariable;
 use App\Models\Connection;
 use App\Logging\QMLog;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 use App\Variables\QMUserVariable;
 use App\PhpUnitJobs\JobTestCase;
 class GeneralUpdateStatusJob extends JobTestCase {
-	public $numberOfUserCorrelationsUpdatedInLastHour;
+	public $numberOfUserVariableRelationshipsUpdatedInLastHour;
 	public $numberOfUserVariablesUpdatedInLastDay;
 	public $numberOfCommonVariablesUpdatedInLastHour;
 	public $numberOfConnectionsUpdatedInLastHour;
@@ -53,13 +53,13 @@ class GeneralUpdateStatusJob extends JobTestCase {
 		$this->assertGreaterThan(0, $apiStats->variables['updated']['numberUpdatedInLastDay'],
 			"No common variables updated in last day");
 	}
-	public function testNumberOfUserCorrelationsAnalyzedInLastDay(){
-		$this->numberOfUserCorrelationsUpdatedInLastHour = QMUserCorrelation::numberAnalyzedSince(time() - 86400);
-		QMLog::info("$this->numberOfUserCorrelationsUpdatedInLastHour user variable relationships updated in last day");
-		if(!$this->numberOfUserCorrelationsUpdatedInLastHour){
+	public function testNumberOfUserVariableRelationshipsAnalyzedInLastDay(){
+		$this->numberOfUserVariableRelationshipsUpdatedInLastHour = QMUserVariableRelationship::numberAnalyzedSince(time() - 86400);
+		QMLog::info("$this->numberOfUserVariableRelationshipsUpdatedInLastHour user variable relationships updated in last day");
+		if(!$this->numberOfUserVariableRelationshipsUpdatedInLastHour){
 			QMLog::error("No correlation updates in last day!");
 		}
-		$this->assertGreaterThan(0, $this->numberOfUserCorrelationsUpdatedInLastHour, __FUNCTION__);
+		$this->assertGreaterThan(0, $this->numberOfUserVariableRelationshipsUpdatedInLastHour, __FUNCTION__);
 	}
 	public function testNumberOfUserVariablesAnalyzedInLastDay(){
 		$this->numberOfUserVariablesUpdatedInLastDay = QMUserVariable::numberAnalyzedSince(time() - 86400);

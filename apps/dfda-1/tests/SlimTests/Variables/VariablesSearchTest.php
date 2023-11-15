@@ -66,7 +66,7 @@ class VariablesSearchTest extends \Tests\SlimTests\SlimTestCase {
         }
         $this->assertQueryCountLessThan(10);
     }
-    public function testSearchOutcomeVariablesWithNumberOfUserCorrelationsFilter(){
+    public function testSearchOutcomeVariablesWithNumberOfUserVariableRelationshipsFilter(){
         Writable::db()
             ->table('user_variables')
             ->where('variable_id', 1398)
@@ -75,7 +75,7 @@ class VariablesSearchTest extends \Tests\SlimTests\SlimTestCase {
         $searchTerm = 'Mood Overall';
         $variables = $this->searchVariables($searchTerm,
             [
-                'numberOfUserCorrelationsAsEffect' => '(gt)1',
+                'numberOfUserVariableRelationshipsAsEffect' => '(gt)1',
                 Variable::FIELD_OUTCOME      => "true"
             ]);
         $this->assertCount(1, $variables);
@@ -105,7 +105,7 @@ class VariablesSearchTest extends \Tests\SlimTests\SlimTestCase {
             [
                 'includePublic'                    => true,
                 'fallbackToAggregatedCorrelations' => true,
-                'numberOfUserCorrelationsAsEffect' => '(gt)1',
+                'numberOfUserVariableRelationshipsAsEffect' => '(gt)1',
                 Variable::FIELD_OUTCOME      => "true"
             ]);
         $this->assertCount(1, $variables);

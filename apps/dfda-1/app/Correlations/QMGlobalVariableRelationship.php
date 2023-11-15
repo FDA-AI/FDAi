@@ -13,7 +13,7 @@ use App\Exceptions\InvalidAttributeException;
 use App\Exceptions\InvalidVariableValueException;
 use App\Exceptions\ModelValidationException;
 use App\Exceptions\NotEnoughDataException;
-use App\Exceptions\NoUserCorrelationsToAggregateException;
+use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Exceptions\StupidVariableNameException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Logging\QMLog;
@@ -406,7 +406,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
     }
     /**
      * @return float
-     * @throws NoUserCorrelationsToAggregateException
+     * @throws NoUserVariableRelationshipsToAggregateException
      */
     public function getForwardPearsonCorrelationCoefficient(): float {
         if(!isset($this->forwardPearsonCorrelationCoefficient)){
@@ -416,7 +416,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
     }
 	/**
 	 * @return float|null
-	 * @throws NoUserCorrelationsToAggregateException
+	 * @throws NoUserVariableRelationshipsToAggregateException
 	 */
     public function getPredictsHighEffectChange(): ?float {
         if($this->predictsHighEffectChange === null){
@@ -616,7 +616,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
 	 * @throws \App\Exceptions\AlreadyAnalyzedException
 	 * @throws \App\Exceptions\AlreadyAnalyzingException
 	 * @throws \App\Exceptions\InvalidAttributeException
-	 * @throws \App\Exceptions\NoUserCorrelationsToAggregateException
+	 * @throws \App\Exceptions\NoUserVariableRelationshipsToAggregateException
 	 * @throws \App\Exceptions\StupidVariableException
 	 * @throws \App\Exceptions\StupidVariableNameException
 	 */
@@ -625,7 +625,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
         $this->setCauseVariable($this->getCauseVariableNameOrId());
         $this->setEffectVariable($this->getEffectVariableNameOrId());
         $this->exceptionIfStupidVariable();
-	    $this->analyzeUserCorrelationsIfNecessary(); // Need to do this or we try to save without new correlation properties like effectFollowUpPercentChangeFromBaseline
+	    $this->analyzeUserVariableRelationshipsIfNecessary(); // Need to do this or we try to save without new correlation properties like effectFollowUpPercentChangeFromBaseline
         $this->calculateAttributes();
         if(!$this->dataSourceName){$this->setDataSourceName(GlobalVariableRelationshipDataSourceNameProperty::DATA_SOURCE_NAME_USER);}
         $this->getTagLine();
@@ -636,13 +636,13 @@ class QMGlobalVariableRelationship extends QMCorrelation {
     }
     /**
      * @return array
-     * @throws NoUserCorrelationsToAggregateException
+     * @throws NoUserVariableRelationshipsToAggregateException
      * @throws InvalidAttributeException
      */
     public function calculateAttributes(): array{
         $correlations = $this->getCorrelations();
         if(!$correlations->count()){
-            throw new NoUserCorrelationsToAggregateException($this);
+            throw new NoUserVariableRelationshipsToAggregateException($this);
         }
         $res = parent::calculateAttributes();
         return $res;
@@ -696,7 +696,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
 	 * @throws \App\Exceptions\AlreadyAnalyzingException
 	 * @throws \App\Exceptions\DuplicateFailedAnalysisException
 	 * @throws \App\Exceptions\ModelValidationException
-	 * @throws \App\Exceptions\NoUserCorrelationsToAggregateException
+	 * @throws \App\Exceptions\NoUserVariableRelationshipsToAggregateException
 	 * @throws \App\Exceptions\NotEnoughDataException
 	 * @throws \App\Exceptions\StupidVariableNameException
 	 * @throws \App\Exceptions\TooSlowToAnalyzeException
@@ -719,7 +719,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
 	 * @throws \App\Exceptions\AlreadyAnalyzingException
 	 * @throws \App\Exceptions\DuplicateFailedAnalysisException
 	 * @throws \App\Exceptions\ModelValidationException
-	 * @throws \App\Exceptions\NoUserCorrelationsToAggregateException
+	 * @throws \App\Exceptions\NoUserVariableRelationshipsToAggregateException
 	 * @throws \App\Exceptions\NotEnoughDataException
 	 * @throws \App\Exceptions\StupidVariableNameException
 	 * @throws \App\Exceptions\TooSlowToAnalyzeException
@@ -830,7 +830,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
 	 * @throws \App\Exceptions\AlreadyAnalyzingException
 	 * @throws \App\Exceptions\DuplicateFailedAnalysisException
 	 * @throws \App\Exceptions\ModelValidationException
-	 * @throws \App\Exceptions\NoUserCorrelationsToAggregateException
+	 * @throws \App\Exceptions\NoUserVariableRelationshipsToAggregateException
 	 * @throws \App\Exceptions\NotEnoughDataException
 	 * @throws \App\Exceptions\StupidVariableNameException
 	 * @throws \App\Exceptions\TooSlowToAnalyzeException
@@ -868,14 +868,14 @@ class QMGlobalVariableRelationship extends QMCorrelation {
         QMLog::info('Aggregating correlations updated since '.
             TimeHelper::YYYYmmddd($mostRecentAggregatedCorrelationTimeString));
         $newCorrelationPairs =
-            self::getRecentlyUpdatedUserCorrelationsWithMoreThanTwoUsers($mostRecentAggregatedCorrelationTimeString);
+            self::getRecentlyUpdatedUserVariableRelationshipsWithMoreThanTwoUsers($mostRecentAggregatedCorrelationTimeString);
         $newCorrelationPairs =
             self::addCorrelationsWithNewVotes($mostRecentAggregatedCorrelationTimeString, $newCorrelationPairs);
-        $newCorrelationPairs = self::addUserCorrelationsForAppsAndWebsites($mostRecentAggregatedCorrelationTimeString,
+        $newCorrelationPairs = self::addUserVariableRelationshipsForAppsAndWebsites($mostRecentAggregatedCorrelationTimeString,
             $newCorrelationPairs);
-        $newCorrelationPairs = self::addUserCorrelationsForPublicVariables($mostRecentAggregatedCorrelationTimeString,
+        $newCorrelationPairs = self::addUserVariableRelationshipsForPublicVariables($mostRecentAggregatedCorrelationTimeString,
             $newCorrelationPairs);
-        $newCorrelationPairs = self::addUserCorrelationsForSharedVariables($mostRecentAggregatedCorrelationTimeString,
+        $newCorrelationPairs = self::addUserVariableRelationshipsForSharedVariables($mostRecentAggregatedCorrelationTimeString,
             $newCorrelationPairs);
         if(!count($newCorrelationPairs)){
             QMLog::info("No new user variable relationships to aggregate");
@@ -944,7 +944,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
      * @return array
      * @internal param $db
      */
-    private static function addUserCorrelationsForAppsAndWebsites($mostRecentAggregatedCorrelationTimeString,
+    private static function addUserVariableRelationshipsForAppsAndWebsites($mostRecentAggregatedCorrelationTimeString,
                                                                   $newCorrelationPairs): array{
         $newCorrelationPairsForAppsAndWebsitesAsEffect =
             ReadonlyDB::db()
@@ -973,7 +973,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
                 ->getArray();
         $newCorrelationPairs = array_merge($newCorrelationPairs, $newCorrelationPairsForAppsAndWebsitesAsCause);
         $newCorrelationPairs = array_unique($newCorrelationPairs, SORT_REGULAR);
-        QMLog::info("Got ".count($newCorrelationPairs)." UserCorrelationsForAppsAndWebsites");
+        QMLog::info("Got ".count($newCorrelationPairs)." UserVariableRelationshipsForAppsAndWebsites");
         return $newCorrelationPairs;
     }
     /**
@@ -983,7 +983,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
      * @internal param $db
      * @noinspection SpellCheckingInspection
      */
-    private static function addUserCorrelationsForPublicVariables($mostRecentAggregatedCorrelationTimeString,
+    private static function addUserVariableRelationshipsForPublicVariables($mostRecentAggregatedCorrelationTimeString,
                                                                   $newCorrelationPairs): array{
         $correlationsForPublicVariables =
             ReadonlyDB::getBuilderByTable('correlations AS uc')
@@ -1001,7 +1001,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
                 ->getArray();
         $newCorrelationPairs = array_merge($newCorrelationPairs, $correlationsForPublicVariables);
         $newCorrelationPairs = array_unique($newCorrelationPairs, SORT_REGULAR);
-        QMLog::info("Got ".count($newCorrelationPairs)." UserCorrelationsForPublicVariables");
+        QMLog::info("Got ".count($newCorrelationPairs)." UserVariableRelationshipsForPublicVariables");
         return $newCorrelationPairs;
     }
     /**
@@ -1010,7 +1010,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
      * @return array
      * @internal param $db
      */
-    private static function addUserCorrelationsForSharedVariables($mostRecentAggregatedCorrelationTimeString,
+    private static function addUserVariableRelationshipsForSharedVariables($mostRecentAggregatedCorrelationTimeString,
                                                                   $newCorrelationPairs): array{
         $correlationsForPublicVariables =
             ReadonlyDB::getBuilderByTable('correlations AS uc')
@@ -1026,7 +1026,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
                 ->getArray();
         $newCorrelationPairs = array_merge($newCorrelationPairs, $correlationsForPublicVariables);
         $newCorrelationPairs = array_unique($newCorrelationPairs, SORT_REGULAR);
-        QMLog::info("Got ".count($newCorrelationPairs)." UserCorrelationsForSharedVariables");
+        QMLog::info("Got ".count($newCorrelationPairs)." UserVariableRelationshipsForSharedVariables");
         return $newCorrelationPairs;
     }
     /**
@@ -1055,7 +1055,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
      * @param $mostRecentAggregatedCorrelationTimeString
      * @return array
      */
-    private static function getRecentlyUpdatedUserCorrelationsWithMoreThanTwoUsers($mostRecentAggregatedCorrelationTimeString): array{
+    private static function getRecentlyUpdatedUserVariableRelationshipsWithMoreThanTwoUsers($mostRecentAggregatedCorrelationTimeString): array{
         $newCorrelationPairs =
             ReadonlyDB::getBuilderByTable('correlations AS uc')
                 ->select(ReadonlyDB::db()
@@ -1068,7 +1068,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
                 ->groupBy(['uc.cause_variable_id', 'uc.effect_variable_id'])
                 ->having('number_of_users', '>', 1)
                 ->getArray();
-        QMLog::info("Got ".count($newCorrelationPairs)." RecentlyUpdatedUserCorrelationsWithMoreThanTwoUsers");
+        QMLog::info("Got ".count($newCorrelationPairs)." RecentlyUpdatedUserVariableRelationshipsWithMoreThanTwoUsers");
         return $newCorrelationPairs;
     }
     /**
@@ -1188,7 +1188,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
 	 */
     private static function formatAndValidateRequestParams(array $requestParams, $userId): array{
         $requestParams =
-            QMStr::properlyFormatRequestParams($requestParams, QMUserCorrelation::getLegacyRequestParameters());
+            QMStr::properlyFormatRequestParams($requestParams, QMUserVariableRelationship::getLegacyRequestParameters());
         if(!$userId && isset($requestParams['userId'])){
             $userId = (int)$requestParams['userId'];
         }
@@ -1201,7 +1201,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
         if(isset($requestParams['sort']) && str_contains($requestParams['sort'], 'qmScore')){
             $requestParams['sort'] = str_replace('qmScore', 'aggregateQMScore', $requestParams['sort']);
         }
-        QMAPIValidator::validateParams(QMUserCorrelation::getAllowedRequestParameters(),
+        QMAPIValidator::validateParams(QMUserVariableRelationship::getAllowedRequestParameters(),
             array_keys($requestParams),
             'correlations/correlations_get');
         return [
@@ -1277,8 +1277,8 @@ class QMGlobalVariableRelationship extends QMCorrelation {
         if($effectVariable){
             $effectVariableName = $effectVariable->name;
         }
-        $numberUserCorrelations =
-            QMUserCorrelation::readonly()
+        $numberUserVariableRelationships =
+            QMUserVariableRelationship::readonly()
                 ->where(self::FIELD_CAUSE_VARIABLE_ID, $causeVariableId)
                 ->where(self::FIELD_EFFECT_VARIABLE_ID, $effectVariableId)
                 ->count();
@@ -1286,7 +1286,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
             le("cause variable not an object!");
         }
         QMLog::error("Deleting global variable relationship for $causeVariable->name and
-        $effectVariableName. There are $numberUserCorrelations user variable relationships");
+        $effectVariableName. There are $numberUserVariableRelationships user variable relationships");
         return self::writable()
             ->where(self::FIELD_CAUSE_VARIABLE_ID, $causeVariableId)
             ->where(self::FIELD_EFFECT_VARIABLE_ID, $effectVariableId)
@@ -1514,7 +1514,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
 	 * @throws \App\Exceptions\AlreadyAnalyzedException
 	 * @throws \App\Exceptions\AlreadyAnalyzingException
 	 * @throws \App\Exceptions\InvalidAttributeException
-	 * @throws \App\Exceptions\NoUserCorrelationsToAggregateException
+	 * @throws \App\Exceptions\NoUserVariableRelationshipsToAggregateException
 	 * @throws \App\Exceptions\StupidVariableException
 	 * @throws \App\Exceptions\StupidVariableNameException
 	 */
@@ -1525,7 +1525,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
      * @return QMCommonVariable[]
      */
     public function getSourceObjects(): array{
-        return $this->getQMUserCorrelations();
+        return $this->getQMUserVariableRelationships();
     }
     /**
      * @return QMGlobalVariableRelationship
@@ -1660,7 +1660,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
     /**
      * @return Correlation[]|Collection
      */
-    public function analyzeUserCorrelationsIfNecessary(): Collection {
+    public function analyzeUserVariableRelationshipsIfNecessary(): Collection {
         $correlations = $this->getCorrelations();
         $good = [];
         foreach($correlations as $c){
@@ -1680,8 +1680,8 @@ class QMGlobalVariableRelationship extends QMCorrelation {
 	 * @return Correlation[]|Collection
 	 * @throws \App\Exceptions\StupidVariableNameException
 	 */
-    public function analyzeUserCorrelations(): Collection {
-        $correlations = $this->getQMUserCorrelations();
+    public function analyzeUserVariableRelationships(): Collection {
+        $correlations = $this->getQMUserVariableRelationships();
         $good = [];
         foreach($correlations as $c){
             try {
@@ -1717,7 +1717,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
      * @return array
      */
     public static function getRequiredAnalysisFields(): array{
-        //$fields = array_merge($fields, QMGlobalVariableRelationship::getUserCorrelationFieldsToAverage());
+        //$fields = array_merge($fields, QMGlobalVariableRelationship::getUserVariableRelationshipFieldsToAverage());
         $fields[] = static::FIELD_EFFECT_FOLLOW_UP_PERCENT_CHANGE_FROM_BASELINE;
         // We can't calculate CONFIDENCE_INTERVAL if there's only one effectValuesExpectedToBeHigherThanAverage
         // $fields[] = static::FIELD_CONFIDENCE_INTERVAL;
@@ -1737,14 +1737,14 @@ class QMGlobalVariableRelationship extends QMCorrelation {
     }
     /**
      * @param Throwable $e
-     * @param QMUserCorrelation|Correlation $c
+     * @param QMUserVariableRelationship|Correlation $c
      */
     public function addInvalidCorrelation(Throwable $e, $c): void{
         $this->addException($e);
         $this->invalidSourceData[$c->getTitleAttribute()] = $c;
     }
     /**
-     * @return QMUserCorrelation[]
+     * @return QMUserVariableRelationship[]
      */
     public function getInvalidSourceData(): array{
         return $this->invalidSourceData;
@@ -1779,8 +1779,8 @@ class QMGlobalVariableRelationship extends QMCorrelation {
     public function getPHPUnitTestUrl(): string {
         return self::generatePHPUnitTestUrlForAnalyze($this->getCauseVariable(), $this->getEffectVariable());
     }
-    public function getQMUserCorrelationWithMostData(): QMUserCorrelation{
-        $c = $this->getQMUserCorrelations();
+    public function getQMUserVariableRelationshipWithMostData(): QMUserVariableRelationship{
+        $c = $this->getQMUserVariableRelationships();
         return QMArr::getElementWithHighest($c, 'numberOfPairs');
     }
     /**
@@ -1810,7 +1810,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
 	 * @return void
 	 */
 	public function calculateOutcomeBaselineStatistics(){
-		$uc = $this->getQMUserCorrelations();
+		$uc = $this->getQMUserVariableRelationships();
 		foreach($uc as $correlation){
 			try {
 				$correlation->calculateOutcomeBaselineStatistics();

@@ -11,7 +11,7 @@ use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseEffectChangesProperty;
 use App\Traits\PropertyTraits\IsCalculated;
 use App\Utils\Stats;
-use App\Correlations\QMUserCorrelation;
+use App\Correlations\QMUserVariableRelationship;
 class CorrelationEffectChangesProperty extends BaseEffectChangesProperty
 {
     use CorrelationProperty;
@@ -19,7 +19,7 @@ class CorrelationEffectChangesProperty extends BaseEffectChangesProperty
     public $table = Correlation::TABLE;
     public $parentClass = Correlation::class;
     /**
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @return int
      * @throws InsufficientVarianceException
      * @throws \App\Exceptions\NotEnoughDataException
@@ -34,7 +34,7 @@ class CorrelationEffectChangesProperty extends BaseEffectChangesProperty
     }
     /**
      * @param int $value
-     * @param QMUserCorrelation $model
+     * @param QMUserVariableRelationship $model
      * @throws InsufficientVarianceException
      */
     public static function validateByValue($value, $model = null){

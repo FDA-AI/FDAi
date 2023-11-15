@@ -407,7 +407,7 @@
     {!! Form::label('best_user_variable_relationship_id', 'Best User Variable Relationship:') !!}
     <p>{{ $userVariable->best_user_variable_relationship_id }}</p>
     {!! Form::label('best_user_variable_relationship', 'Best User Variable Relationship:') !!}
-    {!! $userVariable->getBestUserCorrelationLink() !!}
+    {!! $userVariable->getBestUserVariableRelationshipLink() !!}
 </div>
 
 <!-- User Maximum Allowed Daily Value Field -->
