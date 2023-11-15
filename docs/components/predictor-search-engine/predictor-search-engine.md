@@ -16,11 +16,11 @@ The search engine is available in a variety of layout settings.
 
 ### Embeddable Cards
 
-![Cards](predictor-search-cards.PNG)
+![Cards](predictor-search-cards.png)
 
 ### Embeddable Simple List
 
-![Predictor Search Engine Plugin](predictor-search-no-background.PNG)
+![Predictor Search Engine Plugin](predictor-search-no-background.png)
 
 ### Study Cards in Ionic App
 

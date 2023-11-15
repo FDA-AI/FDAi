@@ -1,6 +1,6 @@
 # 📲 Data Collection 
 
-![](data-collection.PNG)
+![](data-collection.png)
 
 Data collection can be done using wearable sensors, third-party applications, and client applications.
 

@@ -58,9 +58,11 @@ By using the Chrome Extension, you can track your mood, symptoms, or any outcome
 
 ## Data Analysis
 
-The Analytics Engine mines data using powerful, proprietary algorithms which perform temporal precedence accounting, longitudinal data aggregation, erroneous data filtering, unit conversions, ingredient tagging, and variable grouping to quantify correlations between symptoms, treatments, and other factors.
+The Analytics Engine performs temporal precedence accounting, longitudinal data aggregation, erroneous data filtering, unit conversions, ingredient tagging, and variable grouping to quantify correlations between symptoms, treatments, and other factors.
 
 It then pairs every combination of variables and identifies likely causal relationships using correlation mining algorithms in conjunction with a pharmacokinetic model.  The algorithms first identify the onset delay and duration of action for each hypothetical factor. It then identifies the optimal daily values for each factor.
+
+[👉 More info about data analysis](docs/components/data-analysis/data-analysis.md)
 
 ### 🏷 Outcome Labels
 

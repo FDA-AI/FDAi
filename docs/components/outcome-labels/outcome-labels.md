@@ -1,6 +1,6 @@
 # 🏷 Outcome Labels
 
-![outcome-labels-plugin.png](outcome-labels.PNG)
+![outcome-labels-plugin.png](outcome-labels.png)
 
 Currently, all foods carry nutrition labels such as this one:
 
