@@ -75,8 +75,8 @@ class GetUserVariableRequest extends GetVariableRequest {
 		'lastUpdated' => UserVariable::TABLE . '.updated_at',
 		'mostCommonConnectorId' => Variable::TABLE . '.' . Variable::FIELD_MOST_COMMON_CONNECTOR_ID,
 		'numberOfChanges' => UserVariable::TABLE . '.number_of_changes',
-		'numberOfCorrelationsAsCause' => UserVariable::TABLE . '.number_of_user_correlations_as_cause',
-		'numberOfCorrelationsAsEffect' => UserVariable::TABLE . '.number_of_user_correlations_as_effect',
+		'numberOfCorrelationsAsCause' => UserVariable::TABLE . '.number_of_user_variable_relationships_as_cause',
+		'numberOfCorrelationsAsEffect' => UserVariable::TABLE . '.number_of_user_variable_relationships_as_effect',
 		'numberOfMeasurements' => UserVariable::TABLE . '.number_of_measurements',
 		'numberOfProcessedDailyMeasurements' => UserVariable::TABLE . '.number_of_processed_daily_measurements',
 		'numberOfRawMeasurements' => UserVariable::TABLE . '.number_of_measurements',
@@ -660,7 +660,7 @@ class GetUserVariableRequest extends GetVariableRequest {
 			UserVariable::FIELD_AVERAGE_SECONDS_BETWEEN_MEASUREMENTS => null,
 			UserVariable::FIELD_BEST_CAUSE_VARIABLE_ID => 'userBestCauseVariableId',
 			UserVariable::FIELD_BEST_EFFECT_VARIABLE_ID => 'userBestEffectVariableId',
-			UserVariable::FIELD_BEST_USER_CORRELATION_ID => null,
+			UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID => null,
 			UserVariable::FIELD_DATA_SOURCES_COUNT => null,
 			UserVariable::FIELD_EARLIEST_TAGGED_MEASUREMENT_START_AT => null,
 			UserVariable::FIELD_EARLIEST_NON_TAGGED_MEASUREMENT_START_AT => null,
@@ -698,8 +698,8 @@ class GetUserVariableRequest extends GetVariableRequest {
 			'number_of_tracking_reminders' => null,
 			'number_of_unique_daily_values' => null,
 			'number_of_unique_values' => 'userNumberOfUniqueValues',
-			'number_of_user_correlations_as_cause' => null,
-			'number_of_user_correlations_as_effect' => null,
+			'number_of_user_variable_relationships_as_cause' => null,
+			'number_of_user_variable_relationships_as_effect' => null,
 			'parent_id' => null,
 			'predictor_of_interest' => null,
 			'second_to_last_value' => 'secondToLastValueInCommonUnit',
@@ -832,11 +832,11 @@ class GetUserVariableRequest extends GetVariableRequest {
 		}
 		if($sort){
 			if(str_contains($sort, 'numberOfCorrelationsAsEffect')){
-				$qb->where(UserVariable::TABLE . '.' . UserVariable::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_EFFECT,
+				$qb->where(UserVariable::TABLE . '.' . UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT,
 					'>', 0);
 			}
 			if(str_contains($sort, 'numberOfCorrelationsAsCause')){
-				$qb->where(UserVariable::TABLE . '.' . UserVariable::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_CAUSE,
+				$qb->where(UserVariable::TABLE . '.' . UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE,
 					'>', 0);
 			}
 		}

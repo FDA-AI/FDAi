@@ -32,10 +32,10 @@ class BaseBestUserCorrelationIdProperty extends CorrelationIdProperty{
     public $isPrimary = false;
 	public $isSearchable = false;
 	public $name = self::NAME;
-	public const NAME = 'best_user_correlation_id';
+	public const NAME = 'best_user_variable_relationship_id';
 	public $phpType = \App\Types\PhpTypes::INTEGER;
 	public $rules = 'nullable|integer|min:1|max:2147483647';
-	public $title = 'Best User Correlation';
+	public $title = 'Best User Variable Relationship';
 	public $type = self::TYPE_INTEGER;
 	public $canBeChangedToNull = true;
 	public $validations = 'nullable|integer|min:1|max:2147483647';
@@ -53,7 +53,7 @@ class BaseBestUserCorrelationIdProperty extends CorrelationIdProperty{
     public static function calculate($uv): ?int{
         $best = $uv->setBestUserCorrelation();
         if(!$best){
-            $uv->logInfo("No best user correlation id");
+            $uv->logInfo("No best user variable relationship id");
             return null;
         }
         $uv->setAttribute(static::NAME, $best->id);

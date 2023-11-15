@@ -199,8 +199,8 @@ class QMUserVariable extends QMVariable {
 	protected $trackingReminderNotifications;
 	protected $bestCorrelationWhereCause;
 	protected $bestCorrelationWhereEffect;
-	protected $userCorrelationsAsCause;
-	protected $userCorrelationsAsEffect;
+	protected $userVariableRelationshipsAsCause;
+	protected $userVariableRelationshipsAsEffect;
 	protected $userMaximumAllowedDailyValue;
 	protected $userMinimumAllowedDailyValue;
 	protected $userMinimumAllowedNonZeroValue;
@@ -344,7 +344,7 @@ class QMUserVariable extends QMVariable {
 	public const FIELD_AVERAGE_SECONDS_BETWEEN_MEASUREMENTS                 = 'average_seconds_between_measurements';
 	public const FIELD_BEST_CAUSE_VARIABLE_ID                               = 'best_cause_variable_id';
 	public const FIELD_BEST_EFFECT_VARIABLE_ID                              = 'best_effect_variable_id';
-	public const FIELD_BEST_USER_CORRELATION_ID                             = 'best_user_correlation_id';
+	public const FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID                             = 'best_user_variable_relationship_id';
 	public const FIELD_CAUSE_ONLY                                           = 'cause_only';
 	public const FIELD_CLIENT_ID                                            = 'client_id';
 	public const FIELD_COMBINATION_OPERATION                                = 'combination_operation';
@@ -397,8 +397,8 @@ class QMUserVariable extends QMVariable {
 	public const FIELD_NUMBER_OF_TRACKING_REMINDERS                         = 'number_of_tracking_reminders';
 	public const FIELD_NUMBER_OF_UNIQUE_DAILY_VALUES                        = 'number_of_unique_daily_values';
 	public const FIELD_NUMBER_OF_UNIQUE_VALUES                              = 'number_of_unique_values';
-	public const FIELD_NUMBER_OF_USER_CORRELATIONS_AS_CAUSE                 = 'number_of_user_correlations_as_cause';
-	public const FIELD_NUMBER_OF_USER_CORRELATIONS_AS_EFFECT                = 'number_of_user_correlations_as_effect';
+	public const FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE                 = 'number_of_user_variable_relationships_as_cause';
+	public const FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT                = 'number_of_user_variable_relationships_as_effect';
 	public const FIELD_ONSET_DELAY                                          = 'onset_delay';
 	public const FIELD_OPTIMAL_VALUE_MESSAGE                                = 'optimal_value_message';
 	public const FIELD_OUTCOME                                              = 'outcome';
@@ -441,8 +441,8 @@ class QMUserVariable extends QMVariable {
 		'most_common_connector_id' => 'userVariableMostCommonConnectorId',
 		'number_of_correlations' => 'numberOfUserCorrelations',
 		'number_of_unique_values' => 'userNumberOfUniqueValues',
-		'number_of_user_correlations_as_cause' => 'numberOfCorrelationsAsCause',
-		'number_of_user_correlations_as_effect' => 'numberOfCorrelationsAsEffect',
+		'number_of_user_variable_relationships_as_cause' => 'numberOfCorrelationsAsCause',
+		'number_of_user_variable_relationships_as_effect' => 'numberOfCorrelationsAsEffect',
 		'second_to_last_value' => 'secondToLastValueInCommonUnit',
 		'third_to_last_value' => 'thirdToLastValueInCommonUnit',
 		'valence' => 'userVariableValence',
@@ -520,13 +520,13 @@ class QMUserVariable extends QMVariable {
                                 set v.number_of_soft_deleted_measurements = m.number_of_soft_deleted_measurements;
             ',
 		],
-		self::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_CAUSE => [
+		self::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE => [
 			'table' => Correlation::TABLE,
 			'foreign_key' => Correlation::FIELD_CAUSE_USER_VARIABLE_ID,
 			'sql' => 'count(' . Correlation::FIELD_ID . ')',
 			'duration' => 1,
 		],
-		self::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_EFFECT => [
+		self::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT => [
 			'table' => Correlation::TABLE,
 			'foreign_key' => Correlation::FIELD_EFFECT_USER_VARIABLE_ID,
 			'sql' => 'count(' . Correlation::FIELD_ID . ')',
@@ -555,7 +555,7 @@ class QMUserVariable extends QMVariable {
 			'foreign_key' => null,
 			'duration' => 28,
 			'sql' => 'update user_variables v
-            set v.number_of_correlations = v.number_of_user_correlations_as_cause + v.number_of_user_correlations_as_effect',
+            set v.number_of_correlations = v.number_of_user_variable_relationships_as_cause + v.number_of_user_variable_relationships_as_effect',
 		],
 		self::FIELD_ANALYSIS_ENDED_AT => 'php',
 		self::FIELD_ANALYSIS_REQUESTED_AT => 'php',
@@ -4315,9 +4315,9 @@ class QMUserVariable extends QMVariable {
         return $this->userVariableIdsToCorrelateWith = $ids;
 	}
 	/**
-	 * @param $userCorrelations
+	 * @param $userVariableRelationships
 	 */
-	public function afterCorrelation($userCorrelations = null){
+	public function afterCorrelation($userVariableRelationships = null){
 		$number = $this->calculateNumberOfRawMeasurementsWithTagsJoinsChildren();
 		$this->updateDbRow([
 			self::FIELD_STATUS => UserVariableStatusProperty::STATUS_UPDATED,
@@ -4326,9 +4326,9 @@ class QMUserVariable extends QMVariable {
 			self::FIELD_UPDATED_AT => now_at(),
 			self::FIELD_LAST_CORRELATED_AT => now_at(),
 		]);
-		if($userCorrelations){
+		if($userVariableRelationships){
 			GoogleAnalyticsEvent::logEventToGoogleAnalytics("CalculatedUserCorrelationsForVariable",
-				$this->getVariableName(), count($userCorrelations), $this->getUserId(), $this->getClientId());
+				$this->getVariableName(), count($userVariableRelationships), $this->getUserId(), $this->getClientId());
 		}
 	}
 	/**
@@ -5396,7 +5396,7 @@ class QMUserVariable extends QMVariable {
 			$c->setRelationAndAddToMemory('effect_variable', $this->getVariable());
 			$c->setRelationAndAddToMemory('effect_user_variable', $this->getUserVariable());
 		}
-		return $this->userCorrelationsAsEffect = $correlations;
+		return $this->userVariableRelationshipsAsEffect = $correlations;
 	}
 	/**
 	 * @param int|null $limit
@@ -5419,10 +5419,10 @@ class QMUserVariable extends QMVariable {
 			if($numberOfMeasurements >
 				CorrelationCauseNumberOfProcessedDailyMeasurementsProperty::MINIMUM_PROCESSED_DAILY_MEASUREMENTS_WITH_TAGS_JOINS_CHILDREN &&
 				$this->isCause()){
-				$this->logInfo("No User Correlations As Cause even though we have $numberOfMeasurements measurements!");
+				$this->logInfo("No User Variable Relationships As Cause even though we have $numberOfMeasurements measurements!");
 			}
 		}
-		return $this->userCorrelationsAsCause = $correlations;
+		return $this->userVariableRelationshipsAsCause = $correlations;
 	}
 	/**
 	 * @return QMMeasurement[]
@@ -6137,7 +6137,7 @@ class QMUserVariable extends QMVariable {
 		$l = $this->l();
 		$l->optimal_value_message = $c->getHigherPredictsAndOptimalValueSentenceWithDurationOfAction();
 		$this->bestUserCorrelation = $this->bestCorrelationWhereCause = $c->l();
-		$l->best_user_correlation_id = $c->getId();
+		$l->best_user_variable_relationship_id = $c->getId();
 		$l->best_effect_variable_id = $c->getEffectVariableId();
 		try {
 			$l->save();
@@ -6154,7 +6154,7 @@ class QMUserVariable extends QMVariable {
 		$l = $this->l();
 		$l->optimal_value_message = $c->getHigherPredictsAndOptimalValueSentenceWithDurationOfAction();
 		$this->bestUserCorrelation = $this->bestCorrelationWhereCause = $c->l();
-		$l->best_user_correlation_id = $c->getId();
+		$l->best_user_variable_relationship_id = $c->getId();
 		$l->best_cause_variable_id = $c->getCauseVariableId();
 		try {
 			$l->save();
@@ -6624,11 +6624,11 @@ class QMUserVariable extends QMVariable {
 		return min($values);
 	}
 	public function unsetOutcomes(){
-		$this->userCorrelationsAsCause = null;
+		$this->userVariableRelationshipsAsCause = null;
 		parent::unsetOutcomes();
 	}
 	public function unsetPredictors(){
-		$this->userCorrelationsAsEffect = null;
+		$this->userVariableRelationshipsAsEffect = null;
 		parent::unsetPredictors();
 	}
 	public function getUrlParams(): array{

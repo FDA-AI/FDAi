@@ -69,8 +69,8 @@ class CreateUserVariablesTable extends Migration
             $table->string('alias', 125)->nullable();
             $table->double('second_to_last_value')->nullable();
             $table->double('third_to_last_value')->nullable();
-            $table->unsignedInteger('number_of_user_correlations_as_effect')->nullable();//->comment('Number of user correlations for which this variable is the effect variable');
-            $table->unsignedInteger('number_of_user_correlations_as_cause')->nullable();//->comment('Number of user correlations for which this variable is the cause variable');
+            $table->unsignedInteger('number_of_user_variable_relationships_as_effect')->nullable();//->comment('Number of user variable relationships for which this variable is the effect variable');
+            $table->unsignedInteger('number_of_user_variable_relationships_as_cause')->nullable();//->comment('Number of user variable relationships for which this variable is the cause variable');
             $table->enum('combination_operation', ['SUM', 'MEAN'])->nullable();//->comment('How to combine values of this variable (for instance, to see a summary of the values over a month) SUM or MEAN');
             $table->string('informational_url', 2000)->nullable();//->comment('Wikipedia url');
             $table->unsignedInteger('most_common_connector_id')->nullable();
@@ -106,7 +106,7 @@ class CreateUserVariablesTable extends Migration
             $table->timestamp('earliest_non_tagged_measurement_start_at')->nullable();
             $table->unsignedBigInteger('wp_post_id')->nullable()->index('user_variables_wp_posts_ID_fk');
             $table->integer('number_of_soft_deleted_measurements')->nullable();//->comment('Formula: update user_variables v ');
-            $table->integer('best_user_correlation_id')->nullable()->index('user_variables_correlations_qm_score_fk');
+            $table->integer('best_user_variable_relationship_id')->nullable()->index('user_variables_correlations_qm_score_fk');
             $table->unsignedInteger('number_of_measurements')->nullable();//->comment('Number of Measurements for this User Variable');
             $table->unsignedInteger('number_of_tracking_reminder_notifications')->nullable();//->comment('Number of Tracking Reminder Notifications for this User Variable.');
             $table->string('deletion_reason', 280)->nullable();//->comment('The reason the variable was deleted.');

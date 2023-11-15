@@ -1344,7 +1344,7 @@ class QMUserCorrelation extends QMCorrelation {
      * @return QMUserCorrelation[]
      */
     public static function getUserCorrelations(array $params, bool $excludeTestUsers = true): array {
-        \App\Logging\ConsoleLog::info("Getting user correlations with params: ".\App\Logging\QMLog::print_r($params, true)."...");
+        \App\Logging\ConsoleLog::info("Getting user variable relationships with params: ".\App\Logging\QMLog::print_r($params, true)."...");
         $qb = self::getUserCorrelationsQB($params);
         $userId = QMArr::getValue($params,self::FIELD_USER_ID);
         if($excludeTestUsers && !$userId){$qb = self::excludeUnAnalyzableUsers($qb);}
@@ -1806,7 +1806,7 @@ class QMUserCorrelation extends QMCorrelation {
     public static function deleteByIds(int $userId, int $causeVariableId, int $effectVariableId, string $reason): QMUserCorrelation{
         $c = self::findByNamesOrIds($userId, $causeVariableId, $effectVariableId);
         if(!$c){
-            throw new UserCorrelationNotFoundException("Can't delete user correlation because userId $userId, ".
+            throw new UserCorrelationNotFoundException("Can't delete user variable relationship because userId $userId, ".
                 " causeVariableId $causeVariableId, effectVariableId $effectVariableId not found!");
         }
         $c->softDelete([], $reason);
@@ -2161,8 +2161,8 @@ class QMUserCorrelation extends QMCorrelation {
         if($userId){
             $params['userId'] = $userId;
         }
-        $userCorrelations = self::getUserCorrelations($params);
-        return $userCorrelations[0] ?? null;
+        $userVariableRelationships = self::getUserCorrelations($params);
+        return $userVariableRelationships[0] ?? null;
     }
     /**
      * @param QMUserVariable|int|string $causeVariableNameOrId

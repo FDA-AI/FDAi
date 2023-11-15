@@ -499,7 +499,7 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
             $correlations = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships([]);
             foreach ($correlations as $correlation){$correlation->logInfo("");}
         }
-        $this->assertEquals(1, $numberOfUserCorrelations, "should have 1 user correlation after publishing");
+        $this->assertEquals(1, $numberOfUserCorrelations, "should have 1 user variable relationship after publishing");
         $this->assertGreaterThanOrEqual(1, Study::count(), "should have 1 study after publishing");
 		$s = $user->l()->studies->first();
 		$this->assertTrue((bool) $s->is_public);

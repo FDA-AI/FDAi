@@ -318,16 +318,16 @@
     <p>{{ $userVariable->third_to_last_value }}</p>
 </div>
 
-<!-- Number Of User Correlations As Effect Field -->
+<!-- Number Of User Variable Relationships As Effect Field -->
 <div class="form-group">
-    {!! Form::label('number_of_user_correlations_as_effect', 'Number Of User Correlations As Effect:') !!}
-    <p>{{ $userVariable->number_of_user_correlations_as_effect }}</p>
+    {!! Form::label('number_of_user_variable_relationships_as_effect', 'Number Of User Variable Relationships As Effect:') !!}
+    <p>{{ $userVariable->number_of_user_variable_relationships_as_effect }}</p>
 </div>
 
-<!-- Number Of User Correlations As Cause Field -->
+<!-- Number Of User Variable Relationships As Cause Field -->
 <div class="form-group">
-    {!! Form::label('number_of_user_correlations_as_cause', 'Number Of User Correlations As Cause:') !!}
-    <p>{{ $userVariable->number_of_user_correlations_as_cause }}</p>
+    {!! Form::label('number_of_user_variable_relationships_as_cause', 'Number Of User Variable Relationships As Cause:') !!}
+    <p>{{ $userVariable->number_of_user_variable_relationships_as_cause }}</p>
 </div>
 
 <!-- Combination Operation Field -->
@@ -402,11 +402,11 @@
     <p>{{ $userVariable->best_effect_variable_id }}</p>
 </div>
 
-<!-- Best User Correlation Field -->
+<!-- Best User Variable Relationship Field -->
 <div class="form-group">
-    {!! Form::label('best_user_correlation_id', 'Best User Correlation:') !!}
-    <p>{{ $userVariable->best_user_correlation_id }}</p>
-    {!! Form::label('best_user_correlation', 'Best User Correlation:') !!}
+    {!! Form::label('best_user_variable_relationship_id', 'Best User Variable Relationship:') !!}
+    <p>{{ $userVariable->best_user_variable_relationship_id }}</p>
+    {!! Form::label('best_user_variable_relationship', 'Best User Variable Relationship:') !!}
     {!! $userVariable->getBestUserCorrelationLink() !!}
 </div>
 
@@ -564,9 +564,9 @@
 --}}
 
 
-<!-- Best User Correlation Id Field -->
+<!-- Best User Variable Relationship Id Field -->
 <div class="form-group">
-    {!! Form::label('best_user_correlation_id', 'Best User Correlation Id:') !!}
-    <p>{{ $userVariable->best_user_correlation_id }}</p>
+    {!! Form::label('best_user_variable_relationship_id', 'Best User Variable Relationship Id:') !!}
+    <p>{{ $userVariable->best_user_variable_relationship_id }}</p>
 </div>
 

@@ -464,7 +464,7 @@ abstract class QMDB extends Connection {
 		'tracking_reminders_aggregated_by_user_id',
 		'tracking_reminders_aggregated_by_user_variable_id',
 		'tracking_reminders_aggregated_by_variable_id',
-		'user_correlations_aggregated',
+		'user_variable_relationships_aggregated',
 		'user_variables_aggregated_by_user_id',
 		'user_variables_aggregated_by_variable_id',
 		'variables_with_missing_measurements',

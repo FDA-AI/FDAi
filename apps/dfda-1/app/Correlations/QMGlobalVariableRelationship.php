@@ -90,7 +90,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
 		HasGlobalVariableRelationship, HasVotes;
 	use HasCharts, HasFiles;
     const EAGER_LOAD_VOTES = true;
-    const VIEW_USER_CORRELATIONS_AGGREGATED = "user_correlations_aggregated";
+    const VIEW_USER_VARIABLE_RELATIONSHIPS_AGGREGATED = "user_variable_relationships_aggregated";
     protected $pairsOfAveragesForAllUsers;
     protected $requireMultipleUsers;
     public $aggregateQMScore;
@@ -255,7 +255,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
 		if(!$this->causeVariableId){le('!$this->causeVariableId');}
 		if(!$this->effectVariableId){le('!$this->effectVariableId');}}
         $this->setType(StudyTypeProperty::TYPE_POPULATION);
-        // Must be set after updatePropertiesByDbRow because it will be overwritten if user correlation
+        // Must be set after updatePropertiesByDbRow because it will be overwritten if user variable relationship
         parent::__construct($l);
         TimeHelper::convertAllDateTimeValuesToRFC3339($this);
         $this->addToMemory();
@@ -878,7 +878,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
         $newCorrelationPairs = self::addUserCorrelationsForSharedVariables($mostRecentAggregatedCorrelationTimeString,
             $newCorrelationPairs);
         if(!count($newCorrelationPairs)){
-            QMLog::info("No new user correlations to aggregate");
+            QMLog::info("No new user variable relationships to aggregate");
             return $newCorrelationPairs;
         }
         QMLog::info("Got ".count($newCorrelationPairs)." new correlation pairs that need aggregation");
@@ -1286,7 +1286,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
             le("cause variable not an object!");
         }
         QMLog::error("Deleting global variable relationship for $causeVariable->name and
-        $effectVariableName. There are $numberUserCorrelations user correlations");
+        $effectVariableName. There are $numberUserCorrelations user variable relationships");
         return self::writable()
             ->where(self::FIELD_CAUSE_VARIABLE_ID, $causeVariableId)
             ->where(self::FIELD_EFFECT_VARIABLE_ID, $effectVariableId)
@@ -1581,7 +1581,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
         return Writable::convertSelectToInsertStatement($table, $allFields, $def);
     }
     public static function createView(){
-        Writable::createOrReplaceView(self::VIEW_USER_CORRELATIONS_AGGREGATED, self::getViewDefinition());
+        Writable::createOrReplaceView(self::VIEW_USER_VARIABLE_RELATIONSHIPS_AGGREGATED, self::getViewDefinition());
     }
     public static function getViewDefinition(): string{
         $excludedCategories = "(".implode(",", [

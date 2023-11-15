@@ -23,7 +23,7 @@ class NoUserCorrelationsToAggregateException extends NotEnoughDataException impl
      */
     public function __construct($correlation){
         $this->analyzable = $c = $this->aggregateCorrelation = $correlation;
-	    $internalErrorMessage = "No user correlations for cause ".
+	    $internalErrorMessage = "No user variable relationships for cause ".
 		    $correlation->getCauseVariableName()." and effect ".$correlation->getEffectVariableName();
 		if($correlation->hasId()){
 			$show = $correlation->getDataLabShowUrl();

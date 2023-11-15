@@ -141,13 +141,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property WpPost $wp_post
  * @property Collection|CorrelationCausalityVote[] $correlation_causality_votes
  * @property Collection|CorrelationUsefulnessVote[] $correlation_usefulness_votes
- * @property Collection|UserVariable[] $user_variables_where_best_user_correlation
+ * @property Collection|UserVariable[] $user_variables_where_best_user_variable_relationship
  * @property Collection|Vote[] $votes
  * @package App\Models\Base
  * @property-read int|null $correlation_causality_votes_count
  * @property-read int|null $correlation_usefulness_votes_count
 
- * @property-read int|null $user_variables_where_best_user_correlation_count
+ * @property-read int|null $user_variables_where_best_user_variable_relationship_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BaseModel applyRequestParams($request)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BaseModel exclude($columns)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BaseModel excludeLargeColumns()
@@ -834,12 +834,12 @@ abstract class BaseCorrelation extends BaseModel {
 			'localKey' => CorrelationUsefulnessVote::FIELD_ID,
 			'methodName' => 'correlation_usefulness_votes',
 		],
-		'user_variables_where_best_user_correlation' => [
+		'user_variables_where_best_user_variable_relationship' => [
 			'relationshipType' => 'HasMany',
 			'qualifiedUserClassName' => UserVariable::class,
-			'foreignKey' => UserVariable::FIELD_BEST_USER_CORRELATION_ID,
+			'foreignKey' => UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID,
 			'localKey' => UserVariable::FIELD_ID,
-			'methodName' => 'user_variables_where_best_user_correlation',
+			'methodName' => 'user_variables_where_best_user_variable_relationship',
 		],
 		'votes' => [
 			'relationshipType' => 'HasMany',
@@ -902,8 +902,8 @@ abstract class BaseCorrelation extends BaseModel {
 		return $this->hasMany(CorrelationUsefulnessVote::class, CorrelationUsefulnessVote::FIELD_CORRELATION_ID,
 			static::FIELD_ID);
 	}
-	public function user_variables_where_best_user_correlation(): HasMany{
-		return $this->hasMany(UserVariable::class, UserVariable::FIELD_BEST_USER_CORRELATION_ID, static::FIELD_ID);
+	public function user_variables_where_best_user_variable_relationship(): HasMany{
+		return $this->hasMany(UserVariable::class, UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID, static::FIELD_ID);
 	}
 	public function votes(): HasMany{
 		return $this->hasMany(Vote::class, [self::FIELD_CAUSE_VARIABLE_ID, self::FIELD_EFFECT_VARIABLE_ID],

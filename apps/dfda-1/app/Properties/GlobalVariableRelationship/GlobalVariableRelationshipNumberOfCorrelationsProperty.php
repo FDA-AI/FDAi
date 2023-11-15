@@ -63,12 +63,12 @@ class GlobalVariableRelationshipNumberOfCorrelationsProperty extends BaseNumberO
             ->with('cause_variable')
             ->with('effect_variable')
             ->get();
-        QMLog::info($where0->count()." without user correlations...");
+        QMLog::info($where0->count()." without user variable relationships...");
         $names = [];
         foreach($where0 as $ac){
             $names[] = $ac->getTitleAttribute();
         }
-        QMLog::print($names, "without user correlations");
+        QMLog::print($names, "without user variable relationships");
         return $where0;
     }
     public static function fixInvalidRecords(){

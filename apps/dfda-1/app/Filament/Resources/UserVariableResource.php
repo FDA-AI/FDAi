@@ -40,8 +40,8 @@ class UserVariableResource extends Resource
 //                    ->relationship('last_unit', 'name'),
 //                Forms\Components\Select::make('wp_post_id')
 //                    ->relationship('wp_post', 'ID'),
-//                Forms\Components\Select::make('best_user_correlation_id')
-//                    ->relationship('best_user_correlation', 'id'),
+//                Forms\Components\Select::make('best_user_variable_relationship_id')
+//                    ->relationship('best_user_variable_relationship', 'id'),
 //                Forms\Components\TextInput::make('parent_id'),
 //                Forms\Components\TextInput::make('minimum_allowed_value'),
 //                Forms\Components\TextInput::make('maximum_allowed_value'),
@@ -93,8 +93,8 @@ class UserVariableResource extends Resource
 //                    ->maxLength(125),
 //                Forms\Components\TextInput::make('second_to_last_value'),
 //                Forms\Components\TextInput::make('third_to_last_value'),
-//                Forms\Components\TextInput::make('number_of_user_correlations_as_effect'),
-//                Forms\Components\TextInput::make('number_of_user_correlations_as_cause'),
+//                Forms\Components\TextInput::make('number_of_user_variable_relationships_as_effect'),
+//                Forms\Components\TextInput::make('number_of_user_variable_relationships_as_cause'),
 //                Forms\Components\TextInput::make('combination_operation'),
 //                Forms\Components\TextInput::make('informational_url')
 //                    ->maxLength(2000),
@@ -182,7 +182,7 @@ class UserVariableResource extends Resource
                 Tables\Columns\TextColumn::make('variable_category.name'),
 //                Tables\Columns\TextColumn::make('last_unit.name'),
 //                Tables\Columns\TextColumn::make('wp_post.ID'),
-//                Tables\Columns\TextColumn::make('best_user_correlation.id'),
+//                Tables\Columns\TextColumn::make('best_user_variable_relationship.id'),
 //                Tables\Columns\TextColumn::make('parent_id'),
 //                Tables\Columns\TextColumn::make('minimum_allowed_value'),
 //                Tables\Columns\TextColumn::make('maximum_allowed_value'),
@@ -240,8 +240,8 @@ class UserVariableResource extends Resource
 //                    ->dateTime(),
 //                Tables\Columns\TextColumn::make('second_to_last_value'),
 //                Tables\Columns\TextColumn::make('third_to_last_value'),
-//                Tables\Columns\TextColumn::make('number_of_user_correlations_as_effect'),
-//                Tables\Columns\TextColumn::make('number_of_user_correlations_as_cause'),
+//                Tables\Columns\TextColumn::make('number_of_user_variable_relationships_as_effect'),
+//                Tables\Columns\TextColumn::make('number_of_user_variable_relationships_as_cause'),
 //                Tables\Columns\TextColumn::make('combination_operation'),
 //                Tables\Columns\TextColumn::make('informational_url'),
 //                Tables\Columns\TextColumn::make('most_common_connector.name'),

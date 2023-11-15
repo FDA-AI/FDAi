@@ -794,13 +794,13 @@ abstract class SlimTestCase extends UnitTestCase {
 		}
 	}
 	protected function addDummyMeasurementsForUserCorrelations(){
-		$userCorrelations = QMUserCorrelation::readonly()->getArray();
-		foreach($userCorrelations as $userCorrelation){
-			$this->addDummyMeasurementRowForVariable($userCorrelation->cause_variable_id);
+		$userVariableRelationships = QMUserCorrelation::readonly()->getArray();
+		foreach($userVariableRelationships as $userVariableRelationship){
+			$this->addDummyMeasurementRowForVariable($userVariableRelationship->cause_variable_id);
 			try {
-				$this->addDummyMeasurementRowForVariable($userCorrelation->effect_variable_id);
+				$this->addDummyMeasurementRowForVariable($userVariableRelationship->effect_variable_id);
 			} catch (\Throwable $e){
-				$this->addDummyMeasurementRowForVariable($userCorrelation->effect_variable_id);
+				$this->addDummyMeasurementRowForVariable($userVariableRelationship->effect_variable_id);
 			}
 		}
 	}
@@ -2451,13 +2451,13 @@ abstract class SlimTestCase extends UnitTestCase {
 			->where(UserVariable::FIELD_VARIABLE_ID, $cause->variableId)
 			->where(UserVariable::FIELD_USER_ID, $cause->userId)
 			->first();
-		$this->assertNotNull($row->best_user_correlation_id);
+		$this->assertNotNull($row->best_user_variable_relationship_id);
 		$this->assertNotNull($row->optimal_value_message);
 		$row = UserVariable::query()
 			->where(UserVariable::FIELD_VARIABLE_ID, $primaryOutcome->variableId)
 			->where(UserVariable::FIELD_USER_ID, $primaryOutcome->userId)
 			->first();
-		$this->assertNotNull($row->best_user_correlation_id);
+		$this->assertNotNull($row->best_user_variable_relationship_id);
 		$this->assertNotNull($row->optimal_value_message);
 		$primaryOutcome->getOrCreateTrackingReminder();
 		$notifications = $this->getAndCheckNotificationsAndFeed();
@@ -2747,9 +2747,9 @@ abstract class SlimTestCase extends UnitTestCase {
 	 */
 	public static function deleteAndRecreateAllAggregatedCorrelations(): array{
 		self::deleteGlobalVariableRelationships();
-		$userCorrelations = Correlation::all();
+		$userVariableRelationships = Correlation::all();
 		$agg = [];
-		foreach($userCorrelations as $uc){
+		foreach($userVariableRelationships as $uc){
 			$agg[] = $uc->getOrCreateGlobalVariableRelationship();
 		}
 		return $agg;

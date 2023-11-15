@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Http\Requests\LensRequest;
 class GlobalVariableRelationshipsWithNoUserCorrelationsLens extends GlobalVariableRelationshipInvalidLens {
 	public function name(): string{
-		return "No User Correlations";
+		return "No User Variable Relationships";
 	}
 	/**
 	 * Get the query builder / paginator for the lens.

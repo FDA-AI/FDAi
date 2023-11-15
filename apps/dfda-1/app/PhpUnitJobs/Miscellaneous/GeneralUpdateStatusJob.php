@@ -55,7 +55,7 @@ class GeneralUpdateStatusJob extends JobTestCase {
 	}
 	public function testNumberOfUserCorrelationsAnalyzedInLastDay(){
 		$this->numberOfUserCorrelationsUpdatedInLastHour = QMUserCorrelation::numberAnalyzedSince(time() - 86400);
-		QMLog::info("$this->numberOfUserCorrelationsUpdatedInLastHour user correlations updated in last day");
+		QMLog::info("$this->numberOfUserCorrelationsUpdatedInLastHour user variable relationships updated in last day");
 		if(!$this->numberOfUserCorrelationsUpdatedInLastHour){
 			QMLog::error("No correlation updates in last day!");
 		}

@@ -1428,11 +1428,11 @@ trait ApiTestTrait
         /** @var UserVariable $row */
         $row = UserVariable::whereVariableId($cause->variableId)->where(UserVariable::FIELD_USER_ID, $cause->userId)
             ->first();
-        $this->assertNotNull($row->best_user_correlation_id);
+        $this->assertNotNull($row->best_user_variable_relationship_id);
         $this->assertNotNull($row->optimal_value_message);
         $row = UserVariable::whereVariableId($primaryOutcome->variableId)
             ->where(UserVariable::FIELD_USER_ID, $primaryOutcome->userId)->first();
-        $this->assertNotNull($row->best_user_correlation_id);
+        $this->assertNotNull($row->best_user_variable_relationship_id);
         $this->assertNotNull($row->optimal_value_message);
         $notifications = $this->getAndCheckNotificationsAndFeed();
         $message = "We should have gotten a notification card for effect because a reminder should have been " .

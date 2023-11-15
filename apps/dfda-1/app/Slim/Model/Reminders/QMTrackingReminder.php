@@ -442,7 +442,7 @@ $maxInCommonUnit $commonUnit->abbreviatedName for variable $this->name";
 		$qb->columns[] = 'uv.number_of_unique_values as userNumberOfUniqueValues';
 		$qb->columns[] = 'uv.valence as userVariableValence';
 		$qb->columns[] = 'uv.' . UserVariable::FIELD_OPTIMAL_VALUE_MESSAGE . ' as userOptimalValueMessage';
-		$qb->columns[] = 'uv.' . UserVariable::FIELD_BEST_USER_CORRELATION_ID . ' as bestUserCorrelationId';
+		$qb->columns[] = 'uv.' . UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID . ' as bestUserCorrelationId';
 		$qb->columns[] = 'uv.' . UserVariable::FIELD_MEAN . ' as meanInCommonUnit';
 		$qb->columns[] = 'uv.' . UserVariable::FIELD_MAXIMUM_RECORDED_VALUE . ' as maximumRecordedValueInCommonUnit';
 		$qb->columns[] = 'uv.' . UserVariable::FIELD_MINIMUM_RECORDED_VALUE . ' as minimumRecordedValueInCommonUnit';

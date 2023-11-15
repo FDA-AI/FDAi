@@ -1443,7 +1443,7 @@ abstract class QMCorrelation extends DBModel {
     public static function deleteByEffectId(int $effectId, string $reason): int {
         $qb = QMUserCorrelation::writable()->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $effectId);
         $c = $qb->count();
-        QMLog::error("Deleting $c user correlations where effect...");
+        QMLog::error("Deleting $c user variable relationships where effect...");
         $deletedUser = $qb->hardDelete($reason, true);
         $qb = QMGlobalVariableRelationship::writable()->where(GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $effectId);
         $c = $qb->count();

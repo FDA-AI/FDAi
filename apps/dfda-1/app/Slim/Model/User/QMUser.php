@@ -1515,7 +1515,7 @@ class QMUser extends PublicUser {
 	 * @return Correlation[]
 	 */
 	public function setAllUserCorrelations(): array{
-		$this->logInfo("Getting all user correlations!  WARNING: THIS USES A LOT OF MEMORY! TODO: Use laravel models");
+		$this->logInfo("Getting all user variable relationships!  WARNING: THIS USES A LOT OF MEMORY! TODO: Use laravel models");
 		$rows = $this->getCorrelations();
 		$this->logInfo("Got " . $rows->count() .
 			" existing correlation rows.  Not instantiating now because it's too slow.");
@@ -2350,10 +2350,10 @@ class QMUser extends PublicUser {
 	public function getTrackingRemindersNotificationCards(bool $includeStudyCards, int $limit = 10): array{
 		$notifications = $this->getPastTrackingRemindersNotifications($limit);
 		$cards = [];
-		$noCorrelations = $aggregateCorrelationIds = $userCorrelationIds = [];
+		$noCorrelations = $aggregateCorrelationIds = $userVariableRelationshipIds = [];
 		foreach($notifications as $n){
 			if($id = $n->bestUserCorrelationId){
-				$userCorrelationIds[] = $id;
+				$userVariableRelationshipIds[] = $id;
 			} elseif($id = $n->bestGlobalVariableRelationshipId){
 				$aggregateCorrelationIds[] = $id;
 			} else{
@@ -2367,9 +2367,9 @@ class QMUser extends PublicUser {
 			QMLog::error("No best user or global variable relationships for the following notifications:\n\t" .
 				implode(", ", $noCorrelations));
 		}
-		$userCorrelationIds = array_unique($userCorrelationIds);
+		$userVariableRelationshipIds = array_unique($userVariableRelationshipIds);
 		$aggregateCorrelationIds = array_unique($aggregateCorrelationIds);
-		$correlations = ($userCorrelationIds) ? Correlation::getWithVariables($userCorrelationIds) : [];
+		$correlations = ($userVariableRelationshipIds) ? Correlation::getWithVariables($userVariableRelationshipIds) : [];
 		$aggregateCorrelations = ($aggregateCorrelationIds) ?
 			GlobalVariableRelationship::getWithVariables($aggregateCorrelationIds) : [];
 		foreach($notifications as $n){

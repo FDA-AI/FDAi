@@ -13,13 +13,13 @@ class CorrelationUserVariablesWhereBestUserCorrelationButton extends HasManyRela
 	public $parentClass = Correlation::class;
 	public $qualifiedParentKeyName = Correlation::TABLE . '.' . Correlation::FIELD_ID;
 	public $relatedClass = UserVariable::class;
-	public $methodName = 'user_variables_where_best_user_correlation';
+	public $methodName = 'user_variables_where_best_user_variable_relationship';
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\HasMany';
 	public $color = UserVariable::COLOR;
 	public $fontAwesome = UserVariable::FONT_AWESOME;
-	public $id = 'user-variables-where-best-user-correlation-button';
+	public $id = 'user-variables-where-best-user-variable-relationship-button';
 	public $image = UserVariable::DEFAULT_IMAGE;
-	public $text = 'User Variables Where Best User Correlation';
-	public $title = 'User Variables Where Best User Correlation';
-	public $tooltip = 'User Variables where this is the Best User Correlation';
+	public $text = 'User Variables Where Best User Variable Relationship';
+	public $title = 'User Variables Where Best User Variable Relationship';
+	public $tooltip = 'User Variables where this is the Best User Variable Relationship';
 }

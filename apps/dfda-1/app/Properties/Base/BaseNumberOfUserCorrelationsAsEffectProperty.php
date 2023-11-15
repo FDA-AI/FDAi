@@ -16,7 +16,7 @@ class BaseNumberOfUserCorrelationsAsEffectProperty extends BaseProperty{
 	public $dbInput = 'integer,false,true';
 	public $dbType = \Doctrine\DBAL\Types\Types::INTEGER;
 	public $default = \OpenApi\Generator::UNDEFINED;
-	public $description = 'Number of user correlations for which this variable is the effect variable';
+	public $description = 'Number of user variable relationships for which this variable is the effect variable';
 	public $example = 105;
 	public $fieldType = self::TYPE_INTEGER;
 	public $fontAwesome = FontAwesome::CORRELATIONS;
@@ -31,7 +31,7 @@ class BaseNumberOfUserCorrelationsAsEffectProperty extends BaseProperty{
 	public $maximum = 2147483647;
 	public $minimum = 0;
 	public $name = self::NAME;
-	public const NAME = 'number_of_user_correlations_as_effect';
+	public const NAME = 'number_of_user_variable_relationships_as_effect';
 	public $phpType = \App\Types\PhpTypes::INTEGER;
 	public $rules = 'nullable|integer|min:0|max:2147483647';
 	public $title = 'Causes';

@@ -359,16 +359,16 @@
     {!! Form::number('third_to_last_value', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Number Of User Correlations As Effect Field -->
+<!-- Number Of User Variable Relationships As Effect Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('number_of_user_correlations_as_effect', 'Number Of User Correlations As Effect:') !!}
-    {!! Form::number('number_of_user_correlations_as_effect', null, ['class' => 'form-control']) !!}
+    {!! Form::label('number_of_user_variable_relationships_as_effect', 'Number Of User Variable Relationships As Effect:') !!}
+    {!! Form::number('number_of_user_variable_relationships_as_effect', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Number Of User Correlations As Cause Field -->
+<!-- Number Of User Variable Relationships As Cause Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('number_of_user_correlations_as_cause', 'Number Of User Correlations As Cause:') !!}
-    {!! Form::number('number_of_user_correlations_as_cause', null, ['class' => 'form-control']) !!}
+    {!! Form::label('number_of_user_variable_relationships_as_cause', 'Number Of User Variable Relationships As Cause:') !!}
+    {!! Form::number('number_of_user_variable_relationships_as_cause', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Combination Operation Field -->
@@ -447,10 +447,10 @@
     {!! Form::number('best_effect_variable_id', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Best User Correlation Field -->
+<!-- Best User Variable Relationship Field -->
 <div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('best_user_correlation_id', 'Best User Correlation:') !!}
-    {!! Form::textarea('best_user_correlation_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('best_user_variable_relationship_id', 'Best User Variable Relationship:') !!}
+    {!! Form::textarea('best_user_variable_relationship_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- User Maximum Allowed Daily Value Field -->
@@ -715,10 +715,10 @@
 --}}
 
 
-<!-- Best User Correlation Id Field -->
+<!-- Best User Variable Relationship Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('best_user_correlation_id', 'Best User Correlation Id:') !!}
-    {!! Form::number('best_user_correlation_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('best_user_variable_relationship_id', 'Best User Variable Relationship Id:') !!}
+    {!! Form::number('best_user_variable_relationship_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

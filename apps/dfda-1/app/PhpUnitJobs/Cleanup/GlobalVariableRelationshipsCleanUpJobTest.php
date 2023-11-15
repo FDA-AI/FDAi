@@ -36,10 +36,10 @@ class GlobalVariableRelationshipsCleanUpJobTest extends JobTestCase {
     public function testDeleteGlobalVariableRelationshipsWithoutUserCorrelations() {
         GlobalVariableRelationshipNumberOfCorrelationsProperty::fixInvalidRecords();
         $aggCorrRows = GlobalVariableRelationshipsCleanUpJobTest::getAggregateRowsWithoutUserCorrelations();
-        QMLog::count($aggCorrRows, "global variable relationships without user correlations");
+        QMLog::count($aggCorrRows, "global variable relationships without user variable relationships");
         foreach ($aggCorrRows as $row) {
             $c = QMGlobalVariableRelationship::getByNamesOrIds($row->cause_variable_id, $row->effect_variable_id);
-            $message = "No user correlations!";
+            $message = "No user variable relationships!";
             $c->logInfo($message);
             $c->hardDelete($message);
         }
@@ -173,7 +173,7 @@ class GlobalVariableRelationshipsCleanUpJobTest extends JobTestCase {
             join variables cv on cv.id = ac.cause_variable_id
             join variables ev on ev.id = ac.effect_variable_id
             where c.cause_variable_id is null");
-        QMLog::count($aggCorrRows, "global variable relationships with no user correlations");
+        QMLog::count($aggCorrRows, "global variable relationships with no user variable relationships");
         return $aggCorrRows;
     }
     /**

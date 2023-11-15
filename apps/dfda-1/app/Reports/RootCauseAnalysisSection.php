@@ -273,8 +273,8 @@ class RootCauseAnalysisSection extends AnalyticalReport {
      * @return bool
      */
     public function userHasData(): bool{
-        $userCorrelations = $this->getCorrelations();
-        return (bool)count($userCorrelations);
+        $userVariableRelationships = $this->getCorrelations();
+        return (bool)count($userVariableRelationships);
     }
     /**
      * @param string|null $subSectionTitle

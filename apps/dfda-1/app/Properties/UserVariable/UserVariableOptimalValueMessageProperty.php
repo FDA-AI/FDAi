@@ -31,22 +31,22 @@ class UserVariableOptimalValueMessageProperty extends BaseOptimalValueMessagePro
         if($c){
 			$msg = $c->generatePredictorExplanationSentence()." ";
 	        $msg .= $c->changeFromBaselineSentence();
-            $l->best_user_correlation_id = $c->getId();
+            $l->best_user_variable_relationship_id = $c->getId();
             if($dbm->userBestCauseVariableId){$l->best_cause_variable_id = $dbm->userBestCauseVariableId;}
             if($dbm->userBestEffectVariableId){$l->best_effect_variable_id = $dbm->userBestEffectVariableId;}
 	        $dbm->logInfo($msg);
         }
-        if(!$l->best_user_correlation_id){
+        if(!$l->best_user_variable_relationship_id){
             if($dbm->isOutcome()){
                 if($correlationsAsEffect = $dbm->calculateNumberOfUserCorrelationsAsEffect()){
 	                $dbm->setBestUserCorrelation();
-	                $dbm->throwLogicException("No BEST_USER_CORRELATION_ID even though we have $correlationsAsEffect correlations as a effect! ".
+	                $dbm->throwLogicException("No BEST_USER_VARIABLE_RELATIONSHIP_ID even though we have $correlationsAsEffect correlations as a effect! ".
                         Correlation::getDataLabIndexUrl([Correlation::FIELD_EFFECT_USER_VARIABLE_ID => $dbm->getUserVariableId()]));
                 }
             }else{
                 if($correlationsAsCause = $dbm->calculateNumberOfUserCorrelationsAsCause()){
 	                $dbm->setBestUserCorrelation();
-	                $dbm->throwLogicException("No BEST_USER_CORRELATION_ID even though we have $correlationsAsCause correlations as a cause!".
+	                $dbm->throwLogicException("No BEST_USER_VARIABLE_RELATIONSHIP_ID even though we have $correlationsAsCause correlations as a cause!".
                         Correlation::getDataLabIndexUrl([Correlation::FIELD_CAUSE_USER_VARIABLE_ID => $dbm->getVariableIdAttribute()]));
                 }
             }

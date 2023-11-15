@@ -483,8 +483,8 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property-read int|null $correlation_causality_votes_count
  * @property-read \Illuminate\Database\Eloquent\Collection|CorrelationUsefulnessVote[] $correlation_usefulness_votes
  * @property-read int|null $correlation_usefulness_votes_count
- * @property-read \Illuminate\Database\Eloquent\Collection|UserVariable[] $user_variables_where_best_user_correlation
- * @property-read int|null $user_variables_where_best_user_correlation_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|UserVariable[] $user_variables_where_best_user_variable_relationship
+ * @property-read int|null $user_variables_where_best_user_variable_relationship_count
 
  * @property-read \Illuminate\Database\Eloquent\Collection|ActionEvent[] $actions
  * @property-read int|null $actions_count

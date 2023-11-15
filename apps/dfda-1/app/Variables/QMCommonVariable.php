@@ -1739,11 +1739,11 @@ class QMCommonVariable extends QMVariable {
      * @throws StupidVariableNameException
      */
     public function recalculateAllCorrelationsWithInvalidValues(){
-        $userCorrelations = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships([
+        $userVariableRelationships = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships([
             'causeVariableId' => $this->id,
             'limit'           => 0
         ]);
-        foreach($userCorrelations as $c){$c->validateOrReAnalyze();}
+        foreach($userVariableRelationships as $c){$c->validateOrReAnalyze();}
     }
     /**
      * @return QMUserVariable[]
