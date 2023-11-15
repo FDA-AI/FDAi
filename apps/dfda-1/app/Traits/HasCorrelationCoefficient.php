@@ -1560,7 +1560,7 @@ trait HasCorrelationCoefficient {
 	 * @return bool
 	 */
 	protected function shouldUseChangeFromBaseline(): bool{
-		return false;  // TODO: Implement for aggregated correlation
+		return false;  // TODO: Implement for global variable relationship
 	}
 	/**
 	 * @throws StupidVariableException

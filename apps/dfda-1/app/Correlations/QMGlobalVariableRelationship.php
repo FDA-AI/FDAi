@@ -1285,7 +1285,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
         if(!is_object($causeVariable)){
             le("cause variable not an object!");
         }
-        QMLog::error("Deleting aggregated correlation for $causeVariable->name and
+        QMLog::error("Deleting global variable relationship for $causeVariable->name and
         $effectVariableName. There are $numberUserCorrelations user correlations");
         return self::writable()
             ->where(self::FIELD_CAUSE_VARIABLE_ID, $causeVariableId)
