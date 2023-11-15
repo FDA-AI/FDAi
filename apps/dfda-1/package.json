@@ -38,7 +38,7 @@
     "@bugsnag/js": "7.18.0",
     "@openapi-contrib/json-schema-to-openapi-schema": "^2.1.0",
     "@types/q": "^1.5.5",
-    "axios": "0.21.1",
+    "axios": "1.6.0",
     "bootstrap": "4.5.3",
     "bootstrap-datetimepicker": "0.0.7",
     "bootstrap-sass": "3.4.1",
