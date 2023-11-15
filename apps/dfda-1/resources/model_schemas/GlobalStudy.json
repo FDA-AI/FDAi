@@ -12,7 +12,7 @@
         "inView": false
     },
     {
-        "name": "aggregate_correlation_id",
+        "name": "global_variable_relationship_id",
         "dbType": "integer,false",
         "htmlType": "number",
         "validations": "nullable|nullable|nullable",
@@ -397,7 +397,7 @@
     },
     {
         "type": "relation",
-        "relation": "mt1,AggregateCorrelation,aggregate_correlation_id"
+        "relation": "mt1,GlobalVariableRelationship,global_variable_relationship_id"
     },
     {
         "type": "relation",

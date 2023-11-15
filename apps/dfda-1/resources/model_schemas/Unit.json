@@ -241,7 +241,7 @@
     },
     {
         "type": "relation",
-        "relation": "1tm,AggregateCorrelation,cause_unit_id"
+        "relation": "1tm,GlobalVariableRelationship,cause_unit_id"
     },
     {
         "type": "relation",

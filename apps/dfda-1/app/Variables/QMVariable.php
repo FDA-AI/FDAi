@@ -21,7 +21,7 @@ use App\Cards\VariableSettingsCard;
 use App\Charts\ChartGroup;
 use App\Charts\UserVariableCharts\UserVariableChartGroup;
 use App\Charts\VariableCharts\VariableChartChartGroup;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMCorrelation;
 use App\Correlations\QMUserCorrelation;
 use App\DataSources\Connectors\QuantiModoConnector;
@@ -46,7 +46,7 @@ use App\Exceptions\UserVariableNotFoundException;
 use App\Exceptions\VariableCategoryNotFoundException;
 use App\Logging\QMLog;
 use App\Logging\QMLogLevel;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
 use App\Models\Measurement;
 use App\Models\UserVariable;
@@ -127,7 +127,7 @@ abstract class QMVariable extends VariableSearchResult {
 	private static $stupidVariables;
 	protected $anonymousMeasurements;
 	protected $availableUnits;
-	protected $bestAggregateCorrelation;
+	protected $bestGlobalVariableRelationship;
 	protected ?int $commonBestCauseVariableId = null;
 	protected ?int $commonBestEffectVariableId = null;
 	protected $commonDataSources;
@@ -162,7 +162,7 @@ abstract class QMVariable extends VariableSearchResult {
 	public $userErrorMessage;
 	public $availableUnitNames;
 	public ?float $averageSecondsBetweenMeasurements = null;
-	public ?int $bestAggregateCorrelationId = null;
+	public ?int $bestGlobalVariableRelationshipId = null;
 	public $bestCauseVariableId;
 	public $bestEffectVariableId;
 	public $bestPopulationStudy;
@@ -237,8 +237,8 @@ abstract class QMVariable extends VariableSearchResult {
 	public $skewness;
 	public $standardDeviation;
 	public string $status;
-	public $strongestAggregateCorrelationAsCause;
-	public $strongestAggregateCorrelationAsEffect;
+	public $strongestGlobalVariableRelationshipAsCause;
+	public $strongestGlobalVariableRelationshipAsEffect;
 	public $tagConversionFactor;
 	public $tagDisplayText;
 	public $taggedVariableId;
@@ -2185,49 +2185,49 @@ abstract class QMVariable extends VariableSearchResult {
 		return $this->commonOptimalValueMessage;
 	}
 	/**
-	 * @return AggregateCorrelation
+	 * @return GlobalVariableRelationship
 	 */
-	public function getBestAggregateCorrelation(): ?AggregateCorrelation{
-		$c = $this->bestAggregateCorrelation;
+	public function getBestGlobalVariableRelationship(): ?GlobalVariableRelationship{
+		$c = $this->bestGlobalVariableRelationship;
 		if($c){
 			return $c;
 		}
 		if($c === false){
 			return null;
 		}
-		$c = $this->setBestAggregateCorrelation();
+		$c = $this->setBestGlobalVariableRelationship();
 		if(!$c){
-			$this->bestAggregateCorrelation = false;
+			$this->bestGlobalVariableRelationship = false;
 			return null;
 		}
-		return $this->bestAggregateCorrelation = $c;
+		return $this->bestGlobalVariableRelationship = $c;
 	}
 	/**
-	 * @return AggregateCorrelation
+	 * @return GlobalVariableRelationship
 	 */
-	public function setBestAggregateCorrelation(): ?AggregateCorrelation{
+	public function setBestGlobalVariableRelationship(): ?GlobalVariableRelationship{
 		$c = null;
 		if($this->isOutcome()){
-			$correlations = $this->getAggregateCorrelationsAsEffect(1);
+			$correlations = $this->getGlobalVariableRelationshipsAsEffect(1);
 			if($c = $correlations->first()){
 				$this->setCommonBestCauseVariableId($c->getCauseVariableId());
-				return $this->strongestAggregateCorrelationAsEffect = $c;
+				return $this->strongestGlobalVariableRelationshipAsEffect = $c;
 			}
 		}
 		if(!$c){
-			$correlations = $this->getAggregateCorrelationsAsCause(1);
+			$correlations = $this->getGlobalVariableRelationshipsAsCause(1);
 			if(!$correlations){
 				return null;
 			}
 			if($c = $correlations->first()){
 				$this->setCommonBestEffectVariableId($c->getEffectVariableId());
-				return $this->strongestAggregateCorrelationAsCause = $c;
+				return $this->strongestGlobalVariableRelationshipAsCause = $c;
 			}
 		}
 		if($c && $c->typeIsIndividual()){
 			le('$c && $c->typeIsIndividual()');
 		}
-		return $this->bestAggregateCorrelation = $c;
+		return $this->bestGlobalVariableRelationship = $c;
 	}
 	/**
 	 * @return string
@@ -2271,7 +2271,7 @@ abstract class QMVariable extends VariableSearchResult {
 	 * @return StudyCard
 	 */
 	public function setBestPopulationStudyCard(): ?StudyCard{
-		$correlation = $this->getBestAggregateCorrelation();
+		$correlation = $this->getBestGlobalVariableRelationship();
 		if(!$correlation){
 			$this->bestPopulationStudyCard = false;
 			return null;
@@ -2290,7 +2290,7 @@ abstract class QMVariable extends VariableSearchResult {
 			return [];
 		}
 		foreach($correlations as $c){
-			/** @var QMAggregateCorrelation $c */
+			/** @var QMGlobalVariableRelationship $c */
 			$cards[] = $c->getStudyCard();
 		}
 		return $cards;
@@ -2391,13 +2391,13 @@ abstract class QMVariable extends VariableSearchResult {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $causeCategory
-	 * @return AggregateCorrelation[]|Collection
+	 * @return GlobalVariableRelationship[]|Collection
 	 */
-	public function getAggregateCorrelationsAsEffect(int $limit = null, string $causeCategory = null): ?Collection{
+	public function getGlobalVariableRelationshipsAsEffect(int $limit = null, string $causeCategory = null): ?Collection{
 		$correlations = $this->getVariable()
-			->getAggregateCorrelationsAsEffect($limit ?? \App\Utils\Env::get('CORRELATION_LIMIT'), $causeCategory);
+			->getGlobalVariableRelationshipsAsEffect($limit ?? \App\Utils\Env::get('CORRELATION_LIMIT'), $causeCategory);
 		if(!$causeCategory && !$correlations->count()){
-			$this->numberOfAggregateCorrelationsAsCause = 0;
+			$this->numberOfGlobalVariableRelationshipsAsCause = 0;
 		}
 		if($causeCategory){
 			return HasCauseAndEffect::filterByCauseCategory($correlations, $causeCategory);
@@ -2407,14 +2407,14 @@ abstract class QMVariable extends VariableSearchResult {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return AggregateCorrelation[]|Collection
+	 * @return GlobalVariableRelationship[]|Collection
 	 */
-	public function getAggregateCorrelationsAsCause(int $limit = null, string $variableCategoryName = null): Collection{
+	public function getGlobalVariableRelationshipsAsCause(int $limit = null, string $variableCategoryName = null): Collection{
 		if($env = \App\Utils\Env::get('CORRELATION_LIMIT')){$limit = $env;}
 		$correlations = $this->getVariable()
-			->getAggregateCorrelationsAsCause($limit, $variableCategoryName);
+			->getGlobalVariableRelationshipsAsCause($limit, $variableCategoryName);
 		if(!$variableCategoryName && !$correlations->count()){
-			$this->numberOfAggregateCorrelationsAsCause = 0;
+			$this->numberOfGlobalVariableRelationshipsAsCause = 0;
 		}
 		if($variableCategoryName){
 			return HasCauseAndEffect::filterByCauseCategory($correlations, $variableCategoryName);
@@ -2439,13 +2439,13 @@ abstract class QMVariable extends VariableSearchResult {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return AggregateCorrelation[]|Correlation[]|Collection
+	 * @return GlobalVariableRelationship[]|Correlation[]|Collection
 	 */
 	abstract public function getOutcomesOrPredictors(int $limit = null,
 		string $variableCategoryName = null): ?Collection;
 	abstract public function getCorrelationDataRequirementAndCurrentDataQuantityString(): string;
 	/**
-	 * @return AggregateCorrelation[]|Collection
+	 * @return GlobalVariableRelationship[]|Collection
 	 */
 	public function getCorrelationsListTitle(): string{
 		if($this->isOutcome()){
@@ -2455,7 +2455,7 @@ abstract class QMVariable extends VariableSearchResult {
 		}
 	}
 	/**
-	 * @return AggregateCorrelation[]|Collection
+	 * @return GlobalVariableRelationship[]|Collection
 	 */
 	public function getCorrelationsChartSubTitle(): string{
 		if($this->isOutcome()){

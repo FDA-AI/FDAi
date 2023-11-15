@@ -5,10 +5,10 @@
  */
 
 namespace App\Properties\Base;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Storage\DB\Writable;
 class BaseCauseVariableCategoryIdProperty extends BaseVariableCategoryIdProperty{
-    public const NAME = AggregateCorrelation::FIELD_CAUSE_VARIABLE_CATEGORY_ID;
+    public const NAME = GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID;
     public $name = self::NAME;
 	public $title = 'Predictor Variable Category';
     public function showOnUpdate(): bool {return false;}

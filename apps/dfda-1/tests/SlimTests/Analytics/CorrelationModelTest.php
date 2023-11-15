@@ -8,10 +8,10 @@ class CorrelationModelTest extends \Tests\SlimTests\SlimTestCase {
 		QMUserCorrelation::writable()->update([Correlation::FIELD_PREDICTS_LOW_EFFECT_CHANGE => 10]);
 	}
 	public function testGetCorrelationsWithCause(){
-		$this->skipTest('TODO: Create aggregate correlations test fixture');
+		$this->skipTest('TODO: Create global variable relationships test fixture');
 		$params['userId'] = 1;
 		$params['causeVariableName'] = 'Active Time';
-		$correlationsWithCause = QMUserCorrelation::getOrCreateUserOrAggregateCorrelations($params);
+		$correlationsWithCause = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships($params);
 		$this->assertCount(1, $correlationsWithCause);
 		foreach($correlationsWithCause as $correlation){
 			$this->assertEquals($params['causeVariableName'], $correlation->causeVariableName);

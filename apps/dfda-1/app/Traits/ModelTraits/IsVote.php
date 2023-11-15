@@ -6,7 +6,7 @@
 
 namespace App\Traits\ModelTraits;
 use App\Models\Vote;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Studies\StudyLinks;
 use App\Traits\HasCauseAndEffect;
 use App\UI\CssHelper;
@@ -114,9 +114,9 @@ trait IsVote {
 	public function getEditUrl(array $params = []): string{
 		return StudyLinks::generateStudyUrlDynamic($this->getCauseVariableId(), $this->getEffectVariableId());
 	}
-	public function aggregate_correlation(): BelongsTo{
-		return $this->belongsTo(AggregateCorrelation::class, self::FIELD_AGGREGATE_CORRELATION_ID,
-			AggregateCorrelation::FIELD_ID);
+	public function global_variable_relationship(): BelongsTo{
+		return $this->belongsTo(GlobalVariableRelationship::class, self::FIELD_AGGREGATE_CORRELATION_ID,
+			GlobalVariableRelationship::FIELD_ID);
 	}
 	public function getUserId(): ?int{
 		return $this->attributes[self::FIELD_USER_ID];

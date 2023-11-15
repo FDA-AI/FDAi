@@ -25,8 +25,8 @@
 ║ setCommonTagRows              │ common_tags          │ common_tags.tag_variable_id <> 1398 & tagged_variable_id... ║
 ║ setCommonTaggedVariables      │ variables            │ user_variables.deleted_at=null & common_tags.tagged_vari... ║
 ║ QMUserCorrelation::findByIds  │ correlations         │ cause_variable_id=1981 & effect_variable_id=1398 & user_... ║
-║ getAggregateCorrelation       │ aggregate_correlatio │ id=65684743 & deleted_at=null limit 1                       ║
-║ AggregateCorrelation::getV... │ votes                │ aggregate_correlation_id in (65684743) & deleted_at=null    ║
+║ getGlobalVariableRelationship       │ aggregate_correlatio │ id=65684743 & deleted_at=null limit 1                       ║
+║ GlobalVariableRelationship::getV... │ votes                │ global_variable_relationship_id in (65684743) & deleted_at=null    ║
 ║ setQMConnectors               │ connections          │ user_id in (230) & deleted_at=null                          ║
 ║ getAuthenticatedUserOrThro... │ sessions             │ delete id=? (Not preparing query because the fixtures ch... ║
 ╚═══════════════════════════════╧══════════════════════╧═════════════════════════════════════════════════════════════╝

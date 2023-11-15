@@ -32,17 +32,17 @@
         "tooltip": "Search for administrative pages",
         "visible": true
     },
-    "Aggregate Correlations": {
-        "accessibilityText": "App\\Models\\AggregateCorrelation",
+    "Global Variable Relationships": {
+        "accessibilityText": "App\\Models\\GlobalVariableRelationship",
         "action": "https://staging.quantimo.do/datalab/aggregateCorrelations",
         "backgroundColor": "#886aea",
         "color": "#886aea",
         "fontAwesome": "fas fa-vials",
-        "html": "<span id=\"\" style=\"color: #886aea\" ><img class=\"md-user-avatar\" style=\"height: 100%;\" ng-src=\"https://static.quantimo.do/img/science/png/flasks.png\"/>Aggregate Correlations</span>",
+        "html": "<span id=\"\" style=\"color: #886aea\" ><img class=\"md-user-avatar\" style=\"height: 100%;\" ng-src=\"https://static.quantimo.do/img/science/png/flasks.png\"/>Global Variable Relationships</span>",
         "image": "https://static.quantimo.do/img/science/png/flasks.png",
         "link": "https://staging.quantimo.do/datalab/aggregateCorrelations",
-        "text": "Aggregate Correlations",
-        "title": "Aggregate Correlations",
+        "text": "Global Variable Relationships",
+        "title": "Global Variable Relationships",
         "tooltip": "Examination of the likely effects of a predictor variable on an outcome variable on average for the entire population"
     },
     "Applications": {

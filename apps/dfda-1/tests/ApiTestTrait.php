@@ -10,7 +10,7 @@ use App\Charts\QMChart;
 use App\Charts\QMHighcharts\HighchartConfig;
 use App\Charts\UserVariableCharts\UserVariableChartGroup;
 use App\Computers\ThisComputer;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMCorrelation;
 use App\Correlations\QMUserCorrelation;
 use App\DataSources\QMClient;
@@ -31,7 +31,7 @@ use App\InputFields\InputField;
 use App\InputFields\NumberInputField;
 use App\Logging\ConsoleLog;
 use App\Logging\QMLog;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\Correlation;
 use App\Models\Measurement;
@@ -475,18 +475,18 @@ trait ApiTestTrait
         return false;
     }
     /**
-     * @param QMAggregateCorrelation|QMCorrelation $ac
+     * @param QMGlobalVariableRelationship|QMCorrelation $ac
      * @param int $minimumUsers
      */
     public function checkAggregatedCorrelationProperties($ac, int $minimumUsers = 0){
-        /** @var QMAggregateCorrelation $ac */
+        /** @var QMGlobalVariableRelationship $ac */
         $ac = (object)$ac;
         $this->checkSharedCorrelationProperties($ac);
         $this->assertNotTrue(isset($ac->userId), "Should not have userId!");
         $this->assertGreaterThan('0000-00-00 00:00:00', $ac->createdAt);
         $this->assertGreaterThan('0000-00-00 00:00:00', $ac->updatedAt);
         $this->assertGreaterThan(0, $ac->aggregateQMScore);
-        $this->checkIntStringAndFloatsOnAggregateCorrelation($ac, $minimumUsers);
+        $this->checkIntStringAndFloatsOnGlobalVariableRelationship($ac, $minimumUsers);
         $notNullAttributes = [
             'numberOfCorrelations',
             'numberOfUsers',
@@ -571,16 +571,16 @@ trait ApiTestTrait
      * @param $aggregatedCorrelation
      * @param $minimumUsers
      */
-    private function checkIntStringAndFloatsOnAggregateCorrelation($aggregatedCorrelation, $minimumUsers): void{
+    private function checkIntStringAndFloatsOnGlobalVariableRelationship($aggregatedCorrelation, $minimumUsers): void{
         $this->assertGreaterThan(0, $aggregatedCorrelation->qmScore);
         $this->assertGreaterThan(1, $aggregatedCorrelation->numberOfPairs);
         $this->assertGreaterThan($minimumUsers, $aggregatedCorrelation->numberOfUsers);
         $this->assertGreaterThan(0, $aggregatedCorrelation->numberOfCorrelations);
-        $intAttributes = QMAggregateCorrelation::getIntAttributes();
+        $intAttributes = QMGlobalVariableRelationship::getIntAttributes();
         DBUnitTestCase::checkIntAttributes($intAttributes, $aggregatedCorrelation);
         $stringAttributes = [];
         $this->checkStringAttributes($stringAttributes, $aggregatedCorrelation);
-        $floatAttributes = QMAggregateCorrelation::getFloatAttributes();
+        $floatAttributes = QMGlobalVariableRelationship::getFloatAttributes();
         $this->checkFloatAttributes($floatAttributes, $aggregatedCorrelation);
     }
     /**
@@ -598,8 +598,8 @@ trait ApiTestTrait
         $intAttributes = [
             'unitId',
             'numberOfCorrelations',
-            'numberOfAggregateCorrelationsAsCause',
-            'numberOfAggregateCorrelationsAsEffect',
+            'numberOfGlobalVariableRelationshipsAsCause',
+            'numberOfGlobalVariableRelationshipsAsEffect',
             'numberOfCorrelations',
             'numberOfUserVariables',
             'numberOfUserCorrelationsAsCause',
@@ -661,8 +661,8 @@ trait ApiTestTrait
         $intAttributes = [
             'durationOfAction',
             'id',
-            'numberOfAggregateCorrelationsAsCause',
-            'numberOfAggregateCorrelationsAsEffect',
+            'numberOfGlobalVariableRelationshipsAsCause',
+            'numberOfGlobalVariableRelationshipsAsEffect',
             'numberOfRawMeasurements',
             'numberOfMeasurements',
             'numberOfUniqueValues',
@@ -823,13 +823,13 @@ trait ApiTestTrait
         return $s;
     }
     /**
-     * @param QMAggregateCorrelation|array|object $ac
+     * @param QMGlobalVariableRelationship|array|object $ac
      * @param int $minimumUsers
      * @param bool $studyCorrelation
      */
     public function checkAggregatedCorrelationV4Properties($ac, int $minimumUsers = 0, bool $studyCorrelation = false){
         if(is_array($ac)){
-            $ac = new QMAggregateCorrelation($ac);
+            $ac = new QMGlobalVariableRelationship($ac);
         }
         if(!is_object($ac)){
             throw new LogicException("Provided aggregatedCorrelation is not an object and is: " . \App\Logging\QMLog::print_r($ac, true));
@@ -838,7 +838,7 @@ trait ApiTestTrait
         $this->assertGreaterThan('0000-00-00 00:00:00', $ac->createdAt);
         $this->assertGreaterThan('0000-00-00 00:00:00', $ac->updatedAt);
         $this->assertGreaterThan(0, $ac->aggregateQMScore, "aggregateQMScore should be greater than 0!");
-        $this->checkIntStringAndFloatsOnAggregateCorrelation($ac, $minimumUsers);
+        $this->checkIntStringAndFloatsOnGlobalVariableRelationship($ac, $minimumUsers);
         $notNullAttributes = [
             'numberOfCorrelations',
             'numberOfUsers',
@@ -1930,7 +1930,7 @@ trait ApiTestTrait
         Memory::flush();
     }
     /**
-     * @param QMUserCorrelation|QMAggregateCorrelation|object $correlation
+     * @param QMUserCorrelation|QMGlobalVariableRelationship|object $correlation
      * @param bool $studyCorrelation
      */
     public function checkSharedCorrelationV4Properties($correlation, bool $studyCorrelation = false){
@@ -2194,10 +2194,10 @@ trait ApiTestTrait
         $this->assertEquals($cause->getCommonBestEffectVariableId(), $primaryOutcome->variableId);
         /** @var Variable $row */
         $row = Variable::find($cause->variableId);
-        $this->assertNotNull($row->best_aggregate_correlation_id);
+        $this->assertNotNull($row->best_global_variable_relationship_id);
         $this->assertNotNull($row->optimal_value_message);
         $row = Variable::find($primaryOutcome->variableId);
-        $this->assertNotNull($row->best_aggregate_correlation_id);
+        $this->assertNotNull($row->best_global_variable_relationship_id);
         $this->assertNotNull($row->optimal_value_message);
         $this->assertEquals($cause->variableId, $primaryOutcome->getCommonBestCauseVariableId());
         $notifications = $this->getAndCheckNotificationsAndFeed();
@@ -2429,7 +2429,7 @@ trait ApiTestTrait
             update correlations c
                 set c.cause_variable_id = c.cause_variable_id,
                     c.effect_variable_id = c.effect_variable_id;
-            update aggregate_correlations c
+            update global_variable_relationships c
                 set c.cause_variable_id = c.cause_variable_id,
                     c.effect_variable_id = c.effect_variable_id;
             update votes v
@@ -2582,7 +2582,7 @@ trait ApiTestTrait
         $this->truncateTable(UserVariable::TABLE);
         $this->truncateTable(QMCommonTag::TABLE);
         $this->truncateTable(QMUserTag::TABLE);
-        $this->truncateTable(AggregateCorrelation::TABLE);
+        $this->truncateTable(GlobalVariableRelationship::TABLE);
         //$this->truncateTable(CommonVariable::TABLE); // Can't truncate with foreign keys
         //CommonVariable::writable()->hardDelete(__METHOD__, true);
     }

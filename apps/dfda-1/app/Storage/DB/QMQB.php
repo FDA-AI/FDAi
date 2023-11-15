@@ -91,7 +91,7 @@ class QMQB extends Builder {
 	protected string $preparedQuery;
 	protected static array $protectedTables = [
 		Measurement::TABLE, User::TABLE, //CommonVariable::TABLE,
-		//AggregateCorrelation::TABLE
+		//GlobalVariableRelationship::TABLE
 	];
 	private static array $smallTables = [
 		QMUnit::TABLE,

@@ -21,9 +21,9 @@ create table votes
     correlation_id           integer
         constraint votes_correlations_id_fk
             references correlations,
-    aggregate_correlation_id integer
-        constraint votes_aggregate_correlations_id_fk
-            references aggregate_correlations
+    global_variable_relationship_id integer
+        constraint votes_global_variable_relationships_id_fk
+            references global_variable_relationships
             on delete set null,
     is_public                boolean,
     constraint votes_user_id_cause_variable_id_effect_variable_id_uindex
@@ -47,6 +47,6 @@ create index votes_effect_variable_id_index
 create index votes_correlations_id_fk
     on votes (correlation_id);
 
-create index votes_aggregate_correlations_id_fk
-    on votes (aggregate_correlation_id);
+create index votes_global_variable_relationships_id_fk
+    on votes (global_variable_relationship_id);
 

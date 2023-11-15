@@ -18,7 +18,7 @@ use App\Exceptions\TooSlowToAnalyzeException;
 use App\Files\FileHelper;
 use App\Files\Spreadsheet\QMSpreadsheet;
 use App\Logging\QMLog;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
 use App\Properties\User\UserIdProperty;
 use App\Repos\ResponsesRepo;
@@ -615,7 +615,7 @@ abstract class QMChart extends StaticModel {
 		return $this->getSourceObject()->getIsPublic();
 	}
 	/**
-	 * @return QMVariable|Correlation|AggregateCorrelation|QMUserVariable|QMCommonVariable
+	 * @return QMVariable|Correlation|GlobalVariableRelationship|QMUserVariable|QMCommonVariable
 	 */
 	public function getSourceObject(){
 		if(!$this->sourceObject){

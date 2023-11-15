@@ -25,10 +25,10 @@ create table if not exists global_variables
     median                                              double                                          null comment 'Median',
     minimum_allowed_value                               double                                          null comment 'Minimum reasonable value for this variable (uses default unit)',
     minimum_recorded_value                              double                                          null comment 'Minimum recorded value of this variable',
-    number_of_aggregate_correlations_as_cause           int unsigned                                    null comment 'Number of aggregate correlations for which this variable is the cause variable',
+    number_of_global_variable_relationships_as_cause           int unsigned                                    null comment 'Number of global variable relationships for which this variable is the cause variable',
     most_common_original_unit_id                        int                                             null comment 'Most common Unit ID',
     most_common_value                                   double                                          null comment 'Most common value',
-    number_of_aggregate_correlations_as_effect          int unsigned                                    null comment 'Number of aggregate correlations for which this variable is the effect variable',
+    number_of_global_variable_relationships_as_effect          int unsigned                                    null comment 'Number of global variable relationships for which this variable is the effect variable',
     number_of_unique_values                             int                                             null comment 'Number of unique values',
     onset_delay                                         int unsigned                                    null comment 'How long it takes for a measurement in this variable to take effect',
     outcome                                             tinyint(1)                                      null comment 'Outcome variables (those with `outcome` == 1) are variables for which a human would generally want to identify the influencing factors.  These include symptoms of illness, physique, mood, cognitive performance, etc.  Generally correlation calculations are only performed on outcome variables.',
@@ -81,9 +81,9 @@ create table if not exists global_variables
     latest_non_tagged_measurement_start_at              timestamp                                       null comment '[]',
     earliest_non_tagged_measurement_start_at            timestamp                                       null comment '[]',
     wp_post_id                                          bigint unsigned                                 null comment '[]',
-    number_of_soft_deleted_measurements                 int                                             null comment 'Formula: update variables v 
+    number_of_soft_deleted_measurements                 int                                             null comment 'Formula: update variables v
                 inner join (
-                    select measurements.variable_id, count(measurements.id) as number_of_soft_deleted_measurements 
+                    select measurements.variable_id, count(measurements.id) as number_of_soft_deleted_measurements
                     from measurements
                     where measurements.deleted_at is not null
                     group by measurements.variable_id
@@ -92,14 +92,14 @@ create table if not exists global_variables
             ',
     charts                                              json                                            null comment '[Calculated] Highcharts configuration',
     creator_user_id                                     bigint unsigned                                 not null comment '[api-gen]',
-    best_aggregate_correlation_id                       int                                             null comment '[Calculated] The strongest predictor or outcome for all users.',
+    best_global_variable_relationship_id                       int                                             null comment '[Calculated] The strongest predictor or outcome for all users.',
     filling_type                                        enum ('zero', 'none', 'interpolation', 'value') null comment '[]',
     number_of_outcome_population_studies                int unsigned                                    null comment 'Number of Global Population Studies for this Cause Variable.
-                [Formula: 
+                [Formula:
                     update variables
                         left join (
                             select count(id) as total, cause_variable_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by cause_variable_id
                         )
                         as grouped on variables.id = grouped.cause_variable_id
@@ -107,11 +107,11 @@ create table if not exists global_variables
                 ]
                 ',
     number_of_predictor_population_studies              int unsigned                                    null comment 'Number of Global Population Studies for this Effect Variable.
-                [Formula: 
+                [Formula:
                     update variables
                         left join (
                             select count(id) as total, effect_variable_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by effect_variable_id
                         )
                         as grouped on variables.id = grouped.effect_variable_id
@@ -119,7 +119,7 @@ create table if not exists global_variables
                 ]
                 ',
     number_of_applications_where_outcome_variable       int unsigned                                    null comment 'Number of Applications for this Outcome Variable.
-                [Formula: 
+                [Formula:
                     update variables
                         left join (
                             select count(id) as total, outcome_variable_id
@@ -130,7 +130,7 @@ create table if not exists global_variables
                     set variables.number_of_applications_where_outcome_variable = count(grouped.total)
                 ]',
     number_of_applications_where_predictor_variable     int unsigned                                    null comment 'Number of Applications for this Predictor Variable.
-                [Formula: 
+                [Formula:
                     update variables
                         left join (
                             select count(id) as total, predictor_variable_id
@@ -142,7 +142,7 @@ create table if not exists global_variables
                 ]
                 ',
     number_of_common_tags_where_tag_variable            int unsigned                                    null comment 'Number of Common Tags for this Tag Variable.
-                [Formula: 
+                [Formula:
                     update variables
                         left join (
                             select count(id) as total, tag_variable_id
@@ -154,7 +154,7 @@ create table if not exists global_variables
                 ]
                 ',
     number_of_common_tags_where_tagged_variable         int unsigned                                    null comment 'Number of Common Tags for this Tagged Variable.
-                [Formula: 
+                [Formula:
                     update variables
                         left join (
                             select count(id) as total, tagged_variable_id
@@ -166,7 +166,7 @@ create table if not exists global_variables
                 ]
                 ',
     number_of_outcome_case_studies                      int unsigned                                    null comment 'Number of Individual Case Studies for this Cause Variable.
-                [Formula: 
+                [Formula:
                     update variables
                         left join (
                             select count(id) as total, cause_variable_id
@@ -347,11 +347,11 @@ create table if not exists global_variables
     charset = utf8;
 
 alter table global_study_results
-    add constraint aggregate_correlations_cause_variables_id_fk
+    add constraint global_variable_relationships_cause_variables_id_fk
         foreign key (cause_variable_id) references global_variables (id);
 
 alter table global_study_results
-    add constraint aggregate_correlations_effect_variables_id_fk
+    add constraint global_variable_relationships_effect_variables_id_fk
         foreign key (effect_variable_id) references global_variables (id);
 
 create index IDX_cat_unit_public_name

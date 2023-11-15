@@ -692,7 +692,7 @@ class RootCauseAnalysis extends AnalyticalReport {
             }
         }
         $limit = $this->getMaximumCorrelations();
-        $correlations = $v->getUserOrAggregateCorrelationsAsEffect($limit);
+        $correlations = $v->getUserOrGlobalVariableRelationshipsAsEffect($limit);
         return $this->correlations = $correlations;
     }
     /**

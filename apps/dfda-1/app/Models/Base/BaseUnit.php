@@ -11,7 +11,7 @@
 /** Created by Reliese Model.
  */
 namespace App\Models\Base;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\CommonTag;
 use App\Models\Correlation;
@@ -49,7 +49,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property array $conversion_steps
  * @property float $maximum_daily_value
  * @property int $sort_order
- * @property Collection|AggregateCorrelation[] $aggregate_correlations_where_cause_unit
+ * @property Collection|GlobalVariableRelationship[] $global_variable_relationships_where_cause_unit
  * @property Collection|CommonTag[] $common_tags_where_tag_variable_unit
  * @property Collection|CommonTag[] $common_tags_where_tagged_variable_unit
  * @property Collection|Correlation[] $correlations_where_cause_unit
@@ -60,7 +60,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Collection|VariableCategory[] $variable_categories_where_default_unit
  * @property Collection|Variable[] $variables_where_default_unit
  * @package App\Models\Base
- * @property-read int|null $aggregate_correlations_where_cause_unit_count
+ * @property-read int|null $global_variable_relationships_where_cause_unit_count
  * @property-read int|null $common_tags_where_tag_variable_unit_count
  * @property-read int|null $common_tags_where_tagged_variable_unit_count
  * @property-read int|null $correlations_where_cause_unit_count
@@ -213,7 +213,7 @@ abstract class BaseUnit extends BaseModel {
                     update units
                         left join (
                             select count(id) as total, cause_unit_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by cause_unit_id
                         )
                         as grouped on units.id = grouped.cause_unit_id
@@ -309,12 +309,12 @@ Nominal, also called the categorical variable scale, is defined as a scale used 
 		self::FIELD_SORT_ORDER => '',
 	];
 	protected array $relationshipInfo = [
-		'aggregate_correlations_where_cause_unit' => [
+		'global_variable_relationships_where_cause_unit' => [
 			'relationshipType' => 'HasMany',
-			'qualifiedUserClassName' => AggregateCorrelation::class,
-			'foreignKey' => AggregateCorrelation::FIELD_CAUSE_UNIT_ID,
-			'localKey' => AggregateCorrelation::FIELD_ID,
-			'methodName' => 'aggregate_correlations_where_cause_unit',
+			'qualifiedUserClassName' => GlobalVariableRelationship::class,
+			'foreignKey' => GlobalVariableRelationship::FIELD_CAUSE_UNIT_ID,
+			'localKey' => GlobalVariableRelationship::FIELD_ID,
+			'methodName' => 'global_variable_relationships_where_cause_unit',
 		],
 		'common_tags_where_tag_variable_unit' => [
 			'relationshipType' => 'HasMany',
@@ -380,8 +380,8 @@ Nominal, also called the categorical variable scale, is defined as a scale used 
 			'methodName' => 'variables_where_default_unit',
 		],
 	];
-	public function aggregate_correlations_where_cause_unit(): HasMany{
-		return $this->hasMany(AggregateCorrelation::class, AggregateCorrelation::FIELD_CAUSE_UNIT_ID, static::FIELD_ID);
+	public function global_variable_relationships_where_cause_unit(): HasMany{
+		return $this->hasMany(GlobalVariableRelationship::class, GlobalVariableRelationship::FIELD_CAUSE_UNIT_ID, static::FIELD_ID);
 	}
 	public function common_tags_where_tag_variable_unit(): HasMany{
 		return $this->hasMany(CommonTag::class, CommonTag::FIELD_TAG_VARIABLE_UNIT_ID, static::FIELD_ID);

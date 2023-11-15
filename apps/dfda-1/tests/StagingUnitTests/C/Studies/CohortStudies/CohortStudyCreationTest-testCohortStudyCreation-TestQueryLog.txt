@@ -6,10 +6,10 @@
 ║ findByName               │ variables            │ name LIKE '?' & deleted_at=null limit 1                     ║
 ║ findByName               │ variables            │ name LIKE '?' & deleted_at=null limit 1                     ║
 ║ getStudyIfExists         │ studies              │ id='?' & deleted_at=null limit 1                            ║
-║ getAggregateCorrelations │ aggregate_correlatio │ cause_variable_id=1867 & effect_variable_id=1398 & delet... ║
-║ getAggregateCorrelations │ variables            │ id in (1867) & deleted_at=null                              ║
-║ getAggregateCorrelations │ variables            │ id in (1398) & deleted_at=null                              ║
-║ getAggregateCorrelations │ votes                │ aggregate_correlation_id in (65685012) & deleted_at=null    ║
+║ getGlobalVariableRelationships │ aggregate_correlatio │ cause_variable_id=1867 & effect_variable_id=1398 & delet... ║
+║ getGlobalVariableRelationships │ variables            │ id in (1867) & deleted_at=null                              ║
+║ getGlobalVariableRelationships │ variables            │ id in (1398) & deleted_at=null                              ║
+║ getGlobalVariableRelationships │ votes                │ global_variable_relationship_id in (65685012) & deleted_at=null    ║
 ║ setQMConnectors          │ connections          │ user_id in (18535) & deleted_at=null                        ║
 ║ getAllForUser            │ oa_access_tokens     │ user_id=18535 & expires > '?' group by client_id, scope     ║
 ║ getOrCreateClient        │ oa_clients           │ client_id='?' & deleted_at=null limit 1                     ║

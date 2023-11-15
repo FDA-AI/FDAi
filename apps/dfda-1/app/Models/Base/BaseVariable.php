@@ -11,7 +11,7 @@
 /** Created by Reliese Model.
  */
 namespace App\Models\Base;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Application;
 use App\Models\BaseModel;
 use App\Models\CommonTag;
@@ -73,10 +73,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property float $median
  * @property float $minimum_allowed_value
  * @property float $minimum_recorded_value
- * @property int $number_of_aggregate_correlations_as_cause
+ * @property int $number_of_global_variable_relationships_as_cause
  * @property int $most_common_original_unit_id
  * @property float $most_common_value
- * @property int $number_of_aggregate_correlations_as_effect
+ * @property int $number_of_global_variable_relationships_as_effect
  * @property int $number_of_unique_values
  * @property int $onset_delay
  * @property bool $outcome
@@ -132,7 +132,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $number_of_soft_deleted_measurements
  * @property array $charts
  * @property int $creator_user_id
- * @property int $best_aggregate_correlation_id
+ * @property int $best_global_variable_relationship_id
  * @property string $filling_type
  * @property int $number_of_outcome_population_studies
  * @property int $number_of_predictor_population_studies
@@ -171,15 +171,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property bool $is_goal
  * @property bool $controllable
  * @property bool $boring
- * @property AggregateCorrelation $best_aggregate_correlation
+ * @property GlobalVariableRelationship $best_global_variable_relationship
  * @property Variable $best_cause_variable
  * @property Variable $best_effect_variable
  * @property OAClient $oa_client
  * @property Unit $default_unit
  * @property VariableCategory $variable_category
  * @property WpPost $wp_post
- * @property Collection|AggregateCorrelation[] $aggregate_correlations_where_cause_variable
- * @property Collection|AggregateCorrelation[] $aggregate_correlations_where_effect_variable
+ * @property Collection|GlobalVariableRelationship[] $global_variable_relationships_where_cause_variable
+ * @property Collection|GlobalVariableRelationship[] $global_variable_relationships_where_effect_variable
  * @property Collection|Application[] $applications_where_outcome_variable
  * @property Collection|Application[] $applications_where_predictor_variable
  * @property Collection|CommonTag[] $common_tags_where_tag_variable
@@ -215,8 +215,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Collection|Vote[] $votes_where_effect_variable
  * @property Collection|\App\Models\User[] $users_where_primary_outcome_variable
  * @package App\Models\Base
- * @property-read int|null $aggregate_correlations_where_cause_variable_count
- * @property-read int|null $aggregate_correlations_where_effect_variable_count
+ * @property-read int|null $global_variable_relationships_where_cause_variable_count
+ * @property-read int|null $global_variable_relationships_where_effect_variable_count
  * @property-read int|null $applications_where_outcome_variable_count
  * @property-read int|null $applications_where_predictor_variable_count
  * @property-read int|null $common_tags_where_tag_variable_count
@@ -260,7 +260,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|BaseVariable whereAnalysisSettingsModifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseVariable whereAnalysisStartedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseVariable whereAverageSecondsBetweenMeasurements($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BaseVariable whereBestAggregateCorrelationId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BaseVariable whereBestGlobalVariableRelationshipId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseVariable whereBestCauseVariableId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseVariable whereBestEffectVariableId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseVariable whereBrandName($value)
@@ -311,8 +311,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|BaseVariable whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseVariable whereNewestDataAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseVariable whereNumberCommonTaggedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BaseVariable whereNumberOfAggregateCorrelationsAsCause($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BaseVariable whereNumberOfAggregateCorrelationsAsEffect($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BaseVariable whereNumberOfGlobalVariableRelationshipsAsCause($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BaseVariable whereNumberOfGlobalVariableRelationshipsAsEffect($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseVariable
  *     whereNumberOfApplicationsWhereOutcomeVariable($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseVariable
@@ -393,7 +393,7 @@ abstract class BaseVariable extends BaseModel {
 	public const FIELD_ANALYSIS_SETTINGS_MODIFIED_AT = 'analysis_settings_modified_at';
 	public const FIELD_ANALYSIS_STARTED_AT = 'analysis_started_at';
 	public const FIELD_AVERAGE_SECONDS_BETWEEN_MEASUREMENTS = 'average_seconds_between_measurements';
-	public const FIELD_BEST_AGGREGATE_CORRELATION_ID = 'best_aggregate_correlation_id';
+	public const FIELD_BEST_AGGREGATE_CORRELATION_ID = 'best_global_variable_relationship_id';
 	public const FIELD_BEST_CAUSE_VARIABLE_ID = 'best_cause_variable_id';
 	public const FIELD_BEST_EFFECT_VARIABLE_ID = 'best_effect_variable_id';
 	public const FIELD_BORING = 'boring';
@@ -447,8 +447,8 @@ abstract class BaseVariable extends BaseModel {
 	public const FIELD_NAME = 'name';
 	public const FIELD_NEWEST_DATA_AT = 'newest_data_at';
 	public const FIELD_NUMBER_COMMON_TAGGED_BY = 'number_common_tagged_by';
-	public const FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_CAUSE = 'number_of_aggregate_correlations_as_cause';
-	public const FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_EFFECT = 'number_of_aggregate_correlations_as_effect';
+	public const FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_CAUSE = 'number_of_global_variable_relationships_as_cause';
+	public const FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_EFFECT = 'number_of_global_variable_relationships_as_effect';
 	public const FIELD_NUMBER_OF_APPLICATIONS_WHERE_OUTCOME_VARIABLE = 'number_of_applications_where_outcome_variable';
 	public const FIELD_NUMBER_OF_APPLICATIONS_WHERE_PREDICTOR_VARIABLE = 'number_of_applications_where_predictor_variable';
 	public const FIELD_NUMBER_OF_COMMON_CHILDREN = 'number_of_common_children';
@@ -781,10 +781,10 @@ abstract class BaseVariable extends BaseModel {
 		self::FIELD_MEDIAN => 'Median',
 		self::FIELD_MINIMUM_ALLOWED_VALUE => 'Minimum reasonable value for this variable (uses default unit)',
 		self::FIELD_MINIMUM_RECORDED_VALUE => 'Minimum recorded value of this variable',
-		self::FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_CAUSE => 'Number of aggregate correlations for which this variable is the cause variable',
+		self::FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_CAUSE => 'Number of global variable relationships for which this variable is the cause variable',
 		self::FIELD_MOST_COMMON_ORIGINAL_UNIT_ID => 'Most common Unit ID',
 		self::FIELD_MOST_COMMON_VALUE => 'Most common value',
-		self::FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_EFFECT => 'Number of aggregate correlations for which this variable is the effect variable',
+		self::FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_EFFECT => 'Number of global variable relationships for which this variable is the effect variable',
 		self::FIELD_NUMBER_OF_UNIQUE_VALUES => 'Number of unique values',
 		self::FIELD_ONSET_DELAY => 'How long it takes for a measurement in this variable to take effect',
 		self::FIELD_OUTCOME => 'Outcome variables (those with `outcome` == 1) are variables for which a human would generally want to identify the influencing factors.  These include symptoms of illness, physique, mood, cognitive performance, etc.  Generally correlation calculations are only performed on outcome variables.',
@@ -855,7 +855,7 @@ abstract class BaseVariable extends BaseModel {
                     update variables
                         left join (
                             select count(id) as total, cause_variable_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by cause_variable_id
                         )
                         as grouped on variables.id = grouped.cause_variable_id
@@ -867,7 +867,7 @@ abstract class BaseVariable extends BaseModel {
                     update variables
                         left join (
                             select count(id) as total, effect_variable_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by effect_variable_id
                         )
                         as grouped on variables.id = grouped.effect_variable_id
@@ -1062,16 +1062,16 @@ abstract class BaseVariable extends BaseModel {
 		self::FIELD_BORING => 'The variable is boring if the average person would not be interested in its causes or effects. ',
 	];
 	protected array $relationshipInfo = [
-		'best_aggregate_correlation' => [
+		'best_global_variable_relationship' => [
 			'relationshipType' => 'BelongsTo',
-			'qualifiedUserClassName' => AggregateCorrelation::class,
-			'foreignKeyColumnName' => 'best_aggregate_correlation_id',
+			'qualifiedUserClassName' => GlobalVariableRelationship::class,
+			'foreignKeyColumnName' => 'best_global_variable_relationship_id',
 			'foreignKey' => Variable::FIELD_BEST_AGGREGATE_CORRELATION_ID,
 			'otherKeyColumnName' => 'id',
-			'otherKey' => AggregateCorrelation::FIELD_ID,
-			'ownerKeyColumnName' => 'best_aggregate_correlation_id',
+			'otherKey' => GlobalVariableRelationship::FIELD_ID,
+			'ownerKeyColumnName' => 'best_global_variable_relationship_id',
 			'ownerKey' => Variable::FIELD_BEST_AGGREGATE_CORRELATION_ID,
-			'methodName' => 'best_aggregate_correlation',
+			'methodName' => 'best_global_variable_relationship',
 		],
 		'best_cause_variable' => [
 			'relationshipType' => 'BelongsTo',
@@ -1139,19 +1139,19 @@ abstract class BaseVariable extends BaseModel {
 			'ownerKey' => Variable::FIELD_WP_POST_ID,
 			'methodName' => 'wp_post',
 		],
-		'aggregate_correlations_where_cause_variable' => [
+		'global_variable_relationships_where_cause_variable' => [
 			'relationshipType' => 'HasMany',
-			'qualifiedUserClassName' => AggregateCorrelation::class,
-			'foreignKey' => AggregateCorrelation::FIELD_CAUSE_VARIABLE_ID,
-			'localKey' => AggregateCorrelation::FIELD_ID,
-			'methodName' => 'aggregate_correlations_where_cause_variable',
+			'qualifiedUserClassName' => GlobalVariableRelationship::class,
+			'foreignKey' => GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_ID,
+			'localKey' => GlobalVariableRelationship::FIELD_ID,
+			'methodName' => 'global_variable_relationships_where_cause_variable',
 		],
-		'aggregate_correlations_where_effect_variable' => [
+		'global_variable_relationships_where_effect_variable' => [
 			'relationshipType' => 'HasMany',
-			'qualifiedUserClassName' => AggregateCorrelation::class,
-			'foreignKey' => AggregateCorrelation::FIELD_EFFECT_VARIABLE_ID,
-			'localKey' => AggregateCorrelation::FIELD_ID,
-			'methodName' => 'aggregate_correlations_where_effect_variable',
+			'qualifiedUserClassName' => GlobalVariableRelationship::class,
+			'foreignKey' => GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_ID,
+			'localKey' => GlobalVariableRelationship::FIELD_ID,
+			'methodName' => 'global_variable_relationships_where_effect_variable',
 		],
 		'applications_where_outcome_variable' => [
 			'relationshipType' => 'HasMany',
@@ -1392,9 +1392,9 @@ abstract class BaseVariable extends BaseModel {
 			'methodName' => 'users_where_primary_outcome_variable',
 		],
 	];
-	public function best_aggregate_correlation(): BelongsTo{
-		return $this->belongsTo(AggregateCorrelation::class, Variable::FIELD_BEST_AGGREGATE_CORRELATION_ID,
-			AggregateCorrelation::FIELD_ID, Variable::FIELD_BEST_AGGREGATE_CORRELATION_ID);
+	public function best_global_variable_relationship(): BelongsTo{
+		return $this->belongsTo(GlobalVariableRelationship::class, Variable::FIELD_BEST_AGGREGATE_CORRELATION_ID,
+			GlobalVariableRelationship::FIELD_ID, Variable::FIELD_BEST_AGGREGATE_CORRELATION_ID);
 	}
 	public function best_cause_variable(): BelongsTo{
 		return $this->belongsTo(Variable::class, Variable::FIELD_BEST_CAUSE_VARIABLE_ID, Variable::FIELD_ID,
@@ -1420,12 +1420,12 @@ abstract class BaseVariable extends BaseModel {
 		return $this->belongsTo(WpPost::class, Variable::FIELD_WP_POST_ID, WpPost::FIELD_ID,
 			Variable::FIELD_WP_POST_ID);
 	}
-	public function aggregate_correlations_where_cause_variable(): HasMany{
-		return $this->hasMany(AggregateCorrelation::class, AggregateCorrelation::FIELD_CAUSE_VARIABLE_ID,
+	public function global_variable_relationships_where_cause_variable(): HasMany{
+		return $this->hasMany(GlobalVariableRelationship::class, GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_ID,
 			static::FIELD_ID);
 	}
-	public function aggregate_correlations_where_effect_variable(): HasMany{
-		return $this->hasMany(AggregateCorrelation::class, AggregateCorrelation::FIELD_EFFECT_VARIABLE_ID,
+	public function global_variable_relationships_where_effect_variable(): HasMany{
+		return $this->hasMany(GlobalVariableRelationship::class, GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_ID,
 			static::FIELD_ID);
 	}
 	public function applications_where_outcome_variable(): HasMany{

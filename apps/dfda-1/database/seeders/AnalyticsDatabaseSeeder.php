@@ -23,7 +23,7 @@ class AnalyticsDatabaseSeeder extends DatabaseSeeder
         $this->call(TrackingRemindersTableSeeder::class);
         $this->call(TrackingReminderNotificationsTableSeeder::class);
         $this->call(MeasurementsTableSeeder::class);
-        $this->call(AggregateCorrelationsTableSeeder::class);
+        $this->call(GlobalVariableRelationshipsTableSeeder::class);
         $this->call(CorrelationsTableSeeder::class);
         $this->call(UserVariableClientsTableSeeder::class);
 	    $db::enableForeignKeyConstraints();

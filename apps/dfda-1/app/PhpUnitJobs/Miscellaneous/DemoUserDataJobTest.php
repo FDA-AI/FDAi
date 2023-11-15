@@ -21,7 +21,7 @@ use App\Storage\DB\Writable;
 use App\Types\QMStr;
 use Illuminate\Support\Collection;
 use Throwable;
-/** Class AggregateCorrelationsTest
+/** Class GlobalVariableRelationshipsTest
  * @package App\PhpUnitJobs
  */
 class DemoUserDataJobTest extends JobTestCase {

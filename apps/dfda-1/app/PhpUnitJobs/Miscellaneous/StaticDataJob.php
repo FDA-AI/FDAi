@@ -13,7 +13,7 @@ use App\Files\PHP\BaseModelFile;
 use App\Menus\Admin\AdminSearchMenu;
 use App\Menus\QMMenu;
 use App\Menus\UserMenu;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\PhpUnitJobs\JobTestCase;
 use App\Properties\CtTreatment\CtTreatmentNumberOfConditionsProperty;
@@ -38,10 +38,10 @@ class StaticDataJob extends JobTestCase {
         BaseModel::generateIndexFiles();
     }
     public function testPublishVariables(){
-        $correlation = AggregateCorrelation::find(65684711);
+        $correlation = GlobalVariableRelationship::find(65684711);
         $correlation->logName();
         CCStudiesRepo::cloneOrPullIfNecessary();
-        //AggregateCorrelationIsPublicProperty::updateAll();
+        //GlobalVariableRelationshipIsPublicProperty::updateAll();
         //CCStudiesRepo::publishVariables();
         CCStudiesRepo::publishVariable(PrecipitationCommonVariable::NAME);
     }

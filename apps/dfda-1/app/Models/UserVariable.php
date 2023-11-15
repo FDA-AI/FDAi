@@ -2169,12 +2169,12 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		return static::DEFAULT_IMAGE;
 	}
 	/**
-	 * @return AggregateCorrelation|Correlation
+	 * @return GlobalVariableRelationship|Correlation
 	 */
 	public function getCorrelation(): ?BaseModel{
 		$best = $this->getBestUserCorrelation();
 		if(!$best){
-			$best = $this->getBestAggregateCorrelation();
+			$best = $this->getBestGlobalVariableRelationship();
 		}
 		$best->validateVariableIds();
 		return $best;
@@ -3696,14 +3696,14 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		$this->setAttribute(UserVariable::FIELD_BEST_CAUSE_VARIABLE_ID, $bestCauseVariableId);
 	}
 	/**
-	 * @return AggregateCorrelation|Correlation
+	 * @return GlobalVariableRelationship|Correlation
 	 */
 	public function setBestCorrelation(){
 		$best = $this->setBestUserCorrelation();
 		if($best){
 			return $best;
 		}
-		$best = $this->setBestAggregateCorrelation();
+		$best = $this->setBestGlobalVariableRelationship();
 		return $best;
 	}
 	public function setBestEffectVariableId(int $bestEffectVariableId): void{
@@ -3980,13 +3980,13 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return \App\Models\AggregateCorrelation[]|Correlation[]|\Illuminate\Support\Collection
+	 * @return \App\Models\GlobalVariableRelationship[]|Correlation[]|\Illuminate\Support\Collection
 	 */
 	public function getOutcomesOrPredictors(int $limit = null, string $variableCategoryName = null): Collection{
 		if($this->isOutcome()){
-			$correlations = $this->getUserOrAggregateCorrelationsAsEffect($limit, $variableCategoryName);
+			$correlations = $this->getUserOrGlobalVariableRelationshipsAsEffect($limit, $variableCategoryName);
 		} else{
-			$correlations = $this->getUserOrAggregateCorrelationsAsCause($limit, $variableCategoryName);
+			$correlations = $this->getUserOrGlobalVariableRelationshipsAsCause($limit, $variableCategoryName);
 		}
 		return $correlations;
 	}
@@ -3996,16 +3996,16 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	/**
 	 * @param int|null $limit
 	 * @param string|int|null $causeCategory
-	 * @return AggregateCorrelation[]|Correlation[]|Collection
+	 * @return GlobalVariableRelationship[]|Correlation[]|Collection
 	 */
-	public function getUserOrAggregateCorrelationsAsEffect(int $limit = null, $causeCategory = null): Collection{
+	public function getUserOrGlobalVariableRelationshipsAsEffect(int $limit = null, $causeCategory = null): Collection{
 		$catId = (!$causeCategory) ? null : VariableCategoryIdProperty::pluck($causeCategory);
 		$correlations = $this->relations[__FUNCTION__]["$catId-$limit"] ?? null;
 		if($correlations !== null){return $correlations;}
 		$correlations = $this->getCorrelationsAsEffect($limit, $causeCategory);
 		if($correlations->count()){return $this->relations[__FUNCTION__]["$catId-$limit"] = $correlations;}
 		return $this->relations[__FUNCTION__]["$catId-$limit"] = $this->getVariable()
-			->getAggregateCorrelationsAsEffect($limit, $causeCategory);
+			->getGlobalVariableRelationshipsAsEffect($limit, $causeCategory);
 	}
 	/**
 	 * @param int|null $limit
@@ -4081,9 +4081,9 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	/**
 	 * @param int|null $limit
 	 * @param string|int|null $effectCategory
-	 * @return AggregateCorrelation[]|Correlation[]|Collection
+	 * @return GlobalVariableRelationship[]|Correlation[]|Collection
 	 */
-	public function getUserOrAggregateCorrelationsAsCause(int $limit = null, $effectCategory = null): Collection{
+	public function getUserOrGlobalVariableRelationshipsAsCause(int $limit = null, $effectCategory = null): Collection{
 		$catId = (!$effectCategory) ? null : VariableCategoryIdProperty::pluck($effectCategory);
 		$correlations = $this->relations[__FUNCTION__]["$catId-$limit"] ?? null;
 		if($correlations !== null){return $correlations;}
@@ -4092,7 +4092,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 			return $this->relations[__FUNCTION__]["$catId-$limit"] = $correlations;
 		}
 		return $this->relations[__FUNCTION__]["$catId-$limit"] = $this->getVariable()
-			->getAggregateCorrelationsAsEffect($limit, $effectCategory);
+			->getGlobalVariableRelationshipsAsEffect($limit, $effectCategory);
 	}
 
 	public function setNumberOfMeasurements(?int $numberOfMeasurements): void{

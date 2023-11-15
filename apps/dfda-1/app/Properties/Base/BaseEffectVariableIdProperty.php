@@ -15,7 +15,7 @@ use Doctrine\DBAL\Types\Types;
 use App\Fields\Field;
 use App\Fields\HasOne;
 use App\Variables\CommonVariables\EmotionsCommonVariables\OverallMoodCommonVariable;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Slim\View\Request\QMRequest;
 use OpenApi\Generator;
 class BaseEffectVariableIdProperty extends BaseVariableIdProperty{
@@ -35,7 +35,7 @@ class BaseEffectVariableIdProperty extends BaseVariableIdProperty{
 	public $canBeChangedToNull = false;
 	public $isOrderable = true;
 	public $isSearchable = false;
-	public const NAME = AggregateCorrelation::FIELD_EFFECT_VARIABLE_ID;
+	public const NAME = GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_ID;
 	public $name = self::NAME;
 	public $phpType = \App\Types\PhpTypes::INTEGER;
 	public $rules = 'required|integer|min:1|max:2147483647';

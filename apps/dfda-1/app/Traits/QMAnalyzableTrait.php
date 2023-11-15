@@ -26,7 +26,7 @@ use App\Logging\QMClockwork;
 use App\Logging\QMIgnition;
 use App\Logging\QMLog;
 use App\Logging\SolutionButton;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\Correlation;
 use App\Models\User;
@@ -646,7 +646,7 @@ trait QMAnalyzableTrait {
 		if(AppMode::isDebug()){$total = $qb->countAndLog();} else {$total = $qb->count();}
 		while($one = $qb->limit(1)->pluck('id')->first()){
 			ConsoleLog::info($qb->count() . " " . $t . " where $reason");
-			/** @var Variable|UserVariable|Correlation|AggregateCorrelation|User $l */
+			/** @var Variable|UserVariable|Correlation|GlobalVariableRelationship|User $l */
 			$l = $lClass::findInMemoryOrDB($one);
 			$started = $l->analysis_started_at;
 			$newest = $l->newest_data_at;
@@ -684,7 +684,7 @@ trait QMAnalyzableTrait {
 				break;
 			}
 			if(static::class === QMUser::class){
-				sleep(1);  // Needed for testing because we update newest_data_at on AGGREGATE correlation after analyzing 2nd USER correlation
+				sleep(1);  // Needed for testing because we update newest_data_at on GLOBAL variable relationship after analyzing 2nd USER correlation
 			}
 		}
 		return $analyzed;

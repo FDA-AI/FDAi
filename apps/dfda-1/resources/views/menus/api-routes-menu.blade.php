@@ -20,13 +20,13 @@
 	</a>
 </li>
 <li>
-	<a href="/api/v6/aggregate_correlations" target="_blank" title="Examination of the likely effects of a predictor variable on an outcome variable on average for the entire population @ api/v6/aggregate_correlations">
-		<i class="fas fa-vials"></i>Api V6 Aggregate Correlations
+	<a href="/api/v6/global_variable_relationships" target="_blank" title="Examination of the likely effects of a predictor variable on an outcome variable on average for the entire population @ api/v6/global_variable_relationships">
+		<i class="fas fa-vials"></i>Api V6 Global Variable Relationships
 	</a>
 </li>
 <li>
-	<a href="/api/v6/aggregate_correlations/create" target="_blank" title="Examination of the likely effects of a predictor variable on an outcome variable on average for the entire population @ api/v6/aggregate_correlations/create">
-		<i class="fas fa-vials"></i>Api V6 Aggregate Correlations Create
+	<a href="/api/v6/global_variable_relationships/create" target="_blank" title="Examination of the likely effects of a predictor variable on an outcome variable on average for the entire population @ api/v6/global_variable_relationships/create">
+		<i class="fas fa-vials"></i>Api V6 Global Variable Relationships Create
 	</a>
 </li>
 <li>

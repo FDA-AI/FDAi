@@ -478,7 +478,7 @@ class TestDB extends QMDB {
         ConsoleLog::info(__FUNCTION__."...");
         self::deleteUserData();
 	    self::setVariablesAnalyzedOneDayAgo();
-	    //TestDB::loadTestTable(AggregateCorrelation::TABLE);
+	    //TestDB::loadTestTable(GlobalVariableRelationship::TABLE);
     }
     public static function updateUserMetaAdmin(): void{
         WpUsermetum::query()

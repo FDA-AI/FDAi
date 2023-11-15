@@ -2,7 +2,7 @@
 /** @noinspection PhpUnusedLocalVariableInspection */
 /** @noinspection SpellCheckingInspection */
 namespace Tests\StagingUnitTests\D\Laravel;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Override\GeneratedTestRequest;
 use App\Override\QMFileBag;
 use App\Override\QMHeaderBag;
@@ -15,7 +15,7 @@ class UserStudyWithoutEnoughMeasurementsTest extends LaravelStagingTestCase
 {
     protected $REQUEST_URI = "/studies/cause-6059957-effect-1273-user-".UserIdProperty::USER_ID_TEST_USER."-user-study";
     public function testCauseNameLink(){
-        $c  = QMAggregateCorrelation::find(65648488);
+        $c  = QMGlobalVariableRelationship::find(65648488);
         $this->assertEquals('<a href="https://staging.quantimo.do/variables/1692" title="See Plus - Almond Walnut Macadamia + Protein, With Peanuts Details" target="_blank">Plus - Almond Walnut Macadamia + Protein, With Peanuts</a>',
             $c->getCauseNameLink());
     }

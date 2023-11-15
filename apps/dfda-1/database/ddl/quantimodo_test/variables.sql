@@ -25,10 +25,10 @@ create table quantimodo_test.variables
     median                                              double                                          null comment 'Median',
     minimum_allowed_value                               double                                          null comment 'Minimum reasonable value for this variable (uses default unit)',
     minimum_recorded_value                              double                                          null comment 'Minimum recorded value of this variable',
-    number_of_aggregate_correlations_as_cause           int unsigned                                    null comment 'Number of aggregate correlations for which this variable is the cause variable',
+    number_of_global_variable_relationships_as_cause           int unsigned                                    null comment 'Number of global variable relationships for which this variable is the cause variable',
     most_common_original_unit_id                        int                                             null comment 'Most common Unit ID',
     most_common_value                                   double                                          null comment 'Most common value',
-    number_of_aggregate_correlations_as_effect          int unsigned                                    null comment 'Number of aggregate correlations for which this variable is the effect variable',
+    number_of_global_variable_relationships_as_effect          int unsigned                                    null comment 'Number of global variable relationships for which this variable is the effect variable',
     number_of_unique_values                             int                                             null comment 'Number of unique values',
     onset_delay                                         int unsigned                                    null comment 'How long it takes for a measurement in this variable to take effect',
     outcome                                             tinyint(1)                                      null comment 'Outcome variables (those with `outcome` == 1) are variables for which a human would generally want to identify the influencing factors.  These include symptoms of illness, physique, mood, cognitive performance, etc.  Generally correlation calculations are only performed on outcome variables.',
@@ -92,14 +92,14 @@ create table quantimodo_test.variables
             ',
     charts                                              json                                            null,
     creator_user_id                                     bigint unsigned                                 not null,
-    best_aggregate_correlation_id                       int                                             null,
+    best_global_variable_relationship_id                       int                                             null,
     filling_type                                        enum ('zero', 'none', 'interpolation', 'value') null,
     number_of_outcome_population_studies                int unsigned                                    null comment 'Number of Global Population Studies for this Cause Variable.
                 [Formula:
                     update variables
                         left join (
                             select count(id) as total, cause_variable_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by cause_variable_id
                         )
                         as grouped on variables.id = grouped.cause_variable_id
@@ -111,7 +111,7 @@ create table quantimodo_test.variables
                     update variables
                         left join (
                             select count(id) as total, effect_variable_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by effect_variable_id
                         )
                         as grouped on variables.id = grouped.effect_variable_id
@@ -312,8 +312,8 @@ create table quantimodo_test.variables
         unique (name),
     constraint variables_slug_uindex
         unique (slug),
-    constraint variables_aggregate_correlations_id_fk
-        foreign key (best_aggregate_correlation_id) references quantimodo_test.aggregate_correlations (id)
+    constraint variables_global_variable_relationships_id_fk
+        foreign key (best_global_variable_relationship_id) references quantimodo_test.global_variable_relationships (id)
             on delete set null,
     constraint variables_best_cause_variable_id_fk
         foreign key (best_cause_variable_id) references quantimodo_test.variables (id)

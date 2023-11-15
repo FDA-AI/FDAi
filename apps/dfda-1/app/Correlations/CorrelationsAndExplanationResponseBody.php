@@ -5,7 +5,7 @@
  */
 
 namespace App\Correlations;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Types\QMArr;
 use Illuminate\Support\Collection;
 use App\Slim\Model\QMResponseBody;
@@ -15,7 +15,7 @@ class CorrelationsAndExplanationResponseBody extends QMResponseBody {
     public $studies;
     /**
      * CorrelationsAndExplanationResponseBody constructor.
-     * @param AggregateCorrelation[]|QMCorrelation[]|QMAggregateCorrelation[]|Collection $correlations
+     * @param GlobalVariableRelationship[]|QMCorrelation[]|QMGlobalVariableRelationship[]|Collection $correlations
      * @param $requestParams
      */
     public function __construct($correlations, array $requestParams){
@@ -40,14 +40,14 @@ class CorrelationsAndExplanationResponseBody extends QMResponseBody {
     }
     public static function get(array $filters): CorrelationsAndExplanationResponseBody {
         if($filters['aggregate'] ?? false){
-            $correlations = QMAggregateCorrelation::getAggregateCorrelations($filters);
+            $correlations = QMGlobalVariableRelationship::getGlobalVariableRelationships($filters);
         } else {
             $correlations = QMUserCorrelation::getUserCorrelations($filters);
         }
         return new CorrelationsAndExplanationResponseBody($correlations, $filters);
     }
     /**
-     * @return AggregateCorrelation[]|Collection|QMAggregateCorrelation[]|QMCorrelation[]
+     * @return GlobalVariableRelationship[]|Collection|QMGlobalVariableRelationship[]|QMCorrelation[]
      */
     public function getCorrelations(): array {
         return QMArr::toArray($this->correlations);

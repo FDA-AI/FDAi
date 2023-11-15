@@ -3,9 +3,9 @@
 *  Contributors: ADD YOUR NAME HERE, Mike P. Sinn
  */ /** @noinspection PhpUnhandledExceptionInspection */
 namespace App\PhpUnitJobs\Cleanup;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMUserCorrelation;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
 use App\PhpUnitJobs\JobTestCase;
 use App\Properties\Correlation\CorrelationInternalErrorMessageProperty;
@@ -27,11 +27,11 @@ class CorrelationsCleanUpJob extends JobTestCase {
             $deleted = $deleted || QMUserCorrelation::writable()
                     ->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $v->getVariableIdAttribute())
                     ->hardDelete(__METHOD__, true);
-            $deleted = $deleted || QMAggregateCorrelation::writable()
-                    ->where(AggregateCorrelation::FIELD_CAUSE_VARIABLE_ID, $v->getVariableIdAttribute())
+            $deleted = $deleted || QMGlobalVariableRelationship::writable()
+                    ->where(GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $v->getVariableIdAttribute())
                     ->hardDelete(__METHOD__, true);
-            $deleted = $deleted || QMAggregateCorrelation::writable()
-                    ->where(AggregateCorrelation::FIELD_EFFECT_VARIABLE_ID, $v->getVariableIdAttribute())
+            $deleted = $deleted || QMGlobalVariableRelationship::writable()
+                    ->where(GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $v->getVariableIdAttribute())
                     ->hardDelete(__METHOD__, true);
             if($deleted){
                 QMUserVariable::setStatusWaitingByVariableId($v->getVariableIdAttribute(), __FUNCTION__);

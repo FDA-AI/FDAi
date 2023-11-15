@@ -6,7 +6,7 @@ namespace App\PhpUnitJobs\Code;
 use App\Console\Kernel;
 use App\Exceptions\ExceptionHandler;
 use App\Files\PHP\BaseModelFile;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Application;
 use App\Models\BaseModel;
 use App\Models\Collaborator;
@@ -59,7 +59,7 @@ class ScaffoldJob extends JobTestCase {
 		return;
 		Connector::generateScaffold();
 		User::generateScaffold();
-		AggregateCorrelation::generateScaffold();
+		GlobalVariableRelationship::generateScaffold();
 		Application::generateScaffold();
 		Collaborator::generateScaffold();
 		CommonTag::generateScaffold();

@@ -20,8 +20,8 @@ class PublishStudiesJobTest extends JobTestCase {
         if($published){StudiesRepo::stashPullAddCommitAndPush('publishUpVotedStudies');}
         //$mike->publishIndividualCaseStudies(); // Makes Jekyll build too slow!
         //$mike->publishPrimaryOutcomeStudies(10);
-        //AggregateCorrelation::publishUpVotedStudies();  These are kind of crappy
-        //AggregateCorrelation::publishAllUnpublishedStudies();  // Too many!
+        //GlobalVariableRelationship::publishUpVotedStudies();  These are kind of crappy
+        //GlobalVariableRelationship::publishAllUnpublishedStudies();  // Too many!
         $this->assertTrue(true);
     }
     public function testConvertJekyllToBlades(){

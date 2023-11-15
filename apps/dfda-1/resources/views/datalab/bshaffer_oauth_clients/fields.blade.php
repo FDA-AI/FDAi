@@ -64,10 +64,10 @@
     </script>
 @endpush
 
-<!-- Number Of Aggregate Correlations Field -->
+<!-- Number Of Global Variable Relationships Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('number_of_aggregate_correlations', 'Number Of Aggregate Correlations:') !!}
-    {!! Form::number('number_of_aggregate_correlations', null, ['class' => 'form-control']) !!}
+    {!! Form::label('number_of_global_variable_relationships', 'Number Of Global Variable Relationships:') !!}
+    {!! Form::number('number_of_global_variable_relationships', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Number Of Applications Field -->

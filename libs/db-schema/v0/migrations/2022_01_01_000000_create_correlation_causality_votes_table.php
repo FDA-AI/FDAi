@@ -18,7 +18,7 @@ class CreateCorrelationCausalityVotesTable extends Migration
             $table->unsignedInteger('cause_variable_id')->index('correlation_causality_votes_cause_variables_id_fk');
             $table->unsignedInteger('effect_variable_id')->index('correlation_causality_votes_effect_variables_id_fk');
             $table->integer('correlation_id')->nullable()->index('correlation_causality_votes_correlations_id_fk');
-            $table->integer('aggregate_correlation_id')->nullable()->index('correlation_causality_votes_aggregate_correlations_id_fk');
+            $table->integer('global_variable_relationship_id')->nullable()->index('correlation_causality_votes_global_variable_relationships_id_fk');
             $table->unsignedBigInteger('user_id');
             $table->integer('vote')->comment('The opinion of the data owner on whether or not there is a plausible
                                 mechanism of action by which the predictor variable could influence the outcome variable.');

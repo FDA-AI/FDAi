@@ -548,10 +548,10 @@
     </script>
 @endpush
 
-<!-- Aggregate Correlation Id Field -->
+<!-- Global Variable Relationship Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('aggregate_correlation_id', 'Aggregate Correlation Id:') !!}
-    {!! Form::number('aggregate_correlation_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('global_variable_relationship_id', 'Global Variable Relationship Id:') !!}
+    {!! Form::number('global_variable_relationship_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Aggregated At Field -->

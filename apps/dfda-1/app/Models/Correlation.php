@@ -12,13 +12,13 @@ use App\Astral\Lenses\CorrelationsWithNoCauseMeasurementsLens;
 use App\Astral\Lenses\CorrelationsWithNoChangeLens;
 use App\Astral\Lenses\FavoritesLens;
 use App\Astral\Lenses\LikesLens;
-use App\Buttons\RelationshipButtons\Correlation\CorrelationAggregateCorrelationButton;
+use App\Buttons\RelationshipButtons\Correlation\CorrelationGlobalVariableRelationshipButton;
 use App\Buttons\RelationshipButtons\Correlation\CorrelationCauseUserVariableButton;
 use App\Buttons\RelationshipButtons\Correlation\CorrelationEffectUserVariableButton;
 use App\Buttons\RelationshipButtons\RelationshipButton;
 use App\Charts\ChartGroup;
 use App\Charts\CorrelationCharts\CorrelationChartGroup;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMUserCorrelation;
 use App\Exceptions\IncompatibleUnitException;
 use App\Exceptions\InvalidStringException;
@@ -462,9 +462,9 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @method static Builder|BaseModel nPerGroup($group, $n = 10)
  * @method static Builder|Correlation whereExperimentEndAt($value)
  * @method static Builder|Correlation whereExperimentStartAt($value)
- * @property int|null $aggregate_correlation_id
+ * @property int|null $global_variable_relationship_id
  * @property string|null $aggregated_at
- * @method static Builder|Correlation whereAggregateCorrelationId($value)
+ * @method static Builder|Correlation whereGlobalVariableRelationshipId($value)
  * @method static Builder|Correlation whereAggregatedAt($value)
  * @property int|null $usefulness_vote The opinion of the data owner on whether or not knowledge of this relationship
  *     is useful.
@@ -477,7 +477,7 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @method static Builder|BaseModel excludeLargeColumns()
  * @method static Builder|Correlation whereCausalityVote($value)
  * @method static Builder|Correlation whereUsefulnessVote($value)*@method getCauseVaribleName()
- * @property-read AggregateCorrelation|null $aggregate_correlation
+ * @property-read GlobalVariableRelationship|null $global_variable_relationship
  * @property-read Unit|null $cause_unit
  * @property-read \Illuminate\Database\Eloquent\Collection|CorrelationCausalityVote[] $correlation_causality_votes
  * @property-read int|null $correlation_causality_votes_count
@@ -723,29 +723,29 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		return QMUserStudy::generateStudyId($this->getCauseVariableId(), $this->getEffectVariableId(), $this->user_id,
 			$this->getStudyType());
 	}
-	public function getOrCreateQMAggregateCorrelation(): QMAggregateCorrelation{
-		$agg = $this->getAggregateCorrelation();
+	public function getOrCreateQMGlobalVariableRelationship(): QMGlobalVariableRelationship{
+		$agg = $this->getGlobalVariableRelationship();
 		if($agg){
 			return $agg->getDBModel();
 		}
 		$dbm = $this->getDBModel();
-		return $dbm->getOrCreateQMAggregateCorrelation();
+		return $dbm->getOrCreateQMGlobalVariableRelationship();
 	}
-	public function getAggregateCorrelation(): ?AggregateCorrelation{
-		if($this->relationLoaded('aggregate_correlation')){
-			return $this->aggregate_correlation;
+	public function getGlobalVariableRelationship(): ?GlobalVariableRelationship{
+		if($this->relationLoaded('global_variable_relationship')){
+			return $this->global_variable_relationship;
 		}
-		if($this->aggregate_correlation_id){
-			return AggregateCorrelation::findInMemoryOrDB($this->aggregate_correlation_id);
+		if($this->global_variable_relationship_id){
+			return GlobalVariableRelationship::findInMemoryOrDB($this->global_variable_relationship_id);
 		}
 		return null;
 	}
-	public function getOrCreateAggregateCorrelation(): AggregateCorrelation{
-		if($agg = $this->getAggregateCorrelation()){
+	public function getOrCreateGlobalVariableRelationship(): GlobalVariableRelationship{
+		if($agg = $this->getGlobalVariableRelationship()){
 			return $agg;
 		}
 		$quc = $this->getDBModel();
-		$qac = $quc->getOrCreateQMAggregateCorrelation();
+		$qac = $quc->getOrCreateQMGlobalVariableRelationship();
 		return $qac->l();
 	}
 	public function getShowContent(bool $inlineJs = false): string{
@@ -795,10 +795,10 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	 * @return \Illuminate\Support\Collection|Vote[]
 	 */
 	public function getVotes(): Collection{
-		if($this->aggregate_correlation_id){
-			$aggregateCorrelation = $this->getAggregateCorrelation();
+		if($this->global_variable_relationship_id){
+			$aggregateCorrelation = $this->getGlobalVariableRelationship();
 			if(!$aggregateCorrelation){
-				le("Could not get aggregate correlation for id {$this->aggregate_correlation_id}");
+				le("Could not get global variable relationship for id {$this->global_variable_relationship_id}");
 			}
 			return $aggregateCorrelation->getVotes();
 		}
@@ -1559,7 +1559,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 			"By Onset Delay",
 		], WpPost::FIELD_POST_CONTENT, true);
 	}
-	public function setAggregateCorrelationId(int $aggregateCorrelationId): void{
+	public function setGlobalVariableRelationshipId(int $aggregateCorrelationId): void{
 		$this->setAttribute(Correlation::FIELD_AGGREGATE_CORRELATION_ID, $aggregateCorrelationId);
 	}
 	public function getAggregatedAt(): ?string{
@@ -1849,8 +1849,8 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	public function getShowContentView(array $params = []): View{
 		return $this->findInMemoryOrNewQMStudy()->getShowContentView($params);
 	}
-	public function setAggregateCorrelation(AggregateCorrelation $l){
-		$this->setRelation('aggregate_correlation', $l);
+	public function setGlobalVariableRelationship(GlobalVariableRelationship $l){
+		$this->setRelation('global_variable_relationship', $l);
 	}
 	/**
 	 * @param string $reason
@@ -1879,7 +1879,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		$all[] = new CorrelationCauseUserVariableButton($this);
 		$all[] = new CorrelationEffectUserVariableButton($this);
 		try {
-			$all[] = new CorrelationAggregateCorrelationButton($this, $this->aggregate_correlation());
+			$all[] = new CorrelationGlobalVariableRelationshipButton($this, $this->global_variable_relationship());
 		} catch (NoIdException $e) {
 			le($e);
 		}
@@ -2029,10 +2029,10 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		$this->analyzeCauseAndEffectVariableIfNecessary($reason);
 	}
 	public function save(array $options = []){
-		if($this->aggregate_correlation_id){
-			$ac = AggregateCorrelation::findInMemoryOrDB($this->aggregate_correlation_id);
+		if($this->global_variable_relationship_id){
+			$ac = GlobalVariableRelationship::findInMemoryOrDB($this->global_variable_relationship_id);
 			if(!$ac){
-				le("Aggregate correlation not found: " . $this->aggregate_correlation_id);
+				le("Global variable relationship not found: " . $this->global_variable_relationship_id);
 			}
 		}
 		return parent::save($options); 

@@ -123,8 +123,8 @@ use Illuminate\Support\Str;
  * @property-read int|null $wp_comments_count
  * @property-read Collection|WpPostmetum[] $wp_postmeta
  * @property-read int|null $wp_postmeta_count
- * @property-read Collection|AggregateCorrelation[] $aggregate_correlations
- * @property-read int|null $aggregate_correlations_count
+ * @property-read Collection|GlobalVariableRelationship[] $global_variable_relationships
+ * @property-read int|null $global_variable_relationships_count
  * @property-read Collection|Application[] $applications
  * @property-read int|null $applications_count
  * @property-read Collection|Connection[] $connections
@@ -343,7 +343,7 @@ class WpPost extends BaseWpPost {
 	public const STUPID_CATEGORY_NAMES = [
 		"Study Reports" => self::PARENT_CATEGORY_STUDIES,
 		"StudyReports" => self::PARENT_CATEGORY_STUDIES,
-		"AggregateCorrelations" => self::CATEGORY_GLOBAL_POPULATION_STUDIES,
+		"GlobalVariableRelationships" => self::CATEGORY_GLOBAL_POPULATION_STUDIES,
 		"ColumnCharts" => null,
 		"Models" => null,
 		"GradeReports" => self::CATEGORY_GRADE_REPORTS,

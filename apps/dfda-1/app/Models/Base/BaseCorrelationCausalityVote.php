@@ -11,7 +11,7 @@
 /** Created by Reliese Model.
  */
 namespace App\Models\Base;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\Correlation;
 use App\Models\CorrelationCausalityVote;
@@ -26,7 +26,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $cause_variable_id
  * @property int $effect_variable_id
  * @property int $correlation_id
- * @property int $aggregate_correlation_id
+ * @property int $global_variable_relationship_id
  * @property int $user_id
  * @property int $vote
  * @property Carbon $created_at
@@ -34,7 +34,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon $deleted_at
  * @property string $client_id
  * @property bool $is_public
- * @property AggregateCorrelation $aggregate_correlation
+ * @property GlobalVariableRelationship $global_variable_relationship
  * @property Variable $cause_variable
  * @property OAClient $oa_client
  * @property Correlation $correlation
@@ -51,7 +51,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|BaseCorrelationCausalityVote newQuery()
  * @method static \Illuminate\Database\Query\Builder|BaseCorrelationCausalityVote onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseCorrelationCausalityVote query()
- * @method static \Illuminate\Database\Eloquent\Builder|BaseCorrelationCausalityVote whereAggregateCorrelationId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BaseCorrelationCausalityVote whereGlobalVariableRelationshipId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseCorrelationCausalityVote whereCauseVariableId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseCorrelationCausalityVote whereClientId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseCorrelationCausalityVote whereCorrelationId($value)
@@ -68,7 +68,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 abstract class BaseCorrelationCausalityVote extends BaseModel {
 	use SoftDeletes;
-	public const FIELD_AGGREGATE_CORRELATION_ID = 'aggregate_correlation_id';
+	public const FIELD_AGGREGATE_CORRELATION_ID = 'global_variable_relationship_id';
 	public const FIELD_CAUSE_VARIABLE_ID = 'cause_variable_id';
 	public const FIELD_CLIENT_ID = 'client_id';
 	public const FIELD_CORRELATION_ID = 'correlation_id';
@@ -123,16 +123,16 @@ abstract class BaseCorrelationCausalityVote extends BaseModel {
 		self::FIELD_IS_PUBLIC => '',
 	];
 	protected array $relationshipInfo = [
-		'aggregate_correlation' => [
+		'global_variable_relationship' => [
 			'relationshipType' => 'BelongsTo',
-			'qualifiedUserClassName' => AggregateCorrelation::class,
-			'foreignKeyColumnName' => 'aggregate_correlation_id',
+			'qualifiedUserClassName' => GlobalVariableRelationship::class,
+			'foreignKeyColumnName' => 'global_variable_relationship_id',
 			'foreignKey' => CorrelationCausalityVote::FIELD_AGGREGATE_CORRELATION_ID,
 			'otherKeyColumnName' => 'id',
-			'otherKey' => AggregateCorrelation::FIELD_ID,
-			'ownerKeyColumnName' => 'aggregate_correlation_id',
+			'otherKey' => GlobalVariableRelationship::FIELD_ID,
+			'ownerKeyColumnName' => 'global_variable_relationship_id',
 			'ownerKey' => CorrelationCausalityVote::FIELD_AGGREGATE_CORRELATION_ID,
-			'methodName' => 'aggregate_correlation',
+			'methodName' => 'global_variable_relationship',
 		],
 		'cause_variable' => [
 			'relationshipType' => 'BelongsTo',
@@ -190,9 +190,9 @@ abstract class BaseCorrelationCausalityVote extends BaseModel {
 			'methodName' => 'user',
 		],
 	];
-	public function aggregate_correlation(): BelongsTo{
-		return $this->belongsTo(AggregateCorrelation::class, CorrelationCausalityVote::FIELD_AGGREGATE_CORRELATION_ID,
-			AggregateCorrelation::FIELD_ID, CorrelationCausalityVote::FIELD_AGGREGATE_CORRELATION_ID);
+	public function global_variable_relationship(): BelongsTo{
+		return $this->belongsTo(GlobalVariableRelationship::class, CorrelationCausalityVote::FIELD_AGGREGATE_CORRELATION_ID,
+			GlobalVariableRelationship::FIELD_ID, CorrelationCausalityVote::FIELD_AGGREGATE_CORRELATION_ID);
 	}
 	public function cause_variable(): BelongsTo{
 		return $this->belongsTo(Variable::class, CorrelationCausalityVote::FIELD_CAUSE_VARIABLE_ID, Variable::FIELD_ID,

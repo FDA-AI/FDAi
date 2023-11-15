@@ -7,7 +7,7 @@
 namespace App\Models\WpPosts;
 use AdvancedCustomFields;
 use App\Exceptions\DeletedUserException;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Application;
 use App\Models\BaseModel;
 use App\Models\Connection;
@@ -97,8 +97,8 @@ use Illuminate\Support\Carbon;
  * @method static Builder|PatientOverviewWpPost whereToPing($value)
  * @method static Builder|PatientOverviewWpPost whereUpdatedAt($value)
  * @mixin Eloquent
- * @property-read Collection|AggregateCorrelation[] $aggregate_correlations
- * @property-read int|null $aggregate_correlations_count
+ * @property-read Collection|GlobalVariableRelationship[] $global_variable_relationships
+ * @property-read int|null $global_variable_relationships_count
  * @property-read Collection|Application[] $applications
  * @property-read int|null $applications_count
  * @property-read Collection|Connection[] $connections

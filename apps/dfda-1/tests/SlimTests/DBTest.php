@@ -7,7 +7,7 @@ use App\Buttons\Admin\PHPStormButton;
 use App\DevOps\XDebug;
 use App\Files\FileHelper;
 use App\Files\PHP\BaseModelFile;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Connector;
 use App\Models\Correlation;
 use App\Models\IpDatum;
@@ -35,8 +35,8 @@ class DBTest extends UnitTestCase {
 	    Correlation::newModelInstance()->update([Correlation::FIELD_ANALYSIS_ENDED_AT => null]);
 	    UserVariable::newModelInstance()->update([Correlation::FIELD_ANALYSIS_ENDED_AT => null]);
 	    Variable::newModelInstance()->update([Correlation::FIELD_ANALYSIS_ENDED_AT => null]);
-	    AggregateCorrelation::newModelInstance()->update([Correlation::FIELD_ANALYSIS_ENDED_AT => null]);
-	    $aggregateCorrelations = AggregateCorrelation::all();
+	    GlobalVariableRelationship::newModelInstance()->update([Correlation::FIELD_ANALYSIS_ENDED_AT => null]);
+	    $aggregateCorrelations = GlobalVariableRelationship::all();
 	    foreach($aggregateCorrelations as $aggregateCorrelation){
 		    $aggregateCorrelation->analyzeFully(__FUNCTION__);
 	    }

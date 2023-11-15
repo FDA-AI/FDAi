@@ -5,7 +5,7 @@
  */
 
 namespace App\Slim\Model;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\DataSources\QMConnector;
 use App\Logging\QMLog;
 use App\Models\User;
@@ -43,12 +43,12 @@ class APIStats {
 				->count();
 		$this->totalUsers = QMUser::readonly()->whereNotLike(User::TABLE . '.user_email', "%test%")->count();
 		$this->totalVariables = QMCommonVariable::readonly()->whereNotLike('variables.name', "'%test%'")->count();
-		$this->totalAggregatedStudies = QMAggregateCorrelation::readonly()->count();
+		$this->totalAggregatedStudies = QMGlobalVariableRelationship::readonly()->count();
 		//$errorField = 'status';  // Don't get errored credential records because we cant json_encode them properly in response
 		//$this->credentials = APIStats::getStatsForTable('credentials', $errorField);
 		$this->credentials = self::getStatsForTable('credentials');
 		$this->correlations = self::getStatsForTable('correlations');
-		$this->aggregateCorrelations = self::getStatsForTable('aggregate_correlations');
+		$this->aggregateCorrelations = self::getStatsForTable('global_variable_relationships');
 		$errorField = 'status';
 		$this->variables = self::getStatsForTable('variables', $errorField);
 		$errorField = 'status';

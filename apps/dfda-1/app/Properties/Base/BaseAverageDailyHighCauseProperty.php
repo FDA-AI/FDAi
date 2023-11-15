@@ -9,13 +9,13 @@ use App\Traits\VariableValueTraits\CauseDailyVariableValueTrait;
 use App\UI\ImageUrls;
 use App\UI\FontAwesome;
 use App\Properties\BaseProperty;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 class BaseAverageDailyHighCauseProperty extends BaseProperty{
 	use CauseDailyVariableValueTrait;
 	public $dbInput = 'float,10,0';
 	public $dbType = 'float';
 	public $default = \OpenApi\Generator::UNDEFINED;
-	public $description = AggregateCorrelation::FIELD_AVERAGE_DAILY_HIGH_CAUSE;
+	public $description = GlobalVariableRelationship::FIELD_AVERAGE_DAILY_HIGH_CAUSE;
 	public $fieldType = 'float';
 	public $fontAwesome = FontAwesome::DAILYMOTION;
 	public $htmlType = 'text';

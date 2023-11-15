@@ -9,7 +9,7 @@ use App\Charts\ChartGroup;
 use App\Charts\VariableCharts\VariableChartChartGroup;
 use App\CodeGenerators\Swagger\SwaggerDefinition;
 use App\Computers\ThisComputer;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMCorrelation;
 use App\Correlations\QMUserCorrelation;
 use App\Exceptions\AlreadyAnalyzedException;
@@ -33,7 +33,7 @@ use App\Exceptions\VariableCategoryNotFoundException;
 use App\Files\FileHelper;
 use App\Http\Parameters\SortParam;
 use App\Logging\QMLog;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\CommonTag;
 use App\Models\Correlation;
@@ -64,8 +64,8 @@ use App\Properties\Variable\VariableImageUrlProperty;
 use App\Properties\Variable\VariableIsPublicProperty;
 use App\Properties\Variable\VariableNameProperty;
 use App\Properties\Variable\VariableNumberCommonTaggedByProperty;
-use App\Properties\Variable\VariableNumberOfAggregateCorrelationsAsCauseProperty;
-use App\Properties\Variable\VariableNumberOfAggregateCorrelationsAsEffectProperty;
+use App\Properties\Variable\VariableNumberOfGlobalVariableRelationshipsAsCauseProperty;
+use App\Properties\Variable\VariableNumberOfGlobalVariableRelationshipsAsEffectProperty;
 use App\Properties\Variable\VariableNumberOfCommonTagsProperty;
 use App\Properties\Variable\VariableNumberOfMeasurementsProperty;
 use App\Properties\Variable\VariableNumberOfTrackingRemindersProperty;
@@ -122,7 +122,7 @@ use stdClass;
 class QMCommonVariable extends QMVariable {
 	use HardCodable, HasVariable;
     private $alreadyGeneratedChildModelCode;
-    private $numberOfAggregateCorrelations;
+    private $numberOfGlobalVariableRelationships;
     private $qmUserVariables;
     private $userVariables;
     private $variableDataFromUserVariables;
@@ -195,7 +195,7 @@ class QMCommonVariable extends QMVariable {
     public const FIELD_ANALYSIS_SETTINGS_MODIFIED_AT = 'analysis_settings_modified_at';
     public const FIELD_ANALYSIS_STARTED_AT = 'analysis_started_at';
     public const FIELD_AVERAGE_SECONDS_BETWEEN_MEASUREMENTS = 'average_seconds_between_measurements';
-    public const FIELD_BEST_AGGREGATE_CORRELATION_ID = 'best_aggregate_correlation_id';
+    public const FIELD_BEST_AGGREGATE_CORRELATION_ID = 'best_global_variable_relationship_id';
     public const FIELD_BEST_CAUSE_VARIABLE_ID = 'best_cause_variable_id';
     public const FIELD_BEST_EFFECT_VARIABLE_ID = 'best_effect_variable_id';
     public const FIELD_BRAND_NAME = 'brand_name';
@@ -238,8 +238,8 @@ class QMCommonVariable extends QMVariable {
     public const FIELD_NAME = 'name';
     public const FIELD_NEWEST_DATA_AT = 'newest_data_at';
     public const FIELD_NUMBER_COMMON_TAGGED_BY = 'number_common_tagged_by';
-    public const FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_CAUSE = 'number_of_aggregate_correlations_as_cause';
-    public const FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_EFFECT = 'number_of_aggregate_correlations_as_effect';
+    public const FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_CAUSE = 'number_of_global_variable_relationships_as_cause';
+    public const FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_EFFECT = 'number_of_global_variable_relationships_as_effect';
     public const FIELD_NUMBER_OF_COMMON_TAGS = 'number_of_common_tags';
     public const FIELD_NUMBER_OF_MEASUREMENTS = 'number_of_measurements';
     public const FIELD_NUMBER_OF_RAW_MEASUREMENTS_WITH_TAGS_JOINS_CHILDREN = 'number_of_raw_measurements_with_tags_joins_children';
@@ -296,22 +296,22 @@ class QMCommonVariable extends QMVariable {
     ];
     public static $sqlCalculatedFields = [
         self::FIELD_BEST_CAUSE_VARIABLE_ID => [
-            'table'       => AggregateCorrelation::TABLE,
-            'foreign_key' => AggregateCorrelation::FIELD_EFFECT_VARIABLE_ID,
+            'table'       => GlobalVariableRelationship::TABLE,
+            'foreign_key' => GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_ID,
             'duration'    => 0,
             'sql'         => 'select cause_variable_id as calculatedValue
-                from aggregate_correlations ac
+                from global_variable_relationships ac
                 where cause_variable_id = $this->id
                     and ac.deleted_at is null
                 order by ac.aggregate_qm_score desc
                 limit 1',
         ],
         self::FIELD_BEST_EFFECT_VARIABLE_ID                             => [
-            'table'       => AggregateCorrelation::TABLE,
-            'foreign_key' => AggregateCorrelation::FIELD_CAUSE_VARIABLE_ID,
+            'table'       => GlobalVariableRelationship::TABLE,
+            'foreign_key' => GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_ID,
             'duration'    => 0,
             'sql'         => 'select effect_variable_id as calculatedValue
-                    from aggregate_correlations ac
+                    from global_variable_relationships ac
                     where cause_variable_id = $this->id
                         and ac.deleted_at is null
                     order by ac.aggregate_qm_score desc
@@ -342,15 +342,15 @@ class QMCommonVariable extends QMVariable {
             'duration'    => 15
         ],
         self::FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_CAUSE           => [
-            'table'       => AggregateCorrelation::TABLE,
-            'foreign_key' => AggregateCorrelation::FIELD_CAUSE_VARIABLE_ID,
-            'sql'         => 'count('.AggregateCorrelation::FIELD_ID.')',
+            'table'       => GlobalVariableRelationship::TABLE,
+            'foreign_key' => GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_ID,
+            'sql'         => 'count('.GlobalVariableRelationship::FIELD_ID.')',
             'duration'    => 16
         ],
         self::FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_EFFECT          => [
-            'table'       => AggregateCorrelation::TABLE,
-            'foreign_key' => AggregateCorrelation::FIELD_EFFECT_VARIABLE_ID,
-            'sql'         => 'count('.AggregateCorrelation::FIELD_ID.')',
+            'table'       => GlobalVariableRelationship::TABLE,
+            'foreign_key' => GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_ID,
+            'sql'         => 'count('.GlobalVariableRelationship::FIELD_ID.')',
             'duration'    => 16
         ],
         self::FIELD_NUMBER_OF_COMMON_TAGS                               => [
@@ -499,7 +499,7 @@ class QMCommonVariable extends QMVariable {
         $this->setMinimumAllowedValue($l->maximum_allowed_value);
         if(!$this->imageUrl){$this->imageUrl = $this->getQMVariableCategory()->getImageUrl();}
         $this->variableId = $this->id;
-        $this->getNumberOfAggregateCorrelations();
+        $this->getNumberOfGlobalVariableRelationships();
         $this->setNumberOfMeasurements($l->getNumberOfMeasurementsAttribute());
     }
     /**
@@ -556,23 +556,23 @@ class QMCommonVariable extends QMVariable {
         return [
             'defaultUnitAbbreviatedName'             => 'abbreviatedUnitName',
             'defaultUnit'                            => 'unitId',
-            'fallbackToAggregateCorrelations'        => 'fallbackToAggregatedCorrelations',
+            'fallbackToGlobalVariableRelationships'        => 'fallbackToAggregatedCorrelations',
             'taggedVariableId'                       => 'userTaggedVariableId',
             'tagVariableId'                          => 'userTagVariableId',
             'defaultUnitId'                          => 'unitId',
             'numberOfAggregatedCorrelationsAsCause'  => 'numberOfCorrelationsAsCause',
             'numberOfAggregatedCorrelationsAsEffect' => 'numberOfCorrelationsAsEffect',
-            'numberOfAggregateCorrelationsAsCause'   => 'numberOfCorrelationsAsCause',
-            'numberOfAggregateCorrelationsAsEffect'  => 'numberOfCorrelationsAsEffect',
+            'numberOfGlobalVariableRelationshipsAsCause'   => 'numberOfCorrelationsAsCause',
+            'numberOfGlobalVariableRelationshipsAsEffect'  => 'numberOfCorrelationsAsEffect',
             'numberOfUserCorrelationsAsCause'        => 'numberOfCorrelationsAsCause',
             'numberOfUserCorrelationsAsEffect'       => 'numberOfCorrelationsAsEffect',
             'categoryName'                           => 'variableCategoryName',
         ];
     }
     public function save(): bool{
-        if($this->bestAggregateCorrelation && is_string($this->bestAggregateCorrelation)){
+        if($this->bestGlobalVariableRelationship && is_string($this->bestGlobalVariableRelationship)){
             // Make sure it's not string so we don't double json_encode
-            $this->bestAggregateCorrelation = json_decode($this->bestAggregateCorrelation);
+            $this->bestGlobalVariableRelationship = json_decode($this->bestGlobalVariableRelationship);
         }
         $path = $this->getHardCodedFilePath();
         return parent::save();
@@ -801,11 +801,11 @@ class QMCommonVariable extends QMVariable {
             'field' => 'effect_variable_id'
         ];
         $array[] = [
-            'table' => 'aggregate_correlations',
+            'table' => 'global_variable_relationships',
             'field' => 'cause_variable_id'
         ];
         $array[] = [
-            'table' => 'aggregate_correlations',
+            'table' => 'global_variable_relationships',
             'field' => 'effect_variable_id'
         ];
         $array[] = [
@@ -1667,20 +1667,20 @@ class QMCommonVariable extends QMVariable {
     /**
      * @return int
      */
-    public function calculateNumberOfAggregateCorrelationsAsCause(): int {
-        return VariableNumberOfAggregateCorrelationsAsCauseProperty::calculate($this);
+    public function calculateNumberOfGlobalVariableRelationshipsAsCause(): int {
+        return VariableNumberOfGlobalVariableRelationshipsAsCauseProperty::calculate($this);
     }
     /**
      * @return int
      */
-    public function calculateNumberOfAggregateCorrelationsAsEffect(): int {
-        return VariableNumberOfAggregateCorrelationsAsEffectProperty::calculate($this);
+    public function calculateNumberOfGlobalVariableRelationshipsAsEffect(): int {
+        return VariableNumberOfGlobalVariableRelationshipsAsEffectProperty::calculate($this);
     }
     /**
      * @return int
      */
     public function calculateNumberOfAggregatedCorrelations(): int{
-        return $this->numberOfAggregateCorrelations = $this->calculateNumberOfAggregateCorrelationsAsCause() + $this->calculateNumberOfAggregateCorrelationsAsEffect();
+        return $this->numberOfGlobalVariableRelationships = $this->calculateNumberOfGlobalVariableRelationshipsAsCause() + $this->calculateNumberOfGlobalVariableRelationshipsAsEffect();
     }
     /**
      * @param bool $includeDeleted
@@ -1712,7 +1712,7 @@ class QMCommonVariable extends QMVariable {
             return false;
         }
         if($this->calculateNumberOfAggregatedCorrelations()){
-            QMLog::error("Not deleting $this->name because we have $this->numberOfAggregateCorrelations AggregatedCorrelations");
+            QMLog::error("Not deleting $this->name because we have $this->numberOfGlobalVariableRelationships AggregatedCorrelations");
             return false;
         }
         if ($taggedBy = $this->calculateNumberCommonTaggedBy()) {
@@ -1739,7 +1739,7 @@ class QMCommonVariable extends QMVariable {
      * @throws StupidVariableNameException
      */
     public function recalculateAllCorrelationsWithInvalidValues(){
-        $userCorrelations = QMUserCorrelation::getOrCreateUserOrAggregateCorrelations([
+        $userCorrelations = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships([
             'causeVariableId' => $this->id,
             'limit'           => 0
         ]);
@@ -1878,9 +1878,9 @@ class QMCommonVariable extends QMVariable {
         return $this->updateDbRow([self::FIELD_MINIMUM_ALLOWED_VALUE => $minimumAllowedValueInCommonUnit], __METHOD__);
     }
     private function scheduleAggregatedCorrelations(string $reason){
-        QMAggregateCorrelation::scheduleAnalysisWhere(AggregateCorrelation::FIELD_CAUSE_VARIABLE_ID,
+        QMGlobalVariableRelationship::scheduleAnalysisWhere(GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_ID,
             $this->id, $reason);
-        QMAggregateCorrelation::scheduleAnalysisWhere(AggregateCorrelation::FIELD_EFFECT_VARIABLE_ID,
+        QMGlobalVariableRelationship::scheduleAnalysisWhere(GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_ID,
             $this->id, $reason);
     }
     /**
@@ -1913,10 +1913,10 @@ class QMCommonVariable extends QMVariable {
             ->update([Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID => $newCategoryId]);
         Correlation::whereEffectVariableId($this->getId())
             ->update([Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID => $newCategoryId]);
-        AggregateCorrelation::whereCauseVariableId($this->getId())
-            ->update([AggregateCorrelation::FIELD_CAUSE_VARIABLE_CATEGORY_ID => $newCategoryId]);
-        AggregateCorrelation::whereEffectVariableId($this->getId())
-            ->update([AggregateCorrelation::FIELD_EFFECT_VARIABLE_CATEGORY_ID => $newCategoryId]);
+        GlobalVariableRelationship::whereCauseVariableId($this->getId())
+            ->update([GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID => $newCategoryId]);
+        GlobalVariableRelationship::whereEffectVariableId($this->getId())
+            ->update([GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID => $newCategoryId]);
         UserVariable::whereVariableId($this->getId())
             ->update([UserVariable::FIELD_VARIABLE_CATEGORY_ID => $newCategoryId]);
 	    return $this->updateDbRow([self::FIELD_VARIABLE_CATEGORY_ID => $newCategoryId], __METHOD__);
@@ -2870,7 +2870,7 @@ class QMCommonVariable extends QMVariable {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return AggregateCorrelation[]|Correlation[]|Collection
+	 * @return GlobalVariableRelationship[]|Correlation[]|Collection
 	 */
 	public function getOutcomesOrPredictors(int $limit = null, string $variableCategoryName = null): ?Collection{
 		return $this->l()->getOutcomesOrPredictors($limit, $variableCategoryName) ?? null;

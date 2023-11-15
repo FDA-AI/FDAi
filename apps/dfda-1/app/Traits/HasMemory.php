@@ -59,7 +59,7 @@ trait HasMemory {
 		return $this->getId() . "-" . $key;
 	}
 	/**
-	 * @return DBModel|false|null We set false when there's no aggregate correlations in the database
+	 * @return DBModel|false|null We set false when there's no global variable relationships in the database
 	 */
 	public function getMeFromMemory(){
 		// We need to use getUUID instead of getId so we can set things false that don't exist in DB to avoid redundant DB requests

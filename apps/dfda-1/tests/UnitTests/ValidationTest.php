@@ -6,7 +6,7 @@ use App\Files\FileFinder;
 use App\Logging\QMLog;
 use App\Models\BaseModel;
 use App\Models\Correlation;
-use App\Properties\AggregateCorrelation\AggregateCorrelationCauseUnitIdProperty;
+use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipCauseUnitIdProperty;
 use App\Properties\BaseProperty;
 use App\Storage\DB\QMDB;
 use App\Storage\DB\TestDB;
@@ -21,8 +21,8 @@ class ValidationTest extends UnitTestCase
         return;
 	    TestDB::deleteUserData();
         if($profile = true){QMProfile::startLiveProf();}
-        $this->checkClass("AggregateCorrelation"
-            , AggregateCorrelationCauseUnitIdProperty::class
+        $this->checkClass("GlobalVariableRelationship"
+            , GlobalVariableRelationshipCauseUnitIdProperty::class
         );
         if($profile){QMProfile::endProfile();}
         Correlation::deleteAll();

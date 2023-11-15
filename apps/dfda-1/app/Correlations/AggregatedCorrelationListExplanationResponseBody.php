@@ -5,7 +5,7 @@
  */
 
 namespace App\Correlations;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Slim\View\Request\QMRequest;
 use Illuminate\Support\Collection;
 class AggregatedCorrelationListExplanationResponseBody extends CorrelationListExplanationResponseBody {
@@ -13,7 +13,7 @@ class AggregatedCorrelationListExplanationResponseBody extends CorrelationListEx
     /**
      * AggregatedCorrelationListExplanation constructor.
      * @param $filters
-     * @param AggregateCorrelation[]|Collection $correlations
+     * @param GlobalVariableRelationship[]|Collection $correlations
      */
     public function __construct($filters, $correlations){
         parent::__construct($correlations);

@@ -5,21 +5,21 @@
  */
 
 namespace App\Exceptions;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
 use Facade\IgnitionContracts\ProvidesSolution;
 use App\Buttons\Analyzable\CreateStudyButton;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Utils\IonicHelper;
 use App\Logging\QMLog;
 class NoUserCorrelationsToAggregateException extends NotEnoughDataException implements ProvidesSolution {
     /**
-     * @var QMAggregateCorrelation
+     * @var QMGlobalVariableRelationship
      */
     public $aggregateCorrelation;
     /**
      * NoUserCorrelationsException constructor.
-     * @param QMAggregateCorrelation|AggregateCorrelation $correlation
+     * @param QMGlobalVariableRelationship|GlobalVariableRelationship $correlation
      */
     public function __construct($correlation){
         $this->analyzable = $c = $this->aggregateCorrelation = $correlation;
@@ -46,20 +46,20 @@ class NoUserCorrelationsToAggregateException extends NotEnoughDataException impl
         return $this->solutionTitle = "Create a Study";
     }
     public function getSolutionDescription(): string{
-        $c = $this->getQMAggregateCorrelation();
+        $c = $this->getQMGlobalVariableRelationship();
         return $this->solutionDescription = "Please create a study and share it with your friends so we can collect enough data to ".
             "determine the effect of $c->causeVariableName on $c->effectVariableName.  ";
     }
     /**
-     * @return AggregateCorrelation
+     * @return GlobalVariableRelationship
      */
-    public function getAggregateCorrelation(): AggregateCorrelation{
+    public function getGlobalVariableRelationship(): GlobalVariableRelationship{
         return $this->aggregateCorrelation->l();
     }
     /**
-     * @return QMAggregateCorrelation
+     * @return QMGlobalVariableRelationship
      */
-    public function getQMAggregateCorrelation(): QMAggregateCorrelation{
+    public function getQMGlobalVariableRelationship(): QMGlobalVariableRelationship{
         return $this->aggregateCorrelation->getDBModel();
     }
 }

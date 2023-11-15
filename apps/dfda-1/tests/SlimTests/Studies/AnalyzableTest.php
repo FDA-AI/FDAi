@@ -45,7 +45,7 @@ order by
 		                         ), $names);
         $this->checkUsersBeforeAnalysis();
         $this->assertWeCanGetCommonVariableByName(OverallMoodCommonVariable::NAME);
-        $this->createAggregateCorrelations();
+        $this->createGlobalVariableRelationships();
         if($profile){QMProfile::endProfile();}
     }
 	/**

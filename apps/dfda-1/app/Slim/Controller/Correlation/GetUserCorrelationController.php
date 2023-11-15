@@ -27,7 +27,7 @@ class GetUserCorrelationController extends GetCorrelationController {
 		}
 		unset($requestParams['variableName']);
 		$requestParams['userId'] = QMAuth::getQMUser()->id;
-		$correlations = $this->getOrCreateUserOrAggregateCorrelationsWithStudyHtmlChartsImages($requestParams);
+		$correlations = $this->getOrCreateUserOrGlobalVariableRelationshipsWithStudyHtmlChartsImages($requestParams);
 		if(APIHelper::apiVersionIsAbove(3)){
 			return $this->writeJsonWithGlobalFields(200, ['correlations' => $correlations]);
 		} else{

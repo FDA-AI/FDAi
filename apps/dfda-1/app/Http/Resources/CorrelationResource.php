@@ -24,7 +24,7 @@ class CorrelationResource extends BaseJsonResource
             'title' => $this->getTitleAttribute(),
             'id' => $this->id,
             'actions_count' => $this->actions_count,
-            'aggregate_correlation_id' => $this->aggregate_correlation_id,
+            'global_variable_relationship_id' => $this->global_variable_relationship_id,
             'aggregated_at' => $this->aggregated_at,
             'analysis_ended_at' => $this->analysis_ended_at,
             'analysis_requested_at' => $this->analysis_requested_at,

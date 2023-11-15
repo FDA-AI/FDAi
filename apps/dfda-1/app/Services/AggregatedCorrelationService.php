@@ -1,14 +1,14 @@
 <?php namespace App\Services;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Storage\QueryBuilderHelper;
 use Illuminate\Database\Eloquent\Collection;
 class AggregatedCorrelationService extends BaseService {
     /**
      * @param array $filters
-     * @return AggregateCorrelation[]|Collection
+     * @return GlobalVariableRelationship[]|Collection
      */
     public function all($filters = []){
-        $query = AggregateCorrelation::with([
+        $query = GlobalVariableRelationship::with([
             'cause',
             'effect'
         ]);
@@ -18,25 +18,25 @@ class AggregatedCorrelationService extends BaseService {
     }
     /**
      * @param array $input
-     * @return AggregateCorrelation
+     * @return GlobalVariableRelationship
      */
     public function create(array $input){
-        return AggregateCorrelation::create($input);
+        return GlobalVariableRelationship::create($input);
     }
     /**
      * @param int $id
      * @param array $columns
-     * @return null|AggregateCorrelation
+     * @return null|GlobalVariableRelationship
      */
     public function find($id, $columns = ['*']){
-        return AggregateCorrelation::find($id, $columns);
+        return GlobalVariableRelationship::find($id, $columns);
     }
     /**
      * @param int $id
-     * @return null|AggregateCorrelation
+     * @return null|GlobalVariableRelationship
      */
     public function getWithRelations($id){
-        return AggregateCorrelation::whereId($id)->with([
+        return GlobalVariableRelationship::whereId($id)->with([
             'cause',
             'effect'
         ])->first();

@@ -26,20 +26,20 @@ class CreateOaClientsTable extends Migration
             $table->softDeletes();
             $table->timestamp('earliest_measurement_start_at')->nullable();
             $table->timestamp('latest_measurement_start_at')->nullable();
-            $table->unsignedInteger('number_of_aggregate_correlations')->nullable()->comment('Number of Global Population Studies for this Client.
-                [Formula: 
+            $table->unsignedInteger('number_of_global_variable_relationships')->nullable()->comment('Number of Global Population Studies for this Client.
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by client_id
                         )
                         as grouped on bshaffer_oauth_clients.client_id = grouped.client_id
-                    set bshaffer_oauth_clients.number_of_aggregate_correlations = count(grouped.total)
+                    set bshaffer_oauth_clients.number_of_global_variable_relationships = count(grouped.total)
                 ]
                 ');
             $table->unsignedInteger('number_of_applications')->nullable()->comment('Number of Applications for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
@@ -51,7 +51,7 @@ class CreateOaClientsTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_oauth_access_tokens')->nullable()->comment('Number of OAuth Access Tokens for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(access_token) as total, client_id
@@ -63,7 +63,7 @@ class CreateOaClientsTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_oauth_authorization_codes')->nullable()->comment('Number of OAuth Authorization Codes for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(authorization_code) as total, client_id
@@ -75,7 +75,7 @@ class CreateOaClientsTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_oauth_refresh_tokens')->nullable()->comment('Number of OAuth Refresh Tokens for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(refresh_token) as total, client_id
@@ -87,7 +87,7 @@ class CreateOaClientsTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_button_clicks')->nullable()->comment('Number of Button Clicks for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
@@ -99,7 +99,7 @@ class CreateOaClientsTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_collaborators')->nullable()->comment('Number of Collaborators for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
@@ -111,7 +111,7 @@ class CreateOaClientsTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_common_tags')->nullable()->comment('Number of Common Tags for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
@@ -123,7 +123,7 @@ class CreateOaClientsTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_connections')->nullable()->comment('Number of Connections for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
@@ -135,7 +135,7 @@ class CreateOaClientsTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_connector_imports')->nullable()->comment('Number of Connector Imports for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
@@ -147,7 +147,7 @@ class CreateOaClientsTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_connectors')->nullable()->comment('Number of Connectors for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
@@ -159,7 +159,7 @@ class CreateOaClientsTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_correlations')->nullable()->comment('Number of Individual Case Studies for this Client.
-                [Formula: 
+                [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id

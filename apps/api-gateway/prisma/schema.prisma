@@ -41,7 +41,7 @@ model action_events {
   @@index([user_id], map: "action_events_user_id_index")
 }
 
-model aggregate_correlations {
+model global_variable_relationships {
   id                                                                                          Int                                     @id @default(autoincrement())
   forward_pearson_correlation_coefficient                                                     Float                                   @db.Float
   onset_delay                                                                                 Int
@@ -105,7 +105,7 @@ model aggregate_correlations {
   effect_follow_up_percent_change_from_baseline                                               Float                                   @db.Float
   z_score                                                                                     Float                                   @db.Float
   charts                                                                                      Json
-  number_of_variables_where_best_aggregate_correlation                                        Int                                     @db.UnsignedInt
+  number_of_variables_where_best_global_variable_relationship                                        Int                                     @db.UnsignedInt
   deletion_reason                                                                             String?                                 @db.VarChar(280)
   record_size_in_kb                                                                           Int?
   is_public                                                                                   Boolean
@@ -116,32 +116,32 @@ model aggregate_correlations {
   obvious                                                                                     Boolean?
   number_of_up_votes                                                                          Int
   number_of_down_votes                                                                        Int
-  strength_level                                                                              aggregate_correlations_strength_level
-  confidence_level                                                                            aggregate_correlations_confidence_level
-  relationship                                                                                aggregate_correlations_relationship
-  slug                                                                                        String?                                 @unique(map: "aggregate_correlations_slug_uindex") @db.VarChar(200)
-  units                                                                                       units?                                  @relation(fields: [cause_unit_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "aggregate_correlations_cause_unit_id_fk")
-  variable_categories_aggregate_correlations_cause_variable_category_idTovariable_categories  variable_categories                     @relation("aggregate_correlations_cause_variable_category_idTovariable_categories", fields: [cause_variable_category_id], references: [id], onUpdate: Restrict, map: "aggregate_correlations_cause_variable_category_id_fk")
-  variables_aggregate_correlations_cause_variable_idTovariables                               variables                               @relation("aggregate_correlations_cause_variable_idTovariables", fields: [cause_variable_id], references: [id], onUpdate: Restrict, map: "aggregate_correlations_cause_variables_id_fk")
-  oa_clients                                                                                  oa_clients?                             @relation(fields: [client_id], references: [client_id], onDelete: Restrict, onUpdate: Restrict, map: "aggregate_correlations_client_id_fk")
-  variable_categories_aggregate_correlations_effect_variable_category_idTovariable_categories variable_categories                     @relation("aggregate_correlations_effect_variable_category_idTovariable_categories", fields: [effect_variable_category_id], references: [id], onUpdate: Restrict, map: "aggregate_correlations_effect_variable_category_id_fk")
-  variables_aggregate_correlations_effect_variable_idTovariables                              variables                               @relation("aggregate_correlations_effect_variable_idTovariables", fields: [effect_variable_id], references: [id], onUpdate: Restrict, map: "aggregate_correlations_effect_variables_id_fk")
-  wp_posts                                                                                    wp_posts?                               @relation(fields: [wp_post_id], references: [ID], map: "aggregate_correlations_wp_posts_ID_fk")
+  strength_level                                                                              global_variable_relationships_strength_level
+  confidence_level                                                                            global_variable_relationships_confidence_level
+  relationship                                                                                global_variable_relationships_relationship
+  slug                                                                                        String?                                 @unique(map: "global_variable_relationships_slug_uindex") @db.VarChar(200)
+  units                                                                                       units?                                  @relation(fields: [cause_unit_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "global_variable_relationships_cause_unit_id_fk")
+  variable_categories_global_variable_relationships_cause_variable_category_idTovariable_categories  variable_categories                     @relation("global_variable_relationships_cause_variable_category_idTovariable_categories", fields: [cause_variable_category_id], references: [id], onUpdate: Restrict, map: "global_variable_relationships_cause_variable_category_id_fk")
+  variables_global_variable_relationships_cause_variable_idTovariables                               variables                               @relation("global_variable_relationships_cause_variable_idTovariables", fields: [cause_variable_id], references: [id], onUpdate: Restrict, map: "global_variable_relationships_cause_variables_id_fk")
+  oa_clients                                                                                  oa_clients?                             @relation(fields: [client_id], references: [client_id], onDelete: Restrict, onUpdate: Restrict, map: "global_variable_relationships_client_id_fk")
+  variable_categories_global_variable_relationships_effect_variable_category_idTovariable_categories variable_categories                     @relation("global_variable_relationships_effect_variable_category_idTovariable_categories", fields: [effect_variable_category_id], references: [id], onUpdate: Restrict, map: "global_variable_relationships_effect_variable_category_id_fk")
+  variables_global_variable_relationships_effect_variable_idTovariables                              variables                               @relation("global_variable_relationships_effect_variable_idTovariables", fields: [effect_variable_id], references: [id], onUpdate: Restrict, map: "global_variable_relationships_effect_variables_id_fk")
+  wp_posts                                                                                    wp_posts?                               @relation(fields: [wp_post_id], references: [ID], map: "global_variable_relationships_wp_posts_ID_fk")
   correlation_causality_votes                                                                 correlation_causality_votes[]
   correlation_usefulness_votes                                                                correlation_usefulness_votes[]
   correlations                                                                                correlations[]
   global_studies                                                                              global_studies[]
-  variables_aggregate_correlationsTovariables_best_aggregate_correlation_id                   variables[]                             @relation("aggregate_correlationsTovariables_best_aggregate_correlation_id")
+  variables_global_variable_relationshipsTovariables_best_global_variable_relationship_id                   variables[]                             @relation("global_variable_relationshipsTovariables_best_global_variable_relationship_id")
   votes                                                                                       votes[]
 
-  @@unique([cause_variable_id, effect_variable_id], map: "aggregate_correlations_pk")
+  @@unique([cause_variable_id, effect_variable_id], map: "global_variable_relationships_pk")
   @@unique([cause_variable_id, effect_variable_id], map: "cause_variable_id_effect_variable_id_uindex")
-  @@index([cause_unit_id], map: "aggregate_correlations_cause_unit_id_fk")
-  @@index([cause_variable_category_id], map: "aggregate_correlations_cause_variable_category_id_fk")
-  @@index([client_id], map: "aggregate_correlations_client_id_fk")
-  @@index([effect_variable_category_id], map: "aggregate_correlations_effect_variable_category_id_fk")
-  @@index([effect_variable_id], map: "aggregate_correlations_effect_variable_id_index")
-  @@index([wp_post_id], map: "aggregate_correlations_wp_posts_ID_fk")
+  @@index([cause_unit_id], map: "global_variable_relationships_cause_unit_id_fk")
+  @@index([cause_variable_category_id], map: "global_variable_relationships_cause_variable_category_id_fk")
+  @@index([client_id], map: "global_variable_relationships_client_id_fk")
+  @@index([effect_variable_category_id], map: "global_variable_relationships_effect_variable_category_id_fk")
+  @@index([effect_variable_id], map: "global_variable_relationships_effect_variable_id_index")
+  @@index([wp_post_id], map: "global_variable_relationships_wp_posts_ID_fk")
 }
 
 model applications {
@@ -770,7 +770,7 @@ model correlation_causality_votes {
   cause_variable_id                                                   Int                     @db.UnsignedInt
   effect_variable_id                                                  Int                     @db.UnsignedInt
   correlation_id                                                      Int?
-  aggregate_correlation_id                                            Int?
+  global_variable_relationship_id                                            Int?
   user_id                                                             BigInt                  @db.UnsignedBigInt
   vote                                                                Int
   created_at                                                          DateTime                @default(now()) @db.Timestamp(0)
@@ -778,7 +778,7 @@ model correlation_causality_votes {
   deleted_at                                                          DateTime?               @db.Timestamp(0)
   client_id                                                           String?                 @db.VarChar(80)
   is_public                                                           Boolean?
-  aggregate_correlations                                              aggregate_correlations? @relation(fields: [aggregate_correlation_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "correlation_causality_votes_aggregate_correlations_id_fk")
+  global_variable_relationships                                              global_variable_relationships? @relation(fields: [global_variable_relationship_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "correlation_causality_votes_global_variable_relationships_id_fk")
   variables_correlation_causality_votes_cause_variable_idTovariables  variables               @relation("correlation_causality_votes_cause_variable_idTovariables", fields: [cause_variable_id], references: [id], onUpdate: Restrict, map: "correlation_causality_votes_cause_variables_id_fk")
   oa_clients                                                          oa_clients?             @relation(fields: [client_id], references: [client_id], onDelete: Restrict, onUpdate: Restrict, map: "correlation_causality_votes_client_id_fk")
   correlations                                                        correlations?           @relation(fields: [correlation_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "correlation_causality_votes_correlations_id_fk")
@@ -786,7 +786,7 @@ model correlation_causality_votes {
   wp_users                                                            wp_users                @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "correlation_causality_votes_wp_users_ID_fk")
 
   @@unique([user_id, cause_variable_id, effect_variable_id], map: "correlation_causality_votes_user_cause_effect_uindex")
-  @@index([aggregate_correlation_id], map: "correlation_causality_votes_aggregate_correlations_id_fk")
+  @@index([global_variable_relationship_id], map: "correlation_causality_votes_global_variable_relationships_id_fk")
   @@index([cause_variable_id], map: "correlation_causality_votes_cause_variables_id_fk")
   @@index([client_id], map: "correlation_causality_votes_client_id_fk")
   @@index([correlation_id], map: "correlation_causality_votes_correlations_id_fk")
@@ -798,7 +798,7 @@ model correlation_usefulness_votes {
   cause_variable_id                                                    Int                     @db.UnsignedInt
   effect_variable_id                                                   Int                     @db.UnsignedInt
   correlation_id                                                       Int?
-  aggregate_correlation_id                                             Int?
+  global_variable_relationship_id                                             Int?
   user_id                                                              BigInt                  @db.UnsignedBigInt
   vote                                                                 Int
   created_at                                                           DateTime                @default(now()) @db.Timestamp(0)
@@ -806,7 +806,7 @@ model correlation_usefulness_votes {
   deleted_at                                                           DateTime?               @db.Timestamp(0)
   client_id                                                            String?                 @db.VarChar(80)
   is_public                                                            Boolean?
-  aggregate_correlations                                               aggregate_correlations? @relation(fields: [aggregate_correlation_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "correlation_usefulness_votes_aggregate_correlations_id_fk")
+  global_variable_relationships                                               global_variable_relationships? @relation(fields: [global_variable_relationship_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "correlation_usefulness_votes_global_variable_relationships_id_fk")
   variables_correlation_usefulness_votes_cause_variable_idTovariables  variables               @relation("correlation_usefulness_votes_cause_variable_idTovariables", fields: [cause_variable_id], references: [id], onUpdate: Restrict, map: "correlation_usefulness_votes_cause_variables_id_fk")
   oa_clients                                                           oa_clients?             @relation(fields: [client_id], references: [client_id], onDelete: Restrict, onUpdate: Restrict, map: "correlation_usefulness_votes_client_id_fk")
   correlations                                                         correlations?           @relation(fields: [correlation_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "correlation_usefulness_votes_correlations_id_fk")
@@ -814,7 +814,7 @@ model correlation_usefulness_votes {
   wp_users                                                             wp_users                @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "correlation_usefulness_votes_wp_users_ID_fk")
 
   @@unique([user_id, cause_variable_id, effect_variable_id], map: "correlation_usefulness_votes_user_cause_effect_uindex")
-  @@index([aggregate_correlation_id], map: "correlation_usefulness_votes_aggregate_correlations_id_fk")
+  @@index([global_variable_relationship_id], map: "correlation_usefulness_votes_global_variable_relationships_id_fk")
   @@index([cause_variable_id], map: "correlation_usefulness_votes_cause_variables_id_fk")
   @@index([client_id], map: "correlation_usefulness_votes_client_id_fk")
   @@index([correlation_id], map: "correlation_usefulness_votes_correlations_id_fk")
@@ -900,7 +900,7 @@ model correlations {
   z_score                                                                           Float?                         @db.Float
   experiment_end_at                                                                 DateTime                       @db.Timestamp(0)
   experiment_start_at                                                               DateTime                       @db.Timestamp(0)
-  aggregate_correlation_id                                                          Int?
+  global_variable_relationship_id                                                          Int?
   aggregated_at                                                                     DateTime?                      @db.Timestamp(0)
   usefulness_vote                                                                   Int?
   causality_vote                                                                    Int?
@@ -921,7 +921,7 @@ model correlations {
   confidence_level                                                                  correlations_confidence_level
   relationship                                                                      correlations_relationship
   slug                                                                              String?                        @unique(map: "correlations_slug_uindex") @db.VarChar(200)
-  aggregate_correlations                                                            aggregate_correlations?        @relation(fields: [aggregate_correlation_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "correlations_aggregate_correlations_id_fk")
+  global_variable_relationships                                                            global_variable_relationships?        @relation(fields: [global_variable_relationship_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "correlations_global_variable_relationships_id_fk")
   units                                                                             units?                         @relation(fields: [cause_unit_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "correlations_cause_unit_id_fk")
   variable_categories_correlations_cause_variable_category_idTovariable_categories  variable_categories            @relation("correlations_cause_variable_category_idTovariable_categories", fields: [cause_variable_category_id], references: [id], onUpdate: Restrict, map: "correlations_cause_variable_category_id_fk")
   variables_correlations_cause_variable_idTovariables                               variables                      @relation("correlations_cause_variable_idTovariables", fields: [cause_variable_id], references: [id], onUpdate: Restrict, map: "correlations_cause_variable_id_fk")
@@ -940,7 +940,7 @@ model correlations {
 
   @@unique([user_id, cause_variable_id, effect_variable_id], map: "correlations_pk")
   @@unique([user_id, cause_variable_id, effect_variable_id], map: "correlations_user_id_cause_variable_id_effect_variable_id_uindex")
-  @@index([aggregate_correlation_id], map: "correlations_aggregate_correlations_id_fk")
+  @@index([global_variable_relationship_id], map: "correlations_global_variable_relationships_id_fk")
   @@index([analysis_started_at], map: "correlations_analysis_started_at_index")
   @@index([cause_unit_id], map: "correlations_cause_unit_id_fk")
   @@index([cause_variable_category_id], map: "correlations_cause_variable_category_id_fk")
@@ -1444,7 +1444,7 @@ model github_repositories {
 
 model global_studies {
   id                                                     Int                     @id
-  aggregate_correlation_id                               Int?
+  global_variable_relationship_id                               Int?
   cause_variable_id                                      Int                     @db.UnsignedInt
   effect_variable_id                                     Int                     @db.UnsignedInt
   cause_user_variable_id                                 Int                     @db.UnsignedInt
@@ -1475,14 +1475,14 @@ model global_studies {
   is_public                                              Boolean
   sort_order                                             Int
   slug                                                   String?                 @unique(map: "global_studies_slug_uindex") @db.VarChar(200)
-  aggregate_correlations                                 aggregate_correlations? @relation(fields: [aggregate_correlation_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "global_studies_aggregate_correlations_id_fk")
+  global_variable_relationships                                 global_variable_relationships? @relation(fields: [global_variable_relationship_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "global_studies_global_variable_relationships_id_fk")
   variables_global_studies_cause_variable_idTovariables  variables               @relation("global_studies_cause_variable_idTovariables", fields: [cause_variable_id], references: [id], onUpdate: Restrict, map: "global_studies_cause_variable_id_variables_id_fk")
   oa_clients                                             oa_clients?             @relation(fields: [client_id], references: [client_id], onDelete: Restrict, onUpdate: Restrict, map: "global_studies_client_id_fk")
   variables_global_studies_effect_variable_idTovariables variables               @relation("global_studies_effect_variable_idTovariables", fields: [effect_variable_id], references: [id], onUpdate: Restrict, map: "global_studies_effect_variable_id_variables_id_fk")
   wp_users                                               wp_users                @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "global_studies_user_id_fk")
 
   @@unique([user_id, cause_variable_id, effect_variable_id], map: "user_cause_effect")
-  @@index([aggregate_correlation_id], map: "global_studies_aggregate_correlations_id_fk")
+  @@index([global_variable_relationship_id], map: "global_studies_global_variable_relationships_id_fk")
   @@index([cause_variable_id], map: "global_studies_cause_variable_id")
   @@index([client_id], map: "global_studies_client_id_fk")
   @@index([effect_variable_id], map: "global_studies_effect_variable_id")
@@ -2565,7 +2565,7 @@ model oa_clients {
   deleted_at                                DateTime?                         @db.Timestamp(0)
   earliest_measurement_start_at             DateTime?                         @db.Timestamp(0)
   latest_measurement_start_at               DateTime?                         @db.Timestamp(0)
-  number_of_aggregate_correlations          Int?                              @db.UnsignedInt
+  number_of_global_variable_relationships          Int?                              @db.UnsignedInt
   number_of_applications                    Int?                              @db.UnsignedInt
   number_of_oauth_access_tokens             Int?                              @db.UnsignedInt
   number_of_oauth_authorization_codes       Int?                              @db.UnsignedInt
@@ -2589,7 +2589,7 @@ model oa_clients {
   number_of_variables                       Int?                              @db.UnsignedInt
   number_of_votes                           Int?                              @db.UnsignedInt
   wp_users                                  wp_users                          @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "bshaffer_oauth_clients_user_id_fk")
-  aggregate_correlations                    aggregate_correlations[]
+  global_variable_relationships                    global_variable_relationships[]
   applications                              applications?
   button_clicks                             button_clicks[]
   buttons                                   buttons[]
@@ -3342,7 +3342,7 @@ model units {
   maximum_daily_value                                    Float?
   sort_order                                             Int
   slug                                                   String?                   @unique(map: "units_slug_uindex") @db.VarChar(200)
-  aggregate_correlations                                 aggregate_correlations[]
+  global_variable_relationships                                 global_variable_relationships[]
   cohort_study_statistics                                cohort_study_statistics[]
   common_tags_common_tags_tag_variable_unit_idTounits    common_tags[]             @relation("common_tags_tag_variable_unit_idTounits")
   common_tags_common_tags_tagged_variable_unit_idTounits common_tags[]             @relation("common_tags_tagged_variable_unit_idTounits")
@@ -3761,8 +3761,8 @@ model variable_categories {
   slug                                                                                               String?                                   @unique(map: "variable_categories_slug_uindex") @db.VarChar(200)
   units                                                                                              units?                                    @relation(fields: [default_unit_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "variable_categories_default_unit_id_fk")
   wp_posts                                                                                           wp_posts?                                 @relation(fields: [wp_post_id], references: [ID], onDelete: Restrict, onUpdate: Restrict, map: "variable_categories_wp_posts_ID_fk")
-  aggregate_correlations_aggregate_correlations_cause_variable_category_idTovariable_categories      aggregate_correlations[]                  @relation("aggregate_correlations_cause_variable_category_idTovariable_categories")
-  aggregate_correlations_aggregate_correlations_effect_variable_category_idTovariable_categories     aggregate_correlations[]                  @relation("aggregate_correlations_effect_variable_category_idTovariable_categories")
+  global_variable_relationships_global_variable_relationships_cause_variable_category_idTovariable_categories      global_variable_relationships[]                  @relation("global_variable_relationships_cause_variable_category_idTovariable_categories")
+  global_variable_relationships_global_variable_relationships_effect_variable_category_idTovariable_categories     global_variable_relationships[]                  @relation("global_variable_relationships_effect_variable_category_idTovariable_categories")
   cohort_study_statistics_cohort_study_statistics_cause_variable_category_idTovariable_categories    cohort_study_statistics[]                 @relation("cohort_study_statistics_cause_variable_category_idTovariable_categories")
   cohort_study_statistics_cohort_study_statistics_effect_variable_category_idTovariable_categories   cohort_study_statistics[]                 @relation("cohort_study_statistics_effect_variable_category_idTovariable_categories")
   correlations_correlations_cause_variable_category_idTovariable_categories                          correlations[]                            @relation("correlations_cause_variable_category_idTovariable_categories")
@@ -3864,10 +3864,10 @@ model variables {
   median                                                                                  Float?
   minimum_allowed_value                                                                   Float?
   minimum_recorded_value                                                                  Float?
-  number_of_aggregate_correlations_as_cause                                               Int?                               @db.UnsignedInt
+  number_of_global_variable_relationships_as_cause                                               Int?                               @db.UnsignedInt
   most_common_original_unit_id                                                            Int?
   most_common_value                                                                       Float?
-  number_of_aggregate_correlations_as_effect                                              Int?                               @db.UnsignedInt
+  number_of_global_variable_relationships_as_effect                                              Int?                               @db.UnsignedInt
   number_of_unique_values                                                                 Int?
   onset_delay                                                                             Int?                               @db.UnsignedInt
   outcome                                                                                 Boolean?
@@ -3923,7 +3923,7 @@ model variables {
   number_of_soft_deleted_measurements                                                     Int?
   charts                                                                                  Json?
   creator_user_id                                                                         BigInt                             @db.UnsignedBigInt
-  best_aggregate_correlation_id                                                           Int?
+  best_global_variable_relationship_id                                                           Int?
   filling_type                                                                            variables_filling_type?
   number_of_outcome_population_studies                                                    Int?                               @db.UnsignedInt
   number_of_predictor_population_studies                                                  Int?                               @db.UnsignedInt
@@ -3966,15 +3966,15 @@ model variables {
   canonical_variable_id                                                                   Int?                               @db.UnsignedInt
   predictor                                                                               Boolean?
   source_url                                                                              String?                            @db.VarChar(2083)
-  aggregate_correlations_aggregate_correlationsTovariables_best_aggregate_correlation_id  aggregate_correlations?            @relation("aggregate_correlationsTovariables_best_aggregate_correlation_id", fields: [best_aggregate_correlation_id], references: [id], onUpdate: Restrict, map: "variables_aggregate_correlations_id_fk")
+  global_variable_relationships_global_variable_relationshipsTovariables_best_global_variable_relationship_id  global_variable_relationships?            @relation("global_variable_relationshipsTovariables_best_global_variable_relationship_id", fields: [best_global_variable_relationship_id], references: [id], onUpdate: Restrict, map: "variables_global_variable_relationships_id_fk")
   variables_variablesTovariables_best_cause_variable_id                                   variables?                         @relation("variablesTovariables_best_cause_variable_id", fields: [best_cause_variable_id], references: [id], onUpdate: Restrict, map: "variables_best_cause_variable_id_fk")
   variables_variablesTovariables_best_effect_variable_id                                  variables?                         @relation("variablesTovariables_best_effect_variable_id", fields: [best_effect_variable_id], references: [id], onUpdate: Restrict, map: "variables_best_effect_variable_id_fk")
   oa_clients                                                                              oa_clients?                        @relation(fields: [client_id], references: [client_id], onDelete: Restrict, onUpdate: Restrict, map: "variables_client_id_fk")
   units                                                                                   units                              @relation(fields: [default_unit_id], references: [id], onUpdate: Restrict, map: "variables_default_unit_id_fk")
   variable_categories                                                                     variable_categories                @relation(fields: [variable_category_id], references: [id], onUpdate: Restrict, map: "variables_variable_category_id_fk")
   wp_posts                                                                                wp_posts?                          @relation(fields: [wp_post_id], references: [ID], map: "variables_wp_posts_ID_fk")
-  aggregate_correlations_aggregate_correlations_cause_variable_idTovariables              aggregate_correlations[]           @relation("aggregate_correlations_cause_variable_idTovariables")
-  aggregate_correlations_aggregate_correlations_effect_variable_idTovariables             aggregate_correlations[]           @relation("aggregate_correlations_effect_variable_idTovariables")
+  global_variable_relationships_global_variable_relationships_cause_variable_idTovariables              global_variable_relationships[]           @relation("global_variable_relationships_cause_variable_idTovariables")
+  global_variable_relationships_global_variable_relationships_effect_variable_idTovariables             global_variable_relationships[]           @relation("global_variable_relationships_effect_variable_idTovariables")
   applications_applications_outcome_variable_idTovariables                                applications[]                     @relation("applications_outcome_variable_idTovariables")
   applications_applications_predictor_variable_idTovariables                              applications[]                     @relation("applications_predictor_variable_idTovariables")
   cohort_studies_cohort_studies_cause_variable_idTovariables                              cohort_studies[]                   @relation("cohort_studies_cause_variable_idTovariables")
@@ -4033,7 +4033,7 @@ model variables {
   @@index([variable_category_id, default_unit_id, name, number_of_user_variables, id], map: "IDX_cat_unit_public_name")
   @@index([default_unit_id], map: "fk_variableDefaultUnit")
   @@index([deleted_at, synonyms, number_of_user_variables], map: "public_deleted_at_synonyms_number_of_user_variables_index")
-  @@index([best_aggregate_correlation_id], map: "variables_aggregate_correlations_id_fk")
+  @@index([best_global_variable_relationship_id], map: "variables_global_variable_relationships_id_fk")
   @@index([analysis_ended_at], map: "variables_analysis_ended_at_index")
   @@index([best_cause_variable_id], map: "variables_best_cause_variable_id_fk")
   @@index([best_effect_variable_id], map: "variables_best_effect_variable_id_fk")
@@ -4053,9 +4053,9 @@ model votes {
   cause_variable_id                             Int                     @db.UnsignedInt
   effect_variable_id                            Int                     @db.UnsignedInt
   correlation_id                                Int?
-  aggregate_correlation_id                      Int?
+  global_variable_relationship_id                      Int?
   is_public                                     Boolean?
-  aggregate_correlations                        aggregate_correlations? @relation(fields: [aggregate_correlation_id], references: [id], onUpdate: Restrict, map: "votes_aggregate_correlations_id_fk")
+  global_variable_relationships                        global_variable_relationships? @relation(fields: [global_variable_relationship_id], references: [id], onUpdate: Restrict, map: "votes_global_variable_relationships_id_fk")
   variables_variablesTovotes_cause_variable_id  variables               @relation("variablesTovotes_cause_variable_id", fields: [cause_variable_id], references: [id], onUpdate: Restrict, map: "votes_cause_variable_id_fk")
   oa_clients                                    oa_clients?             @relation(fields: [client_id], references: [client_id], onDelete: Restrict, onUpdate: Restrict, map: "votes_client_id_fk")
   correlations                                  correlations?           @relation(fields: [correlation_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "votes_correlations_id_fk")
@@ -4063,7 +4063,7 @@ model votes {
   wp_users                                      wp_users                @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "votes_user_id_fk")
 
   @@unique([user_id, cause_variable_id, effect_variable_id], map: "votes_user_id_cause_variable_id_effect_variable_id_uindex")
-  @@index([aggregate_correlation_id], map: "votes_aggregate_correlations_id_fk")
+  @@index([global_variable_relationship_id], map: "votes_global_variable_relationships_id_fk")
   @@index([cause_variable_id], map: "votes_cause_variable_id_index")
   @@index([client_id], map: "votes_client_id_fk")
   @@index([correlation_id], map: "votes_correlations_id_fk")
@@ -4727,7 +4727,7 @@ model wp_posts {
   client_id                               String?                  @db.VarChar(255)
   record_size_in_kb                       Int?
   wp_users_wp_posts_post_authorTowp_users wp_users?                @relation("wp_posts_post_authorTowp_users", fields: [post_author], references: [ID], onDelete: Restrict, onUpdate: Restrict, map: "wp_posts_wp_users_ID_fk")
-  aggregate_correlations                  aggregate_correlations[]
+  global_variable_relationships                  global_variable_relationships[]
   applications                            applications[]
   connections                             connections[]
   connectors                              connectors[]
@@ -5595,7 +5595,7 @@ enum user_variables_valence {
   neutral
 }
 
-enum aggregate_correlations_strength_level {
+enum global_variable_relationships_strength_level {
   VERY_STRONG @map("VERY STRONG")
   STRONG
   MODERATE
@@ -5603,7 +5603,7 @@ enum aggregate_correlations_strength_level {
   VERY_WEAK   @map("VERY WEAK")
 }
 
-enum aggregate_correlations_confidence_level {
+enum global_variable_relationships_confidence_level {
   HIGH
   MEDIUM
   LOW
@@ -5617,7 +5617,7 @@ enum cohort_study_statistics_strength_level {
   VERY_WEAK   @map("VERY WEAK")
 }
 
-enum aggregate_correlations_relationship {
+enum global_variable_relationships_relationship {
   POSITIVE
   NEGATIVE
   NONE

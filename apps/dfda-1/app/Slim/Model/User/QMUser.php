@@ -43,7 +43,7 @@ use App\Logging\QMLogLevel;
 use App\Logging\SolutionButton;
 use App\Mail\QMSendgrid;
 use App\Mail\TooManyEmailsException;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Application;
 use App\Models\BaseModel;
 use App\Models\Connection;
@@ -2354,7 +2354,7 @@ class QMUser extends PublicUser {
 		foreach($notifications as $n){
 			if($id = $n->bestUserCorrelationId){
 				$userCorrelationIds[] = $id;
-			} elseif($id = $n->bestAggregateCorrelationId){
+			} elseif($id = $n->bestGlobalVariableRelationshipId){
 				$aggregateCorrelationIds[] = $id;
 			} else{
 				if(stripos($n->variableName, "test") === false){
@@ -2364,20 +2364,20 @@ class QMUser extends PublicUser {
 		}
 		if($noCorrelations){
 			$noCorrelations = array_unique($noCorrelations);
-			QMLog::error("No best user or aggregate correlations for the following notifications:\n\t" .
+			QMLog::error("No best user or global variable relationships for the following notifications:\n\t" .
 				implode(", ", $noCorrelations));
 		}
 		$userCorrelationIds = array_unique($userCorrelationIds);
 		$aggregateCorrelationIds = array_unique($aggregateCorrelationIds);
 		$correlations = ($userCorrelationIds) ? Correlation::getWithVariables($userCorrelationIds) : [];
 		$aggregateCorrelations = ($aggregateCorrelationIds) ?
-			AggregateCorrelation::getWithVariables($aggregateCorrelationIds) : [];
+			GlobalVariableRelationship::getWithVariables($aggregateCorrelationIds) : [];
 		foreach($notifications as $n){
 			$cards[] = $n->getOptionsListCard();
 			if($includeStudyCards){
 				if($id = $n->bestUserCorrelationId){
 					$cards[] = $correlations[$id]->getCard();
-				} elseif($id = $n->bestAggregateCorrelationId){
+				} elseif($id = $n->bestGlobalVariableRelationshipId){
 					$cards[] = $aggregateCorrelations[$id]->getCard();
 				} else{
 					if($n->numberOfRawMeasurementsWithTagsJoinsChildren){

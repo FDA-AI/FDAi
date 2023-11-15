@@ -38,7 +38,7 @@ class MenuTest extends SlimStagingTestCase
         $this->assertButtonTitles(array (
 	                                  'About Us' => 'About Us',
 	                                  'Admin Search' => 'Admin Search',
-	                                  'Aggregate Correlations' => 'Aggregate Correlations',
+	                                  'Global Variable Relationships' => 'Global Variable Relationships',
 	                                  'Applications' => 'Applications',
 	                                  'Bugsnag' => 'Bugsnag',
 	                                  'Clockwork' => 'Clockwork',

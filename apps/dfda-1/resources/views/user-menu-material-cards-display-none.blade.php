@@ -6,14 +6,14 @@
 
             <div class="card-stats-container" >
                 <a href="{{ \App\Utils\Env::getAppUrl() }}/datalab/aggregateCorrelations" title="Examination of the likely effects of a predictor variable on an outcome variable on average for the entire population" onclick="window.showLoader && showLoader()">
-                    <div id="aggregate-correlations-card" class="card card-stats"
+                    <div id="global-variable-relationships-card" class="card card-stats"
                         title="Examination of the likely effects of a predictor variable on an outcome variable on average for the entire population">
                         <div class="card-header card-header-primary card-header-icon">
                           <div class="card-icon">
                             <i class="fas fa-vials"></i>
                           </div>
                           <p class="card-category"></p>
-                            <h3 class="card-title">Aggregate Correlations</h3>
+                            <h3 class="card-title">Global Variable Relationships</h3>
                         </div>
                         <div class="card-footer">
                           <div class="stats">

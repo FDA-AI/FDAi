@@ -26,7 +26,7 @@
     }
 var qm_variables = {
     "2C-E": {
-        "best_aggregate_correlation_id": 65699670,
+        "best_global_variable_relationship_id": 65699670,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -37,8 +37,8 @@ var qm_variables = {
         "most_common_connector_id": 75,
         "most_common_original_unit_id": 7,
         "name": "2C-E",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -72,7 +72,7 @@ var qm_variables = {
         "sorting_score": 8
     },
     "5 HTP": {
-        "best_aggregate_correlation_id": 65685992,
+        "best_global_variable_relationship_id": 65685992,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -83,8 +83,8 @@ var qm_variables = {
         "most_common_connector_id": 4,
         "most_common_original_unit_id": 7,
         "name": "5 HTP",
-        "number_of_aggregate_correlations_as_cause": 79,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 79,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -118,7 +118,7 @@ var qm_variables = {
         "sorting_score": 88
     },
     "Acetaminophen": {
-        "best_aggregate_correlation_id": 65697966,
+        "best_global_variable_relationship_id": 65697966,
         "best_effect_variable_id": 1306,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -129,8 +129,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Acetaminophen",
-        "number_of_aggregate_correlations_as_cause": 34,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 34,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -164,7 +164,7 @@ var qm_variables = {
         "sorting_score": 49
     },
     "Acetyl L-carnitine": {
-        "best_aggregate_correlation_id": 65685527,
+        "best_global_variable_relationship_id": 65685527,
         "best_effect_variable_id": 1888,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -175,8 +175,8 @@ var qm_variables = {
         "most_common_connector_id": 51,
         "most_common_original_unit_id": 7,
         "name": "Acetyl L-carnitine",
-        "number_of_aggregate_correlations_as_cause": 155,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 155,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 1,
         "number_of_common_tags": 1,
@@ -210,7 +210,7 @@ var qm_variables = {
         "sorting_score": 177
     },
     "Acetyl-L-Carnitine": {
-        "best_aggregate_correlation_id": 65583055,
+        "best_global_variable_relationship_id": 65583055,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -221,8 +221,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 7,
         "name": "Acetyl-L-Carnitine",
-        "number_of_aggregate_correlations_as_cause": 137,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 137,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_common_tags": 1,
         "number_of_common_tags_where_tag_variable": 8,
         "number_of_common_tags_where_tagged_variable": 1,
@@ -244,7 +244,7 @@ var qm_variables = {
         "sorting_score": 159
     },
     "Acne Severity": {
-        "best_aggregate_correlation_id": 65657705,
+        "best_global_variable_relationship_id": 65657705,
         "best_cause_variable_id": 85055,
         "best_effect_variable_id": 5903391,
         "client_id": "unknown",
@@ -256,8 +256,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Acne Severity",
-        "number_of_aggregate_correlations_as_cause": 136,
-        "number_of_aggregate_correlations_as_effect": 1370,
+        "number_of_global_variable_relationships_as_cause": 136,
+        "number_of_global_variable_relationships_as_effect": 1370,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -291,7 +291,7 @@ var qm_variables = {
         "sorting_score": 1654
     },
     "Activeness": {
-        "best_aggregate_correlation_id": 65622210,
+        "best_global_variable_relationship_id": 65622210,
         "best_cause_variable_id": 5956902,
         "best_effect_variable_id": 89387,
         "client_id": "unknown",
@@ -303,8 +303,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Activeness",
-        "number_of_aggregate_correlations_as_cause": 126,
-        "number_of_aggregate_correlations_as_effect": 1200,
+        "number_of_global_variable_relationships_as_cause": 126,
+        "number_of_global_variable_relationships_as_effect": 1200,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -338,7 +338,7 @@ var qm_variables = {
         "sorting_score": 2836
     },
     "Adderall": {
-        "best_aggregate_correlation_id": 65686282,
+        "best_global_variable_relationship_id": 65686282,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -349,8 +349,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Adderall",
-        "number_of_aggregate_correlations_as_cause": 134,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 134,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 1,
@@ -384,7 +384,7 @@ var qm_variables = {
         "sorting_score": 245
     },
     "Adderall IR": {
-        "best_aggregate_correlation_id": 65683804,
+        "best_global_variable_relationship_id": 65683804,
         "best_effect_variable_id": 1358,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -395,8 +395,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Adderall IR",
-        "number_of_aggregate_correlations_as_cause": 126,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 126,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -430,7 +430,7 @@ var qm_variables = {
         "sorting_score": 149
     },
     "Alertness": {
-        "best_aggregate_correlation_id": 65621316,
+        "best_global_variable_relationship_id": 65621316,
         "best_cause_variable_id": 1735,
         "best_effect_variable_id": 1867,
         "client_id": "unknown",
@@ -441,8 +441,8 @@ var qm_variables = {
         "ion_icon": "ion-happy-outline",
         "most_common_original_unit_id": 10,
         "name": "Alertness",
-        "number_of_aggregate_correlations_as_cause": 172,
-        "number_of_aggregate_correlations_as_effect": 1205,
+        "number_of_global_variable_relationships_as_cause": 172,
+        "number_of_global_variable_relationships_as_effect": 1205,
         "number_of_applications_where_outcome_variable": 1,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -477,7 +477,7 @@ var qm_variables = {
         "sorting_score": 2974
     },
     "Alpha GPC": {
-        "best_aggregate_correlation_id": 65761908,
+        "best_global_variable_relationship_id": 65761908,
         "best_effect_variable_id": 5211891,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -487,8 +487,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_original_unit_id": 7,
         "name": "Alpha GPC",
-        "number_of_aggregate_correlations_as_cause": 8,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 8,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -522,7 +522,7 @@ var qm_variables = {
         "sorting_score": 12
     },
     "Alpha-liphoic-acid": {
-        "best_aggregate_correlation_id": 65699843,
+        "best_global_variable_relationship_id": 65699843,
         "best_effect_variable_id": 1299,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -533,8 +533,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Alpha-liphoic-acid",
-        "number_of_aggregate_correlations_as_cause": 105,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 105,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_common_tags": 0,
         "number_of_measurements": 607,
         "number_of_raw_measurements": 311,
@@ -554,7 +554,7 @@ var qm_variables = {
         "sorting_score": 109
     },
     "Attentiveness": {
-        "best_aggregate_correlation_id": 65638366,
+        "best_global_variable_relationship_id": 65638366,
         "best_cause_variable_id": 109592,
         "best_effect_variable_id": 111162,
         "client_id": "unknown",
@@ -565,8 +565,8 @@ var qm_variables = {
         "ion_icon": "ion-happy-outline",
         "most_common_original_unit_id": 10,
         "name": "Attentiveness",
-        "number_of_aggregate_correlations_as_cause": 114,
-        "number_of_aggregate_correlations_as_effect": 979,
+        "number_of_global_variable_relationships_as_cause": 114,
+        "number_of_global_variable_relationships_as_effect": 979,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -600,7 +600,7 @@ var qm_variables = {
         "sorting_score": 2557
     },
     "B-Complex With Folic Acid Plus Vitamin C": {
-        "best_aggregate_correlation_id": 65612208,
+        "best_global_variable_relationship_id": 65612208,
         "best_effect_variable_id": 1340,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -611,8 +611,8 @@ var qm_variables = {
         "most_common_connector_id": 75,
         "most_common_original_unit_id": 11,
         "name": "B-Complex With Folic Acid Plus Vitamin C",
-        "number_of_aggregate_correlations_as_cause": 30,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 30,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -646,7 +646,7 @@ var qm_variables = {
         "sorting_score": 37
     },
     "Berberine": {
-        "best_aggregate_correlation_id": 65694322,
+        "best_global_variable_relationship_id": 65694322,
         "best_effect_variable_id": 5903391,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -657,8 +657,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 7,
         "name": "Berberine",
-        "number_of_aggregate_correlations_as_cause": 112,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 112,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_common_tags": 0,
         "number_of_measurements": 37,
         "number_of_raw_measurements": 24,
@@ -678,7 +678,7 @@ var qm_variables = {
         "sorting_score": 118
     },
     "Body Mass Index Or BMI": {
-        "best_aggregate_correlation_id": 65698498,
+        "best_global_variable_relationship_id": 65698498,
         "best_cause_variable_id": 1871,
         "best_effect_variable_id": 1335,
         "client_id": "unknown",
@@ -690,8 +690,8 @@ var qm_variables = {
         "most_common_connector_id": 75,
         "most_common_original_unit_id": 15,
         "name": "Body Mass Index Or BMI",
-        "number_of_aggregate_correlations_as_cause": 151,
-        "number_of_aggregate_correlations_as_effect": 1342,
+        "number_of_global_variable_relationships_as_cause": 151,
+        "number_of_global_variable_relationships_as_effect": 1342,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -725,7 +725,7 @@ var qm_variables = {
         "sorting_score": 1692
     },
     "Body Fat": {
-        "best_aggregate_correlation_id": 65690112,
+        "best_global_variable_relationship_id": 65690112,
         "best_cause_variable_id": 1480,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -737,8 +737,8 @@ var qm_variables = {
         "most_common_connector_id": 7,
         "most_common_original_unit_id": 21,
         "name": "Body Fat",
-        "number_of_aggregate_correlations_as_cause": 140,
-        "number_of_aggregate_correlations_as_effect": 1645,
+        "number_of_global_variable_relationships_as_cause": 140,
+        "number_of_global_variable_relationships_as_effect": 1645,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -772,7 +772,7 @@ var qm_variables = {
         "sorting_score": 1909
     },
     "Bupropion Sr": {
-        "best_aggregate_correlation_id": 65612995,
+        "best_global_variable_relationship_id": 65612995,
         "best_effect_variable_id": 1358,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -783,8 +783,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 7,
         "name": "Bupropion Sr",
-        "number_of_aggregate_correlations_as_cause": 137,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 137,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_common_tags": 0,
         "number_of_common_tags_where_tag_variable": 0,
         "number_of_common_tags_where_tagged_variable": 0,
@@ -806,7 +806,7 @@ var qm_variables = {
         "sorting_score": 153
     },
     "Calories Burned": {
-        "best_aggregate_correlation_id": 65643157,
+        "best_global_variable_relationship_id": 65643157,
         "best_cause_variable_id": 109592,
         "best_effect_variable_id": 1335,
         "client_id": "unknown",
@@ -818,8 +818,8 @@ var qm_variables = {
         "most_common_connector_id": 75,
         "most_common_original_unit_id": 22,
         "name": "Calories Burned",
-        "number_of_aggregate_correlations_as_cause": 211,
-        "number_of_aggregate_correlations_as_effect": 667,
+        "number_of_global_variable_relationships_as_cause": 211,
+        "number_of_global_variable_relationships_as_effect": 667,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 1,
         "number_of_common_tags": 0,
@@ -853,7 +853,7 @@ var qm_variables = {
         "sorting_score": 1257
     },
     "Caloric Intake": {
-        "best_aggregate_correlation_id": 65623257,
+        "best_global_variable_relationship_id": 65623257,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 5211901,
         "client_id": "unknown",
@@ -865,8 +865,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 39,
         "name": "Caloric Intake",
-        "number_of_aggregate_correlations_as_cause": 167,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 167,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -900,7 +900,7 @@ var qm_variables = {
         "sorting_score": 346
     },
     "Calories Expended": {
-        "best_aggregate_correlation_id": 65796246,
+        "best_global_variable_relationship_id": 65796246,
         "best_cause_variable_id": 1617,
         "best_effect_variable_id": 1251,
         "client_id": "unknown",
@@ -912,8 +912,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 22,
         "name": "Calories Expended",
-        "number_of_aggregate_correlations_as_cause": 18,
-        "number_of_aggregate_correlations_as_effect": 103,
+        "number_of_global_variable_relationships_as_cause": 18,
+        "number_of_global_variable_relationships_as_effect": 103,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -947,7 +947,7 @@ var qm_variables = {
         "sorting_score": 124
     },
     "Carbs": {
-        "best_aggregate_correlation_id": 65685252,
+        "best_global_variable_relationship_id": 65685252,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -958,8 +958,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 6,
         "name": "Carbs",
-        "number_of_aggregate_correlations_as_cause": 211,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 211,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 1,
         "number_of_common_tags": 0,
@@ -993,7 +993,7 @@ var qm_variables = {
         "sorting_score": 333
     },
     "Cephalexin": {
-        "best_aggregate_correlation_id": 65578654,
+        "best_global_variable_relationship_id": 65578654,
         "best_effect_variable_id": 5969791,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -1003,8 +1003,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_original_unit_id": 7,
         "name": "Cephalexin",
-        "number_of_aggregate_correlations_as_cause": 16,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 16,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1038,7 +1038,7 @@ var qm_variables = {
         "sorting_score": 19
     },
     "Cranial Electro Stimulation": {
-        "best_aggregate_correlation_id": 65689702,
+        "best_global_variable_relationship_id": 65689702,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -1048,8 +1048,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_original_unit_id": 12,
         "name": "Cranial Electro Stimulation",
-        "number_of_aggregate_correlations_as_cause": 18,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 18,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1083,7 +1083,7 @@ var qm_variables = {
         "sorting_score": 22
     },
     "Creatine": {
-        "best_aggregate_correlation_id": 65699181,
+        "best_global_variable_relationship_id": 65699181,
         "best_effect_variable_id": 5903391,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -1093,8 +1093,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_original_unit_id": 1,
         "name": "Creatine",
-        "number_of_aggregate_correlations_as_cause": 36,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 36,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1128,7 +1128,7 @@ var qm_variables = {
         "sorting_score": 41
     },
     "Walk Or Run Distance": {
-        "best_aggregate_correlation_id": 65802700,
+        "best_global_variable_relationship_id": 65802700,
         "best_cause_variable_id": 1867,
         "best_effect_variable_id": 1486,
         "client_id": "unknown",
@@ -1140,8 +1140,8 @@ var qm_variables = {
         "most_common_connector_id": 7,
         "most_common_original_unit_id": 16,
         "name": "Walk Or Run Distance",
-        "number_of_aggregate_correlations_as_cause": 249,
-        "number_of_aggregate_correlations_as_effect": 642,
+        "number_of_global_variable_relationships_as_cause": 249,
+        "number_of_global_variable_relationships_as_effect": 642,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1175,7 +1175,7 @@ var qm_variables = {
         "sorting_score": 1249
     },
     "Distress": {
-        "best_aggregate_correlation_id": 65646612,
+        "best_global_variable_relationship_id": 65646612,
         "best_cause_variable_id": 5954773,
         "best_effect_variable_id": 87210,
         "client_id": "unknown",
@@ -1186,8 +1186,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_original_unit_id": 10,
         "name": "Distress",
-        "number_of_aggregate_correlations_as_cause": 140,
-        "number_of_aggregate_correlations_as_effect": 1209,
+        "number_of_global_variable_relationships_as_cause": 140,
+        "number_of_global_variable_relationships_as_effect": 1209,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1221,7 +1221,7 @@ var qm_variables = {
         "sorting_score": 2835
     },
     "Energy": {
-        "best_aggregate_correlation_id": 65625791,
+        "best_global_variable_relationship_id": 65625791,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 6054281,
         "client_id": "unknown",
@@ -1233,8 +1233,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Energy",
-        "number_of_aggregate_correlations_as_cause": 216,
-        "number_of_aggregate_correlations_as_effect": 1868,
+        "number_of_global_variable_relationships_as_cause": 216,
+        "number_of_global_variable_relationships_as_effect": 1868,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1268,7 +1268,7 @@ var qm_variables = {
         "sorting_score": 2503
     },
     "Enthusiasm": {
-        "best_aggregate_correlation_id": 65655475,
+        "best_global_variable_relationship_id": 65655475,
         "best_cause_variable_id": 89387,
         "best_effect_variable_id": 89387,
         "client_id": "unknown",
@@ -1280,8 +1280,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Enthusiasm",
-        "number_of_aggregate_correlations_as_cause": 132,
-        "number_of_aggregate_correlations_as_effect": 1149,
+        "number_of_global_variable_relationships_as_cause": 132,
+        "number_of_global_variable_relationships_as_effect": 1149,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1315,7 +1315,7 @@ var qm_variables = {
         "sorting_score": 2776
     },
     "Excitability": {
-        "best_aggregate_correlation_id": 65646613,
+        "best_global_variable_relationship_id": 65646613,
         "best_cause_variable_id": 5954773,
         "best_effect_variable_id": 111642,
         "client_id": "unknown",
@@ -1327,8 +1327,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Excitability",
-        "number_of_aggregate_correlations_as_cause": 123,
-        "number_of_aggregate_correlations_as_effect": 1051,
+        "number_of_global_variable_relationships_as_cause": 123,
+        "number_of_global_variable_relationships_as_effect": 1051,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1362,7 +1362,7 @@ var qm_variables = {
         "sorting_score": 2761
     },
     "ExerciseMins": {
-        "best_aggregate_correlation_id": 65610723,
+        "best_global_variable_relationship_id": 65610723,
         "best_cause_variable_id": 1480,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -1374,8 +1374,8 @@ var qm_variables = {
         "most_common_connector_id": 75,
         "most_common_original_unit_id": 2,
         "name": "ExerciseMins",
-        "number_of_aggregate_correlations_as_cause": 15,
-        "number_of_aggregate_correlations_as_effect": 50,
+        "number_of_global_variable_relationships_as_cause": 15,
+        "number_of_global_variable_relationships_as_effect": 50,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1409,7 +1409,7 @@ var qm_variables = {
         "sorting_score": 68
     },
     "Fat Intake": {
-        "best_aggregate_correlation_id": 65618082,
+        "best_global_variable_relationship_id": 65618082,
         "best_effect_variable_id": 1306,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -1420,8 +1420,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 6,
         "name": "Fat Intake",
-        "number_of_aggregate_correlations_as_cause": 122,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 122,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1455,7 +1455,7 @@ var qm_variables = {
         "sorting_score": 237
     },
     "Fear": {
-        "best_aggregate_correlation_id": 65699111,
+        "best_global_variable_relationship_id": 65699111,
         "best_cause_variable_id": 110842,
         "best_effect_variable_id": 87210,
         "client_id": "unknown",
@@ -1466,8 +1466,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_original_unit_id": 10,
         "name": "Fear",
-        "number_of_aggregate_correlations_as_cause": 113,
-        "number_of_aggregate_correlations_as_effect": 1002,
+        "number_of_global_variable_relationships_as_cause": 113,
+        "number_of_global_variable_relationships_as_effect": 1002,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1501,7 +1501,7 @@ var qm_variables = {
         "sorting_score": 2785
     },
     "Fiber": {
-        "best_aggregate_correlation_id": 65686027,
+        "best_global_variable_relationship_id": 65686027,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -1512,8 +1512,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 6,
         "name": "Fiber",
-        "number_of_aggregate_correlations_as_cause": 142,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 142,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1547,7 +1547,7 @@ var qm_variables = {
         "sorting_score": 265
     },
     "Fitbit Active Score": {
-        "best_aggregate_correlation_id": 65644614,
+        "best_global_variable_relationship_id": 65644614,
         "best_cause_variable_id": 1481,
         "best_effect_variable_id": 1336,
         "client_id": "unknown",
@@ -1558,8 +1558,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_original_unit_id": 15,
         "name": "Fitbit Active Score",
-        "number_of_aggregate_correlations_as_cause": 29,
-        "number_of_aggregate_correlations_as_effect": 148,
+        "number_of_global_variable_relationships_as_cause": 29,
+        "number_of_global_variable_relationships_as_effect": 148,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1593,7 +1593,7 @@ var qm_variables = {
         "sorting_score": 180
     },
     "Folic Acid": {
-        "best_aggregate_correlation_id": 65619568,
+        "best_global_variable_relationship_id": 65619568,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -1604,8 +1604,8 @@ var qm_variables = {
         "most_common_connector_id": 75,
         "most_common_original_unit_id": 7,
         "name": "Folic Acid",
-        "number_of_aggregate_correlations_as_cause": 105,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 105,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_common_tags": 0,
         "number_of_common_tags_where_tag_variable": 1087,
         "number_of_common_tags_where_tagged_variable": 0,
@@ -1627,7 +1627,7 @@ var qm_variables = {
         "sorting_score": 178
     },
     "Gaba": {
-        "best_aggregate_correlation_id": 65762051,
+        "best_global_variable_relationship_id": 65762051,
         "best_effect_variable_id": 88325,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -1638,8 +1638,8 @@ var qm_variables = {
         "most_common_connector_id": 70,
         "most_common_original_unit_id": 7,
         "name": "Gaba",
-        "number_of_aggregate_correlations_as_cause": 37,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 37,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1673,7 +1673,7 @@ var qm_variables = {
         "sorting_score": 40
     },
     "Garlic": {
-        "best_aggregate_correlation_id": 65676211,
+        "best_global_variable_relationship_id": 65676211,
         "best_effect_variable_id": 1421,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -1684,8 +1684,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 7,
         "name": "Garlic",
-        "number_of_aggregate_correlations_as_cause": 123,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 123,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_common_tags": 1,
         "number_of_measurements": 817,
         "number_of_raw_measurements": 529,
@@ -1705,7 +1705,7 @@ var qm_variables = {
         "sorting_score": 131
     },
     "Ginko Biloba": {
-        "best_aggregate_correlation_id": 65759686,
+        "best_global_variable_relationship_id": 65759686,
         "best_effect_variable_id": 5970668,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -1715,8 +1715,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_original_unit_id": 7,
         "name": "Ginko Biloba",
-        "number_of_aggregate_correlations_as_cause": 21,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 21,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1750,7 +1750,7 @@ var qm_variables = {
         "sorting_score": 24
     },
     "Guiltiness": {
-        "best_aggregate_correlation_id": 65646614,
+        "best_global_variable_relationship_id": 65646614,
         "best_cause_variable_id": 5954773,
         "best_effect_variable_id": 89251,
         "client_id": "unknown",
@@ -1761,8 +1761,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_original_unit_id": 10,
         "name": "Guiltiness",
-        "number_of_aggregate_correlations_as_cause": 166,
-        "number_of_aggregate_correlations_as_effect": 2159,
+        "number_of_global_variable_relationships_as_cause": 166,
+        "number_of_global_variable_relationships_as_effect": 2159,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1796,7 +1796,7 @@ var qm_variables = {
         "sorting_score": 4037
     },
     "Hand Lotion": {
-        "best_aggregate_correlation_id": 65618488,
+        "best_global_variable_relationship_id": 65618488,
         "best_effect_variable_id": 1306,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -1807,8 +1807,8 @@ var qm_variables = {
         "most_common_connector_id": 75,
         "most_common_original_unit_id": 14,
         "name": "Hand Lotion",
-        "number_of_aggregate_correlations_as_cause": 31,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 31,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1842,7 +1842,7 @@ var qm_variables = {
         "sorting_score": 35
     },
     "Inflammatory Pain": {
-        "best_aggregate_correlation_id": 65685162,
+        "best_global_variable_relationship_id": 65685162,
         "best_cause_variable_id": 1272,
         "best_effect_variable_id": 1306,
         "client_id": "unknown",
@@ -1854,8 +1854,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 40,
         "name": "Inflammatory Pain",
-        "number_of_aggregate_correlations_as_cause": 88,
-        "number_of_aggregate_correlations_as_effect": 806,
+        "number_of_global_variable_relationships_as_cause": 88,
+        "number_of_global_variable_relationships_as_effect": 806,
         "number_of_applications_where_outcome_variable": 6,
         "number_of_applications_where_predictor_variable": 5,
         "number_of_common_tags": 0,
@@ -1889,7 +1889,7 @@ var qm_variables = {
         "sorting_score": 907
     },
     "Heart Rate (Pulse)": {
-        "best_aggregate_correlation_id": 65647463,
+        "best_global_variable_relationship_id": 65647463,
         "best_cause_variable_id": 1451,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -1901,8 +1901,8 @@ var qm_variables = {
         "most_common_connector_id": 61,
         "most_common_original_unit_id": 26,
         "name": "Heart Rate (Pulse)",
-        "number_of_aggregate_correlations_as_cause": 172,
-        "number_of_aggregate_correlations_as_effect": 1612,
+        "number_of_global_variable_relationships_as_cause": 172,
+        "number_of_global_variable_relationships_as_effect": 1612,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1936,7 +1936,7 @@ var qm_variables = {
         "sorting_score": 2009
     },
     "Hostility": {
-        "best_aggregate_correlation_id": 65596658,
+        "best_global_variable_relationship_id": 65596658,
         "best_cause_variable_id": 1871,
         "best_effect_variable_id": 6054281,
         "client_id": "unknown",
@@ -1947,8 +1947,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_original_unit_id": 10,
         "name": "Hostility",
-        "number_of_aggregate_correlations_as_cause": 148,
-        "number_of_aggregate_correlations_as_effect": 1646,
+        "number_of_global_variable_relationships_as_cause": 148,
+        "number_of_global_variable_relationships_as_effect": 1646,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -1983,7 +1983,7 @@ var qm_variables = {
         "sorting_score": 3252
     },
     "Humira Pen (mL)": {
-        "best_aggregate_correlation_id": 65697972,
+        "best_global_variable_relationship_id": 65697972,
         "best_effect_variable_id": 1306,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -1994,8 +1994,8 @@ var qm_variables = {
         "most_common_connector_id": 5,
         "most_common_original_unit_id": 9,
         "name": "Humira Pen (mL)",
-        "number_of_aggregate_correlations_as_cause": 18,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 18,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2029,7 +2029,7 @@ var qm_variables = {
         "sorting_score": 21
     },
     "IBProfin": {
-        "best_aggregate_correlation_id": 65754908,
+        "best_global_variable_relationship_id": 65754908,
         "best_effect_variable_id": 1444,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -2039,8 +2039,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_original_unit_id": 7,
         "name": "IBProfin",
-        "number_of_aggregate_correlations_as_cause": 19,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 19,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2074,7 +2074,7 @@ var qm_variables = {
         "sorting_score": 22
     },
     "Inositol": {
-        "best_aggregate_correlation_id": 65580418,
+        "best_global_variable_relationship_id": 65580418,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -2085,8 +2085,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Inositol",
-        "number_of_aggregate_correlations_as_cause": 34,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 34,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2120,7 +2120,7 @@ var qm_variables = {
         "sorting_score": 38
     },
     "Inspiration": {
-        "best_aggregate_correlation_id": 65635705,
+        "best_global_variable_relationship_id": 65635705,
         "best_cause_variable_id": 5954747,
         "best_effect_variable_id": 87709,
         "client_id": "unknown",
@@ -2132,8 +2132,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Inspiration",
-        "number_of_aggregate_correlations_as_cause": 116,
-        "number_of_aggregate_correlations_as_effect": 934,
+        "number_of_global_variable_relationships_as_cause": 116,
+        "number_of_global_variable_relationships_as_effect": 934,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2167,7 +2167,7 @@ var qm_variables = {
         "sorting_score": 2392
     },
     "Interest": {
-        "best_aggregate_correlation_id": 65642712,
+        "best_global_variable_relationship_id": 65642712,
         "best_cause_variable_id": 1919,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -2179,8 +2179,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Interest",
-        "number_of_aggregate_correlations_as_cause": 112,
-        "number_of_aggregate_correlations_as_effect": 1004,
+        "number_of_global_variable_relationships_as_cause": 112,
+        "number_of_global_variable_relationships_as_effect": 1004,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2215,7 +2215,7 @@ var qm_variables = {
         "sorting_score": 2554
     },
     "Iron": {
-        "best_aggregate_correlation_id": 65685183,
+        "best_global_variable_relationship_id": 65685183,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -2226,8 +2226,8 @@ var qm_variables = {
         "most_common_connector_id": 75,
         "most_common_original_unit_id": 29,
         "name": "Iron",
-        "number_of_aggregate_correlations_as_cause": 154,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 154,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2261,7 +2261,7 @@ var qm_variables = {
         "sorting_score": 278
     },
     "Irritability": {
-        "best_aggregate_correlation_id": 65633983,
+        "best_global_variable_relationship_id": 65633983,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 6054281,
         "client_id": "unknown",
@@ -2272,8 +2272,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_original_unit_id": 10,
         "name": "Irritability",
-        "number_of_aggregate_correlations_as_cause": 222,
-        "number_of_aggregate_correlations_as_effect": 1968,
+        "number_of_global_variable_relationships_as_cause": 222,
+        "number_of_global_variable_relationships_as_effect": 1968,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2307,7 +2307,7 @@ var qm_variables = {
         "sorting_score": 4354
     },
     "Jitteriness": {
-        "best_aggregate_correlation_id": 65677901,
+        "best_global_variable_relationship_id": 65677901,
         "best_cause_variable_id": 1906,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -2317,8 +2317,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_original_unit_id": 10,
         "name": "Jitteriness",
-        "number_of_aggregate_correlations_as_cause": 119,
-        "number_of_aggregate_correlations_as_effect": 1107,
+        "number_of_global_variable_relationships_as_cause": 119,
+        "number_of_global_variable_relationships_as_effect": 1107,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2353,7 +2353,7 @@ var qm_variables = {
         "sorting_score": 2640
     },
     "Ketamine": {
-        "best_aggregate_correlation_id": 65689704,
+        "best_global_variable_relationship_id": 65689704,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -2364,8 +2364,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Ketamine",
-        "number_of_aggregate_correlations_as_cause": 21,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 21,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2399,7 +2399,7 @@ var qm_variables = {
         "sorting_score": 25
     },
     "L-Glutamine": {
-        "best_aggregate_correlation_id": 65689705,
+        "best_global_variable_relationship_id": 65689705,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -2410,8 +2410,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "L-Glutamine",
-        "number_of_aggregate_correlations_as_cause": 80,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 80,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2445,7 +2445,7 @@ var qm_variables = {
         "sorting_score": 84
     },
     "Meeting (Hours)": {
-        "best_aggregate_correlation_id": 65807379,
+        "best_global_variable_relationship_id": 65807379,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -2457,8 +2457,8 @@ var qm_variables = {
         "most_common_connector_id": 75,
         "most_common_original_unit_id": 1,
         "name": "Meeting (Hours)",
-        "number_of_aggregate_correlations_as_cause": 7,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 7,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2492,7 +2492,7 @@ var qm_variables = {
         "sorting_score": 14
     },
     "Mirtazapine": {
-        "best_aggregate_correlation_id": 65620973,
+        "best_global_variable_relationship_id": 65620973,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -2503,8 +2503,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 7,
         "name": "Mirtazapine",
-        "number_of_aggregate_correlations_as_cause": 119,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 119,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 2,
@@ -2538,7 +2538,7 @@ var qm_variables = {
         "sorting_score": 138
     },
     "Monounsaturated Fat": {
-        "best_aggregate_correlation_id": 65685306,
+        "best_global_variable_relationship_id": 65685306,
         "best_effect_variable_id": 1335,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -2549,8 +2549,8 @@ var qm_variables = {
         "most_common_connector_id": 6,
         "most_common_original_unit_id": 6,
         "name": "Monounsaturated Fat",
-        "number_of_aggregate_correlations_as_cause": 149,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 149,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 1,
@@ -2584,7 +2584,7 @@ var qm_variables = {
         "sorting_score": 265
     },
     "Multivitamin": {
-        "best_aggregate_correlation_id": 65626284,
+        "best_global_variable_relationship_id": 65626284,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -2595,8 +2595,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 11,
         "name": "Multivitamin",
-        "number_of_aggregate_correlations_as_cause": 146,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 146,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2631,7 +2631,7 @@ var qm_variables = {
         "sorting_score": 245
     },
     "Nervousness": {
-        "best_aggregate_correlation_id": 65675436,
+        "best_global_variable_relationship_id": 65675436,
         "best_cause_variable_id": 85055,
         "best_effect_variable_id": 90664,
         "client_id": "unknown",
@@ -2642,8 +2642,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_original_unit_id": 10,
         "name": "Nervousness",
-        "number_of_aggregate_correlations_as_cause": 139,
-        "number_of_aggregate_correlations_as_effect": 1330,
+        "number_of_global_variable_relationships_as_cause": 139,
+        "number_of_global_variable_relationships_as_effect": 1330,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2678,7 +2678,7 @@ var qm_variables = {
         "sorting_score": 3299
     },
     "Sexual Orgasm": {
-        "best_aggregate_correlation_id": 65697521,
+        "best_global_variable_relationship_id": 65697521,
         "best_effect_variable_id": 1267,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -2689,8 +2689,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 14,
         "name": "Sexual Orgasm",
-        "number_of_aggregate_correlations_as_cause": 49,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 49,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2724,7 +2724,7 @@ var qm_variables = {
         "sorting_score": 56
     },
     "Overall Mood": {
-        "best_aggregate_correlation_id": 65674310,
+        "best_global_variable_relationship_id": 65674310,
         "best_cause_variable_id": 89387,
         "best_effect_variable_id": 5863491,
         "client_id": "unknown",
@@ -2736,8 +2736,8 @@ var qm_variables = {
         "most_common_connector_id": 5,
         "most_common_original_unit_id": 10,
         "name": "Overall Mood",
-        "number_of_aggregate_correlations_as_cause": 712,
-        "number_of_aggregate_correlations_as_effect": 6425,
+        "number_of_global_variable_relationships_as_cause": 712,
+        "number_of_global_variable_relationships_as_effect": 6425,
         "number_of_applications_where_outcome_variable": 57,
         "number_of_applications_where_predictor_variable": 5,
         "number_of_common_tags": 0,
@@ -2772,7 +2772,7 @@ var qm_variables = {
         "sorting_score": 16033
     },
     "Phenylethylamine": {
-        "best_aggregate_correlation_id": 65629170,
+        "best_global_variable_relationship_id": 65629170,
         "best_effect_variable_id": 1874,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -2782,8 +2782,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_original_unit_id": 7,
         "name": "Phenylethylamine",
-        "number_of_aggregate_correlations_as_cause": 23,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 23,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2817,7 +2817,7 @@ var qm_variables = {
         "sorting_score": 26
     },
     "Phosphatidyl Serine": {
-        "best_aggregate_correlation_id": 65701766,
+        "best_global_variable_relationship_id": 65701766,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -2827,8 +2827,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_original_unit_id": 7,
         "name": "Phosphatidyl Serine",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2862,7 +2862,7 @@ var qm_variables = {
         "sorting_score": 4
     },
     "Potassium": {
-        "best_aggregate_correlation_id": 65657785,
+        "best_global_variable_relationship_id": 65657785,
         "best_effect_variable_id": 1344,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -2873,8 +2873,8 @@ var qm_variables = {
         "most_common_connector_id": 6,
         "most_common_original_unit_id": 7,
         "name": "Potassium",
-        "number_of_aggregate_correlations_as_cause": 186,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 186,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2908,7 +2908,7 @@ var qm_variables = {
         "sorting_score": 303
     },
     "Probiotics (pills)": {
-        "best_aggregate_correlation_id": 65685436,
+        "best_global_variable_relationship_id": 65685436,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -2919,8 +2919,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 24,
         "name": "Probiotics (pills)",
-        "number_of_aggregate_correlations_as_cause": 24,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 24,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -2954,7 +2954,7 @@ var qm_variables = {
         "sorting_score": 33
     },
     "Protein": {
-        "best_aggregate_correlation_id": 65647492,
+        "best_global_variable_relationship_id": 65647492,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -2965,8 +2965,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 6,
         "name": "Protein",
-        "number_of_aggregate_correlations_as_cause": 233,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 233,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3000,7 +3000,7 @@ var qm_variables = {
         "sorting_score": 451
     },
     "Psoriasis Severity": {
-        "best_aggregate_correlation_id": 65625670,
+        "best_global_variable_relationship_id": 65625670,
         "best_cause_variable_id": 1280,
         "best_effect_variable_id": 1308,
         "client_id": "unknown",
@@ -3012,8 +3012,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 10,
         "name": "Psoriasis Severity",
-        "number_of_aggregate_correlations_as_cause": 127,
-        "number_of_aggregate_correlations_as_effect": 911,
+        "number_of_global_variable_relationships_as_cause": 127,
+        "number_of_global_variable_relationships_as_effect": 911,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3047,7 +3047,7 @@ var qm_variables = {
         "sorting_score": 1058
     },
     "Quercetin": {
-        "best_aggregate_correlation_id": 65701767,
+        "best_global_variable_relationship_id": 65701767,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -3057,8 +3057,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_original_unit_id": 7,
         "name": "Quercetin",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3092,7 +3092,7 @@ var qm_variables = {
         "sorting_score": 4
     },
     "Remeron": {
-        "best_aggregate_correlation_id": 65688445,
+        "best_global_variable_relationship_id": 65688445,
         "best_effect_variable_id": 102685,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -3103,8 +3103,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 7,
         "name": "Remeron",
-        "number_of_aggregate_correlations_as_cause": 113,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 113,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 1,
@@ -3138,7 +3138,7 @@ var qm_variables = {
         "sorting_score": 132
     },
     "Resilience": {
-        "best_aggregate_correlation_id": 65647776,
+        "best_global_variable_relationship_id": 65647776,
         "best_cause_variable_id": 5954744,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -3150,8 +3150,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Resilience",
-        "number_of_aggregate_correlations_as_cause": 110,
-        "number_of_aggregate_correlations_as_effect": 1070,
+        "number_of_global_variable_relationships_as_cause": 110,
+        "number_of_global_variable_relationships_as_effect": 1070,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3186,7 +3186,7 @@ var qm_variables = {
         "sorting_score": 2515
     },
     "Scaredness": {
-        "best_aggregate_correlation_id": 65685342,
+        "best_global_variable_relationship_id": 65685342,
         "best_cause_variable_id": 85055,
         "best_effect_variable_id": 6054281,
         "client_id": "unknown",
@@ -3197,8 +3197,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_original_unit_id": 10,
         "name": "Scaredness",
-        "number_of_aggregate_correlations_as_cause": 102,
-        "number_of_aggregate_correlations_as_effect": 964,
+        "number_of_global_variable_relationships_as_cause": 102,
+        "number_of_global_variable_relationships_as_effect": 964,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3233,7 +3233,7 @@ var qm_variables = {
         "sorting_score": 2340
     },
     "Shame": {
-        "best_aggregate_correlation_id": 65656259,
+        "best_global_variable_relationship_id": 65656259,
         "best_cause_variable_id": 5954746,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -3243,8 +3243,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_original_unit_id": 10,
         "name": "Shame",
-        "number_of_aggregate_correlations_as_cause": 116,
-        "number_of_aggregate_correlations_as_effect": 890,
+        "number_of_global_variable_relationships_as_cause": 116,
+        "number_of_global_variable_relationships_as_effect": 890,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3278,7 +3278,7 @@ var qm_variables = {
         "sorting_score": 2547
     },
     "Sickness Severity": {
-        "best_aggregate_correlation_id": 65643869,
+        "best_global_variable_relationship_id": 65643869,
         "best_cause_variable_id": 1383,
         "best_effect_variable_id": 1306,
         "client_id": "unknown",
@@ -3290,8 +3290,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 40,
         "name": "Sickness Severity",
-        "number_of_aggregate_correlations_as_cause": 59,
-        "number_of_aggregate_correlations_as_effect": 345,
+        "number_of_global_variable_relationships_as_cause": 59,
+        "number_of_global_variable_relationships_as_effect": 345,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3325,7 +3325,7 @@ var qm_variables = {
         "sorting_score": 443
     },
     "Sleep Quality": {
-        "best_aggregate_correlation_id": 65674463,
+        "best_global_variable_relationship_id": 65674463,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -3337,8 +3337,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 21,
         "name": "Sleep Quality",
-        "number_of_aggregate_correlations_as_cause": 105,
-        "number_of_aggregate_correlations_as_effect": 1318,
+        "number_of_global_variable_relationships_as_cause": 105,
+        "number_of_global_variable_relationships_as_effect": 1318,
         "number_of_applications_where_outcome_variable": 1,
         "number_of_applications_where_predictor_variable": 11,
         "number_of_common_tags": 0,
@@ -3372,7 +3372,7 @@ var qm_variables = {
         "sorting_score": 1486
     },
     "Sodium": {
-        "best_aggregate_correlation_id": 65686028,
+        "best_global_variable_relationship_id": 65686028,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -3383,8 +3383,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 7,
         "name": "Sodium",
-        "number_of_aggregate_correlations_as_cause": 174,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 174,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3418,7 +3418,7 @@ var qm_variables = {
         "sorting_score": 295
     },
     "Cognitive Speed Score From Lumosity": {
-        "best_aggregate_correlation_id": 65644680,
+        "best_global_variable_relationship_id": 65644680,
         "best_cause_variable_id": 1487,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -3430,8 +3430,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 15,
         "name": "Cognitive Speed Score From Lumosity",
-        "number_of_aggregate_correlations_as_cause": 11,
-        "number_of_aggregate_correlations_as_effect": 44,
+        "number_of_global_variable_relationships_as_cause": 11,
+        "number_of_global_variable_relationships_as_effect": 44,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3465,7 +3465,7 @@ var qm_variables = {
         "sorting_score": 58
     },
     "Daily Step Count": {
-        "best_aggregate_correlation_id": 65685202,
+        "best_global_variable_relationship_id": 65685202,
         "best_cause_variable_id": 6057041,
         "best_effect_variable_id": 1867,
         "client_id": "unknown",
@@ -3477,8 +3477,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 23,
         "name": "Daily Step Count",
-        "number_of_aggregate_correlations_as_cause": 200,
-        "number_of_aggregate_correlations_as_effect": 131,
+        "number_of_global_variable_relationships_as_cause": 200,
+        "number_of_global_variable_relationships_as_effect": 131,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 1,
         "number_of_common_tags": 0,
@@ -3512,7 +3512,7 @@ var qm_variables = {
         "sorting_score": 611
     },
     "Super B Complex": {
-        "best_aggregate_correlation_id": 65658923,
+        "best_global_variable_relationship_id": 65658923,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -3523,8 +3523,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 11,
         "name": "Super B Complex",
-        "number_of_aggregate_correlations_as_cause": 112,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 112,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3558,7 +3558,7 @@ var qm_variables = {
         "sorting_score": 131
     },
     "Super Omega-3": {
-        "best_aggregate_correlation_id": 65644201,
+        "best_global_variable_relationship_id": 65644201,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -3568,8 +3568,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_original_unit_id": 11,
         "name": "Super Omega-3",
-        "number_of_aggregate_correlations_as_cause": 50,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 50,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3603,7 +3603,7 @@ var qm_variables = {
         "sorting_score": 53
     },
     "Taurine": {
-        "best_aggregate_correlation_id": 65725330,
+        "best_global_variable_relationship_id": 65725330,
         "best_effect_variable_id": 1307,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -3614,8 +3614,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Taurine",
-        "number_of_aggregate_correlations_as_cause": 24,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 24,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3649,7 +3649,7 @@ var qm_variables = {
         "sorting_score": 27
     },
     "Tramadol": {
-        "best_aggregate_correlation_id": 65644354,
+        "best_global_variable_relationship_id": 65644354,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -3659,8 +3659,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_original_unit_id": 11,
         "name": "Tramadol",
-        "number_of_aggregate_correlations_as_cause": 53,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 53,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 1,
         "number_of_common_tags": 0,
@@ -3694,7 +3694,7 @@ var qm_variables = {
         "sorting_score": 64
     },
     "Upsettedness": {
-        "best_aggregate_correlation_id": 65685607,
+        "best_global_variable_relationship_id": 65685607,
         "best_cause_variable_id": 1867,
         "best_effect_variable_id": 111592,
         "client_id": "unknown",
@@ -3705,8 +3705,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_original_unit_id": 10,
         "name": "Upsettedness",
-        "number_of_aggregate_correlations_as_cause": 118,
-        "number_of_aggregate_correlations_as_effect": 1009,
+        "number_of_global_variable_relationships_as_cause": 118,
+        "number_of_global_variable_relationships_as_effect": 1009,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3740,7 +3740,7 @@ var qm_variables = {
         "sorting_score": 2571
     },
     "Vinpocetine": {
-        "best_aggregate_correlation_id": 65644447,
+        "best_global_variable_relationship_id": 65644447,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -3750,8 +3750,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_original_unit_id": 7,
         "name": "Vinpocetine",
-        "number_of_aggregate_correlations_as_cause": 33,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 33,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3785,7 +3785,7 @@ var qm_variables = {
         "sorting_score": 36
     },
     "Vitamin C": {
-        "best_aggregate_correlation_id": 65726140,
+        "best_global_variable_relationship_id": 65726140,
         "best_effect_variable_id": 89438,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -3796,8 +3796,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 11,
         "name": "Vitamin C",
-        "number_of_aggregate_correlations_as_cause": 63,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 63,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3832,7 +3832,7 @@ var qm_variables = {
         "sorting_score": 73
     },
     "Vitamin D3": {
-        "best_aggregate_correlation_id": 65686651,
+        "best_global_variable_relationship_id": 65686651,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -3843,8 +3843,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 32,
         "name": "Vitamin D3",
-        "number_of_aggregate_correlations_as_cause": 147,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 147,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3878,7 +3878,7 @@ var qm_variables = {
         "sorting_score": 210
     },
     "Vitamin A": {
-        "best_aggregate_correlation_id": 65610701,
+        "best_global_variable_relationship_id": 65610701,
         "best_effect_variable_id": 1305,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -3889,8 +3889,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 29,
         "name": "Vitamin A",
-        "number_of_aggregate_correlations_as_cause": 188,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 188,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3924,7 +3924,7 @@ var qm_variables = {
         "sorting_score": 318
     },
     "VitaminC": {
-        "best_aggregate_correlation_id": 65701885,
+        "best_global_variable_relationship_id": 65701885,
         "best_effect_variable_id": 1272,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -3934,8 +3934,8 @@ var qm_variables = {
         "ion_icon": "ion-fork",
         "most_common_original_unit_id": 29,
         "name": "VitaminC",
-        "number_of_aggregate_correlations_as_cause": 22,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 22,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -3969,7 +3969,7 @@ var qm_variables = {
         "sorting_score": 25
     },
     "Vyvanase": {
-        "best_aggregate_correlation_id": 65644642,
+        "best_global_variable_relationship_id": 65644642,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -3980,8 +3980,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Vyvanase",
-        "number_of_aggregate_correlations_as_cause": 28,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 28,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -4015,7 +4015,7 @@ var qm_variables = {
         "sorting_score": 32
     },
     "Walk Or Run Distance (miles)": {
-        "best_aggregate_correlation_id": 65691048,
+        "best_global_variable_relationship_id": 65691048,
         "best_cause_variable_id": 1329,
         "best_effect_variable_id": 1252,
         "client_id": "unknown",
@@ -4027,8 +4027,8 @@ var qm_variables = {
         "most_common_connector_id": 75,
         "most_common_original_unit_id": 4,
         "name": "Walk Or Run Distance (miles)",
-        "number_of_aggregate_correlations_as_cause": 50,
-        "number_of_aggregate_correlations_as_effect": 311,
+        "number_of_global_variable_relationships_as_cause": 50,
+        "number_of_global_variable_relationships_as_effect": 311,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -4062,7 +4062,7 @@ var qm_variables = {
         "sorting_score": 368
     },
     "Body Weight": {
-        "best_aggregate_correlation_id": 65647537,
+        "best_global_variable_relationship_id": 65647537,
         "best_cause_variable_id": 1451,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -4074,8 +4074,8 @@ var qm_variables = {
         "most_common_connector_id": 75,
         "most_common_original_unit_id": 5,
         "name": "Body Weight",
-        "number_of_aggregate_correlations_as_cause": 257,
-        "number_of_aggregate_correlations_as_effect": 883,
+        "number_of_global_variable_relationships_as_cause": 257,
+        "number_of_global_variable_relationships_as_effect": 883,
         "number_of_applications_where_outcome_variable": 1,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -4109,7 +4109,7 @@ var qm_variables = {
         "sorting_score": 1557
     },
     "Wellbutrin": {
-        "best_aggregate_correlation_id": 65612612,
+        "best_global_variable_relationship_id": 65612612,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4120,8 +4120,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 7,
         "name": "Wellbutrin",
-        "number_of_aggregate_correlations_as_cause": 196,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 196,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -4155,7 +4155,7 @@ var qm_variables = {
         "sorting_score": 277
     },
     "Xanax": {
-        "best_aggregate_correlation_id": 65754914,
+        "best_global_variable_relationship_id": 65754914,
         "best_effect_variable_id": 1444,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4166,8 +4166,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Xanax",
-        "number_of_aggregate_correlations_as_cause": 52,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 52,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -4201,7 +4201,7 @@ var qm_variables = {
         "sorting_score": 61
     },
     "Zinc": {
-        "best_aggregate_correlation_id": 65613120,
+        "best_global_variable_relationship_id": 65613120,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4212,8 +4212,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 7,
         "name": "Zinc",
-        "number_of_aggregate_correlations_as_cause": 148,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 148,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -4247,7 +4247,7 @@ var qm_variables = {
         "sorting_score": 159
     },
     "Calories": {
-        "best_aggregate_correlation_id": 65686681,
+        "best_global_variable_relationship_id": 65686681,
         "best_effect_variable_id": 1867,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4258,8 +4258,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 22,
         "name": "Calories",
-        "number_of_aggregate_correlations_as_cause": 41,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 41,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -4293,7 +4293,7 @@ var qm_variables = {
         "sorting_score": 48
     },
     "Net Caloric Intake": {
-        "best_aggregate_correlation_id": 65644802,
+        "best_global_variable_relationship_id": 65644802,
         "best_effect_variable_id": 1335,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4304,8 +4304,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 22,
         "name": "Net Caloric Intake",
-        "number_of_aggregate_correlations_as_cause": 47,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 47,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -4339,7 +4339,7 @@ var qm_variables = {
         "sorting_score": 50
     },
     "Polyunsaturated Fat": {
-        "best_aggregate_correlation_id": 65647541,
+        "best_global_variable_relationship_id": 65647541,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4350,8 +4350,8 @@ var qm_variables = {
         "most_common_connector_id": 6,
         "most_common_original_unit_id": 6,
         "name": "Polyunsaturated Fat",
-        "number_of_aggregate_correlations_as_cause": 162,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 162,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 1,
@@ -4385,7 +4385,7 @@ var qm_variables = {
         "sorting_score": 278
     },
     "Saturated Fat": {
-        "best_aggregate_correlation_id": 65647545,
+        "best_global_variable_relationship_id": 65647545,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4396,8 +4396,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 6,
         "name": "Saturated Fat",
-        "number_of_aggregate_correlations_as_cause": 196,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 196,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -4432,7 +4432,7 @@ var qm_variables = {
         "sorting_score": 320
     },
     "Trans Fat": {
-        "best_aggregate_correlation_id": 65614708,
+        "best_global_variable_relationship_id": 65614708,
         "best_effect_variable_id": 1335,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4443,8 +4443,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 6,
         "name": "Trans Fat",
-        "number_of_aggregate_correlations_as_cause": 141,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 141,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -4478,7 +4478,7 @@ var qm_variables = {
         "sorting_score": 236
     },
     "Mirtazipine Powder": {
-        "best_aggregate_correlation_id": 65694172,
+        "best_global_variable_relationship_id": 65694172,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4489,8 +4489,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 7,
         "name": "Mirtazipine Powder",
-        "number_of_aggregate_correlations_as_cause": 102,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 102,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 1,
@@ -4524,7 +4524,7 @@ var qm_variables = {
         "sorting_score": 122
     },
     "Fruity Pebbles": {
-        "best_aggregate_correlation_id": 65576734,
+        "best_global_variable_relationship_id": 65576734,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4535,8 +4535,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Fruity Pebbles",
-        "number_of_aggregate_correlations_as_cause": 30,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 30,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 1,
@@ -4570,7 +4570,7 @@ var qm_variables = {
         "sorting_score": 33
     },
     "Apple": {
-        "best_aggregate_correlation_id": 65576885,
+        "best_global_variable_relationship_id": 65576885,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4581,8 +4581,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 44,
         "name": "Apple",
-        "number_of_aggregate_correlations_as_cause": 89,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 89,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 4,
@@ -4616,7 +4616,7 @@ var qm_variables = {
         "sorting_score": 153
     },
     "French Fries\/Medium": {
-        "best_aggregate_correlation_id": 65648009,
+        "best_global_variable_relationship_id": 65648009,
         "best_effect_variable_id": 1306,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4627,8 +4627,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "French Fries\/Medium",
-        "number_of_aggregate_correlations_as_cause": 43,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 43,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 2,
@@ -4662,7 +4662,7 @@ var qm_variables = {
         "sorting_score": 48
     },
     "Milk - Chocolate": {
-        "best_aggregate_correlation_id": 65757831,
+        "best_global_variable_relationship_id": 65757831,
         "best_effect_variable_id": 1258,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4673,8 +4673,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Milk - Chocolate",
-        "number_of_aggregate_correlations_as_cause": 73,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 73,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -4708,7 +4708,7 @@ var qm_variables = {
         "sorting_score": 85
     },
     "Vitamin D Milk": {
-        "best_aggregate_correlation_id": 65689719,
+        "best_global_variable_relationship_id": 65689719,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4719,8 +4719,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Vitamin D Milk",
-        "number_of_aggregate_correlations_as_cause": 25,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 25,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -4754,7 +4754,7 @@ var qm_variables = {
         "sorting_score": 43
     },
     "French Fries, Salted": {
-        "best_aggregate_correlation_id": 65760471,
+        "best_global_variable_relationship_id": 65760471,
         "best_effect_variable_id": 88875,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4765,8 +4765,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "French Fries, Salted",
-        "number_of_aggregate_correlations_as_cause": 53,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 53,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 1,
@@ -4800,7 +4800,7 @@ var qm_variables = {
         "sorting_score": 62
     },
     "Coffee - Brewed From Grounds": {
-        "best_aggregate_correlation_id": 65618878,
+        "best_global_variable_relationship_id": 65618878,
         "best_effect_variable_id": 1361,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4811,8 +4811,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 44,
         "name": "Coffee - Brewed From Grounds",
-        "number_of_aggregate_correlations_as_cause": 130,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 130,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -4846,7 +4846,7 @@ var qm_variables = {
         "sorting_score": 142
     },
     "Multivitamin\/ Multimineral Supplement": {
-        "best_aggregate_correlation_id": 65694935,
+        "best_global_variable_relationship_id": 65694935,
         "best_effect_variable_id": 1421,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4857,8 +4857,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Multivitamin\/ Multimineral Supplement",
-        "number_of_aggregate_correlations_as_cause": 11,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 11,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -4892,7 +4892,7 @@ var qm_variables = {
         "sorting_score": 22
     },
     "Medium Coke": {
-        "best_aggregate_correlation_id": 65771575,
+        "best_global_variable_relationship_id": 65771575,
         "best_effect_variable_id": 6048867,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4903,8 +4903,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Medium Coke",
-        "number_of_aggregate_correlations_as_cause": 22,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 22,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -4938,7 +4938,7 @@ var qm_variables = {
         "sorting_score": 27
     },
     "Coke 20 Fl Oz. Bottle": {
-        "best_aggregate_correlation_id": 65577141,
+        "best_global_variable_relationship_id": 65577141,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4949,8 +4949,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Coke 20 Fl Oz. Bottle",
-        "number_of_aggregate_correlations_as_cause": 38,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 38,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 1,
@@ -4984,7 +4984,7 @@ var qm_variables = {
         "sorting_score": 53
     },
     "Carrots - Raw": {
-        "best_aggregate_correlation_id": 65620108,
+        "best_global_variable_relationship_id": 65620108,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -4995,8 +4995,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Carrots - Raw",
-        "number_of_aggregate_correlations_as_cause": 95,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 95,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 2,
@@ -5030,7 +5030,7 @@ var qm_variables = {
         "sorting_score": 109
     },
     "Eggs - Fried (whole Egg)": {
-        "best_aggregate_correlation_id": 65620298,
+        "best_global_variable_relationship_id": 65620298,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5041,8 +5041,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Eggs - Fried (whole Egg)",
-        "number_of_aggregate_correlations_as_cause": 102,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 102,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5076,7 +5076,7 @@ var qm_variables = {
         "sorting_score": 188
     },
     "Milk -  Reduced Fat, 2% Milkfat": {
-        "best_aggregate_correlation_id": 65687791,
+        "best_global_variable_relationship_id": 65687791,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5087,8 +5087,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Milk -  Reduced Fat, 2% Milkfat",
-        "number_of_aggregate_correlations_as_cause": 63,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 63,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5122,7 +5122,7 @@ var qm_variables = {
         "sorting_score": 130
     },
     "Organic Chunky Vegetable Soup": {
-        "best_aggregate_correlation_id": 65648435,
+        "best_global_variable_relationship_id": 65648435,
         "best_effect_variable_id": 1306,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5133,8 +5133,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Organic Chunky Vegetable Soup",
-        "number_of_aggregate_correlations_as_cause": 23,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 23,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5168,7 +5168,7 @@ var qm_variables = {
         "sorting_score": 27
     },
     "Nugo Free - Gluten Free Dark Chocolate Crunch": {
-        "best_aggregate_correlation_id": 65648650,
+        "best_global_variable_relationship_id": 65648650,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5179,8 +5179,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Nugo Free - Gluten Free Dark Chocolate Crunch",
-        "number_of_aggregate_correlations_as_cause": 32,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 32,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 1,
@@ -5214,7 +5214,7 @@ var qm_variables = {
         "sorting_score": 35
     },
     "Apples - Raw, With Skin": {
-        "best_aggregate_correlation_id": 65620739,
+        "best_global_variable_relationship_id": 65620739,
         "best_effect_variable_id": 1335,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5225,8 +5225,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 44,
         "name": "Apples - Raw, With Skin",
-        "number_of_aggregate_correlations_as_cause": 87,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 87,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 4,
@@ -5260,7 +5260,7 @@ var qm_variables = {
         "sorting_score": 151
     },
     "White Bread": {
-        "best_aggregate_correlation_id": 65728442,
+        "best_global_variable_relationship_id": 65728442,
         "best_effect_variable_id": 1919,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5271,8 +5271,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "White Bread",
-        "number_of_aggregate_correlations_as_cause": 88,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 88,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5306,7 +5306,7 @@ var qm_variables = {
         "sorting_score": 140
     },
     "Servings of Fruit": {
-        "best_aggregate_correlation_id": 65802476,
+        "best_global_variable_relationship_id": 65802476,
         "best_effect_variable_id": 84887,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5317,8 +5317,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Servings of Fruit",
-        "number_of_aggregate_correlations_as_cause": 94,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 94,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5352,7 +5352,7 @@ var qm_variables = {
         "sorting_score": 209
     },
     "Egg": {
-        "best_aggregate_correlation_id": 65649507,
+        "best_global_variable_relationship_id": 65649507,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5363,8 +5363,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Egg",
-        "number_of_aggregate_correlations_as_cause": 78,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 78,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5398,7 +5398,7 @@ var qm_variables = {
         "sorting_score": 86
     },
     "Tea - Brewed, Prepared With Tap Water (black Tea)": {
-        "best_aggregate_correlation_id": 65676592,
+        "best_global_variable_relationship_id": 65676592,
         "best_effect_variable_id": 87760,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5409,8 +5409,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Tea - Brewed, Prepared With Tap Water (black Tea)",
-        "number_of_aggregate_correlations_as_cause": 157,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 157,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5444,7 +5444,7 @@ var qm_variables = {
         "sorting_score": 307
     },
     "Green Tea": {
-        "best_aggregate_correlation_id": 65649660,
+        "best_global_variable_relationship_id": 65649660,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5455,8 +5455,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Green Tea",
-        "number_of_aggregate_correlations_as_cause": 78,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 78,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5490,7 +5490,7 @@ var qm_variables = {
         "sorting_score": 128
     },
     "100% Orange Juice - Calcium\/Vitamin D\/Pulp Free": {
-        "best_aggregate_correlation_id": 65621409,
+        "best_global_variable_relationship_id": 65621409,
         "best_effect_variable_id": 1441,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5501,8 +5501,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "100% Orange Juice - Calcium\/Vitamin D\/Pulp Free",
-        "number_of_aggregate_correlations_as_cause": 44,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 44,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5536,7 +5536,7 @@ var qm_variables = {
         "sorting_score": 53
     },
     "Vegetarian Chili": {
-        "best_aggregate_correlation_id": 64957740,
+        "best_global_variable_relationship_id": 64957740,
         "best_effect_variable_id": 1441,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5547,8 +5547,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Vegetarian Chili",
-        "number_of_aggregate_correlations_as_cause": 27,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 27,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5582,7 +5582,7 @@ var qm_variables = {
         "sorting_score": 31
     },
     "Cheese (Cheddar)": {
-        "best_aggregate_correlation_id": 65726722,
+        "best_global_variable_relationship_id": 65726722,
         "best_effect_variable_id": 1308,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5593,8 +5593,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Cheese (Cheddar)",
-        "number_of_aggregate_correlations_as_cause": 55,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 55,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5628,7 +5628,7 @@ var qm_variables = {
         "sorting_score": 66
     },
     "Cucumber - With Peel, Raw": {
-        "best_aggregate_correlation_id": 65697624,
+        "best_global_variable_relationship_id": 65697624,
         "best_effect_variable_id": 1358,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5639,8 +5639,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Cucumber - With Peel, Raw",
-        "number_of_aggregate_correlations_as_cause": 38,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 38,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5674,7 +5674,7 @@ var qm_variables = {
         "sorting_score": 41
     },
     "Baby Carrots": {
-        "best_aggregate_correlation_id": 65595462,
+        "best_global_variable_relationship_id": 65595462,
         "best_effect_variable_id": 1267,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5685,8 +5685,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Baby Carrots",
-        "number_of_aggregate_correlations_as_cause": 47,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 47,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5720,7 +5720,7 @@ var qm_variables = {
         "sorting_score": 50
     },
     "Cheese Stick Colby Jack": {
-        "best_aggregate_correlation_id": 65762770,
+        "best_global_variable_relationship_id": 65762770,
         "best_effect_variable_id": 1344,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5731,8 +5731,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Cheese Stick Colby Jack",
-        "number_of_aggregate_correlations_as_cause": 52,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 52,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5766,7 +5766,7 @@ var qm_variables = {
         "sorting_score": 55
     },
     "Pepsi Cola - 12oz": {
-        "best_aggregate_correlation_id": 65692705,
+        "best_global_variable_relationship_id": 65692705,
         "best_effect_variable_id": 1356,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5777,8 +5777,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Pepsi Cola - 12oz",
-        "number_of_aggregate_correlations_as_cause": 47,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 47,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5812,7 +5812,7 @@ var qm_variables = {
         "sorting_score": 52
     },
     "Side House Chop Salad W\/Blue Cheese And Balsamic Vinegrette Dres": {
-        "best_aggregate_correlation_id": 65755343,
+        "best_global_variable_relationship_id": 65755343,
         "best_effect_variable_id": 1308,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5823,8 +5823,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Side House Chop Salad W\/Blue Cheese And Balsamic Vinegrette Dres",
-        "number_of_aggregate_correlations_as_cause": 16,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 16,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5858,7 +5858,7 @@ var qm_variables = {
         "sorting_score": 19
     },
     "Steamed Fresh Vegetables Broccoli, Cauliflower, And Carrots": {
-        "best_aggregate_correlation_id": 65755580,
+        "best_global_variable_relationship_id": 65755580,
         "best_effect_variable_id": 1361,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5869,8 +5869,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Steamed Fresh Vegetables Broccoli, Cauliflower, And Carrots",
-        "number_of_aggregate_correlations_as_cause": 31,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 31,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5904,7 +5904,7 @@ var qm_variables = {
         "sorting_score": 44
     },
     "Philly Cheesesteak Omelette": {
-        "best_aggregate_correlation_id": 65697539,
+        "best_global_variable_relationship_id": 65697539,
         "best_effect_variable_id": 1267,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5915,8 +5915,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Philly Cheesesteak Omelette",
-        "number_of_aggregate_correlations_as_cause": 36,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 36,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5950,7 +5950,7 @@ var qm_variables = {
         "sorting_score": 39
     },
     "Sub Sandwich": {
-        "best_aggregate_correlation_id": 65755348,
+        "best_global_variable_relationship_id": 65755348,
         "best_effect_variable_id": 1308,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -5961,8 +5961,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Sub Sandwich",
-        "number_of_aggregate_correlations_as_cause": 25,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 25,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -5996,7 +5996,7 @@ var qm_variables = {
         "sorting_score": 32
     },
     "Homestyle French Fries": {
-        "best_aggregate_correlation_id": 65755349,
+        "best_global_variable_relationship_id": 65755349,
         "best_effect_variable_id": 1308,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6007,8 +6007,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Homestyle French Fries",
-        "number_of_aggregate_correlations_as_cause": 25,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 25,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6042,7 +6042,7 @@ var qm_variables = {
         "sorting_score": 28
     },
     "Pepsi Cola 591ml (20 Oz)": {
-        "best_aggregate_correlation_id": 65697540,
+        "best_global_variable_relationship_id": 65697540,
         "best_effect_variable_id": 1267,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6053,8 +6053,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Pepsi Cola 591ml (20 Oz)",
-        "number_of_aggregate_correlations_as_cause": 37,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 37,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6088,7 +6088,7 @@ var qm_variables = {
         "sorting_score": 40
     },
     "Beef - Loin, Bottom Sirloin Butt, Tri-tip Steak, Lean Only, Cook": {
-        "best_aggregate_correlation_id": 65697541,
+        "best_global_variable_relationship_id": 65697541,
         "best_effect_variable_id": 1267,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6099,8 +6099,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Beef - Loin, Bottom Sirloin Butt, Tri-tip Steak, Lean Only, Cook",
-        "number_of_aggregate_correlations_as_cause": 39,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 39,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6134,7 +6134,7 @@ var qm_variables = {
         "sorting_score": 42
     },
     "Oil - Olive": {
-        "best_aggregate_correlation_id": 65287049,
+        "best_global_variable_relationship_id": 65287049,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6145,8 +6145,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Oil - Olive",
-        "number_of_aggregate_correlations_as_cause": 47,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 47,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6180,7 +6180,7 @@ var qm_variables = {
         "sorting_score": 50
     },
     "Fruit Bowl": {
-        "best_aggregate_correlation_id": 65697551,
+        "best_global_variable_relationship_id": 65697551,
         "best_effect_variable_id": 1267,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6191,8 +6191,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Fruit Bowl",
-        "number_of_aggregate_correlations_as_cause": 37,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 37,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6226,7 +6226,7 @@ var qm_variables = {
         "sorting_score": 40
     },
     "Veggies - Net Carbs": {
-        "best_aggregate_correlation_id": 65595921,
+        "best_global_variable_relationship_id": 65595921,
         "best_effect_variable_id": 1361,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6237,8 +6237,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Veggies - Net Carbs",
-        "number_of_aggregate_correlations_as_cause": 46,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 46,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6272,7 +6272,7 @@ var qm_variables = {
         "sorting_score": 49
     },
     "Milk Chocolate Hot Cocoa Mix (With 6 Oz Water)": {
-        "best_aggregate_correlation_id": 65696460,
+        "best_global_variable_relationship_id": 65696460,
         "best_effect_variable_id": 1305,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6283,8 +6283,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Milk Chocolate Hot Cocoa Mix (With 6 Oz Water)",
-        "number_of_aggregate_correlations_as_cause": 31,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 31,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6318,7 +6318,7 @@ var qm_variables = {
         "sorting_score": 35
     },
     "Sweet Potato - Cooked, Baked In Skin, Without Salt (Sweetpotato)": {
-        "best_aggregate_correlation_id": 65696462,
+        "best_global_variable_relationship_id": 65696462,
         "best_effect_variable_id": 1305,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6329,8 +6329,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Sweet Potato - Cooked, Baked In Skin, Without Salt (Sweetpotato)",
-        "number_of_aggregate_correlations_as_cause": 37,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 37,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6364,7 +6364,7 @@ var qm_variables = {
         "sorting_score": 40
     },
     "Candy": {
-        "best_aggregate_correlation_id": 65697647,
+        "best_global_variable_relationship_id": 65697647,
         "best_effect_variable_id": 1358,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6375,8 +6375,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Candy",
-        "number_of_aggregate_correlations_as_cause": 70,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 70,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6410,7 +6410,7 @@ var qm_variables = {
         "sorting_score": 103
     },
     "Barbeque Potato Popped Chip Snack": {
-        "best_aggregate_correlation_id": 65697872,
+        "best_global_variable_relationship_id": 65697872,
         "best_effect_variable_id": 1335,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6421,8 +6421,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Barbeque Potato Popped Chip Snack",
-        "number_of_aggregate_correlations_as_cause": 31,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 31,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6456,7 +6456,7 @@ var qm_variables = {
         "sorting_score": 34
     },
     "Almond Milk 80 Calorie Vanilla": {
-        "best_aggregate_correlation_id": 65596053,
+        "best_global_variable_relationship_id": 65596053,
         "best_effect_variable_id": 1356,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6467,8 +6467,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Almond Milk 80 Calorie Vanilla",
-        "number_of_aggregate_correlations_as_cause": 58,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 58,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6502,7 +6502,7 @@ var qm_variables = {
         "sorting_score": 61
     },
     "Cherry": {
-        "best_aggregate_correlation_id": 65696195,
+        "best_global_variable_relationship_id": 65696195,
         "best_effect_variable_id": 1443,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6513,8 +6513,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Cherry",
-        "number_of_aggregate_correlations_as_cause": 38,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 38,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6548,7 +6548,7 @@ var qm_variables = {
         "sorting_score": 42
     },
     "Cherry Tomato": {
-        "best_aggregate_correlation_id": 65696476,
+        "best_global_variable_relationship_id": 65696476,
         "best_effect_variable_id": 1305,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6559,8 +6559,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Cherry Tomato",
-        "number_of_aggregate_correlations_as_cause": 41,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 41,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6594,7 +6594,7 @@ var qm_variables = {
         "sorting_score": 47
     },
     "Diet Coke - 12oz Can": {
-        "best_aggregate_correlation_id": 65687778,
+        "best_global_variable_relationship_id": 65687778,
         "best_effect_variable_id": 1306,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6605,8 +6605,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Diet Coke - 12oz Can",
-        "number_of_aggregate_correlations_as_cause": 117,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 117,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6640,7 +6640,7 @@ var qm_variables = {
         "sorting_score": 156
     },
     "Coke (Small)": {
-        "best_aggregate_correlation_id": 65697665,
+        "best_global_variable_relationship_id": 65697665,
         "best_effect_variable_id": 1358,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6651,8 +6651,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Coke (Small)",
-        "number_of_aggregate_correlations_as_cause": 31,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 31,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6686,7 +6686,7 @@ var qm_variables = {
         "sorting_score": 34
     },
     "Banana": {
-        "best_aggregate_correlation_id": 65684785,
+        "best_global_variable_relationship_id": 65684785,
         "best_effect_variable_id": 1867,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6697,8 +6697,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Banana",
-        "number_of_aggregate_correlations_as_cause": 111,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 111,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6732,7 +6732,7 @@ var qm_variables = {
         "sorting_score": 204
     },
     "Orange Juice - 100% Juice With Bits": {
-        "best_aggregate_correlation_id": 65770480,
+        "best_global_variable_relationship_id": 65770480,
         "best_effect_variable_id": 5903721,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6743,8 +6743,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Orange Juice - 100% Juice With Bits",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6778,7 +6778,7 @@ var qm_variables = {
         "sorting_score": 6
     },
     "Sleep Duration": {
-        "best_aggregate_correlation_id": 65685012,
+        "best_global_variable_relationship_id": 65685012,
         "best_cause_variable_id": 5211861,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -6790,8 +6790,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 2,
         "name": "Sleep Duration",
-        "number_of_aggregate_correlations_as_cause": 217,
-        "number_of_aggregate_correlations_as_effect": 3162,
+        "number_of_global_variable_relationships_as_cause": 217,
+        "number_of_global_variable_relationships_as_effect": 3162,
         "number_of_applications_where_outcome_variable": 3,
         "number_of_applications_where_predictor_variable": 5,
         "number_of_common_tags": 0,
@@ -6825,7 +6825,7 @@ var qm_variables = {
         "sorting_score": 3783
     },
     "Keystrokes": {
-        "best_aggregate_correlation_id": 65694026,
+        "best_global_variable_relationship_id": 65694026,
         "best_cause_variable_id": 5954744,
         "best_effect_variable_id": 1409,
         "client_id": "unknown",
@@ -6837,8 +6837,8 @@ var qm_variables = {
         "most_common_connector_id": 75,
         "most_common_original_unit_id": 41,
         "name": "Keystrokes",
-        "number_of_aggregate_correlations_as_cause": 103,
-        "number_of_aggregate_correlations_as_effect": 316,
+        "number_of_global_variable_relationships_as_cause": 103,
+        "number_of_global_variable_relationships_as_effect": 316,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6872,7 +6872,7 @@ var qm_variables = {
         "sorting_score": 463
     },
     "Mouse Clicks": {
-        "best_aggregate_correlation_id": 65697581,
+        "best_global_variable_relationship_id": 65697581,
         "best_cause_variable_id": 5954744,
         "best_effect_variable_id": 1267,
         "client_id": "unknown",
@@ -6884,8 +6884,8 @@ var qm_variables = {
         "most_common_connector_id": 3,
         "most_common_original_unit_id": 41,
         "name": "Mouse Clicks",
-        "number_of_aggregate_correlations_as_cause": 101,
-        "number_of_aggregate_correlations_as_effect": 235,
+        "number_of_global_variable_relationships_as_cause": 101,
+        "number_of_global_variable_relationships_as_effect": 235,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6919,7 +6919,7 @@ var qm_variables = {
         "sorting_score": 378
     },
     "Unsaturated Fat": {
-        "best_aggregate_correlation_id": 65596656,
+        "best_global_variable_relationship_id": 65596656,
         "best_effect_variable_id": 1335,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -6930,8 +6930,8 @@ var qm_variables = {
         "most_common_connector_id": 6,
         "most_common_original_unit_id": 6,
         "name": "Unsaturated Fat",
-        "number_of_aggregate_correlations_as_cause": 157,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 157,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -6965,7 +6965,7 @@ var qm_variables = {
         "sorting_score": 275
     },
     "Active Time": {
-        "best_aggregate_correlation_id": 65686712,
+        "best_global_variable_relationship_id": 65686712,
         "best_cause_variable_id": 5954773,
         "best_effect_variable_id": 1344,
         "client_id": "unknown",
@@ -6977,8 +6977,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 1,
         "name": "Active Time",
-        "number_of_aggregate_correlations_as_cause": 66,
-        "number_of_aggregate_correlations_as_effect": 111,
+        "number_of_global_variable_relationships_as_cause": 66,
+        "number_of_global_variable_relationships_as_effect": 111,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7012,7 +7012,7 @@ var qm_variables = {
         "sorting_score": 201
     },
     "Blood Pressure (Systolic - Top Number)": {
-        "best_aggregate_correlation_id": 65596679,
+        "best_global_variable_relationship_id": 65596679,
         "best_cause_variable_id": 1871,
         "best_effect_variable_id": 90664,
         "client_id": "unknown",
@@ -7024,8 +7024,8 @@ var qm_variables = {
         "most_common_connector_id": 9,
         "most_common_original_unit_id": 30,
         "name": "Blood Pressure (Systolic - Top Number)",
-        "number_of_aggregate_correlations_as_cause": 117,
-        "number_of_aggregate_correlations_as_effect": 780,
+        "number_of_global_variable_relationships_as_cause": 117,
+        "number_of_global_variable_relationships_as_effect": 780,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7059,7 +7059,7 @@ var qm_variables = {
         "sorting_score": 958
     },
     "Fat Ratio": {
-        "best_aggregate_correlation_id": 65685203,
+        "best_global_variable_relationship_id": 65685203,
         "best_cause_variable_id": 1451,
         "best_effect_variable_id": 1252,
         "client_id": "unknown",
@@ -7071,8 +7071,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 21,
         "name": "Fat Ratio",
-        "number_of_aggregate_correlations_as_cause": 158,
-        "number_of_aggregate_correlations_as_effect": 1644,
+        "number_of_global_variable_relationships_as_cause": 158,
+        "number_of_global_variable_relationships_as_effect": 1644,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7106,7 +7106,7 @@ var qm_variables = {
         "sorting_score": 1839
     },
     "Facebook Posts": {
-        "best_aggregate_correlation_id": 65638351,
+        "best_global_variable_relationship_id": 65638351,
         "best_cause_variable_id": 106952,
         "best_effect_variable_id": 1475,
         "client_id": "unknown",
@@ -7118,8 +7118,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 41,
         "name": "Facebook Posts",
-        "number_of_aggregate_correlations_as_cause": 199,
-        "number_of_aggregate_correlations_as_effect": 710,
+        "number_of_global_variable_relationships_as_cause": 199,
+        "number_of_global_variable_relationships_as_effect": 710,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7153,7 +7153,7 @@ var qm_variables = {
         "sorting_score": 1158
     },
     "Sleep Cycles": {
-        "best_aggregate_correlation_id": 65647422,
+        "best_global_variable_relationship_id": 65647422,
         "best_cause_variable_id": 1280,
         "best_effect_variable_id": 1299,
         "client_id": "unknown",
@@ -7165,8 +7165,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 41,
         "name": "Sleep Cycles",
-        "number_of_aggregate_correlations_as_cause": 259,
-        "number_of_aggregate_correlations_as_effect": 1385,
+        "number_of_global_variable_relationships_as_cause": 259,
+        "number_of_global_variable_relationships_as_effect": 1385,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 2,
         "number_of_common_tags": 0,
@@ -7200,7 +7200,7 @@ var qm_variables = {
         "sorting_score": 1706
     },
     "Sleep Noise Level": {
-        "best_aggregate_correlation_id": 65632740,
+        "best_global_variable_relationship_id": 65632740,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 1358,
         "client_id": "unknown",
@@ -7212,8 +7212,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 20,
         "name": "Sleep Noise Level",
-        "number_of_aggregate_correlations_as_cause": 99,
-        "number_of_aggregate_correlations_as_effect": 927,
+        "number_of_global_variable_relationships_as_cause": 99,
+        "number_of_global_variable_relationships_as_effect": 927,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 1,
         "number_of_common_tags": 0,
@@ -7247,7 +7247,7 @@ var qm_variables = {
         "sorting_score": 1089
     },
     "Water": {
-        "best_aggregate_correlation_id": 65695103,
+        "best_global_variable_relationship_id": 65695103,
         "best_effect_variable_id": 87760,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -7258,8 +7258,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Water",
-        "number_of_aggregate_correlations_as_cause": 118,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 118,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7293,7 +7293,7 @@ var qm_variables = {
         "sorting_score": 237
     },
     "Awakenings": {
-        "best_aggregate_correlation_id": 65677901,
+        "best_global_variable_relationship_id": 65677901,
         "best_cause_variable_id": 1383,
         "best_effect_variable_id": 1361,
         "client_id": "unknown",
@@ -7305,8 +7305,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 23,
         "name": "Awakenings",
-        "number_of_aggregate_correlations_as_cause": 136,
-        "number_of_aggregate_correlations_as_effect": 1507,
+        "number_of_global_variable_relationships_as_cause": 136,
+        "number_of_global_variable_relationships_as_effect": 1507,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7340,7 +7340,7 @@ var qm_variables = {
         "sorting_score": 1830
     },
     "Back Pain": {
-        "best_aggregate_correlation_id": 65657490,
+        "best_global_variable_relationship_id": 65657490,
         "best_cause_variable_id": 1828,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -7352,8 +7352,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Back Pain",
-        "number_of_aggregate_correlations_as_cause": 167,
-        "number_of_aggregate_correlations_as_effect": 1136,
+        "number_of_global_variable_relationships_as_cause": 167,
+        "number_of_global_variable_relationships_as_effect": 1136,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7387,7 +7387,7 @@ var qm_variables = {
         "sorting_score": 1708
     },
     "Stress": {
-        "best_aggregate_correlation_id": 65657516,
+        "best_global_variable_relationship_id": 65657516,
         "best_cause_variable_id": 87760,
         "best_effect_variable_id": 87760,
         "client_id": "unknown",
@@ -7399,8 +7399,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 23,
         "name": "Stress",
-        "number_of_aggregate_correlations_as_cause": 159,
-        "number_of_aggregate_correlations_as_effect": 1106,
+        "number_of_global_variable_relationships_as_cause": 159,
+        "number_of_global_variable_relationships_as_effect": 1106,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 1,
         "number_of_common_tags": 0,
@@ -7435,7 +7435,7 @@ var qm_variables = {
         "sorting_score": 1749
     },
     "Poly Unsat Fat": {
-        "best_aggregate_correlation_id": 65693511,
+        "best_global_variable_relationship_id": 65693511,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -7446,8 +7446,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 6,
         "name": "Poly Unsat Fat",
-        "number_of_aggregate_correlations_as_cause": 47,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 47,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7481,7 +7481,7 @@ var qm_variables = {
         "sorting_score": 50
     },
     "Mono Unsat Fat": {
-        "best_aggregate_correlation_id": 65693512,
+        "best_global_variable_relationship_id": 65693512,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -7492,8 +7492,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 6,
         "name": "Mono Unsat Fat",
-        "number_of_aggregate_correlations_as_cause": 47,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 47,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7527,7 +7527,7 @@ var qm_variables = {
         "sorting_score": 50
     },
     "Net Carbs": {
-        "best_aggregate_correlation_id": 65756218,
+        "best_global_variable_relationship_id": 65756218,
         "best_effect_variable_id": 1251,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -7538,8 +7538,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 6,
         "name": "Net Carbs",
-        "number_of_aggregate_correlations_as_cause": 49,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 49,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7573,7 +7573,7 @@ var qm_variables = {
         "sorting_score": 54
     },
     "Sugars": {
-        "best_aggregate_correlation_id": 65001114,
+        "best_global_variable_relationship_id": 65001114,
         "best_effect_variable_id": 1258,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -7584,8 +7584,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 6,
         "name": "Sugars",
-        "number_of_aggregate_correlations_as_cause": 47,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 47,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7619,7 +7619,7 @@ var qm_variables = {
         "sorting_score": 53
     },
     "Vit.A": {
-        "best_aggregate_correlation_id": 65693515,
+        "best_global_variable_relationship_id": 65693515,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -7630,8 +7630,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Vit.A",
-        "number_of_aggregate_correlations_as_cause": 43,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 43,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7665,7 +7665,7 @@ var qm_variables = {
         "sorting_score": 46
     },
     "Vit.C": {
-        "best_aggregate_correlation_id": 65693516,
+        "best_global_variable_relationship_id": 65693516,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -7676,8 +7676,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Vit.C",
-        "number_of_aggregate_correlations_as_cause": 43,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 43,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7711,7 +7711,7 @@ var qm_variables = {
         "sorting_score": 46
     },
     "Vit.B-6": {
-        "best_aggregate_correlation_id": 65693517,
+        "best_global_variable_relationship_id": 65693517,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -7722,8 +7722,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Vit.B-6",
-        "number_of_aggregate_correlations_as_cause": 43,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 43,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7757,7 +7757,7 @@ var qm_variables = {
         "sorting_score": 47
     },
     "Vit.B-12": {
-        "best_aggregate_correlation_id": 65686070,
+        "best_global_variable_relationship_id": 65686070,
         "best_effect_variable_id": 1436,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -7768,8 +7768,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Vit.B-12",
-        "number_of_aggregate_correlations_as_cause": 39,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 39,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7803,7 +7803,7 @@ var qm_variables = {
         "sorting_score": 42
     },
     "Vit.D": {
-        "best_aggregate_correlation_id": 65693518,
+        "best_global_variable_relationship_id": 65693518,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -7814,8 +7814,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Vit.D",
-        "number_of_aggregate_correlations_as_cause": 33,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 33,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7849,7 +7849,7 @@ var qm_variables = {
         "sorting_score": 36
     },
     "Vit.E": {
-        "best_aggregate_correlation_id": 65693519,
+        "best_global_variable_relationship_id": 65693519,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -7860,8 +7860,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Vit.E",
-        "number_of_aggregate_correlations_as_cause": 38,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 38,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7895,7 +7895,7 @@ var qm_variables = {
         "sorting_score": 41
     },
     "Vit.K": {
-        "best_aggregate_correlation_id": 65693520,
+        "best_global_variable_relationship_id": 65693520,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -7906,8 +7906,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Vit.K",
-        "number_of_aggregate_correlations_as_cause": 38,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 38,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7941,7 +7941,7 @@ var qm_variables = {
         "sorting_score": 41
     },
     "Magnesium": {
-        "best_aggregate_correlation_id": 65001308,
+        "best_global_variable_relationship_id": 65001308,
         "best_effect_variable_id": 1308,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -7952,8 +7952,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 29,
         "name": "Magnesium",
-        "number_of_aggregate_correlations_as_cause": 95,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 95,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -7987,7 +7987,7 @@ var qm_variables = {
         "sorting_score": 105
     },
     "Phosphorus": {
-        "best_aggregate_correlation_id": 65693521,
+        "best_global_variable_relationship_id": 65693521,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -7998,8 +7998,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Phosphorus",
-        "number_of_aggregate_correlations_as_cause": 39,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 39,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -8033,7 +8033,7 @@ var qm_variables = {
         "sorting_score": 42
     },
     "Copper": {
-        "best_aggregate_correlation_id": 65693522,
+        "best_global_variable_relationship_id": 65693522,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8044,8 +8044,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Copper",
-        "number_of_aggregate_correlations_as_cause": 40,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 40,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -8079,7 +8079,7 @@ var qm_variables = {
         "sorting_score": 43
     },
     "Manganese": {
-        "best_aggregate_correlation_id": 65693523,
+        "best_global_variable_relationship_id": 65693523,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8090,8 +8090,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Manganese",
-        "number_of_aggregate_correlations_as_cause": 44,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 44,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -8125,7 +8125,7 @@ var qm_variables = {
         "sorting_score": 47
     },
     "Selenium": {
-        "best_aggregate_correlation_id": 65347611,
+        "best_global_variable_relationship_id": 65347611,
         "best_effect_variable_id": 1258,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8136,8 +8136,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 29,
         "name": "Selenium",
-        "number_of_aggregate_correlations_as_cause": 81,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 81,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -8171,7 +8171,7 @@ var qm_variables = {
         "sorting_score": 85
     },
     "Niacin": {
-        "best_aggregate_correlation_id": 65001491,
+        "best_global_variable_relationship_id": 65001491,
         "best_effect_variable_id": 1335,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8182,8 +8182,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 29,
         "name": "Niacin",
-        "number_of_aggregate_correlations_as_cause": 89,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 89,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -8217,7 +8217,7 @@ var qm_variables = {
         "sorting_score": 159
     },
     "Pant. Acid": {
-        "best_aggregate_correlation_id": 65693524,
+        "best_global_variable_relationship_id": 65693524,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8228,8 +8228,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Pant. Acid",
-        "number_of_aggregate_correlations_as_cause": 38,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 38,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -8263,7 +8263,7 @@ var qm_variables = {
         "sorting_score": 41
     },
     "Folate": {
-        "best_aggregate_correlation_id": 65693525,
+        "best_global_variable_relationship_id": 65693525,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8274,8 +8274,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Folate",
-        "number_of_aggregate_correlations_as_cause": 40,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 40,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -8309,7 +8309,7 @@ var qm_variables = {
         "sorting_score": 43
     },
     "Sucrose": {
-        "best_aggregate_correlation_id": 65693526,
+        "best_global_variable_relationship_id": 65693526,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8320,8 +8320,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 6,
         "name": "Sucrose",
-        "number_of_aggregate_correlations_as_cause": 77,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 77,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -8355,7 +8355,7 @@ var qm_variables = {
         "sorting_score": 94
     },
     "Fructose": {
-        "best_aggregate_correlation_id": 65695912,
+        "best_global_variable_relationship_id": 65695912,
         "best_effect_variable_id": 1340,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8366,8 +8366,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 6,
         "name": "Fructose",
-        "number_of_aggregate_correlations_as_cause": 62,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 62,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_common_tags": 0,
         "number_of_measurements": 102,
         "number_of_raw_measurements": 51,
@@ -8387,7 +8387,7 @@ var qm_variables = {
         "sorting_score": 150
     },
     "Carrots Raw": {
-        "best_aggregate_correlation_id": 65697095,
+        "best_global_variable_relationship_id": 65697095,
         "best_effect_variable_id": 1258,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8398,8 +8398,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 6,
         "name": "Carrots Raw",
-        "number_of_aggregate_correlations_as_cause": 74,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 74,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 2,
@@ -8433,7 +8433,7 @@ var qm_variables = {
         "sorting_score": 88
     },
     "Egg Whole Cooked Fried": {
-        "best_aggregate_correlation_id": 65757929,
+        "best_global_variable_relationship_id": 65757929,
         "best_effect_variable_id": 1361,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8444,8 +8444,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 6,
         "name": "Egg Whole Cooked Fried",
-        "number_of_aggregate_correlations_as_cause": 24,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 24,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -8479,7 +8479,7 @@ var qm_variables = {
         "sorting_score": 27
     },
     "Bananas (grams)": {
-        "best_aggregate_correlation_id": 65704560,
+        "best_global_variable_relationship_id": 65704560,
         "best_effect_variable_id": 5963320,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8490,8 +8490,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 6,
         "name": "Bananas (grams)",
-        "number_of_aggregate_correlations_as_cause": 138,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 138,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 2,
@@ -8525,7 +8525,7 @@ var qm_variables = {
         "sorting_score": 142
     },
     "Caffeine": {
-        "best_aggregate_correlation_id": 65686765,
+        "best_global_variable_relationship_id": 65686765,
         "best_effect_variable_id": 1443,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8536,8 +8536,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Caffeine",
-        "number_of_aggregate_correlations_as_cause": 89,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 89,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -8571,7 +8571,7 @@ var qm_variables = {
         "sorting_score": 197
     },
     "Coffee Brewed From Grounds Prepared With Tap Water": {
-        "best_aggregate_correlation_id": 65754765,
+        "best_global_variable_relationship_id": 65754765,
         "best_effect_variable_id": 1258,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8582,8 +8582,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 6,
         "name": "Coffee Brewed From Grounds Prepared With Tap Water",
-        "number_of_aggregate_correlations_as_cause": 20,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 20,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -8616,7 +8616,7 @@ var qm_variables = {
         "sorting_score": 25
     },
     "Happiness": {
-        "best_aggregate_correlation_id": 65725912,
+        "best_global_variable_relationship_id": 65725912,
         "best_cause_variable_id": 5949744,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8627,8 +8627,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 25,
         "name": "Happiness",
-        "number_of_aggregate_correlations_as_cause": 0,
-        "number_of_aggregate_correlations_as_effect": 10,
+        "number_of_global_variable_relationships_as_cause": 0,
+        "number_of_global_variable_relationships_as_effect": 10,
         "number_of_common_tags": 0,
         "number_of_measurements": 76,
         "number_of_raw_measurements": 2,
@@ -8647,7 +8647,7 @@ var qm_variables = {
         "sorting_score": 54
     },
     "Light Therapy": {
-        "best_aggregate_correlation_id": 65678888,
+        "best_global_variable_relationship_id": 65678888,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8658,8 +8658,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 2,
         "name": "Light Therapy",
-        "number_of_aggregate_correlations_as_cause": 11,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 11,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -8693,7 +8693,7 @@ var qm_variables = {
         "sorting_score": 17
     },
     "L-Tryptophan": {
-        "best_aggregate_correlation_id": 65756229,
+        "best_global_variable_relationship_id": 65756229,
         "best_effect_variable_id": 1251,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8703,8 +8703,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_original_unit_id": 7,
         "name": "L-Tryptophan",
-        "number_of_aggregate_correlations_as_cause": 57,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 57,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -8738,7 +8738,7 @@ var qm_variables = {
         "sorting_score": 60
     },
     "Deep Sleep": {
-        "best_aggregate_correlation_id": 65657669,
+        "best_global_variable_relationship_id": 65657669,
         "best_cause_variable_id": 5954773,
         "best_effect_variable_id": 1307,
         "client_id": "unknown",
@@ -8750,8 +8750,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 20,
         "name": "Deep Sleep",
-        "number_of_aggregate_correlations_as_cause": 119,
-        "number_of_aggregate_correlations_as_effect": 1265,
+        "number_of_global_variable_relationships_as_cause": 119,
+        "number_of_global_variable_relationships_as_effect": 1265,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 5,
         "number_of_common_tags": 0,
@@ -8785,7 +8785,7 @@ var qm_variables = {
         "sorting_score": 1449
     },
     "Gas Or Flatulence Severity": {
-        "best_aggregate_correlation_id": 65687345,
+        "best_global_variable_relationship_id": 65687345,
         "best_cause_variable_id": 5954773,
         "best_effect_variable_id": 1308,
         "client_id": "unknown",
@@ -8797,8 +8797,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Gas Or Flatulence Severity",
-        "number_of_aggregate_correlations_as_cause": 42,
-        "number_of_aggregate_correlations_as_effect": 184,
+        "number_of_global_variable_relationships_as_cause": 42,
+        "number_of_global_variable_relationships_as_effect": 184,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -8832,7 +8832,7 @@ var qm_variables = {
         "sorting_score": 312
     },
     "Lactose": {
-        "best_aggregate_correlation_id": 65701083,
+        "best_global_variable_relationship_id": 65701083,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8843,8 +8843,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 6,
         "name": "Lactose",
-        "number_of_aggregate_correlations_as_cause": 58,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 58,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -8878,7 +8878,7 @@ var qm_variables = {
         "sorting_score": 79
     },
     "Neck Pain": {
-        "best_aggregate_correlation_id": 65701568,
+        "best_global_variable_relationship_id": 65701568,
         "best_cause_variable_id": 5974181,
         "best_effect_variable_id": 1436,
         "client_id": "unknown",
@@ -8890,8 +8890,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Neck Pain",
-        "number_of_aggregate_correlations_as_cause": 92,
-        "number_of_aggregate_correlations_as_effect": 389,
+        "number_of_global_variable_relationships_as_cause": 92,
+        "number_of_global_variable_relationships_as_effect": 389,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -8925,7 +8925,7 @@ var qm_variables = {
         "sorting_score": 647
     },
     "Beef - Loin, Bottom Sirloin Butt, Tri-tip Steak, Lean Only, Cooked, Broiled": {
-        "best_aggregate_correlation_id": 65747823,
+        "best_global_variable_relationship_id": 65747823,
         "best_effect_variable_id": 1299,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8936,8 +8936,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Beef - Loin, Bottom Sirloin Butt, Tri-tip Steak, Lean Only, Cooked, Broiled",
-        "number_of_aggregate_correlations_as_cause": 26,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 26,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -8971,7 +8971,7 @@ var qm_variables = {
         "sorting_score": 41
     },
     "Coffee": {
-        "best_aggregate_correlation_id": 65657503,
+        "best_global_variable_relationship_id": 65657503,
         "best_effect_variable_id": 87760,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -8982,8 +8982,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 23,
         "name": "Coffee",
-        "number_of_aggregate_correlations_as_cause": 260,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 260,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 1,
         "number_of_common_tags": 2,
@@ -9017,7 +9017,7 @@ var qm_variables = {
         "sorting_score": 763
     },
     "Meditation": {
-        "best_aggregate_correlation_id": 65653930,
+        "best_global_variable_relationship_id": 65653930,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -9028,8 +9028,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 2,
         "name": "Meditation",
-        "number_of_aggregate_correlations_as_cause": 208,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 208,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9063,7 +9063,7 @@ var qm_variables = {
         "sorting_score": 423
     },
     "Yoga": {
-        "best_aggregate_correlation_id": 65802822,
+        "best_global_variable_relationship_id": 65802822,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -9075,8 +9075,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 2,
         "name": "Yoga",
-        "number_of_aggregate_correlations_as_cause": 75,
-        "number_of_aggregate_correlations_as_effect": 18,
+        "number_of_global_variable_relationships_as_cause": 75,
+        "number_of_global_variable_relationships_as_effect": 18,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9110,7 +9110,7 @@ var qm_variables = {
         "sorting_score": 129
     },
     "Raw Spinach by Weight": {
-        "best_aggregate_correlation_id": 65689496,
+        "best_global_variable_relationship_id": 65689496,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -9120,8 +9120,8 @@ var qm_variables = {
         "ion_icon": "ion-fork",
         "most_common_original_unit_id": 6,
         "name": "Raw Spinach by Weight",
-        "number_of_aggregate_correlations_as_cause": 86,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 86,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9155,7 +9155,7 @@ var qm_variables = {
         "sorting_score": 89
     },
     "Number of Farts": {
-        "best_aggregate_correlation_id": 65680147,
+        "best_global_variable_relationship_id": 65680147,
         "best_cause_variable_id": 1813,
         "best_effect_variable_id": 1308,
         "client_id": "unknown",
@@ -9167,8 +9167,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 23,
         "name": "Number of Farts",
-        "number_of_aggregate_correlations_as_cause": 112,
-        "number_of_aggregate_correlations_as_effect": 1390,
+        "number_of_global_variable_relationships_as_cause": 112,
+        "number_of_global_variable_relationships_as_effect": 1390,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9202,7 +9202,7 @@ var qm_variables = {
         "sorting_score": 1505
     },
     "Anger": {
-        "best_aggregate_correlation_id": 65638293,
+        "best_global_variable_relationship_id": 65638293,
         "best_cause_variable_id": 87709,
         "best_effect_variable_id": 87812,
         "client_id": "unknown",
@@ -9214,8 +9214,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Anger",
-        "number_of_aggregate_correlations_as_cause": 110,
-        "number_of_aggregate_correlations_as_effect": 737,
+        "number_of_global_variable_relationships_as_cause": 110,
+        "number_of_global_variable_relationships_as_effect": 737,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9249,7 +9249,7 @@ var qm_variables = {
         "sorting_score": 1074
     },
     "Constipation": {
-        "best_aggregate_correlation_id": 65770506,
+        "best_global_variable_relationship_id": 65770506,
         "best_cause_variable_id": 93795,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -9261,8 +9261,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 21,
         "name": "Constipation",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 13,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 13,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9295,7 +9295,7 @@ var qm_variables = {
         "sorting_score": 36
     },
     "Depression": {
-        "best_aggregate_correlation_id": 65713553,
+        "best_global_variable_relationship_id": 65713553,
         "best_cause_variable_id": 89387,
         "best_effect_variable_id": 89387,
         "client_id": "unknown",
@@ -9307,8 +9307,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Depression",
-        "number_of_aggregate_correlations_as_cause": 50,
-        "number_of_aggregate_correlations_as_effect": 212,
+        "number_of_global_variable_relationships_as_cause": 50,
+        "number_of_global_variable_relationships_as_effect": 212,
         "number_of_common_tags": 0,
         "number_of_measurements": 961,
         "number_of_raw_measurements": 946,
@@ -9328,7 +9328,7 @@ var qm_variables = {
         "sorting_score": 377
     },
     "Dizziness\/Lightheadedness": {
-        "best_aggregate_correlation_id": 65809265,
+        "best_global_variable_relationship_id": 65809265,
         "best_cause_variable_id": 5746931,
         "best_effect_variable_id": 87323,
         "client_id": "unknown",
@@ -9340,8 +9340,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 21,
         "name": "Dizziness\/Lightheadedness",
-        "number_of_aggregate_correlations_as_cause": 6,
-        "number_of_aggregate_correlations_as_effect": 14,
+        "number_of_global_variable_relationships_as_cause": 6,
+        "number_of_global_variable_relationships_as_effect": 14,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9374,7 +9374,7 @@ var qm_variables = {
         "sorting_score": 33
     },
     "Knee Pain": {
-        "best_aggregate_correlation_id": 65744685,
+        "best_global_variable_relationship_id": 65744685,
         "best_cause_variable_id": 1340,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -9386,8 +9386,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 21,
         "name": "Knee Pain",
-        "number_of_aggregate_correlations_as_cause": 72,
-        "number_of_aggregate_correlations_as_effect": 419,
+        "number_of_global_variable_relationships_as_cause": 72,
+        "number_of_global_variable_relationships_as_effect": 419,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9421,7 +9421,7 @@ var qm_variables = {
         "sorting_score": 497
     },
     "Abdominal Pain": {
-        "best_aggregate_correlation_id": 65740933,
+        "best_global_variable_relationship_id": 65740933,
         "best_cause_variable_id": 1919,
         "best_effect_variable_id": 1919,
         "client_id": "unknown",
@@ -9433,8 +9433,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 3,
         "name": "Abdominal Pain",
-        "number_of_aggregate_correlations_as_cause": 51,
-        "number_of_aggregate_correlations_as_effect": 230,
+        "number_of_global_variable_relationships_as_cause": 51,
+        "number_of_global_variable_relationships_as_effect": 230,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9468,7 +9468,7 @@ var qm_variables = {
         "sorting_score": 340
     },
     "Anxiety Attacks": {
-        "best_aggregate_correlation_id": 65808992,
+        "best_global_variable_relationship_id": 65808992,
         "best_cause_variable_id": 1770,
         "best_effect_variable_id": 87554,
         "client_id": "unknown",
@@ -9480,8 +9480,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Anxiety Attacks",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 86,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 86,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9514,7 +9514,7 @@ var qm_variables = {
         "sorting_score": 91
     },
     "Bloating": {
-        "best_aggregate_correlation_id": 65725633,
+        "best_global_variable_relationship_id": 65725633,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 1919,
         "client_id": "unknown",
@@ -9526,8 +9526,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Bloating",
-        "number_of_aggregate_correlations_as_cause": 30,
-        "number_of_aggregate_correlations_as_effect": 154,
+        "number_of_global_variable_relationships_as_cause": 30,
+        "number_of_global_variable_relationships_as_effect": 154,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9561,7 +9561,7 @@ var qm_variables = {
         "sorting_score": 244
     },
     "Chest Pains": {
-        "best_aggregate_correlation_id": 65808996,
+        "best_global_variable_relationship_id": 65808996,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 87554,
         "client_id": "unknown",
@@ -9573,8 +9573,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Chest Pains",
-        "number_of_aggregate_correlations_as_cause": 11,
-        "number_of_aggregate_correlations_as_effect": 102,
+        "number_of_global_variable_relationships_as_cause": 11,
+        "number_of_global_variable_relationships_as_effect": 102,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9607,7 +9607,7 @@ var qm_variables = {
         "sorting_score": 127
     },
     "Dissociation": {
-        "best_aggregate_correlation_id": 65675075,
+        "best_global_variable_relationship_id": 65675075,
         "best_cause_variable_id": 5903391,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -9619,8 +9619,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Dissociation",
-        "number_of_aggregate_correlations_as_cause": 78,
-        "number_of_aggregate_correlations_as_effect": 220,
+        "number_of_global_variable_relationships_as_cause": 78,
+        "number_of_global_variable_relationships_as_effect": 220,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9654,7 +9654,7 @@ var qm_variables = {
         "sorting_score": 444
     },
     "Dizziness Or Lightheadedness": {
-        "best_aggregate_correlation_id": 65760029,
+        "best_global_variable_relationship_id": 65760029,
         "best_cause_variable_id": 1290,
         "best_effect_variable_id": 90655,
         "client_id": "unknown",
@@ -9666,8 +9666,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Dizziness Or Lightheadedness",
-        "number_of_aggregate_correlations_as_cause": 8,
-        "number_of_aggregate_correlations_as_effect": 133,
+        "number_of_global_variable_relationships_as_cause": 8,
+        "number_of_global_variable_relationships_as_effect": 133,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9700,7 +9700,7 @@ var qm_variables = {
         "sorting_score": 172
     },
     "Headache Severity": {
-        "best_aggregate_correlation_id": 65657531,
+        "best_global_variable_relationship_id": 65657531,
         "best_cause_variable_id": 96380,
         "best_effect_variable_id": 6054281,
         "client_id": "unknown",
@@ -9712,8 +9712,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Headache Severity",
-        "number_of_aggregate_correlations_as_cause": 181,
-        "number_of_aggregate_correlations_as_effect": 1402,
+        "number_of_global_variable_relationships_as_cause": 181,
+        "number_of_global_variable_relationships_as_effect": 1402,
         "number_of_applications_where_outcome_variable": 2,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9747,7 +9747,7 @@ var qm_variables = {
         "sorting_score": 1920
     },
     "Heartburn Or Indigestion": {
-        "best_aggregate_correlation_id": 65798341,
+        "best_global_variable_relationship_id": 65798341,
         "best_cause_variable_id": 5950435,
         "best_effect_variable_id": 89640,
         "client_id": "unknown",
@@ -9759,8 +9759,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Heartburn Or Indigestion",
-        "number_of_aggregate_correlations_as_cause": 20,
-        "number_of_aggregate_correlations_as_effect": 211,
+        "number_of_global_variable_relationships_as_cause": 20,
+        "number_of_global_variable_relationships_as_effect": 211,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9794,7 +9794,7 @@ var qm_variables = {
         "sorting_score": 263
     },
     "Joint Pain Severity": {
-        "best_aggregate_correlation_id": 65809534,
+        "best_global_variable_relationship_id": 65809534,
         "best_cause_variable_id": 87760,
         "best_effect_variable_id": 1358,
         "client_id": "unknown",
@@ -9806,8 +9806,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Joint Pain Severity",
-        "number_of_aggregate_correlations_as_cause": 37,
-        "number_of_aggregate_correlations_as_effect": 229,
+        "number_of_global_variable_relationships_as_cause": 37,
+        "number_of_global_variable_relationships_as_effect": 229,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9840,7 +9840,7 @@ var qm_variables = {
         "sorting_score": 359
     },
     "Mania": {
-        "best_aggregate_correlation_id": 65721632,
+        "best_global_variable_relationship_id": 65721632,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 5970882,
         "client_id": "unknown",
@@ -9852,8 +9852,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Mania",
-        "number_of_aggregate_correlations_as_cause": 49,
-        "number_of_aggregate_correlations_as_effect": 236,
+        "number_of_global_variable_relationships_as_cause": 49,
+        "number_of_global_variable_relationships_as_effect": 236,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9886,7 +9886,7 @@ var qm_variables = {
         "sorting_score": 315
     },
     "Mood Swing": {
-        "best_aggregate_correlation_id": 65809044,
+        "best_global_variable_relationship_id": 65809044,
         "best_cause_variable_id": 5746931,
         "best_effect_variable_id": 5746931,
         "client_id": "unknown",
@@ -9896,8 +9896,8 @@ var qm_variables = {
         "image_url": "https:\/\/images-na.ssl-images-amazon.com\/images\/I\/51jTEzvDZgL._SL160_.jpg",
         "ion_icon": "ion-sad-outline",
         "name": "Mood Swing",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9930,7 +9930,7 @@ var qm_variables = {
         "sorting_score": 6
     },
     "Muscle Aches Or Cramps": {
-        "best_aggregate_correlation_id": 65785832,
+        "best_global_variable_relationship_id": 65785832,
         "best_cause_variable_id": 5973887,
         "best_effect_variable_id": 89043,
         "client_id": "unknown",
@@ -9942,8 +9942,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Muscle Aches Or Cramps",
-        "number_of_aggregate_correlations_as_cause": 44,
-        "number_of_aggregate_correlations_as_effect": 226,
+        "number_of_global_variable_relationships_as_cause": 44,
+        "number_of_global_variable_relationships_as_effect": 226,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -9976,7 +9976,7 @@ var qm_variables = {
         "sorting_score": 278
     },
     "Muscle Pain": {
-        "best_aggregate_correlation_id": 65772421,
+        "best_global_variable_relationship_id": 65772421,
         "best_cause_variable_id": 1922,
         "best_effect_variable_id": 87554,
         "client_id": "unknown",
@@ -9988,8 +9988,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Muscle Pain",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 87,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 87,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10022,7 +10022,7 @@ var qm_variables = {
         "sorting_score": 91
     },
     "Nausea Severity": {
-        "best_aggregate_correlation_id": 65657671,
+        "best_global_variable_relationship_id": 65657671,
         "best_cause_variable_id": 5954773,
         "best_effect_variable_id": 89438,
         "client_id": "unknown",
@@ -10034,8 +10034,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 10,
         "name": "Nausea Severity",
-        "number_of_aggregate_correlations_as_cause": 158,
-        "number_of_aggregate_correlations_as_effect": 965,
+        "number_of_global_variable_relationships_as_cause": 158,
+        "number_of_global_variable_relationships_as_effect": 965,
         "number_of_applications_where_outcome_variable": 1,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10069,7 +10069,7 @@ var qm_variables = {
         "sorting_score": 1232
     },
     "Nervousness \/ Anxiety": {
-        "best_aggregate_correlation_id": 65809107,
+        "best_global_variable_relationship_id": 65809107,
         "best_cause_variable_id": 1956,
         "best_effect_variable_id": 87554,
         "client_id": "unknown",
@@ -10080,8 +10080,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_connector_id": 72,
         "name": "Nervousness \/ Anxiety",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 88,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 88,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10114,7 +10114,7 @@ var qm_variables = {
         "sorting_score": 95
     },
     "Pain Severity": {
-        "best_aggregate_correlation_id": 65642751,
+        "best_global_variable_relationship_id": 65642751,
         "best_cause_variable_id": 5954744,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -10126,8 +10126,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Pain Severity",
-        "number_of_aggregate_correlations_as_cause": 111,
-        "number_of_aggregate_correlations_as_effect": 639,
+        "number_of_global_variable_relationships_as_cause": 111,
+        "number_of_global_variable_relationships_as_effect": 639,
         "number_of_applications_where_outcome_variable": 1,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10161,7 +10161,7 @@ var qm_variables = {
         "sorting_score": 878
     },
     "Panic Attack": {
-        "best_aggregate_correlation_id": 65655776,
+        "best_global_variable_relationship_id": 65655776,
         "best_cause_variable_id": 5903391,
         "best_effect_variable_id": 5903391,
         "client_id": "unknown",
@@ -10173,8 +10173,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Panic Attack",
-        "number_of_aggregate_correlations_as_cause": 86,
-        "number_of_aggregate_correlations_as_effect": 280,
+        "number_of_global_variable_relationships_as_cause": 86,
+        "number_of_global_variable_relationships_as_effect": 280,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10208,7 +10208,7 @@ var qm_variables = {
         "sorting_score": 555
     },
     "Restlessness": {
-        "best_aggregate_correlation_id": 65806404,
+        "best_global_variable_relationship_id": 65806404,
         "best_cause_variable_id": 1358,
         "best_effect_variable_id": 1358,
         "client_id": "unknown",
@@ -10219,8 +10219,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_connector_id": 72,
         "name": "Restlessness",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10253,7 +10253,7 @@ var qm_variables = {
         "sorting_score": 7
     },
     "Shortness of Breath": {
-        "best_aggregate_correlation_id": 65761245,
+        "best_global_variable_relationship_id": 65761245,
         "best_cause_variable_id": 1479,
         "best_effect_variable_id": 87554,
         "client_id": "unknown",
@@ -10265,8 +10265,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Shortness of Breath",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 89,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 89,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10299,7 +10299,7 @@ var qm_variables = {
         "sorting_score": 94
     },
     "Sleepiness": {
-        "best_aggregate_correlation_id": 65686853,
+        "best_global_variable_relationship_id": 65686853,
         "best_cause_variable_id": 87760,
         "best_effect_variable_id": 87760,
         "client_id": "unknown",
@@ -10311,8 +10311,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Sleepiness",
-        "number_of_aggregate_correlations_as_cause": 80,
-        "number_of_aggregate_correlations_as_effect": 224,
+        "number_of_global_variable_relationships_as_cause": 80,
+        "number_of_global_variable_relationships_as_effect": 224,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10346,7 +10346,7 @@ var qm_variables = {
         "sorting_score": 495
     },
     "Stomach Ache": {
-        "best_aggregate_correlation_id": 65721383,
+        "best_global_variable_relationship_id": 65721383,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 87323,
         "client_id": "unknown",
@@ -10358,8 +10358,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Stomach Ache",
-        "number_of_aggregate_correlations_as_cause": 23,
-        "number_of_aggregate_correlations_as_effect": 134,
+        "number_of_global_variable_relationships_as_cause": 23,
+        "number_of_global_variable_relationships_as_effect": 134,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10393,7 +10393,7 @@ var qm_variables = {
         "sorting_score": 178
     },
     "Suicidality": {
-        "best_aggregate_correlation_id": 65714796,
+        "best_global_variable_relationship_id": 65714796,
         "best_cause_variable_id": 1358,
         "best_effect_variable_id": 1358,
         "client_id": "unknown",
@@ -10405,8 +10405,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Suicidality",
-        "number_of_aggregate_correlations_as_cause": 128,
-        "number_of_aggregate_correlations_as_effect": 323,
+        "number_of_global_variable_relationships_as_cause": 128,
+        "number_of_global_variable_relationships_as_effect": 323,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10439,7 +10439,7 @@ var qm_variables = {
         "sorting_score": 621
     },
     "Tension": {
-        "best_aggregate_correlation_id": 65802647,
+        "best_global_variable_relationship_id": 65802647,
         "best_cause_variable_id": 1443,
         "best_effect_variable_id": 1443,
         "client_id": "unknown",
@@ -10451,8 +10451,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Tension",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10485,7 +10485,7 @@ var qm_variables = {
         "sorting_score": 20
     },
     "Tiredness \/ Fatigue": {
-        "best_aggregate_correlation_id": 65657503,
+        "best_global_variable_relationship_id": 65657503,
         "best_cause_variable_id": 84985,
         "best_effect_variable_id": 6054281,
         "client_id": "unknown",
@@ -10497,8 +10497,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Tiredness \/ Fatigue",
-        "number_of_aggregate_correlations_as_cause": 212,
-        "number_of_aggregate_correlations_as_effect": 1255,
+        "number_of_global_variable_relationships_as_cause": 212,
+        "number_of_global_variable_relationships_as_effect": 1255,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10532,7 +10532,7 @@ var qm_variables = {
         "sorting_score": 2518
     },
     "Upset Stomach": {
-        "best_aggregate_correlation_id": 65762758,
+        "best_global_variable_relationship_id": 65762758,
         "best_cause_variable_id": 5871531,
         "best_effect_variable_id": 1305,
         "client_id": "unknown",
@@ -10544,8 +10544,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Upset Stomach",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 13,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 13,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10578,7 +10578,7 @@ var qm_variables = {
         "sorting_score": 35
     },
     "Vivid Dreams": {
-        "best_aggregate_correlation_id": 65696128,
+        "best_global_variable_relationship_id": 65696128,
         "best_cause_variable_id": 85055,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -10590,8 +10590,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Vivid Dreams",
-        "number_of_aggregate_correlations_as_cause": 71,
-        "number_of_aggregate_correlations_as_effect": 437,
+        "number_of_global_variable_relationships_as_cause": 71,
+        "number_of_global_variable_relationships_as_effect": 437,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10625,7 +10625,7 @@ var qm_variables = {
         "sorting_score": 514
     },
     "Abdominal Cramps": {
-        "best_aggregate_correlation_id": 65714211,
+        "best_global_variable_relationship_id": 65714211,
         "best_cause_variable_id": 5967259,
         "best_effect_variable_id": 5903391,
         "client_id": "unknown",
@@ -10637,8 +10637,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Abdominal Cramps",
-        "number_of_aggregate_correlations_as_cause": 29,
-        "number_of_aggregate_correlations_as_effect": 70,
+        "number_of_global_variable_relationships_as_cause": 29,
+        "number_of_global_variable_relationships_as_effect": 70,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10672,7 +10672,7 @@ var qm_variables = {
         "sorting_score": 138
     },
     "ADHD": {
-        "best_aggregate_correlation_id": 65686907,
+        "best_global_variable_relationship_id": 65686907,
         "best_cause_variable_id": 89387,
         "best_effect_variable_id": 89387,
         "client_id": "unknown",
@@ -10684,8 +10684,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "ADHD",
-        "number_of_aggregate_correlations_as_cause": 80,
-        "number_of_aggregate_correlations_as_effect": 304,
+        "number_of_global_variable_relationships_as_cause": 80,
+        "number_of_global_variable_relationships_as_effect": 304,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10719,7 +10719,7 @@ var qm_variables = {
         "sorting_score": 531
     },
     "Brain Fog (difficulty Thinking Clearly)": {
-        "best_aggregate_correlation_id": 65686878,
+        "best_global_variable_relationship_id": 65686878,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 89387,
         "client_id": "unknown",
@@ -10731,8 +10731,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Brain Fog (difficulty Thinking Clearly)",
-        "number_of_aggregate_correlations_as_cause": 72,
-        "number_of_aggregate_correlations_as_effect": 307,
+        "number_of_global_variable_relationships_as_cause": 72,
+        "number_of_global_variable_relationships_as_effect": 307,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10765,7 +10765,7 @@ var qm_variables = {
         "sorting_score": 485
     },
     "Concentration Problems": {
-        "best_aggregate_correlation_id": 65771152,
+        "best_global_variable_relationship_id": 65771152,
         "best_cause_variable_id": 1452,
         "best_effect_variable_id": 86810,
         "client_id": "unknown",
@@ -10777,8 +10777,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Concentration Problems",
-        "number_of_aggregate_correlations_as_cause": 3,
-        "number_of_aggregate_correlations_as_effect": 15,
+        "number_of_global_variable_relationships_as_cause": 3,
+        "number_of_global_variable_relationships_as_effect": 15,
         "number_of_common_tags": 0,
         "number_of_measurements": 104,
         "number_of_raw_measurements": 104,
@@ -10797,7 +10797,7 @@ var qm_variables = {
         "sorting_score": 58
     },
     "Crying Duration": {
-        "best_aggregate_correlation_id": 65803876,
+        "best_global_variable_relationship_id": 65803876,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 5977144,
         "client_id": "unknown",
@@ -10809,8 +10809,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 2,
         "name": "Crying Duration",
-        "number_of_aggregate_correlations_as_cause": 3,
-        "number_of_aggregate_correlations_as_effect": 57,
+        "number_of_global_variable_relationships_as_cause": 3,
+        "number_of_global_variable_relationships_as_effect": 57,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10843,7 +10843,7 @@ var qm_variables = {
         "sorting_score": 77
     },
     "Fatigue \/ Lethargy \/ Tiredness": {
-        "best_aggregate_correlation_id": 65679644,
+        "best_global_variable_relationship_id": 65679644,
         "best_cause_variable_id": 1358,
         "best_effect_variable_id": 1358,
         "client_id": "unknown",
@@ -10855,8 +10855,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Fatigue \/ Lethargy \/ Tiredness",
-        "number_of_aggregate_correlations_as_cause": 160,
-        "number_of_aggregate_correlations_as_effect": 294,
+        "number_of_global_variable_relationships_as_cause": 160,
+        "number_of_global_variable_relationships_as_effect": 294,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10890,7 +10890,7 @@ var qm_variables = {
         "sorting_score": 604
     },
     "Migraine Headache Severity": {
-        "best_aggregate_correlation_id": 65805024,
+        "best_global_variable_relationship_id": 65805024,
         "best_cause_variable_id": 88305,
         "best_effect_variable_id": 88305,
         "client_id": "unknown",
@@ -10902,8 +10902,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Migraine Headache Severity",
-        "number_of_aggregate_correlations_as_cause": 11,
-        "number_of_aggregate_correlations_as_effect": 151,
+        "number_of_global_variable_relationships_as_cause": 11,
+        "number_of_global_variable_relationships_as_effect": 151,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10936,7 +10936,7 @@ var qm_variables = {
         "sorting_score": 200
     },
     "IBS": {
-        "best_aggregate_correlation_id": 65770914,
+        "best_global_variable_relationship_id": 65770914,
         "best_cause_variable_id": 5968210,
         "best_effect_variable_id": 1335,
         "client_id": "unknown",
@@ -10948,8 +10948,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 21,
         "name": "IBS",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 44,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 44,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -10982,7 +10982,7 @@ var qm_variables = {
         "sorting_score": 56
     },
     "Insomnia Or Sleep Disturbances": {
-        "best_aggregate_correlation_id": 65686857,
+        "best_global_variable_relationship_id": 65686857,
         "best_cause_variable_id": 87760,
         "best_effect_variable_id": 87760,
         "client_id": "unknown",
@@ -10994,8 +10994,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Insomnia Or Sleep Disturbances",
-        "number_of_aggregate_correlations_as_cause": 140,
-        "number_of_aggregate_correlations_as_effect": 641,
+        "number_of_global_variable_relationships_as_cause": 140,
+        "number_of_global_variable_relationships_as_effect": 641,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11029,7 +11029,7 @@ var qm_variables = {
         "sorting_score": 1257
     },
     "Itchy": {
-        "best_aggregate_correlation_id": 65694027,
+        "best_global_variable_relationship_id": 65694027,
         "best_cause_variable_id": 1868,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -11040,8 +11040,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_connector_id": 72,
         "name": "Itchy",
-        "number_of_aggregate_correlations_as_cause": 27,
-        "number_of_aggregate_correlations_as_effect": 258,
+        "number_of_global_variable_relationships_as_cause": 27,
+        "number_of_global_variable_relationships_as_effect": 258,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11074,7 +11074,7 @@ var qm_variables = {
         "sorting_score": 290
     },
     "Lack of Focus": {
-        "best_aggregate_correlation_id": 65741475,
+        "best_global_variable_relationship_id": 65741475,
         "best_cause_variable_id": 88305,
         "best_effect_variable_id": 88305,
         "client_id": "unknown",
@@ -11086,8 +11086,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Lack of Focus",
-        "number_of_aggregate_correlations_as_cause": 16,
-        "number_of_aggregate_correlations_as_effect": 135,
+        "number_of_global_variable_relationships_as_cause": 16,
+        "number_of_global_variable_relationships_as_effect": 135,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11121,7 +11121,7 @@ var qm_variables = {
         "sorting_score": 228
     },
     "Lack of Motivation": {
-        "best_aggregate_correlation_id": 65674310,
+        "best_global_variable_relationship_id": 65674310,
         "best_cause_variable_id": 5954744,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -11133,8 +11133,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Lack of Motivation",
-        "number_of_aggregate_correlations_as_cause": 158,
-        "number_of_aggregate_correlations_as_effect": 712,
+        "number_of_global_variable_relationships_as_cause": 158,
+        "number_of_global_variable_relationships_as_effect": 712,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11168,7 +11168,7 @@ var qm_variables = {
         "sorting_score": 1616
     },
     "Leg Pain": {
-        "best_aggregate_correlation_id": 65676541,
+        "best_global_variable_relationship_id": 65676541,
         "best_cause_variable_id": 5954744,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -11180,8 +11180,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Leg Pain",
-        "number_of_aggregate_correlations_as_cause": 44,
-        "number_of_aggregate_correlations_as_effect": 253,
+        "number_of_global_variable_relationships_as_cause": 44,
+        "number_of_global_variable_relationships_as_effect": 253,
         "number_of_common_tags": 0,
         "number_of_measurements": 217,
         "number_of_raw_measurements": 213,
@@ -11200,7 +11200,7 @@ var qm_variables = {
         "sorting_score": 344
     },
     "Loneliness": {
-        "best_aggregate_correlation_id": 65713629,
+        "best_global_variable_relationship_id": 65713629,
         "best_cause_variable_id": 87553,
         "best_effect_variable_id": 89387,
         "client_id": "unknown",
@@ -11212,8 +11212,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Loneliness",
-        "number_of_aggregate_correlations_as_cause": 167,
-        "number_of_aggregate_correlations_as_effect": 437,
+        "number_of_global_variable_relationships_as_cause": 167,
+        "number_of_global_variable_relationships_as_effect": 437,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11247,7 +11247,7 @@ var qm_variables = {
         "sorting_score": 1008
     },
     "Major Depression": {
-        "best_aggregate_correlation_id": 65772279,
+        "best_global_variable_relationship_id": 65772279,
         "best_cause_variable_id": 1751,
         "best_effect_variable_id": 6044613,
         "client_id": "unknown",
@@ -11259,8 +11259,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 21,
         "name": "Major Depression",
-        "number_of_aggregate_correlations_as_cause": 3,
-        "number_of_aggregate_correlations_as_effect": 91,
+        "number_of_global_variable_relationships_as_cause": 3,
+        "number_of_global_variable_relationships_as_effect": 91,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11293,7 +11293,7 @@ var qm_variables = {
         "sorting_score": 120
     },
     "Picking at Skin": {
-        "best_aggregate_correlation_id": 65741467,
+        "best_global_variable_relationship_id": 65741467,
         "best_cause_variable_id": 87760,
         "best_effect_variable_id": 87760,
         "client_id": "unknown",
@@ -11305,8 +11305,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Picking at Skin",
-        "number_of_aggregate_correlations_as_cause": 13,
-        "number_of_aggregate_correlations_as_effect": 18,
+        "number_of_global_variable_relationships_as_cause": 13,
+        "number_of_global_variable_relationships_as_effect": 18,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11339,7 +11339,7 @@ var qm_variables = {
         "sorting_score": 54
     },
     "Poor Self Care": {
-        "best_aggregate_correlation_id": 65766582,
+        "best_global_variable_relationship_id": 65766582,
         "best_cause_variable_id": 5967500,
         "best_effect_variable_id": 90371,
         "client_id": "unknown",
@@ -11351,8 +11351,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Poor Self Care",
-        "number_of_aggregate_correlations_as_cause": 17,
-        "number_of_aggregate_correlations_as_effect": 74,
+        "number_of_global_variable_relationships_as_cause": 17,
+        "number_of_global_variable_relationships_as_effect": 74,
         "number_of_common_tags": 0,
         "number_of_measurements": 139,
         "number_of_raw_measurements": 2,
@@ -11371,7 +11371,7 @@ var qm_variables = {
         "sorting_score": 149
     },
     "Sadness": {
-        "best_aggregate_correlation_id": 65674341,
+        "best_global_variable_relationship_id": 65674341,
         "best_cause_variable_id": 5954773,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -11383,8 +11383,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Sadness",
-        "number_of_aggregate_correlations_as_cause": 81,
-        "number_of_aggregate_correlations_as_effect": 407,
+        "number_of_global_variable_relationships_as_cause": 81,
+        "number_of_global_variable_relationships_as_effect": 407,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11418,7 +11418,7 @@ var qm_variables = {
         "sorting_score": 601
     },
     "Social Anxiety": {
-        "best_aggregate_correlation_id": 65674342,
+        "best_global_variable_relationship_id": 65674342,
         "best_cause_variable_id": 5954773,
         "best_effect_variable_id": 89251,
         "client_id": "unknown",
@@ -11430,8 +11430,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Social Anxiety",
-        "number_of_aggregate_correlations_as_cause": 95,
-        "number_of_aggregate_correlations_as_effect": 413,
+        "number_of_global_variable_relationships_as_cause": 95,
+        "number_of_global_variable_relationships_as_effect": 413,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11465,7 +11465,7 @@ var qm_variables = {
         "sorting_score": 772
     },
     "Thoughts of Suicide": {
-        "best_aggregate_correlation_id": 65685934,
+        "best_global_variable_relationship_id": 65685934,
         "best_cause_variable_id": 1305,
         "best_effect_variable_id": 1441,
         "client_id": "unknown",
@@ -11477,8 +11477,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Thoughts of Suicide",
-        "number_of_aggregate_correlations_as_cause": 32,
-        "number_of_aggregate_correlations_as_effect": 46,
+        "number_of_global_variable_relationships_as_cause": 32,
+        "number_of_global_variable_relationships_as_effect": 46,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11511,7 +11511,7 @@ var qm_variables = {
         "sorting_score": 114
     },
     "Tooth Pain": {
-        "best_aggregate_correlation_id": 65684195,
+        "best_global_variable_relationship_id": 65684195,
         "best_cause_variable_id": 1256,
         "best_effect_variable_id": 1306,
         "client_id": "unknown",
@@ -11523,8 +11523,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 10,
         "name": "Tooth Pain",
-        "number_of_aggregate_correlations_as_cause": 55,
-        "number_of_aggregate_correlations_as_effect": 419,
+        "number_of_global_variable_relationships_as_cause": 55,
+        "number_of_global_variable_relationships_as_effect": 419,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11558,7 +11558,7 @@ var qm_variables = {
         "sorting_score": 478
     },
     "Arginine": {
-        "best_aggregate_correlation_id": 65699691,
+        "best_global_variable_relationship_id": 65699691,
         "best_effect_variable_id": 1335,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -11568,8 +11568,8 @@ var qm_variables = {
         "ion_icon": "ion-fork",
         "most_common_connector_id": 72,
         "name": "Arginine",
-        "number_of_aggregate_correlations_as_cause": 90,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 90,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11603,7 +11603,7 @@ var qm_variables = {
         "sorting_score": 147
     },
     "Fish Oil": {
-        "best_aggregate_correlation_id": 65688574,
+        "best_global_variable_relationship_id": 65688574,
         "best_effect_variable_id": 89334,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -11614,8 +11614,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 23,
         "name": "Fish Oil",
-        "number_of_aggregate_correlations_as_cause": 128,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 128,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11649,7 +11649,7 @@ var qm_variables = {
         "sorting_score": 136
     },
     "Journaling": {
-        "best_aggregate_correlation_id": 65700768,
+        "best_global_variable_relationship_id": 65700768,
         "best_effect_variable_id": 1361,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -11660,8 +11660,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 23,
         "name": "Journaling",
-        "number_of_aggregate_correlations_as_cause": 45,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 45,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11695,7 +11695,7 @@ var qm_variables = {
         "sorting_score": 62
     },
     "Klonopin": {
-        "best_aggregate_correlation_id": 65742278,
+        "best_global_variable_relationship_id": 65742278,
         "best_effect_variable_id": 1361,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -11706,8 +11706,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 23,
         "name": "Klonopin",
-        "number_of_aggregate_correlations_as_cause": 41,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 41,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11741,7 +11741,7 @@ var qm_variables = {
         "sorting_score": 47
     },
     "Lifting Weights": {
-        "best_aggregate_correlation_id": 65658934,
+        "best_global_variable_relationship_id": 65658934,
         "best_cause_variable_id": 84985,
         "best_effect_variable_id": 5795361,
         "client_id": "unknown",
@@ -11753,8 +11753,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 23,
         "name": "Lifting Weights",
-        "number_of_aggregate_correlations_as_cause": 104,
-        "number_of_aggregate_correlations_as_effect": 243,
+        "number_of_global_variable_relationships_as_cause": 104,
+        "number_of_global_variable_relationships_as_effect": 243,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11788,7 +11788,7 @@ var qm_variables = {
         "sorting_score": 356
     },
     "Lyrica": {
-        "best_aggregate_correlation_id": 65729811,
+        "best_global_variable_relationship_id": 65729811,
         "best_effect_variable_id": 87524,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -11798,8 +11798,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outli",
         "most_common_connector_id": 72,
         "name": "Lyrica",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11832,7 +11832,7 @@ var qm_variables = {
         "sorting_score": 5
     },
     "Lysine": {
-        "best_aggregate_correlation_id": 65772639,
+        "best_global_variable_relationship_id": 65772639,
         "best_effect_variable_id": 68592,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -11842,8 +11842,8 @@ var qm_variables = {
         "ion_icon": "ion-fork",
         "most_common_connector_id": 72,
         "name": "Lysine",
-        "number_of_aggregate_correlations_as_cause": 89,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 89,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11877,7 +11877,7 @@ var qm_variables = {
         "sorting_score": 145
     },
     "Probiotics": {
-        "best_aggregate_correlation_id": 65685133,
+        "best_global_variable_relationship_id": 65685133,
         "best_effect_variable_id": 1441,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -11888,8 +11888,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 23,
         "name": "Probiotics",
-        "number_of_aggregate_correlations_as_cause": 67,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 67,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11923,7 +11923,7 @@ var qm_variables = {
         "sorting_score": 73
     },
     "Stimulants (dextroamphetamine, Amphetamine, Adderall, Etc)": {
-        "best_aggregate_correlation_id": 65715655,
+        "best_global_variable_relationship_id": 65715655,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -11934,8 +11934,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 23,
         "name": "Stimulants (dextroamphetamine, Amphetamine, Adderall, Etc)",
-        "number_of_aggregate_correlations_as_cause": 36,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 36,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -11968,7 +11968,7 @@ var qm_variables = {
         "sorting_score": 41
     },
     "Trader Joes Bedtime Tea \/ Sleepytime Tea (any Brand)": {
-        "best_aggregate_correlation_id": 65730859,
+        "best_global_variable_relationship_id": 65730859,
         "best_effect_variable_id": 1441,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -11979,8 +11979,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 23,
         "name": "Trader Joes Bedtime Tea \/ Sleepytime Tea (any Brand)",
-        "number_of_aggregate_correlations_as_cause": 106,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 106,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12014,7 +12014,7 @@ var qm_variables = {
         "sorting_score": 109
     },
     "Tylenol": {
-        "best_aggregate_correlation_id": 65801791,
+        "best_global_variable_relationship_id": 65801791,
         "best_effect_variable_id": 5914381,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -12024,8 +12024,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_original_unit_id": 23,
         "name": "Tylenol",
-        "number_of_aggregate_correlations_as_cause": 54,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 54,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12058,7 +12058,7 @@ var qm_variables = {
         "sorting_score": 57
     },
     "Tyrosine": {
-        "best_aggregate_correlation_id": 65772642,
+        "best_global_variable_relationship_id": 65772642,
         "best_effect_variable_id": 68592,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -12068,8 +12068,8 @@ var qm_variables = {
         "ion_icon": "ion-fork",
         "most_common_connector_id": 72,
         "name": "Tyrosine",
-        "number_of_aggregate_correlations_as_cause": 93,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 93,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12103,7 +12103,7 @@ var qm_variables = {
         "sorting_score": 151
     },
     "Vitamin B-12": {
-        "best_aggregate_correlation_id": 65761190,
+        "best_global_variable_relationship_id": 65761190,
         "best_effect_variable_id": 5781891,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -12114,8 +12114,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 1,
         "name": "Vitamin B-12",
-        "number_of_aggregate_correlations_as_cause": 80,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 80,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12149,7 +12149,7 @@ var qm_variables = {
         "sorting_score": 157
     },
     "Vyvanse": {
-        "best_aggregate_correlation_id": 65700794,
+        "best_global_variable_relationship_id": 65700794,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -12160,8 +12160,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 1,
         "name": "Vyvanse",
-        "number_of_aggregate_correlations_as_cause": 12,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 12,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12195,7 +12195,7 @@ var qm_variables = {
         "sorting_score": 37
     },
     "Walking (minutes)": {
-        "best_aggregate_correlation_id": 65701170,
+        "best_global_variable_relationship_id": 65701170,
         "best_cause_variable_id": 5954773,
         "best_effect_variable_id": 1361,
         "client_id": "unknown",
@@ -12207,8 +12207,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 2,
         "name": "Walking (minutes)",
-        "number_of_aggregate_correlations_as_cause": 86,
-        "number_of_aggregate_correlations_as_effect": 54,
+        "number_of_global_variable_relationships_as_cause": 86,
+        "number_of_global_variable_relationships_as_effect": 54,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12242,7 +12242,7 @@ var qm_variables = {
         "sorting_score": 182
     },
     "Apples": {
-        "best_aggregate_correlation_id": 65760368,
+        "best_global_variable_relationship_id": 65760368,
         "best_effect_variable_id": 87760,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -12252,8 +12252,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit",
         "most_common_connector_id": 84,
         "name": "Apples",
-        "number_of_aggregate_correlations_as_cause": 53,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 53,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_common_tags": 2,
         "number_of_measurements": 11,
         "number_of_raw_measurements": 11,
@@ -12272,7 +12272,7 @@ var qm_variables = {
         "sorting_score": 118
     },
     "Barometric Pressure": {
-        "best_aggregate_correlation_id": 65674397,
+        "best_global_variable_relationship_id": 65674397,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -12283,8 +12283,8 @@ var qm_variables = {
         "most_common_connector_id": 13,
         "most_common_original_unit_id": 47,
         "name": "Barometric Pressure",
-        "number_of_aggregate_correlations_as_cause": 494,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 494,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 4,
         "number_of_common_tags": 1,
@@ -12318,7 +12318,7 @@ var qm_variables = {
         "sorting_score": 1526
     },
     "Cigarette Smoking": {
-        "best_aggregate_correlation_id": 65778160,
+        "best_global_variable_relationship_id": 65778160,
         "best_cause_variable_id": 5953225,
         "best_effect_variable_id": 1355,
         "client_id": "unknown",
@@ -12330,8 +12330,8 @@ var qm_variables = {
         "most_common_connector_id": 70,
         "most_common_original_unit_id": 23,
         "name": "Cigarette Smoking",
-        "number_of_aggregate_correlations_as_cause": 14,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 14,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12364,7 +12364,7 @@ var qm_variables = {
         "sorting_score": 21
     },
     "Meat": {
-        "best_aggregate_correlation_id": 65730955,
+        "best_global_variable_relationship_id": 65730955,
         "best_effect_variable_id": 90391,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -12375,8 +12375,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 23,
         "name": "Meat",
-        "number_of_aggregate_correlations_as_cause": 42,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 42,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12410,7 +12410,7 @@ var qm_variables = {
         "sorting_score": 48
     },
     "Menstrual Period": {
-        "best_aggregate_correlation_id": 65698624,
+        "best_global_variable_relationship_id": 65698624,
         "best_cause_variable_id": 5954773,
         "best_effect_variable_id": 87494,
         "client_id": "unknown",
@@ -12422,8 +12422,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 23,
         "name": "Menstrual Period",
-        "number_of_aggregate_correlations_as_cause": 74,
-        "number_of_aggregate_correlations_as_effect": 303,
+        "number_of_global_variable_relationships_as_cause": 74,
+        "number_of_global_variable_relationships_as_effect": 303,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12457,7 +12457,7 @@ var qm_variables = {
         "sorting_score": 423
     },
     "Rain": {
-        "best_aggregate_correlation_id": 65725730,
+        "best_global_variable_relationship_id": 65725730,
         "best_effect_variable_id": 1308,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -12467,8 +12467,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 72,
         "name": "Rain",
-        "number_of_aggregate_correlations_as_cause": 284,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 284,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12501,7 +12501,7 @@ var qm_variables = {
         "sorting_score": 480
     },
     "Time Spent On Shopping Activities": {
-        "best_aggregate_correlation_id": 65806866,
+        "best_global_variable_relationship_id": 65806866,
         "best_cause_variable_id": 5957090,
         "best_effect_variable_id": 6057116,
         "client_id": "unknown",
@@ -12512,8 +12512,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit",
         "most_common_connector_id": 11,
         "name": "Time Spent On Shopping Activities",
-        "number_of_aggregate_correlations_as_cause": 59,
-        "number_of_aggregate_correlations_as_effect": 7,
+        "number_of_global_variable_relationships_as_cause": 59,
+        "number_of_global_variable_relationships_as_effect": 7,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12546,7 +12546,7 @@ var qm_variables = {
         "sorting_score": 139
     },
     "Sinus Congestion": {
-        "best_aggregate_correlation_id": 65704638,
+        "best_global_variable_relationship_id": 65704638,
         "best_cause_variable_id": 5926113,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -12558,8 +12558,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 3,
         "name": "Sinus Congestion",
-        "number_of_aggregate_correlations_as_cause": 88,
-        "number_of_aggregate_correlations_as_effect": 717,
+        "number_of_global_variable_relationships_as_cause": 88,
+        "number_of_global_variable_relationships_as_effect": 717,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12593,7 +12593,7 @@ var qm_variables = {
         "sorting_score": 822
     },
     "Television": {
-        "best_aggregate_correlation_id": 65806869,
+        "best_global_variable_relationship_id": 65806869,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1436,
         "client_id": "unknown",
@@ -12604,8 +12604,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit",
         "most_common_connector_id": 73,
         "name": "Television",
-        "number_of_aggregate_correlations_as_cause": 14,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 14,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12638,7 +12638,7 @@ var qm_variables = {
         "sorting_score": 20
     },
     "Work": {
-        "best_aggregate_correlation_id": 65717900,
+        "best_global_variable_relationship_id": 65717900,
         "best_cause_variable_id": 5978809,
         "best_effect_variable_id": 87494,
         "client_id": "unknown",
@@ -12650,8 +12650,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 34,
         "name": "Work",
-        "number_of_aggregate_correlations_as_cause": 31,
-        "number_of_aggregate_correlations_as_effect": 245,
+        "number_of_global_variable_relationships_as_cause": 31,
+        "number_of_global_variable_relationships_as_effect": 245,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12685,7 +12685,7 @@ var qm_variables = {
         "sorting_score": 293
     },
     "House Cleaning": {
-        "best_aggregate_correlation_id": 65701202,
+        "best_global_variable_relationship_id": 65701202,
         "best_cause_variable_id": 5871551,
         "best_effect_variable_id": 5903391,
         "client_id": "unknown",
@@ -12697,8 +12697,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 34,
         "name": "House Cleaning",
-        "number_of_aggregate_correlations_as_cause": 52,
-        "number_of_aggregate_correlations_as_effect": 7,
+        "number_of_global_variable_relationships_as_cause": 52,
+        "number_of_global_variable_relationships_as_effect": 7,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 2,
@@ -12732,7 +12732,7 @@ var qm_variables = {
         "sorting_score": 80
     },
     "Watermelon - Raw": {
-        "best_aggregate_correlation_id": 65739564,
+        "best_global_variable_relationship_id": 65739564,
         "best_effect_variable_id": 1252,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -12743,8 +12743,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Watermelon - Raw",
-        "number_of_aggregate_correlations_as_cause": 40,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 40,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12777,7 +12777,7 @@ var qm_variables = {
         "sorting_score": 43
     },
     "Sleep": {
-        "best_aggregate_correlation_id": 65699278,
+        "best_global_variable_relationship_id": 65699278,
         "best_cause_variable_id": 95836,
         "best_effect_variable_id": 1923,
         "client_id": "unknown",
@@ -12789,8 +12789,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 34,
         "name": "Sleep",
-        "number_of_aggregate_correlations_as_cause": 77,
-        "number_of_aggregate_correlations_as_effect": 397,
+        "number_of_global_variable_relationships_as_cause": 77,
+        "number_of_global_variable_relationships_as_effect": 397,
         "number_of_applications_where_outcome_variable": 1,
         "number_of_applications_where_predictor_variable": 1,
         "number_of_common_tags": 0,
@@ -12824,7 +12824,7 @@ var qm_variables = {
         "sorting_score": 542
     },
     "Mixed Vegetables": {
-        "best_aggregate_correlation_id": 65726898,
+        "best_global_variable_relationship_id": 65726898,
         "best_effect_variable_id": 87812,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -12835,8 +12835,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Mixed Vegetables",
-        "number_of_aggregate_correlations_as_cause": 45,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 45,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12870,7 +12870,7 @@ var qm_variables = {
         "sorting_score": 50
     },
     "Wake Up": {
-        "best_aggregate_correlation_id": 65700818,
+        "best_global_variable_relationship_id": 65700818,
         "best_cause_variable_id": 2034,
         "best_effect_variable_id": 1306,
         "client_id": "unknown",
@@ -12882,8 +12882,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 41,
         "name": "Wake Up",
-        "number_of_aggregate_correlations_as_cause": 31,
-        "number_of_aggregate_correlations_as_effect": 3,
+        "number_of_global_variable_relationships_as_cause": 31,
+        "number_of_global_variable_relationships_as_effect": 3,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12917,7 +12917,7 @@ var qm_variables = {
         "sorting_score": 39
     },
     "Hunger": {
-        "best_aggregate_correlation_id": 65709933,
+        "best_global_variable_relationship_id": 65709933,
         "best_cause_variable_id": 5211911,
         "best_effect_variable_id": 6054281,
         "client_id": "unknown",
@@ -12929,8 +12929,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 40,
         "name": "Hunger",
-        "number_of_aggregate_correlations_as_cause": 177,
-        "number_of_aggregate_correlations_as_effect": 978,
+        "number_of_global_variable_relationships_as_cause": 177,
+        "number_of_global_variable_relationships_as_effect": 978,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -12964,7 +12964,7 @@ var qm_variables = {
         "sorting_score": 1331
     },
     "Hours of Sleep": {
-        "best_aggregate_correlation_id": 65701135,
+        "best_global_variable_relationship_id": 65701135,
         "best_cause_variable_id": 5954773,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -12976,8 +12976,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 34,
         "name": "Hours of Sleep",
-        "number_of_aggregate_correlations_as_cause": 17,
-        "number_of_aggregate_correlations_as_effect": 63,
+        "number_of_global_variable_relationships_as_cause": 17,
+        "number_of_global_variable_relationships_as_effect": 63,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13011,7 +13011,7 @@ var qm_variables = {
         "sorting_score": 94
     },
     "Time Spent On Nap Activities": {
-        "best_aggregate_correlation_id": 65802875,
+        "best_global_variable_relationship_id": 65802875,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1867,
         "client_id": "unknown",
@@ -13023,8 +13023,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 34,
         "name": "Time Spent On Nap Activities",
-        "number_of_aggregate_correlations_as_cause": 116,
-        "number_of_aggregate_correlations_as_effect": 9,
+        "number_of_global_variable_relationships_as_cause": 116,
+        "number_of_global_variable_relationships_as_effect": 9,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13058,7 +13058,7 @@ var qm_variables = {
         "sorting_score": 142
     },
     "Spending On Sarg Shrd Extr Shrp Chd": {
-        "best_aggregate_correlation_id": 65697911,
+        "best_global_variable_relationship_id": 65697911,
         "best_effect_variable_id": 1335,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -13069,8 +13069,8 @@ var qm_variables = {
         "most_common_connector_id": 75,
         "most_common_original_unit_id": 49,
         "name": "Spending On Sarg Shrd Extr Shrp Chd",
-        "number_of_aggregate_correlations_as_cause": 15,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 15,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13103,7 +13103,7 @@ var qm_variables = {
         "sorting_score": 18
     },
     "Sugar (g)": {
-        "best_aggregate_correlation_id": 65647647,
+        "best_global_variable_relationship_id": 65647647,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -13114,8 +13114,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 6,
         "name": "Sugar (g)",
-        "number_of_aggregate_correlations_as_cause": 163,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 163,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13149,7 +13149,7 @@ var qm_variables = {
         "sorting_score": 298
     },
     "Vitamin C (%RDA)": {
-        "best_aggregate_correlation_id": 65632877,
+        "best_global_variable_relationship_id": 65632877,
         "best_effect_variable_id": 1299,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -13160,8 +13160,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 29,
         "name": "Vitamin C (%RDA)",
-        "number_of_aggregate_correlations_as_cause": 150,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 150,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13195,7 +13195,7 @@ var qm_variables = {
         "sorting_score": 266
     },
     "Calcium (%RDA)": {
-        "best_aggregate_correlation_id": 65645173,
+        "best_global_variable_relationship_id": 65645173,
         "best_effect_variable_id": 1280,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -13206,8 +13206,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Calcium (%RDA)",
-        "number_of_aggregate_correlations_as_cause": 154,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 154,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13241,7 +13241,7 @@ var qm_variables = {
         "sorting_score": 262
     },
     "Calcium (mg)": {
-        "best_aggregate_correlation_id": 65632905,
+        "best_global_variable_relationship_id": 65632905,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -13252,8 +13252,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Calcium (mg)",
-        "number_of_aggregate_correlations_as_cause": 85,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 85,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13287,7 +13287,7 @@ var qm_variables = {
         "sorting_score": 100
     },
     "Effexor (venlafaxine) (mg)": {
-        "best_aggregate_correlation_id": 65684180,
+        "best_global_variable_relationship_id": 65684180,
         "best_effect_variable_id": 1398,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -13298,8 +13298,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Effexor (venlafaxine) (mg)",
-        "number_of_aggregate_correlations_as_cause": 43,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 43,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13333,7 +13333,7 @@ var qm_variables = {
         "sorting_score": 81
     },
     "Walk": {
-        "best_aggregate_correlation_id": 65804326,
+        "best_global_variable_relationship_id": 65804326,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1398,
         "client_id": "MoodiModo",
@@ -13345,8 +13345,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 2,
         "name": "Walk",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13379,7 +13379,7 @@ var qm_variables = {
         "sorting_score": 13
     },
     "IBProfin (tablets)": {
-        "best_aggregate_correlation_id": 65763119,
+        "best_global_variable_relationship_id": 65763119,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -13389,8 +13389,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_original_unit_id": 11,
         "name": "IBProfin (tablets)",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13423,7 +13423,7 @@ var qm_variables = {
         "sorting_score": 5
     },
     "Jdtic (mL)": {
-        "best_aggregate_correlation_id": 65807283,
+        "best_global_variable_relationship_id": 65807283,
         "best_effect_variable_id": 1398,
         "client_id": "api",
         "creator_user_id": 7,
@@ -13434,8 +13434,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 9,
         "name": "Jdtic (mL)",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13468,7 +13468,7 @@ var qm_variables = {
         "sorting_score": 4
     },
     "Melatonin (mg)": {
-        "best_aggregate_correlation_id": 65687016,
+        "best_global_variable_relationship_id": 65687016,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -13479,8 +13479,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Melatonin (mg)",
-        "number_of_aggregate_correlations_as_cause": 148,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 148,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13514,7 +13514,7 @@ var qm_variables = {
         "sorting_score": 207
     },
     "Water (mL)": {
-        "best_aggregate_correlation_id": 65638366,
+        "best_global_variable_relationship_id": 65638366,
         "best_effect_variable_id": 1267,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -13525,8 +13525,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 9,
         "name": "Water (mL)",
-        "number_of_aggregate_correlations_as_cause": 228,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 228,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 1,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13561,7 +13561,7 @@ var qm_variables = {
         "sorting_score": 743
     },
     "Water (serving)": {
-        "best_aggregate_correlation_id": 65601139,
+        "best_global_variable_relationship_id": 65601139,
         "best_effect_variable_id": 1398,
         "client_id": "api",
         "creator_user_id": 7,
@@ -13572,8 +13572,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Water (serving)",
-        "number_of_aggregate_correlations_as_cause": 155,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 155,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13607,7 +13607,7 @@ var qm_variables = {
         "sorting_score": 369
     },
     "Shower (min)": {
-        "best_aggregate_correlation_id": 65805882,
+        "best_global_variable_relationship_id": 65805882,
         "best_cause_variable_id": 1355,
         "best_effect_variable_id": 1252,
         "client_id": "unknown",
@@ -13619,8 +13619,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 2,
         "name": "Shower (min)",
-        "number_of_aggregate_correlations_as_cause": 52,
-        "number_of_aggregate_correlations_as_effect": 18,
+        "number_of_global_variable_relationships_as_cause": 52,
+        "number_of_global_variable_relationships_as_effect": 18,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13654,7 +13654,7 @@ var qm_variables = {
         "sorting_score": 85
     },
     "Lemonade (serving)": {
-        "best_aggregate_correlation_id": 65768977,
+        "best_global_variable_relationship_id": 65768977,
         "best_effect_variable_id": 87029,
         "client_id": "api",
         "creator_user_id": 7,
@@ -13665,8 +13665,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Lemonade (serving)",
-        "number_of_aggregate_correlations_as_cause": 36,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 36,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13699,7 +13699,7 @@ var qm_variables = {
         "sorting_score": 39
     },
     "Butter - Salted (serving)": {
-        "best_aggregate_correlation_id": 65697721,
+        "best_global_variable_relationship_id": 65697721,
         "best_effect_variable_id": 1358,
         "client_id": "api",
         "creator_user_id": 7,
@@ -13710,8 +13710,8 @@ var qm_variables = {
         "most_common_connector_id": 70,
         "most_common_original_unit_id": 44,
         "name": "Butter - Salted (serving)",
-        "number_of_aggregate_correlations_as_cause": 43,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 43,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13744,7 +13744,7 @@ var qm_variables = {
         "sorting_score": 46
     },
     "SAM-E 400 (mg)": {
-        "best_aggregate_correlation_id": 65714963,
+        "best_global_variable_relationship_id": 65714963,
         "best_effect_variable_id": 89251,
         "client_id": "api",
         "creator_user_id": 7,
@@ -13755,8 +13755,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "SAM-E 400 (mg)",
-        "number_of_aggregate_correlations_as_cause": 15,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 15,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13789,7 +13789,7 @@ var qm_variables = {
         "sorting_score": 18
     },
     "Sugar (serving)": {
-        "best_aggregate_correlation_id": 65687027,
+        "best_global_variable_relationship_id": 65687027,
         "best_effect_variable_id": 1272,
         "client_id": "api",
         "creator_user_id": 7,
@@ -13800,8 +13800,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Sugar (serving)",
-        "number_of_aggregate_correlations_as_cause": 47,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 47,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13834,7 +13834,7 @@ var qm_variables = {
         "sorting_score": 79
     },
     "Vitamin C (tablets)": {
-        "best_aggregate_correlation_id": 65698629,
+        "best_global_variable_relationship_id": 65698629,
         "best_effect_variable_id": 1299,
         "client_id": "api",
         "creator_user_id": 7,
@@ -13845,8 +13845,8 @@ var qm_variables = {
         "most_common_connector_id": 70,
         "most_common_original_unit_id": 11,
         "name": "Vitamin C (tablets)",
-        "number_of_aggregate_correlations_as_cause": 55,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 55,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13879,7 +13879,7 @@ var qm_variables = {
         "sorting_score": 99
     },
     "Regular Can Coke 355ml (12 Oz) (serving)": {
-        "best_aggregate_correlation_id": 65695554,
+        "best_global_variable_relationship_id": 65695554,
         "best_effect_variable_id": 1441,
         "client_id": "api",
         "creator_user_id": 7,
@@ -13890,8 +13890,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 44,
         "name": "Regular Can Coke 355ml (12 Oz) (serving)",
-        "number_of_aggregate_correlations_as_cause": 37,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 37,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 1,
@@ -13925,7 +13925,7 @@ var qm_variables = {
         "sorting_score": 51
     },
     "Zinc (%RDA)": {
-        "best_aggregate_correlation_id": 65010946,
+        "best_global_variable_relationship_id": 65010946,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -13936,8 +13936,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Zinc (%RDA)",
-        "number_of_aggregate_correlations_as_cause": 30,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 30,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -13970,7 +13970,7 @@ var qm_variables = {
         "sorting_score": 33
     },
     "Zinc (mg)": {
-        "best_aggregate_correlation_id": 65685640,
+        "best_global_variable_relationship_id": 65685640,
         "best_effect_variable_id": 1867,
         "client_id": "api",
         "creator_user_id": 7,
@@ -13981,8 +13981,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Zinc (mg)",
-        "number_of_aggregate_correlations_as_cause": 115,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 115,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14015,7 +14015,7 @@ var qm_variables = {
         "sorting_score": 128
     },
     "Cucumber - With Peel, Raw (serving)": {
-        "best_aggregate_correlation_id": 65771958,
+        "best_global_variable_relationship_id": 65771958,
         "best_effect_variable_id": 89381,
         "client_id": "api",
         "creator_user_id": 7,
@@ -14026,8 +14026,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Cucumber - With Peel, Raw (serving)",
-        "number_of_aggregate_correlations_as_cause": 39,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 39,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14060,7 +14060,7 @@ var qm_variables = {
         "sorting_score": 45
     },
     "Adderall (mg)": {
-        "best_aggregate_correlation_id": 65699111,
+        "best_global_variable_relationship_id": 65699111,
         "best_effect_variable_id": 1313,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -14071,8 +14071,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Adderall (mg)",
-        "number_of_aggregate_correlations_as_cause": 162,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 162,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 1,
@@ -14105,7 +14105,7 @@ var qm_variables = {
         "sorting_score": 275
     },
     "Calcium (g)": {
-        "best_aggregate_correlation_id": 65701222,
+        "best_global_variable_relationship_id": 65701222,
         "best_effect_variable_id": 1272,
         "client_id": "api",
         "creator_user_id": 7,
@@ -14116,8 +14116,8 @@ var qm_variables = {
         "most_common_connector_id": 1,
         "most_common_original_unit_id": 6,
         "name": "Calcium (g)",
-        "number_of_aggregate_correlations_as_cause": 9,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 9,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14150,7 +14150,7 @@ var qm_variables = {
         "sorting_score": 36
     },
     "Bananas (lb)": {
-        "best_aggregate_correlation_id": 65756281,
+        "best_global_variable_relationship_id": 65756281,
         "best_effect_variable_id": 1355,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -14161,8 +14161,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 8,
         "name": "Bananas (lb)",
-        "number_of_aggregate_correlations_as_cause": 93,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 93,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 1,
@@ -14195,7 +14195,7 @@ var qm_variables = {
         "sorting_score": 97
     },
     "Productivity Pulse": {
-        "best_aggregate_correlation_id": 65645845,
+        "best_global_variable_relationship_id": 65645845,
         "best_cause_variable_id": 111582,
         "best_effect_variable_id": 87760,
         "client_id": "api",
@@ -14207,8 +14207,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 21,
         "name": "Productivity Pulse",
-        "number_of_aggregate_correlations_as_cause": 134,
-        "number_of_aggregate_correlations_as_effect": 2909,
+        "number_of_global_variable_relationships_as_cause": 134,
+        "number_of_global_variable_relationships_as_effect": 2909,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14242,7 +14242,7 @@ var qm_variables = {
         "sorting_score": 3131
     },
     "Time Spent On Communication And Scheduling Activities": {
-        "best_aggregate_correlation_id": 65645831,
+        "best_global_variable_relationship_id": 65645831,
         "best_cause_variable_id": 5211911,
         "best_effect_variable_id": 1398,
         "client_id": "api",
@@ -14254,8 +14254,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 34,
         "name": "Time Spent On Communication And Scheduling Activities",
-        "number_of_aggregate_correlations_as_cause": 177,
-        "number_of_aggregate_correlations_as_effect": 474,
+        "number_of_global_variable_relationships_as_cause": 177,
+        "number_of_global_variable_relationships_as_effect": 474,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14289,7 +14289,7 @@ var qm_variables = {
         "sorting_score": 730
     },
     "Time Spent On Social Networking Activities": {
-        "best_aggregate_correlation_id": 65645883,
+        "best_global_variable_relationship_id": 65645883,
         "best_cause_variable_id": 85055,
         "best_effect_variable_id": 1398,
         "client_id": "api",
@@ -14301,8 +14301,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 34,
         "name": "Time Spent On Social Networking Activities",
-        "number_of_aggregate_correlations_as_cause": 165,
-        "number_of_aggregate_correlations_as_effect": 562,
+        "number_of_global_variable_relationships_as_cause": 165,
+        "number_of_global_variable_relationships_as_effect": 562,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14336,7 +14336,7 @@ var qm_variables = {
         "sorting_score": 813
     },
     "Time Spent On Design And Composition Activities": {
-        "best_aggregate_correlation_id": 65656560,
+        "best_global_variable_relationship_id": 65656560,
         "best_cause_variable_id": 5257311,
         "best_effect_variable_id": 5956874,
         "client_id": "api",
@@ -14348,8 +14348,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 34,
         "name": "Time Spent On Design And Composition Activities",
-        "number_of_aggregate_correlations_as_cause": 162,
-        "number_of_aggregate_correlations_as_effect": 546,
+        "number_of_global_variable_relationships_as_cause": 162,
+        "number_of_global_variable_relationships_as_effect": 546,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14383,7 +14383,7 @@ var qm_variables = {
         "sorting_score": 792
     },
     "Time Spent On Entertainment Activities": {
-        "best_aggregate_correlation_id": 65656561,
+        "best_global_variable_relationship_id": 65656561,
         "best_cause_variable_id": 111162,
         "best_effect_variable_id": 5956874,
         "client_id": "api",
@@ -14395,8 +14395,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 34,
         "name": "Time Spent On Entertainment Activities",
-        "number_of_aggregate_correlations_as_cause": 191,
-        "number_of_aggregate_correlations_as_effect": 567,
+        "number_of_global_variable_relationships_as_cause": 191,
+        "number_of_global_variable_relationships_as_effect": 567,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14430,7 +14430,7 @@ var qm_variables = {
         "sorting_score": 868
     },
     "Time Spent On Consuming News Activities": {
-        "best_aggregate_correlation_id": 65646039,
+        "best_global_variable_relationship_id": 65646039,
         "best_cause_variable_id": 5257311,
         "best_effect_variable_id": 1398,
         "client_id": "api",
@@ -14442,8 +14442,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 34,
         "name": "Time Spent On Consuming News Activities",
-        "number_of_aggregate_correlations_as_cause": 164,
-        "number_of_aggregate_correlations_as_effect": 626,
+        "number_of_global_variable_relationships_as_cause": 164,
+        "number_of_global_variable_relationships_as_effect": 626,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14477,7 +14477,7 @@ var qm_variables = {
         "sorting_score": 874
     },
     "Time Spent On Software Development Activities": {
-        "best_aggregate_correlation_id": 65646090,
+        "best_global_variable_relationship_id": 65646090,
         "best_cause_variable_id": 5211911,
         "best_effect_variable_id": 1398,
         "client_id": "api",
@@ -14489,8 +14489,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 34,
         "name": "Time Spent On Software Development Activities",
-        "number_of_aggregate_correlations_as_cause": 154,
-        "number_of_aggregate_correlations_as_effect": 497,
+        "number_of_global_variable_relationships_as_cause": 154,
+        "number_of_global_variable_relationships_as_effect": 497,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14524,7 +14524,7 @@ var qm_variables = {
         "sorting_score": 738
     },
     "Time Spent On Reference And Learning Activities": {
-        "best_aggregate_correlation_id": 65653950,
+        "best_global_variable_relationship_id": 65653950,
         "best_cause_variable_id": 85055,
         "best_effect_variable_id": 1358,
         "client_id": "api",
@@ -14536,8 +14536,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 34,
         "name": "Time Spent On Reference And Learning Activities",
-        "number_of_aggregate_correlations_as_cause": 194,
-        "number_of_aggregate_correlations_as_effect": 639,
+        "number_of_global_variable_relationships_as_cause": 194,
+        "number_of_global_variable_relationships_as_effect": 639,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14571,7 +14571,7 @@ var qm_variables = {
         "sorting_score": 921
     },
     "Time Spent On Software Utilities Activities": {
-        "best_aggregate_correlation_id": 65646247,
+        "best_global_variable_relationship_id": 65646247,
         "best_cause_variable_id": 5257311,
         "best_effect_variable_id": 1443,
         "client_id": "api",
@@ -14583,8 +14583,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 34,
         "name": "Time Spent On Software Utilities Activities",
-        "number_of_aggregate_correlations_as_cause": 166,
-        "number_of_aggregate_correlations_as_effect": 546,
+        "number_of_global_variable_relationships_as_cause": 166,
+        "number_of_global_variable_relationships_as_effect": 546,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14618,7 +14618,7 @@ var qm_variables = {
         "sorting_score": 798
     },
     "Cold Shower (min)": {
-        "best_aggregate_correlation_id": 65678329,
+        "best_global_variable_relationship_id": 65678329,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -14629,8 +14629,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 2,
         "name": "Cold Shower (min)",
-        "number_of_aggregate_correlations_as_cause": 107,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 107,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_common_tags": 0,
         "number_of_measurements": 738,
         "number_of_raw_measurements": 624,
@@ -14650,7 +14650,7 @@ var qm_variables = {
         "sorting_score": 114
     },
     "Buspirone (mg)": {
-        "best_aggregate_correlation_id": 65540238,
+        "best_global_variable_relationship_id": 65540238,
         "best_effect_variable_id": 1398,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -14661,8 +14661,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Buspirone (mg)",
-        "number_of_aggregate_correlations_as_cause": 74,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 74,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14696,7 +14696,7 @@ var qm_variables = {
         "sorting_score": 94
     },
     "Dexamfetamine": {
-        "best_aggregate_correlation_id": 65742592,
+        "best_global_variable_relationship_id": 65742592,
         "best_effect_variable_id": 1307,
         "client_id": "QuantiModo for Android",
         "creator_user_id": 7,
@@ -14707,8 +14707,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Dexamfetamine",
-        "number_of_aggregate_correlations_as_cause": 70,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 70,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14742,7 +14742,7 @@ var qm_variables = {
         "sorting_score": 73
     },
     "Escitalopram (Lexapro) (mg)": {
-        "best_aggregate_correlation_id": 65697224,
+        "best_global_variable_relationship_id": 65697224,
         "best_effect_variable_id": 1398,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -14753,8 +14753,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Escitalopram (Lexapro) (mg)",
-        "number_of_aggregate_correlations_as_cause": 35,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 35,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_common_tags": 0,
         "number_of_measurements": 140,
         "number_of_raw_measurements": 140,
@@ -14774,7 +14774,7 @@ var qm_variables = {
         "sorting_score": 82
     },
     "Birth Control Pills (pills)": {
-        "best_aggregate_correlation_id": 65638435,
+        "best_global_variable_relationship_id": 65638435,
         "best_effect_variable_id": 1307,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -14785,8 +14785,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 24,
         "name": "Birth Control Pills (pills)",
-        "number_of_aggregate_correlations_as_cause": 108,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 108,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14820,7 +14820,7 @@ var qm_variables = {
         "sorting_score": 156
     },
     "Insomnia (h)": {
-        "best_aggregate_correlation_id": 65732470,
+        "best_global_variable_relationship_id": 65732470,
         "best_cause_variable_id": 109172,
         "best_effect_variable_id": 1307,
         "client_id": "unknown",
@@ -14832,8 +14832,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 34,
         "name": "Insomnia (h)",
-        "number_of_aggregate_correlations_as_cause": 34,
-        "number_of_aggregate_correlations_as_effect": 109,
+        "number_of_global_variable_relationships_as_cause": 34,
+        "number_of_global_variable_relationships_as_effect": 109,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14867,7 +14867,7 @@ var qm_variables = {
         "sorting_score": 151
     },
     "Ritalin (mg)": {
-        "best_aggregate_correlation_id": 65697226,
+        "best_global_variable_relationship_id": 65697226,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -14878,8 +14878,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Ritalin (mg)",
-        "number_of_aggregate_correlations_as_cause": 45,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 45,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14912,7 +14912,7 @@ var qm_variables = {
         "sorting_score": 48
     },
     "Work (h)": {
-        "best_aggregate_correlation_id": 65773604,
+        "best_global_variable_relationship_id": 65773604,
         "best_cause_variable_id": 5954773,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -14924,8 +14924,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 34,
         "name": "Work (h)",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 15,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 15,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -14958,7 +14958,7 @@ var qm_variables = {
         "sorting_score": 21
     },
     "Potassium (%RDA)": {
-        "best_aggregate_correlation_id": 65693629,
+        "best_global_variable_relationship_id": 65693629,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -14969,8 +14969,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Potassium (%RDA)",
-        "number_of_aggregate_correlations_as_cause": 31,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 31,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15003,7 +15003,7 @@ var qm_variables = {
         "sorting_score": 34
     },
     "Pain (yes\/no)": {
-        "best_aggregate_correlation_id": 65724252,
+        "best_global_variable_relationship_id": 65724252,
         "best_cause_variable_id": 5926113,
         "best_effect_variable_id": 86858,
         "client_id": "delete_me",
@@ -15015,8 +15015,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 19,
         "name": "Pain (yes\/no)",
-        "number_of_aggregate_correlations_as_cause": 56,
-        "number_of_aggregate_correlations_as_effect": 299,
+        "number_of_global_variable_relationships_as_cause": 56,
+        "number_of_global_variable_relationships_as_effect": 299,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15049,7 +15049,7 @@ var qm_variables = {
         "sorting_score": 359
     },
     "Cigarettes (count)": {
-        "best_aggregate_correlation_id": 65695570,
+        "best_global_variable_relationship_id": 65695570,
         "best_effect_variable_id": 90511,
         "client_id": "delete_me",
         "creator_user_id": 7,
@@ -15060,8 +15060,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 23,
         "name": "Cigarettes (count)",
-        "number_of_aggregate_correlations_as_cause": 107,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 107,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15095,7 +15095,7 @@ var qm_variables = {
         "sorting_score": 126
     },
     "Cymbalta (duloxetine) (mg)": {
-        "best_aggregate_correlation_id": 65676834,
+        "best_global_variable_relationship_id": 65676834,
         "best_effect_variable_id": 1358,
         "client_id": "delete_me",
         "creator_user_id": 7,
@@ -15106,8 +15106,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Cymbalta (duloxetine) (mg)",
-        "number_of_aggregate_correlations_as_cause": 52,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 52,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15141,7 +15141,7 @@ var qm_variables = {
         "sorting_score": 92
     },
     "Effexor XR (Venlafaxine ER) (mg)": {
-        "best_aggregate_correlation_id": 65678507,
+        "best_global_variable_relationship_id": 65678507,
         "best_effect_variable_id": 1398,
         "client_id": "delete_me",
         "creator_user_id": 7,
@@ -15151,8 +15151,8 @@ var qm_variables = {
         "ion_icon": "ion-happy-outline",
         "most_common_original_unit_id": 7,
         "name": "Effexor XR (Venlafaxine ER) (mg)",
-        "number_of_aggregate_correlations_as_cause": 60,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 60,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15186,7 +15186,7 @@ var qm_variables = {
         "sorting_score": 79
     },
     "Ibuprofen (Advil, Motrin) (mg)": {
-        "best_aggregate_correlation_id": 65776483,
+        "best_global_variable_relationship_id": 65776483,
         "best_effect_variable_id": 1299,
         "client_id": "delete_me",
         "creator_user_id": 7,
@@ -15196,8 +15196,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_original_unit_id": 7,
         "name": "Ibuprofen (Advil, Motrin) (mg)",
-        "number_of_aggregate_correlations_as_cause": 43,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 43,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15231,7 +15231,7 @@ var qm_variables = {
         "sorting_score": 51
     },
     "Klonopin (tablets)": {
-        "best_aggregate_correlation_id": 65730931,
+        "best_global_variable_relationship_id": 65730931,
         "best_effect_variable_id": 90391,
         "client_id": "delete_me",
         "creator_user_id": 7,
@@ -15242,8 +15242,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 11,
         "name": "Klonopin (tablets)",
-        "number_of_aggregate_correlations_as_cause": 49,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 49,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15276,7 +15276,7 @@ var qm_variables = {
         "sorting_score": 52
     },
     "Magnesium (tablets)": {
-        "best_aggregate_correlation_id": 65765016,
+        "best_global_variable_relationship_id": 65765016,
         "best_effect_variable_id": 5968126,
         "client_id": "delete_me",
         "creator_user_id": 7,
@@ -15287,8 +15287,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 11,
         "name": "Magnesium (tablets)",
-        "number_of_aggregate_correlations_as_cause": 41,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 41,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15321,7 +15321,7 @@ var qm_variables = {
         "sorting_score": 44
     },
     "Pizza (serving)": {
-        "best_aggregate_correlation_id": 65691121,
+        "best_global_variable_relationship_id": 65691121,
         "best_effect_variable_id": 1335,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -15332,8 +15332,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Pizza (serving)",
-        "number_of_aggregate_correlations_as_cause": 105,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 105,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15367,7 +15367,7 @@ var qm_variables = {
         "sorting_score": 185
     },
     "Pasta": {
-        "best_aggregate_correlation_id": 65699442,
+        "best_global_variable_relationship_id": 65699442,
         "best_effect_variable_id": 87760,
         "client_id": "QuantiModo for Android",
         "creator_user_id": 7,
@@ -15378,8 +15378,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Pasta",
-        "number_of_aggregate_correlations_as_cause": 41,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 41,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15413,7 +15413,7 @@ var qm_variables = {
         "sorting_score": 120
     },
     "Fluoxetine (mg)": {
-        "best_aggregate_correlation_id": 65764858,
+        "best_global_variable_relationship_id": 65764858,
         "best_effect_variable_id": 87418,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -15424,8 +15424,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Fluoxetine (mg)",
-        "number_of_aggregate_correlations_as_cause": 106,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 106,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15459,7 +15459,7 @@ var qm_variables = {
         "sorting_score": 146
     },
     "Sleep Efficiency": {
-        "best_aggregate_correlation_id": 65677154,
+        "best_global_variable_relationship_id": 65677154,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 1398,
         "client_id": "Web",
@@ -15471,8 +15471,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 21,
         "name": "Sleep Efficiency",
-        "number_of_aggregate_correlations_as_cause": 156,
-        "number_of_aggregate_correlations_as_effect": 1698,
+        "number_of_global_variable_relationships_as_cause": 156,
+        "number_of_global_variable_relationships_as_effect": 1698,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 4,
         "number_of_common_tags": 0,
@@ -15506,7 +15506,7 @@ var qm_variables = {
         "sorting_score": 2001
     },
     "Sleep Start Time": {
-        "best_aggregate_correlation_id": 65684745,
+        "best_global_variable_relationship_id": 65684745,
         "best_cause_variable_id": 1280,
         "best_effect_variable_id": 1398,
         "client_id": "Web",
@@ -15518,8 +15518,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 34,
         "name": "Sleep Start Time",
-        "number_of_aggregate_correlations_as_cause": 149,
-        "number_of_aggregate_correlations_as_effect": 1469,
+        "number_of_global_variable_relationships_as_cause": 149,
+        "number_of_global_variable_relationships_as_effect": 1469,
         "number_of_applications_where_outcome_variable": 1,
         "number_of_applications_where_predictor_variable": 6,
         "number_of_common_tags": 0,
@@ -15553,7 +15553,7 @@ var qm_variables = {
         "sorting_score": 1792
     },
     "Fat Burn Heart Rate Zone Calories Out": {
-        "best_aggregate_correlation_id": 64075325,
+        "best_global_variable_relationship_id": 64075325,
         "best_cause_variable_id": 109592,
         "best_effect_variable_id": 1313,
         "client_id": "Web",
@@ -15565,8 +15565,8 @@ var qm_variables = {
         "most_common_connector_id": 75,
         "most_common_original_unit_id": 39,
         "name": "Fat Burn Heart Rate Zone Calories Out",
-        "number_of_aggregate_correlations_as_cause": 162,
-        "number_of_aggregate_correlations_as_effect": 442,
+        "number_of_global_variable_relationships_as_cause": 162,
+        "number_of_global_variable_relationships_as_effect": 442,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15600,7 +15600,7 @@ var qm_variables = {
         "sorting_score": 712
     },
     "Fat Burn Heart Rate Zone Minutes": {
-        "best_aggregate_correlation_id": 65630504,
+        "best_global_variable_relationship_id": 65630504,
         "best_cause_variable_id": 5211891,
         "best_effect_variable_id": 1398,
         "client_id": "Web",
@@ -15612,8 +15612,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 2,
         "name": "Fat Burn Heart Rate Zone Minutes",
-        "number_of_aggregate_correlations_as_cause": 164,
-        "number_of_aggregate_correlations_as_effect": 453,
+        "number_of_global_variable_relationships_as_cause": 164,
+        "number_of_global_variable_relationships_as_effect": 453,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15647,7 +15647,7 @@ var qm_variables = {
         "sorting_score": 733
     },
     "Cardio Heart Rate Zone Calories Out": {
-        "best_aggregate_correlation_id": 64076950,
+        "best_global_variable_relationship_id": 64076950,
         "best_cause_variable_id": 1509,
         "best_effect_variable_id": 1258,
         "client_id": "Web",
@@ -15659,8 +15659,8 @@ var qm_variables = {
         "most_common_connector_id": 7,
         "most_common_original_unit_id": 39,
         "name": "Cardio Heart Rate Zone Calories Out",
-        "number_of_aggregate_correlations_as_cause": 151,
-        "number_of_aggregate_correlations_as_effect": 423,
+        "number_of_global_variable_relationships_as_cause": 151,
+        "number_of_global_variable_relationships_as_effect": 423,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15694,7 +15694,7 @@ var qm_variables = {
         "sorting_score": 678
     },
     "Cardio Heart Rate Zone Minutes": {
-        "best_aggregate_correlation_id": 65685113,
+        "best_global_variable_relationship_id": 65685113,
         "best_cause_variable_id": 111642,
         "best_effect_variable_id": 1335,
         "client_id": "Web",
@@ -15706,8 +15706,8 @@ var qm_variables = {
         "most_common_connector_id": 7,
         "most_common_original_unit_id": 2,
         "name": "Cardio Heart Rate Zone Minutes",
-        "number_of_aggregate_correlations_as_cause": 156,
-        "number_of_aggregate_correlations_as_effect": 376,
+        "number_of_global_variable_relationships_as_cause": 156,
+        "number_of_global_variable_relationships_as_effect": 376,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 1,
         "number_of_common_tags": 0,
@@ -15741,7 +15741,7 @@ var qm_variables = {
         "sorting_score": 637
     },
     "Resting Heart Rate (Pulse)": {
-        "best_aggregate_correlation_id": 65687187,
+        "best_global_variable_relationship_id": 65687187,
         "best_cause_variable_id": 1451,
         "best_effect_variable_id": 1398,
         "client_id": "Web",
@@ -15753,8 +15753,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 26,
         "name": "Resting Heart Rate (Pulse)",
-        "number_of_aggregate_correlations_as_cause": 167,
-        "number_of_aggregate_correlations_as_effect": 1480,
+        "number_of_global_variable_relationships_as_cause": 167,
+        "number_of_global_variable_relationships_as_effect": 1480,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15788,7 +15788,7 @@ var qm_variables = {
         "sorting_score": 1789
     },
     "Peak Heart Rate Zone Calories Out": {
-        "best_aggregate_correlation_id": 65802940,
+        "best_global_variable_relationship_id": 65802940,
         "best_cause_variable_id": 6054547,
         "best_effect_variable_id": 111582,
         "client_id": "Web",
@@ -15800,8 +15800,8 @@ var qm_variables = {
         "most_common_connector_id": 7,
         "most_common_original_unit_id": 39,
         "name": "Peak Heart Rate Zone Calories Out",
-        "number_of_aggregate_correlations_as_cause": 108,
-        "number_of_aggregate_correlations_as_effect": 330,
+        "number_of_global_variable_relationships_as_cause": 108,
+        "number_of_global_variable_relationships_as_effect": 330,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15835,7 +15835,7 @@ var qm_variables = {
         "sorting_score": 533
     },
     "Peak Heart Rate Zone Minutes": {
-        "best_aggregate_correlation_id": 65733894,
+        "best_global_variable_relationship_id": 65733894,
         "best_cause_variable_id": 109592,
         "best_effect_variable_id": 5795361,
         "client_id": "Web",
@@ -15847,8 +15847,8 @@ var qm_variables = {
         "most_common_connector_id": 7,
         "most_common_original_unit_id": 2,
         "name": "Peak Heart Rate Zone Minutes",
-        "number_of_aggregate_correlations_as_cause": 139,
-        "number_of_aggregate_correlations_as_effect": 286,
+        "number_of_global_variable_relationships_as_cause": 139,
+        "number_of_global_variable_relationships_as_effect": 286,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15882,7 +15882,7 @@ var qm_variables = {
         "sorting_score": 520
     },
     "Betaine": {
-        "best_aggregate_correlation_id": 65698850,
+        "best_global_variable_relationship_id": 65698850,
         "best_effect_variable_id": 1335,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -15892,8 +15892,8 @@ var qm_variables = {
         "ion_icon": "ion-fork",
         "most_common_connector_id": 72,
         "name": "Betaine",
-        "number_of_aggregate_correlations_as_cause": 93,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 93,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15927,7 +15927,7 @@ var qm_variables = {
         "sorting_score": 140
     },
     "Phenylalanine": {
-        "best_aggregate_correlation_id": 65698885,
+        "best_global_variable_relationship_id": 65698885,
         "best_effect_variable_id": 1335,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -15937,8 +15937,8 @@ var qm_variables = {
         "ion_icon": "ion-fork",
         "most_common_connector_id": 72,
         "name": "Phenylalanine",
-        "number_of_aggregate_correlations_as_cause": 94,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 94,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -15972,7 +15972,7 @@ var qm_variables = {
         "sorting_score": 150
     },
     "Histidine": {
-        "best_aggregate_correlation_id": 65687962,
+        "best_global_variable_relationship_id": 65687962,
         "best_effect_variable_id": 1358,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -15982,8 +15982,8 @@ var qm_variables = {
         "ion_icon": "ion-fork",
         "most_common_connector_id": 72,
         "name": "Histidine",
-        "number_of_aggregate_correlations_as_cause": 93,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 93,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16017,7 +16017,7 @@ var qm_variables = {
         "sorting_score": 149
     },
     "Glycine": {
-        "best_aggregate_correlation_id": 65687971,
+        "best_global_variable_relationship_id": 65687971,
         "best_effect_variable_id": 89387,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -16027,8 +16027,8 @@ var qm_variables = {
         "ion_icon": "ion-fork",
         "most_common_connector_id": 72,
         "name": "Glycine",
-        "number_of_aggregate_correlations_as_cause": 100,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 100,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16062,7 +16062,7 @@ var qm_variables = {
         "sorting_score": 157
     },
     "Yogurt, Plain, Low Fat, 12 Grams Protein Per 8 Ounce": {
-        "best_aggregate_correlation_id": 65699743,
+        "best_global_variable_relationship_id": 65699743,
         "best_effect_variable_id": 89387,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -16073,8 +16073,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Yogurt, Plain, Low Fat, 12 Grams Protein Per 8 Ounce",
-        "number_of_aggregate_correlations_as_cause": 36,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 36,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 89,
@@ -16108,7 +16108,7 @@ var qm_variables = {
         "sorting_score": 63
     },
     "Alcoholic Beverage, Beer, Regular, All": {
-        "best_aggregate_correlation_id": 65687261,
+        "best_global_variable_relationship_id": 65687261,
         "best_effect_variable_id": 1361,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -16119,8 +16119,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Alcoholic Beverage, Beer, Regular, All",
-        "number_of_aggregate_correlations_as_cause": 98,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 98,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16153,7 +16153,7 @@ var qm_variables = {
         "sorting_score": 181
     },
     "Alcoholic Beverage, Wine, Table, All": {
-        "best_aggregate_correlation_id": 65771704,
+        "best_global_variable_relationship_id": 65771704,
         "best_effect_variable_id": 1356,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -16164,8 +16164,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Alcoholic Beverage, Wine, Table, All",
-        "number_of_aggregate_correlations_as_cause": 26,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 26,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16199,7 +16199,7 @@ var qm_variables = {
         "sorting_score": 42
     },
     "Hummus, Commercial": {
-        "best_aggregate_correlation_id": 65772142,
+        "best_global_variable_relationship_id": 65772142,
         "best_effect_variable_id": 86916,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -16210,8 +16210,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Hummus, Commercial",
-        "number_of_aggregate_correlations_as_cause": 39,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 39,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16244,7 +16244,7 @@ var qm_variables = {
         "sorting_score": 44
     },
     "Pizza (pieces)": {
-        "best_aggregate_correlation_id": 65774523,
+        "best_global_variable_relationship_id": 65774523,
         "best_effect_variable_id": 1398,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -16255,8 +16255,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 28,
         "name": "Pizza (pieces)",
-        "number_of_aggregate_correlations_as_cause": 8,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 8,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16289,7 +16289,7 @@ var qm_variables = {
         "sorting_score": 18
     },
     "Chicken (serving)": {
-        "best_aggregate_correlation_id": 65684648,
+        "best_global_variable_relationship_id": 65684648,
         "best_effect_variable_id": 1919,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -16300,8 +16300,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 44,
         "name": "Chicken (serving)",
-        "number_of_aggregate_correlations_as_cause": 69,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 69,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16335,7 +16335,7 @@ var qm_variables = {
         "sorting_score": 140
     },
     "Salad": {
-        "best_aggregate_correlation_id": 65779244,
+        "best_global_variable_relationship_id": 65779244,
         "best_effect_variable_id": 89387,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -16346,8 +16346,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Salad",
-        "number_of_aggregate_correlations_as_cause": 18,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 18,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16380,7 +16380,7 @@ var qm_variables = {
         "sorting_score": 40
     },
     "Cheese": {
-        "best_aggregate_correlation_id": 65770507,
+        "best_global_variable_relationship_id": 65770507,
         "best_effect_variable_id": 86806,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -16391,8 +16391,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Cheese",
-        "number_of_aggregate_correlations_as_cause": 53,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 53,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16426,7 +16426,7 @@ var qm_variables = {
         "sorting_score": 90
     },
     "Dinner (h)": {
-        "best_aggregate_correlation_id": 65807378,
+        "best_global_variable_relationship_id": 65807378,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1398,
         "client_id": "googlecalendar",
@@ -16438,8 +16438,8 @@ var qm_variables = {
         "most_common_connector_id": 51,
         "most_common_original_unit_id": 34,
         "name": "Dinner (h)",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16472,7 +16472,7 @@ var qm_variables = {
         "sorting_score": 7
     },
     "Doctor": {
-        "best_aggregate_correlation_id": 65802521,
+        "best_global_variable_relationship_id": 65802521,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1448,
         "client_id": "googlecalendar",
@@ -16484,8 +16484,8 @@ var qm_variables = {
         "most_common_connector_id": 73,
         "most_common_original_unit_id": 34,
         "name": "Doctor",
-        "number_of_aggregate_correlations_as_cause": 17,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 17,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16518,7 +16518,7 @@ var qm_variables = {
         "sorting_score": 22
     },
     "Meditate": {
-        "best_aggregate_correlation_id": 65806409,
+        "best_global_variable_relationship_id": 65806409,
         "best_cause_variable_id": 2465961,
         "best_effect_variable_id": 5975619,
         "client_id": "googlecalendar",
@@ -16530,8 +16530,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 34,
         "name": "Meditate",
-        "number_of_aggregate_correlations_as_cause": 21,
-        "number_of_aggregate_correlations_as_effect": 7,
+        "number_of_global_variable_relationships_as_cause": 21,
+        "number_of_global_variable_relationships_as_effect": 7,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16564,7 +16564,7 @@ var qm_variables = {
         "sorting_score": 32
     },
     "Apathy": {
-        "best_aggregate_correlation_id": 65685773,
+        "best_global_variable_relationship_id": 65685773,
         "best_cause_variable_id": 5954744,
         "best_effect_variable_id": 5903391,
         "client_id": "MoodiModo",
@@ -16576,8 +16576,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Apathy",
-        "number_of_aggregate_correlations_as_cause": 59,
-        "number_of_aggregate_correlations_as_effect": 165,
+        "number_of_global_variable_relationships_as_cause": 59,
+        "number_of_global_variable_relationships_as_effect": 165,
         "number_of_common_tags": 0,
         "number_of_measurements": 793,
         "number_of_raw_measurements": 774,
@@ -16597,7 +16597,7 @@ var qm_variables = {
         "sorting_score": 365
     },
     "Cereal": {
-        "best_aggregate_correlation_id": 65779250,
+        "best_global_variable_relationship_id": 65779250,
         "best_effect_variable_id": 89387,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -16608,8 +16608,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Cereal",
-        "number_of_aggregate_correlations_as_cause": 28,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 28,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16643,7 +16643,7 @@ var qm_variables = {
         "sorting_score": 44
     },
     "Blood Pressure (Diastolic - Bottom Number)": {
-        "best_aggregate_correlation_id": 65596693,
+        "best_global_variable_relationship_id": 65596693,
         "best_cause_variable_id": 1871,
         "best_effect_variable_id": 1335,
         "client_id": "Withings",
@@ -16655,8 +16655,8 @@ var qm_variables = {
         "most_common_connector_id": 9,
         "most_common_original_unit_id": 30,
         "name": "Blood Pressure (Diastolic - Bottom Number)",
-        "number_of_aggregate_correlations_as_cause": 105,
-        "number_of_aggregate_correlations_as_effect": 1048,
+        "number_of_global_variable_relationships_as_cause": 105,
+        "number_of_global_variable_relationships_as_effect": 1048,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16690,7 +16690,7 @@ var qm_variables = {
         "sorting_score": 1211
     },
     "Toast": {
-        "best_aggregate_correlation_id": 65699432,
+        "best_global_variable_relationship_id": 65699432,
         "best_effect_variable_id": 1398,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -16701,8 +16701,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 28,
         "name": "Toast",
-        "number_of_aggregate_correlations_as_cause": 29,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 29,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16736,7 +16736,7 @@ var qm_variables = {
         "sorting_score": 52
     },
     "Thiamin (%RDA)": {
-        "best_aggregate_correlation_id": 65693663,
+        "best_global_variable_relationship_id": 65693663,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -16747,8 +16747,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Thiamin (%RDA)",
-        "number_of_aggregate_correlations_as_cause": 41,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 41,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16782,7 +16782,7 @@ var qm_variables = {
         "sorting_score": 44
     },
     "Riboflavin (%RDA)": {
-        "best_aggregate_correlation_id": 65693664,
+        "best_global_variable_relationship_id": 65693664,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -16793,8 +16793,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Riboflavin (%RDA)",
-        "number_of_aggregate_correlations_as_cause": 41,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 41,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16828,7 +16828,7 @@ var qm_variables = {
         "sorting_score": 44
     },
     "Niacin (%RDA)": {
-        "best_aggregate_correlation_id": 65693665,
+        "best_global_variable_relationship_id": 65693665,
         "best_effect_variable_id": 1388,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -16839,8 +16839,8 @@ var qm_variables = {
         "most_common_connector_id": 12,
         "most_common_original_unit_id": 29,
         "name": "Niacin (%RDA)",
-        "number_of_aggregate_correlations_as_cause": 41,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 41,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16873,7 +16873,7 @@ var qm_variables = {
         "sorting_score": 44
     },
     "Protein Shake (g)": {
-        "best_aggregate_correlation_id": 65754960,
+        "best_global_variable_relationship_id": 65754960,
         "best_effect_variable_id": 1444,
         "client_id": "api",
         "creator_user_id": 7,
@@ -16884,8 +16884,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 6,
         "name": "Protein Shake (g)",
-        "number_of_aggregate_correlations_as_cause": 10,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 10,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16919,7 +16919,7 @@ var qm_variables = {
         "sorting_score": 13
     },
     "L-Theanine (mg)": {
-        "best_aggregate_correlation_id": 65776392,
+        "best_global_variable_relationship_id": 65776392,
         "best_effect_variable_id": 1258,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -16930,8 +16930,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "L-Theanine (mg)",
-        "number_of_aggregate_correlations_as_cause": 72,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 72,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -16965,7 +16965,7 @@ var qm_variables = {
         "sorting_score": 82
     },
     "White Rice": {
-        "best_aggregate_correlation_id": 65762887,
+        "best_global_variable_relationship_id": 65762887,
         "best_effect_variable_id": 89387,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -16976,8 +16976,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "White Rice",
-        "number_of_aggregate_correlations_as_cause": 39,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 39,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17011,7 +17011,7 @@ var qm_variables = {
         "sorting_score": 65
     },
     "Soda: Dr. Pepper": {
-        "best_aggregate_correlation_id": 65701384,
+        "best_global_variable_relationship_id": 65701384,
         "best_effect_variable_id": 1358,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -17022,8 +17022,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Soda: Dr. Pepper",
-        "number_of_aggregate_correlations_as_cause": 19,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 19,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17057,7 +17057,7 @@ var qm_variables = {
         "sorting_score": 33
     },
     "Methadone (mg)": {
-        "best_aggregate_correlation_id": 65726657,
+        "best_global_variable_relationship_id": 65726657,
         "best_effect_variable_id": 1252,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -17068,8 +17068,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Methadone (mg)",
-        "number_of_aggregate_correlations_as_cause": 19,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 19,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_common_tags": 0,
         "number_of_common_tags_where_tag_variable": 0,
         "number_of_common_tags_where_tagged_variable": 0,
@@ -17090,7 +17090,7 @@ var qm_variables = {
         "sorting_score": 23
     },
     "CoQ10 By Doctors Best": {
-        "best_aggregate_correlation_id": 65676491,
+        "best_global_variable_relationship_id": 65676491,
         "best_effect_variable_id": 86779,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -17101,8 +17101,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 7,
         "name": "CoQ10 By Doctors Best",
-        "number_of_aggregate_correlations_as_cause": 120,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 120,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17136,7 +17136,7 @@ var qm_variables = {
         "sorting_score": 124
     },
     "Remeron Powder": {
-        "best_aggregate_correlation_id": 65697591,
+        "best_global_variable_relationship_id": 65697591,
         "best_effect_variable_id": 1267,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -17147,8 +17147,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 7,
         "name": "Remeron Powder",
-        "number_of_aggregate_correlations_as_cause": 132,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 132,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 2,
@@ -17182,7 +17182,7 @@ var qm_variables = {
         "sorting_score": 152
     },
     "Acetyl L-Carnitine By MRM": {
-        "best_aggregate_correlation_id": 65810239,
+        "best_global_variable_relationship_id": 65810239,
         "best_effect_variable_id": 1409,
         "client_id": "googlecalendar",
         "creator_user_id": 7,
@@ -17193,8 +17193,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Acetyl L-Carnitine By MRM",
-        "number_of_aggregate_correlations_as_cause": 127,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 127,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 1,
@@ -17228,7 +17228,7 @@ var qm_variables = {
         "sorting_score": 133
     },
     "Alpha-Lipoic Acid By Doctors Best": {
-        "best_aggregate_correlation_id": 65694092,
+        "best_global_variable_relationship_id": 65694092,
         "best_effect_variable_id": 89334,
         "client_id": "googlecalendar",
         "creator_user_id": 7,
@@ -17239,8 +17239,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Alpha-Lipoic Acid By Doctors Best",
-        "number_of_aggregate_correlations_as_cause": 96,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 96,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_common_tags": 1,
         "number_of_measurements": 1225,
         "number_of_raw_measurements": 927,
@@ -17260,7 +17260,7 @@ var qm_variables = {
         "sorting_score": 99
     },
     "Fast Food": {
-        "best_aggregate_correlation_id": 65768019,
+        "best_global_variable_relationship_id": 65768019,
         "best_effect_variable_id": 1299,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -17271,8 +17271,8 @@ var qm_variables = {
         "most_common_connector_id": 73,
         "most_common_original_unit_id": 23,
         "name": "Fast Food",
-        "number_of_aggregate_correlations_as_cause": 21,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 21,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17305,7 +17305,7 @@ var qm_variables = {
         "sorting_score": 27
     },
     "Ibuprofen": {
-        "best_aggregate_correlation_id": 65701177,
+        "best_global_variable_relationship_id": 65701177,
         "best_effect_variable_id": 1335,
         "client_id": "FDA",
         "creator_user_id": 7,
@@ -17316,8 +17316,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Ibuprofen",
-        "number_of_aggregate_correlations_as_cause": 68,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 68,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17350,7 +17350,7 @@ var qm_variables = {
         "sorting_score": 120
     },
     "Esomeprazole Magnesium": {
-        "best_aggregate_correlation_id": 65779599,
+        "best_global_variable_relationship_id": 65779599,
         "best_effect_variable_id": 5903391,
         "client_id": "FDA",
         "creator_user_id": 7,
@@ -17360,8 +17360,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_connector_id": 72,
         "name": "Esomeprazole Magnesium",
-        "number_of_aggregate_correlations_as_cause": 49,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 49,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17395,7 +17395,7 @@ var qm_variables = {
         "sorting_score": 52
     },
     "Depressive Disorder": {
-        "best_aggregate_correlation_id": 65685927,
+        "best_global_variable_relationship_id": 65685927,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -17407,8 +17407,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Depressive Disorder",
-        "number_of_aggregate_correlations_as_cause": 36,
-        "number_of_aggregate_correlations_as_effect": 76,
+        "number_of_global_variable_relationships_as_cause": 36,
+        "number_of_global_variable_relationships_as_effect": 76,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17449,8 +17449,8 @@ var qm_variables = {
         "image_url": "https:\/\/images-na.ssl-images-amazon.com\/images\/I\/41765blgkIL._SL160_.jpg",
         "ion_icon": "ion-sad-outline",
         "name": "Dysphoria",
-        "number_of_aggregate_correlations_as_cause": 0,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 0,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17483,7 +17483,7 @@ var qm_variables = {
         "sorting_score": 4
     },
     "Steatorrhea": {
-        "best_aggregate_correlation_id": 65684422,
+        "best_global_variable_relationship_id": 65684422,
         "best_cause_variable_id": 5926113,
         "best_effect_variable_id": 1335,
         "client_id": "unknown",
@@ -17495,8 +17495,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 10,
         "name": "Steatorrhea",
-        "number_of_aggregate_correlations_as_cause": 107,
-        "number_of_aggregate_correlations_as_effect": 829,
+        "number_of_global_variable_relationships_as_cause": 107,
+        "number_of_global_variable_relationships_as_effect": 829,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17530,7 +17530,7 @@ var qm_variables = {
         "sorting_score": 939
     },
     "Depression, Bipolar": {
-        "best_aggregate_correlation_id": 65741122,
+        "best_global_variable_relationship_id": 65741122,
         "best_cause_variable_id": 89387,
         "best_effect_variable_id": 89387,
         "client_id": "unknown",
@@ -17542,8 +17542,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Depression, Bipolar",
-        "number_of_aggregate_correlations_as_cause": 40,
-        "number_of_aggregate_correlations_as_effect": 60,
+        "number_of_global_variable_relationships_as_cause": 40,
+        "number_of_global_variable_relationships_as_effect": 60,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17576,7 +17576,7 @@ var qm_variables = {
         "sorting_score": 205
     },
     "Feeling Sad": {
-        "best_aggregate_correlation_id": 65805765,
+        "best_global_variable_relationship_id": 65805765,
         "best_cause_variable_id": 1313,
         "best_effect_variable_id": 1313,
         "client_id": "unknown",
@@ -17587,8 +17587,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_connector_id": 72,
         "name": "Feeling Sad",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17621,7 +17621,7 @@ var qm_variables = {
         "sorting_score": 15
     },
     "Nausea Alone": {
-        "best_aggregate_correlation_id": 65809288,
+        "best_global_variable_relationship_id": 65809288,
         "best_cause_variable_id": 5746931,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -17633,8 +17633,8 @@ var qm_variables = {
         "most_common_connector_id": 70,
         "most_common_original_unit_id": 10,
         "name": "Nausea Alone",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17667,7 +17667,7 @@ var qm_variables = {
         "sorting_score": 8
     },
     "Pain Neck\/shoulder": {
-        "best_aggregate_correlation_id": 65771716,
+        "best_global_variable_relationship_id": 65771716,
         "best_cause_variable_id": 5952468,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
@@ -17678,8 +17678,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_connector_id": 72,
         "name": "Pain Neck\/shoulder",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 5,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 5,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17712,7 +17712,7 @@ var qm_variables = {
         "sorting_score": 10
     },
     "Snack": {
-        "best_aggregate_correlation_id": 65674850,
+        "best_global_variable_relationship_id": 65674850,
         "best_effect_variable_id": 1398,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -17723,8 +17723,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Snack",
-        "number_of_aggregate_correlations_as_cause": 98,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 98,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17757,7 +17757,7 @@ var qm_variables = {
         "sorting_score": 190
     },
     "Overwhelmed": {
-        "best_aggregate_correlation_id": 65804591,
+        "best_global_variable_relationship_id": 65804591,
         "best_cause_variable_id": 5746931,
         "best_effect_variable_id": 6038734,
         "client_id": "MoodiModo",
@@ -17769,8 +17769,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 21,
         "name": "Overwhelmed",
-        "number_of_aggregate_correlations_as_cause": 15,
-        "number_of_aggregate_correlations_as_effect": 37,
+        "number_of_global_variable_relationships_as_cause": 15,
+        "number_of_global_variable_relationships_as_effect": 37,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17803,7 +17803,7 @@ var qm_variables = {
         "sorting_score": 144
     },
     "Happy": {
-        "best_aggregate_correlation_id": 65804289,
+        "best_global_variable_relationship_id": 65804289,
         "best_cause_variable_id": 5980754,
         "best_effect_variable_id": 89251,
         "client_id": "MoodiModo",
@@ -17815,8 +17815,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 21,
         "name": "Happy",
-        "number_of_aggregate_correlations_as_cause": 5,
-        "number_of_aggregate_correlations_as_effect": 25,
+        "number_of_global_variable_relationships_as_cause": 5,
+        "number_of_global_variable_relationships_as_effect": 25,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 1,
@@ -17849,7 +17849,7 @@ var qm_variables = {
         "sorting_score": 69
     },
     "Stretching (min)": {
-        "best_aggregate_correlation_id": 65808236,
+        "best_global_variable_relationship_id": 65808236,
         "best_cause_variable_id": 1258,
         "best_effect_variable_id": 1398,
         "client_id": "MoodiModo",
@@ -17861,8 +17861,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 2,
         "name": "Stretching (min)",
-        "number_of_aggregate_correlations_as_cause": 26,
-        "number_of_aggregate_correlations_as_effect": 4,
+        "number_of_global_variable_relationships_as_cause": 26,
+        "number_of_global_variable_relationships_as_effect": 4,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17896,7 +17896,7 @@ var qm_variables = {
         "sorting_score": 40
     },
     "Sugary Food": {
-        "best_aggregate_correlation_id": 65725775,
+        "best_global_variable_relationship_id": 65725775,
         "best_effect_variable_id": 1356,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -17907,8 +17907,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Sugary Food",
-        "number_of_aggregate_correlations_as_cause": 47,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 47,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17941,7 +17941,7 @@ var qm_variables = {
         "sorting_score": 72
     },
     "Time In Bed": {
-        "best_aggregate_correlation_id": 65685952,
+        "best_global_variable_relationship_id": 65685952,
         "best_cause_variable_id": 5211911,
         "best_effect_variable_id": 90664,
         "client_id": "MoodiModo",
@@ -17953,8 +17953,8 @@ var qm_variables = {
         "most_common_connector_id": 7,
         "most_common_original_unit_id": 2,
         "name": "Time In Bed",
-        "number_of_aggregate_correlations_as_cause": 121,
-        "number_of_aggregate_correlations_as_effect": 859,
+        "number_of_global_variable_relationships_as_cause": 121,
+        "number_of_global_variable_relationships_as_effect": 859,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -17988,7 +17988,7 @@ var qm_variables = {
         "sorting_score": 1064
     },
     "Lamictal": {
-        "best_aggregate_correlation_id": 65773971,
+        "best_global_variable_relationship_id": 65773971,
         "best_effect_variable_id": 1299,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -17999,8 +17999,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 11,
         "name": "Lamictal",
-        "number_of_aggregate_correlations_as_cause": 63,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 63,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18033,7 +18033,7 @@ var qm_variables = {
         "sorting_score": 67
     },
     "Prozac (mg)": {
-        "best_aggregate_correlation_id": 65766986,
+        "best_global_variable_relationship_id": 65766986,
         "best_effect_variable_id": 1306,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -18044,8 +18044,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Prozac (mg)",
-        "number_of_aggregate_correlations_as_cause": 27,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 27,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18079,7 +18079,7 @@ var qm_variables = {
         "sorting_score": 35
     },
     "Cardio": {
-        "best_aggregate_correlation_id": 65802639,
+        "best_global_variable_relationship_id": 65802639,
         "best_cause_variable_id": 5904761,
         "best_effect_variable_id": 87418,
         "client_id": "MoodiModo",
@@ -18091,8 +18091,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 2,
         "name": "Cardio",
-        "number_of_aggregate_correlations_as_cause": 22,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 22,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18125,7 +18125,7 @@ var qm_variables = {
         "sorting_score": 31
     },
     "Latuda": {
-        "best_aggregate_correlation_id": 65542502,
+        "best_global_variable_relationship_id": 65542502,
         "best_effect_variable_id": 1398,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -18136,8 +18136,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Latuda",
-        "number_of_aggregate_correlations_as_cause": 80,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 80,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18170,7 +18170,7 @@ var qm_variables = {
         "sorting_score": 89
     },
     "Anxiety": {
-        "best_aggregate_correlation_id": 65658742,
+        "best_global_variable_relationship_id": 65658742,
         "best_cause_variable_id": 5954773,
         "best_effect_variable_id": 89387,
         "client_id": "MoodiModo",
@@ -18182,8 +18182,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 40,
         "name": "Anxiety",
-        "number_of_aggregate_correlations_as_cause": 188,
-        "number_of_aggregate_correlations_as_effect": 1485,
+        "number_of_global_variable_relationships_as_cause": 188,
+        "number_of_global_variable_relationships_as_effect": 1485,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18217,7 +18217,7 @@ var qm_variables = {
         "sorting_score": 2553
     },
     "Peanut Butter And Jelly Sandwich": {
-        "best_aggregate_correlation_id": 65766491,
+        "best_global_variable_relationship_id": 65766491,
         "best_effect_variable_id": 1388,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -18228,8 +18228,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Peanut Butter And Jelly Sandwich",
-        "number_of_aggregate_correlations_as_cause": 15,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 15,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18263,7 +18263,7 @@ var qm_variables = {
         "sorting_score": 36
     },
     "Tea (serving)": {
-        "best_aggregate_correlation_id": 65721403,
+        "best_global_variable_relationship_id": 65721403,
         "best_effect_variable_id": 1398,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -18274,8 +18274,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Tea (serving)",
-        "number_of_aggregate_correlations_as_cause": 30,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 30,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18308,7 +18308,7 @@ var qm_variables = {
         "sorting_score": 34
     },
     "Curcumin 95 By Jarrow": {
-        "best_aggregate_correlation_id": 65755447,
+        "best_global_variable_relationship_id": 65755447,
         "best_effect_variable_id": 1308,
         "client_id": "googlecalendar",
         "creator_user_id": 7,
@@ -18319,8 +18319,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 7,
         "name": "Curcumin 95 By Jarrow",
-        "number_of_aggregate_correlations_as_cause": 112,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 112,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 1,
@@ -18354,7 +18354,7 @@ var qm_variables = {
         "sorting_score": 118
     },
     "Digestive Advantage Probiotic": {
-        "best_aggregate_correlation_id": 65675223,
+        "best_global_variable_relationship_id": 65675223,
         "best_effect_variable_id": 1398,
         "client_id": "googlecalendar",
         "creator_user_id": 7,
@@ -18365,8 +18365,8 @@ var qm_variables = {
         "most_common_connector_id": 84,
         "most_common_original_unit_id": 23,
         "name": "Digestive Advantage Probiotic",
-        "number_of_aggregate_correlations_as_cause": 93,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 93,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18400,7 +18400,7 @@ var qm_variables = {
         "sorting_score": 99
     },
     "Opti-Men Multivitamin (count)": {
-        "best_aggregate_correlation_id": 65689498,
+        "best_global_variable_relationship_id": 65689498,
         "best_effect_variable_id": 1398,
         "client_id": "googlecalendar",
         "creator_user_id": 7,
@@ -18411,8 +18411,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 23,
         "name": "Opti-Men Multivitamin (count)",
-        "number_of_aggregate_correlations_as_cause": 105,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 105,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 2,
@@ -18446,7 +18446,7 @@ var qm_variables = {
         "sorting_score": 108
     },
     "Fish Oil (mg)": {
-        "best_aggregate_correlation_id": 65693114,
+        "best_global_variable_relationship_id": 65693114,
         "best_effect_variable_id": 5545331,
         "client_id": "googlecalendar",
         "creator_user_id": 7,
@@ -18457,8 +18457,8 @@ var qm_variables = {
         "most_common_connector_id": 51,
         "most_common_original_unit_id": 7,
         "name": "Fish Oil (mg)",
-        "number_of_aggregate_correlations_as_cause": 39,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 39,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18492,7 +18492,7 @@ var qm_variables = {
         "sorting_score": 44
     },
     "Smoothie": {
-        "best_aggregate_correlation_id": 65765047,
+        "best_global_variable_relationship_id": 65765047,
         "best_effect_variable_id": 5966767,
         "client_id": "MoodiModo",
         "creator_user_id": 7,
@@ -18503,8 +18503,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Smoothie",
-        "number_of_aggregate_correlations_as_cause": 40,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 40,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18537,7 +18537,7 @@ var qm_variables = {
         "sorting_score": 46
     },
     "5-HTP (mg)": {
-        "best_aggregate_correlation_id": 65776422,
+        "best_global_variable_relationship_id": 65776422,
         "best_effect_variable_id": 1441,
         "client_id": "Web",
         "creator_user_id": 7,
@@ -18548,8 +18548,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "5-HTP (mg)",
-        "number_of_aggregate_correlations_as_cause": 58,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 58,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18583,7 +18583,7 @@ var qm_variables = {
         "sorting_score": 62
     },
     "Matcha": {
-        "best_aggregate_correlation_id": 65782166,
+        "best_global_variable_relationship_id": 65782166,
         "best_effect_variable_id": 89384,
         "client_id": "Web",
         "creator_user_id": 7,
@@ -18593,8 +18593,8 @@ var qm_variables = {
         "ion_icon": "ion-fork",
         "most_common_original_unit_id": 44,
         "name": "Matcha",
-        "number_of_aggregate_correlations_as_cause": 24,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 24,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18627,7 +18627,7 @@ var qm_variables = {
         "sorting_score": 27
     },
     "Caffeine (serving)": {
-        "best_aggregate_correlation_id": 65687318,
+        "best_global_variable_relationship_id": 65687318,
         "best_effect_variable_id": 1398,
         "client_id": "Web",
         "creator_user_id": 7,
@@ -18638,8 +18638,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 44,
         "name": "Caffeine (serving)",
-        "number_of_aggregate_correlations_as_cause": 82,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 82,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18673,7 +18673,7 @@ var qm_variables = {
         "sorting_score": 110
     },
     "Aaa Test Treatment": {
-        "best_aggregate_correlation_id": 65678456,
+        "best_global_variable_relationship_id": 65678456,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1421,
         "client_id": "pImUNsI6T5Ysd81k",
@@ -18684,8 +18684,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_original_unit_id": 7,
         "name": "Aaa Test Treatment",
-        "number_of_aggregate_correlations_as_cause": 34,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 34,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_common_tags": 0,
         "number_of_measurements": 3201,
         "number_of_raw_measurements": 3198,
@@ -18706,7 +18706,7 @@ var qm_variables = {
         "sorting_score": 41
     },
     "Clonazepam (mg)": {
-        "best_aggregate_correlation_id": 65701322,
+        "best_global_variable_relationship_id": 65701322,
         "best_effect_variable_id": 1398,
         "client_id": "Web",
         "creator_user_id": 7,
@@ -18717,8 +18717,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Clonazepam (mg)",
-        "number_of_aggregate_correlations_as_cause": 43,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 43,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18752,7 +18752,7 @@ var qm_variables = {
         "sorting_score": 58
     },
     "Stength Training\/Excercise (min)": {
-        "best_aggregate_correlation_id": 65715305,
+        "best_global_variable_relationship_id": 65715305,
         "best_effect_variable_id": 1258,
         "client_id": "Web",
         "creator_user_id": 7,
@@ -18762,8 +18762,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_connector_id": 72,
         "name": "Stength Training\/Excercise (min)",
-        "number_of_aggregate_correlations_as_cause": 6,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 6,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18796,7 +18796,7 @@ var qm_variables = {
         "sorting_score": 9
     },
     "Quetiapine (mg)": {
-        "best_aggregate_correlation_id": 65726197,
+        "best_global_variable_relationship_id": 65726197,
         "best_effect_variable_id": 1305,
         "client_id": "Web",
         "creator_user_id": 7,
@@ -18807,8 +18807,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 7,
         "name": "Quetiapine (mg)",
-        "number_of_aggregate_correlations_as_cause": 30,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 30,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18842,7 +18842,7 @@ var qm_variables = {
         "sorting_score": 41
     },
     "Depressed  (yes\/no)": {
-        "best_aggregate_correlation_id": 65762722,
+        "best_global_variable_relationship_id": 65762722,
         "best_cause_variable_id": 109612,
         "best_effect_variable_id": 1313,
         "client_id": "Web",
@@ -18853,8 +18853,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_original_unit_id": 19,
         "name": "Depressed  (yes\/no)",
-        "number_of_aggregate_correlations_as_cause": 24,
-        "number_of_aggregate_correlations_as_effect": 54,
+        "number_of_global_variable_relationships_as_cause": 24,
+        "number_of_global_variable_relationships_as_effect": 54,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18887,7 +18887,7 @@ var qm_variables = {
         "sorting_score": 116
     },
     "Sleep Quality Rating": {
-        "best_aggregate_correlation_id": 65647762,
+        "best_global_variable_relationship_id": 65647762,
         "best_cause_variable_id": 1449,
         "best_effect_variable_id": 1398,
         "client_id": "Web",
@@ -18899,8 +18899,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 40,
         "name": "Sleep Quality Rating",
-        "number_of_aggregate_correlations_as_cause": 121,
-        "number_of_aggregate_correlations_as_effect": 1714,
+        "number_of_global_variable_relationships_as_cause": 121,
+        "number_of_global_variable_relationships_as_effect": 1714,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 1,
         "number_of_common_tags": 0,
@@ -18934,7 +18934,7 @@ var qm_variables = {
         "sorting_score": 1918
     },
     "Coffee (count)": {
-        "best_aggregate_correlation_id": 65687332,
+        "best_global_variable_relationship_id": 65687332,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -18945,8 +18945,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 23,
         "name": "Coffee (count)",
-        "number_of_aggregate_correlations_as_cause": 63,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 63,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -18980,7 +18980,7 @@ var qm_variables = {
         "sorting_score": 95
     },
     "Bowel Movements Count": {
-        "best_aggregate_correlation_id": 65719281,
+        "best_global_variable_relationship_id": 65719281,
         "best_cause_variable_id": 5978734,
         "best_effect_variable_id": 1443,
         "client_id": "bOGtinzJyQrbXEfv",
@@ -18991,8 +18991,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_connector_id": 84,
         "name": "Bowel Movements Count",
-        "number_of_aggregate_correlations_as_cause": 130,
-        "number_of_aggregate_correlations_as_effect": 1043,
+        "number_of_global_variable_relationships_as_cause": 130,
+        "number_of_global_variable_relationships_as_effect": 1043,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19026,7 +19026,7 @@ var qm_variables = {
         "sorting_score": 1198
     },
     "Tramadol (mg)": {
-        "best_aggregate_correlation_id": 65720507,
+        "best_global_variable_relationship_id": 65720507,
         "best_effect_variable_id": 89305,
         "client_id": "Web",
         "creator_user_id": 7,
@@ -19037,8 +19037,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 11,
         "name": "Tramadol (mg)",
-        "number_of_aggregate_correlations_as_cause": 5,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 5,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19072,7 +19072,7 @@ var qm_variables = {
         "sorting_score": 10
     },
     "Emptiness": {
-        "best_aggregate_correlation_id": 65759757,
+        "best_global_variable_relationship_id": 65759757,
         "best_cause_variable_id": 5873531,
         "best_effect_variable_id": 5966769,
         "client_id": "bOGtinzJyQrbXEfv",
@@ -19084,8 +19084,8 @@ var qm_variables = {
         "most_common_connector_id": 70,
         "most_common_original_unit_id": 10,
         "name": "Emptiness",
-        "number_of_aggregate_correlations_as_cause": 4,
-        "number_of_aggregate_correlations_as_effect": 30,
+        "number_of_global_variable_relationships_as_cause": 4,
+        "number_of_global_variable_relationships_as_effect": 30,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19118,7 +19118,7 @@ var qm_variables = {
         "sorting_score": 37
     },
     "Headache": {
-        "best_aggregate_correlation_id": 65700159,
+        "best_global_variable_relationship_id": 65700159,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 105851,
         "client_id": "bOGtinzJyQrbXEfv",
@@ -19130,8 +19130,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 10,
         "name": "Headache",
-        "number_of_aggregate_correlations_as_cause": 42,
-        "number_of_aggregate_correlations_as_effect": 295,
+        "number_of_global_variable_relationships_as_cause": 42,
+        "number_of_global_variable_relationships_as_effect": 295,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19164,7 +19164,7 @@ var qm_variables = {
         "sorting_score": 362
     },
     "Outdoor Humidity": {
-        "best_aggregate_correlation_id": 65674331,
+        "best_global_variable_relationship_id": 65674331,
         "best_effect_variable_id": 89387,
         "client_id": "Unknown",
         "creator_user_id": 7,
@@ -19175,8 +19175,8 @@ var qm_variables = {
         "most_common_connector_id": 13,
         "most_common_original_unit_id": 21,
         "name": "Outdoor Humidity",
-        "number_of_aggregate_correlations_as_cause": 493,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 493,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 5,
         "number_of_common_tags": 1,
@@ -19210,7 +19210,7 @@ var qm_variables = {
         "sorting_score": 1530
     },
     "Precipitation": {
-        "best_aggregate_correlation_id": 65656259,
+        "best_global_variable_relationship_id": 65656259,
         "best_effect_variable_id": 1443,
         "client_id": "Unknown",
         "creator_user_id": 7,
@@ -19221,8 +19221,8 @@ var qm_variables = {
         "most_common_connector_id": 13,
         "most_common_original_unit_id": 48,
         "name": "Precipitation",
-        "number_of_aggregate_correlations_as_cause": 428,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 428,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 1,
@@ -19256,7 +19256,7 @@ var qm_variables = {
         "sorting_score": 1126
     },
     "Cloud Cover Amount": {
-        "best_aggregate_correlation_id": 65646593,
+        "best_global_variable_relationship_id": 65646593,
         "best_effect_variable_id": 1398,
         "client_id": "Unknown",
         "creator_user_id": 7,
@@ -19267,8 +19267,8 @@ var qm_variables = {
         "most_common_connector_id": 13,
         "most_common_original_unit_id": 21,
         "name": "Cloud Cover Amount",
-        "number_of_aggregate_correlations_as_cause": 231,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 231,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19302,7 +19302,7 @@ var qm_variables = {
         "sorting_score": 515
     },
     "Outdoor Temperature": {
-        "best_aggregate_correlation_id": 65658742,
+        "best_global_variable_relationship_id": 65658742,
         "best_effect_variable_id": 5903391,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -19313,8 +19313,8 @@ var qm_variables = {
         "most_common_connector_id": 13,
         "most_common_original_unit_id": 46,
         "name": "Outdoor Temperature",
-        "number_of_aggregate_correlations_as_cause": 454,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 454,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 1,
@@ -19348,7 +19348,7 @@ var qm_variables = {
         "sorting_score": 1381
     },
     "Fat-Free Mass (FFM) Or Lean Body Mass (LBM)": {
-        "best_aggregate_correlation_id": 65687353,
+        "best_global_variable_relationship_id": 65687353,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 1867,
         "client_id": "Withings",
@@ -19360,8 +19360,8 @@ var qm_variables = {
         "most_common_connector_id": 9,
         "most_common_original_unit_id": 5,
         "name": "Fat-Free Mass (FFM) Or Lean Body Mass (LBM)",
-        "number_of_aggregate_correlations_as_cause": 143,
-        "number_of_aggregate_correlations_as_effect": 1182,
+        "number_of_global_variable_relationships_as_cause": 143,
+        "number_of_global_variable_relationships_as_effect": 1182,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19395,7 +19395,7 @@ var qm_variables = {
         "sorting_score": 1360
     },
     "Fat Mass Weight": {
-        "best_aggregate_correlation_id": 65641137,
+        "best_global_variable_relationship_id": 65641137,
         "best_cause_variable_id": 5954773,
         "best_effect_variable_id": 1344,
         "client_id": "Withings",
@@ -19407,8 +19407,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 5,
         "name": "Fat Mass Weight",
-        "number_of_aggregate_correlations_as_cause": 144,
-        "number_of_aggregate_correlations_as_effect": 1089,
+        "number_of_global_variable_relationships_as_cause": 144,
+        "number_of_global_variable_relationships_as_effect": 1089,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19442,7 +19442,7 @@ var qm_variables = {
         "sorting_score": 1268
     },
     "Code Commits": {
-        "best_aggregate_correlation_id": 65634035,
+        "best_global_variable_relationship_id": 65634035,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 1443,
         "client_id": "GitHub",
@@ -19454,8 +19454,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 41,
         "name": "Code Commits",
-        "number_of_aggregate_correlations_as_cause": 127,
-        "number_of_aggregate_correlations_as_effect": 1987,
+        "number_of_global_variable_relationships_as_cause": 127,
+        "number_of_global_variable_relationships_as_effect": 1987,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19489,7 +19489,7 @@ var qm_variables = {
         "sorting_score": 2165
     },
     "Hourly Step Count": {
-        "best_aggregate_correlation_id": 65691165,
+        "best_global_variable_relationship_id": 65691165,
         "best_cause_variable_id": 5954773,
         "best_effect_variable_id": 1356,
         "client_id": "googlefit",
@@ -19501,8 +19501,8 @@ var qm_variables = {
         "most_common_connector_id": 61,
         "most_common_original_unit_id": 23,
         "name": "Hourly Step Count",
-        "number_of_aggregate_correlations_as_cause": 191,
-        "number_of_aggregate_correlations_as_effect": 113,
+        "number_of_global_variable_relationships_as_cause": 191,
+        "number_of_global_variable_relationships_as_effect": 113,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19535,7 +19535,7 @@ var qm_variables = {
         "sorting_score": 455
     },
     "Vitamin D3 (units)": {
-        "best_aggregate_correlation_id": 65699445,
+        "best_global_variable_relationship_id": 65699445,
         "best_effect_variable_id": 87760,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -19546,8 +19546,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 12,
         "name": "Vitamin D3 (units)",
-        "number_of_aggregate_correlations_as_cause": 57,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 57,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19581,7 +19581,7 @@ var qm_variables = {
         "sorting_score": 65
     },
     "Efficiency Score From Rescuetime": {
-        "best_aggregate_correlation_id": 65674343,
+        "best_global_variable_relationship_id": 65674343,
         "best_cause_variable_id": 6053848,
         "best_effect_variable_id": 1398,
         "client_id": "RescueTime",
@@ -19593,8 +19593,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 21,
         "name": "Efficiency Score From Rescuetime",
-        "number_of_aggregate_correlations_as_cause": 148,
-        "number_of_aggregate_correlations_as_effect": 3568,
+        "number_of_global_variable_relationships_as_cause": 148,
+        "number_of_global_variable_relationships_as_effect": 3568,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19628,7 +19628,7 @@ var qm_variables = {
         "sorting_score": 3797
     },
     "Voice Chat Activities": {
-        "best_aggregate_correlation_id": 65676665,
+        "best_global_variable_relationship_id": 65676665,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 87760,
         "client_id": "RescueTime",
@@ -19640,8 +19640,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Voice Chat Activities",
-        "number_of_aggregate_correlations_as_cause": 139,
-        "number_of_aggregate_correlations_as_effect": 8,
+        "number_of_global_variable_relationships_as_cause": 139,
+        "number_of_global_variable_relationships_as_effect": 8,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19675,7 +19675,7 @@ var qm_variables = {
         "sorting_score": 197
     },
     "Music Activities": {
-        "best_aggregate_correlation_id": 65687387,
+        "best_global_variable_relationship_id": 65687387,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 1252,
         "client_id": "RescueTime",
@@ -19687,8 +19687,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Music Activities",
-        "number_of_aggregate_correlations_as_cause": 135,
-        "number_of_aggregate_correlations_as_effect": 13,
+        "number_of_global_variable_relationships_as_cause": 135,
+        "number_of_global_variable_relationships_as_effect": 13,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19722,7 +19722,7 @@ var qm_variables = {
         "sorting_score": 203
     },
     "General Communication & Scheduling Activities": {
-        "best_aggregate_correlation_id": 65627451,
+        "best_global_variable_relationship_id": 65627451,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 1358,
         "client_id": "RescueTime",
@@ -19734,8 +19734,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "General Communication & Scheduling Activities",
-        "number_of_aggregate_correlations_as_cause": 148,
-        "number_of_aggregate_correlations_as_effect": 15,
+        "number_of_global_variable_relationships_as_cause": 148,
+        "number_of_global_variable_relationships_as_effect": 15,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19769,7 +19769,7 @@ var qm_variables = {
         "sorting_score": 221
     },
     "General Social Networking Activities": {
-        "best_aggregate_correlation_id": 65641601,
+        "best_global_variable_relationship_id": 65641601,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 1313,
         "client_id": "RescueTime",
@@ -19781,8 +19781,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "General Social Networking Activities",
-        "number_of_aggregate_correlations_as_cause": 147,
-        "number_of_aggregate_correlations_as_effect": 15,
+        "number_of_global_variable_relationships_as_cause": 147,
+        "number_of_global_variable_relationships_as_effect": 15,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19816,7 +19816,7 @@ var qm_variables = {
         "sorting_score": 222
     },
     "Email Activities": {
-        "best_aggregate_correlation_id": 65676676,
+        "best_global_variable_relationship_id": 65676676,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 87760,
         "client_id": "RescueTime",
@@ -19828,8 +19828,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Email Activities",
-        "number_of_aggregate_correlations_as_cause": 146,
-        "number_of_aggregate_correlations_as_effect": 15,
+        "number_of_global_variable_relationships_as_cause": 146,
+        "number_of_global_variable_relationships_as_effect": 15,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19863,7 +19863,7 @@ var qm_variables = {
         "sorting_score": 219
     },
     "Health & Medicine Activities": {
-        "best_aggregate_correlation_id": 65768962,
+        "best_global_variable_relationship_id": 65768962,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 5538211,
         "client_id": "RescueTime",
@@ -19875,8 +19875,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Health & Medicine Activities",
-        "number_of_aggregate_correlations_as_cause": 153,
-        "number_of_aggregate_correlations_as_effect": 16,
+        "number_of_global_variable_relationships_as_cause": 153,
+        "number_of_global_variable_relationships_as_effect": 16,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19910,7 +19910,7 @@ var qm_variables = {
         "sorting_score": 227
     },
     "Intelligence Activities": {
-        "best_aggregate_correlation_id": 65627606,
+        "best_global_variable_relationship_id": 65627606,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1358,
         "client_id": "RescueTime",
@@ -19922,8 +19922,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Intelligence Activities",
-        "number_of_aggregate_correlations_as_cause": 157,
-        "number_of_aggregate_correlations_as_effect": 16,
+        "number_of_global_variable_relationships_as_cause": 157,
+        "number_of_global_variable_relationships_as_effect": 16,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -19957,7 +19957,7 @@ var qm_variables = {
         "sorting_score": 232
     },
     "General Entertainment Activities": {
-        "best_aggregate_correlation_id": 65674356,
+        "best_global_variable_relationship_id": 65674356,
         "best_cause_variable_id": 1273,
         "best_effect_variable_id": 87760,
         "client_id": "RescueTime",
@@ -19969,8 +19969,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "General Entertainment Activities",
-        "number_of_aggregate_correlations_as_cause": 143,
-        "number_of_aggregate_correlations_as_effect": 15,
+        "number_of_global_variable_relationships_as_cause": 143,
+        "number_of_global_variable_relationships_as_effect": 15,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20004,7 +20004,7 @@ var qm_variables = {
         "sorting_score": 220
     },
     "Design & Planning Activities": {
-        "best_aggregate_correlation_id": 65454142,
+        "best_global_variable_relationship_id": 65454142,
         "best_cause_variable_id": 1258,
         "best_effect_variable_id": 1304,
         "client_id": "RescueTime",
@@ -20016,8 +20016,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Design & Planning Activities",
-        "number_of_aggregate_correlations_as_cause": 110,
-        "number_of_aggregate_correlations_as_effect": 3,
+        "number_of_global_variable_relationships_as_cause": 110,
+        "number_of_global_variable_relationships_as_effect": 3,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20051,7 +20051,7 @@ var qm_variables = {
         "sorting_score": 152
     },
     "Instant Message Activities": {
-        "best_aggregate_correlation_id": 65676690,
+        "best_global_variable_relationship_id": 65676690,
         "best_cause_variable_id": 1273,
         "best_effect_variable_id": 87760,
         "client_id": "RescueTime",
@@ -20063,8 +20063,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 1,
         "name": "Instant Message Activities",
-        "number_of_aggregate_correlations_as_cause": 142,
-        "number_of_aggregate_correlations_as_effect": 10,
+        "number_of_global_variable_relationships_as_cause": 142,
+        "number_of_global_variable_relationships_as_effect": 10,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20097,7 +20097,7 @@ var qm_variables = {
         "sorting_score": 211
     },
     "File Sharing Activities": {
-        "best_aggregate_correlation_id": 65724144,
+        "best_global_variable_relationship_id": 65724144,
         "best_cause_variable_id": 1258,
         "best_effect_variable_id": 1355,
         "client_id": "RescueTime",
@@ -20109,8 +20109,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "File Sharing Activities",
-        "number_of_aggregate_correlations_as_cause": 138,
-        "number_of_aggregate_correlations_as_effect": 12,
+        "number_of_global_variable_relationships_as_cause": 138,
+        "number_of_global_variable_relationships_as_effect": 12,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20143,7 +20143,7 @@ var qm_variables = {
         "sorting_score": 207
     },
     "General Business Activities": {
-        "best_aggregate_correlation_id": 65641798,
+        "best_global_variable_relationship_id": 65641798,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1313,
         "client_id": "RescueTime",
@@ -20155,8 +20155,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "General Business Activities",
-        "number_of_aggregate_correlations_as_cause": 148,
-        "number_of_aggregate_correlations_as_effect": 15,
+        "number_of_global_variable_relationships_as_cause": 148,
+        "number_of_global_variable_relationships_as_effect": 15,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20190,7 +20190,7 @@ var qm_variables = {
         "sorting_score": 221
     },
     "Search Activities": {
-        "best_aggregate_correlation_id": 65676704,
+        "best_global_variable_relationship_id": 65676704,
         "best_cause_variable_id": 1273,
         "best_effect_variable_id": 87760,
         "client_id": "RescueTime",
@@ -20202,8 +20202,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Search Activities",
-        "number_of_aggregate_correlations_as_cause": 149,
-        "number_of_aggregate_correlations_as_effect": 15,
+        "number_of_global_variable_relationships_as_cause": 149,
+        "number_of_global_variable_relationships_as_effect": 15,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20237,7 +20237,7 @@ var qm_variables = {
         "sorting_score": 222
     },
     "Maps & Regional Activities": {
-        "best_aggregate_correlation_id": 65676706,
+        "best_global_variable_relationship_id": 65676706,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 87760,
         "client_id": "RescueTime",
@@ -20249,8 +20249,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Maps & Regional Activities",
-        "number_of_aggregate_correlations_as_cause": 135,
-        "number_of_aggregate_correlations_as_effect": 13,
+        "number_of_global_variable_relationships_as_cause": 135,
+        "number_of_global_variable_relationships_as_effect": 13,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20284,7 +20284,7 @@ var qm_variables = {
         "sorting_score": 201
     },
     "General Reference & Learning Activities": {
-        "best_aggregate_correlation_id": 65676708,
+        "best_global_variable_relationship_id": 65676708,
         "best_cause_variable_id": 1273,
         "best_effect_variable_id": 87760,
         "client_id": "RescueTime",
@@ -20296,8 +20296,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 1,
         "name": "General Reference & Learning Activities",
-        "number_of_aggregate_correlations_as_cause": 166,
-        "number_of_aggregate_correlations_as_effect": 20,
+        "number_of_global_variable_relationships_as_cause": 166,
+        "number_of_global_variable_relationships_as_effect": 20,
         "number_of_applications_where_outcome_variable": 1,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20331,7 +20331,7 @@ var qm_variables = {
         "sorting_score": 254
     },
     "Project Management Activities": {
-        "best_aggregate_correlation_id": 65675931,
+        "best_global_variable_relationship_id": 65675931,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1443,
         "client_id": "RescueTime",
@@ -20343,8 +20343,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Project Management Activities",
-        "number_of_aggregate_correlations_as_cause": 132,
-        "number_of_aggregate_correlations_as_effect": 7,
+        "number_of_global_variable_relationships_as_cause": 132,
+        "number_of_global_variable_relationships_as_effect": 7,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20378,7 +20378,7 @@ var qm_variables = {
         "sorting_score": 185
     },
     "General Software Development Activities": {
-        "best_aggregate_correlation_id": 65676710,
+        "best_global_variable_relationship_id": 65676710,
         "best_cause_variable_id": 1273,
         "best_effect_variable_id": 87760,
         "client_id": "RescueTime",
@@ -20390,8 +20390,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "General Software Development Activities",
-        "number_of_aggregate_correlations_as_cause": 145,
-        "number_of_aggregate_correlations_as_effect": 15,
+        "number_of_global_variable_relationships_as_cause": 145,
+        "number_of_global_variable_relationships_as_effect": 15,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20425,7 +20425,7 @@ var qm_variables = {
         "sorting_score": 216
     },
     "Administration Activities": {
-        "best_aggregate_correlation_id": 65727084,
+        "best_global_variable_relationship_id": 65727084,
         "best_cause_variable_id": 1273,
         "best_effect_variable_id": 89438,
         "client_id": "RescueTime",
@@ -20437,8 +20437,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Administration Activities",
-        "number_of_aggregate_correlations_as_cause": 129,
-        "number_of_aggregate_correlations_as_effect": 9,
+        "number_of_global_variable_relationships_as_cause": 129,
+        "number_of_global_variable_relationships_as_effect": 9,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20472,7 +20472,7 @@ var qm_variables = {
         "sorting_score": 185
     },
     "Writing Activities": {
-        "best_aggregate_correlation_id": 65807650,
+        "best_global_variable_relationship_id": 65807650,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 89245,
         "client_id": "RescueTime",
@@ -20484,8 +20484,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Writing Activities",
-        "number_of_aggregate_correlations_as_cause": 141,
-        "number_of_aggregate_correlations_as_effect": 13,
+        "number_of_global_variable_relationships_as_cause": 141,
+        "number_of_global_variable_relationships_as_effect": 13,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20519,7 +20519,7 @@ var qm_variables = {
         "sorting_score": 208
     },
     "General News & Opinion Activities": {
-        "best_aggregate_correlation_id": 65677443,
+        "best_global_variable_relationship_id": 65677443,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 5964700,
         "client_id": "RescueTime",
@@ -20531,8 +20531,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "General News & Opinion Activities",
-        "number_of_aggregate_correlations_as_cause": 147,
-        "number_of_aggregate_correlations_as_effect": 16,
+        "number_of_global_variable_relationships_as_cause": 147,
+        "number_of_global_variable_relationships_as_effect": 16,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20566,7 +20566,7 @@ var qm_variables = {
         "sorting_score": 220
     },
     "Professional Networking Activities": {
-        "best_aggregate_correlation_id": 65726626,
+        "best_global_variable_relationship_id": 65726626,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1251,
         "client_id": "RescueTime",
@@ -20578,8 +20578,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Professional Networking Activities",
-        "number_of_aggregate_correlations_as_cause": 137,
-        "number_of_aggregate_correlations_as_effect": 12,
+        "number_of_global_variable_relationships_as_cause": 137,
+        "number_of_global_variable_relationships_as_effect": 12,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20613,7 +20613,7 @@ var qm_variables = {
         "sorting_score": 200
     },
     "General Design & Composition Activities": {
-        "best_aggregate_correlation_id": 65627850,
+        "best_global_variable_relationship_id": 65627850,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 1267,
         "client_id": "RescueTime",
@@ -20625,8 +20625,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "General Design & Composition Activities",
-        "number_of_aggregate_correlations_as_cause": 133,
-        "number_of_aggregate_correlations_as_effect": 14,
+        "number_of_global_variable_relationships_as_cause": 133,
+        "number_of_global_variable_relationships_as_effect": 14,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20660,7 +20660,7 @@ var qm_variables = {
         "sorting_score": 199
     },
     "Graphic Design Activities": {
-        "best_aggregate_correlation_id": 65803930,
+        "best_global_variable_relationship_id": 65803930,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1486,
         "client_id": "RescueTime",
@@ -20672,8 +20672,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Graphic Design Activities",
-        "number_of_aggregate_correlations_as_cause": 139,
-        "number_of_aggregate_correlations_as_effect": 13,
+        "number_of_global_variable_relationships_as_cause": 139,
+        "number_of_global_variable_relationships_as_effect": 13,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20707,7 +20707,7 @@ var qm_variables = {
         "sorting_score": 198
     },
     "Business & Finance Activities": {
-        "best_aggregate_correlation_id": 65728102,
+        "best_global_variable_relationship_id": 65728102,
         "best_cause_variable_id": 1342,
         "best_effect_variable_id": 1448,
         "client_id": "RescueTime",
@@ -20719,8 +20719,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Business & Finance Activities",
-        "number_of_aggregate_correlations_as_cause": 137,
-        "number_of_aggregate_correlations_as_effect": 24,
+        "number_of_global_variable_relationships_as_cause": 137,
+        "number_of_global_variable_relationships_as_effect": 24,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20754,7 +20754,7 @@ var qm_variables = {
         "sorting_score": 212
     },
     "Internet Utilities Activities": {
-        "best_aggregate_correlation_id": 65631538,
+        "best_global_variable_relationship_id": 65631538,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 1305,
         "client_id": "RescueTime",
@@ -20766,8 +20766,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Internet Utilities Activities",
-        "number_of_aggregate_correlations_as_cause": 143,
-        "number_of_aggregate_correlations_as_effect": 15,
+        "number_of_global_variable_relationships_as_cause": 143,
+        "number_of_global_variable_relationships_as_effect": 15,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20801,7 +20801,7 @@ var qm_variables = {
         "sorting_score": 218
     },
     "Science & Technology Activities": {
-        "best_aggregate_correlation_id": 65676717,
+        "best_global_variable_relationship_id": 65676717,
         "best_cause_variable_id": 1273,
         "best_effect_variable_id": 87760,
         "client_id": "RescueTime",
@@ -20813,8 +20813,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Science & Technology Activities",
-        "number_of_aggregate_correlations_as_cause": 139,
-        "number_of_aggregate_correlations_as_effect": 14,
+        "number_of_global_variable_relationships_as_cause": 139,
+        "number_of_global_variable_relationships_as_effect": 14,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20848,7 +20848,7 @@ var qm_variables = {
         "sorting_score": 207
     },
     "Customer Relations Activities": {
-        "best_aggregate_correlation_id": 65704514,
+        "best_global_variable_relationship_id": 65704514,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 5903391,
         "client_id": "RescueTime",
@@ -20860,8 +20860,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Customer Relations Activities",
-        "number_of_aggregate_correlations_as_cause": 116,
-        "number_of_aggregate_correlations_as_effect": 4,
+        "number_of_global_variable_relationships_as_cause": 116,
+        "number_of_global_variable_relationships_as_effect": 4,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20895,7 +20895,7 @@ var qm_variables = {
         "sorting_score": 159
     },
     "Editing & IDEs Activities": {
-        "best_aggregate_correlation_id": 65723456,
+        "best_global_variable_relationship_id": 65723456,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1272,
         "client_id": "RescueTime",
@@ -20907,8 +20907,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Editing & IDEs Activities",
-        "number_of_aggregate_correlations_as_cause": 130,
-        "number_of_aggregate_correlations_as_effect": 3,
+        "number_of_global_variable_relationships_as_cause": 130,
+        "number_of_global_variable_relationships_as_effect": 3,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20942,7 +20942,7 @@ var qm_variables = {
         "sorting_score": 175
     },
     "Presentation Activities": {
-        "best_aggregate_correlation_id": 65631601,
+        "best_global_variable_relationship_id": 65631601,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 1252,
         "client_id": "RescueTime",
@@ -20954,8 +20954,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Presentation Activities",
-        "number_of_aggregate_correlations_as_cause": 140,
-        "number_of_aggregate_correlations_as_effect": 12,
+        "number_of_global_variable_relationships_as_cause": 140,
+        "number_of_global_variable_relationships_as_effect": 12,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -20989,7 +20989,7 @@ var qm_variables = {
         "sorting_score": 204
     },
     "Video Activities": {
-        "best_aggregate_correlation_id": 65631661,
+        "best_global_variable_relationship_id": 65631661,
         "best_cause_variable_id": 1273,
         "best_effect_variable_id": 1344,
         "client_id": "RescueTime",
@@ -21001,8 +21001,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 1,
         "name": "Video Activities",
-        "number_of_aggregate_correlations_as_cause": 158,
-        "number_of_aggregate_correlations_as_effect": 25,
+        "number_of_global_variable_relationships_as_cause": 158,
+        "number_of_global_variable_relationships_as_effect": 25,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21036,7 +21036,7 @@ var qm_variables = {
         "sorting_score": 257
     },
     "Systems Operations Activities": {
-        "best_aggregate_correlation_id": 65642143,
+        "best_global_variable_relationship_id": 65642143,
         "best_cause_variable_id": 88878,
         "best_effect_variable_id": 5956874,
         "client_id": "RescueTime",
@@ -21048,8 +21048,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Systems Operations Activities",
-        "number_of_aggregate_correlations_as_cause": 132,
-        "number_of_aggregate_correlations_as_effect": 5,
+        "number_of_global_variable_relationships_as_cause": 132,
+        "number_of_global_variable_relationships_as_effect": 5,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21083,7 +21083,7 @@ var qm_variables = {
         "sorting_score": 183
     },
     "Engineering & Technology Activities": {
-        "best_aggregate_correlation_id": 65726614,
+        "best_global_variable_relationship_id": 65726614,
         "best_cause_variable_id": 1306,
         "best_effect_variable_id": 1306,
         "client_id": "RescueTime",
@@ -21095,8 +21095,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Engineering & Technology Activities",
-        "number_of_aggregate_correlations_as_cause": 143,
-        "number_of_aggregate_correlations_as_effect": 13,
+        "number_of_global_variable_relationships_as_cause": 143,
+        "number_of_global_variable_relationships_as_effect": 13,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21130,7 +21130,7 @@ var qm_variables = {
         "sorting_score": 210
     },
     "Unknown Activities": {
-        "best_aggregate_correlation_id": 65725040,
+        "best_global_variable_relationship_id": 65725040,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1448,
         "client_id": "RescueTime",
@@ -21142,8 +21142,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Unknown Activities",
-        "number_of_aggregate_correlations_as_cause": 107,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 107,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21176,7 +21176,7 @@ var qm_variables = {
         "sorting_score": 134
     },
     "Marketing Activities": {
-        "best_aggregate_correlation_id": 65714139,
+        "best_global_variable_relationship_id": 65714139,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 84887,
         "client_id": "RescueTime",
@@ -21188,8 +21188,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Marketing Activities",
-        "number_of_aggregate_correlations_as_cause": 131,
-        "number_of_aggregate_correlations_as_effect": 13,
+        "number_of_global_variable_relationships_as_cause": 131,
+        "number_of_global_variable_relationships_as_effect": 13,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21223,7 +21223,7 @@ var qm_variables = {
         "sorting_score": 195
     },
     "Accounting Activities": {
-        "best_aggregate_correlation_id": 65625366,
+        "best_global_variable_relationship_id": 65625366,
         "best_cause_variable_id": 87709,
         "best_effect_variable_id": 5964702,
         "client_id": "RescueTime",
@@ -21235,8 +21235,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Accounting Activities",
-        "number_of_aggregate_correlations_as_cause": 136,
-        "number_of_aggregate_correlations_as_effect": 10,
+        "number_of_global_variable_relationships_as_cause": 136,
+        "number_of_global_variable_relationships_as_effect": 10,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21270,7 +21270,7 @@ var qm_variables = {
         "sorting_score": 197
     },
     "Legal & Govt Activities": {
-        "best_aggregate_correlation_id": 65727555,
+        "best_global_variable_relationship_id": 65727555,
         "best_cause_variable_id": 89438,
         "best_effect_variable_id": 1305,
         "client_id": "RescueTime",
@@ -21282,8 +21282,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Legal & Govt Activities",
-        "number_of_aggregate_correlations_as_cause": 97,
-        "number_of_aggregate_correlations_as_effect": 11,
+        "number_of_global_variable_relationships_as_cause": 97,
+        "number_of_global_variable_relationships_as_effect": 11,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21317,7 +21317,7 @@ var qm_variables = {
         "sorting_score": 150
     },
     "Travel & Outdoors Activities": {
-        "best_aggregate_correlation_id": 65706892,
+        "best_global_variable_relationship_id": 65706892,
         "best_cause_variable_id": 1273,
         "best_effect_variable_id": 87760,
         "client_id": "RescueTime",
@@ -21329,8 +21329,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Travel & Outdoors Activities",
-        "number_of_aggregate_correlations_as_cause": 129,
-        "number_of_aggregate_correlations_as_effect": 12,
+        "number_of_global_variable_relationships_as_cause": 129,
+        "number_of_global_variable_relationships_as_effect": 12,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21364,7 +21364,7 @@ var qm_variables = {
         "sorting_score": 191
     },
     "General Shopping Activities": {
-        "best_aggregate_correlation_id": 65677467,
+        "best_global_variable_relationship_id": 65677467,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 5964700,
         "client_id": "RescueTime",
@@ -21376,8 +21376,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "General Shopping Activities",
-        "number_of_aggregate_correlations_as_cause": 149,
-        "number_of_aggregate_correlations_as_effect": 14,
+        "number_of_global_variable_relationships_as_cause": 149,
+        "number_of_global_variable_relationships_as_effect": 14,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21411,7 +21411,7 @@ var qm_variables = {
         "sorting_score": 222
     },
     "Business Activities": {
-        "best_aggregate_correlation_id": 65430640,
+        "best_global_variable_relationship_id": 65430640,
         "best_cause_variable_id": 89438,
         "best_effect_variable_id": 1280,
         "client_id": "RescueTime",
@@ -21423,8 +21423,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Business Activities",
-        "number_of_aggregate_correlations_as_cause": 105,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 105,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21458,7 +21458,7 @@ var qm_variables = {
         "sorting_score": 149
     },
     "Calendars Activities": {
-        "best_aggregate_correlation_id": 65676731,
+        "best_global_variable_relationship_id": 65676731,
         "best_cause_variable_id": 1273,
         "best_effect_variable_id": 87760,
         "client_id": "RescueTime",
@@ -21470,8 +21470,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Calendars Activities",
-        "number_of_aggregate_correlations_as_cause": 144,
-        "number_of_aggregate_correlations_as_effect": 8,
+        "number_of_global_variable_relationships_as_cause": 144,
+        "number_of_global_variable_relationships_as_effect": 8,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21505,7 +21505,7 @@ var qm_variables = {
         "sorting_score": 208
     },
     "Comedy Activities": {
-        "best_aggregate_correlation_id": 65468037,
+        "best_global_variable_relationship_id": 65468037,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1304,
         "client_id": "RescueTime",
@@ -21517,8 +21517,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Comedy Activities",
-        "number_of_aggregate_correlations_as_cause": 108,
-        "number_of_aggregate_correlations_as_effect": 11,
+        "number_of_global_variable_relationships_as_cause": 108,
+        "number_of_global_variable_relationships_as_effect": 11,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21551,7 +21551,7 @@ var qm_variables = {
         "sorting_score": 163
     },
     "Other Activities": {
-        "best_aggregate_correlation_id": 65710045,
+        "best_global_variable_relationship_id": 65710045,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 5953225,
         "client_id": "RescueTime",
@@ -21563,8 +21563,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Other Activities",
-        "number_of_aggregate_correlations_as_cause": 141,
-        "number_of_aggregate_correlations_as_effect": 6,
+        "number_of_global_variable_relationships_as_cause": 141,
+        "number_of_global_variable_relationships_as_effect": 6,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21598,7 +21598,7 @@ var qm_variables = {
         "sorting_score": 199
     },
     "Office Activities": {
-        "best_aggregate_correlation_id": 65727444,
+        "best_global_variable_relationship_id": 65727444,
         "best_cause_variable_id": 5944892,
         "best_effect_variable_id": 1252,
         "client_id": "RescueTime",
@@ -21610,8 +21610,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Office Activities",
-        "number_of_aggregate_correlations_as_cause": 71,
-        "number_of_aggregate_correlations_as_effect": 8,
+        "number_of_global_variable_relationships_as_cause": 71,
+        "number_of_global_variable_relationships_as_effect": 8,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21644,7 +21644,7 @@ var qm_variables = {
         "sorting_score": 112
     },
     "Video Editing Activities": {
-        "best_aggregate_correlation_id": 65725596,
+        "best_global_variable_relationship_id": 65725596,
         "best_cause_variable_id": 89438,
         "best_effect_variable_id": 1252,
         "client_id": "RescueTime",
@@ -21656,8 +21656,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Video Editing Activities",
-        "number_of_aggregate_correlations_as_cause": 119,
-        "number_of_aggregate_correlations_as_effect": 10,
+        "number_of_global_variable_relationships_as_cause": 119,
+        "number_of_global_variable_relationships_as_effect": 10,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21691,7 +21691,7 @@ var qm_variables = {
         "sorting_score": 171
     },
     "Browsers Activities": {
-        "best_aggregate_correlation_id": 65809155,
+        "best_global_variable_relationship_id": 65809155,
         "best_cause_variable_id": 1273,
         "best_effect_variable_id": 6056709,
         "client_id": "RescueTime",
@@ -21703,8 +21703,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Browsers Activities",
-        "number_of_aggregate_correlations_as_cause": 148,
-        "number_of_aggregate_correlations_as_effect": 15,
+        "number_of_global_variable_relationships_as_cause": 148,
+        "number_of_global_variable_relationships_as_effect": 15,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21738,7 +21738,7 @@ var qm_variables = {
         "sorting_score": 224
     },
     "Audio Editing Activities": {
-        "best_aggregate_correlation_id": 65450323,
+        "best_global_variable_relationship_id": 65450323,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1304,
         "client_id": "RescueTime",
@@ -21750,8 +21750,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Audio Editing Activities",
-        "number_of_aggregate_correlations_as_cause": 100,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 100,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21784,7 +21784,7 @@ var qm_variables = {
         "sorting_score": 134
     },
     "Operations Activities": {
-        "best_aggregate_correlation_id": 65637298,
+        "best_global_variable_relationship_id": 65637298,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 1486,
         "client_id": "RescueTime",
@@ -21796,8 +21796,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Operations Activities",
-        "number_of_aggregate_correlations_as_cause": 127,
-        "number_of_aggregate_correlations_as_effect": 18,
+        "number_of_global_variable_relationships_as_cause": 127,
+        "number_of_global_variable_relationships_as_effect": 18,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21831,7 +21831,7 @@ var qm_variables = {
         "sorting_score": 190
     },
     "Employment Activities": {
-        "best_aggregate_correlation_id": 65714173,
+        "best_global_variable_relationship_id": 65714173,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 89387,
         "client_id": "RescueTime",
@@ -21843,8 +21843,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Employment Activities",
-        "number_of_aggregate_correlations_as_cause": 132,
-        "number_of_aggregate_correlations_as_effect": 19,
+        "number_of_global_variable_relationships_as_cause": 132,
+        "number_of_global_variable_relationships_as_effect": 19,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21877,7 +21877,7 @@ var qm_variables = {
         "sorting_score": 200
     },
     "Quality Assurance Activities": {
-        "best_aggregate_correlation_id": 65726419,
+        "best_global_variable_relationship_id": 65726419,
         "best_cause_variable_id": 89438,
         "best_effect_variable_id": 1335,
         "client_id": "RescueTime",
@@ -21889,8 +21889,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Quality Assurance Activities",
-        "number_of_aggregate_correlations_as_cause": 130,
-        "number_of_aggregate_correlations_as_effect": 3,
+        "number_of_global_variable_relationships_as_cause": 130,
+        "number_of_global_variable_relationships_as_effect": 3,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21923,7 +21923,7 @@ var qm_variables = {
         "sorting_score": 174
     },
     "Games Activities": {
-        "best_aggregate_correlation_id": 65706897,
+        "best_global_variable_relationship_id": 65706897,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 87760,
         "client_id": "RescueTime",
@@ -21935,8 +21935,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Games Activities",
-        "number_of_aggregate_correlations_as_cause": 130,
-        "number_of_aggregate_correlations_as_effect": 17,
+        "number_of_global_variable_relationships_as_cause": 130,
+        "number_of_global_variable_relationships_as_effect": 17,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -21969,7 +21969,7 @@ var qm_variables = {
         "sorting_score": 201
     },
     "Photos Activities": {
-        "best_aggregate_correlation_id": 65723334,
+        "best_global_variable_relationship_id": 65723334,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1273,
         "client_id": "RescueTime",
@@ -21981,8 +21981,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 1,
         "name": "Photos Activities",
-        "number_of_aggregate_correlations_as_cause": 154,
-        "number_of_aggregate_correlations_as_effect": 14,
+        "number_of_global_variable_relationships_as_cause": 154,
+        "number_of_global_variable_relationships_as_effect": 14,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22016,7 +22016,7 @@ var qm_variables = {
         "sorting_score": 223
     },
     "Clothes & Personal Activities": {
-        "best_aggregate_correlation_id": 65450371,
+        "best_global_variable_relationship_id": 65450371,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1304,
         "client_id": "RescueTime",
@@ -22028,8 +22028,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Clothes & Personal Activities",
-        "number_of_aggregate_correlations_as_cause": 112,
-        "number_of_aggregate_correlations_as_effect": 10,
+        "number_of_global_variable_relationships_as_cause": 112,
+        "number_of_global_variable_relationships_as_effect": 10,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22062,7 +22062,7 @@ var qm_variables = {
         "sorting_score": 169
     },
     "Anti-Virus & Spyware Activities": {
-        "best_aggregate_correlation_id": 65450373,
+        "best_global_variable_relationship_id": 65450373,
         "best_cause_variable_id": 89438,
         "best_effect_variable_id": 1304,
         "client_id": "RescueTime",
@@ -22074,8 +22074,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Anti-Virus & Spyware Activities",
-        "number_of_aggregate_correlations_as_cause": 112,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 112,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22108,7 +22108,7 @@ var qm_variables = {
         "sorting_score": 157
     },
     "Entertainment Activities": {
-        "best_aggregate_correlation_id": 65809170,
+        "best_global_variable_relationship_id": 65809170,
         "best_cause_variable_id": 5944892,
         "best_effect_variable_id": 87812,
         "client_id": "RescueTime",
@@ -22120,8 +22120,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Entertainment Activities",
-        "number_of_aggregate_correlations_as_cause": 111,
-        "number_of_aggregate_correlations_as_effect": 17,
+        "number_of_global_variable_relationships_as_cause": 111,
+        "number_of_global_variable_relationships_as_effect": 17,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22154,7 +22154,7 @@ var qm_variables = {
         "sorting_score": 170
     },
     "Data Modeling & Analysis Activities": {
-        "best_aggregate_correlation_id": 65728095,
+        "best_global_variable_relationship_id": 65728095,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1272,
         "client_id": "RescueTime",
@@ -22166,8 +22166,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Data Modeling & Analysis Activities",
-        "number_of_aggregate_correlations_as_cause": 110,
-        "number_of_aggregate_correlations_as_effect": 12,
+        "number_of_global_variable_relationships_as_cause": 110,
+        "number_of_global_variable_relationships_as_effect": 12,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22201,7 +22201,7 @@ var qm_variables = {
         "sorting_score": 148
     },
     "Meetings Activities": {
-        "best_aggregate_correlation_id": 65687496,
+        "best_global_variable_relationship_id": 65687496,
         "best_cause_variable_id": 89438,
         "best_effect_variable_id": 1486,
         "client_id": "RescueTime",
@@ -22213,8 +22213,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Meetings Activities",
-        "number_of_aggregate_correlations_as_cause": 101,
-        "number_of_aggregate_correlations_as_effect": 4,
+        "number_of_global_variable_relationships_as_cause": 101,
+        "number_of_global_variable_relationships_as_effect": 4,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22248,7 +22248,7 @@ var qm_variables = {
         "sorting_score": 134
     },
     "Home & Garden Activities": {
-        "best_aggregate_correlation_id": 65727090,
+        "best_global_variable_relationship_id": 65727090,
         "best_cause_variable_id": 5943150,
         "best_effect_variable_id": 5955692,
         "client_id": "RescueTime",
@@ -22260,8 +22260,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Home & Garden Activities",
-        "number_of_aggregate_correlations_as_cause": 109,
-        "number_of_aggregate_correlations_as_effect": 11,
+        "number_of_global_variable_relationships_as_cause": 109,
+        "number_of_global_variable_relationships_as_effect": 11,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22295,7 +22295,7 @@ var qm_variables = {
         "sorting_score": 162
     },
     "Electronics Activities": {
-        "best_aggregate_correlation_id": 65804112,
+        "best_global_variable_relationship_id": 65804112,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 1398,
         "client_id": "RescueTime",
@@ -22307,8 +22307,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Electronics Activities",
-        "number_of_aggregate_correlations_as_cause": 113,
-        "number_of_aggregate_correlations_as_effect": 24,
+        "number_of_global_variable_relationships_as_cause": 113,
+        "number_of_global_variable_relationships_as_effect": 24,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22341,7 +22341,7 @@ var qm_variables = {
         "sorting_score": 179
     },
     "Sales Activities": {
-        "best_aggregate_correlation_id": 65726433,
+        "best_global_variable_relationship_id": 65726433,
         "best_cause_variable_id": 1310,
         "best_effect_variable_id": 1344,
         "client_id": "RescueTime",
@@ -22353,8 +22353,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Sales Activities",
-        "number_of_aggregate_correlations_as_cause": 95,
-        "number_of_aggregate_correlations_as_effect": 15,
+        "number_of_global_variable_relationships_as_cause": 95,
+        "number_of_global_variable_relationships_as_effect": 15,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22387,7 +22387,7 @@ var qm_variables = {
         "sorting_score": 148
     },
     "Regional Activities": {
-        "best_aggregate_correlation_id": 65447280,
+        "best_global_variable_relationship_id": 65447280,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1304,
         "client_id": "RescueTime",
@@ -22399,8 +22399,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Regional Activities",
-        "number_of_aggregate_correlations_as_cause": 90,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 90,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22433,7 +22433,7 @@ var qm_variables = {
         "sorting_score": 125
     },
     "Food Activities": {
-        "best_aggregate_correlation_id": 65725861,
+        "best_global_variable_relationship_id": 65725861,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 5903391,
         "client_id": "RescueTime",
@@ -22445,8 +22445,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Food Activities",
-        "number_of_aggregate_correlations_as_cause": 102,
-        "number_of_aggregate_correlations_as_effect": 11,
+        "number_of_global_variable_relationships_as_cause": 102,
+        "number_of_global_variable_relationships_as_effect": 11,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22479,7 +22479,7 @@ var qm_variables = {
         "sorting_score": 156
     },
     "International Activities": {
-        "best_aggregate_correlation_id": 65727379,
+        "best_global_variable_relationship_id": 65727379,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1358,
         "client_id": "RescueTime",
@@ -22491,8 +22491,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "International Activities",
-        "number_of_aggregate_correlations_as_cause": 81,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 81,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22525,7 +22525,7 @@ var qm_variables = {
         "sorting_score": 119
     },
     "3D Graphic Design Activities": {
-        "best_aggregate_correlation_id": 65725970,
+        "best_global_variable_relationship_id": 65725970,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1398,
         "client_id": "RescueTime",
@@ -22537,8 +22537,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "3D Graphic Design Activities",
-        "number_of_aggregate_correlations_as_cause": 47,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 47,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22571,7 +22571,7 @@ var qm_variables = {
         "sorting_score": 72
     },
     "Society Activities": {
-        "best_aggregate_correlation_id": 65637415,
+        "best_global_variable_relationship_id": 65637415,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 5956874,
         "client_id": "RescueTime",
@@ -22583,8 +22583,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Society Activities",
-        "number_of_aggregate_correlations_as_cause": 78,
-        "number_of_aggregate_correlations_as_effect": 11,
+        "number_of_global_variable_relationships_as_cause": 78,
+        "number_of_global_variable_relationships_as_effect": 11,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22617,7 +22617,7 @@ var qm_variables = {
         "sorting_score": 129
     },
     "Sports Activities": {
-        "best_aggregate_correlation_id": 65450382,
+        "best_global_variable_relationship_id": 65450382,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1304,
         "client_id": "RescueTime",
@@ -22629,8 +22629,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Sports Activities",
-        "number_of_aggregate_correlations_as_cause": 95,
-        "number_of_aggregate_correlations_as_effect": 11,
+        "number_of_global_variable_relationships_as_cause": 95,
+        "number_of_global_variable_relationships_as_effect": 11,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22663,7 +22663,7 @@ var qm_variables = {
         "sorting_score": 145
     },
     "Reading Activities": {
-        "best_aggregate_correlation_id": 65733711,
+        "best_global_variable_relationship_id": 65733711,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 87524,
         "client_id": "RescueTime",
@@ -22675,8 +22675,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Reading Activities",
-        "number_of_aggregate_correlations_as_cause": 25,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 25,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22709,7 +22709,7 @@ var qm_variables = {
         "sorting_score": 30
     },
     "Porn Activities": {
-        "best_aggregate_correlation_id": 65808650,
+        "best_global_variable_relationship_id": 65808650,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 100769,
         "client_id": "RescueTime",
@@ -22721,8 +22721,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Porn Activities",
-        "number_of_aggregate_correlations_as_cause": 28,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 28,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22755,7 +22755,7 @@ var qm_variables = {
         "sorting_score": 32
     },
     "Wellness Activities": {
-        "best_aggregate_correlation_id": 65807644,
+        "best_global_variable_relationship_id": 65807644,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1272,
         "client_id": "RescueTime",
@@ -22767,8 +22767,8 @@ var qm_variables = {
         "most_common_connector_id": 11,
         "most_common_original_unit_id": 1,
         "name": "Wellness Activities",
-        "number_of_aggregate_correlations_as_cause": 42,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 42,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22801,7 +22801,7 @@ var qm_variables = {
         "sorting_score": 46
     },
     "Cloud Cover": {
-        "best_aggregate_correlation_id": 65647342,
+        "best_global_variable_relationship_id": 65647342,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -22812,8 +22812,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 21,
         "name": "Cloud Cover",
-        "number_of_aggregate_correlations_as_cause": 396,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 396,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22847,7 +22847,7 @@ var qm_variables = {
         "sorting_score": 1410
     },
     "Frustrated": {
-        "best_aggregate_correlation_id": 65726577,
+        "best_global_variable_relationship_id": 65726577,
         "best_cause_variable_id": 5957233,
         "best_effect_variable_id": 90431,
         "client_id": "UnknownClient",
@@ -22858,8 +22858,8 @@ var qm_variables = {
         "ion_icon": "ion-happy-outline",
         "most_common_original_unit_id": 10,
         "name": "Frustrated",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 14,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 14,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22892,7 +22892,7 @@ var qm_variables = {
         "sorting_score": 21
     },
     "Crying": {
-        "best_aggregate_correlation_id": 65809296,
+        "best_global_variable_relationship_id": 65809296,
         "best_cause_variable_id": 5746931,
         "best_effect_variable_id": 90183,
         "client_id": "UnknownClient",
@@ -22904,8 +22904,8 @@ var qm_variables = {
         "most_common_connector_id": 72,
         "most_common_original_unit_id": 23,
         "name": "Crying",
-        "number_of_aggregate_correlations_as_cause": 17,
-        "number_of_aggregate_correlations_as_effect": 64,
+        "number_of_global_variable_relationships_as_cause": 17,
+        "number_of_global_variable_relationships_as_effect": 64,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22938,7 +22938,7 @@ var qm_variables = {
         "sorting_score": 116
     },
     "Spinach Raw (yes\/no)": {
-        "best_aggregate_correlation_id": 65710548,
+        "best_global_variable_relationship_id": 65710548,
         "best_effect_variable_id": 90511,
         "client_id": "oAuthDisabled",
         "creator_user_id": 7,
@@ -22948,8 +22948,8 @@ var qm_variables = {
         "ion_icon": "ion-fork",
         "most_common_connector_id": 84,
         "name": "Spinach Raw (yes\/no)",
-        "number_of_aggregate_correlations_as_cause": 107,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 107,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -22983,7 +22983,7 @@ var qm_variables = {
         "sorting_score": 110
     },
     "Collagen": {
-        "best_aggregate_correlation_id": 65727343,
+        "best_global_variable_relationship_id": 65727343,
         "best_effect_variable_id": 1355,
         "client_id": "oAuthDisabled",
         "creator_user_id": 7,
@@ -22993,8 +22993,8 @@ var qm_variables = {
         "ion_icon": "ion-fork",
         "most_common_connector_id": 64,
         "name": "Collagen",
-        "number_of_aggregate_correlations_as_cause": 11,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 11,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23027,7 +23027,7 @@ var qm_variables = {
         "sorting_score": 14
     },
     "Ibuprofen (count)": {
-        "best_aggregate_correlation_id": 65700067,
+        "best_global_variable_relationship_id": 65700067,
         "best_effect_variable_id": 1307,
         "client_id": "Vv7HymHq6PkTrZfM",
         "creator_user_id": 7,
@@ -23037,8 +23037,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_connector_id": 72,
         "name": "Ibuprofen (count)",
-        "number_of_aggregate_correlations_as_cause": 56,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 56,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23072,7 +23072,7 @@ var qm_variables = {
         "sorting_score": 61
     },
     "Minutes Asleep": {
-        "best_aggregate_correlation_id": 65677335,
+        "best_global_variable_relationship_id": 65677335,
         "best_cause_variable_id": 5211911,
         "best_effect_variable_id": 89251,
         "client_id": "Fitbit",
@@ -23083,8 +23083,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-cloudy-night-outline",
         "most_common_connector_id": 7,
         "name": "Minutes Asleep",
-        "number_of_aggregate_correlations_as_cause": 107,
-        "number_of_aggregate_correlations_as_effect": 600,
+        "number_of_global_variable_relationships_as_cause": 107,
+        "number_of_global_variable_relationships_as_effect": 600,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23118,7 +23118,7 @@ var qm_variables = {
         "sorting_score": 760
     },
     "Minutes Awake During Night": {
-        "best_aggregate_correlation_id": 65700537,
+        "best_global_variable_relationship_id": 65700537,
         "best_cause_variable_id": 5974181,
         "best_effect_variable_id": 89251,
         "client_id": "Fitbit",
@@ -23129,8 +23129,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-cloudy-night-outline",
         "most_common_connector_id": 7,
         "name": "Minutes Awake During Night",
-        "number_of_aggregate_correlations_as_cause": 117,
-        "number_of_aggregate_correlations_as_effect": 723,
+        "number_of_global_variable_relationships_as_cause": 117,
+        "number_of_global_variable_relationships_as_effect": 723,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23164,7 +23164,7 @@ var qm_variables = {
         "sorting_score": 901
     },
     "Minutes To Fall Asleep": {
-        "best_aggregate_correlation_id": 65686687,
+        "best_global_variable_relationship_id": 65686687,
         "best_cause_variable_id": 1509,
         "best_effect_variable_id": 1258,
         "client_id": "Fitbit",
@@ -23175,8 +23175,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-cloudy-night-outline",
         "most_common_connector_id": 7,
         "name": "Minutes To Fall Asleep",
-        "number_of_aggregate_correlations_as_cause": 103,
-        "number_of_aggregate_correlations_as_effect": 513,
+        "number_of_global_variable_relationships_as_cause": 103,
+        "number_of_global_variable_relationships_as_effect": 513,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23210,7 +23210,7 @@ var qm_variables = {
         "sorting_score": 708
     },
     "Minutes After Wakeup Still In Bed": {
-        "best_aggregate_correlation_id": 65613855,
+        "best_global_variable_relationship_id": 65613855,
         "best_cause_variable_id": 1280,
         "best_effect_variable_id": 5211861,
         "client_id": "Fitbit",
@@ -23221,8 +23221,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-cloudy-night-outline",
         "most_common_connector_id": 7,
         "name": "Minutes After Wakeup Still In Bed",
-        "number_of_aggregate_correlations_as_cause": 104,
-        "number_of_aggregate_correlations_as_effect": 705,
+        "number_of_global_variable_relationships_as_cause": 104,
+        "number_of_global_variable_relationships_as_effect": 705,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23256,7 +23256,7 @@ var qm_variables = {
         "sorting_score": 901
     },
     "Clonidine (mg)": {
-        "best_aggregate_correlation_id": 65700814,
+        "best_global_variable_relationship_id": 65700814,
         "best_effect_variable_id": 1398,
         "client_id": "bOGtinzJyQrbXEfv",
         "creator_user_id": 7,
@@ -23266,8 +23266,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_connector_id": 72,
         "name": "Clonidine (mg)",
-        "number_of_aggregate_correlations_as_cause": 6,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 6,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23301,7 +23301,7 @@ var qm_variables = {
         "sorting_score": 12
     },
     "Self Harm": {
-        "best_aggregate_correlation_id": 65740791,
+        "best_global_variable_relationship_id": 65740791,
         "best_cause_variable_id": 87709,
         "best_effect_variable_id": 87709,
         "client_id": "Vv7HymHq6PkTrZfM",
@@ -23312,8 +23312,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_connector_id": 72,
         "name": "Self Harm",
-        "number_of_aggregate_correlations_as_cause": 28,
-        "number_of_aggregate_correlations_as_effect": 44,
+        "number_of_global_variable_relationships_as_cause": 28,
+        "number_of_global_variable_relationships_as_effect": 44,
         "number_of_common_tags": 0,
         "number_of_measurements": 139,
         "number_of_raw_measurements": 139,
@@ -23332,7 +23332,7 @@ var qm_variables = {
         "sorting_score": 88
     },
     "Partly Cloudy-day": {
-        "best_aggregate_correlation_id": 65726940,
+        "best_global_variable_relationship_id": 65726940,
         "best_effect_variable_id": 1308,
         "client_id": "Vv7HymHq6PkTrZfM",
         "creator_user_id": 7,
@@ -23342,8 +23342,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 72,
         "name": "Partly Cloudy-day",
-        "number_of_aggregate_correlations_as_cause": 291,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 291,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23376,7 +23376,7 @@ var qm_variables = {
         "sorting_score": 548
     },
     "Snow": {
-        "best_aggregate_correlation_id": 65765591,
+        "best_global_variable_relationship_id": 65765591,
         "best_effect_variable_id": 87760,
         "client_id": "Vv7HymHq6PkTrZfM",
         "creator_user_id": 7,
@@ -23386,8 +23386,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 72,
         "name": "Snow",
-        "number_of_aggregate_correlations_as_cause": 106,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 106,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23420,7 +23420,7 @@ var qm_variables = {
         "sorting_score": 146
     },
     "Clear Day": {
-        "best_aggregate_correlation_id": 65687572,
+        "best_global_variable_relationship_id": 65687572,
         "best_effect_variable_id": 1358,
         "client_id": "Vv7HymHq6PkTrZfM",
         "creator_user_id": 7,
@@ -23430,8 +23430,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 72,
         "name": "Clear Day",
-        "number_of_aggregate_correlations_as_cause": 228,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 228,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23464,7 +23464,7 @@ var qm_variables = {
         "sorting_score": 392
     },
     "Partly Cloudy-night": {
-        "best_aggregate_correlation_id": 65687576,
+        "best_global_variable_relationship_id": 65687576,
         "best_effect_variable_id": 1305,
         "client_id": "Vv7HymHq6PkTrZfM",
         "creator_user_id": 7,
@@ -23474,8 +23474,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 72,
         "name": "Partly Cloudy-night",
-        "number_of_aggregate_correlations_as_cause": 227,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 227,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23508,7 +23508,7 @@ var qm_variables = {
         "sorting_score": 373
     },
     "Cloudy": {
-        "best_aggregate_correlation_id": 65736097,
+        "best_global_variable_relationship_id": 65736097,
         "best_effect_variable_id": 1335,
         "client_id": "Vv7HymHq6PkTrZfM",
         "creator_user_id": 7,
@@ -23518,8 +23518,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 72,
         "name": "Cloudy",
-        "number_of_aggregate_correlations_as_cause": 94,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 94,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23552,7 +23552,7 @@ var qm_variables = {
         "sorting_score": 129
     },
     "Wind": {
-        "best_aggregate_correlation_id": 65769022,
+        "best_global_variable_relationship_id": 65769022,
         "best_effect_variable_id": 1267,
         "client_id": "UnknownClient",
         "creator_user_id": 7,
@@ -23562,8 +23562,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 72,
         "name": "Wind",
-        "number_of_aggregate_correlations_as_cause": 62,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 62,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23596,7 +23596,7 @@ var qm_variables = {
         "sorting_score": 109
     },
     "Fog": {
-        "best_aggregate_correlation_id": 65724736,
+        "best_global_variable_relationship_id": 65724736,
         "best_effect_variable_id": 89251,
         "client_id": "Vv7HymHq6PkTrZfM",
         "creator_user_id": 7,
@@ -23606,8 +23606,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 72,
         "name": "Fog",
-        "number_of_aggregate_correlations_as_cause": 148,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 148,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23640,7 +23640,7 @@ var qm_variables = {
         "sorting_score": 204
     },
     "Claritin (mg)": {
-        "best_aggregate_correlation_id": 65766988,
+        "best_global_variable_relationship_id": 65766988,
         "best_effect_variable_id": 1306,
         "client_id": "Vv7HymHq6PkTrZfM",
         "creator_user_id": 7,
@@ -23650,8 +23650,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_connector_id": 72,
         "name": "Claritin (mg)",
-        "number_of_aggregate_correlations_as_cause": 25,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 25,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23685,7 +23685,7 @@ var qm_variables = {
         "sorting_score": 28
     },
     "Time Spent On Business Activities": {
-        "best_aggregate_correlation_id": 65698365,
+        "best_global_variable_relationship_id": 65698365,
         "best_cause_variable_id": 6059112,
         "best_effect_variable_id": 1486,
         "client_id": "app",
@@ -23696,8 +23696,8 @@ var qm_variables = {
         "ion_icon": "ion-happy-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent On Business Activities",
-        "number_of_aggregate_correlations_as_cause": 25,
-        "number_of_aggregate_correlations_as_effect": 290,
+        "number_of_global_variable_relationships_as_cause": 25,
+        "number_of_global_variable_relationships_as_effect": 290,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23730,7 +23730,7 @@ var qm_variables = {
         "sorting_score": 384
     },
     "Facebook Pages Liked": {
-        "best_aggregate_correlation_id": 65687601,
+        "best_global_variable_relationship_id": 65687601,
         "best_cause_variable_id": 1304,
         "best_effect_variable_id": 1398,
         "client_id": "quantimodo",
@@ -23741,8 +23741,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-chatboxes-outline",
         "most_common_connector_id": 8,
         "name": "Facebook Pages Liked",
-        "number_of_aggregate_correlations_as_cause": 184,
-        "number_of_aggregate_correlations_as_effect": 732,
+        "number_of_global_variable_relationships_as_cause": 184,
+        "number_of_global_variable_relationships_as_effect": 732,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23776,7 +23776,7 @@ var qm_variables = {
         "sorting_score": 1377
     },
     "Facebook Posts Made": {
-        "best_aggregate_correlation_id": 65731497,
+        "best_global_variable_relationship_id": 65731497,
         "best_cause_variable_id": 96380,
         "best_effect_variable_id": 1436,
         "client_id": "quantimodo",
@@ -23787,8 +23787,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-chatboxes-outline",
         "most_common_connector_id": 72,
         "name": "Facebook Posts Made",
-        "number_of_aggregate_correlations_as_cause": 150,
-        "number_of_aggregate_correlations_as_effect": 267,
+        "number_of_global_variable_relationships_as_cause": 150,
+        "number_of_global_variable_relationships_as_effect": 267,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23822,7 +23822,7 @@ var qm_variables = {
         "sorting_score": 568
     },
     "Comments On Your Facebook Posts": {
-        "best_aggregate_correlation_id": 65700589,
+        "best_global_variable_relationship_id": 65700589,
         "best_cause_variable_id": 5953162,
         "best_effect_variable_id": 1305,
         "client_id": "quantimodo",
@@ -23833,8 +23833,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-chatboxes-outline",
         "most_common_connector_id": 8,
         "name": "Comments On Your Facebook Posts",
-        "number_of_aggregate_correlations_as_cause": 123,
-        "number_of_aggregate_correlations_as_effect": 294,
+        "number_of_global_variable_relationships_as_cause": 123,
+        "number_of_global_variable_relationships_as_effect": 294,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23867,7 +23867,7 @@ var qm_variables = {
         "sorting_score": 535
     },
     "Likes On Your Facebook Posts": {
-        "best_aggregate_correlation_id": 65700125,
+        "best_global_variable_relationship_id": 65700125,
         "best_cause_variable_id": 5956874,
         "best_effect_variable_id": 1273,
         "client_id": "quantimodo",
@@ -23878,8 +23878,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-chatboxes-outline",
         "most_common_connector_id": 8,
         "name": "Likes On Your Facebook Posts",
-        "number_of_aggregate_correlations_as_cause": 114,
-        "number_of_aggregate_correlations_as_effect": 272,
+        "number_of_global_variable_relationships_as_cause": 114,
+        "number_of_global_variable_relationships_as_effect": 272,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23912,7 +23912,7 @@ var qm_variables = {
         "sorting_score": 476
     },
     "Bowel Movement Rating": {
-        "best_aggregate_correlation_id": 65725930,
+        "best_global_variable_relationship_id": 65725930,
         "best_cause_variable_id": 1634381,
         "best_effect_variable_id": 1307,
         "client_id": "quantimodo",
@@ -23923,8 +23923,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_connector_id": 72,
         "name": "Bowel Movement Rating",
-        "number_of_aggregate_correlations_as_cause": 4,
-        "number_of_aggregate_correlations_as_effect": 11,
+        "number_of_global_variable_relationships_as_cause": 4,
+        "number_of_global_variable_relationships_as_effect": 11,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -23957,7 +23957,7 @@ var qm_variables = {
         "sorting_score": 37
     },
     "UV Index": {
-        "best_aggregate_correlation_id": 65701607,
+        "best_global_variable_relationship_id": 65701607,
         "best_cause_variable_id": 6038778,
         "best_effect_variable_id": 1299,
         "client_id": "Vv7HymHq6PkTrZfM",
@@ -23968,8 +23968,8 @@ var qm_variables = {
         "ion_icon": "ion-help",
         "most_common_connector_id": 13,
         "name": "UV Index",
-        "number_of_aggregate_correlations_as_cause": 229,
-        "number_of_aggregate_correlations_as_effect": 32,
+        "number_of_global_variable_relationships_as_cause": 229,
+        "number_of_global_variable_relationships_as_effect": 32,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24002,7 +24002,7 @@ var qm_variables = {
         "sorting_score": 1023
     },
     "Air Quality Index": {
-        "best_aggregate_correlation_id": 65678323,
+        "best_global_variable_relationship_id": 65678323,
         "best_effect_variable_id": 1923,
         "client_id": "app",
         "creator_user_id": 7,
@@ -24012,8 +24012,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 13,
         "name": "Air Quality Index",
-        "number_of_aggregate_correlations_as_cause": 229,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 229,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24046,7 +24046,7 @@ var qm_variables = {
         "sorting_score": 385
     },
     "Coffee, Tea & Cocoa": {
-        "best_aggregate_correlation_id": 65687648,
+        "best_global_variable_relationship_id": 65687648,
         "best_effect_variable_id": 1307,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -24056,8 +24056,8 @@ var qm_variables = {
         "ion_icon": "ion-fork",
         "most_common_connector_id": 84,
         "name": "Coffee, Tea & Cocoa",
-        "number_of_aggregate_correlations_as_cause": 223,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 223,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24090,7 +24090,7 @@ var qm_variables = {
         "sorting_score": 765
     },
     "Curcumin (Weight)": {
-        "best_aggregate_correlation_id": 65743387,
+        "best_global_variable_relationship_id": 65743387,
         "best_effect_variable_id": 1308,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -24100,8 +24100,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_connector_id": 84,
         "name": "Curcumin (Weight)",
-        "number_of_aggregate_correlations_as_cause": 88,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 88,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24135,7 +24135,7 @@ var qm_variables = {
         "sorting_score": 95
     },
     "Listerine Antiseptic Mouthwash": {
-        "best_aggregate_correlation_id": 65690889,
+        "best_global_variable_relationship_id": 65690889,
         "best_effect_variable_id": 1398,
         "client_id": "medimodo",
         "creator_user_id": 7,
@@ -24145,8 +24145,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_connector_id": 84,
         "name": "Listerine Antiseptic Mouthwash",
-        "number_of_aggregate_correlations_as_cause": 86,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 86,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 4,
@@ -24180,7 +24180,7 @@ var qm_variables = {
         "sorting_score": 89
     },
     "Insomnia": {
-        "best_aggregate_correlation_id": 65699932,
+        "best_global_variable_relationship_id": 65699932,
         "best_cause_variable_id": 1283,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -24190,8 +24190,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_connector_id": 72,
         "name": "Insomnia",
-        "number_of_aggregate_correlations_as_cause": 0,
-        "number_of_aggregate_correlations_as_effect": 23,
+        "number_of_global_variable_relationships_as_cause": 0,
+        "number_of_global_variable_relationships_as_effect": 23,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24225,7 +24225,7 @@ var qm_variables = {
         "sorting_score": 28
     },
     "Legal & Gov't Activities": {
-        "best_aggregate_correlation_id": 65808796,
+        "best_global_variable_relationship_id": 65808796,
         "best_cause_variable_id": 1258,
         "best_effect_variable_id": 87685,
         "client_id": "Web",
@@ -24236,8 +24236,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Legal & Gov't Activities",
-        "number_of_aggregate_correlations_as_cause": 61,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 61,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24271,7 +24271,7 @@ var qm_variables = {
         "sorting_score": 85
     },
     "Life Extension Magnesium": {
-        "best_aggregate_correlation_id": 65694631,
+        "best_global_variable_relationship_id": 65694631,
         "best_effect_variable_id": 5903391,
         "client_id": "amazon",
         "creator_user_id": 7,
@@ -24281,8 +24281,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_connector_id": 84,
         "name": "Life Extension Magnesium",
-        "number_of_aggregate_correlations_as_cause": 68,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 68,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_common_tags": 3,
         "number_of_common_tags_where_tag_variable": 1,
         "number_of_common_tags_where_tagged_variable": 3,
@@ -24304,7 +24304,7 @@ var qm_variables = {
         "sorting_score": 71
     },
     "Grasses Pollen Index": {
-        "best_aggregate_correlation_id": 65739641,
+        "best_global_variable_relationship_id": 65739641,
         "best_effect_variable_id": 6056709,
         "client_id": "quantimodo",
         "creator_user_id": 7,
@@ -24314,8 +24314,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Grasses Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 119,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 119,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24349,7 +24349,7 @@ var qm_variables = {
         "sorting_score": 316
     },
     "Oak Pollen Index": {
-        "best_aggregate_correlation_id": 65762173,
+        "best_global_variable_relationship_id": 65762173,
         "best_effect_variable_id": 1305,
         "client_id": "quantimodo",
         "creator_user_id": 7,
@@ -24359,8 +24359,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Oak Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 33,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 33,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24393,7 +24393,7 @@ var qm_variables = {
         "sorting_score": 207
     },
     "Mulberry Pollen Index": {
-        "best_aggregate_correlation_id": 65766838,
+        "best_global_variable_relationship_id": 65766838,
         "best_effect_variable_id": 1398,
         "client_id": "quantimodo",
         "creator_user_id": 7,
@@ -24403,8 +24403,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Mulberry Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 21,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 21,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24437,7 +24437,7 @@ var qm_variables = {
         "sorting_score": 159
     },
     "Pollen Index": {
-        "best_aggregate_correlation_id": 65680284,
+        "best_global_variable_relationship_id": 65680284,
         "best_effect_variable_id": 1335,
         "client_id": "quantimodo",
         "creator_user_id": 7,
@@ -24447,8 +24447,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 13,
         "name": "Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 179,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 179,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24482,7 +24482,7 @@ var qm_variables = {
         "sorting_score": 419
     },
     "Juniper Pollen Index": {
-        "best_aggregate_correlation_id": 65743330,
+        "best_global_variable_relationship_id": 65743330,
         "best_effect_variable_id": 1358,
         "client_id": "quantimodo",
         "creator_user_id": 7,
@@ -24492,8 +24492,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Juniper Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 51,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 51,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24527,7 +24527,7 @@ var qm_variables = {
         "sorting_score": 256
     },
     "Birch Pollen Index": {
-        "best_aggregate_correlation_id": 65767517,
+        "best_global_variable_relationship_id": 65767517,
         "best_effect_variable_id": 1398,
         "client_id": "app",
         "creator_user_id": 7,
@@ -24537,8 +24537,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Birch Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 27,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 27,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24571,7 +24571,7 @@ var qm_variables = {
         "sorting_score": 160
     },
     "Maple Pollen Index": {
-        "best_aggregate_correlation_id": 65765411,
+        "best_global_variable_relationship_id": 65765411,
         "best_effect_variable_id": 1875,
         "client_id": "app",
         "creator_user_id": 7,
@@ -24581,8 +24581,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Maple Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 17,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 17,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24615,7 +24615,7 @@ var qm_variables = {
         "sorting_score": 140
     },
     "Poplar Pollen Index": {
-        "best_aggregate_correlation_id": 65759702,
+        "best_global_variable_relationship_id": 65759702,
         "best_effect_variable_id": 5956874,
         "client_id": "app",
         "creator_user_id": 7,
@@ -24625,8 +24625,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Poplar Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 15,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 15,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24659,7 +24659,7 @@ var qm_variables = {
         "sorting_score": 140
     },
     "Hickory Pollen Index": {
-        "best_aggregate_correlation_id": 65759532,
+        "best_global_variable_relationship_id": 65759532,
         "best_effect_variable_id": 5955692,
         "client_id": "app",
         "creator_user_id": 7,
@@ -24669,8 +24669,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Hickory Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 15,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 15,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24703,7 +24703,7 @@ var qm_variables = {
         "sorting_score": 84
     },
     "Ash Pollen Index": {
-        "best_aggregate_correlation_id": 65731527,
+        "best_global_variable_relationship_id": 65731527,
         "best_effect_variable_id": 111162,
         "client_id": "quantimodo",
         "creator_user_id": 7,
@@ -24713,8 +24713,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Ash Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 32,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 32,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24747,7 +24747,7 @@ var qm_variables = {
         "sorting_score": 172
     },
     "Ragweed Pollen Index": {
-        "best_aggregate_correlation_id": 65749146,
+        "best_global_variable_relationship_id": 65749146,
         "best_effect_variable_id": 3360381,
         "client_id": "1052648855194.apps.googleusercontent.com",
         "creator_user_id": 7,
@@ -24757,8 +24757,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Ragweed Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 106,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 106,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24791,7 +24791,7 @@ var qm_variables = {
         "sorting_score": 282
     },
     "Elm Pollen Index": {
-        "best_aggregate_correlation_id": 65728130,
+        "best_global_variable_relationship_id": 65728130,
         "best_effect_variable_id": 1358,
         "client_id": "quantimodo",
         "creator_user_id": 7,
@@ -24801,8 +24801,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Elm Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 49,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 49,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24835,7 +24835,7 @@ var qm_variables = {
         "sorting_score": 235
     },
     "Walnut Pollen Index": {
-        "best_aggregate_correlation_id": 65760143,
+        "best_global_variable_relationship_id": 65760143,
         "best_effect_variable_id": 5974694,
         "client_id": "app",
         "creator_user_id": 7,
@@ -24845,8 +24845,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Walnut Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 9,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 9,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_common_tags": 0,
         "number_of_measurements": 2124,
         "number_of_raw_measurements": 1330,
@@ -24865,7 +24865,7 @@ var qm_variables = {
         "sorting_score": 80
     },
     "Palm Pollen Index": {
-        "best_aggregate_correlation_id": 65807668,
+        "best_global_variable_relationship_id": 65807668,
         "best_effect_variable_id": 1305,
         "client_id": "app",
         "creator_user_id": 7,
@@ -24875,8 +24875,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Palm Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 24,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 24,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_common_tags": 0,
         "number_of_measurements": 1309,
         "number_of_raw_measurements": 840,
@@ -24895,7 +24895,7 @@ var qm_variables = {
         "sorting_score": 38
     },
     "Willow Pollen Index": {
-        "best_aggregate_correlation_id": 65767810,
+        "best_global_variable_relationship_id": 65767810,
         "best_effect_variable_id": 53709,
         "client_id": "Vv7HymHq6PkTrZfM",
         "creator_user_id": 7,
@@ -24905,8 +24905,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Willow Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 7,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 7,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24939,7 +24939,7 @@ var qm_variables = {
         "sorting_score": 21
     },
     "Alder Pollen Index": {
-        "best_aggregate_correlation_id": 65729833,
+        "best_global_variable_relationship_id": 65729833,
         "best_effect_variable_id": 5949603,
         "client_id": "app",
         "creator_user_id": 7,
@@ -24949,8 +24949,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Alder Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 34,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 34,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -24983,7 +24983,7 @@ var qm_variables = {
         "sorting_score": 158
     },
     "Precipitation (Volume)": {
-        "best_aggregate_correlation_id": 65762032,
+        "best_global_variable_relationship_id": 65762032,
         "best_effect_variable_id": 1307,
         "client_id": "1052648855194.apps.googleusercontent.com",
         "creator_user_id": 7,
@@ -24993,8 +24993,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 13,
         "name": "Precipitation (Volume)",
-        "number_of_aggregate_correlations_as_cause": 8,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 8,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25027,7 +25027,7 @@ var qm_variables = {
         "sorting_score": 301
     },
     "Average Daily Outdoor Temperature": {
-        "best_aggregate_correlation_id": 65781308,
+        "best_global_variable_relationship_id": 65781308,
         "best_effect_variable_id": 89387,
         "client_id": "1052648855194.apps.googleusercontent.com",
         "creator_user_id": 7,
@@ -25037,8 +25037,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 72,
         "name": "Average Daily Outdoor Temperature",
-        "number_of_aggregate_correlations_as_cause": 107,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 107,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25072,7 +25072,7 @@ var qm_variables = {
         "sorting_score": 765
     },
     "Daily High Outdoor Temperature": {
-        "best_aggregate_correlation_id": 65781309,
+        "best_global_variable_relationship_id": 65781309,
         "best_effect_variable_id": 89387,
         "client_id": "1052648855194.apps.googleusercontent.com",
         "creator_user_id": 7,
@@ -25082,8 +25082,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 13,
         "name": "Daily High Outdoor Temperature",
-        "number_of_aggregate_correlations_as_cause": 108,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 108,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25117,7 +25117,7 @@ var qm_variables = {
         "sorting_score": 766
     },
     "Daily Low Outdoor Temperature": {
-        "best_aggregate_correlation_id": 65781310,
+        "best_global_variable_relationship_id": 65781310,
         "best_effect_variable_id": 89387,
         "client_id": "1052648855194.apps.googleusercontent.com",
         "creator_user_id": 7,
@@ -25127,8 +25127,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 13,
         "name": "Daily Low Outdoor Temperature",
-        "number_of_aggregate_correlations_as_cause": 108,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 108,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25162,7 +25162,7 @@ var qm_variables = {
         "sorting_score": 766
     },
     "Time Between Sunrise And Sunset": {
-        "best_aggregate_correlation_id": 65680332,
+        "best_global_variable_relationship_id": 65680332,
         "best_effect_variable_id": 1398,
         "client_id": "1052648855194.apps.googleusercontent.com",
         "creator_user_id": 7,
@@ -25172,8 +25172,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 13,
         "name": "Time Between Sunrise And Sunset",
-        "number_of_aggregate_correlations_as_cause": 362,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 362,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25207,7 +25207,7 @@ var qm_variables = {
         "sorting_score": 1065
     },
     "Wind Speed": {
-        "best_aggregate_correlation_id": 65781296,
+        "best_global_variable_relationship_id": 65781296,
         "best_effect_variable_id": 89438,
         "client_id": "1052648855194.apps.googleusercontent.com",
         "creator_user_id": 7,
@@ -25217,8 +25217,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 13,
         "name": "Wind Speed",
-        "number_of_aggregate_correlations_as_cause": 146,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 146,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25252,7 +25252,7 @@ var qm_variables = {
         "sorting_score": 812
     },
     "Ronnoco Highland Grog Ground Coffee": {
-        "best_aggregate_correlation_id": 65690908,
+        "best_global_variable_relationship_id": 65690908,
         "best_effect_variable_id": 1398,
         "client_id": "amazon",
         "creator_user_id": 7,
@@ -25262,8 +25262,8 @@ var qm_variables = {
         "ion_icon": "ion-fork",
         "most_common_connector_id": 72,
         "name": "Ronnoco Highland Grog Ground Coffee",
-        "number_of_aggregate_correlations_as_cause": 38,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 38,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_common_tags": 0,
         "number_of_common_tags_where_tag_variable": 0,
         "number_of_common_tags_where_tagged_variable": 0,
@@ -25285,7 +25285,7 @@ var qm_variables = {
         "sorting_score": 41
     },
     "Chenopods Pollen Index": {
-        "best_aggregate_correlation_id": 65724846,
+        "best_global_variable_relationship_id": 65724846,
         "best_effect_variable_id": 1421,
         "client_id": "quantimodo",
         "creator_user_id": 7,
@@ -25295,8 +25295,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Chenopods Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 102,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 102,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25330,7 +25330,7 @@ var qm_variables = {
         "sorting_score": 260
     },
     "Dock Pollen Index": {
-        "best_aggregate_correlation_id": 65759921,
+        "best_global_variable_relationship_id": 65759921,
         "best_effect_variable_id": 1919,
         "client_id": "medimodo",
         "creator_user_id": 7,
@@ -25340,8 +25340,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Dock Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 22,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 22,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25374,7 +25374,7 @@ var qm_variables = {
         "sorting_score": 138
     },
     "Nettle Pollen Index": {
-        "best_aggregate_correlation_id": 65766832,
+        "best_global_variable_relationship_id": 65766832,
         "best_effect_variable_id": 87494,
         "client_id": "quantimodo",
         "creator_user_id": 7,
@@ -25384,8 +25384,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Nettle Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 37,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 37,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25418,7 +25418,7 @@ var qm_variables = {
         "sorting_score": 167
     },
     "Composites Pollen Index": {
-        "best_aggregate_correlation_id": 65806606,
+        "best_global_variable_relationship_id": 65806606,
         "best_effect_variable_id": 1398,
         "client_id": "quantimodo",
         "creator_user_id": 7,
@@ -25428,8 +25428,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 13,
         "name": "Composites Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 3,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 3,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25462,7 +25462,7 @@ var qm_variables = {
         "sorting_score": 47
     },
     "Plantain Pollen Index": {
-        "best_aggregate_correlation_id": 65767521,
+        "best_global_variable_relationship_id": 65767521,
         "best_effect_variable_id": 1398,
         "client_id": "quantimodo",
         "creator_user_id": 7,
@@ -25472,8 +25472,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Plantain Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 25,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 25,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25506,7 +25506,7 @@ var qm_variables = {
         "sorting_score": 129
     },
     "Sagebrush Pollen Index": {
-        "best_aggregate_correlation_id": 65729851,
+        "best_global_variable_relationship_id": 65729851,
         "best_effect_variable_id": 86779,
         "client_id": "app",
         "creator_user_id": 7,
@@ -25516,8 +25516,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Sagebrush Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 61,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 61,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25550,7 +25550,7 @@ var qm_variables = {
         "sorting_score": 184
     },
     "Cattail Pollen Index": {
-        "best_aggregate_correlation_id": 65807226,
+        "best_global_variable_relationship_id": 65807226,
         "best_effect_variable_id": 1273,
         "client_id": "app",
         "creator_user_id": 7,
@@ -25560,8 +25560,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 91,
         "name": "Cattail Pollen Index",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25594,7 +25594,7 @@ var qm_variables = {
         "sorting_score": 13
     },
     "Knee Swelling": {
-        "best_aggregate_correlation_id": 65693553,
+        "best_global_variable_relationship_id": 65693553,
         "best_cause_variable_id": 85055,
         "best_effect_variable_id": 86858,
         "client_id": "quantimodo",
@@ -25605,8 +25605,8 @@ var qm_variables = {
         "ion_icon": "ion-sad-outline",
         "most_common_connector_id": 72,
         "name": "Knee Swelling",
-        "number_of_aggregate_correlations_as_cause": 50,
-        "number_of_aggregate_correlations_as_effect": 390,
+        "number_of_global_variable_relationships_as_cause": 50,
+        "number_of_global_variable_relationships_as_effect": 390,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25640,7 +25640,7 @@ var qm_variables = {
         "sorting_score": 443
     },
     "Life Extension Magnesium 500mg": {
-        "best_aggregate_correlation_id": 65694657,
+        "best_global_variable_relationship_id": 65694657,
         "best_effect_variable_id": 5903391,
         "client_id": "amazon",
         "creator_user_id": 7,
@@ -25650,8 +25650,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_connector_id": 84,
         "name": "Life Extension Magnesium 500mg",
-        "number_of_aggregate_correlations_as_cause": 69,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 69,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 3,
@@ -25685,7 +25685,7 @@ var qm_variables = {
         "sorting_score": 72
     },
     "Listerine Freshburst Antiseptic Mouthwash": {
-        "best_aggregate_correlation_id": 65733153,
+        "best_global_variable_relationship_id": 65733153,
         "best_effect_variable_id": 86779,
         "client_id": "amazon",
         "creator_user_id": 7,
@@ -25695,8 +25695,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_connector_id": 72,
         "name": "Listerine Freshburst Antiseptic Mouthwash",
-        "number_of_aggregate_correlations_as_cause": 73,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 73,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 3,
@@ -25730,7 +25730,7 @@ var qm_variables = {
         "sorting_score": 76
     },
     "Mixed Trace Pollen": {
-        "best_aggregate_correlation_id": 65762971,
+        "best_global_variable_relationship_id": 65762971,
         "best_effect_variable_id": 87524,
         "client_id": "quantimodo",
         "creator_user_id": 7,
@@ -25740,8 +25740,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 13,
         "name": "Mixed Trace Pollen",
-        "number_of_aggregate_correlations_as_cause": 22,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 22,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25774,7 +25774,7 @@ var qm_variables = {
         "sorting_score": 126
     },
     "Outdoor Visibility": {
-        "best_aggregate_correlation_id": 65766784,
+        "best_global_variable_relationship_id": 65766784,
         "best_effect_variable_id": 86779,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -25784,8 +25784,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 75,
         "name": "Outdoor Visibility",
-        "number_of_aggregate_correlations_as_cause": 41,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 41,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25818,7 +25818,7 @@ var qm_variables = {
         "sorting_score": 235
     },
     "Lectins": {
-        "best_aggregate_correlation_id": 65688677,
+        "best_global_variable_relationship_id": 65688677,
         "best_effect_variable_id": 1398,
         "client_id": "quantimodo",
         "creator_user_id": 7,
@@ -25828,8 +25828,8 @@ var qm_variables = {
         "ion_icon": "ion-fork",
         "most_common_connector_id": 72,
         "name": "Lectins",
-        "number_of_aggregate_correlations_as_cause": 132,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 132,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25863,7 +25863,7 @@ var qm_variables = {
         "sorting_score": 146
     },
     "Very Productive Score (Rating)": {
-        "best_aggregate_correlation_id": 65685982,
+        "best_global_variable_relationship_id": 65685982,
         "best_cause_variable_id": 6038275,
         "best_effect_variable_id": 1358,
         "client_id": "unknown",
@@ -25874,8 +25874,8 @@ var qm_variables = {
         "ion_icon": "ion-laptop",
         "most_common_connector_id": 11,
         "name": "Very Productive Score (Rating)",
-        "number_of_aggregate_correlations_as_cause": 27,
-        "number_of_aggregate_correlations_as_effect": 597,
+        "number_of_global_variable_relationships_as_cause": 27,
+        "number_of_global_variable_relationships_as_effect": 597,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25909,7 +25909,7 @@ var qm_variables = {
         "sorting_score": 651
     },
     "Very Unproductive Score (Rating)": {
-        "best_aggregate_correlation_id": 65792072,
+        "best_global_variable_relationship_id": 65792072,
         "best_cause_variable_id": 6038275,
         "best_effect_variable_id": 1421,
         "client_id": "unknown",
@@ -25920,8 +25920,8 @@ var qm_variables = {
         "ion_icon": "ion-laptop",
         "most_common_connector_id": 11,
         "name": "Very Unproductive Score (Rating)",
-        "number_of_aggregate_correlations_as_cause": 31,
-        "number_of_aggregate_correlations_as_effect": 51,
+        "number_of_global_variable_relationships_as_cause": 31,
+        "number_of_global_variable_relationships_as_effect": 51,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -25955,7 +25955,7 @@ var qm_variables = {
         "sorting_score": 110
     },
     "Moderately Productive Score (Rating)": {
-        "best_aggregate_correlation_id": 65809316,
+        "best_global_variable_relationship_id": 65809316,
         "best_cause_variable_id": 6038275,
         "best_effect_variable_id": 6056709,
         "client_id": "unknown",
@@ -25966,8 +25966,8 @@ var qm_variables = {
         "ion_icon": "ion-laptop",
         "most_common_connector_id": 11,
         "name": "Moderately Productive Score (Rating)",
-        "number_of_aggregate_correlations_as_cause": 31,
-        "number_of_aggregate_correlations_as_effect": 46,
+        "number_of_global_variable_relationships_as_cause": 31,
+        "number_of_global_variable_relationships_as_effect": 46,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26001,7 +26001,7 @@ var qm_variables = {
         "sorting_score": 104
     },
     "Moderately Unproductive Score (Rating)": {
-        "best_aggregate_correlation_id": 65792066,
+        "best_global_variable_relationship_id": 65792066,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 1421,
         "client_id": "Web",
@@ -26012,8 +26012,8 @@ var qm_variables = {
         "ion_icon": "ion-laptop",
         "most_common_connector_id": 11,
         "name": "Moderately Unproductive Score (Rating)",
-        "number_of_aggregate_correlations_as_cause": 29,
-        "number_of_aggregate_correlations_as_effect": 45,
+        "number_of_global_variable_relationships_as_cause": 29,
+        "number_of_global_variable_relationships_as_effect": 45,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26047,7 +26047,7 @@ var qm_variables = {
         "sorting_score": 99
     },
     "Melatonin (Weight)": {
-        "best_aggregate_correlation_id": 65750498,
+        "best_global_variable_relationship_id": 65750498,
         "best_effect_variable_id": 1398,
         "client_id": "quantimodo",
         "creator_user_id": 7,
@@ -26057,8 +26057,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-medkit-outline",
         "most_common_connector_id": 51,
         "name": "Melatonin (Weight)",
-        "number_of_aggregate_correlations_as_cause": 57,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 57,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26091,7 +26091,7 @@ var qm_variables = {
         "sorting_score": 65
     },
     "Productivity Pulse From Rescuetime": {
-        "best_aggregate_correlation_id": 65701672,
+        "best_global_variable_relationship_id": 65701672,
         "best_cause_variable_id": 6051182,
         "best_effect_variable_id": 6057115,
         "client_id": "UnknownClient",
@@ -26102,8 +26102,8 @@ var qm_variables = {
         "ion_icon": "ion-laptop",
         "most_common_connector_id": 11,
         "name": "Productivity Pulse From Rescuetime",
-        "number_of_aggregate_correlations_as_cause": 36,
-        "number_of_aggregate_correlations_as_effect": 265,
+        "number_of_global_variable_relationships_as_cause": 36,
+        "number_of_global_variable_relationships_as_effect": 265,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26136,7 +26136,7 @@ var qm_variables = {
         "sorting_score": 372
     },
     "REM Sleep Duration": {
-        "best_aggregate_correlation_id": 65732546,
+        "best_global_variable_relationship_id": 65732546,
         "best_cause_variable_id": 1451,
         "best_effect_variable_id": 1335,
         "client_id": "unknown",
@@ -26147,8 +26147,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-cloudy-night-outline",
         "most_common_connector_id": 7,
         "name": "REM Sleep Duration",
-        "number_of_aggregate_correlations_as_cause": 69,
-        "number_of_aggregate_correlations_as_effect": 436,
+        "number_of_global_variable_relationships_as_cause": 69,
+        "number_of_global_variable_relationships_as_effect": 436,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26181,7 +26181,7 @@ var qm_variables = {
         "sorting_score": 545
     },
     "Deep Sleep Duration": {
-        "best_aggregate_correlation_id": 65686329,
+        "best_global_variable_relationship_id": 65686329,
         "best_cause_variable_id": 1280,
         "best_effect_variable_id": 1340,
         "client_id": "unknown",
@@ -26192,8 +26192,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-cloudy-night-outline",
         "most_common_connector_id": 7,
         "name": "Deep Sleep Duration",
-        "number_of_aggregate_correlations_as_cause": 47,
-        "number_of_aggregate_correlations_as_effect": 322,
+        "number_of_global_variable_relationships_as_cause": 47,
+        "number_of_global_variable_relationships_as_effect": 322,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26226,7 +26226,7 @@ var qm_variables = {
         "sorting_score": 394
     },
     "Light Sleep Duration": {
-        "best_aggregate_correlation_id": 65802944,
+        "best_global_variable_relationship_id": 65802944,
         "best_cause_variable_id": 5211851,
         "best_effect_variable_id": 1280,
         "client_id": "unknown",
@@ -26237,8 +26237,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-cloudy-night-outline",
         "most_common_connector_id": 7,
         "name": "Light Sleep Duration",
-        "number_of_aggregate_correlations_as_cause": 47,
-        "number_of_aggregate_correlations_as_effect": 322,
+        "number_of_global_variable_relationships_as_cause": 47,
+        "number_of_global_variable_relationships_as_effect": 322,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26271,7 +26271,7 @@ var qm_variables = {
         "sorting_score": 394
     },
     "Duration of Awakenings During Sleep": {
-        "best_aggregate_correlation_id": 65802945,
+        "best_global_variable_relationship_id": 65802945,
         "best_cause_variable_id": 1280,
         "best_effect_variable_id": 1280,
         "client_id": "unknown",
@@ -26282,8 +26282,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-cloudy-night-outline",
         "most_common_connector_id": 7,
         "name": "Duration of Awakenings During Sleep",
-        "number_of_aggregate_correlations_as_cause": 48,
-        "number_of_aggregate_correlations_as_effect": 324,
+        "number_of_global_variable_relationships_as_cause": 48,
+        "number_of_global_variable_relationships_as_effect": 324,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26316,7 +26316,7 @@ var qm_variables = {
         "sorting_score": 412
     },
     "Periods of Deep Sleep": {
-        "best_aggregate_correlation_id": 65802946,
+        "best_global_variable_relationship_id": 65802946,
         "best_cause_variable_id": 5211861,
         "best_effect_variable_id": 1280,
         "client_id": "unknown",
@@ -26327,8 +26327,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-cloudy-night-outline",
         "most_common_connector_id": 7,
         "name": "Periods of Deep Sleep",
-        "number_of_aggregate_correlations_as_cause": 47,
-        "number_of_aggregate_correlations_as_effect": 322,
+        "number_of_global_variable_relationships_as_cause": 47,
+        "number_of_global_variable_relationships_as_effect": 322,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26361,7 +26361,7 @@ var qm_variables = {
         "sorting_score": 393
     },
     "Periods of Light Sleep": {
-        "best_aggregate_correlation_id": 65802947,
+        "best_global_variable_relationship_id": 65802947,
         "best_cause_variable_id": 1280,
         "best_effect_variable_id": 1280,
         "client_id": "unknown",
@@ -26372,8 +26372,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-cloudy-night-outline",
         "most_common_connector_id": 7,
         "name": "Periods of Light Sleep",
-        "number_of_aggregate_correlations_as_cause": 48,
-        "number_of_aggregate_correlations_as_effect": 323,
+        "number_of_global_variable_relationships_as_cause": 48,
+        "number_of_global_variable_relationships_as_effect": 323,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26406,7 +26406,7 @@ var qm_variables = {
         "sorting_score": 395
     },
     "Periods of REM Sleep": {
-        "best_aggregate_correlation_id": 65802948,
+        "best_global_variable_relationship_id": 65802948,
         "best_cause_variable_id": 1280,
         "best_effect_variable_id": 1280,
         "client_id": "unknown",
@@ -26417,8 +26417,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-cloudy-night-outline",
         "most_common_connector_id": 7,
         "name": "Periods of REM Sleep",
-        "number_of_aggregate_correlations_as_cause": 48,
-        "number_of_aggregate_correlations_as_effect": 323,
+        "number_of_global_variable_relationships_as_cause": 48,
+        "number_of_global_variable_relationships_as_effect": 323,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26451,7 +26451,7 @@ var qm_variables = {
         "sorting_score": 395
     },
     "Sleep Efficiency From Fitbit": {
-        "best_aggregate_correlation_id": 65802924,
+        "best_global_variable_relationship_id": 65802924,
         "best_cause_variable_id": 1451,
         "best_effect_variable_id": 1486,
         "client_id": "unknown",
@@ -26462,8 +26462,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-cloudy-night-outline",
         "most_common_connector_id": 7,
         "name": "Sleep Efficiency From Fitbit",
-        "number_of_aggregate_correlations_as_cause": 19,
-        "number_of_aggregate_correlations_as_effect": 176,
+        "number_of_global_variable_relationships_as_cause": 19,
+        "number_of_global_variable_relationships_as_effect": 176,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26496,7 +26496,7 @@ var qm_variables = {
         "sorting_score": 232
     },
     "Very Productive Score": {
-        "best_aggregate_correlation_id": 65689698,
+        "best_global_variable_relationship_id": 65689698,
         "best_cause_variable_id": 6053848,
         "best_effect_variable_id": 6046380,
         "client_id": "quantimodo",
@@ -26507,8 +26507,8 @@ var qm_variables = {
         "ion_icon": "ion-laptop",
         "most_common_connector_id": 11,
         "name": "Very Productive Score",
-        "number_of_aggregate_correlations_as_cause": 51,
-        "number_of_aggregate_correlations_as_effect": 192,
+        "number_of_global_variable_relationships_as_cause": 51,
+        "number_of_global_variable_relationships_as_effect": 192,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26541,7 +26541,7 @@ var qm_variables = {
         "sorting_score": 269
     },
     "Moderately Productive Score": {
-        "best_aggregate_correlation_id": 65687703,
+        "best_global_variable_relationship_id": 65687703,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 1421,
         "client_id": "quantimodo",
@@ -26552,8 +26552,8 @@ var qm_variables = {
         "ion_icon": "ion-laptop",
         "most_common_connector_id": 11,
         "name": "Moderately Productive Score",
-        "number_of_aggregate_correlations_as_cause": 51,
-        "number_of_aggregate_correlations_as_effect": 192,
+        "number_of_global_variable_relationships_as_cause": 51,
+        "number_of_global_variable_relationships_as_effect": 192,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26586,7 +26586,7 @@ var qm_variables = {
         "sorting_score": 268
     },
     "Very Unproductive Score": {
-        "best_aggregate_correlation_id": 65699940,
+        "best_global_variable_relationship_id": 65699940,
         "best_cause_variable_id": 5915662,
         "best_effect_variable_id": 87494,
         "client_id": "quantimodo",
@@ -26597,8 +26597,8 @@ var qm_variables = {
         "ion_icon": "ion-laptop",
         "most_common_connector_id": 11,
         "name": "Very Unproductive Score",
-        "number_of_aggregate_correlations_as_cause": 51,
-        "number_of_aggregate_correlations_as_effect": 190,
+        "number_of_global_variable_relationships_as_cause": 51,
+        "number_of_global_variable_relationships_as_effect": 190,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26631,7 +26631,7 @@ var qm_variables = {
         "sorting_score": 267
     },
     "Moderately Unproductive Score": {
-        "best_aggregate_correlation_id": 65756571,
+        "best_global_variable_relationship_id": 65756571,
         "best_cause_variable_id": 5917238,
         "best_effect_variable_id": 1486,
         "client_id": "quantimodo",
@@ -26642,8 +26642,8 @@ var qm_variables = {
         "ion_icon": "ion-laptop",
         "most_common_connector_id": 11,
         "name": "Moderately Unproductive Score",
-        "number_of_aggregate_correlations_as_cause": 46,
-        "number_of_aggregate_correlations_as_effect": 185,
+        "number_of_global_variable_relationships_as_cause": 46,
+        "number_of_global_variable_relationships_as_effect": 185,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26676,7 +26676,7 @@ var qm_variables = {
         "sorting_score": 252
     },
     "Fine Particulate Matter Pollution Air Quality": {
-        "best_aggregate_correlation_id": 65767614,
+        "best_global_variable_relationship_id": 65767614,
         "best_effect_variable_id": 87524,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -26686,8 +26686,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 13,
         "name": "Fine Particulate Matter Pollution Air Quality",
-        "number_of_aggregate_correlations_as_cause": 22,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 22,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26720,7 +26720,7 @@ var qm_variables = {
         "sorting_score": 171
     },
     "Ozone Pollution Air Quality": {
-        "best_aggregate_correlation_id": 65767524,
+        "best_global_variable_relationship_id": 65767524,
         "best_effect_variable_id": 1398,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -26730,8 +26730,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 13,
         "name": "Ozone Pollution Air Quality",
-        "number_of_aggregate_correlations_as_cause": 22,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 22,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26764,7 +26764,7 @@ var qm_variables = {
         "sorting_score": 172
     },
     "Large Particulate Matter Pollution Air Quality": {
-        "best_aggregate_correlation_id": 65767628,
+        "best_global_variable_relationship_id": 65767628,
         "best_effect_variable_id": 87524,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -26774,8 +26774,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-partlysunny",
         "most_common_connector_id": 13,
         "name": "Large Particulate Matter Pollution Air Quality",
-        "number_of_aggregate_correlations_as_cause": 15,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 15,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26808,7 +26808,7 @@ var qm_variables = {
         "sorting_score": 72
     },
     "Time Spent on Editing & IDEs": {
-        "best_aggregate_correlation_id": 65806196,
+        "best_global_variable_relationship_id": 65806196,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 1486,
         "client_id": "unknown",
@@ -26819,8 +26819,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Editing & IDEs",
-        "number_of_aggregate_correlations_as_cause": 27,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 27,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26853,7 +26853,7 @@ var qm_variables = {
         "sorting_score": 43
     },
     "Time Spent on General Software Development": {
-        "best_aggregate_correlation_id": 65698358,
+        "best_global_variable_relationship_id": 65698358,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -26863,8 +26863,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on General Software Development",
-        "number_of_aggregate_correlations_as_cause": 30,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 30,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26897,7 +26897,7 @@ var qm_variables = {
         "sorting_score": 50
     },
     "Time Spent on General Reference & Learning": {
-        "best_aggregate_correlation_id": 65809195,
+        "best_global_variable_relationship_id": 65809195,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1272,
         "client_id": "unknown",
@@ -26908,8 +26908,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on General Reference & Learning",
-        "number_of_aggregate_correlations_as_cause": 32,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 32,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26942,7 +26942,7 @@ var qm_variables = {
         "sorting_score": 67
     },
     "Time Spent on Systems Operations": {
-        "best_aggregate_correlation_id": 65804010,
+        "best_global_variable_relationship_id": 65804010,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 5211891,
         "client_id": "unknown",
@@ -26953,8 +26953,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Systems Operations",
-        "number_of_aggregate_correlations_as_cause": 33,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 33,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -26987,7 +26987,7 @@ var qm_variables = {
         "sorting_score": 62
     },
     "Time Spent on Accounting": {
-        "best_aggregate_correlation_id": 65698361,
+        "best_global_variable_relationship_id": 65698361,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
@@ -26998,8 +26998,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Accounting",
-        "number_of_aggregate_correlations_as_cause": 31,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 31,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27032,7 +27032,7 @@ var qm_variables = {
         "sorting_score": 60
     },
     "Time Spent on Voice Chat": {
-        "best_aggregate_correlation_id": 65699808,
+        "best_global_variable_relationship_id": 65699808,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
@@ -27043,8 +27043,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Voice Chat",
-        "number_of_aggregate_correlations_as_cause": 33,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 33,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27077,7 +27077,7 @@ var qm_variables = {
         "sorting_score": 50
     },
     "Time Spent on General News & Opinion": {
-        "best_aggregate_correlation_id": 65698362,
+        "best_global_variable_relationship_id": 65698362,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -27087,8 +27087,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on General News & Opinion",
-        "number_of_aggregate_correlations_as_cause": 32,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 32,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27121,7 +27121,7 @@ var qm_variables = {
         "sorting_score": 65
     },
     "Time Spent on Browsers": {
-        "best_aggregate_correlation_id": 65698363,
+        "best_global_variable_relationship_id": 65698363,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -27131,8 +27131,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Browsers",
-        "number_of_aggregate_correlations_as_cause": 32,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 32,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27165,7 +27165,7 @@ var qm_variables = {
         "sorting_score": 70
     },
     "Time Spent on General Shopping": {
-        "best_aggregate_correlation_id": 65698364,
+        "best_global_variable_relationship_id": 65698364,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -27175,8 +27175,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on General Shopping",
-        "number_of_aggregate_correlations_as_cause": 32,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 32,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27209,7 +27209,7 @@ var qm_variables = {
         "sorting_score": 66
     },
     "Time Spent on General Business": {
-        "best_aggregate_correlation_id": 65698365,
+        "best_global_variable_relationship_id": 65698365,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -27219,8 +27219,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on General Business",
-        "number_of_aggregate_correlations_as_cause": 32,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 32,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27253,7 +27253,7 @@ var qm_variables = {
         "sorting_score": 66
     },
     "Time Spent on Instant Message": {
-        "best_aggregate_correlation_id": 65807429,
+        "best_global_variable_relationship_id": 65807429,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1867,
         "client_id": "unknown",
@@ -27264,8 +27264,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Instant Message",
-        "number_of_aggregate_correlations_as_cause": 32,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 32,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27298,7 +27298,7 @@ var qm_variables = {
         "sorting_score": 68
     },
     "Time Spent on Quality Assurance": {
-        "best_aggregate_correlation_id": 65699797,
+        "best_global_variable_relationship_id": 65699797,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
@@ -27309,8 +27309,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Quality Assurance",
-        "number_of_aggregate_correlations_as_cause": 27,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 27,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27343,7 +27343,7 @@ var qm_variables = {
         "sorting_score": 40
     },
     "Time Spent on General Design & Composition": {
-        "best_aggregate_correlation_id": 65806209,
+        "best_global_variable_relationship_id": 65806209,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 1358,
         "client_id": "unknown",
@@ -27354,8 +27354,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on General Design & Composition",
-        "number_of_aggregate_correlations_as_cause": 29,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 29,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27388,7 +27388,7 @@ var qm_variables = {
         "sorting_score": 47
     },
     "Time Spent on Presentation": {
-        "best_aggregate_correlation_id": 65699174,
+        "best_global_variable_relationship_id": 65699174,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -27398,8 +27398,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Presentation",
-        "number_of_aggregate_correlations_as_cause": 30,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 30,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27432,7 +27432,7 @@ var qm_variables = {
         "sorting_score": 49
     },
     "Time Spent on Home & Garden": {
-        "best_aggregate_correlation_id": 65756130,
+        "best_global_variable_relationship_id": 65756130,
         "best_effect_variable_id": 1306,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -27442,8 +27442,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Home & Garden",
-        "number_of_aggregate_correlations_as_cause": 25,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 25,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27476,7 +27476,7 @@ var qm_variables = {
         "sorting_score": 45
     },
     "Time Spent on General Communication & Scheduling": {
-        "best_aggregate_correlation_id": 65698367,
+        "best_global_variable_relationship_id": 65698367,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
@@ -27487,8 +27487,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on General Communication & Scheduling",
-        "number_of_aggregate_correlations_as_cause": 33,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 33,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27521,7 +27521,7 @@ var qm_variables = {
         "sorting_score": 68
     },
     "Time Spent on General Social Networking": {
-        "best_aggregate_correlation_id": 65807431,
+        "best_global_variable_relationship_id": 65807431,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1867,
         "client_id": "unknown",
@@ -27532,8 +27532,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on General Social Networking",
-        "number_of_aggregate_correlations_as_cause": 32,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 32,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27566,7 +27566,7 @@ var qm_variables = {
         "sorting_score": 65
     },
     "Time Spent on Intelligence": {
-        "best_aggregate_correlation_id": 65698369,
+        "best_global_variable_relationship_id": 65698369,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -27576,8 +27576,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Intelligence",
-        "number_of_aggregate_correlations_as_cause": 32,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 32,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27610,7 +27610,7 @@ var qm_variables = {
         "sorting_score": 64
     },
     "Time Spent on Internet Utilities": {
-        "best_aggregate_correlation_id": 65698370,
+        "best_global_variable_relationship_id": 65698370,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
@@ -27621,8 +27621,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Internet Utilities",
-        "number_of_aggregate_correlations_as_cause": 31,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 31,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27655,7 +27655,7 @@ var qm_variables = {
         "sorting_score": 64
     },
     "Time Spent on General Entertainment": {
-        "best_aggregate_correlation_id": 65806211,
+        "best_global_variable_relationship_id": 65806211,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 1486,
         "client_id": "unknown",
@@ -27666,8 +27666,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on General Entertainment",
-        "number_of_aggregate_correlations_as_cause": 33,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 33,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27700,7 +27700,7 @@ var qm_variables = {
         "sorting_score": 72
     },
     "Time Spent on Engineering & Technology": {
-        "best_aggregate_correlation_id": 65756182,
+        "best_global_variable_relationship_id": 65756182,
         "best_effect_variable_id": 87323,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -27710,8 +27710,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Engineering & Technology",
-        "number_of_aggregate_correlations_as_cause": 26,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 26,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27744,7 +27744,7 @@ var qm_variables = {
         "sorting_score": 54
     },
     "Time Spent on Professional Networking": {
-        "best_aggregate_correlation_id": 65699799,
+        "best_global_variable_relationship_id": 65699799,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -27754,8 +27754,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Professional Networking",
-        "number_of_aggregate_correlations_as_cause": 30,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 30,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27788,7 +27788,7 @@ var qm_variables = {
         "sorting_score": 59
     },
     "Time Spent on Health & Medicine": {
-        "best_aggregate_correlation_id": 65698374,
+        "best_global_variable_relationship_id": 65698374,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -27798,8 +27798,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Health & Medicine",
-        "number_of_aggregate_correlations_as_cause": 30,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 30,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27832,7 +27832,7 @@ var qm_variables = {
         "sorting_score": 59
     },
     "Time Spent on Games": {
-        "best_aggregate_correlation_id": 65698375,
+        "best_global_variable_relationship_id": 65698375,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
@@ -27843,8 +27843,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Games",
-        "number_of_aggregate_correlations_as_cause": 28,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 28,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27877,7 +27877,7 @@ var qm_variables = {
         "sorting_score": 58
     },
     "Time Spent on Calendars": {
-        "best_aggregate_correlation_id": 65803997,
+        "best_global_variable_relationship_id": 65803997,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1888,
         "client_id": "unknown",
@@ -27888,8 +27888,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Calendars",
-        "number_of_aggregate_correlations_as_cause": 32,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 32,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27922,7 +27922,7 @@ var qm_variables = {
         "sorting_score": 66
     },
     "Time Spent on Customer Relations": {
-        "best_aggregate_correlation_id": 65698378,
+        "best_global_variable_relationship_id": 65698378,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -27932,8 +27932,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Customer Relations",
-        "number_of_aggregate_correlations_as_cause": 24,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 24,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -27966,7 +27966,7 @@ var qm_variables = {
         "sorting_score": 48
     },
     "Time Spent on Administration": {
-        "best_aggregate_correlation_id": 65699175,
+        "best_global_variable_relationship_id": 65699175,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
@@ -27977,8 +27977,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Administration",
-        "number_of_aggregate_correlations_as_cause": 24,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 24,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28011,7 +28011,7 @@ var qm_variables = {
         "sorting_score": 39
     },
     "Time Spent on Science & Technology": {
-        "best_aggregate_correlation_id": 65698379,
+        "best_global_variable_relationship_id": 65698379,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
@@ -28022,8 +28022,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Science & Technology",
-        "number_of_aggregate_correlations_as_cause": 32,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 32,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28056,7 +28056,7 @@ var qm_variables = {
         "sorting_score": 60
     },
     "Time Spent on Business & Finance": {
-        "best_aggregate_correlation_id": 65698380,
+        "best_global_variable_relationship_id": 65698380,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 1486,
         "client_id": "unknown",
@@ -28067,8 +28067,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Business & Finance",
-        "number_of_aggregate_correlations_as_cause": 31,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 31,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28101,7 +28101,7 @@ var qm_variables = {
         "sorting_score": 59
     },
     "Time Spent on File Sharing": {
-        "best_aggregate_correlation_id": 65699176,
+        "best_global_variable_relationship_id": 65699176,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
@@ -28112,8 +28112,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on File Sharing",
-        "number_of_aggregate_correlations_as_cause": 30,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 30,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28146,7 +28146,7 @@ var qm_variables = {
         "sorting_score": 60
     },
     "Time Spent on Graphic Design": {
-        "best_aggregate_correlation_id": 65699800,
+        "best_global_variable_relationship_id": 65699800,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
@@ -28157,8 +28157,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Graphic Design",
-        "number_of_aggregate_correlations_as_cause": 27,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 27,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28191,7 +28191,7 @@ var qm_variables = {
         "sorting_score": 47
     },
     "Time Spent on Travel & Outdoors": {
-        "best_aggregate_correlation_id": 65698381,
+        "best_global_variable_relationship_id": 65698381,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -28201,8 +28201,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Travel & Outdoors",
-        "number_of_aggregate_correlations_as_cause": 25,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 25,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28235,7 +28235,7 @@ var qm_variables = {
         "sorting_score": 53
     },
     "Time Spent on Maps & Regional": {
-        "best_aggregate_correlation_id": 65699177,
+        "best_global_variable_relationship_id": 65699177,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
@@ -28246,8 +28246,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Maps & Regional",
-        "number_of_aggregate_correlations_as_cause": 32,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 32,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28280,7 +28280,7 @@ var qm_variables = {
         "sorting_score": 51
     },
     "Time Spent on Meetings": {
-        "best_aggregate_correlation_id": 65699812,
+        "best_global_variable_relationship_id": 65699812,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -28290,8 +28290,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Meetings",
-        "number_of_aggregate_correlations_as_cause": 18,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 18,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28324,7 +28324,7 @@ var qm_variables = {
         "sorting_score": 27
     },
     "Time Spent on Sports": {
-        "best_aggregate_correlation_id": 65806206,
+        "best_global_variable_relationship_id": 65806206,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 1906,
         "client_id": "unknown",
@@ -28335,8 +28335,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Sports",
-        "number_of_aggregate_correlations_as_cause": 19,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 19,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28369,7 +28369,7 @@ var qm_variables = {
         "sorting_score": 28
     },
     "Time Spent on Legal & Gov't": {
-        "best_aggregate_correlation_id": 65804005,
+        "best_global_variable_relationship_id": 65804005,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1867,
         "client_id": "unknown",
@@ -28380,8 +28380,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Legal & Gov't",
-        "number_of_aggregate_correlations_as_cause": 24,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 24,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28414,7 +28414,7 @@ var qm_variables = {
         "sorting_score": 47
     },
     "Time Spent on Comedy": {
-        "best_aggregate_correlation_id": 65806184,
+        "best_global_variable_relationship_id": 65806184,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 1867,
         "client_id": "unknown",
@@ -28425,8 +28425,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Comedy",
-        "number_of_aggregate_correlations_as_cause": 10,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 10,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28459,7 +28459,7 @@ var qm_variables = {
         "sorting_score": 26
     },
     "Time Spent on Audio Editing": {
-        "best_aggregate_correlation_id": 65806186,
+        "best_global_variable_relationship_id": 65806186,
         "best_cause_variable_id": 1486,
         "best_effect_variable_id": 5968816,
         "client_id": "unknown",
@@ -28470,8 +28470,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent on Audio Editing",
-        "number_of_aggregate_correlations_as_cause": 6,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 6,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28504,7 +28504,7 @@ var qm_variables = {
         "sorting_score": 16
     },
     "Time Spent On Book Press Activities": {
-        "best_aggregate_correlation_id": 65767339,
+        "best_global_variable_relationship_id": 65767339,
         "best_effect_variable_id": 1272,
         "client_id": "unknown",
         "creator_user_id": 7,
@@ -28514,8 +28514,8 @@ var qm_variables = {
         "ion_icon": "ion-ios-body-outline",
         "most_common_connector_id": 11,
         "name": "Time Spent On Book Press Activities",
-        "number_of_aggregate_correlations_as_cause": 16,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 16,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_common_tags": 0,
         "number_of_measurements": 40,
         "number_of_raw_measurements": 11,
@@ -28534,7 +28534,7 @@ var qm_variables = {
         "sorting_score": 29
     },
     "Ozone Pollution Air Quality Index": {
-        "best_aggregate_correlation_id": 65806341,
+        "best_global_variable_relationship_id": 65806341,
         "best_effect_variable_id": 1398,
         "client_id": "moodimodoapp",
         "creator_user_id": 7,
@@ -28543,8 +28543,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/environment.png",
         "most_common_connector_id": 90,
         "name": "Ozone Pollution Air Quality Index",
-        "number_of_aggregate_correlations_as_cause": 6,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 6,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28577,7 +28577,7 @@ var qm_variables = {
         "sorting_score": 153
     },
     "Fine Particulate Matter Pollution Air Quality Index": {
-        "best_aggregate_correlation_id": 65806238,
+        "best_global_variable_relationship_id": 65806238,
         "best_effect_variable_id": 5957893,
         "client_id": "moodimodoapp",
         "creator_user_id": 7,
@@ -28586,8 +28586,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/environment.png",
         "most_common_connector_id": 90,
         "name": "Fine Particulate Matter Pollution Air Quality Index",
-        "number_of_aggregate_correlations_as_cause": 9,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 9,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28620,7 +28620,7 @@ var qm_variables = {
         "sorting_score": 202
     },
     "Time Spent On Editing & IDEs Activities": {
-        "best_aggregate_correlation_id": 65810825,
+        "best_global_variable_relationship_id": 65810825,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1398,
         "creator_user_id": 7,
@@ -28629,8 +28629,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Editing & IDEs Activities",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28663,7 +28663,7 @@ var qm_variables = {
         "sorting_score": 55
     },
     "Time Spent On Engineering & Technology Activities": {
-        "best_aggregate_correlation_id": 65810816,
+        "best_global_variable_relationship_id": 65810816,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1398,
         "creator_user_id": 7,
@@ -28672,8 +28672,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Engineering & Technology Activities",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28706,7 +28706,7 @@ var qm_variables = {
         "sorting_score": 66
     },
     "Time Spent On General Software Development Activities": {
-        "best_aggregate_correlation_id": 65808124,
+        "best_global_variable_relationship_id": 65808124,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 1398,
         "creator_user_id": 7,
@@ -28715,8 +28715,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On General Software Development Activities",
-        "number_of_aggregate_correlations_as_cause": 3,
-        "number_of_aggregate_correlations_as_effect": 13,
+        "number_of_global_variable_relationships_as_cause": 3,
+        "number_of_global_variable_relationships_as_effect": 13,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28749,7 +28749,7 @@ var qm_variables = {
         "sorting_score": 76
     },
     "Time Spent On Search Activities": {
-        "best_aggregate_correlation_id": 65806914,
+        "best_global_variable_relationship_id": 65806914,
         "best_cause_variable_id": 5974181,
         "best_effect_variable_id": 1304,
         "creator_user_id": 7,
@@ -28758,8 +28758,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Search Activities",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 13,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 13,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28792,7 +28792,7 @@ var qm_variables = {
         "sorting_score": 80
     },
     "Time Spent On General Reference & Learning Activities": {
-        "best_aggregate_correlation_id": 65808206,
+        "best_global_variable_relationship_id": 65808206,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 5955886,
         "creator_user_id": 7,
@@ -28801,8 +28801,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On General Reference & Learning Activities",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 12,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 12,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28835,7 +28835,7 @@ var qm_variables = {
         "sorting_score": 79
     },
     "Time Spent On General Shopping Activities": {
-        "best_aggregate_correlation_id": 65808192,
+        "best_global_variable_relationship_id": 65808192,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 1304,
         "creator_user_id": 7,
@@ -28844,8 +28844,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On General Shopping Activities",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 12,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 12,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28878,7 +28878,7 @@ var qm_variables = {
         "sorting_score": 75
     },
     "Time Spent On General Entertainment Activities": {
-        "best_aggregate_correlation_id": 65808097,
+        "best_global_variable_relationship_id": 65808097,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 1398,
         "creator_user_id": 7,
@@ -28887,8 +28887,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On General Entertainment Activities",
-        "number_of_aggregate_correlations_as_cause": 3,
-        "number_of_aggregate_correlations_as_effect": 13,
+        "number_of_global_variable_relationships_as_cause": 3,
+        "number_of_global_variable_relationships_as_effect": 13,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28921,7 +28921,7 @@ var qm_variables = {
         "sorting_score": 81
     },
     "Time Spent On Intelligence Activities": {
-        "best_aggregate_correlation_id": 65810855,
+        "best_global_variable_relationship_id": 65810855,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1398,
         "creator_user_id": 7,
@@ -28930,8 +28930,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Intelligence Activities",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -28964,7 +28964,7 @@ var qm_variables = {
         "sorting_score": 66
     },
     "Time Spent On Email Activities": {
-        "best_aggregate_correlation_id": 65808083,
+        "best_global_variable_relationship_id": 65808083,
         "best_cause_variable_id": 5974181,
         "best_effect_variable_id": 1304,
         "creator_user_id": 7,
@@ -28973,8 +28973,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Email Activities",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 12,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 12,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29007,7 +29007,7 @@ var qm_variables = {
         "sorting_score": 75
     },
     "Time Spent On Browsers Activities": {
-        "best_aggregate_correlation_id": 65806921,
+        "best_global_variable_relationship_id": 65806921,
         "best_cause_variable_id": 5974181,
         "best_effect_variable_id": 1304,
         "creator_user_id": 7,
@@ -29016,8 +29016,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Browsers Activities",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 12,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 12,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29050,7 +29050,7 @@ var qm_variables = {
         "sorting_score": 79
     },
     "Time Spent On General Social Networking Activities": {
-        "best_aggregate_correlation_id": 65808154,
+        "best_global_variable_relationship_id": 65808154,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 1304,
         "creator_user_id": 7,
@@ -29059,8 +29059,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On General Social Networking Activities",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 12,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 12,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29093,7 +29093,7 @@ var qm_variables = {
         "sorting_score": 79
     },
     "Time Spent On Games Activities": {
-        "best_aggregate_correlation_id": 65806911,
+        "best_global_variable_relationship_id": 65806911,
         "best_cause_variable_id": 5974181,
         "best_effect_variable_id": 1398,
         "creator_user_id": 7,
@@ -29102,8 +29102,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Games Activities",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29136,7 +29136,7 @@ var qm_variables = {
         "sorting_score": 68
     },
     "Time Spent On Calendars Activities": {
-        "best_aggregate_correlation_id": 65807040,
+        "best_global_variable_relationship_id": 65807040,
         "best_cause_variable_id": 5955886,
         "best_effect_variable_id": 1304,
         "creator_user_id": 7,
@@ -29145,8 +29145,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Calendars Activities",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 4,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 4,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29179,7 +29179,7 @@ var qm_variables = {
         "sorting_score": 67
     },
     "Time Spent On Meetings Activities": {
-        "best_aggregate_correlation_id": 65807068,
+        "best_global_variable_relationship_id": 65807068,
         "best_cause_variable_id": 5955886,
         "best_effect_variable_id": 5955886,
         "creator_user_id": 7,
@@ -29188,8 +29188,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Meetings Activities",
-        "number_of_aggregate_correlations_as_cause": 5,
-        "number_of_aggregate_correlations_as_effect": 5,
+        "number_of_global_variable_relationships_as_cause": 5,
+        "number_of_global_variable_relationships_as_effect": 5,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29222,7 +29222,7 @@ var qm_variables = {
         "sorting_score": 71
     },
     "Time Spent On General Business Activities": {
-        "best_aggregate_correlation_id": 65810890,
+        "best_global_variable_relationship_id": 65810890,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1398,
         "creator_user_id": 7,
@@ -29231,8 +29231,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On General Business Activities",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29265,7 +29265,7 @@ var qm_variables = {
         "sorting_score": 67
     },
     "Time Spent On Internet Utilities Activities": {
-        "best_aggregate_correlation_id": 65806916,
+        "best_global_variable_relationship_id": 65806916,
         "best_cause_variable_id": 5974181,
         "best_effect_variable_id": 1304,
         "creator_user_id": 7,
@@ -29274,8 +29274,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Internet Utilities Activities",
-        "number_of_aggregate_correlations_as_cause": 3,
-        "number_of_aggregate_correlations_as_effect": 4,
+        "number_of_global_variable_relationships_as_cause": 3,
+        "number_of_global_variable_relationships_as_effect": 4,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29308,7 +29308,7 @@ var qm_variables = {
         "sorting_score": 72
     },
     "Time Spent On Music Activities": {
-        "best_aggregate_correlation_id": 65808216,
+        "best_global_variable_relationship_id": 65808216,
         "best_effect_variable_id": 1304,
         "creator_user_id": 7,
         "default_unit_id": 34,
@@ -29316,8 +29316,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Music Activities",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 0,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 0,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29350,7 +29350,7 @@ var qm_variables = {
         "sorting_score": 66
     },
     "Time Spent On Other Activities": {
-        "best_aggregate_correlation_id": 65808163,
+        "best_global_variable_relationship_id": 65808163,
         "best_cause_variable_id": 5954746,
         "best_effect_variable_id": 1398,
         "creator_user_id": 7,
@@ -29359,8 +29359,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Other Activities",
-        "number_of_aggregate_correlations_as_cause": 3,
-        "number_of_aggregate_correlations_as_effect": 13,
+        "number_of_global_variable_relationships_as_cause": 3,
+        "number_of_global_variable_relationships_as_effect": 13,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29393,7 +29393,7 @@ var qm_variables = {
         "sorting_score": 77
     },
     "Time Spent On General News & Opinion Activities": {
-        "best_aggregate_correlation_id": 65808023,
+        "best_global_variable_relationship_id": 65808023,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 5955886,
         "creator_user_id": 7,
@@ -29402,8 +29402,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On General News & Opinion Activities",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 12,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 12,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29436,7 +29436,7 @@ var qm_variables = {
         "sorting_score": 79
     },
     "Time Spent On Accounting Activities": {
-        "best_aggregate_correlation_id": 65810894,
+        "best_global_variable_relationship_id": 65810894,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1398,
         "creator_user_id": 7,
@@ -29445,8 +29445,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Accounting Activities",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29479,7 +29479,7 @@ var qm_variables = {
         "sorting_score": 26
     },
     "Time Spent On Employment Activities": {
-        "best_aggregate_correlation_id": 65807069,
+        "best_global_variable_relationship_id": 65807069,
         "best_cause_variable_id": 1304,
         "best_effect_variable_id": 1304,
         "creator_user_id": 7,
@@ -29488,8 +29488,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/basic-flat-icons\/png\/clock.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Employment Activities",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29522,7 +29522,7 @@ var qm_variables = {
         "sorting_score": 13
     },
     "Time Spent On Health & Medicine Activities": {
-        "best_aggregate_correlation_id": 65808067,
+        "best_global_variable_relationship_id": 65808067,
         "best_cause_variable_id": 6038789,
         "best_effect_variable_id": 1398,
         "creator_user_id": 7,
@@ -29531,8 +29531,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Health & Medicine Activities",
-        "number_of_aggregate_correlations_as_cause": 3,
-        "number_of_aggregate_correlations_as_effect": 13,
+        "number_of_global_variable_relationships_as_cause": 3,
+        "number_of_global_variable_relationships_as_effect": 13,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29565,7 +29565,7 @@ var qm_variables = {
         "sorting_score": 70
     },
     "Time Spent On Administration Activities": {
-        "best_aggregate_correlation_id": 65807049,
+        "best_global_variable_relationship_id": 65807049,
         "best_cause_variable_id": 5955886,
         "best_effect_variable_id": 1342,
         "creator_user_id": 7,
@@ -29574,8 +29574,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Administration Activities",
-        "number_of_aggregate_correlations_as_cause": 4,
-        "number_of_aggregate_correlations_as_effect": 4,
+        "number_of_global_variable_relationships_as_cause": 4,
+        "number_of_global_variable_relationships_as_effect": 4,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29608,7 +29608,7 @@ var qm_variables = {
         "sorting_score": 34
     },
     "Time Spent on Systems Operations Activities": {
-        "best_aggregate_correlation_id": 65810818,
+        "best_global_variable_relationship_id": 65810818,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1398,
         "creator_user_id": 7,
@@ -29617,8 +29617,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent on Systems Operations Activities",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29651,7 +29651,7 @@ var qm_variables = {
         "sorting_score": 63
     },
     "Time Spent On Instant Message Activities": {
-        "best_aggregate_correlation_id": 65808052,
+        "best_global_variable_relationship_id": 65808052,
         "best_cause_variable_id": 6038788,
         "creator_user_id": 7,
         "default_unit_id": 34,
@@ -29659,8 +29659,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Instant Message Activities",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 12,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 12,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29693,7 +29693,7 @@ var qm_variables = {
         "sorting_score": 79
     },
     "Time Spent On General Design & Composition Activities": {
-        "best_aggregate_correlation_id": 65807053,
+        "best_global_variable_relationship_id": 65807053,
         "best_cause_variable_id": 1304,
         "best_effect_variable_id": 1280,
         "creator_user_id": 7,
@@ -29702,8 +29702,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On General Design & Composition Activities",
-        "number_of_aggregate_correlations_as_cause": 4,
-        "number_of_aggregate_correlations_as_effect": 4,
+        "number_of_global_variable_relationships_as_cause": 4,
+        "number_of_global_variable_relationships_as_effect": 4,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29736,7 +29736,7 @@ var qm_variables = {
         "sorting_score": 39
     },
     "Time Spent on Writing Activities": {
-        "best_aggregate_correlation_id": 65808039,
+        "best_global_variable_relationship_id": 65808039,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 1398,
         "creator_user_id": 7,
@@ -29745,8 +29745,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent on Writing Activities",
-        "number_of_aggregate_correlations_as_cause": 3,
-        "number_of_aggregate_correlations_as_effect": 13,
+        "number_of_global_variable_relationships_as_cause": 3,
+        "number_of_global_variable_relationships_as_effect": 13,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29779,7 +29779,7 @@ var qm_variables = {
         "sorting_score": 81
     },
     "Time Spent On Professional Networking Activities": {
-        "best_aggregate_correlation_id": 65808139,
+        "best_global_variable_relationship_id": 65808139,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 5955886,
         "creator_user_id": 7,
@@ -29788,8 +29788,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Professional Networking Activities",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 12,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 12,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29822,7 +29822,7 @@ var qm_variables = {
         "sorting_score": 40
     },
     "Time Spent On Reading Activities": {
-        "best_aggregate_correlation_id": 65810892,
+        "best_global_variable_relationship_id": 65810892,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1398,
         "creator_user_id": 7,
@@ -29831,8 +29831,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Reading Activities",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29865,7 +29865,7 @@ var qm_variables = {
         "sorting_score": 55
     },
     "Time Spent On Design & Planning Activities": {
-        "best_aggregate_correlation_id": 65810811,
+        "best_global_variable_relationship_id": 65810811,
         "best_cause_variable_id": 1398,
         "best_effect_variable_id": 1398,
         "creator_user_id": 7,
@@ -29874,8 +29874,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Design & Planning Activities",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 1,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 1,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29908,7 +29908,7 @@ var qm_variables = {
         "sorting_score": 55
     },
     "Time Spent On Photos Activities": {
-        "best_aggregate_correlation_id": 65807987,
+        "best_global_variable_relationship_id": 65807987,
         "best_cause_variable_id": 6038789,
         "best_effect_variable_id": 1304,
         "creator_user_id": 7,
@@ -29917,8 +29917,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Photos Activities",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 11,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 11,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29951,7 +29951,7 @@ var qm_variables = {
         "sorting_score": 74
     },
     "Time Spent On Business & Finance Activities": {
-        "best_aggregate_correlation_id": 65810719,
+        "best_global_variable_relationship_id": 65810719,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 1398,
         "creator_user_id": 7,
@@ -29960,8 +29960,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Business & Finance Activities",
-        "number_of_aggregate_correlations_as_cause": 3,
-        "number_of_aggregate_correlations_as_effect": 13,
+        "number_of_global_variable_relationships_as_cause": 3,
+        "number_of_global_variable_relationships_as_effect": 13,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -29994,7 +29994,7 @@ var qm_variables = {
         "sorting_score": 80
     },
     "Time Spent on Voice Chat Activities": {
-        "best_aggregate_correlation_id": 65808215,
+        "best_global_variable_relationship_id": 65808215,
         "best_cause_variable_id": 5955886,
         "best_effect_variable_id": 5955886,
         "creator_user_id": 7,
@@ -30003,8 +30003,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent on Voice Chat Activities",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -30037,7 +30037,7 @@ var qm_variables = {
         "sorting_score": 58
     },
     "Time Spent On General Communication & Scheduling Activities": {
-        "best_aggregate_correlation_id": 65808008,
+        "best_global_variable_relationship_id": 65808008,
         "best_cause_variable_id": 6038788,
         "best_effect_variable_id": 5955886,
         "creator_user_id": 7,
@@ -30046,8 +30046,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On General Communication & Scheduling Activities",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 12,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 12,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -30080,7 +30080,7 @@ var qm_variables = {
         "sorting_score": 78
     },
     "Time Spent On Customer Relations Activities": {
-        "best_aggregate_correlation_id": 65806146,
+        "best_global_variable_relationship_id": 65806146,
         "best_cause_variable_id": 1304,
         "best_effect_variable_id": 1304,
         "creator_user_id": 7,
@@ -30089,8 +30089,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent On Customer Relations Activities",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 4,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 4,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -30123,7 +30123,7 @@ var qm_variables = {
         "sorting_score": 13
     },
     "Time Spent on Wellness Activities": {
-        "best_aggregate_correlation_id": 65807038,
+        "best_global_variable_relationship_id": 65807038,
         "best_cause_variable_id": 5955886,
         "best_effect_variable_id": 5955886,
         "creator_user_id": 82534,
@@ -30132,8 +30132,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent on Wellness Activities",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -30166,7 +30166,7 @@ var qm_variables = {
         "sorting_score": 39
     },
     "Time Spent on Marketing Activities": {
-        "best_aggregate_correlation_id": 65807998,
+        "best_global_variable_relationship_id": 65807998,
         "best_cause_variable_id": 1304,
         "best_effect_variable_id": 1304,
         "creator_user_id": 82534,
@@ -30175,8 +30175,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent on Marketing Activities",
-        "number_of_aggregate_correlations_as_cause": 2,
-        "number_of_aggregate_correlations_as_effect": 2,
+        "number_of_global_variable_relationships_as_cause": 2,
+        "number_of_global_variable_relationships_as_effect": 2,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,
@@ -30209,7 +30209,7 @@ var qm_variables = {
         "sorting_score": 64
     },
     "Time Spent on Anti-Virus & Spyware Activities": {
-        "best_aggregate_correlation_id": 65806906,
+        "best_global_variable_relationship_id": 65806906,
         "best_cause_variable_id": 5954744,
         "best_effect_variable_id": 1304,
         "creator_user_id": 86057,
@@ -30218,8 +30218,8 @@ var qm_variables = {
         "image_url": "https:\/\/static.quantimo.do\/img\/variable_categories\/football-96.png",
         "most_common_connector_id": 11,
         "name": "Time Spent on Anti-Virus & Spyware Activities",
-        "number_of_aggregate_correlations_as_cause": 1,
-        "number_of_aggregate_correlations_as_effect": 6,
+        "number_of_global_variable_relationships_as_cause": 1,
+        "number_of_global_variable_relationships_as_effect": 6,
         "number_of_applications_where_outcome_variable": 0,
         "number_of_applications_where_predictor_variable": 0,
         "number_of_common_tags": 0,

@@ -11,7 +11,7 @@
 /** Created by Reliese Model.
  */
 namespace App\Models\Base;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\Correlation;
 use App\Models\OAClient;
@@ -31,9 +31,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $cause_variable_id
  * @property int $effect_variable_id
  * @property int $correlation_id
- * @property int $aggregate_correlation_id
+ * @property int $global_variable_relationship_id
  * @property bool $is_public
- * @property AggregateCorrelation $aggregate_correlation
+ * @property GlobalVariableRelationship $global_variable_relationship
  * @property Variable $cause_variable
  * @property OAClient $oa_client
  * @property Correlation $correlation
@@ -62,12 +62,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Base\BaseVote withoutTrashed()
  * @mixin \Eloquent
  * @property mixed $raw
- * @method static \Illuminate\Database\Eloquent\Builder|BaseVote whereAggregateCorrelationId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BaseVote whereGlobalVariableRelationshipId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseVote whereCorrelationId($value)
  */
 abstract class BaseVote extends BaseModel {
 	use SoftDeletes;
-	public const FIELD_AGGREGATE_CORRELATION_ID = 'aggregate_correlation_id';
+	public const FIELD_AGGREGATE_CORRELATION_ID = 'global_variable_relationship_id';
 	public const FIELD_CAUSE_VARIABLE_ID = 'cause_variable_id';
 	public const FIELD_CLIENT_ID = 'client_id';
 	public const FIELD_CORRELATION_ID = 'correlation_id';
@@ -120,16 +120,16 @@ abstract class BaseVote extends BaseModel {
 		self::FIELD_IS_PUBLIC => '',
 	];
 	protected array $relationshipInfo = [
-		'aggregate_correlation' => [
+		'global_variable_relationship' => [
 			'relationshipType' => 'BelongsTo',
-			'qualifiedUserClassName' => AggregateCorrelation::class,
-			'foreignKeyColumnName' => 'aggregate_correlation_id',
+			'qualifiedUserClassName' => GlobalVariableRelationship::class,
+			'foreignKeyColumnName' => 'global_variable_relationship_id',
 			'foreignKey' => Vote::FIELD_AGGREGATE_CORRELATION_ID,
 			'otherKeyColumnName' => 'id',
-			'otherKey' => AggregateCorrelation::FIELD_ID,
-			'ownerKeyColumnName' => 'aggregate_correlation_id',
+			'otherKey' => GlobalVariableRelationship::FIELD_ID,
+			'ownerKeyColumnName' => 'global_variable_relationship_id',
 			'ownerKey' => Vote::FIELD_AGGREGATE_CORRELATION_ID,
-			'methodName' => 'aggregate_correlation',
+			'methodName' => 'global_variable_relationship',
 		],
 		'cause_variable' => [
 			'relationshipType' => 'BelongsTo',
@@ -187,9 +187,9 @@ abstract class BaseVote extends BaseModel {
 			'methodName' => 'user',
 		],
 	];
-	public function aggregate_correlation(): BelongsTo{
-		return $this->belongsTo(AggregateCorrelation::class, Vote::FIELD_AGGREGATE_CORRELATION_ID,
-			AggregateCorrelation::FIELD_ID, Vote::FIELD_AGGREGATE_CORRELATION_ID);
+	public function global_variable_relationship(): BelongsTo{
+		return $this->belongsTo(GlobalVariableRelationship::class, Vote::FIELD_AGGREGATE_CORRELATION_ID,
+			GlobalVariableRelationship::FIELD_ID, Vote::FIELD_AGGREGATE_CORRELATION_ID);
 	}
 	public function cause_variable(): BelongsTo{
 		return $this->belongsTo(Variable::class, Vote::FIELD_CAUSE_VARIABLE_ID, Variable::FIELD_ID,

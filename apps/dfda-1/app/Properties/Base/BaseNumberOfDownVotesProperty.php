@@ -5,9 +5,9 @@
  */
 
 namespace App\Properties\Base;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Vote;
-use App\Properties\Vote\VoteAggregateCorrelationIdProperty;
+use App\Properties\Vote\VoteGlobalVariableRelationshipIdProperty;
 use App\Storage\DB\Writable;
 use App\Traits\PropertyTraits\IsCalculated;
 use App\Traits\PropertyTraits\IsInt;
@@ -38,7 +38,7 @@ class BaseNumberOfDownVotesProperty extends BaseProperty
 	public $title = 'Down Votes';
 	public $type = self::TYPE_INTEGER;
     /**
-     * @param AggregateCorrelation $model
+     * @param GlobalVariableRelationship $model
      * @return int
      */
     public static function calculate($model): int{
@@ -54,7 +54,7 @@ class BaseNumberOfDownVotesProperty extends BaseProperty
     }
 
     public static function updateAll(){
-        VoteAggregateCorrelationIdProperty::updateAll();
+        VoteGlobalVariableRelationshipIdProperty::updateAll();
         $table = static::getTable();
         Writable::statementStatic("
             update $table ac 

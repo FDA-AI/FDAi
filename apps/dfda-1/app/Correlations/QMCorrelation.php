@@ -7,19 +7,19 @@
 namespace App\Correlations;
 use App\Cards\QMCard;
 use App\Cards\StudyCard;
-use App\Charts\AggregateCorrelationCharts\AggregateCorrelationChartGroup;
+use App\Charts\GlobalVariableRelationshipCharts\GlobalVariableRelationshipChartGroup;
 use App\Charts\ChartGroup;
 use App\Charts\CorrelationCharts\CorrelationChartGroup;
 use App\Exceptions\InsufficientVarianceException;
 use App\Exceptions\InvalidVariableValueException;
 use App\Logging\ConsoleLog;
 use App\Logging\QMLog;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\Correlation;
 use App\Models\Study;
 use App\Models\Vote;
-use App\Properties\AggregateCorrelation\AggregateCorrelationDataSourceNameProperty;
+use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipDataSourceNameProperty;
 use App\Properties\Base\BaseEffectFollowUpPercentChangeFromBaselineProperty;
 use App\Properties\Base\BaseFillingValueProperty;
 use App\Properties\Correlation\CorrelationAverageEffectProperty;
@@ -267,7 +267,7 @@ abstract class QMCorrelation extends DBModel {
 	protected ?StudyHtml $studyHtml = null;
 	/**
      * Correlation constructor.
-     * @param Correlation|AggregateCorrelation|null $l
+     * @param Correlation|GlobalVariableRelationship|null $l
      */
     public function __construct($l = null){
 		if(!$l){return;}
@@ -454,8 +454,8 @@ abstract class QMCorrelation extends DBModel {
     /**
      * @param string $causeVariableName
      * @param string $effectVariableName
-     * @param QMAggregateCorrelation[]|QMCorrelation[]|QMUserCorrelation[] $correlations
-     * @return QMCorrelation[]|QMUserCorrelation[]|QMAggregateCorrelation[]
+     * @param QMGlobalVariableRelationship[]|QMCorrelation[]|QMUserCorrelation[] $correlations
+     * @return QMCorrelation[]|QMUserCorrelation[]|QMGlobalVariableRelationship[]
      */
     protected static function putExactMatchFirst(string $causeVariableName, string $effectVariableName, array $correlations): array{
         $sorted = [];
@@ -637,7 +637,7 @@ abstract class QMCorrelation extends DBModel {
      */
     public function getDataSourceName(): string {
         if(!$this->dataSourceName){
-            $this->dataSourceName = AggregateCorrelationDataSourceNameProperty::DATA_SOURCE_NAME_USER;
+            $this->dataSourceName = GlobalVariableRelationshipDataSourceNameProperty::DATA_SOURCE_NAME_USER;
             $this->logDebug("No data source name so setting to user!");
         }
         return $this->dataSourceName;
@@ -1036,7 +1036,7 @@ abstract class QMCorrelation extends DBModel {
         if(isset($this->causeVariable)){
             return $this->causeVariableCommonUnitId = $this->getOrSetCauseQMVariable()->unitId;
         }
-        /** @var AggregateCorrelation $l */
+        /** @var GlobalVariableRelationship $l */
         $l = $this->l();
         return $this->causeVariableCommonUnitId = $l->getCauseVariable()->default_unit_id;
     }
@@ -1053,7 +1053,7 @@ abstract class QMCorrelation extends DBModel {
         if(isset($this->effectVariable)){
             return $this->effectVariableCommonUnitId = $this->getOrSetEffectQMVariable()->unitId;
         }
-        /** @var AggregateCorrelation $l */
+        /** @var GlobalVariableRelationship $l */
         $l = $this->l();
         return $this->effectVariableCommonUnitId = $l->getEffectVariable()->default_unit_id;
     }
@@ -1379,7 +1379,7 @@ abstract class QMCorrelation extends DBModel {
         return $s->getOptionsListCard();
     }
     /**
-     * @return AggregateCorrelation|Correlation
+     * @return GlobalVariableRelationship|Correlation
      */
     public function l(){
         /** @noinspection PhpIncompatibleReturnTypeInspection */
@@ -1387,9 +1387,9 @@ abstract class QMCorrelation extends DBModel {
     }
     abstract public function updateOptimalValueSentencesIfNecessary(): void;
     /**
-     * @return QMAggregateCorrelation
+     * @return QMGlobalVariableRelationship
      */
-    abstract public function getOrCreateQMAggregateCorrelation(): QMAggregateCorrelation ;
+    abstract public function getOrCreateQMGlobalVariableRelationship(): QMGlobalVariableRelationship ;
     /**
      * @return string
      */
@@ -1445,9 +1445,9 @@ abstract class QMCorrelation extends DBModel {
         $c = $qb->count();
         QMLog::error("Deleting $c user correlations where effect...");
         $deletedUser = $qb->hardDelete($reason, true);
-        $qb = QMAggregateCorrelation::writable()->where(AggregateCorrelation::FIELD_EFFECT_VARIABLE_ID, $effectId);
+        $qb = QMGlobalVariableRelationship::writable()->where(GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $effectId);
         $c = $qb->count();
-        QMLog::error("Deleting $c aggregate correlations where effect $effectId...");
+        QMLog::error("Deleting $c global variable relationships where effect $effectId...");
         $deletedAggregate = $qb->hardDelete($reason, true);
         return $deletedAggregate + $deletedUser;
     }
@@ -1493,7 +1493,7 @@ abstract class QMCorrelation extends DBModel {
      * @noinspection PhpParameterNameChangedDuringInheritanceInspection
      */
     public function getAttribute($key){
-        if($key === Correlation::FIELD_USER_ID && $this instanceof QMAggregateCorrelation){return UserIdProperty::USER_ID_SYSTEM;}
+        if($key === Correlation::FIELD_USER_ID && $this instanceof QMGlobalVariableRelationship){return UserIdProperty::USER_ID_SYSTEM;}
         if($key === Correlation::FIELD_CAUSE_VARIABLE_ID && $this->causeVariableId){return $this->causeVariableId;}
         if($key === Correlation::FIELD_EFFECT_VARIABLE_ID && $this->effectVariableId){return $this->effectVariableId;}
         return parent::getAttribute($key);
@@ -1505,11 +1505,11 @@ abstract class QMCorrelation extends DBModel {
         }
     }
     /**
-     * @return CorrelationChartGroup|AggregateCorrelationChartGroup
+     * @return CorrelationChartGroup|GlobalVariableRelationshipChartGroup
      */
     abstract public function getOrSetCharts(): ChartGroup;
     /**
-     * @return CorrelationChartGroup|AggregateCorrelationChartGroup
+     * @return CorrelationChartGroup|GlobalVariableRelationshipChartGroup
      */
     abstract public function setCharts(): ChartGroup;
     public function getChartGroup(): ChartGroup {
@@ -1568,7 +1568,7 @@ abstract class QMCorrelation extends DBModel {
     public function getCauseVariableCategoryId(): int {
         $id = $this->causeVariableCategoryId;
         if($id){return $id;}
-        /** @var AggregateCorrelation $l */
+        /** @var GlobalVariableRelationship $l */
         $l = $this->l();
         if(!$l && $this->causeVariable){
             return $this->causeVariableCategoryId = $this->getOrSetCauseQMVariable()->variableCategoryId;
@@ -1579,7 +1579,7 @@ abstract class QMCorrelation extends DBModel {
     public function getEffectVariableCategoryId(): int {
         $id = $this->effectVariableCategoryId;
         if($id){return $id;}
-        /** @var AggregateCorrelation $l */
+        /** @var GlobalVariableRelationship $l */
         $l = $this->l();
         if(!$l && $this->effectVariable){
             return $this->effectVariableCategoryId = $this->getOrSetEffectQMVariable()->variableCategoryId;
@@ -1587,9 +1587,9 @@ abstract class QMCorrelation extends DBModel {
         $id = $l->getEffectVariable()->variable_category_id;
         return $this->effectVariableCategoryId = $id;
     }
-    abstract public function findAggregateCorrelation(): ?AggregateCorrelation;
-    public function getAggregateCorrelation(): AggregateCorrelation{
-        return $this->getOrCreateQMAggregateCorrelation()->l();
+    abstract public function findGlobalVariableRelationship(): ?GlobalVariableRelationship;
+    public function getGlobalVariableRelationship(): GlobalVariableRelationship{
+        return $this->getOrCreateQMGlobalVariableRelationship()->l();
     }
 	/**
 	 * @return \App\Models\Study|null

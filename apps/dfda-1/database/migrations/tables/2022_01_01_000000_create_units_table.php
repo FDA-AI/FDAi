@@ -29,7 +29,7 @@ class CreateUnitsTable extends Migration
                     update units
                         left join (
                             select count(id) as total, cause_unit_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by cause_unit_id
                         )
                         as grouped on units.id = grouped.cause_unit_id

@@ -3674,7 +3674,7 @@ class User extends BaseWpUser
         foreach($notifications as $n){
             if($id = $n->bestUserCorrelationId){
                 $userCorrelationIds[] = $id;
-            } elseif($id = $n->bestAggregateCorrelationId){
+            } elseif($id = $n->bestGlobalVariableRelationshipId){
                 $aggregateCorrelationIds[] = $id;
             } else{
                 if(stripos($n->variableName, "test") === false){
@@ -3684,20 +3684,20 @@ class User extends BaseWpUser
         }
         if($noCorrelations){
             $noCorrelations = array_unique($noCorrelations);
-            QMLog::error("No best user or aggregate correlations for the following notifications:\n\t" .
+            QMLog::error("No best user or global variable relationships for the following notifications:\n\t" .
                 implode(", ", $noCorrelations));
         }
         $userCorrelationIds = array_unique($userCorrelationIds);
         $aggregateCorrelationIds = array_unique($aggregateCorrelationIds);
         $correlations = ($userCorrelationIds) ? Correlation::getWithVariables($userCorrelationIds) : [];
         $aggregateCorrelations = ($aggregateCorrelationIds) ?
-            AggregateCorrelation::getWithVariables($aggregateCorrelationIds) : [];
+            GlobalVariableRelationship::getWithVariables($aggregateCorrelationIds) : [];
         foreach($notifications as $n){
             $cards[] = $n->getOptionsListCard();
             if($includeStudyCards){
                 if($id = $n->bestUserCorrelationId){
                     $cards[] = $correlations[$id]->getCard();
-                } elseif($id = $n->bestAggregateCorrelationId){
+                } elseif($id = $n->bestGlobalVariableRelationshipId){
                     $cards[] = $aggregateCorrelations[$id]->getCard();
                 } else{
                     if($n->numberOfRawMeasurementsWithTagsJoinsChildren){

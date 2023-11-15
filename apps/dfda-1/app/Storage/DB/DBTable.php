@@ -12,7 +12,7 @@ use App\Files\Json\JsonFile;
 use App\Files\ZipHelper;
 use App\Logging\ConsoleLog;
 use App\Logging\QMLog;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\Correlation;
 use App\Models\User;
@@ -35,7 +35,7 @@ use Illuminate\Support\Collection;
 class DBTable extends Table {
 	use LoggerTrait;
 	public const TABLE_ALIASES = [
-		AggregateCorrelation::TABLE => 'global_variable_relationships',
+		GlobalVariableRelationship::TABLE => 'global_variable_relationships',
 		Correlation::TABLE => 'user_variable_relationships',
 		Variable::TABLE => 'global_variables',
 	];

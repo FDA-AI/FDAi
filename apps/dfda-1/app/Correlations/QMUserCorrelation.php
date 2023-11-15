@@ -33,13 +33,13 @@ use App\Exceptions\UserCorrelationNotFoundException;
 use App\Files\FileHelper;
 use App\Logging\QMClockwork;
 use App\Logging\QMLog;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
 use App\Models\Study;
 use App\Models\UserVariable;
 use App\Models\Vote;
-use App\Properties\AggregateCorrelation\AggregateCorrelationDataSourceNameProperty;
-use App\Properties\AggregateCorrelation\AggregateCorrelationStatusProperty;
+use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipDataSourceNameProperty;
+use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipStatusProperty;
 use App\Properties\Correlation\CorrelationAverageDailyHighCauseProperty;
 use App\Properties\Correlation\CorrelationAverageDailyLowCauseProperty;
 use App\Properties\Correlation\CorrelationAverageEffectFollowingHighCauseProperty;
@@ -110,7 +110,7 @@ use App\Storage\QueryBuilderHelper;
 use App\Studies\QMStudy;
 use App\Studies\QMUserStudy;
 use App\Tables\TableCell;
-use App\Traits\HasModel\HasAggregateCorrelation;
+use App\Traits\HasModel\HasGlobalVariableRelationship;
 use App\Traits\HasModel\HasUserCauseAndEffect;
 use App\Traits\HasProperty\HasOnsetAndDuration;
 use App\Types\QMArr;
@@ -137,7 +137,7 @@ use Throwable;
  * @package App\Slim\Model
  */
 class QMUserCorrelation extends QMCorrelation {
-    use HasAggregateCorrelation, HasOnsetAndDuration, HasUserCauseAndEffect;
+    use HasGlobalVariableRelationship, HasOnsetAndDuration, HasUserCauseAndEffect;
     //private $user;  // Just get global user instead, otherwise there will be duplicates and we can use the user as a storage object
     private $aggregatedCorrelation;
     private $causeMeasurements;
@@ -334,7 +334,7 @@ class QMUserCorrelation extends QMCorrelation {
             $this->setFillingValues();
             $this->calculateIsPublic();
             $this->addLegacyProperties();
-            if(!$this->dataSourceName){$this->setDataSourceName(AggregateCorrelationDataSourceNameProperty::DATA_SOURCE_NAME_USER);}
+            if(!$this->dataSourceName){$this->setDataSourceName(GlobalVariableRelationshipDataSourceNameProperty::DATA_SOURCE_NAME_USER);}
             if ($this->predictsLowEffectChange === null) {
                 $this->logError("No predictsLowEffectChange");
             }
@@ -610,7 +610,7 @@ class QMUserCorrelation extends QMCorrelation {
     public function analyzePartially(string $reason): void{
 		$start = microtime(true);
         $this->logAnalysisParameters();
-        $this->setDataSourceName(AggregateCorrelationDataSourceNameProperty::DATA_SOURCE_NAME_USER);
+        $this->setDataSourceName(GlobalVariableRelationshipDataSourceNameProperty::DATA_SOURCE_NAME_USER);
         $this->exceptionIfStupidVariable();
         $this->setCauseMeasurementsAndAnalyze();
         $this->setEffectMeasurementsAndAnalyze();
@@ -1386,7 +1386,7 @@ class QMUserCorrelation extends QMCorrelation {
     }
     /**
      * @param array $params
-     * @return QMUserCorrelation[]|QMAggregateCorrelation[]
+     * @return QMUserCorrelation[]|QMGlobalVariableRelationship[]
      * @throws AlreadyAnalyzedException
      * @throws AlreadyAnalyzingException
      * @throws DuplicateFailedAnalysisException
@@ -1394,12 +1394,12 @@ class QMUserCorrelation extends QMCorrelation {
      * @throws NotEnoughDataException
      * @throws TooSlowToAnalyzeException
      */
-    public static function getOrCreateUserOrAggregateCorrelations(array $params): array{
+    public static function getOrCreateUserOrGlobalVariableRelationships(array $params): array{
         $params = QMStr::properlyFormatRequestParams($params, self::getLegacyRequestParameters());
         QMAPIValidator::validateParams(self::getAllowedRequestParameters(), array_keys($params),
             'correlations/correlations_get');
         if (isset($params['aggregated'])) {
-            return QMAggregateCorrelation::getOrCreateAggregateCorrelations($params);
+            return QMGlobalVariableRelationship::getOrCreateGlobalVariableRelationships($params);
         }
         /** @var array $params */
         [
@@ -1413,14 +1413,14 @@ class QMUserCorrelation extends QMCorrelation {
             $params['outcomesOfInterest'] = false;
             /** @var QMQB $qb */
             if($qb->whereClausesContainString(UserVariable::FIELD_OUTCOME_OF_INTEREST)){
-                $correlations = self::getOrCreateUserOrAggregateCorrelations($params); // No need to do this if we weren't already restricting
+                $correlations = self::getOrCreateUserOrGlobalVariableRelationships($params); // No need to do this if we weren't already restricting
             }
         }
         if (!$correlations &&
             isset($params['fallbackToAggregatedCorrelations']) &&
             $params['fallbackToAggregatedCorrelations']) {
             unset($params['fallbackToAggregatedCorrelations']);
-            $correlations = QMAggregateCorrelation::getOrCreateAggregateCorrelations($params);
+            $correlations = QMGlobalVariableRelationship::getOrCreateGlobalVariableRelationships($params);
         }
         if ((isset($params['effectVariableName']) || isset($params['effectVariableId'])) &&
             (isset($params['causeVariableName']) || isset($params['causeVariableId'])) &&
@@ -1610,7 +1610,7 @@ class QMUserCorrelation extends QMCorrelation {
             'effect'                          => 'effectVariableName',
             'effectId'                        => 'effectVariableId',
             'effectUnit'                      => 'effectVariableDefaultUnitAbbreviatedName',
-            'fallbackToAggregateCorrelations' => 'fallbackToAggregatedCorrelations',
+            'fallbackToGlobalVariableRelationships' => 'fallbackToAggregatedCorrelations',
             'lastUpdated'                     => 'updatedAt'
         ];
         return array_merge($legacyRequestParameters, self::getLegacyProperties());
@@ -1754,14 +1754,14 @@ class QMUserCorrelation extends QMCorrelation {
         $result = $this->save();
         $this->updateOptimalValueSentencesIfNecessary();
         try {
-            $ac = AggregateCorrelation::findByVariableNamesOrIds(
+            $ac = GlobalVariableRelationship::findByVariableNamesOrIds(
 				$this->causeVariableId, $this->effectVariableId);
 			if($ac){
 				if($ac->id !== $this->aggregateCorrelationId){
 					$this->updateDbRow([Correlation::FIELD_AGGREGATE_CORRELATION_ID => $ac->id]);
 				}
 				$ac->newest_data_at = db_date(time());
-				$ac->status = AggregateCorrelationStatusProperty::STATUS_WAITING;
+				$ac->status = GlobalVariableRelationshipStatusProperty::STATUS_WAITING;
 				$ac->save();
 			}
         } catch (NoUserCorrelationsToAggregateException $e) {
@@ -1822,11 +1822,11 @@ class QMUserCorrelation extends QMCorrelation {
         $oldBest = $effect->getBestUserCorrelation();
         if(!$oldBest || $oldBest->qm_score < $newScoreMinusBuffer){$effect->updateBestCorrelationAsEffect($this);}
 	    $isPublic = $this->getIsPublic();
-	    if($isPublic || $this->l()->aggregate_correlation_id){
+	    if($isPublic || $this->l()->global_variable_relationship_id){
             try {
-                $agg = $this->getOrCreateQMAggregateCorrelation();
+                $agg = $this->getOrCreateQMGlobalVariableRelationship();
                 if(!$agg->effectVariableId){
-                    $agg = $this->getOrCreateQMAggregateCorrelation();
+                    $agg = $this->getOrCreateQMGlobalVariableRelationship();
                     le("No effect id on $agg");
                 }
             } catch (NoUserCorrelationsToAggregateException $e) {
@@ -1899,37 +1899,37 @@ class QMUserCorrelation extends QMCorrelation {
         return $config;
     }
     /**
-     * @return QMAggregateCorrelation
+     * @return QMGlobalVariableRelationship
      */
-    public function setQMAggregatedCorrelation(): ?QMAggregateCorrelation  {
-        $this->aggregatedCorrelation = $c = QMAggregateCorrelation::getByIds(
+    public function setQMAggregatedCorrelation(): ?QMGlobalVariableRelationship  {
+        $this->aggregatedCorrelation = $c = QMGlobalVariableRelationship::getByIds(
             $this->getCauseVariableId(), $this->getEffectVariableId());
         if(!$c){
             $this->aggregatedCorrelation = false;
             return null;
         }
         if(!$c->effectVariableId){
-            $c = QMAggregateCorrelation::getByIds($this->getCauseVariableId(),
+            $c = QMGlobalVariableRelationship::getByIds($this->getCauseVariableId(),
                 $this->getEffectVariableId());
             le("No effect id on $c");
         }
         return $c;
     }
     /**
-     * @return QMAggregateCorrelation
+     * @return QMGlobalVariableRelationship
      */
-    public function getQMAggregatedCorrelation(): ?QMAggregateCorrelation {
+    public function getQMAggregatedCorrelation(): ?QMGlobalVariableRelationship {
         $c = $this->aggregatedCorrelation;
         if($c === false){return null;}
         if($c){return $c;}
         return $this->setQMAggregatedCorrelation();
     }
     /**
-     * @return QMAggregateCorrelation
+     * @return QMGlobalVariableRelationship
      */
-    public function getOrCreateQMAggregateCorrelation(): QMAggregateCorrelation {
+    public function getOrCreateQMGlobalVariableRelationship(): QMGlobalVariableRelationship {
         if($this->aggregatedCorrelation){return $this->aggregatedCorrelation;}
-        $c = QMAggregateCorrelation::getOrCreateByIds($this->getCauseVariableId(),
+        $c = QMGlobalVariableRelationship::getOrCreateByIds($this->getCauseVariableId(),
             $this->getEffectVariableId());
 		if(!$c->durationOfAction){le('!$c->durationOfAction');}
         if(!$c->effectVariableId){
@@ -3121,15 +3121,15 @@ class QMUserCorrelation extends QMCorrelation {
         return $this->effectUserVariableId;
     }
     /**
-     * @return AggregateCorrelation
+     * @return GlobalVariableRelationship
      */
-    public function getAggregateCorrelation(): AggregateCorrelation {
-        /** @var QMAggregateCorrelation $ac */
+    public function getGlobalVariableRelationship(): GlobalVariableRelationship {
+        /** @var QMGlobalVariableRelationship $ac */
         if($ac = $this->aggregatedCorrelation){
             return $ac->l();
         }
         $l = $this->l();
-        return $l->getAggregateCorrelation();
+        return $l->getGlobalVariableRelationship();
     }
 	/**
 	 * @param float $delay
@@ -3235,9 +3235,9 @@ class QMUserCorrelation extends QMCorrelation {
         return $this->effectVariable = QMUserVariable::findOrCreateByNameOrId(
             $this->getUserId(), $this->getEffectVariableId());
     }
-    public function findAggregateCorrelation(): ?AggregateCorrelation{
+    public function findGlobalVariableRelationship(): ?GlobalVariableRelationship{
         if($this->aggregateCorrelationId || $this->aggregatedCorrelation){
-            return $this->getAggregateCorrelation();
+            return $this->getGlobalVariableRelationship();
         }
         return null;
     }

@@ -772,16 +772,16 @@ create table if not exists oa_clients
     deleted_at                                timestamp                           null,
     earliest_measurement_start_at             timestamp                           null,
     latest_measurement_start_at               timestamp                           null,
-    number_of_aggregate_correlations          int unsigned                        null comment 'Number of Global Population Studies for this Client.
+    number_of_global_variable_relationships          int unsigned                        null comment 'Number of Global Population Studies for this Client.
                 [Formula:
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by client_id
                         )
                         as grouped on bshaffer_oauth_clients.client_id = grouped.client_id
-                    set bshaffer_oauth_clients.number_of_aggregate_correlations = count(grouped.total)
+                    set bshaffer_oauth_clients.number_of_global_variable_relationships = count(grouped.total)
                 ]
                 ',
     number_of_applications                    int unsigned                        null comment 'Number of Applications for this Client.
@@ -1355,7 +1355,7 @@ create table if not exists units
                     update units
                         left join (
                             select count(id) as total, cause_unit_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by cause_unit_id
                         )
                         as grouped on units.id = grouped.cause_unit_id
@@ -1512,7 +1512,7 @@ create table if not exists variable_categories
                     update variable_categories
                         left join (
                             select count(id) as total, cause_variable_category_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by cause_variable_category_id
                         )
                         as grouped on variable_categories.id = grouped.cause_variable_category_id
@@ -1524,7 +1524,7 @@ create table if not exists variable_categories
                     update variable_categories
                         left join (
                             select count(id) as total, effect_variable_category_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by effect_variable_category_id
                         )
                         as grouped on variable_categories.id = grouped.effect_variable_category_id
@@ -1604,7 +1604,7 @@ create table if not exists variable_categories
 )
     comment 'Categories of of trackable variables include Treatments, Emotions, Symptoms, and Foods.' charset = utf8;
 
-create table if not exists aggregate_correlations
+create table if not exists global_variable_relationships
 (
     id                                                           int auto_increment
         primary key,
@@ -1670,15 +1670,15 @@ create table if not exists aggregate_correlations
     effect_follow_up_percent_change_from_baseline                float                                                           not null comment 'Outcome Average at Follow-Up (The average value seen for the outcome during the duration of action following the onset delay of the treatment)',
     z_score                                                      float                                                           not null comment 'The absolute value of the change over duration of action following the onset delay of treatment divided by the baseline outcome relative standard deviation. A.K.A The number of standard deviations from the mean. A zScore > 2 means pValue < 0.05 and is typically considered statistically significant.',
     charts                                                       json                                                            not null,
-    number_of_variables_where_best_aggregate_correlation         int unsigned                                                    not null comment 'Number of Variables for this Best Aggregate Correlation.
-                    [Formula: update aggregate_correlations
+    number_of_variables_where_best_global_variable_relationship         int unsigned                                                    not null comment 'Number of Variables for this Best Global Variable Relationship.
+                    [Formula: update global_variable_relationships
                         left join (
-                            select count(id) as total, best_aggregate_correlation_id
+                            select count(id) as total, best_global_variable_relationship_id
                             from variables
-                            group by best_aggregate_correlation_id
+                            group by best_global_variable_relationship_id
                         )
-                        as grouped on aggregate_correlations.id = grouped.best_aggregate_correlation_id
-                    set aggregate_correlations.number_of_variables_where_best_aggregate_correlation = count(grouped.total)]',
+                        as grouped on global_variable_relationships.id = grouped.best_global_variable_relationship_id
+                    set global_variable_relationships.number_of_variables_where_best_global_variable_relationship = count(grouped.total)]',
     deletion_reason                                              varchar(280)                                                    null comment 'The reason the variable was deleted.',
     record_size_in_kb                                            int                                                             null,
     is_public                                                    tinyint(1)                                                      not null,
@@ -1693,25 +1693,25 @@ create table if not exists aggregate_correlations
     confidence_level                                             enum ('HIGH', 'MEDIUM', 'LOW')                                  not null comment 'Describes the confidence that the strength level will remain consist in the future.  The more data there is, the lesser the chance that the findings are a spurious correlation. ',
     relationship                                                 enum ('POSITIVE', 'NEGATIVE', 'NONE')                           not null comment 'If higher predictor values generally precede HIGHER outcome values, the relationship is considered POSITIVE.  If higher predictor values generally precede LOWER outcome values, the relationship is considered NEGATIVE. ',
     slug                                                         varchar(200)                                                    null comment 'The slug is the part of a URL that identifies a page in human-readable keywords.',
-    constraint aggregate_correlations_pk
+    constraint global_variable_relationships_pk
         unique (cause_variable_id, effect_variable_id),
-    constraint aggregate_correlations_slug_uindex
+    constraint global_variable_relationships_slug_uindex
         unique (slug),
     constraint cause_variable_id_effect_variable_id_uindex
         unique (cause_variable_id, effect_variable_id),
-    constraint aggregate_correlations_cause_unit_id_fk
+    constraint global_variable_relationships_cause_unit_id_fk
         foreign key (cause_unit_id) references units (id),
-    constraint aggregate_correlations_cause_variable_category_id_fk
+    constraint global_variable_relationships_cause_variable_category_id_fk
         foreign key (cause_variable_category_id) references variable_categories (id),
-    constraint aggregate_correlations_client_id_fk
+    constraint global_variable_relationships_client_id_fk
         foreign key (client_id) references oa_clients (client_id),
-    constraint aggregate_correlations_effect_variable_category_id_fk
+    constraint global_variable_relationships_effect_variable_category_id_fk
         foreign key (effect_variable_category_id) references variable_categories (id)
 )
     comment 'Stores Calculated Aggregated Correlation Coefficients' charset = utf8;
 
-create index aggregate_correlations_effect_variable_id_index
-    on aggregate_correlations (effect_variable_id);
+create index global_variable_relationships_effect_variable_id_index
+    on global_variable_relationships (effect_variable_id);
 
 create table if not exists variables
 (
@@ -1740,10 +1740,10 @@ create table if not exists variables
     median                                              double                                          null comment 'Median',
     minimum_allowed_value                               double                                          null comment 'Minimum reasonable value for this variable (uses default unit)',
     minimum_recorded_value                              double                                          null comment 'Minimum recorded value of this variable',
-    number_of_aggregate_correlations_as_cause           int unsigned                                    null comment 'Number of aggregate correlations for which this variable is the cause variable',
+    number_of_global_variable_relationships_as_cause           int unsigned                                    null comment 'Number of global variable relationships for which this variable is the cause variable',
     most_common_original_unit_id                        int                                             null comment 'Most common Unit ID',
     most_common_value                                   double                                          null comment 'Most common value',
-    number_of_aggregate_correlations_as_effect          int unsigned                                    null comment 'Number of aggregate correlations for which this variable is the effect variable',
+    number_of_global_variable_relationships_as_effect          int unsigned                                    null comment 'Number of global variable relationships for which this variable is the effect variable',
     number_of_unique_values                             int                                             null comment 'Number of unique values',
     onset_delay                                         int unsigned                                    null comment 'How long it takes for a measurement in this variable to take effect',
     outcome                                             tinyint(1)                                      null comment 'Outcome variables (those with `outcome` == 1) are variables for which a human would generally want to identify the influencing factors.  These include symptoms of illness, physique, mood, cognitive performance, etc.  Generally correlation calculations are only performed on outcome variables.',
@@ -1807,14 +1807,14 @@ create table if not exists variables
             ',
     charts                                              json                                            null,
     creator_user_id                                     bigint unsigned                                 not null,
-    best_aggregate_correlation_id                       int                                             null,
+    best_global_variable_relationship_id                       int                                             null,
     filling_type                                        enum ('zero', 'none', 'interpolation', 'value') null,
     number_of_outcome_population_studies                int unsigned                                    null comment 'Number of Global Population Studies for this Cause Variable.
                 [Formula:
                     update variables
                         left join (
                             select count(id) as total, cause_variable_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by cause_variable_id
                         )
                         as grouped on variables.id = grouped.cause_variable_id
@@ -1826,7 +1826,7 @@ create table if not exists variables
                     update variables
                         left join (
                             select count(id) as total, effect_variable_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by effect_variable_id
                         )
                         as grouped on variables.id = grouped.effect_variable_id
@@ -2027,8 +2027,8 @@ create table if not exists variables
         unique (name),
     constraint variables_slug_uindex
         unique (slug),
-    constraint variables_aggregate_correlations_id_fk
-        foreign key (best_aggregate_correlation_id) references aggregate_correlations (id)
+    constraint variables_global_variable_relationships_id_fk
+        foreign key (best_global_variable_relationship_id) references global_variable_relationships (id)
             on delete set null,
     constraint variables_best_cause_variable_id_fk
         foreign key (best_cause_variable_id) references variables (id)
@@ -2046,12 +2046,12 @@ create table if not exists variables
     comment 'Variable overviews with statistics, analysis settings, and data visualizations and likely outcomes or predictors based on the anonymously aggregated donated data.'
     charset = utf8;
 
-alter table aggregate_correlations
-    add constraint aggregate_correlations_cause_variables_id_fk
+alter table global_variable_relationships
+    add constraint global_variable_relationships_cause_variables_id_fk
         foreign key (cause_variable_id) references variables (id);
 
-alter table aggregate_correlations
-    add constraint aggregate_correlations_effect_variables_id_fk
+alter table global_variable_relationships
+    add constraint global_variable_relationships_effect_variables_id_fk
         foreign key (effect_variable_id) references variables (id);
 
 create table if not exists common_tags
@@ -3040,8 +3040,8 @@ create table if not exists wp_posts
     comment 'The posts table is arguably the most important table in the WordPress database. Its name sometimes throws people who believe it purely contains their blog posts. However, albeit badly named, it is an extremely powerful table that stores various types of content including posts, pages, menu items, media attachments and any custom post types that a site uses.'
     charset = utf8;
 
-alter table aggregate_correlations
-    add constraint aggregate_correlations_wp_posts_ID_fk
+alter table global_variable_relationships
+    add constraint global_variable_relationships_wp_posts_ID_fk
         foreign key (wp_post_id) references wp_posts (ID)
             on update cascade on delete set null;
 
@@ -4251,7 +4251,7 @@ create table if not exists correlations
     z_score                                                      float                                                           null comment 'The absolute value of the change over duration of action following the onset delay of treatment divided by the baseline outcome relative standard deviation. A.K.A The number of standard deviations from the mean. A zScore > 2 means pValue < 0.05 and is typically considered statistically significant.',
     experiment_end_at                                            timestamp                                                       not null comment 'The latest data used in the analysis. ',
     experiment_start_at                                          timestamp                                                       not null comment 'The earliest data used in the analysis. ',
-    aggregate_correlation_id                                     int                                                             null,
+    global_variable_relationship_id                                     int                                                             null,
     aggregated_at                                                timestamp                                                       null,
     usefulness_vote                                              int                                                             null comment 'The opinion of the data owner on whether or not knowledge of this relationship is useful.
                         -1 corresponds to a down vote. 1 corresponds to an up vote. 0 corresponds to removal of a
@@ -4281,8 +4281,8 @@ create table if not exists correlations
         unique (slug),
     constraint correlations_user_id_cause_variable_id_effect_variable_id_uindex
         unique (user_id, cause_variable_id, effect_variable_id),
-    constraint correlations_aggregate_correlations_id_fk
-        foreign key (aggregate_correlation_id) references aggregate_correlations (id)
+    constraint correlations_global_variable_relationships_id_fk
+        foreign key (global_variable_relationship_id) references global_variable_relationships (id)
             on update cascade on delete cascade,
     constraint correlations_cause_unit_id_fk
         foreign key (cause_unit_id) references units (id),
@@ -4313,7 +4313,7 @@ create table if not exists correlation_causality_votes
     cause_variable_id        int(11) unsigned                    not null,
     effect_variable_id       int(11) unsigned                    not null,
     correlation_id           int                                 null,
-    aggregate_correlation_id int                                 null,
+    global_variable_relationship_id int                                 null,
     user_id                  bigint unsigned                     not null,
     vote                     int                                 not null comment 'The opinion of the data owner on whether or not there is a plausible
                                 mechanism of action by which the predictor variable could influence the outcome variable.',
@@ -4337,8 +4337,8 @@ create table if not exists correlation_causality_votes
 )
     comment 'The opinion of the data owner on whether or not there is a plausible mechanism of action by which the predictor variable could influence the outcome variable.';
 
-create index correlation_causality_votes_aggregate_correlations_id_fk
-    on correlation_causality_votes (aggregate_correlation_id);
+create index correlation_causality_votes_global_variable_relationships_id_fk
+    on correlation_causality_votes (global_variable_relationship_id);
 
 create table if not exists correlation_usefulness_votes
 (
@@ -4347,7 +4347,7 @@ create table if not exists correlation_usefulness_votes
     cause_variable_id        int(11) unsigned                    not null,
     effect_variable_id       int(11) unsigned                    not null,
     correlation_id           int                                 null,
-    aggregate_correlation_id int                                 null,
+    global_variable_relationship_id int                                 null,
     user_id                  bigint unsigned                     not null,
     vote                     int                                 not null comment 'The opinion of the data owner on whether or not knowledge of this
                     relationship is useful in helping them improve an outcome of interest.
@@ -4373,8 +4373,8 @@ create table if not exists correlation_usefulness_votes
 )
     comment 'The opinion of the data owner on whether or not knowledge of this relationship is useful in helping them improve an outcome of interest. -1 corresponds to a down vote. 1 corresponds to an up vote. 0 corresponds to removal of a previous vote.  null corresponds to never having voted before.';
 
-create index correlation_usefulness_votes_aggregate_correlations_id_fk
-    on correlation_usefulness_votes (aggregate_correlation_id);
+create index correlation_usefulness_votes_global_variable_relationships_id_fk
+    on correlation_usefulness_votes (global_variable_relationship_id);
 
 create index correlations_analysis_started_at_index
     on correlations (analysis_started_at);
@@ -5431,12 +5431,12 @@ create table if not exists votes
     cause_variable_id        int unsigned                        not null,
     effect_variable_id       int unsigned                        not null,
     correlation_id           int                                 null,
-    aggregate_correlation_id int                                 null,
+    global_variable_relationship_id int                                 null,
     is_public                tinyint(1)                          null,
     constraint votes_user_id_cause_variable_id_effect_variable_id_uindex
         unique (user_id, cause_variable_id, effect_variable_id),
-    constraint votes_aggregate_correlations_id_fk
-        foreign key (aggregate_correlation_id) references aggregate_correlations (id)
+    constraint votes_global_variable_relationships_id_fk
+        foreign key (global_variable_relationship_id) references global_variable_relationships (id)
             on delete set null,
     constraint votes_cause_variable_id_fk
         foreign key (cause_variable_id) references variables (id),

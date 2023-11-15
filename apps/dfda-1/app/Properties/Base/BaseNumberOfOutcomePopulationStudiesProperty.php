@@ -6,7 +6,7 @@
 
 namespace App\Properties\Base;
 use App\Traits\PropertyTraits\IsString;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
 use App\Traits\PropertyTraits\IsNumberOfRelated;
 use App\UI\ImageUrls;
@@ -39,7 +39,7 @@ class BaseNumberOfOutcomePopulationStudiesProperty extends BaseProperty{
 	public $type = self::TYPE_INTEGER;
 	public $validations = 'nullable|integer|min:0|max:2147483647';
     public static function getRelatedTable(): string{
-        return AggregateCorrelation::TABLE;
+        return GlobalVariableRelationship::TABLE;
     }
     public static function getForeignKey(): string{
         return "cause_".Str::snake(static::getParentShortClassName())."_id";

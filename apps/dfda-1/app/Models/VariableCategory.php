@@ -14,8 +14,8 @@ use App\Traits\HasJsonFile;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Buttons\QMButton;
 use App\Buttons\RelationshipButtons\RelationshipButton;
-use App\Buttons\RelationshipButtons\VariableCategory\VariableCategoryAggregateCorrelationsWhereCauseVariableCategoryButton;
-use App\Buttons\RelationshipButtons\VariableCategory\VariableCategoryAggregateCorrelationsWhereEffectVariableCategoryButton;
+use App\Buttons\RelationshipButtons\VariableCategory\VariableCategoryGlobalVariableRelationshipsWhereCauseVariableCategoryButton;
+use App\Buttons\RelationshipButtons\VariableCategory\VariableCategoryGlobalVariableRelationshipsWhereEffectVariableCategoryButton;
 use App\Buttons\RelationshipButtons\VariableCategory\VariableCategoryVariablesButton;
 use App\Buttons\States\OnboardingStateButton;
 use App\Buttons\VariableButton;
@@ -221,8 +221,8 @@ use Spatie\Tags\Tag;
  * @property-read \Illuminate\Database\Eloquent\Collection|Variable[] $variables
  * @property-read int|null $variables_count
  * @method static Builder|VariableCategory whereWpPostId($value)
- * @property-read \Illuminate\Database\Eloquent\Collection|AggregateCorrelation[] $aggregate_correlations
- * @property-read int|null $aggregate_correlations_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|GlobalVariableRelationship[] $global_variable_relationships
+ * @property-read int|null $global_variable_relationships_count
  * @property-read \Illuminate\Database\Eloquent\Collection|Correlation[] $correlations
  * @property-read int|null $correlations_count
  * @property-read \Illuminate\Database\Eloquent\Collection|Measurement[] $measurements
@@ -242,7 +242,7 @@ use Spatie\Tags\Tag;
  *                     update variable_categories
  *                         left join (
  *                             select count(id) as total, cause_variable_category_id
- *                             from aggregate_correlations
+ *                             from global_variable_relationships
  *                             group by cause_variable_category_id
  *                         )
  *                         as grouped on variable_categories.id = grouped.cause_variable_category_id
@@ -254,7 +254,7 @@ use Spatie\Tags\Tag;
  *                     update variable_categories
  *                         left join (
  *                             select count(id) as total, effect_variable_category_id
- *                             from aggregate_correlations
+ *                             from global_variable_relationships
  *                             group by effect_variable_category_id
  *                         )
  *                         as grouped on variable_categories.id = grouped.effect_variable_category_id
@@ -291,12 +291,12 @@ use Spatie\Tags\Tag;
  * @method static Builder|VariableCategory whereNumberOfOutcomePopulationStudies($value)
  * @method static Builder|VariableCategory whereNumberOfPredictorCaseStudies($value)
  * @method static Builder|VariableCategory whereNumberOfPredictorPopulationStudies($value)
- * @property-read \Illuminate\Database\Eloquent\Collection|AggregateCorrelation[]
- *     $aggregate_correlations_where_cause_variable_category
- * @property-read int|null $aggregate_correlations_where_cause_variable_category_count
- * @property-read \Illuminate\Database\Eloquent\Collection|AggregateCorrelation[]
- *     $aggregate_correlations_where_effect_variable_category
- * @property-read int|null $aggregate_correlations_where_effect_variable_category_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|GlobalVariableRelationship[]
+ *     $global_variable_relationships_where_cause_variable_category
+ * @property-read int|null $global_variable_relationships_where_cause_variable_category_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|GlobalVariableRelationship[]
+ *     $global_variable_relationships_where_effect_variable_category
+ * @property-read int|null $global_variable_relationships_where_effect_variable_category_count
  * @property-read \Illuminate\Database\Eloquent\Collection|Correlation[] $correlations_where_cause_variable_category
  * @property-read int|null $correlations_where_cause_variable_category_count
  * @property-read \Illuminate\Database\Eloquent\Collection|Correlation[] $correlations_where_effect_variable_category
@@ -816,8 +816,8 @@ class VariableCategory extends BaseVariableCategory implements HasMedia {
 	 */
 	public function getInterestingRelationshipButtons(): array{
 		$arr = [];
-		$arr[] = new VariableCategoryAggregateCorrelationsWhereCauseVariableCategoryButton($this);
-		$arr[] = new VariableCategoryAggregateCorrelationsWhereEffectVariableCategoryButton($this);
+		$arr[] = new VariableCategoryGlobalVariableRelationshipsWhereCauseVariableCategoryButton($this);
+		$arr[] = new VariableCategoryGlobalVariableRelationshipsWhereEffectVariableCategoryButton($this);
 		$arr[] = new VariableCategoryVariablesButton($this);
 		return $arr;
 	}

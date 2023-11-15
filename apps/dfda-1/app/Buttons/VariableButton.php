@@ -30,8 +30,8 @@ class VariableButton extends QMButton {
 		}
 		$this->setImage($img);
 		$this->setFontAwesome($cat->getFontAwesome());
-		$outcomes = $v->getNumberOfAggregateCorrelationsAsCause();
-		$predictors = $v->getNumberOfAggregateCorrelationsAsEffect();
+		$outcomes = $v->getNumberOfGlobalVariableRelationshipsAsCause();
+		$predictors = $v->getNumberOfGlobalVariableRelationshipsAsEffect();
 		if($predictors && $outcomes){
 			$num = $predictors + $outcomes;
 			$this->setBadgeText($num);

@@ -38,10 +38,10 @@ class CreateVariablesTable extends Migration
             $table->float('median', 0, 0)->nullable()->comment('Median');
             $table->float('minimum_allowed_value', 0, 0)->nullable()->comment('Minimum reasonable value for this variable (uses default unit)');
             $table->float('minimum_recorded_value', 0, 0)->nullable()->comment('Minimum recorded value of this variable');
-            $table->integer('number_of_aggregate_correlations_as_cause')->nullable()->comment('Number of aggregate correlations for which this variable is the cause variable');
+            $table->integer('number_of_global_variable_relationships_as_cause')->nullable()->comment('Number of global variable relationships for which this variable is the cause variable');
             $table->integer('most_common_original_unit_id')->nullable()->comment('Most common Unit ID');
             $table->float('most_common_value', 0, 0)->nullable()->comment('Most common value');
-            $table->integer('number_of_aggregate_correlations_as_effect')->nullable()->comment('Number of aggregate correlations for which this variable is the effect variable');
+            $table->integer('number_of_global_variable_relationships_as_effect')->nullable()->comment('Number of global variable relationships for which this variable is the effect variable');
             $table->integer('number_of_unique_values')->nullable()->comment('Number of unique values');
             $table->integer('onset_delay')->nullable()->comment('How long it takes for a measurement in this variable to take effect');
             $table->boolean('outcome')->nullable()->comment('Outcome variables (those with `outcome` == 1) are variables for which a human would generally want to identify the influencing factors.  These include symptoms of illness, physique, mood, cognitive performance, etc.  Generally correlation calculations are only performed on outcome variables.');
@@ -105,14 +105,14 @@ class CreateVariablesTable extends Migration
             ');
             $table->json('charts')->nullable();
             $table->bigInteger('creator_user_id');
-            $table->integer('best_aggregate_correlation_id')->nullable()->index('variables_aggregate_correlations_id_fk');
+            $table->integer('best_global_variable_relationship_id')->nullable()->index('variables_global_variable_relationships_id_fk');
             $table->enum('filling_type', ['zero', 'none', 'interpolation', 'value'])->nullable();
             $table->integer('number_of_outcome_population_studies')->nullable()->comment('Number of Global Population Studies for this Cause Variable.
                 [Formula: 
                     update variables
                         left join (
                             select count(id) as total, cause_variable_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by cause_variable_id
                         )
                         as grouped on variables.id = grouped.cause_variable_id
@@ -124,7 +124,7 @@ class CreateVariablesTable extends Migration
                     update variables
                         left join (
                             select count(id) as total, effect_variable_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by effect_variable_id
                         )
                         as grouped on variables.id = grouped.effect_variable_id

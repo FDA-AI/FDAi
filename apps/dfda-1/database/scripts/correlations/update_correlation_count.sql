@@ -20,27 +20,27 @@ CREATE VIEW user_correlations_as_effect AS
         `correlations`.`effect_variable_id`,
         `correlations`.`user_id`;
 
-CREATE VIEW aggregate_correlations_as_cause AS
+CREATE VIEW global_variable_relationships_as_cause AS
     SELECT
         count(
-            `aggregate_correlations`.`id`
+            `global_variable_relationships`.`id`
         ) AS `numberOfCorrelations`,
-        `aggregate_correlations`.`cause_variable_id` AS `effect_variable_id`
+        `global_variable_relationships`.`cause_variable_id` AS `effect_variable_id`
     FROM
-        `aggregate_correlations`
+        `global_variable_relationships`
     GROUP BY
-        `aggregate_correlations`.`effect_variable_id`;
+        `global_variable_relationships`.`effect_variable_id`;
 
-CREATE VIEW aggregate_correlations_as_effect AS
+CREATE VIEW global_variable_relationships_as_effect AS
     SELECT
         count(
-            `aggregate_correlations`.`id`
+            `global_variable_relationships`.`id`
         ) AS `numberOfCorrelations`,
-        `aggregate_correlations`.`cause_variable_id` AS `effect_variable_id`
+        `global_variable_relationships`.`cause_variable_id` AS `effect_variable_id`
     FROM
-        `aggregate_correlations`
+        `global_variable_relationships`
     GROUP BY
-        `aggregate_correlations`.`effect_variable_id`;
+        `global_variable_relationships`.`effect_variable_id`;
 
 UPDATE user_variables uv
 JOIN user_correlations_as_cause ucac ON uv.user_id = ucac.user_id
@@ -53,9 +53,9 @@ AND uv.variable_id = ucae.effect_variable_id
 SET uv.number_of_user_correlations_as_effect = ucae.numberOfCorrelations;
 
 UPDATE variables v
-JOIN aggregate_correlations_as_cause acac ON v.id = acac.cause_variable_id
-SET v.number_of_aggregate_correlations_as_cause = acac.numberOfCorrelations;
+JOIN global_variable_relationships_as_cause acac ON v.id = acac.cause_variable_id
+SET v.number_of_global_variable_relationships_as_cause = acac.numberOfCorrelations;
 
 UPDATE variables v
-JOIN aggregate_correlations_as_effect acae ON v.id = acae.effect_variable_id
-SET v.number_of_aggregate_correlations_as_effect = acae.numberOfCorrelations;
+JOIN global_variable_relationships_as_effect acae ON v.id = acae.effect_variable_id
+SET v.number_of_global_variable_relationships_as_effect = acae.numberOfCorrelations;

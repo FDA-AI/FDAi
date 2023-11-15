@@ -10,7 +10,7 @@ use App\Variables\QMCommonVariable;
 class BestCauseVariableIdCommonVariableFormula extends BaseFormula
 {
     public const SQL = 'select cause_variable_id as calculatedValue
-            from aggregate_correlations ac
+            from global_variable_relationships ac
             where cause_variable_id = $this->id
                 and ac.deleted_at is null
             order by ac.aggregate_qm_score desc

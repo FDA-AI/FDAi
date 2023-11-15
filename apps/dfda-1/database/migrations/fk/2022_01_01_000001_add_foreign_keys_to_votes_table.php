@@ -14,7 +14,7 @@ class AddForeignKeysToVotesTable extends Migration
     public function up()
     {
         Schema::table('votes', function (Blueprint $table) {
-            $table->foreign(['aggregate_correlation_id'], 'votes_aggregate_correlations_id_fk')->references(['id'])->deferrable()->on('aggregate_correlations')->onDelete('SET NULL');
+            $table->foreign(['global_variable_relationship_id'], 'votes_global_variable_relationships_id_fk')->references(['id'])->deferrable()->on('global_variable_relationships')->onDelete('SET NULL');
             $table->foreign(['cause_variable_id'], 'votes_cause_variable_id_fk')->references(['id'])->deferrable()->on('variables');
             $table->foreign(['client_id'], 'votes_client_id_fk')->references(['client_id'])->on('oa_clients');
             $table->foreign(['correlation_id'], 'votes_correlations_id_fk')->references(['id'])->deferrable()->on('correlations');
@@ -31,7 +31,7 @@ class AddForeignKeysToVotesTable extends Migration
     public function down()
     {
         Schema::table('votes', function (Blueprint $table) {
-            $table->dropForeign('votes_aggregate_correlations_id_fk');
+            $table->dropForeign('votes_global_variable_relationships_id_fk');
             $table->dropForeign('votes_cause_variable_id_fk');
             $table->dropForeign('votes_client_id_fk');
             $table->dropForeign('votes_correlations_id_fk');

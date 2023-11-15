@@ -38,10 +38,10 @@ class CreateVariablesTable extends Migration
             $table->double('median')->nullable()->comment('Median');
             $table->double('minimum_allowed_value')->nullable()->comment('Minimum reasonable value for this variable (uses default unit)');
             $table->double('minimum_recorded_value')->nullable()->comment('Minimum recorded value of this variable');
-            $table->unsignedInteger('number_of_aggregate_correlations_as_cause')->nullable()->comment('Number of aggregate correlations for which this variable is the cause variable');
+            $table->unsignedInteger('number_of_global_variable_relationships_as_cause')->nullable()->comment('Number of global variable relationships for which this variable is the cause variable');
             $table->integer('most_common_original_unit_id')->nullable()->comment('Most common Unit ID');
             $table->double('most_common_value')->nullable()->comment('Most common value');
-            $table->unsignedInteger('number_of_aggregate_correlations_as_effect')->nullable()->comment('Number of aggregate correlations for which this variable is the effect variable');
+            $table->unsignedInteger('number_of_global_variable_relationships_as_effect')->nullable()->comment('Number of global variable relationships for which this variable is the effect variable');
             $table->integer('number_of_unique_values')->nullable()->comment('Number of unique values');
             $table->unsignedInteger('onset_delay')->nullable()->comment('How long it takes for a measurement in this variable to take effect');
             $table->boolean('outcome')->nullable()->comment('Outcome variables (those with `outcome` == 1) are variables for which a human would generally want to identify the influencing factors.  These include symptoms of illness, physique, mood, cognitive performance, etc.  Generally correlation calculations are only performed on outcome variables.');
@@ -94,9 +94,9 @@ class CreateVariablesTable extends Migration
             $table->timestamp('latest_non_tagged_measurement_start_at')->nullable();
             $table->timestamp('earliest_non_tagged_measurement_start_at')->nullable();
             $table->unsignedBigInteger('wp_post_id')->nullable()->index('variables_wp_posts_ID_fk');
-            $table->integer('number_of_soft_deleted_measurements')->nullable()->comment('Formula: update variables v 
+            $table->integer('number_of_soft_deleted_measurements')->nullable()->comment('Formula: update variables v
                 inner join (
-                    select measurements.variable_id, count(measurements.id) as number_of_soft_deleted_measurements 
+                    select measurements.variable_id, count(measurements.id) as number_of_soft_deleted_measurements
                     from measurements
                     where measurements.deleted_at is not null
                     group by measurements.variable_id
@@ -105,14 +105,14 @@ class CreateVariablesTable extends Migration
             ');
             $table->json('charts')->nullable();
             $table->unsignedBigInteger('creator_user_id');
-            $table->integer('best_aggregate_correlation_id')->nullable()->index('variables_aggregate_correlations_id_fk');
+            $table->integer('best_global_variable_relationship_id')->nullable()->index('variables_global_variable_relationships_id_fk');
             $table->enum('filling_type', ['zero', 'none', 'interpolation', 'value'])->nullable();
             $table->unsignedInteger('number_of_outcome_population_studies')->nullable()->comment('Number of Global Population Studies for this Cause Variable.
-                [Formula: 
+                [Formula:
                     update variables
                         left join (
                             select count(id) as total, cause_variable_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by cause_variable_id
                         )
                         as grouped on variables.id = grouped.cause_variable_id
@@ -120,11 +120,11 @@ class CreateVariablesTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_predictor_population_studies')->nullable()->comment('Number of Global Population Studies for this Effect Variable.
-                [Formula: 
+                [Formula:
                     update variables
                         left join (
                             select count(id) as total, effect_variable_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by effect_variable_id
                         )
                         as grouped on variables.id = grouped.effect_variable_id
@@ -132,7 +132,7 @@ class CreateVariablesTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_applications_where_outcome_variable')->nullable()->comment('Number of Applications for this Outcome Variable.
-                [Formula: 
+                [Formula:
                     update variables
                         left join (
                             select count(id) as total, outcome_variable_id
@@ -144,7 +144,7 @@ class CreateVariablesTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_applications_where_predictor_variable')->nullable()->comment('Number of Applications for this Predictor Variable.
-                [Formula: 
+                [Formula:
                     update variables
                         left join (
                             select count(id) as total, predictor_variable_id
@@ -156,7 +156,7 @@ class CreateVariablesTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_common_tags_where_tag_variable')->nullable()->comment('Number of Common Tags for this Tag Variable.
-                [Formula: 
+                [Formula:
                     update variables
                         left join (
                             select count(id) as total, tag_variable_id
@@ -168,7 +168,7 @@ class CreateVariablesTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_common_tags_where_tagged_variable')->nullable()->comment('Number of Common Tags for this Tagged Variable.
-                [Formula: 
+                [Formula:
                     update variables
                         left join (
                             select count(id) as total, tagged_variable_id
@@ -180,7 +180,7 @@ class CreateVariablesTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_outcome_case_studies')->nullable()->comment('Number of Individual Case Studies for this Cause Variable.
-                [Formula: 
+                [Formula:
                     update variables
                         left join (
                             select count(id) as total, cause_variable_id

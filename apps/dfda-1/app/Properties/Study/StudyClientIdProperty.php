@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Study;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Study;
 use App\Properties\Base\BaseClientIdProperty;
 use App\Traits\PropertyTraits\IsString;
@@ -21,7 +21,7 @@ class StudyClientIdProperty extends BaseClientIdProperty
 	public $dbInput = 'string,255:nullable';
 	public $dbType = PhpTypes::STRING;
 	public $default = Generator::UNDEFINED;
-	public $description = AggregateCorrelation::FIELD_CLIENT_ID;
+	public $description = GlobalVariableRelationship::FIELD_CLIENT_ID;
 	public $example = self::CLIENT_ID_OAUTH_TEST_CLIENT;
 	public $fieldType = PhpTypes::STRING;
 	public $fontAwesome = FontAwesome::CARD;

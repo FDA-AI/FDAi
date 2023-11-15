@@ -14,7 +14,7 @@ use App\Charts\QMChart;
 use App\Charts\QMHighcharts\HighchartConfig;
 use App\Charts\UserVariableCharts\UserVariableChartGroup;
 use App\Computers\ThisComputer;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMCorrelation;
 use App\Correlations\QMUserCorrelation;
 use App\DataSources\QMClient;
@@ -31,7 +31,7 @@ use App\InputFields\InputField;
 use App\Logging\ConsoleLog;
 use App\Logging\QMLog;
 use App\Logging\QMLogLevel;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Correlation;
 use App\Models\Measurement;
 use App\Models\OAClient;
@@ -42,7 +42,7 @@ use App\Models\UserVariable;
 use App\Models\UserVariableClient;
 use App\Models\Variable;
 use App\PhpUnitJobs\Reminders\ReminderNotificationGeneratorJob;
-use App\Properties\AggregateCorrelation\AggregateCorrelationDataSourceNameProperty;
+use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipDataSourceNameProperty;
 use App\Properties\Application\ApplicationUserIdProperty;
 use App\Properties\Base\BaseClientIdProperty;
 use App\Properties\Base\BaseCombinationOperationProperty;
@@ -130,12 +130,12 @@ abstract class SlimTestCase extends UnitTestCase {
 		}
 		return $decodedResponse;
 	}
-	public static function deleteAggregateCorrelations(): void{
+	public static function deleteGlobalVariableRelationships(): void{
 		Variable::query()->update([Variable::FIELD_BEST_AGGREGATE_CORRELATION_ID => null]);
 		Correlation::query()->update([Correlation::FIELD_AGGREGATE_CORRELATION_ID => null]);
-		AggregateCorrelation::deleteAll();
-		$numberOfAggregateCorrelations = AggregateCorrelation::count();
-		self::assertEquals(0, $numberOfAggregateCorrelations);
+		GlobalVariableRelationship::deleteAll();
+		$numberOfGlobalVariableRelationships = GlobalVariableRelationship::count();
+		self::assertEquals(0, $numberOfGlobalVariableRelationships);
 	}
 	/**
 	 * Make a GET request to the given URL with the given parameters
@@ -420,8 +420,8 @@ abstract class SlimTestCase extends UnitTestCase {
 		$intAttributes = [
 			'durationOfAction',
 			'id',
-			'numberOfAggregateCorrelationsAsCause',
-			'numberOfAggregateCorrelationsAsEffect',
+			'numberOfGlobalVariableRelationshipsAsCause',
+			'numberOfGlobalVariableRelationshipsAsEffect',
 			'numberOfRawMeasurements',
 			'numberOfMeasurements',
 			'numberOfUniqueValues',
@@ -534,8 +534,8 @@ abstract class SlimTestCase extends UnitTestCase {
 			//'numberOfUserCorrelationsAsEffect',
 			//            'numberOfAggregatedCorrelationsAsCause',
 			//            'numberOfAggregatedCorrelationsAsEffect',
-			//            'numberOfAggregateCorrelationsAsCause',
-			//            'numberOfAggregateCorrelationsAsEffect',
+			//            'numberOfGlobalVariableRelationshipsAsCause',
+			//            'numberOfGlobalVariableRelationshipsAsEffect',
 		];
 		$this->checkDoesNotHaveAttributes($doesNotHave, $v);
 		$stringAttributes = [
@@ -588,8 +588,8 @@ abstract class SlimTestCase extends UnitTestCase {
 		$intAttributes = [
 			'unitId',
 			'numberOfCorrelations',
-			'numberOfAggregateCorrelationsAsCause',
-			'numberOfAggregateCorrelationsAsEffect',
+			'numberOfGlobalVariableRelationshipsAsCause',
+			'numberOfGlobalVariableRelationshipsAsEffect',
 			'numberOfCorrelations',
 			'numberOfUserVariables',
 			'numberOfUserCorrelationsAsCause',
@@ -682,7 +682,7 @@ abstract class SlimTestCase extends UnitTestCase {
 		$this->truncateTable(QMUserVariable::TABLE);
 		$this->truncateTable(QMCommonTag::TABLE);
 		$this->truncateTable(QMUserTag::TABLE);
-		$this->truncateTable(QMAggregateCorrelation::TABLE);
+		$this->truncateTable(QMGlobalVariableRelationship::TABLE);
 		//$this->truncateTable(CommonVariable::TABLE); // Can't truncate with foreign keys
 		//CommonVariable::writable()->hardDelete(__METHOD__, true);
 	}
@@ -807,7 +807,7 @@ abstract class SlimTestCase extends UnitTestCase {
 	protected function addDummyMeasurementsAndUpdateAggregatedCorrelations(){
 		$this->addDummyMeasurementsForUserCorrelations();
 		QMUserCorrelation::writable()->whereNull(QMUserCorrelation::FIELD_DATA_SOURCE_NAME)->update([
-			                                                                                            QMUserCorrelation::FIELD_DATA_SOURCE_NAME => AggregateCorrelationDataSourceNameProperty::DATA_SOURCE_NAME_USER
+			                                                                                            QMUserCorrelation::FIELD_DATA_SOURCE_NAME => GlobalVariableRelationshipDataSourceNameProperty::DATA_SOURCE_NAME_USER
 		                                                                                            ]);
 		self::deleteAndRecreateAllAggregatedCorrelations();
 		QMDB::flushQueryLogs(__METHOD__);
@@ -1363,7 +1363,7 @@ abstract class SlimTestCase extends UnitTestCase {
 		}
 	}
 	/**
-	 * @param QMAggregateCorrelation|QMCorrelation $ac
+	 * @param QMGlobalVariableRelationship|QMCorrelation $ac
 	 * @param int $minimumUsers
 	 */
 	public function checkAggregatedCorrelationProperties($ac, $minimumUsers = 0){
@@ -1374,7 +1374,7 @@ abstract class SlimTestCase extends UnitTestCase {
 		$this->assertGreaterThan('0000-00-00 00:00:00', $ac->createdAt);
 		$this->assertGreaterThan('0000-00-00 00:00:00', $ac->updatedAt);
 		$this->assertGreaterThan(0, $ac->aggregateQMScore);
-		$this->checkIntStringAndFloatsOnAggregateCorrelation($ac, $minimumUsers);
+		$this->checkIntStringAndFloatsOnGlobalVariableRelationship($ac, $minimumUsers);
 		$notNullAttributes = [
 			'numberOfCorrelations',
 			'numberOfUsers',
@@ -1385,12 +1385,12 @@ abstract class SlimTestCase extends UnitTestCase {
 		$this->checkNotNullAttributes($notNullAttributes, $ac);
 	}
 	/**
-	 * @param QMAggregateCorrelation $ac
+	 * @param QMGlobalVariableRelationship $ac
 	 * @param int $minimumUsers
 	 * @param bool $studyCorrelation
 	 */
 	public function checkAggregatedCorrelationV4Properties($ac, int $minimumUsers = 0, bool $studyCorrelation = false){
-		if(is_array($ac)){$ac = new QMAggregateCorrelation($ac);}
+		if(is_array($ac)){$ac = new QMGlobalVariableRelationship($ac);}
 		if(!is_object($ac)){
 			throw new LogicException("Provided aggregatedCorrelation is not an object and is: ".\App\Logging\QMLog::print_r($ac));
 		}
@@ -1398,7 +1398,7 @@ abstract class SlimTestCase extends UnitTestCase {
 		$this->assertGreaterThan('0000-00-00 00:00:00', $ac->createdAt);
 		$this->assertGreaterThan('0000-00-00 00:00:00', $ac->updatedAt);
 		$this->assertGreaterThan(0, $ac->aggregateQMScore, "aggregateQMScore should be greater than 0!");
-		$this->checkIntStringAndFloatsOnAggregateCorrelation($ac, $minimumUsers);
+		$this->checkIntStringAndFloatsOnGlobalVariableRelationship($ac, $minimumUsers);
 		$notNullAttributes = [
 			'numberOfCorrelations',
 			'numberOfUsers'
@@ -1584,7 +1584,7 @@ abstract class SlimTestCase extends UnitTestCase {
 		$this->checkNotNullAttributes($this->getNotNullAttributes(), $c);
 	}
 	/**
-	 * @param QMUserCorrelation|QMAggregateCorrelation|object $correlation
+	 * @param QMUserCorrelation|QMGlobalVariableRelationship|object $correlation
 	 * @param bool $studyCorrelation
 	 */
 	public function checkSharedCorrelationV4Properties($correlation, $studyCorrelation = false){
@@ -2412,10 +2412,10 @@ abstract class SlimTestCase extends UnitTestCase {
 		$this->assertEquals($cause->getCommonBestEffectVariableId(), $primaryOutcome->variableId);
 		/** @var Variable $row */
 		$row = QMCommonVariable::readonly()->where(QMCommonVariable::FIELD_ID, $cause->variableId)->first();
-		$this->assertNotNull($row->best_aggregate_correlation_id);
+		$this->assertNotNull($row->best_global_variable_relationship_id);
 		$this->assertNotNull($row->optimal_value_message);
 		$row = QMCommonVariable::readonly()->where(QMCommonVariable::FIELD_ID, $primaryOutcome->variableId)->first();
-		$this->assertNotNull($row->best_aggregate_correlation_id);
+		$this->assertNotNull($row->best_global_variable_relationship_id);
 		$this->assertNotNull($row->optimal_value_message);
 		$this->assertEquals($cause->variableId, $primaryOutcome->getCommonBestCauseVariableId());
 		$notifications = $this->getAndCheckNotificationsAndFeed();
@@ -2580,16 +2580,16 @@ abstract class SlimTestCase extends UnitTestCase {
 	 * @param $aggregatedCorrelation
 	 * @param $minimumUsers
 	 */
-	private function checkIntStringAndFloatsOnAggregateCorrelation($aggregatedCorrelation, $minimumUsers): void{
+	private function checkIntStringAndFloatsOnGlobalVariableRelationship($aggregatedCorrelation, $minimumUsers): void{
 		$this->assertGreaterThan(0, $aggregatedCorrelation->qmScore);
 		$this->assertGreaterThan(1, $aggregatedCorrelation->numberOfPairs);
 		$this->assertGreaterThan($minimumUsers, $aggregatedCorrelation->numberOfUsers);
 		$this->assertGreaterThan(0, $aggregatedCorrelation->numberOfCorrelations);
-		$intAttributes = QMAggregateCorrelation::getIntAttributes();
+		$intAttributes = QMGlobalVariableRelationship::getIntAttributes();
 		DBUnitTestCase::checkIntAttributes($intAttributes, $aggregatedCorrelation);
 		$stringAttributes = [];
 		$this->checkStringAttributes($stringAttributes, $aggregatedCorrelation);
-		$floatAttributes = QMAggregateCorrelation::getFloatAttributes();
+		$floatAttributes = QMGlobalVariableRelationship::getFloatAttributes();
 		$this->checkFloatAttributes($floatAttributes, $aggregatedCorrelation);
 	}
 	/**
@@ -2746,11 +2746,11 @@ abstract class SlimTestCase extends UnitTestCase {
 	 * @return array
 	 */
 	public static function deleteAndRecreateAllAggregatedCorrelations(): array{
-		self::deleteAggregateCorrelations();
+		self::deleteGlobalVariableRelationships();
 		$userCorrelations = Correlation::all();
 		$agg = [];
 		foreach($userCorrelations as $uc){
-			$agg[] = $uc->getOrCreateAggregateCorrelation();
+			$agg[] = $uc->getOrCreateGlobalVariableRelationship();
 		}
 		return $agg;
 	}

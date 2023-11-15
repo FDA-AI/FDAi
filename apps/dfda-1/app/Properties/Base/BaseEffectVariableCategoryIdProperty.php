@@ -5,15 +5,15 @@
  */
 
 namespace App\Properties\Base;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Storage\DB\Writable;
 use App\Traits\ForeignKeyIdTrait;
 use App\Types\PhpTypes;
 
 class BaseEffectVariableCategoryIdProperty extends BaseVariableCategoryIdProperty{
 	use ForeignKeyIdTrait;
-	public $description = AggregateCorrelation::FIELD_EFFECT_VARIABLE_CATEGORY_ID;
-    public const NAME = AggregateCorrelation::FIELD_EFFECT_VARIABLE_CATEGORY_ID;
+	public $description = GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID;
+    public const NAME = GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID;
     public $name = self::NAME;
 	public $phpType = PhpTypes::BOOL;
 	public $title = 'Outcome Variable Category';

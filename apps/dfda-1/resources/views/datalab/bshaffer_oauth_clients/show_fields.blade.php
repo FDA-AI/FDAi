@@ -46,10 +46,10 @@
     <p>{{ $bshafferOauthClient->latest_measurement_start_at }}</p>
 </div>
 
-<!-- Number Of Aggregate Correlations Field -->
+<!-- Number Of Global Variable Relationships Field -->
 <div class="form-group">
-    {!! Form::label('number_of_aggregate_correlations', 'Number Of Aggregate Correlations:') !!}
-    <p>{{ $bshafferOauthClient->number_of_aggregate_correlations }}</p>
+    {!! Form::label('number_of_global_variable_relationships', 'Number Of Global Variable Relationships:') !!}
+    <p>{{ $bshafferOauthClient->number_of_global_variable_relationships }}</p>
 </div>
 
 <!-- Number Of Applications Field -->

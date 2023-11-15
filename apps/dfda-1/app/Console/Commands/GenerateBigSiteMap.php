@@ -33,7 +33,7 @@ class GenerateBigSiteMap extends Command {
         // create new sitemap object
         $sitemap = App::make("sitemap");
         // get all products from db (or wherever you store them)
-        //$correlations = DB::table('aggregate_correlations')->orderBy('id')->get();
+        //$correlations = DB::table('global_variable_relationships')->orderBy('id')->get();
         $filters['offset'] = 0;
         $filters['limit'] = 200;
         $correlations = [];

@@ -12,11 +12,11 @@ create table if not exists units
     deleted_at                                       timestamp                                        null,
     filling_type                                     enum ('zero', 'none', 'interpolation', 'value')  not null comment 'The filling type specifies how periods of missing data should be treated. ',
     number_of_outcome_population_studies             int unsigned                                     null comment 'Number of Global Population Studies for this Cause Unit.
-                [Formula: 
+                [Formula:
                     update units
                         left join (
                             select count(id) as total, cause_unit_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by cause_unit_id
                         )
                         as grouped on units.id = grouped.cause_unit_id
@@ -24,7 +24,7 @@ create table if not exists units
                 ]
                 ',
     number_of_common_tags_where_tag_variable_unit    int unsigned                                     null comment 'Number of Common Tags for this Tag Variable Unit.
-                [Formula: 
+                [Formula:
                     update units
                         left join (
                             select count(id) as total, tag_variable_unit_id
@@ -36,7 +36,7 @@ create table if not exists units
                 ]
                 ',
     number_of_common_tags_where_tagged_variable_unit int unsigned                                     null comment 'Number of Common Tags for this Tagged Variable Unit.
-                [Formula: 
+                [Formula:
                     update units
                         left join (
                             select count(id) as total, tagged_variable_unit_id
@@ -48,7 +48,7 @@ create table if not exists units
                 ]
                 ',
     number_of_outcome_case_studies                   int unsigned                                     null comment 'Number of Individual Case Studies for this Cause Unit.
-                [Formula: 
+                [Formula:
                     update units
                         left join (
                             select count(id) as total, cause_unit_id

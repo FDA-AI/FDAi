@@ -6,7 +6,7 @@
 ║ findByName                    │ variables            │ name LIKE '?' & deleted_at=null limit 1                     ║
 ║ StudiesController::show       │ studies              │ id='?' & deleted_at=null limit 1                            ║
 ║ findByVariableNamesOrIds      │ aggregate_correlatio │ cause_variable_id=53530 & effect_variable_id=1308 & dele... ║
-║ QMAggregateCorrelation::ge... │ votes                │ aggregate_correlation_id in (65598700) & deleted_at=null    ║
+║ QMGlobalVariableRelationship::ge... │ votes                │ global_variable_relationship_id in (65598700) & deleted_at=null    ║
 ║ QMStudy::getUser              │ wp_users             │ ID=230 & deleted_at=null limit 1                            ║
 ║ getConnections                │ connections          │ user_id in (230) & deleted_at=null                          ║
 ║ getUserMeta                   │ wp_usermeta          │ user_id=230 & meta_key LIKE 'github_%' & deleted_at=null    ║

@@ -9,7 +9,7 @@ use App\Buttons\QMButton;
 use App\Buttons\States\StudyJoinStateButton;
 use App\Cards\DownloadButtonsQMCard;
 use App\Charts\HighchartExport;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMUserCorrelation;
 use App\Exceptions\BaseException;
 use App\Exceptions\DuplicateFailedAnalysisException;
@@ -540,7 +540,7 @@ class StudyHtml extends StaticModel {
         return $this->tagLineHtml = $html;
     }
     /**
-     * @return QMAggregateCorrelation|QMUserCorrelation
+     * @return QMGlobalVariableRelationship|QMUserCorrelation
      * @throws NotEnoughDataException
      */
     private function getHasCorrelationCoefficient(){
@@ -690,7 +690,7 @@ class StudyHtml extends StaticModel {
      */
     private function getPrincipalInvestigator(): PublicUser{
         $study = $this->getHasCauseAndEffect();
-        if($study instanceof QMAggregateCorrelation || $study instanceof QMPopulationStudy){
+        if($study instanceof QMGlobalVariableRelationship || $study instanceof QMPopulationStudy){
             return QMUser::getDefaultPrincipalInvestigator();
         }
         return $study->getPublicUser();

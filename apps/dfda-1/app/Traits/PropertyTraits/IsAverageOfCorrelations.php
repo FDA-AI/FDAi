@@ -5,14 +5,14 @@
  */
 
 namespace App\Traits\PropertyTraits;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Exceptions\NoUserCorrelationsToAggregateException;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Storage\DB\Writable;
 trait IsAverageOfCorrelations {
 	use IsAnalyzableProperty;
 	/**
-	 * @param QMAggregateCorrelation|AggregateCorrelation $model
+	 * @param QMGlobalVariableRelationship|GlobalVariableRelationship $model
 	 * @return float
 	 * @throws NoUserCorrelationsToAggregateException
 	 */
@@ -23,7 +23,7 @@ trait IsAverageOfCorrelations {
 		$prop = new static();
 		$me = $prop->name;
 		Writable::statementStatic("
-            update aggregate_correlations ac
+            update global_variable_relationships ac
                 join (
                     SELECT
                         c.cause_variable_id,
@@ -44,7 +44,7 @@ trait IsAverageOfCorrelations {
 		$prop = new static();
 		$me = $prop->name;
 		Writable::statementStatic("
-            update aggregate_correlations ac
+            update global_variable_relationships ac
                 join (
                     SELECT
                         c.cause_variable_id,

@@ -43,7 +43,7 @@ class StaticHtmlStagingTest extends SlimStagingTestCase
     public function testVariableShowPage(){
         //$this->skipTest("Changes too much");
         //QMProfile::startProfile();
-        //AggregateCorrelationIsPublicProperty::updateAll();
+        //GlobalVariableRelationshipIsPublicProperty::updateAll();
         //VariableIsPublicProperty::assertNoInvalidRecords();
         $v = PrideCommonVariable::instance();
         $max = $v->calculateAttribute(VariableMaximumRecordedValueProperty::NAME);

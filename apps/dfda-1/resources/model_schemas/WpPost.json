@@ -356,7 +356,7 @@
     },
     {
         "type": "relation",
-        "relation": "1tm,AggregateCorrelation,wp_post_id"
+        "relation": "1tm,GlobalVariableRelationship,wp_post_id"
     },
     {
         "type": "relation",

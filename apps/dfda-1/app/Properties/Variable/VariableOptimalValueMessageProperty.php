@@ -30,7 +30,7 @@ class VariableOptimalValueMessageProperty extends BaseOptimalValueMessagePropert
      * @return string
      */
     public static function generate($model): ?string{
-        $c = $model->getBestAggregateCorrelation();
+        $c = $model->getBestGlobalVariableRelationship();
         $model->setBestStudyLink();
         if(!$c){return null;}
         return $c->generatePredictorExplanationSentence().
@@ -46,6 +46,6 @@ class VariableOptimalValueMessageProperty extends BaseOptimalValueMessagePropert
     }
     public function cannotBeChangedToNull(): bool{
         $v = $this->getVariable();
-        return $v->best_cause_variable_id || $v->best_effect_variable_id || $v->best_aggregate_correlation_id;
+        return $v->best_cause_variable_id || $v->best_effect_variable_id || $v->best_global_variable_relationship_id;
     }
 }

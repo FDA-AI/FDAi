@@ -15,7 +15,7 @@ use App\Exceptions\NoUserCorrelationsToAggregateException;
 use App\Exceptions\UnauthorizedException;
 use App\Logging\QMLog;
 use App\Mail\QMSendgrid;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\Collaborator;
 use App\Models\Correlation;
 use App\Models\DeviceToken;
@@ -68,7 +68,7 @@ use App\Variables\CommonVariables\SymptomsCommonVariables\BackPainCommonVariable
 use App\Variables\CommonVariables\TreatmentsCommonVariables\BupropionSrCommonVariable;
 use App\Variables\QMCommonVariable;
 use Clockwork\Support\Laravel\Tests\UsesClockwork;
-use Database\Seeders\AggregateCorrelationsTableSeeder;
+use Database\Seeders\GlobalVariableRelationshipsTableSeeder;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithDatabase;
 use Illuminate\Support\Facades\Queue;
 use LogicException;
@@ -485,18 +485,18 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
         TestDB::deleteUserAndAggregateData();
         $this->deleteStudiesAndTokens();
         $this->seedWithPositiveLinearCauseEffectMeasurements();
-        $numberOfAggregateCorrelations = AggregateCorrelation::count();
-        $this->assertEquals(0, $numberOfAggregateCorrelations);
+        $numberOfGlobalVariableRelationships = GlobalVariableRelationship::count();
+        $this->assertEquals(0, $numberOfGlobalVariableRelationships);
         $user = $this->setAuthenticatedUser(1);
         $publishResponse = $this->postAndGetDecodedBody('/api/v1/study/publish', $requestData);
         /** @var QMUserStudy $studyResponse */
         $studyResponse = $publishResponse->study;
         //if(!$studyResponse->publishedAt){throw new LogicException("No study->publishedAt!");}
-        $correlations = AggregateCorrelation::all();
-        //$this->assertCount(1, $correlations, "should have 1 aggregate correlation after publishing");
+        $correlations = GlobalVariableRelationship::all();
+        //$this->assertCount(1, $correlations, "should have 1 global variable relationship after publishing");
         $numberOfUserCorrelations = Correlation::count();
         if($numberOfUserCorrelations > 1){
-            $correlations = QMUserCorrelation::getOrCreateUserOrAggregateCorrelations([]);
+            $correlations = QMUserCorrelation::getOrCreateUserOrGlobalVariableRelationships([]);
             foreach ($correlations as $correlation){$correlation->logInfo("");}
         }
         $this->assertEquals(1, $numberOfUserCorrelations, "should have 1 user correlation after publishing");
@@ -520,18 +520,18 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
     }
     public function testPublishStudyThatsAlreadyBeenAnalyzed(){
 		Correlation::truncate();
-        AggregateCorrelation::truncate();
+        GlobalVariableRelationship::truncate();
 	    Study::truncate();
 	    Vote::truncate();
         $this->seedWithPositiveLinearPredictiveCorrelation();
-	    $this->assertEquals(0, AggregateCorrelation::count());
+	    $this->assertEquals(0, GlobalVariableRelationship::count());
         $this->setAuthenticatedUser($userId = 1);
         $response = $this->postAndGetDecodedBody('/api/v1/study/publish', [
             'shareUserMeasurements' => true,
             'causeVariableName'     => 'CauseVariableName',
             'effectVariableName'    => 'EffectVariableName'
         ]);
-        $this->assertEquals(1, AggregateCorrelation::count());
+        $this->assertEquals(1, GlobalVariableRelationship::count());
         // Make sure it got into the DB
         $causeVariable = $this->getCauseUserVariable();
         $this->assertEquals(1, $causeVariable->isPublic);
@@ -690,7 +690,7 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
         Study::deleteAll();
         SentEmail::where(SentEmail::FIELD_CLIENT_ID, \App\Storage\DB\ReadonlyDB::like(), "%study%")->forceDelete();
         QMClient::writable()->where(QMClient::FIELD_CLIENT_ID, \App\Storage\DB\ReadonlyDB::like(), "%study%")->delete();
-		AggregateCorrelation::truncate();
+		GlobalVariableRelationship::truncate();
     }
     /**
      * @param int $expectedCount
@@ -1114,7 +1114,7 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
 		$this->assertTrue($cause->isPredictor());
 		TestDB::deleteWpData();
 		TestDB::deleteUserData();
-		AggregateCorrelation::truncate();
+		GlobalVariableRelationship::truncate();
 		$this->checkUserBio();
 		$this->assertTrackingReminderNames([]);
 		$this->publishQueueAndAnalyze();

@@ -26,16 +26,16 @@ class CreateOaClientsTable extends Migration
             $table->softDeletes();
             $table->timestamp('earliest_measurement_start_at')->nullable();
             $table->timestamp('latest_measurement_start_at')->nullable();
-            $table->integer('number_of_aggregate_correlations')->nullable()->comment('Number of Global Population Studies for this Client.
+            $table->integer('number_of_global_variable_relationships')->nullable()->comment('Number of Global Population Studies for this Client.
                 [Formula: 
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by client_id
                         )
                         as grouped on bshaffer_oauth_clients.client_id = grouped.client_id
-                    set bshaffer_oauth_clients.number_of_aggregate_correlations = count(grouped.total)
+                    set bshaffer_oauth_clients.number_of_global_variable_relationships = count(grouped.total)
                 ]
                 ');
             $table->integer('number_of_applications')->nullable()->comment('Number of Applications for this Client.

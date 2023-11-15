@@ -25,11 +25,11 @@ class CreateUnitsTable extends Migration
             $table->softDeletes();
             $table->enum('filling_type', ['zero', 'none', 'interpolation', 'value'])->comment('The filling type specifies how periods of missing data should be treated. ');
             $table->unsignedInteger('number_of_outcome_population_studies')->nullable()->comment('Number of Global Population Studies for this Cause Unit.
-                [Formula: 
+                [Formula:
                     update units
                         left join (
                             select count(id) as total, cause_unit_id
-                            from aggregate_correlations
+                            from global_variable_relationships
                             group by cause_unit_id
                         )
                         as grouped on units.id = grouped.cause_unit_id
@@ -37,7 +37,7 @@ class CreateUnitsTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_common_tags_where_tag_variable_unit')->nullable()->comment('Number of Common Tags for this Tag Variable Unit.
-                [Formula: 
+                [Formula:
                     update units
                         left join (
                             select count(id) as total, tag_variable_unit_id
@@ -49,7 +49,7 @@ class CreateUnitsTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_common_tags_where_tagged_variable_unit')->nullable()->comment('Number of Common Tags for this Tagged Variable Unit.
-                [Formula: 
+                [Formula:
                     update units
                         left join (
                             select count(id) as total, tagged_variable_unit_id
@@ -61,7 +61,7 @@ class CreateUnitsTable extends Migration
                 ]
                 ');
             $table->unsignedInteger('number_of_outcome_case_studies')->nullable()->comment('Number of Individual Case Studies for this Cause Unit.
-                [Formula: 
+                [Formula:
                     update units
                         left join (
                             select count(id) as total, cause_unit_id

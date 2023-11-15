@@ -1,18 +1,18 @@
-INSERT INTO aggregate_correlations (
-  aggregate_correlations.correlation,
+INSERT INTO global_variable_relationships (
+  global_variable_relationships.correlation,
 onset_delay,
 duration_of_action,
-aggregate_correlations.cause_variable_id,
-aggregate_correlations.effect_variable_id,
-aggregate_correlations.number_of_pairs,
-aggregate_correlations.optimal_pearson_product,
-aggregate_correlations.number_of_users,
-aggregate_correlations.number_of_correlations,
-aggregate_correlations.statistical_significance,
-aggregate_correlations.aggregate_qm_score,
-aggregate_correlations.reverse_pearson_correlation_coefficient,
-aggregate_correlations.predictive_pearson_correlation_coefficient,
-aggregate_correlations.`status`
+global_variable_relationships.cause_variable_id,
+global_variable_relationships.effect_variable_id,
+global_variable_relationships.number_of_pairs,
+global_variable_relationships.optimal_pearson_product,
+global_variable_relationships.number_of_users,
+global_variable_relationships.number_of_correlations,
+global_variable_relationships.statistical_significance,
+global_variable_relationships.aggregate_qm_score,
+global_variable_relationships.reverse_pearson_correlation_coefficient,
+global_variable_relationships.predictive_pearson_correlation_coefficient,
+global_variable_relationships.`status`
 )
 SELECT
   correlations.forward_pearson_correlation_coefficient,

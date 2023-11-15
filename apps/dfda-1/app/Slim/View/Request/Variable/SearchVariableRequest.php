@@ -66,7 +66,7 @@ class SearchVariableRequest extends Request {
 	/**
 	 * @var bool
 	 */
-	private $withAggregateCorrelations;
+	private $withGlobalVariableRelationships;
 	/**
 	 * @param string $causeName
 	 * @return string|string[]

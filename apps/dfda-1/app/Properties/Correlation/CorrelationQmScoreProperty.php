@@ -41,7 +41,7 @@ class CorrelationQmScoreProperty extends BaseQmScoreProperty
 	        $predictivePearsonCorrelationCoefficient = $uc->getPredictivePearsonCorrelationCoefficient();
 	        $qmScore = (abs($predictivePearsonCorrelationCoefficient) - $noiseLevel) * $significance;
         }
-        if($ac = $uc->findAggregateCorrelation()){
+        if($ac = $uc->findGlobalVariableRelationship()){
             if($aggScore = $ac->aggregate_qm_score){$qmScore += $aggScore;}
         }
         $interestingFactor = $uc->getInterestingFactor();

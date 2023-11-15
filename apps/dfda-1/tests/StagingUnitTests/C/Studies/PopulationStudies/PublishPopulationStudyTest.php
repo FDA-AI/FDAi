@@ -10,7 +10,7 @@ class PublishPopulationStudyTest extends SlimStagingTestCase {
         //$cause = "Melatonin";
         $effect = "Overall Mood";
         $study = QMPopulationStudy::getStudyIfExists($cause, $effect, null, StudyTypeProperty::TYPE_POPULATION);
-        //$correlation = AggregateCorrelation::getAggregatedCorrelationByNamesOrIds($cause, $effect);
+        //$correlation = GlobalVariableRelationship::getAggregatedCorrelationByNamesOrIds($cause, $effect);
         //$study = $correlation->getStudy();
         $post = $study->postToWordPress();
         $this->assertEquals(230, $post->post_author);

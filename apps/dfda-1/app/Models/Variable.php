@@ -9,7 +9,7 @@ use App\Astral\Actions\DeleteWithRelationsAction;
 use App\Astral\Actions\FavoriteAction;
 use App\Astral\Actions\SetPublicAction;
 use App\Astral\Actions\UnFavoriteAction;
-use App\Astral\AggregateCorrelationBaseAstralResource;
+use App\Astral\GlobalVariableRelationshipBaseAstralResource;
 use App\Astral\Lenses\EconomicIndicatorsLens;
 use App\Astral\Lenses\FavoritesLens;
 use App\Astral\Lenses\StrategyVariablesLens;
@@ -50,7 +50,7 @@ use App\Logging\QMLog;
 use App\Menus\JournalMenu;
 use App\Menus\QMMenu;
 use App\Models\Base\BaseVariable;
-use App\Properties\AggregateCorrelation\AggregateCorrelationIsPublicProperty;
+use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipIsPublicProperty;
 use App\Properties\Base\BaseClientIdProperty;
 use App\Properties\Base\BaseCombinationOperationProperty;
 use App\Properties\Base\BaseFillingTypeProperty;
@@ -231,9 +231,9 @@ use Spatie\Tags\Tag;
  * @property string|null $description
  * @property string|null $informational_url
  * @property string|null $ion_icon
- * @property int|null $number_of_aggregate_correlations_as_cause Number of aggregate correlations for which this
+ * @property int|null $number_of_global_variable_relationships_as_cause Number of global variable relationships for which this
  *     variable is the cause variable
- * @property int|null $number_of_aggregate_correlations_as_effect Number of aggregate correlations for which this
+ * @property int|null $number_of_global_variable_relationships_as_effect Number of global variable relationships for which this
  *     variable is the effect variable
  * @property float|null $second_most_common_value
  * @property float|null $third_most_common_value
@@ -257,7 +257,7 @@ use Spatie\Tags\Tag;
  * @property string|null $optimal_value_message
  * @property int|null $best_cause_variable_id
  * @property int|null $best_effect_variable_id
- * @property int|null $best_aggregate_correlation_id
+ * @property int|null $best_global_variable_relationship_id
  * @property float|null $common_maximum_allowed_daily_value
  * @property float|null $common_minimum_allowed_daily_value
  * @property float|null $common_minimum_allowed_non_zero_value
@@ -270,7 +270,7 @@ use Spatie\Tags\Tag;
  * @method static Builder|Variable whereAbbreviatedUnitName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Variable
  *     whereAverageSecondsBetweenMeasurements($value)
- * @method static Builder|Variable whereBestAggregateCorrelation($value)
+ * @method static Builder|Variable whereBestGlobalVariableRelationship($value)
  * @method static Builder|Variable whereBestCauseVariableId($value)
  * @method static Builder|Variable whereBestEffectVariableId($value)
  * @method static Builder|Variable whereBrandName($value)
@@ -294,8 +294,8 @@ use Spatie\Tags\Tag;
  * @method static Builder|Variable whereMostCommonOriginalUnitId($value)
  * @method static Builder|Variable whereMostCommonSourceName($value)
  * @method static Builder|Variable whereNumberCommonTaggedBy($value)
- * @method static Builder|Variable whereNumberOfAggregateCorrelationsAsCause($value)
- * @method static Builder|Variable whereNumberOfAggregateCorrelationsAsEffect($value)
+ * @method static Builder|Variable whereNumberOfGlobalVariableRelationshipsAsCause($value)
+ * @method static Builder|Variable whereNumberOfGlobalVariableRelationshipsAsEffect($value)
  * @method static Builder|Variable whereNumberOfCommonTags($value)
  * @method static Builder|Variable whereNumberOfRawMeasurements($value)
  * @method static Builder|Variable whereNumberOfTrackingReminders($value)
@@ -335,8 +335,8 @@ use Spatie\Tags\Tag;
  * @property string|null $earliest_tagged_measurement_start_at
  * @property string|null $latest_non_tagged_measurement_start_at
  * @property string|null $earliest_non_tagged_measurement_start_at
- * @property-read Collection|AggregateCorrelation[] $aggregate_correlations
- * @property-read int|null $aggregate_correlations_count
+ * @property-read Collection|GlobalVariableRelationship[] $global_variable_relationships
+ * @property-read int|null $global_variable_relationships_count
  * @property-read OAClient|null $oa_client
  * @property-read Collection|CommonTag[] $common_tags
  * @property-read int|null $common_tags_count
@@ -389,9 +389,9 @@ use Spatie\Tags\Tag;
  * @property-read int|null $individual_cause_studies_count
  * @property-read Collection|Correlation[] $individual_effect_studies
  * @property-read int|null $individual_effect_studies_count
- * @property-read Collection|AggregateCorrelation[] $population_cause_studies
+ * @property-read Collection|GlobalVariableRelationship[] $population_cause_studies
  * @property-read int|null $population_cause_studies_count
- * @property-read Collection|AggregateCorrelation[] $population_effect_studies
+ * @property-read Collection|GlobalVariableRelationship[] $population_effect_studies
  * @property-read int|null $population_effect_studies_count
  * @property-read Collection|TrackingReminderNotification[] $tracking_reminder_notifications
  * @property-read int|null $tracking_reminder_notifications_count
@@ -410,7 +410,7 @@ use Spatie\Tags\Tag;
  * @property-read int|null $votes_where_effect_count
  * @property-read WpPost|null $wp_post
  * @method static Builder|Variable mostTags()
- * @method static Builder|Variable whereBestAggregateCorrelationId($value)
+ * @method static Builder|Variable whereBestGlobalVariableRelationshipId($value)
  * @method static Builder|Variable whereCreatorUserId($value)
  * @method static Builder|Variable whereFillingType($value)
  * @property int|null $number_of_outcome_population_studies Number of Global Population Studies for this Cause
@@ -419,7 +419,7 @@ use Spatie\Tags\Tag;
  *                     update variables
  *                         left join (
  *                             select count(id) as total, cause_variable_id
- *                             from aggregate_correlations
+ *                             from global_variable_relationships
  *                             group by cause_variable_id
  *                         )
  *                         as grouped on variables.id = grouped.cause_variable_id
@@ -431,7 +431,7 @@ use Spatie\Tags\Tag;
  *                     update variables
  *                         left join (
  *                             select count(id) as total, effect_variable_id
- *                             from aggregate_correlations
+ *                             from global_variable_relationships
  *                             group by effect_variable_id
  *                         )
  *                         as grouped on variables.id = grouped.effect_variable_id
@@ -503,10 +503,10 @@ use Spatie\Tags\Tag;
  * @method static Builder|Variable whereNumberOfOutcomeCaseStudies($value)
  * @method static Builder|Variable whereNumberOfOutcomePopulationStudies($value)
  * @method static Builder|Variable whereNumberOfPredictorPopulationStudies($value)
- * @property-read Collection|AggregateCorrelation[] $aggregate_correlations_where_cause_variable
- * @property-read int|null $aggregate_correlations_where_cause_variable_count
- * @property-read Collection|AggregateCorrelation[] $aggregate_correlations_where_effect_variable
- * @property-read int|null $aggregate_correlations_where_effect_variable_count
+ * @property-read Collection|GlobalVariableRelationship[] $global_variable_relationships_where_cause_variable
+ * @property-read int|null $global_variable_relationships_where_cause_variable_count
+ * @property-read Collection|GlobalVariableRelationship[] $global_variable_relationships_where_effect_variable
+ * @property-read int|null $global_variable_relationships_where_effect_variable_count
  * @property-read Collection|Application[] $applications_where_outcome_variable
  * @property-read int|null $applications_where_outcome_variable_count
  * @property-read Collection|Application[] $applications_where_predictor_variable
@@ -698,7 +698,7 @@ use Spatie\Tags\Tag;
  *     generated by measurements from its child variables. This only includes ones created by users.
  * @property int|null $number_of_user_parents Measurements for this parent category variable can be synthetically
  *     generated by measurements from its child variables. This only includes ones created by users.
- * @property-read AggregateCorrelation|null $best_aggregate_correlation
+ * @property-read GlobalVariableRelationship|null $best_global_variable_relationship
  * @property-read Collection|User[] $favoriters
  * @property-read int|null $favoriters_count
  * @property-read Collection|\Overtrue\LaravelFavorite\Favorite[] $favorites
@@ -766,19 +766,19 @@ use Spatie\Tags\Tag;
  * @property-read User $creator_user
  * @property-read CtSideEffect|null $ct_side_effect
  * @property-read Connector|null $most_common_connector
- * @property-read Collection|AggregateCorrelation[] $outcomes
+ * @property-read Collection|GlobalVariableRelationship[] $outcomes
  * @property-read int|null $outcomes_count
- * @property-read Collection|AggregateCorrelation[] $predictors
+ * @property-read Collection|GlobalVariableRelationship[] $predictors
  * @property-read int|null $predictors_count
- * @property-read Collection|AggregateCorrelation[] $publicOutcomes
+ * @property-read Collection|GlobalVariableRelationship[] $publicOutcomes
  * @property-read int|null $public_outcomes_count
- * @property-read Collection|AggregateCorrelation[] $publicPredictors
+ * @property-read Collection|GlobalVariableRelationship[] $publicPredictors
  * @property-read int|null $public_predictors_count
  * @property Collection|Tag[] $tags
  * @property-read int|null $tags_count
- * @property-read Collection|AggregateCorrelation[] $upVotedPublicOutcomes
+ * @property-read Collection|GlobalVariableRelationship[] $upVotedPublicOutcomes
  * @property-read int|null $up_voted_public_outcomes_count
- * @property-read Collection|AggregateCorrelation[] $upVotedPublicPredictors
+ * @property-read Collection|GlobalVariableRelationship[] $upVotedPublicPredictors
  * @property-read int|null $up_voted_public_predictors_count
  * @property-read Collection|UserVariableOutcomeCategory[] $user_variable_outcome_categories
  * @property-read int|null $user_variable_outcome_categories_count
@@ -989,8 +989,8 @@ class Variable extends BaseVariable implements HasMedia {
 		'most_common_value' => 'nullable|numeric',
 		'newest_data_at' => 'nullable|datetime',
 		'number_common_tagged_by' => 'nullable|integer|min:0|max:2147483647',
-		'number_of_aggregate_correlations_as_cause' => 'nullable|integer|min:0|max:2147483647',
-		'number_of_aggregate_correlations_as_effect' => 'nullable|integer|min:0|max:2147483647',
+		'number_of_global_variable_relationships_as_cause' => 'nullable|integer|min:0|max:2147483647',
+		'number_of_global_variable_relationships_as_effect' => 'nullable|integer|min:0|max:2147483647',
 		'number_of_common_tags' => 'nullable|integer|min:0|max:2147483647',
 		'number_of_measurements' => 'nullable|integer|min:-2147483648|max:2147483647',
 		'number_of_raw_measurements_with_tags_joins_children' => 'nullable|integer|min:0|max:2147483647',
@@ -1192,11 +1192,11 @@ class Variable extends BaseVariable implements HasMedia {
 		if($this->hasId()){
 			if($this->isPredictor() !== false){
 				$fields[] =
-					AggregateCorrelationBaseAstralResource::hasMany("Outcomes", 'aggregate_correlations_where_cause_variable');
+					GlobalVariableRelationshipBaseAstralResource::hasMany("Outcomes", 'global_variable_relationships_where_cause_variable');
 			}
 			if($this->isOutcome() !== false){
 				$fields[] =
-					AggregateCorrelationBaseAstralResource::hasMany("Predictors", 'aggregate_correlations_where_effect_variable');
+					GlobalVariableRelationshipBaseAstralResource::hasMany("Predictors", 'global_variable_relationships_where_effect_variable');
 			}
 		}
 		return $fields;
@@ -1244,8 +1244,8 @@ class Variable extends BaseVariable implements HasMedia {
 			/** @var UserVariable $v */
 			$v->hardDeleteWithRelations($reason);
 		});
-		AggregateCorrelation::whereCauseVariableId($this->id)->forceDelete();
-		AggregateCorrelation::whereEffectVariableId($this->id)->forceDelete();
+		GlobalVariableRelationship::whereCauseVariableId($this->id)->forceDelete();
+		GlobalVariableRelationship::whereEffectVariableId($this->id)->forceDelete();
 		Vote::whereCauseVariableId($this->id)->forceDelete();
 		Vote::whereEffectVariableId($this->id)->forceDelete();
 		Study::whereCauseVariableId($this->id)->forceDelete();
@@ -1741,7 +1741,7 @@ class Variable extends BaseVariable implements HasMedia {
 		foreach($dbm as $uv){
 			$correlations = $all[$uv->getUserId()] = $uv->correlate();
 			foreach($correlations as $c){
-				$c->getOrCreateQMAggregateCorrelation();
+				$c->getOrCreateQMGlobalVariableRelationship();
 			}
 		}
 		return $all;
@@ -1773,7 +1773,7 @@ class Variable extends BaseVariable implements HasMedia {
 		if($this->isStupidVariable()){
 			le("Not posting stupid variable " . $this->getTitleAttribute());
 		}
-		if($this->getNumberOfAggregateCorrelations()){
+		if($this->getNumberOfGlobalVariableRelationships()){
 			return;
 		}
 		if($this->getNumberOfRawMeasurementsWithTagsJoinsChildren()){
@@ -1784,19 +1784,19 @@ class Variable extends BaseVariable implements HasMedia {
 	/**
 	 * @return int
 	 */
-	public function getNumberOfAggregateCorrelations(): ?int{
-		return $this->getNumberOfAggregateCorrelationsAsCause() + $this->getNumberOfAggregateCorrelationsAsEffect();
+	public function getNumberOfGlobalVariableRelationships(): ?int{
+		return $this->getNumberOfGlobalVariableRelationshipsAsCause() + $this->getNumberOfGlobalVariableRelationshipsAsEffect();
 	}
 	/**
 	 * @return int
 	 */
-	public function getNumberOfAggregateCorrelationsAsCause(): ?int{
+	public function getNumberOfGlobalVariableRelationshipsAsCause(): ?int{
 		return $this->attributes[Variable::FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_CAUSE] ?? null;
 	}
 	/**
 	 * @return int
 	 */
-	public function getNumberOfAggregateCorrelationsAsEffect(): ?int{
+	public function getNumberOfGlobalVariableRelationshipsAsEffect(): ?int{
 		return $this->attributes[Variable::FIELD_NUMBER_OF_AGGREGATE_CORRELATIONS_AS_EFFECT] ?? null;
 	}
 	/**
@@ -1930,16 +1930,16 @@ class Variable extends BaseVariable implements HasMedia {
 		return parent::findByData($data);
 	}
 	public function getBadgeText(): ?string{
-		return $this->getNumberOfAggregateCorrelations();
+		return $this->getNumberOfGlobalVariableRelationships();
 	}
 	public static function findInMemoryByName(string $name): ?Variable{
 		return static::getFromClassMemory($name);
 	}
 	/**
-	 * @return AggregateCorrelation
+	 * @return GlobalVariableRelationship
 	 */
-	public function getBestAggregateCorrelationAsCause(): ?AggregateCorrelation{
-		$correlations = $this->getAggregateCorrelationsAsCause(1);
+	public function getBestGlobalVariableRelationshipAsCause(): ?GlobalVariableRelationship{
+		$correlations = $this->getGlobalVariableRelationshipsAsCause(1);
 		if(!$correlations){
 			return null;
 		}
@@ -1950,10 +1950,10 @@ class Variable extends BaseVariable implements HasMedia {
 		static::setInClassMemory($this->getNameAttribute(), $this);
 	}
 	/**
-	 * @return AggregateCorrelation
+	 * @return GlobalVariableRelationship
 	 */
-	public function getBestAggregateCorrelationAsEffect(): ?AggregateCorrelation{
-		return $this->getAggregateCorrelationsAsEffect(1)->first();
+	public function getBestGlobalVariableRelationshipAsEffect(): ?GlobalVariableRelationship{
+		return $this->getGlobalVariableRelationshipsAsEffect(1)->first();
 	}
     public static function whereName(string $value): Builder{
         // Case-insensitive
@@ -1979,13 +1979,13 @@ class Variable extends BaseVariable implements HasMedia {
 	/**
 	 * @param int|null $limit
 	 * @param string|int|null $causeCategory
-	 * @return AggregateCorrelation[]|\Illuminate\Support\Collection
+	 * @return GlobalVariableRelationship[]|\Illuminate\Support\Collection
 	 */
-	public function getAggregateCorrelationsAsEffect(int $limit = null, string $causeCategory = null): Collection{
+	public function getGlobalVariableRelationshipsAsEffect(int $limit = null, string $causeCategory = null): Collection{
 		$catId = (!$causeCategory) ? null : VariableCategoryIdProperty::pluck($causeCategory);
 		$correlations = $this->relations[__FUNCTION__]["$catId-$limit"] ?? null;
 		if($correlations !== null){return $correlations;}
-		$qb = $this->aggregate_correlations_where_effect_variable();
+		$qb = $this->global_variable_relationships_where_effect_variable();
 		if($catId){$qb->where(Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID, $catId);}
 		if($limit){$qb->limit($limit);}
 		if(!$limit && !$causeCategory){
@@ -1995,35 +1995,35 @@ class Variable extends BaseVariable implements HasMedia {
 					VariableCategory::getInterestingCategoryIds());
 			}
 		}
-		AggregateCorrelation::applyDefaultOrderings($qb);
+		GlobalVariableRelationship::applyDefaultOrderings($qb);
 		$correlations = $qb->get();
 		$count = $correlations->count();
-		if($this->number_of_aggregate_correlations_as_effect < $count){
-			$this->number_of_aggregate_correlations_as_effect = $count;
+		if($this->number_of_global_variable_relationships_as_effect < $count){
+			$this->number_of_global_variable_relationships_as_effect = $count;
 		}
 		return $this->relations[__FUNCTION__]["$catId-$limit"] = $correlations;
 	}
 	/**
 	 * @param int|null $limit
 	 * @param string|int|null $effectCategory
-	 * @return AggregateCorrelation[]|\Illuminate\Support\Collection
+	 * @return GlobalVariableRelationship[]|\Illuminate\Support\Collection
 	 */
-	public function getAggregateCorrelationsAsCause(int $limit = null, $effectCategory = null): Collection{
+	public function getGlobalVariableRelationshipsAsCause(int $limit = null, $effectCategory = null): Collection{
 		$catId = (!$effectCategory) ? null : VariableCategoryIdProperty::pluck($effectCategory);
 		$correlations = $this->relations[__FUNCTION__]["$catId-$limit"] ?? null;
 		if($correlations !== null){return $correlations;}
-		$qb = $this->aggregate_correlations_where_cause_variable();
+		$qb = $this->global_variable_relationships_where_cause_variable();
 		if($catId){$qb->where(Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID, $catId);}
 		if($limit){$qb->limit($limit);}
-		AggregateCorrelation::applyDefaultOrderings($qb);
+		GlobalVariableRelationship::applyDefaultOrderings($qb);
 		$correlations = $qb->get();
 		$count = $correlations->count();
-		if($this->number_of_aggregate_correlations_as_cause < $count){
-			$this->number_of_aggregate_correlations_as_cause = $count;
+		if($this->number_of_global_variable_relationships_as_cause < $count){
+			$this->number_of_global_variable_relationships_as_cause = $count;
 		}
 		return $this->relations[__FUNCTION__]["$catId-$limit"] = $correlations;
 	}
-	public function getBestAggregateCorrelationId(): ?int{
+	public function getBestGlobalVariableRelationshipId(): ?int{
 		return $this->attributes[Variable::FIELD_BEST_AGGREGATE_CORRELATION_ID] ?? null;
 	}
 	public function getBestCauseVariableId(): ?int{
@@ -2495,12 +2495,12 @@ class Variable extends BaseVariable implements HasMedia {
 		return $this->attributes[Variable::FIELD_NUMBER_COMMON_TAGGED_BY] ?? null;
 	}
 		public function getNumberOfAggregateCausesButton(array $params = []): QMButton{
-		$params[AggregateCorrelation::FIELD_EFFECT_VARIABLE_ID] = $this->id;
-		$number = $this->number_of_aggregate_correlations_as_effect;
+		$params[GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_ID] = $this->id;
+		$number = $this->number_of_global_variable_relationships_as_effect;
 		if($number === null){
 			$number = "N/A";
 		}
-		return AggregateCorrelation::getAstralIndexButton($params, $number, "Population Causes",
+		return GlobalVariableRelationship::getAstralIndexButton($params, $number, "Population Causes",
 			Correlation::FONT_AWESOME_EFFECTS,
 			"Population-Level Studies on Potential Causes of " . $this->getTitleAttribute() .
 			" Based on Anonymously Aggregated Data");
@@ -2536,12 +2536,12 @@ class Variable extends BaseVariable implements HasMedia {
 		return $this->attributes[Variable::FIELD_NUMBER_OF_COMMON_TAGS_WHERE_TAGGED_VARIABLE] ?? null;
 	}
 	public function getNumberOfEffectsButton(array $params = []): QMButton{
-		$params[AggregateCorrelation::FIELD_CAUSE_VARIABLE_ID] = $this->id;
-		$number = $this->number_of_aggregate_correlations_as_cause;
+		$params[GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_ID] = $this->id;
+		$number = $this->number_of_global_variable_relationships_as_cause;
 		if($number === null){
 			$number = "N/A";
 		}
-		return AggregateCorrelation::getAstralIndexButton($params, $number, "Population Effects",
+		return GlobalVariableRelationship::getAstralIndexButton($params, $number, "Population Effects",
 			Correlation::FONT_AWESOME_EFFECTS,
 			"Population-Level Studies on Potential Effects of " . $this->getTitleAttribute() .
 			" Based on Anonymously Aggregated Data");
@@ -2584,7 +2584,7 @@ class Variable extends BaseVariable implements HasMedia {
 		$models = $qb->get();
 		$sorted = $models->sortByDesc(function($v){
 			/** @var Variable $v */
-			return $v->getNumberOfAggregateCorrelations();
+			return $v->getNumberOfGlobalVariableRelationships();
 		});
 		return static::setInClassMemory(__FUNCTION__, $sorted);
 	}
@@ -2592,8 +2592,8 @@ class Variable extends BaseVariable implements HasMedia {
 		$qb = static::indexSelectQB();
 		return $qb->where(Variable::FIELD_NUMBER_OF_USER_VARIABLES, ">", 2)
 			->where(Variable::FIELD_NUMBER_OF_RAW_MEASUREMENTS_WITH_TAGS_JOINS_CHILDREN, ">", 5)
-			->whereRaw("variables.number_of_aggregate_correlations_as_cause + " .
-				"variables.number_of_aggregate_correlations_as_effect > 0");
+			->whereRaw("variables.number_of_global_variable_relationships_as_cause + " .
+				"variables.number_of_global_variable_relationships_as_effect > 0");
 	}
 	/**
 	 * @param int|null $limit
@@ -2640,10 +2640,10 @@ class Variable extends BaseVariable implements HasMedia {
 		return $this->getVariableCategoryName();
 	}
 	public function getSortingScore(): float{
-		return $this->getNumberOfAggregateCorrelations() + $this->getNumberOfUserVariables();
+		return $this->getNumberOfGlobalVariableRelationships() + $this->getNumberOfUserVariables();
 	}
 	public function getTooltip(): string{
-		return $this->getNumberOfAggregateCorrelations() . " studies on the causes or effects of " .
+		return $this->getNumberOfGlobalVariableRelationships() . " studies on the causes or effects of " .
 			$this->getTitleAttribute();
 	}
 	public function getNumberOfOutcomeCaseStudies(): ?int{
@@ -2668,7 +2668,7 @@ class Variable extends BaseVariable implements HasMedia {
 		return $this->attributes[Variable::FIELD_NUMBER_OF_STUDIES_WHERE_EFFECT_VARIABLE] ?? null;
 	}
 	public function getNumberOfSubtitle(): string{
-		if($num = $this->getNumberOfAggregateCorrelations()){
+		if($num = $this->getNumberOfGlobalVariableRelationships()){
 			return "$num Studies";
 		}
 		return $this->getNumberOfUserVariables() . " Participants";
@@ -2786,7 +2786,7 @@ class Variable extends BaseVariable implements HasMedia {
 		return $this->attributes[Variable::FIELD_PRODUCT_URL] ?? null;
 	}
 	/**
-	 * @return Collection|AggregateCorrelation[]
+	 * @return Collection|GlobalVariableRelationship[]
 	 */
 	public function getPublicOutcomes(): Collection{
 		if($mem = $this->getFromModelMemory(__FUNCTION__)){
@@ -2796,23 +2796,23 @@ class Variable extends BaseVariable implements HasMedia {
 		return $this->setInModelMemory(__FUNCTION__, $outcomes);
 	}
 	public function publicOutcomes(): HasMany{
-		return AggregateCorrelationIsPublicProperty::restrict($this->outcomes())
-			->whereIn(AggregateCorrelation::FIELD_EFFECT_VARIABLE_CATEGORY_ID, VariableCategory::getOutcomeIds())
-			->whereNotIn(AggregateCorrelation::FIELD_EFFECT_VARIABLE_CATEGORY_ID,
+		return GlobalVariableRelationshipIsPublicProperty::restrict($this->outcomes())
+			->whereIn(GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID, VariableCategory::getOutcomeIds())
+			->whereNotIn(GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID,
 				VariableCategory::getAppsLocationsWebsiteIds());
 	}
 	public function outcomes(): HasMany{
 		$l = $this->l();
-		return $l->aggregate_correlations_where_cause_variable()
-			->orderByDesc(AggregateCorrelation::FIELD_AGGREGATE_QM_SCORE);
+		return $l->global_variable_relationships_where_cause_variable()
+			->orderByDesc(GlobalVariableRelationship::FIELD_AGGREGATE_QM_SCORE);
 	}
-	public function aggregate_correlations_where_cause_variable(): HasMany{
-		return parent::aggregate_correlations_where_cause_variable()->with([
+	public function global_variable_relationships_where_cause_variable(): HasMany{
+		return parent::global_variable_relationships_where_cause_variable()->with([
 			'effect_variable',
 		]);
 	}
 	/**
-	 * @return Collection|AggregateCorrelation[]
+	 * @return Collection|GlobalVariableRelationship[]
 	 */
 	public function getPublicPredictors(): Collection{
 		if($mem = $this->getFromModelMemory(__FUNCTION__)){
@@ -2822,17 +2822,17 @@ class Variable extends BaseVariable implements HasMedia {
 		return $this->setInModelMemory(__FUNCTION__, $predictors);
 	}
 	public function publicPredictors(): HasMany{
-		return AggregateCorrelationIsPublicProperty::restrict($this->predictors())
-			->whereNotIn(AggregateCorrelation::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
+		return GlobalVariableRelationshipIsPublicProperty::restrict($this->predictors())
+			->whereNotIn(GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
 				VariableCategory::getAppsLocationsWebsiteIds());
 	}
 	public function predictors(): HasMany{
 		$l = $this->l();
-		return $l->aggregate_correlations_where_effect_variable()
-			->orderByDesc(AggregateCorrelation::FIELD_AGGREGATE_QM_SCORE);
+		return $l->global_variable_relationships_where_effect_variable()
+			->orderByDesc(GlobalVariableRelationship::FIELD_AGGREGATE_QM_SCORE);
 	}
-	public function aggregate_correlations_where_effect_variable(): HasMany{
-		return parent::aggregate_correlations_where_effect_variable()->with([
+	public function global_variable_relationships_where_effect_variable(): HasMany{
+		return parent::global_variable_relationships_where_effect_variable()->with([
 			'cause_variable',
 		]);
 	}
@@ -2973,18 +2973,18 @@ class Variable extends BaseVariable implements HasMedia {
 	}
 	public function getRelationshipButtons(): array{
 		$buttons = [];
-		$n = $this->number_of_aggregate_correlations_as_cause;
+		$n = $this->number_of_global_variable_relationships_as_cause;
 		if($n){
 			$buttons[] =
-				AggregateCorrelation::getAstralIndexButton([AggregateCorrelation::FIELD_CAUSE_VARIABLE_ID => $this->getId()],
+				GlobalVariableRelationship::getAstralIndexButton([GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_ID => $this->getId()],
 					$n, "Population Effects", Correlation::FONT_AWESOME_EFFECTS,
 					"Global Population Studies on the Effects of " . $this->getTitleAttribute() .
 					" based on Anonymously Aggregated Data from Many Users");
 		}
-		$n = $this->number_of_aggregate_correlations_as_effect;
+		$n = $this->number_of_global_variable_relationships_as_effect;
 		if($n){
 			$buttons[] =
-				AggregateCorrelation::getAstralIndexButton([AggregateCorrelation::FIELD_EFFECT_VARIABLE_ID => $this->getId()],
+				GlobalVariableRelationship::getAstralIndexButton([GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_ID => $this->getId()],
 					$n, "Population Causes", Correlation::FONT_AWESOME_EFFECTS,
 					"Global Population Studies on the Causes of " . $this->getTitleAttribute() .
 					" based on Anonymously Aggregated Data from Many Users");
@@ -3098,8 +3098,8 @@ class Variable extends BaseVariable implements HasMedia {
 			"Mean" => $u->getValueAndUnitString($this->getMean()),
 			"Median" => $u->getValueAndUnitString($this->getMedian()),
 			"Minimum Allowed Value" => $u->getValueAndUnitString($this->getMinimumAllowedValueAttribute()),
-			"Number of Aggregate Predictors" => $this->getNumberOfAggregateCorrelationsAsEffect(),
-			"Number of Aggregate Outcomes" => $this->getNumberOfAggregateCorrelationsAsCause(),
+			"Number of Aggregate Predictors" => $this->getNumberOfGlobalVariableRelationshipsAsEffect(),
+			"Number of Aggregate Outcomes" => $this->getNumberOfGlobalVariableRelationshipsAsCause(),
 			"Number of Measurements" => $this->getNumberOfMeasurementsAttribute(),
 			"Number of Measurements (including those generated by tagged, joined, or child variables)" => $this->getNumberOfRawMeasurementsWithTagsJoinsChildren(),
 			"Public" => ($this->getIsPublic()) ? "true" : "false",
@@ -3282,24 +3282,24 @@ class Variable extends BaseVariable implements HasMedia {
 		return $id;
 	}
 	/**
-	 * @return Collection|AggregateCorrelation[]
+	 * @return Collection|GlobalVariableRelationship[]
 	 */
 	public function getUpVotedPublicOutcomes(): Collection{
 		$predictors = $this->upVotedPublicOutcomes()->get();
 		return $predictors;
 	}
 	public function upVotedPublicOutcomes(): HasMany{
-		return $this->publicOutcomes()->where(AggregateCorrelation::FIELD_AVERAGE_VOTE, ">", 0);
+		return $this->publicOutcomes()->where(GlobalVariableRelationship::FIELD_AVERAGE_VOTE, ">", 0);
 	}
 	/**
-	 * @return Collection|AggregateCorrelation[]
+	 * @return Collection|GlobalVariableRelationship[]
 	 */
 	public function getUpVotedPublicPredictors(): Collection{
 		$predictors = $this->upVotedPublicPredictors()->get();
 		return $predictors;
 	}
 	public function upVotedPublicPredictors(): HasMany{
-		return $this->publicPredictors()->where(AggregateCorrelation::FIELD_AVERAGE_VOTE, ">", 0);
+		return $this->publicPredictors()->where(GlobalVariableRelationship::FIELD_AVERAGE_VOTE, ">", 0);
 	}
 	public function getUpc12(): ?string{
 		return $this->attributes[Variable::FIELD_UPC_12] ?? null;
@@ -3496,10 +3496,10 @@ class Variable extends BaseVariable implements HasMedia {
 			Variable::FIELD_MOST_COMMON_CONNECTOR_ID);
 	}
 	public function population_cause_studies(): HasMany{
-		return $this->hasMany(AggregateCorrelation::class, AggregateCorrelation::FIELD_EFFECT_VARIABLE_ID);
+		return $this->hasMany(GlobalVariableRelationship::class, GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_ID);
 	}
 	public function population_effect_studies(): HasMany{
-		return $this->hasMany(AggregateCorrelation::class, AggregateCorrelation::FIELD_CAUSE_VARIABLE_ID);
+		return $this->hasMany(GlobalVariableRelationship::class, GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_ID);
 	}
 	public function rename(string $newName){
 		$originalName = $this->name;
@@ -3579,8 +3579,8 @@ class Variable extends BaseVariable implements HasMedia {
 	public function setAverageSecondsBetweenMeasurements(int $averageSecondsBetweenMeasurements): void{
 		$this->setAttribute(Variable::FIELD_AVERAGE_SECONDS_BETWEEN_MEASUREMENTS, $averageSecondsBetweenMeasurements);
 	}
-	public function setBestAggregateCorrelationId(int $bestAggregateCorrelationId): void{
-		$this->setAttribute(Variable::FIELD_BEST_AGGREGATE_CORRELATION_ID, $bestAggregateCorrelationId);
+	public function setBestGlobalVariableRelationshipId(int $bestGlobalVariableRelationshipId): void{
+		$this->setAttribute(Variable::FIELD_BEST_AGGREGATE_CORRELATION_ID, $bestGlobalVariableRelationshipId);
 	}
 	public function setBestCauseVariableId(int $bestCauseVariableId): void{
 		$this->setAttribute(Variable::FIELD_BEST_CAUSE_VARIABLE_ID, $bestCauseVariableId);

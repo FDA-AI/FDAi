@@ -2,7 +2,7 @@
 /** @noinspection ArgumentEqualsDefaultValueInspection */
 /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\SlimTests\Analytics;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Logging\ConsoleLog;
 use App\Logging\QMLogLevel;
 use App\Utils\Env;
@@ -19,13 +19,13 @@ class AggregatedCorrelationsTest extends \Tests\SlimTests\SlimTestCase {
         }
     }
     /**
-     * @param QMAggregateCorrelation $c
+     * @param QMGlobalVariableRelationship $c
      */
-    protected function checkGetAggregateCorrelationFromGlobals(QMAggregateCorrelation $c): void{
-        $fromMemoryByName = QMAggregateCorrelation::getFromMemoryByCauseAndEffectNameOrId($c->causeVariableName, $c->effectVariableName);
+    protected function checkGetGlobalVariableRelationshipFromGlobals(QMGlobalVariableRelationship $c): void{
+        $fromMemoryByName = QMGlobalVariableRelationship::getFromMemoryByCauseAndEffectNameOrId($c->causeVariableName, $c->effectVariableName);
         $this->assertEquals($c->causeVariableName, $fromMemoryByName->causeVariableName);
         $this->assertEquals($c->effectVariableName, $fromMemoryByName->effectVariableName);
-        $fromMemoryById = QMAggregateCorrelation::getFromMemoryByCauseAndEffectNameOrId($c->causeVariableId, $c->effectVariableId);
+        $fromMemoryById = QMGlobalVariableRelationship::getFromMemoryByCauseAndEffectNameOrId($c->causeVariableId, $c->effectVariableId);
         $this->assertEquals($c->causeVariableId, $fromMemoryById->causeVariableId);
         $this->assertEquals($c->effectVariableId, $fromMemoryById->effectVariableId);
     }

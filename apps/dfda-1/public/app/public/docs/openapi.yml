@@ -5482,10 +5482,10 @@ components:
         name:
           type: string
           description: 'Ex: Trader Joes Bedtime Tea / Sleepytime Tea (any Brand)'
-        numberOfAggregateCorrelationsAsCause:
+        numberOfGlobalVariableRelationshipsAsCause:
           type: integer
           description: 'Ex: 1'
-        numberOfAggregateCorrelationsAsEffect:
+        numberOfGlobalVariableRelationshipsAsEffect:
           type: integer
           description: 'Ex: 310'
         numberOfChanges:
@@ -5498,10 +5498,10 @@ components:
           format: int32
         numberOfCorrelationsAsCause:
           type: integer
-          description: numberOfAggregateCorrelationsAsCause plus numberOfUserCorrelationsAsCause
+          description: numberOfGlobalVariableRelationshipsAsCause plus numberOfUserCorrelationsAsCause
         numberOfCorrelationsAsEffect:
           type: integer
-          description: numberOfAggregateCorrelationsAsEffect plus numberOfUserCorrelationsAsEffect
+          description: numberOfGlobalVariableRelationshipsAsEffect plus numberOfUserCorrelationsAsEffect
         numberOfProcessedDailyMeasurements:
           type: integer
           description: Number of processed measurements
@@ -6017,10 +6017,10 @@ components:
         name:
           type: string
           description: 'Ex: Trader Joes Bedtime Tea / Sleepytime Tea (any Brand)'
-        numberOfAggregateCorrelationsAsCause:
+        numberOfGlobalVariableRelationshipsAsCause:
           type: integer
           description: 'Ex: 1'
-        numberOfAggregateCorrelationsAsEffect:
+        numberOfGlobalVariableRelationshipsAsEffect:
           type: integer
           description: 'Ex: 310'
         numberOfChanges:
@@ -6033,10 +6033,10 @@ components:
           format: int32
         numberOfCorrelationsAsCause:
           type: integer
-          description: numberOfAggregateCorrelationsAsCause plus numberOfUserCorrelationsAsCause
+          description: numberOfGlobalVariableRelationshipsAsCause plus numberOfUserCorrelationsAsCause
         numberOfCorrelationsAsEffect:
           type: integer
-          description: numberOfAggregateCorrelationsAsEffect plus numberOfUserCorrelationsAsEffect
+          description: numberOfGlobalVariableRelationshipsAsEffect plus numberOfUserCorrelationsAsEffect
         numberOfProcessedDailyMeasurements:
           type: integer
           description: Number of processed measurements

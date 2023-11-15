@@ -459,10 +459,10 @@
     <p>{{ $correlation->experiment_start_at }}</p>
 </div>
 
-<!-- Aggregate Correlation Id Field -->
+<!-- Global Variable Relationship Id Field -->
 <div class="form-group">
-    {!! Form::label('aggregate_correlation_id', 'Aggregate Correlation Id:') !!}
-    <p>{{ $correlation->aggregate_correlation_id }}</p>
+    {!! Form::label('global_variable_relationship_id', 'Global Variable Relationship Id:') !!}
+    <p>{{ $correlation->global_variable_relationship_id }}</p>
 </div>
 
 <!-- Aggregated At Field -->

@@ -5,7 +5,7 @@ create table quantimodo_test.correlation_causality_votes
     cause_variable_id        int unsigned                        not null,
     effect_variable_id       int unsigned                        not null,
     correlation_id           int                                 null,
-    aggregate_correlation_id int                                 null,
+    global_variable_relationship_id int                                 null,
     user_id                  bigint unsigned                     not null,
     vote                     int                                 not null comment 'The opinion of the data owner on whether or not there is a plausible
                                 mechanism of action by which the predictor variable could influence the outcome variable.',
@@ -16,8 +16,8 @@ create table quantimodo_test.correlation_causality_votes
     is_public                tinyint(1)                          null,
     constraint correlation_causality_votes_user_cause_effect_uindex
         unique (user_id, cause_variable_id, effect_variable_id),
-    constraint correlation_causality_votes_aggregate_correlations_id_fk
-        foreign key (aggregate_correlation_id) references quantimodo_test.aggregate_correlations (id),
+    constraint correlation_causality_votes_global_variable_relationships_id_fk
+        foreign key (global_variable_relationship_id) references quantimodo_test.global_variable_relationships (id),
     constraint correlation_causality_votes_cause_variables_id_fk
         foreign key (cause_variable_id) references quantimodo_test.variables (id),
     constraint correlation_causality_votes_client_id_fk

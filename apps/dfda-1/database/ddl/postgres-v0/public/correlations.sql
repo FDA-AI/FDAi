@@ -100,9 +100,9 @@ create table correlations
     z_score                                                      double precision,
     experiment_start_at                                          timestamp(0),
     experiment_end_at                                            timestamp(0),
-    aggregate_correlation_id                                     integer
-        constraint correlations_aggregate_correlations_id_fk
-            references aggregate_correlations,
+    global_variable_relationship_id                                     integer
+        constraint correlations_global_variable_relationships_id_fk
+            references global_variable_relationships,
     aggregated_at                                                timestamp(0),
     usefulness_vote                                              integer,
     causality_vote                                               integer,
@@ -311,6 +311,6 @@ create index correlations_user_variables_cause_user_variable_id_fk
 create index correlations_user_variables_effect_user_variable_id_fk
     on correlations (effect_user_variable_id);
 
-create index correlations_aggregate_correlations_id_fk
-    on correlations (aggregate_correlation_id);
+create index correlations_global_variable_relationships_id_fk
+    on correlations (global_variable_relationship_id);
 

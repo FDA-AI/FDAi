@@ -1039,7 +1039,7 @@
         "comment": "Time at which the Correlation was Experiment Start At.  in the format YYYY-MM-DD HH:MM:SS in the UTC timezone. "
     },
     {
-        "name": "aggregate_correlation_id",
+        "name": "global_variable_relationship_id",
         "dbType": "integer,false",
         "htmlType": null,
         "validations": null,
@@ -1049,7 +1049,7 @@
         "inForm": true,
         "inIndex": true,
         "inView": true,
-        "comment": "Aggregate Correlation ID. "
+        "comment": "Global Variable Relationship ID. "
     },
     {
         "name": "aggregated_at",
@@ -1066,7 +1066,7 @@
     },
     {
         "type": "relation",
-        "relation": "mt1,AggregateCorrelation,aggregate_correlation_id"
+        "relation": "mt1,GlobalVariableRelationship,global_variable_relationship_id"
     },
     {
         "type": "relation",

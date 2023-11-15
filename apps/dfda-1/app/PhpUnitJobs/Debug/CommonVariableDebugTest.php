@@ -12,7 +12,7 @@ class CommonVariableDebugTest extends JobTestCase{
     public function testCommonVariableAnalysisDebug(){
         $v = QMCommonVariable::findByNameOrId(88271);
         $row = $v->getDbRow();
-        $correlation = $v->getBestAggregateCorrelation();
+        $correlation = $v->getBestGlobalVariableRelationship();
         $v->status = UserVariableStatusProperty::STATUS_UPDATED;
         $v->analyzeFully(__FUNCTION__);
     }

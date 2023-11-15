@@ -591,7 +591,7 @@ angular.module('starter').controller('RemindersInboxCtrl', ["$scope", "$state", 
             if(!$scope.state.studiesResponse){
                 qm.studyHelper.getStudiesFromApi({
                     limit: 10,
-                    fallbackToAggregateCorrelations: true
+                    fallbackToGlobalVariableRelationships: true
                 }, function(studiesResponse){
                     $scope.state.studiesResponse = studiesResponse;
                 }, function(error){

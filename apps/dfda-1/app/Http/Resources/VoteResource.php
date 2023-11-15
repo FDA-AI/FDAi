@@ -20,7 +20,7 @@ class VoteResource extends BaseJsonResource
             'value' => $this->value,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'aggregate_correlation_id' => $this->aggregate_correlation_id,
+            'global_variable_relationship_id' => $this->global_variable_relationship_id,
             'is_public' => $this->is_public,
 
             'client_id' => $this->client_id,
@@ -30,7 +30,7 @@ class VoteResource extends BaseJsonResource
             'user' => new UserResource($this->whenLoaded('user')),
             'cause_variable' => new VariableResource($this->whenLoaded('cause_variable')),
             'effect_variable' => new VariableResource($this->whenLoaded('effect_variable')),
-            'aggregate_correlation' => new AggregateCorrelationResource($this->whenLoaded('aggregate_correlation')),
+            'global_variable_relationship' => new GlobalVariableRelationshipResource($this->whenLoaded('global_variable_relationship')),
             'correlation' => new CorrelationResource($this->whenLoaded('correlation')),
         ];
     }

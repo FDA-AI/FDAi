@@ -5,9 +5,9 @@
  */
 
 namespace App\PhpUnitJobs\Cleanup;
-use App\Correlations\QMAggregateCorrelation;
+use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMUserCorrelation;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 use App\Models\WpPost;
 use App\Models\WpTerm;
 use App\Models\WpTermTaxonomy;
@@ -84,10 +84,10 @@ class WPCleanUpJobTest extends JobTestCase {
      */
     public static function deleteAllWpPosts(){
         $array = [
-            AggregateCorrelation::FIELD_PUBLISHED_AT => null,
-            AggregateCorrelation::FIELD_WP_POST_ID   => null
+            GlobalVariableRelationship::FIELD_PUBLISHED_AT => null,
+            GlobalVariableRelationship::FIELD_WP_POST_ID   => null
         ];
-        QMAggregateCorrelation::writable()->update($array);
+        QMGlobalVariableRelationship::writable()->update($array);
         QMUserCorrelation::writable()->update($array);
         $result = QMStudy::writable()->update($array);
         //QMWordPressApi::deleteAllPosts();

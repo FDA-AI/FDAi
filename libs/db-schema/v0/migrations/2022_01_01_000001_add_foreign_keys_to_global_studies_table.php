@@ -14,7 +14,7 @@ class AddForeignKeysToGlobalStudiesTable extends Migration
     public function up()
     {
         Schema::table('global_studies', function (Blueprint $table) {
-            $table->foreign(['aggregate_correlation_id'], 'global_studies_aggregate_correlations_id_fk')->references(['id'])->on('aggregate_correlations')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['global_variable_relationship_id'], 'global_studies_global_variable_relationships_id_fk')->references(['id'])->on('global_variable_relationships')->onUpdate('NO ACTION')->onDelete('NO ACTION');
             $table->foreign(['cause_variable_id'], 'global_studies_cause_variable_id_variables_id_fk')->references(['id'])->on('variables')->onUpdate('NO ACTION')->onDelete('NO ACTION');
             $table->foreign(['client_id'], 'global_studies_client_id_fk')->references(['client_id'])->on('oa_clients')->onUpdate('NO ACTION')->onDelete('NO ACTION');
             $table->foreign(['effect_variable_id'], 'global_studies_effect_variable_id_variables_id_fk')->references(['id'])->on('variables')->onUpdate('NO ACTION')->onDelete('NO ACTION');
@@ -30,7 +30,7 @@ class AddForeignKeysToGlobalStudiesTable extends Migration
     public function down()
     {
         Schema::table('global_studies', function (Blueprint $table) {
-            $table->dropForeign('global_studies_aggregate_correlations_id_fk');
+            $table->dropForeign('global_studies_global_variable_relationships_id_fk');
             $table->dropForeign('global_studies_cause_variable_id_variables_id_fk');
             $table->dropForeign('global_studies_client_id_fk');
             $table->dropForeign('global_studies_effect_variable_id_variables_id_fk');

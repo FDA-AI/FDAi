@@ -10,7 +10,7 @@ use App\Types\PhpTypes;
 use App\UI\ImageUrls;
 use App\UI\FontAwesome;
 use App\Properties\BaseProperty;
-use App\Models\AggregateCorrelation;
+use App\Models\GlobalVariableRelationship;
 class BaseAnalysisRequestedAtProperty extends BaseProperty{
 	use IsDateTime;
 	public $dbInput = 'datetime:nullable';
@@ -29,7 +29,7 @@ class BaseAnalysisRequestedAtProperty extends BaseProperty{
 	public $isFillable = true;
 	public $isOrderable = true;
 	public $isSearchable = false;
-    public const NAME = AggregateCorrelation::FIELD_ANALYSIS_REQUESTED_AT;
+    public const NAME = GlobalVariableRelationship::FIELD_ANALYSIS_REQUESTED_AT;
     public $name = self::NAME;
 	public $canBeChangedToNull = true;
 	public $phpType = PhpTypes::STRING;
