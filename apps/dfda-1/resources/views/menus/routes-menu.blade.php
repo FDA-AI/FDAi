@@ -490,10 +490,10 @@
 	</a>
 </li>
 <li>
-	<a href="/api/v2/aggregated-correlations-email" target="_blank" title="Account Predictors
-            title from url: Aggregated-Correlations-Email
+	<a href="/api/v2/global variable relationships-email" target="_blank" title="Account Predictors
+            title from url: Global Variable Relationships-Email
             title from name: Account predictors
-            action:  @ api/v2/aggregated-correlations-email">Aggregated-Correlations-Email
+            action:  @ api/v2/global variable relationships-email">Global Variable Relationships-Email
 	</a>
 </li>
 <li>

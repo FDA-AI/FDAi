@@ -306,7 +306,7 @@ abstract class BaseGlobalVariableRelationship extends BaseModel {
 	public const FIELD_Z_SCORE = 'z_score';
 	public const TABLE = 'global_variable_relationships';
 	protected $table = self::TABLE;
-	public const CLASS_DESCRIPTION = 'Stores Calculated Aggregated Correlation Coefficients';
+	public const CLASS_DESCRIPTION = 'Stores Calculated Global Variable Relationship Coefficients';
 	protected $casts = [
         self::FIELD_CREATED_AT => 'datetime',
         self::FIELD_UPDATED_AT => 'datetime',

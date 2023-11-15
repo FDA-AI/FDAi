@@ -908,7 +908,7 @@ categories:'.
      * @return bool
      */
     public function weHaveEnoughNewMeasurementsToRecalculate(): bool {
-        // TODO: Add to aggregated correlations
+        // TODO: Add to global variable relationships
         $c = $this->getHasCorrelationCoefficientFromDatabase();
         if(!isset($c->causeNumberOfRawMeasurements)){
             return false;

@@ -102,7 +102,7 @@ class GlobalVariableRelationshipsCleanUpJobTest extends JobTestCase {
         }
         $rows = $qb->getArray();
         if($rows){
-            QMLog::error(count($rows) . " aggregated correlations have too $smallOrBig $field for unit");
+            QMLog::error(count($rows) . " global variable relationships have too $smallOrBig $field for unit");
             foreach($rows as $row){
                 self::recalculateAndRecheckForPair($row->cause_variable_id, $row->effect_variable_id);
             }
@@ -126,7 +126,7 @@ class GlobalVariableRelationshipsCleanUpJobTest extends JobTestCase {
         }
         $rows = $qb->getArray();
         if($rows){
-            QMLog::error(count($rows) . " aggregated correlations have too $smallOrBig $field for variable");
+            QMLog::error(count($rows) . " global variable relationships have too $smallOrBig $field for variable");
             foreach($rows as $row){
                 try {
                     self::recalculateAndRecheckForPair($row->cause_variable_id, $row->effect_variable_id);

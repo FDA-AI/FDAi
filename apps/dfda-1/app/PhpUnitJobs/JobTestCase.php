@@ -200,10 +200,10 @@ class JobTestCase extends TestCase {
     }
     protected function checkAggregatedCorrelationStats(){
         $numberUpdatedInLastDay = QMGlobalVariableRelationship::logNumberAnalyzedInLastDay();
-        $this->assertGreaterThan(0, $numberUpdatedInLastDay, "No AGGREGATED correlations in last 24 hours!");
+        $this->assertGreaterThan(0, $numberUpdatedInLastDay, "No global Variable Relationships in last 24 hours!");
         $mostRecent = QMGlobalVariableRelationship::getMostRecentlyAnalyzed();
         $this->assertLessThan(86400 / 60 + 10, $mostRecent->getMinutesSinceUpdatedAt(),
-            "Last AGGREGATED correlation update was more than a day ago!");
+            "Last global Variable Relationship update was more than a day ago!");
     }
     protected function checkUserVariableStats(){
         $numberUpdatedInLastDay = QMUserVariable::logNumberAnalyzedInLastDay();
