@@ -69,8 +69,8 @@ class CreateUserVariablesTable extends Migration
             $table->string('alias', 125)->nullable();
             $table->float('second_to_last_value', 0, 0)->nullable();
             $table->float('third_to_last_value', 0, 0)->nullable();
-            $table->integer('number_of_user_correlations_as_effect')->nullable();
-            $table->integer('number_of_user_correlations_as_cause')->nullable();
+            $table->integer('number_of_user_variable_relationships_as_effect')->nullable();
+            $table->integer('number_of_user_variable_relationships_as_cause')->nullable();
             $table->enum('combination_operation', ['SUM', 'MEAN'])->nullable();
             $table->string('informational_url', 2000)->nullable();
             $table->integer('most_common_connector_id')->nullable();
@@ -106,7 +106,7 @@ class CreateUserVariablesTable extends Migration
             $table->timestamp('earliest_non_tagged_measurement_start_at')->nullable();
             $table->bigInteger('wp_post_id')->nullable()->index('user_variables_wp_posts_ID_fk');
             $table->integer('number_of_soft_deleted_measurements')->nullable();
-            $table->integer('best_user_correlation_id')->nullable()->index('user_variables_correlations_qm_score_fk');
+            $table->integer('best_user_variable_relationship_id')->nullable()->index('user_variables_correlations_qm_score_fk');
             $table->integer('number_of_measurements')->nullable();
             $table->integer('number_of_tracking_reminder_notifications')->nullable();
             $table->string('deletion_reason', 280)->nullable();

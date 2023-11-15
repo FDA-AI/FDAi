@@ -167,7 +167,7 @@ class VariablesSearchTest extends \Tests\SlimTests\SlimTestCase {
         Writable::db()
             ->table('user_variables')
             ->where('variable_id', 1398)
-            ->update(['number_of_user_correlations_as_effect' => 0]);
+            ->update(['number_of_user_variable_relationships_as_effect' => 0]);
         Writable::db()
             ->table('variables')
             ->where('id', 1398)

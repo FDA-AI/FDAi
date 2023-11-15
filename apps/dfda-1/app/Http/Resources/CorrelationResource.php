@@ -127,7 +127,7 @@ class CorrelationResource extends BaseJsonResource
             //'user' => new UserResource($this->whenLoaded('user')),
             'user_error_message' => $this->user_error_message,
             'user_id' => $this->user_id,
-            'user_variables_where_best_user_correlation_count' => $this->user_variables_where_best_user_correlation_count,
+            'user_variables_where_best_user_variable_relationship_count' => $this->user_variables_where_best_user_variable_relationship_count,
             'value_predicting_high_outcome' => $this->value_predicting_high_outcome,
             'value_predicting_low_outcome' => $this->value_predicting_low_outcome,
             'vote' => $this->vote,

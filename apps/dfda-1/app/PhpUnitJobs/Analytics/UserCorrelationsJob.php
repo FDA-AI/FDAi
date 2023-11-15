@@ -13,7 +13,7 @@ use App\Slim\Model\User\QMUser;
  * @package App\PhpUnitJobs
  */
 class UserCorrelationsJob extends JobTestCase {
-    //public const SLACK_CHANNEL = "user-correlations";
+    //public const SLACK_CHANNEL = "user-variable-relationships";
     protected const SLACK_CHANNEL = '#emergency';
     public function testUserCorrelationAnalysisJob(){
         $this->assertGreaterThanOrEqual(1500, ThisComputer::getMemoryLimitWithBufferInMB());

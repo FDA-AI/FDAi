@@ -758,7 +758,7 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 			}
 		}
 		if(!$correlations){
-			QMLog::error("No user correlations for $this. " . $this->getDataLabDeleteUrl());
+			QMLog::error("No user variable relationships for $this. " . $this->getDataLabDeleteUrl());
 		}
 		return $correlations;
 	}

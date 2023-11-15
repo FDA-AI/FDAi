@@ -147,8 +147,8 @@ abstract class QMVariable extends VariableSearchResult {
 	protected $sortOrder;
 	protected $recordSizeInKb;
 	protected $unit;
-	protected $userCorrelationsAsCause;
-	protected $userCorrelationsAsEffect;
+	protected $userVariableRelationshipsAsCause;
+	protected $userVariableRelationshipsAsEffect;
 	protected $values;
 	protected $variableCategory;
 	protected $variableSettingsUrl;
@@ -3205,8 +3205,8 @@ abstract class QMVariable extends VariableSearchResult {
 				}
 			}
 		}
-		if($this->userCorrelationsAsEffect){
-			le('$this->userCorrelationsAsEffect');
+		if($this->userVariableRelationshipsAsEffect){
+			le('$this->userVariableRelationshipsAsEffect');
 		}
 	}
 	public function removeRecursion(){
@@ -3232,14 +3232,14 @@ abstract class QMVariable extends VariableSearchResult {
 	 * @return Correlation[]|Collection
 	 */
 	public function getCorrelationsAsEffect(int $limit = null, string $variableCategoryName = null){
-		$correlations = $this->userCorrelationsAsEffect;
+		$correlations = $this->userVariableRelationshipsAsEffect;
 		if($correlations === null){
 			$correlations = $this->setUserCorrelationsAsEffect($limit, $variableCategoryName);
 		}
 		if($variableCategoryName){
 			return HasCauseAndEffect::filterByCauseCategory($correlations, $variableCategoryName);
 		}
-		return $this->userCorrelationsAsEffect = $correlations;
+		return $this->userVariableRelationshipsAsEffect = $correlations;
 	}
 	/**
 	 * @param int|null $limit
@@ -3247,14 +3247,14 @@ abstract class QMVariable extends VariableSearchResult {
 	 * @return Correlation[]|Collection
 	 */
 	public function getCorrelationsAsCause(int $limit = null, string $variableCategoryName = null){
-		$correlations = $this->userCorrelationsAsCause;
+		$correlations = $this->userVariableRelationshipsAsCause;
 		if($correlations === null){
 			$correlations = $this->setUserCorrelationsAsCause();
 		}
 		if($variableCategoryName){
 			return HasCauseAndEffect::filterByEffectCategory($correlations, $variableCategoryName);
 		}
-		return $this->userCorrelationsAsCause = $correlations;
+		return $this->userVariableRelationshipsAsCause = $correlations;
 	}
 	/**
 	 * @param int|null $limit
@@ -3270,7 +3270,7 @@ abstract class QMVariable extends VariableSearchResult {
 		// Slows down query Correlation::applyDefaultOrderings($qb);
 		$correlations = $qb->get();
 		$correlations = $correlations->sortByDesc(Correlation::FIELD_QM_SCORE);
-		return $this->userCorrelationsAsCause = $correlations;
+		return $this->userVariableRelationshipsAsCause = $correlations;
 	}
 	/**
 	 * @param int|null $limit
@@ -3287,7 +3287,7 @@ abstract class QMVariable extends VariableSearchResult {
 		// Slows down query Correlation::applyDefaultOrderings($qb);
 		$correlations = $qb->get();
 		$correlations = $correlations->sortByDesc(Correlation::FIELD_QM_SCORE);
-		return $this->userCorrelationsAsEffect = $correlations;
+		return $this->userVariableRelationshipsAsEffect = $correlations;
 	}
 	/**
 	 * @return Correlation[]|Collection

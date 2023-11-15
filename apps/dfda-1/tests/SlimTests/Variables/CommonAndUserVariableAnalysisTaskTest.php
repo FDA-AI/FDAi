@@ -123,11 +123,11 @@ class CommonAndUserVariableAnalysisTaskTest extends \Tests\SlimTests\SlimTestCas
         $this->assertCount(0, $posts->toArray(),
             "We should not automatically publish user posts due to storage limitations");
         $l = $uv->l();
-        $c = $l->best_user_correlation_id;
+        $c = $l->best_user_variable_relationship_id;
         if($c){
             $this->assertNotNull($c, $l->print());
             $b = $l->getRelationshipButton(UserVariableBestUserCorrelationButton::class);
-            $this->assertEquals("Best User Correlation", $b->title);
+            $this->assertEquals("Best User Variable Relationship", $b->title);
         }
         $b = $l->getRelationshipButton(UserVariableDefaultUnitButton::class);
         $this->assertEquals(OneToFiveRatingUnit::NAME, $b->title);

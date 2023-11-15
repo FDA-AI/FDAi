@@ -52,7 +52,7 @@ class Memory {
 	public const REDIS = "REDIS";
     public const MONGO_MEMORY_CACHE = "MONGO_MEMORY_CACHE";
     public const NEW_MEASUREMENTS = 'NEW_MEASUREMENTS';
-    public const NEWLY_CALCULATED_USER_CORRELATIONS = 'NEWLY_CALCULATED_USER_CORRELATIONS';
+    public const NEWLY_CALCULATED_USER_VARIABLE_RELATIONSHIPS = 'NEWLY_CALCULATED_USER_VARIABLE_RELATIONSHIPS';
     public const PAIRS_OF_AVERAGES = "PAIRS_OF_AVERAGES";
     public const QM_ACCESS_TOKEN = "QM_ACCESS_TOKEN";
     public const QM_ACCESS_TOKEN_STRING = "QM_ACCESS_TOKEN_STRING";
@@ -278,7 +278,7 @@ class Memory {
      * @param QMUserCorrelation $c
      */
     public static function addNewlyCalculatedUserCorrelation(QMUserCorrelation $c){
-        self::set($c->getUniqueIndexIdsSlug(), $c, self::NEWLY_CALCULATED_USER_CORRELATIONS);
+        self::set($c->getUniqueIndexIdsSlug(), $c, self::NEWLY_CALCULATED_USER_VARIABLE_RELATIONSHIPS);
     }
     /**
      * @param int $userId
@@ -287,7 +287,7 @@ class Memory {
      * @return QMUserCorrelation
      */
     public static function getNewlyCalculatedUserCorrelation(int $userId, int $causeId, int $effectId): ?QMUserCorrelation {
-        $all = self::getByPrimaryKey(self::NEWLY_CALCULATED_USER_CORRELATIONS);
+        $all = self::getByPrimaryKey(self::NEWLY_CALCULATED_USER_VARIABLE_RELATIONSHIPS);
         if(!$all){return null;}
         return collect($all)->filter(function($one) use($userId, $causeId, $effectId){
             /** @var QMUserCorrelation $one */

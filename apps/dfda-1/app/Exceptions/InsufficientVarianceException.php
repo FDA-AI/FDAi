@@ -11,7 +11,7 @@ class InsufficientVarianceException extends NotEnoughDataException {
     /**
      * @var QMUserCorrelation
      */
-    public $userCorrelation;
+    public $userVariableRelationship;
     /**
      * InsufficientVarianceException constructor.
      * @param QMUserCorrelation $correlation
@@ -20,7 +20,7 @@ class InsufficientVarianceException extends NotEnoughDataException {
      */
     public function __construct(QMUserCorrelation $correlation, string $problemDetails = '',
                                 string $internalErrorMessage = null){
-        $this->analyzable = $this->userCorrelation = $correlation;
+        $this->analyzable = $this->userVariableRelationship = $correlation;
         $causeEffect = $correlation->getCauseAndEffectString();
         $problemDetails .= "There is not enough variance in the data to create a study on the relationship between $causeEffect. ".
             $correlation->getChangesVarianceSentence().

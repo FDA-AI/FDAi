@@ -26,7 +26,7 @@ class GetStudiesAnonymouslyTest extends SlimStagingTestCase
                 ->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $study->effectVariableId)
                 ->count();
             $this->assertGreaterThan(1, $numberOfUserCorrelations,
-                $study->title." only has $numberOfUserCorrelations user correlations");
+                $study->title." only has $numberOfUserCorrelations user variable relationships");
         }
 		$this->assertArrayEquals(array (
             0 => 'Higher Daily Step Count Predicts Very Slightly Higher Overall Mood for Population',

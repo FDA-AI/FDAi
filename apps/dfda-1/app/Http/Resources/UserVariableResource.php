@@ -44,9 +44,9 @@ class UserVariableResource extends BaseJsonResource
             'best_effect_variable' => $this->relationLoaded('best_effect_variable') ?
                 new VariableResource($this->whenLoaded('best_effect_variable')) : null,
             'best_effect_variable_id' => $this->best_effect_variable_id,
-            'best_user_correlation' => $this->relationLoaded('best_user_correlation') ?
-                new CorrelationResource($this->whenLoaded('best_user_correlation')) : null,
-            'best_user_correlation_id' => $this->best_user_correlation_id,
+            'best_user_variable_relationship' => $this->relationLoaded('best_user_variable_relationship') ?
+                new CorrelationResource($this->whenLoaded('best_user_variable_relationship')) : null,
+            'best_user_variable_relationship_id' => $this->best_user_variable_relationship_id,
             'boring' => $this->boring,
             'cause_only' => $this->cause_only,
             'client_id' => $this->client_id,
@@ -122,8 +122,8 @@ class UserVariableResource extends BaseJsonResource
             'number_of_unique_daily_values' => $this->number_of_unique_daily_values,
             'number_of_unique_values' => $this->number_of_unique_values,
             'number_of_user_children' => $this->number_of_user_children,
-            'number_of_user_correlations_as_cause' => $this->number_of_user_correlations_as_cause,
-            'number_of_user_correlations_as_effect' => $this->number_of_user_correlations_as_effect,
+            'number_of_user_variable_relationships_as_cause' => $this->number_of_user_variable_relationships_as_cause,
+            'number_of_user_variable_relationships_as_effect' => $this->number_of_user_variable_relationships_as_effect,
             'number_of_user_foods' => $this->number_of_user_foods,
             'number_of_user_ingredients' => $this->number_of_user_ingredients,
             'number_of_user_joined_variables' => $this->number_of_user_joined_variables,

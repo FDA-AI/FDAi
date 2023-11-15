@@ -70,7 +70,7 @@ class VariablesSearchTest extends \Tests\SlimTests\SlimTestCase {
         Writable::db()
             ->table('user_variables')
             ->where('variable_id', 1398)
-            ->update(['number_of_user_correlations_as_effect' => 2]);
+            ->update(['number_of_user_variable_relationships_as_effect' => 2]);
         $this->setAuthenticatedUser(1);
         $searchTerm = 'Mood Overall';
         $variables = $this->searchVariables($searchTerm,
@@ -91,7 +91,7 @@ class VariablesSearchTest extends \Tests\SlimTests\SlimTestCase {
         Writable::db()
             ->table('user_variables')
             ->where('variable_id', 1398)
-            ->update(['number_of_user_correlations_as_effect' => 2]);
+            ->update(['number_of_user_variable_relationships_as_effect' => 2]);
         Writable::db()->table('variables')->where('id', 1398)->update([
             'number_of_global_variable_relationships_as_effect' => 2,
             Variable::FIELD_IS_PUBLIC                                     => 0

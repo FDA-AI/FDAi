@@ -88,8 +88,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon $deleted_at
  * @property float $second_to_last_value
  * @property float $third_to_last_value
- * @property int $number_of_user_correlations_as_effect
- * @property int $number_of_user_correlations_as_cause
+ * @property int $number_of_user_variable_relationships_as_effect
+ * @property int $number_of_user_variable_relationships_as_cause
  * @property string $combination_operation
  * @property string $informational_url
  * @property int $most_common_connector_id
@@ -125,7 +125,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon $earliest_non_tagged_measurement_start_at
  * @property int $wp_post_id
  * @property int $number_of_soft_deleted_measurements
- * @property int $best_user_correlation_id
+ * @property int $best_user_variable_relationship_id
  * @property int $number_of_measurements
  * @property int $number_of_tracking_reminder_notifications
  * @property string $deletion_reason
@@ -149,7 +149,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property bool $controllable
  * @property bool $boring
  * @property OAClient $oa_client
- * @property Correlation $best_user_correlation
+ * @property Correlation $best_user_variable_relationship
  * @property Unit $default_unit
  * @property Unit $last_unit
  * @property \App\Models\User $user
@@ -329,7 +329,7 @@ abstract class BaseUserVariable extends BaseModel {
 	public const FIELD_AVERAGE_SECONDS_BETWEEN_MEASUREMENTS = 'average_seconds_between_measurements';
 	public const FIELD_BEST_CAUSE_VARIABLE_ID = 'best_cause_variable_id';
 	public const FIELD_BEST_EFFECT_VARIABLE_ID = 'best_effect_variable_id';
-	public const FIELD_BEST_USER_CORRELATION_ID = 'best_user_correlation_id';
+	public const FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID = 'best_user_variable_relationship_id';
 	public const FIELD_BORING = 'boring';
 	public const FIELD_CAUSE_ONLY = 'cause_only';
 	public const FIELD_CLIENT_ID = 'client_id';
@@ -403,8 +403,8 @@ abstract class BaseUserVariable extends BaseModel {
 	public const FIELD_NUMBER_OF_UNIQUE_DAILY_VALUES = 'number_of_unique_daily_values';
 	public const FIELD_NUMBER_OF_UNIQUE_VALUES = 'number_of_unique_values';
 	public const FIELD_NUMBER_OF_USER_CHILDREN = 'number_of_user_children';
-	public const FIELD_NUMBER_OF_USER_CORRELATIONS_AS_CAUSE = 'number_of_user_correlations_as_cause';
-	public const FIELD_NUMBER_OF_USER_CORRELATIONS_AS_EFFECT = 'number_of_user_correlations_as_effect';
+	public const FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE = 'number_of_user_variable_relationships_as_cause';
+	public const FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT = 'number_of_user_variable_relationships_as_effect';
 	public const FIELD_NUMBER_OF_USER_FOODS = 'number_of_user_foods';
 	public const FIELD_NUMBER_OF_USER_INGREDIENTS = 'number_of_user_ingredients';
 	public const FIELD_NUMBER_OF_USER_JOINED_VARIABLES = 'number_of_user_joined_variables';
@@ -461,7 +461,7 @@ abstract class BaseUserVariable extends BaseModel {
 		self::FIELD_AVERAGE_SECONDS_BETWEEN_MEASUREMENTS => 'int',
 		self::FIELD_BEST_CAUSE_VARIABLE_ID => 'int',
 		self::FIELD_BEST_EFFECT_VARIABLE_ID => 'int',
-		self::FIELD_BEST_USER_CORRELATION_ID => 'int',
+		self::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID => 'int',
 		self::FIELD_BORING => 'bool',
 		self::FIELD_CAUSE_ONLY => 'bool',
 		self::FIELD_CLIENT_ID => 'string',
@@ -523,8 +523,8 @@ abstract class BaseUserVariable extends BaseModel {
 		self::FIELD_NUMBER_OF_UNIQUE_DAILY_VALUES => 'int',
 		self::FIELD_NUMBER_OF_UNIQUE_VALUES => 'int',
 		self::FIELD_NUMBER_OF_USER_CHILDREN => 'int',
-		self::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_CAUSE => 'int',
-		self::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_EFFECT => 'int',
+		self::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE => 'int',
+		self::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT => 'int',
 		self::FIELD_NUMBER_OF_USER_FOODS => 'int',
 		self::FIELD_NUMBER_OF_USER_INGREDIENTS => 'int',
 		self::FIELD_NUMBER_OF_USER_JOINED_VARIABLES => 'int',
@@ -564,7 +564,7 @@ abstract class BaseUserVariable extends BaseModel {
 		self::FIELD_AVERAGE_SECONDS_BETWEEN_MEASUREMENTS => 'nullable|integer|min:-2147483648|max:2147483647',
 		self::FIELD_BEST_CAUSE_VARIABLE_ID => 'nullable|integer|min:-2147483648|max:2147483647',
 		self::FIELD_BEST_EFFECT_VARIABLE_ID => 'nullable|integer|min:-2147483648|max:2147483647',
-		self::FIELD_BEST_USER_CORRELATION_ID => 'nullable|integer|min:-2147483648|max:2147483647',
+		self::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID => 'nullable|integer|min:-2147483648|max:2147483647',
 		self::FIELD_BORING => 'nullable|boolean',
 		self::FIELD_CAUSE_ONLY => 'nullable|boolean',
 		self::FIELD_CLIENT_ID => 'nullable|max:80',
@@ -635,8 +635,8 @@ abstract class BaseUserVariable extends BaseModel {
 		self::FIELD_NUMBER_OF_UNIQUE_DAILY_VALUES => 'nullable|integer|min:-2147483648|max:2147483647',
 		self::FIELD_NUMBER_OF_UNIQUE_VALUES => 'nullable|integer|min:-2147483648|max:2147483647',
 		self::FIELD_NUMBER_OF_USER_CHILDREN => 'nullable|integer|min:-2147483648|max:2147483647',
-		self::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_CAUSE => 'nullable|integer|min:0|max:2147483647',
-		self::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_EFFECT => 'nullable|integer|min:0|max:2147483647',
+		self::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE => 'nullable|integer|min:0|max:2147483647',
+		self::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT => 'nullable|integer|min:0|max:2147483647',
 		self::FIELD_NUMBER_OF_USER_FOODS => 'nullable|integer|min:-2147483648|max:2147483647',
 		self::FIELD_NUMBER_OF_USER_INGREDIENTS => 'nullable|integer|min:-2147483648|max:2147483647',
 		self::FIELD_NUMBER_OF_USER_JOINED_VARIABLES => 'nullable|integer|min:-2147483648|max:2147483647',
@@ -724,8 +724,8 @@ abstract class BaseUserVariable extends BaseModel {
 		self::FIELD_DELETED_AT => 'datetime',
 		self::FIELD_SECOND_TO_LAST_VALUE => '',
 		self::FIELD_THIRD_TO_LAST_VALUE => '',
-		self::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_EFFECT => 'Number of user correlations for which this variable is the effect variable',
-		self::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_CAUSE => 'Number of user correlations for which this variable is the cause variable',
+		self::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT => 'Number of user variable relationships for which this variable is the effect variable',
+		self::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE => 'Number of user variable relationships for which this variable is the cause variable',
 		self::FIELD_COMBINATION_OPERATION => 'How to combine values of this variable (for instance, to see a summary of the values over a month) SUM or MEAN',
 		self::FIELD_INFORMATIONAL_URL => 'Wikipedia url',
 		self::FIELD_MOST_COMMON_CONNECTOR_ID => '',
@@ -769,7 +769,7 @@ abstract class BaseUserVariable extends BaseModel {
                     ) m on v.id = m.user_variable_id
                 set v.number_of_soft_deleted_measurements = m.number_of_soft_deleted_measurements
             ',
-		self::FIELD_BEST_USER_CORRELATION_ID => '',
+		self::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID => '',
 		self::FIELD_NUMBER_OF_MEASUREMENTS => 'Number of Measurements for this User Variable.
                     [Formula: update user_variables
                         left join (
@@ -821,16 +821,16 @@ abstract class BaseUserVariable extends BaseModel {
 			'ownerKey' => UserVariable::FIELD_CLIENT_ID,
 			'methodName' => 'oa_client',
 		],
-		'best_user_correlation' => [
+		'best_user_variable_relationship' => [
 			'relationshipType' => 'BelongsTo',
 			'qualifiedUserClassName' => Correlation::class,
-			'foreignKeyColumnName' => 'best_user_correlation_id',
-			'foreignKey' => UserVariable::FIELD_BEST_USER_CORRELATION_ID,
+			'foreignKeyColumnName' => 'best_user_variable_relationship_id',
+			'foreignKey' => UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID,
 			'otherKeyColumnName' => 'id',
 			'otherKey' => Correlation::FIELD_ID,
-			'ownerKeyColumnName' => 'best_user_correlation_id',
-			'ownerKey' => UserVariable::FIELD_BEST_USER_CORRELATION_ID,
-			'methodName' => 'best_user_correlation',
+			'ownerKeyColumnName' => 'best_user_variable_relationship_id',
+			'ownerKey' => UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID,
+			'methodName' => 'best_user_variable_relationship',
 		],
 		'default_unit' => [
 			'relationshipType' => 'BelongsTo',
@@ -973,9 +973,9 @@ abstract class BaseUserVariable extends BaseModel {
 		return $this->belongsTo(OAClient::class, UserVariable::FIELD_CLIENT_ID, OAClient::FIELD_CLIENT_ID,
 			UserVariable::FIELD_CLIENT_ID);
 	}
-	public function best_user_correlation(): BelongsTo{
-		return $this->belongsTo(Correlation::class, UserVariable::FIELD_BEST_USER_CORRELATION_ID, Correlation::FIELD_ID,
-			UserVariable::FIELD_BEST_USER_CORRELATION_ID);
+	public function best_user_variable_relationship(): BelongsTo{
+		return $this->belongsTo(Correlation::class, UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID, Correlation::FIELD_ID,
+			UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID);
 	}
 	public function default_unit(): BelongsTo{
 		return $this->belongsTo(Unit::class, UserVariable::FIELD_DEFAULT_UNIT_ID, Unit::FIELD_ID,

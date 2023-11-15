@@ -285,9 +285,9 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property string|null $deleted_at
  * @property float|null $second_to_last_value
  * @property float|null $third_to_last_value
- * @property int|null $number_of_user_correlations_as_effect Number of user correlations for which this variable is the
+ * @property int|null $number_of_user_variable_relationships_as_effect Number of user variable relationships for which this variable is the
  *     effect variable
- * @property int|null $number_of_user_correlations_as_cause Number of user correlations for which this variable is the
+ * @property int|null $number_of_user_variable_relationships_as_cause Number of user variable relationships for which this variable is the
  *     cause variable
  * @property string|null $combination_operation How to combine values of this variable (for instance, to see a summary
  *     of the values over a month) SUM or MEAN
@@ -302,8 +302,8 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property string|null $optimal_value_message
  * @property int|null $best_cause_variable_id
  * @property int|null $best_effect_variable_id
- * @property string|null $best_user_correlation_id
- * @property QMUserCorrelation $best_user_correlation
+ * @property string|null $best_user_variable_relationship_id
+ * @property QMUserCorrelation $best_user_variable_relationship
  * @property float|null $user_maximum_allowed_daily_value
  * @property float|null $user_minimum_allowed_daily_value
  * @property float|null $user_minimum_allowed_non_zero_value
@@ -576,7 +576,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	public const DEFAULT_SEARCH_FIELD = 'variable.' . Variable::FIELD_NAME;
 	public const FONT_AWESOME         = FontAwesome::VIMEO;
 	public const IMPORTANT_FIELDS     = self::FIELD_ID . ',' . self::FIELD_BEST_CAUSE_VARIABLE_ID . ',' .
-	self::FIELD_BEST_EFFECT_VARIABLE_ID . ',' . self::FIELD_BEST_USER_CORRELATION_ID . ',' .
+	self::FIELD_BEST_EFFECT_VARIABLE_ID . ',' . self::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID . ',' .
 	self::FIELD_COMBINATION_OPERATION . ',' . self::FIELD_DEFAULT_UNIT_ID . ',' . self::FIELD_EARLIEST_FILLING_TIME .
 	',' . self::FIELD_EARLIEST_NON_TAGGED_MEASUREMENT_START_AT . ',' .
 	self::FIELD_EARLIEST_TAGGED_MEASUREMENT_START_AT . ',' . self::FIELD_EARLIEST_SOURCE_MEASUREMENT_START_AT . ',' .
@@ -593,7 +593,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	self::FIELD_NUMBER_OF_PROCESSED_DAILY_MEASUREMENTS . ',' . self::FIELD_NUMBER_OF_MEASUREMENTS . ',' .
 	self::FIELD_NUMBER_OF_RAW_MEASUREMENTS_WITH_TAGS_JOINS_CHILDREN . ',' . self::FIELD_NUMBER_OF_TRACKING_REMINDERS .
 	',' . self::FIELD_NUMBER_OF_UNIQUE_DAILY_VALUES . ',' . self::FIELD_NUMBER_OF_UNIQUE_VALUES . ',' .
-	self::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_CAUSE . ',' . self::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_EFFECT . ',' .
+	self::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE . ',' . self::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT . ',' .
 	self::FIELD_OPTIMAL_VALUE_MESSAGE . ',' . self::FIELD_OUTCOME . ',' . self::FIELD_IS_PUBLIC . ',' .
 	self::FIELD_SECOND_TO_LAST_VALUE . ',' . self::FIELD_THIRD_TO_LAST_VALUE . ',' . self::FIELD_USER_ID . ',' .
 	self::FIELD_VALENCE . ',' . self::FIELD_VARIABLE_CATEGORY_ID . ',' . self::FIELD_VARIABLE_ID;
@@ -648,7 +648,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		self::FIELD_AVERAGE_SECONDS_BETWEEN_MEASUREMENTS => 'int',
 		self::FIELD_BEST_CAUSE_VARIABLE_ID => 'int',
 		self::FIELD_BEST_EFFECT_VARIABLE_ID => 'int',
-		self::FIELD_BEST_USER_CORRELATION_ID => 'int',
+		self::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID => 'int',
 		self::FIELD_CAUSE_ONLY => 'bool',
 		self::FIELD_DATA_SOURCES_COUNT => 'array',
 		self::FIELD_DEFAULT_UNIT_ID => 'int',
@@ -687,8 +687,8 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		self::FIELD_NUMBER_OF_TRACKING_REMINDERS => 'int',
 		self::FIELD_NUMBER_OF_UNIQUE_DAILY_VALUES => 'int',
 		self::FIELD_NUMBER_OF_UNIQUE_VALUES => 'int',
-		self::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_CAUSE => 'int',
-		self::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_EFFECT => 'int',
+		self::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE => 'int',
+		self::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT => 'int',
 		self::FIELD_ONSET_DELAY => 'int',
 		self::FIELD_OUTCOME => 'bool',
 		self::FIELD_OUTCOME_OF_INTEREST => 'bool',
@@ -721,7 +721,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		self::FIELD_AVERAGE_SECONDS_BETWEEN_MEASUREMENTS => 'nullable|integer|min:1|max:2147483647',
 		self::FIELD_BEST_CAUSE_VARIABLE_ID => 'nullable|integer|min:1|max:2147483647',
 		self::FIELD_BEST_EFFECT_VARIABLE_ID => 'nullable|integer|min:1|max:2147483647',
-		self::FIELD_BEST_USER_CORRELATION_ID => 'nullable|integer|min:1|max:2147483647',
+		self::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID => 'nullable|integer|min:1|max:2147483647',
 		self::FIELD_CAUSE_ONLY => 'nullable|boolean',
 		self::FIELD_CLIENT_ID => 'nullable|max:80',
 		self::FIELD_COMBINATION_OPERATION => 'nullable',
@@ -776,8 +776,8 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		self::FIELD_NUMBER_OF_TRACKING_REMINDERS => 'required|integer|min:0|max:2147483647',
 		self::FIELD_NUMBER_OF_UNIQUE_DAILY_VALUES => 'nullable|integer|min:0|max:2147483647',
 		self::FIELD_NUMBER_OF_UNIQUE_VALUES => 'nullable|integer|min:0|max:2147483647',
-		self::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_CAUSE => 'nullable|integer|min:0|max:2147483647',
-		self::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_EFFECT => 'nullable|integer|min:0|max:2147483647',
+		self::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE => 'nullable|integer|min:0|max:2147483647',
+		self::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT => 'nullable|integer|min:0|max:2147483647',
 		self::FIELD_ONSET_DELAY => 'nullable|integer|min:0|max:8640000',
 		self::FIELD_OPTIMAL_VALUE_MESSAGE => 'nullable|max:500',
 		self::FIELD_OUTCOME => 'nullable|boolean',
@@ -2185,13 +2185,13 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	}
 	/** @noinspection PhpUnused */
 	public function getBestUserCorrelationId(): ?int{
-		return $this->attributes[UserVariable::FIELD_BEST_USER_CORRELATION_ID] ?? null;
+		return $this->attributes[UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID] ?? null;
 	}
 	/**
 	 * @return string
 	 */
 	public function getBestUserCorrelationLink(): string{
-		$id = $this->best_user_correlation_id;
+		$id = $this->best_user_variable_relationship_id;
 		if(!$id){
 			return "N/A";
 		}
@@ -2561,7 +2561,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		return $b;
 	}
 	public function getNumberOfUserCorrelationsWhereEffectButton(): QMButton{
-		$number = $this->number_of_user_correlations_as_effect;
+		$number = $this->number_of_user_variable_relationships_as_effect;
 		if($number === null){
 			$number = "N/A";
 		}
@@ -2579,7 +2579,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		return $this->getQMVariableCategory()->predictor;
 	}
 	public function getNumberOfUserCorrelationsWhereCauseButton(): QMButton{
-		$number = $this->number_of_user_correlations_as_cause;
+		$number = $this->number_of_user_variable_relationships_as_cause;
 		if($number === null){
 			$number = "N/A";
 		}
@@ -3710,7 +3710,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		$this->setAttribute(UserVariable::FIELD_BEST_EFFECT_VARIABLE_ID, $bestEffectVariableId);
 	}
 	public function setBestUserCorrelationId(int $bestUserCorrelationId): void{
-		$this->setAttribute(UserVariable::FIELD_BEST_USER_CORRELATION_ID, $bestUserCorrelationId);
+		$this->setAttribute(UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID, $bestUserCorrelationId);
 	}
 	public function setCauseOnly(bool $causeOnly): void{
 		$this->setAttribute(UserVariable::FIELD_CAUSE_ONLY, $causeOnly);
@@ -3767,7 +3767,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		$this->setAttribute(UserVariable::FIELD_EARLIEST_FILLING_TIME, $earliestFillingTime);
 	}
 	public function getNumberOfUserCorrelationsAsCauseAttribute(): ?int{
-		return $this->attributes[UserVariable::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_CAUSE] ?? null;
+		return $this->attributes[UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE] ?? null;
 	}
 	/**
 	 * @param $value
@@ -3777,7 +3777,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	}
 
 	public function getNumberOfUserCorrelationsAsEffectAttribute(): ?int{
-		return $this->attributes[UserVariable::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_EFFECT] ?? null;
+		return $this->attributes[UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT] ?? null;
 	}
 	/**
 	 * @param $value
@@ -4035,9 +4035,9 @@ class UserVariable extends BaseUserVariable implements HasMedia {
             $correlation->setCauseUserVariable($userVariables[$id]);
         });
 		if($this->number_of_correlations < $count){
-			$this->number_of_correlations = $count + $this->number_of_user_correlations_as_cause;
+			$this->number_of_correlations = $count + $this->number_of_user_variable_relationships_as_cause;
 		}
-		if(!$this->number_of_user_correlations_as_effect < $count){$this->number_of_user_correlations_as_effect = $count;}
+		if(!$this->number_of_user_variable_relationships_as_effect < $count){$this->number_of_user_variable_relationships_as_effect = $count;}
 		return $this->relations[__FUNCTION__]["$catId-$limit"] = $correlations;
 	}
 	/**
@@ -4070,9 +4070,9 @@ class UserVariable extends BaseUserVariable implements HasMedia {
         });
 		$count = $correlations->count();
 		if($this->number_of_correlations < $count){
-			$this->number_of_correlations = $count + $this->number_of_user_correlations_as_effect;
+			$this->number_of_correlations = $count + $this->number_of_user_variable_relationships_as_effect;
 		}
-		if(!$this->number_of_user_correlations_as_cause < $count){$this->number_of_user_correlations_as_cause = $count;}
+		if(!$this->number_of_user_variable_relationships_as_cause < $count){$this->number_of_user_variable_relationships_as_cause = $count;}
 		return $this->relations[__FUNCTION__]["$catId-$limit"] = $correlations;
 	}
 	public function setNumberOfCorrelations(int $numberOfCorrelations): void{
@@ -4134,7 +4134,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		$this->setAttribute(UserVariable::FIELD_NUMBER_OF_USER_CHILDREN, $numberOfUserChildren);
 	}
 	public function setNumberOfUserCorrelationsAsCause(int $numberOfUserCorrelationsWhereCause): void{
-		$this->setAttribute(UserVariable::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_CAUSE, $numberOfUserCorrelationsWhereCause);
+		$this->setAttribute(UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE, $numberOfUserCorrelationsWhereCause);
 	}
 
 	public function setNumberOfUserFoods(int $numberOfUserFoods): void{

@@ -20,7 +20,7 @@ use App\Slim\View\Request\Variable\GetCommonVariablesRequest;
 use App\Utils\UrlHelper;
 use Illuminate\Support\Arr;
 class UserCorrelationsCleanUpJobTest extends JobTestCase {
-    //public const SLACK_CHANNEL = "user-correlations";
+    //public const SLACK_CHANNEL = "user-variable-relationships";
     protected const SLACK_CHANNEL = '#emergency';
     public function testUserCorrelationCleanup(){
         CorrelationChartsProperty::shrinkLargeCorrelations();

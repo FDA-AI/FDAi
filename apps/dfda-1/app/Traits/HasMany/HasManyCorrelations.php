@@ -16,11 +16,11 @@ trait HasManyCorrelations {
 	 * @throws NoUserCorrelationsToAggregateException
 	 */
 	public function getUserCorrelationValues(string $attribute): array{
-		$userCorrelations = $this->getCorrelations();
-		if(!$userCorrelations->count()){
+		$userVariableRelationships = $this->getCorrelations();
+		if(!$userVariableRelationships->count()){
 			throw new NoUserCorrelationsToAggregateException($this);
 		}
-		return $userCorrelations->pluck($attribute)->all();
+		return $userVariableRelationships->pluck($attribute)->all();
 	}
 	/**
 	 * @param string $attribute

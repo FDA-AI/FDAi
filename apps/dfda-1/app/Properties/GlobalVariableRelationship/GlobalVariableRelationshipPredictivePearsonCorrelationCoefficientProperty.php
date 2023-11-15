@@ -26,14 +26,14 @@ class GlobalVariableRelationshipPredictivePearsonCorrelationCoefficientProperty 
 	 */
     public static function calculate($model){
 	    try {
-//		    /** @var Correlation[] $userCorrelations */
-//		    $userCorrelations = $model->getCorrelations();
-//			foreach($userCorrelations as $userCorrelation){
-//				$correlation = $userCorrelation->getQMUserCorrelation();
+//		    /** @var Correlation[] $userVariableRelationships */
+//		    $userVariableRelationships = $model->getCorrelations();
+//			foreach($userVariableRelationships as $userVariableRelationship){
+//				$correlation = $userVariableRelationship->getQMUserCorrelation();
 //				try {
 //					$predictive = $correlation->getPredictivePearsonCorrelationCoefficient();
 //				} catch (NotEnoughDataException $e) {
-//					$model->addWarning("Could not calculate predictive pearson correlation coefficient for user correlation {$correlation->id} because: ".
+//					$model->addWarning("Could not calculate predictive pearson correlation coefficient for user variable relationship {$correlation->id} because: ".
 //					                   $e->getMessage());
 //				} catch (TooSlowToAnalyzeException $e) {
 //					le($e);

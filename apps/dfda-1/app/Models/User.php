@@ -3670,10 +3670,10 @@ class User extends BaseWpUser
     public function getTrackingRemindersNotificationCards(bool $includeStudyCards, int $limit = 10): array{
         $notifications = $this->getPastTrackingRemindersNotifications($limit);
         $cards = [];
-        $noCorrelations = $aggregateCorrelationIds = $userCorrelationIds = [];
+        $noCorrelations = $aggregateCorrelationIds = $userVariableRelationshipIds = [];
         foreach($notifications as $n){
             if($id = $n->bestUserCorrelationId){
-                $userCorrelationIds[] = $id;
+                $userVariableRelationshipIds[] = $id;
             } elseif($id = $n->bestGlobalVariableRelationshipId){
                 $aggregateCorrelationIds[] = $id;
             } else{
@@ -3687,9 +3687,9 @@ class User extends BaseWpUser
             QMLog::error("No best user or global variable relationships for the following notifications:\n\t" .
                 implode(", ", $noCorrelations));
         }
-        $userCorrelationIds = array_unique($userCorrelationIds);
+        $userVariableRelationshipIds = array_unique($userVariableRelationshipIds);
         $aggregateCorrelationIds = array_unique($aggregateCorrelationIds);
-        $correlations = ($userCorrelationIds) ? Correlation::getWithVariables($userCorrelationIds) : [];
+        $correlations = ($userVariableRelationshipIds) ? Correlation::getWithVariables($userVariableRelationshipIds) : [];
         $aggregateCorrelations = ($aggregateCorrelationIds) ?
             GlobalVariableRelationship::getWithVariables($aggregateCorrelationIds) : [];
         foreach($notifications as $n){

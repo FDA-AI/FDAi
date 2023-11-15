@@ -779,7 +779,7 @@
         "comment": "Third to Last Value. Calculated Statistic: Ex: 250. Unit: User-specified or common. (type: number) "
     },
     {
-        "name": "number_of_user_correlations_as_effect",
+        "name": "number_of_user_variable_relationships_as_effect",
         "dbType": "integer,false,true",
         "htmlType": null,
         "validations": null,
@@ -789,10 +789,10 @@
         "inForm": true,
         "inIndex": true,
         "inView": true,
-        "comment": "Number of User Correlations as Effect. Number of user correlations for which this variable is the effect variable. Ex: 29014 (type: integer) "
+        "comment": "Number of User Variable Relationships as Effect. Number of user variable relationships for which this variable is the effect variable. Ex: 29014 (type: integer) "
     },
     {
-        "name": "number_of_user_correlations_as_cause",
+        "name": "number_of_user_variable_relationships_as_cause",
         "dbType": "integer,false,true",
         "htmlType": null,
         "validations": null,
@@ -802,7 +802,7 @@
         "inForm": true,
         "inIndex": true,
         "inView": true,
-        "comment": "Number of User Correlations as Cause. Number of user correlations for which this variable is the cause variable. Ex: 115 (type: integer) "
+        "comment": "Number of User Variable Relationships as Cause. Number of user variable relationships for which this variable is the cause variable. Ex: 115 (type: integer) "
     },
     {
         "name": "combination_operation",
@@ -961,7 +961,7 @@
         "comment": "Best Effect Variable ID. "
     },
     {
-        "name": "best_user_correlation",
+        "name": "best_user_variable_relationship",
         "dbType": "text,65535:nullable",
         "htmlType": "textarea",
         "validations": null,
@@ -971,7 +971,7 @@
         "inForm": true,
         "inIndex": true,
         "inView": true,
-        "comment": "Best User Correlation. "
+        "comment": "Best User Variable Relationship. "
     },
     {
         "name": "user_maximum_allowed_daily_value",
@@ -1311,7 +1311,7 @@
         "comment": "Charts visualizing User Variable data. "
     },
     {
-        "name": "best_user_correlation_id",
+        "name": "best_user_variable_relationship_id",
         "dbType": "integer,false",
         "htmlType": null,
         "validations": null,
@@ -1321,7 +1321,7 @@
         "inForm": true,
         "inIndex": true,
         "inView": true,
-        "comment": "Best User Correlation ID. "
+        "comment": "Best User Variable Relationship ID. "
     },
     {
         "type": "relation",
@@ -1329,7 +1329,7 @@
     },
     {
         "type": "relation",
-        "relation": "mt1,Correlation,best_user_correlation_id"
+        "relation": "mt1,Correlation,best_user_variable_relationship_id"
     },
     {
         "type": "relation",

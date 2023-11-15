@@ -109,7 +109,7 @@ abstract class QMStudy extends DBModel {
     private static $alreadyPostedTestPost;
     protected $correlationFromDatabase;
     protected $pairsOfAveragesForAllUsers;
-    protected $userCorrelations = [];
+    protected $userVariableRelationships = [];
     protected $userId;
     public $analysisEndedAt;
     public $analysisRequestedAt;

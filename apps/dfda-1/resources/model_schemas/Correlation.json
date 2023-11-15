@@ -1110,6 +1110,6 @@
     },
     {
         "type": "relation",
-        "relation": "1tm,UserVariable,best_user_correlation_id"
+        "relation": "1tm,UserVariable,best_user_variable_relationship_id"
     }
 ]

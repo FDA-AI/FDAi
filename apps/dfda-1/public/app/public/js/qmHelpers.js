@@ -3198,7 +3198,7 @@ var qm = {
         },
         getUserCorrelationsFromApi: function(params, successHandler, errorHandler){
             params = qm.api.addGlobalParams(params);
-            var cachedData = qm.api.cacheGet(params, qm.items.userCorrelations);
+            var cachedData = qm.api.cacheGet(params, qm.items.userVariableRelationships);
             if(cachedData && successHandler){
                 successHandler(cachedData);
                 return;
@@ -3206,7 +3206,7 @@ var qm = {
             qm.api.configureClient(arguments.callee.name, params);
             var apiInstance = new qm.Quantimodo.AnalyticsApi();
             function callback(error, data, response){
-                qm.api.generalResponseHandler(error, data, response, successHandler, errorHandler, params, qm.items.userCorrelations);
+                qm.api.generalResponseHandler(error, data, response, successHandler, errorHandler, params, qm.items.userVariableRelationships);
             }
             apiInstance.getCorrelations(params, callback);
         }
@@ -4896,7 +4896,7 @@ var qm = {
         trackingReminderSyncQueue: 'trackingReminderSyncQueue',
         user: 'user',
         useSmallInbox: 'useSmallInbox',
-        userCorrelations: 'userCorrelations',
+        userVariableRelationships: 'userVariableRelationships',
         userVariables: 'userVariables',
         variableCategories: 'variableCategories',
         lastState: 'lastState',

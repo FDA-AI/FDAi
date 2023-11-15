@@ -24,10 +24,10 @@ class UserVariableDataTableService extends BaseDataTableService
             ->addColumn(UserVariable::FIELD_LATEST_TAGGED_MEASUREMENT_START_AT, function(UserVariable $v) {
                 return $v->latest_tagged_measurement_start_at;
             })
-            ->addColumn(UserVariable::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_CAUSE, function(UserVariable $v) {
+            ->addColumn(UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE, function(UserVariable $v) {
                 return $v->getNumberOfUserCorrelationsWhereCauseButton()->getLink();
             })
-            ->addColumn(UserVariable::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_EFFECT, function(UserVariable $v) {
+            ->addColumn(UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT, function(UserVariable $v) {
                 return $v->getNumberOfUserCorrelationsWhereEffectButton()->getLink();
             })
             ->addColumn(UserVariable::FIELD_NUMBER_OF_MEASUREMENTS, function(UserVariable $v) {
@@ -51,16 +51,16 @@ class UserVariableDataTableService extends BaseDataTableService
                     'name'       => UserVariable::FIELD_NUMBER_OF_TRACKING_REMINDERS,
                     'searchable' => false
                 ]),
-                UserVariable::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_EFFECT                 => new \Yajra\DataTables\Html\Column([
+                UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT                 => new \Yajra\DataTables\Html\Column([
                     'title'      => 'Causes',
-                    'data'       => UserVariable::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_EFFECT,
-                    'name'       => UserVariable::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_EFFECT,
+                    'data'       => UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT,
+                    'name'       => UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT,
                     'searchable' => false
                 ]),
-                UserVariable::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_CAUSE                 => new \Yajra\DataTables\Html\Column([
+                UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE                 => new \Yajra\DataTables\Html\Column([
                     'title'      => 'Effects',
-                    'data'       => UserVariable::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_CAUSE,
-                    'name'       => UserVariable::FIELD_NUMBER_OF_USER_CORRELATIONS_AS_CAUSE,
+                    'data'       => UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE,
+                    'name'       => UserVariable::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE,
                     'searchable' => false
                 ]),
                 'status' => [
