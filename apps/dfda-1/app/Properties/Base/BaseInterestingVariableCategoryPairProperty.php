@@ -10,7 +10,7 @@ use App\Types\PhpTypes;
 use App\UI\ImageUrls;
 use App\UI\FontAwesome;
 use App\Properties\BaseProperty;
-use App\Correlations\QMCorrelation;
+use App\VariableRelationships\QMVariableRelationship;
 class BaseInterestingVariableCategoryPairProperty extends BaseProperty{
 	use IsBoolean;
     use \App\Traits\PropertyTraits\IsCalculated;
@@ -37,7 +37,7 @@ class BaseInterestingVariableCategoryPairProperty extends BaseProperty{
 	public $type = self::TYPE_BOOLEAN;
 	public $validations = 'required|boolean';
     /**
-     * @param QMCorrelation $model
+     * @param QMVariableRelationship $model
      * @return bool
      */
     public static function calculate($model): bool{

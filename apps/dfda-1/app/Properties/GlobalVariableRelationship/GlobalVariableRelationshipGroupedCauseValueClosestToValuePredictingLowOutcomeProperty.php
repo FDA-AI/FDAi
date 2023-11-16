@@ -10,7 +10,7 @@ use App\Traits\VariableValueTraits\CauseAggregatedVariableValueTrait;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BaseGroupedCauseValueClosestToValuePredictingLowOutcomeProperty;
 use App\Traits\PropertyTraits\IsAverageOfCorrelations;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 class GlobalVariableRelationshipGroupedCauseValueClosestToValuePredictingLowOutcomeProperty extends BaseGroupedCauseValueClosestToValuePredictingLowOutcomeProperty
 {
     use GlobalVariableRelationshipProperty, CauseAggregatedVariableValueTrait, IsAverageOfCorrelations;

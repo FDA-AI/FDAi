@@ -19,7 +19,7 @@ class VariableCorrelationCausalityVotesWhereEffectVariableButton extends HasMany
 	public $fontAwesome = CorrelationCausalityVote::FONT_AWESOME;
 	public $id = 'correlation-causality-votes-where-effect-variable-button';
 	public $image = CorrelationCausalityVote::DEFAULT_IMAGE;
-	public $text = 'Correlation Causality Votes Where Effect Variable';
-	public $title = 'Correlation Causality Votes Where Effect Variable';
-	public $tooltip = 'Correlation Causality Votes where this is the Effect Variable';
+	public $text = 'User Variable Relationship Causality Votes Where Effect Variable';
+	public $title = 'User Variable Relationship Causality Votes Where Effect Variable';
+	public $tooltip = 'User Variable Relationship Causality Votes where this is the Effect Variable';
 }

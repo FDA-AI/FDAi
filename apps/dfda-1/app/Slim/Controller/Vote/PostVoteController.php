@@ -4,8 +4,8 @@
  */ /** @noinspection PhpUnused */
 namespace App\Slim\Controller\Vote;
 use App\Models\Vote;
-use App\Properties\Correlation\CorrelationCauseVariableIdProperty;
-use App\Properties\Correlation\CorrelationEffectVariableIdProperty;
+use App\Properties\UserVariableRelationship\CorrelationCauseVariableIdProperty;
+use App\Properties\UserVariableRelationship\CorrelationEffectVariableIdProperty;
 use App\Properties\User\UserIdProperty;
 use App\Properties\Vote\VoteValueProperty;
 use App\Slim\Controller\PostController;

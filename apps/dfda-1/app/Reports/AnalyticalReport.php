@@ -1052,21 +1052,21 @@ abstract class AnalyticalReport extends StaticModel implements HasMedia {
      * @return string
      */
     protected static function getCorrelationExplanation(string $outcomeVariableName = "outcome"): string{
-        $html = "<p><b>Correlation</b> - The correlation coefficient represents is the degree to which change seen in ".
+        $html = "<p><b>UserVariableRelationship</b> - The correlation coefficient represents is the degree to which change seen in ".
             $outcomeVariableName.
             " coincides with changes in a given variable ".
             ".  The value can range from -1 to 1.  </p>".
             "<ul class='list-disc'>
                 <li>".
-            "<b>Positive Correlation</b> - The closer to 1, the more likely it is that above average values for the variable ".
+            "<b>Positive UserVariableRelationship</b> - The closer to 1, the more likely it is that above average values for the variable ".
             " will coincide with ABOVE average ".$outcomeVariableName.".".
             "</li>
                 <li>".
-            "<b>Negative Correlation</b> - The closer to -1, the more likely it is that above average values for a particular variable ".
+            "<b>Negative UserVariableRelationship</b> - The closer to -1, the more likely it is that above average values for a particular variable ".
             " will coincide with BELOW average ".$outcomeVariableName.".".
             "</li>
                 <li>".
-            "<b>No Correlation</b> - The closer to 0, the more likely it is that the variable ".
+            "<b>No UserVariableRelationship</b> - The closer to 0, the more likely it is that the variable ".
             " and ".$outcomeVariableName." are not related. ".
             "</li>
             </ul>";

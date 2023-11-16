@@ -224,7 +224,7 @@ class StringHelperTest extends UnitTestCase {
                 </li>', $after);
     }
     public function testHumanizedWhereClause(){
-        $_SERVER['REQUEST_URI'] = '/datalab/correlations?cause_variable_id=89305&effect_variable_id=1874&generate_phpunit=1';
+        $_SERVER['REQUEST_URI'] = '/datalab/user_variable_relationships?cause_variable_id=89305&effect_variable_id=1874&generate_phpunit=1';
         $_GET = array (
             'cause_variable_id' => '89305',
             'effect_variable_id' => '1874',
@@ -238,7 +238,7 @@ class StringHelperTest extends UnitTestCase {
             $title);
     }
     public function testHumanizeNeverEndedWhereClause(){
-        $str = QueryBuilderHelper::whereParamsToHumanString("analysis_ended_at", "correlations", "NULL");
+        $str = QueryBuilderHelper::whereParamsToHumanString("analysis_ended_at", "user_variable_relationships", "NULL");
         $this->assertEquals("where the Analysis Ended value is not set", $str);
     }
 }

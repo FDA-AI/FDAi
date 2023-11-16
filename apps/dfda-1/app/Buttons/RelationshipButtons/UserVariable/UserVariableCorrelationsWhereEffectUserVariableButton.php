@@ -20,7 +20,7 @@ class UserVariableCorrelationsWhereEffectUserVariableButton extends HasManyRelat
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\HasMany';
 	public $color = UserVariableRelationship::COLOR;
 	public $fontAwesome = UserVariableRelationship::FONT_AWESOME;
-	public $id = 'correlations-where-effect-user-variable-button';
+	public $id = 'user_variable_relationships-where-effect-user-variable-button';
 	public $image = UserVariableRelationship::DEFAULT_IMAGE;
 	public $text = 'Predictors';
 	public $title = 'Predictors';

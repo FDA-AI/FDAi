@@ -9,7 +9,7 @@ use App\Buttons\RelationshipButtons\Study\StudyCauseVariableButton;
 use App\Buttons\RelationshipButtons\Study\StudyEffectVariableButton;
 use App\Cards\QMCard;
 use App\Cards\StudyCard;
-use App\Correlations\QMCorrelation;
+use App\VariableRelationships\QMVariableRelationship;
 use App\Exceptions\InvalidStringException;
 use App\Exceptions\ModelValidationException;
 use App\Exceptions\NoIdException;
@@ -309,7 +309,7 @@ class Study extends BaseStudy implements HasMedia {
 		return $this->getStudyText()->getTagLine();
 	}
 	/**
-	 * @return QMCorrelation|HasCorrelationCoefficient
+	 * @return QMVariableRelationship|HasCorrelationCoefficient
 	 * @throws NotEnoughDataException
 	 */
 	public function getHasCorrelationCoefficient(){
@@ -537,13 +537,13 @@ class Study extends BaseStudy implements HasMedia {
 	 */
 	public function setPublishedAtAttribute(string $publishedAt){
 		$this->attributes[self::FIELD_PUBLISHED_AT] = $publishedAt;
-		/** @var QMCorrelation $s */
+		/** @var QMVariableRelationship $s */
 		if($s = $this->getHasCorrelationCoefficientIfSet()){
 			$s->setPublishedAtAttribute($publishedAt);
 		}
 	}
 	public function exceptionIfWeShouldNotPost(): void{
-		/** @var QMCorrelation $s */
+		/** @var QMVariableRelationship $s */
 		if($s = $this->getHasCorrelationCoefficientIfSet()){
 			$s->exceptionIfWeShouldNotPost();
 		}

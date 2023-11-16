@@ -68,8 +68,8 @@ Route::prefix('v3')->group(function () {
 	Route::get('connectors/finish', \App\Slim\Controller\Connector\ConnectionFinishController::class . '@get');
 	Route::get('connectors/list', \App\Slim\Controller\Connector\GetConnectorsController::class . '@get');
 	Route::get('connectors/list', GetConnectorsController::class . '@get');
-	Route::get('correlations', \App\Slim\Controller\Correlation\GetCorrelationController::class . '@get');
-	Route::get('correlations/explanations', \App\Slim\Controller\Correlation\GetCorrelationExplanationsController::class . '@get');
+	Route::get('user_variable_relationships', \App\Slim\Controller\Correlation\GetCorrelationController::class . '@get');
+	Route::get('user_variable_relationships/explanations', \App\Slim\Controller\Correlation\GetCorrelationExplanationsController::class . '@get');
 	Route::get('facebookMessage', \App\Slim\Controller\User\GetFacebookMessageController::class . '@get');
 	Route::get('feed', \App\Slim\Controller\Feed\GetUserFeedController::class . '@get');
 	Route::get('highcharts', \App\Slim\Controller\GetHighchartController::class . '@get');
@@ -89,7 +89,7 @@ Route::prefix('v3')->group(function () {
 	Route::get('pairs', \App\Slim\Controller\Pair\GetPairController::class . '@get');
 	Route::get('pairs', \App\Slim\Controller\Pair\GetPairController::class . '@get');
 	Route::get('pairsCsv', \App\Slim\Controller\Pair\GetPairCsvController::class . '@get');
-	Route::get('public/correlations/search/:search', \App\Slim\Controller\Correlation\GetAggregatedCorrelationController::class . '@get');
+	Route::get('public/user_variable_relationships/search/:search', \App\Slim\Controller\Correlation\GetAggregatedCorrelationController::class . '@get');
 	Route::get('public/variables', \App\Slim\Controller\Variable\GetCommonVariableController::class . '@get');
 	Route::get('public/variables/search/:search', \App\Slim\Controller\Variable\SearchPublicVariableController::class . '@get');
 	Route::get('report', \App\Slim\Controller\Report\GetReportController::class . '@get');
@@ -145,7 +145,7 @@ Route::prefix('v3')->group(function () {
 	Route::post('connection/publicToken', \App\Slim\Controller\Connector\PublicTokenController::class . '@post');
 //	Route::post('connectors/:connector/:method', \App\Slim\Controller\Connector\ConnectorController::class . '@post');
 	Route::post('connectors/connect', \App\Slim\Controller\Connector\CreateConnectionController::class . '@post');
-	Route::post('correlations', \App\Slim\Controller\Correlation\PostCorrelationController::class . '@post');
+	Route::post('user_variable_relationships', \App\Slim\Controller\Correlation\PostCorrelationController::class . '@post');
 	Route::post('deviceTokens', \App\Slim\Controller\DeviceToken\PostDeviceTokenController::class . '@post');
 	Route::post('deviceTokens/delete', \App\Slim\Controller\DeviceToken\DeleteDeviceTokenController::class . '@post');
 	Route::post('dialogflow', \App\Slim\Controller\DialogFlowController::class . '@post');
@@ -225,7 +225,7 @@ Route::prefix('v6')->group(function () {
     Route::apiResource('connector_imports', API\ConnectorImportAPIController::class);
     Route::apiResource('connector_requests', API\ConnectorRequestAPIController::class);
     Route::apiResource('connectors', API\ConnectorAPIController::class);
-    Route::apiResource('correlations', API\CorrelationAPIController::class);
+    Route::apiResource('user_variable_relationships', API\CorrelationAPIController::class);
     Route::apiResource('device_tokens', API\DeviceTokenAPIController::class);
     Route::get('feed', FeedController::class . '@get');
 	Route::post('feed', FeedController::class . '@store');

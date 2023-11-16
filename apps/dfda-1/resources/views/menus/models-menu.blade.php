@@ -27,8 +27,8 @@
             <a href="{{ route('datalab.connectors.index') }}"><i
                         class="fa fa-cloud-upload"></i><span>Connectors</span></a>
         </li>
-        <li class="{{ Request::is('datalab/correlations*') ? 'active' : '' }}">
-            <a href="{{ route('datalab.correlations.index') }}"><i class="fa fa-line-chart"></i><span>Correlations</span></a>
+        <li class="{{ Request::is('datalab/user_variable_relationships*') ? 'active' : '' }}">
+            <a href="{{ route('datalab.user_variable_relationships.index') }}"><i class="fa fa-line-chart"></i><span>VariableRelationships</span></a>
         </li>
         <li class="{{ Request::is('datalab/measurements*') ? 'active' : '' }}">
             <a href="{{ route('datalab.measurements.index') }}"><i class="fa fa-edit"></i><span>Measurements</span></a>

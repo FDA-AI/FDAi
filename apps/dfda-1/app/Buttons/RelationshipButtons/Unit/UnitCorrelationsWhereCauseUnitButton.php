@@ -17,9 +17,9 @@ class UnitCorrelationsWhereCauseUnitButton extends HasManyRelationshipButton {
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\HasMany';
 	public $color = UserVariableRelationship::COLOR;
 	public $fontAwesome = UserVariableRelationship::FONT_AWESOME;
-	public $id = 'correlations-where-cause-unit-button';
+	public $id = 'user_variable_relationships-where-cause-unit-button';
 	public $image = UserVariableRelationship::DEFAULT_IMAGE;
-	public $text = 'Correlations Where Cause Unit';
-	public $title = 'Correlations Where Cause Unit';
-	public $tooltip = 'Correlations where this is the Cause Unit';
+	public $text = 'VariableRelationships Where Cause Unit';
+	public $title = 'VariableRelationships Where Cause Unit';
+	public $tooltip = 'VariableRelationships where this is the Cause Unit';
 }

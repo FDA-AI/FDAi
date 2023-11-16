@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */ /** @noinspection PhpUnhandledExceptionInspection */
 /** @noinspection PhpDocMissingThrowsInspection */
 namespace Tests\UnitTests\Products;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\DataSources\Connectors\AmazonConnector;
 use App\DataSources\Connectors\GmailConnector;
 use App\Models\TrackingReminder;

@@ -18,7 +18,7 @@ class GlobalVariableRelationshipCorrelationsButton extends HasManyRelationshipBu
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\HasMany';
 	public $color = UserVariableRelationship::COLOR;
 	public $fontAwesome = UserVariableRelationship::FONT_AWESOME;
-	public $id = 'correlations-button';
+	public $id = 'user_variable_relationships-button';
 	public $image = UserVariableRelationship::DEFAULT_IMAGE;
 	public $text = 'Individual User Studies';
 	public $title = 'Individual User Studies';

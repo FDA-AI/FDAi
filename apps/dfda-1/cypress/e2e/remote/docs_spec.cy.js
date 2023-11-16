@@ -12,7 +12,7 @@ describe('Docs', function () {
     cy.get('.example').should('contain', '[')
     //cy.checkForBrokenImages() // checkForBrokenImages doesn't work for some reason
   }
-  it('Tries out correlations', function () {
+  it('Tries out user_variable_relationships', function () {
     cy.visit(docsUrl)
     let sectionId = '#operations-analytics-getCorrelations'
 

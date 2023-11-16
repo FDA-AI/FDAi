@@ -14,9 +14,9 @@ use App\Charts\QMChart;
 use App\Charts\QMHighcharts\HighchartConfig;
 use App\Charts\UserVariableCharts\UserVariableChartGroup;
 use App\Computers\ThisComputer;
-use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\DataSources\QMClient;
 use App\DataSources\QMConnector;
 use App\Exceptions\AlreadyAnalyzingException;
@@ -1363,11 +1363,11 @@ abstract class SlimTestCase extends UnitTestCase {
 		}
 	}
 	/**
-	 * @param QMGlobalVariableRelationship|QMCorrelation $ac
+	 * @param QMGlobalVariableRelationship|QMVariableRelationship $ac
 	 * @param int $minimumUsers
 	 */
 	public function checkAggregatedCorrelationProperties($ac, $minimumUsers = 0){
-		/** @var QMCorrelation $ac */
+		/** @var QMVariableRelationship $ac */
 		$ac = (object)$ac;
 		$this->checkSharedCorrelationProperties($ac);
 		$this->assertNotTrue(isset($ac->userId), "Should not have userId!");
@@ -1435,10 +1435,10 @@ abstract class SlimTestCase extends UnitTestCase {
 		$this->checkNotNullAttributes($notNullAttributes, $correlation);
 	}
 	/**
-	 * @param QMCorrelation $correlation
+	 * @param QMVariableRelationship $correlation
 	 * @param bool $correlateOverTime
 	 */
-	public function checkCalculatedCorrelationObject(QMCorrelation $correlation, bool $correlateOverTime = true){
+	public function checkCalculatedCorrelationObject(QMVariableRelationship $correlation, bool $correlateOverTime = true){
 		$this->checkSharedCorrelationV4Properties($correlation);
 		$intAttributes = [];
 		if($correlateOverTime){
@@ -1524,7 +1524,7 @@ abstract class SlimTestCase extends UnitTestCase {
 		$this->checkNotNullAttributes($this->getNotNullAttributes(), $correlation);
 	}
 	/**
-	 * @param QMCorrelation $c
+	 * @param QMVariableRelationship $c
 	 */
 	public function checkSharedCorrelationProperties($c){
 		if(is_array($c)){$c = (object)$c;}
@@ -1887,7 +1887,7 @@ abstract class SlimTestCase extends UnitTestCase {
 		//$this->assertEquals($expected, $effectLatestFillingTime);
 		$pairs = $c->getPairs();
 		$this->assertCount(80, $pairs, "Should have 80 pairs");
-		$this->assertEquals(QMCorrelation::DIRECTION_HIGHER, $c->direction);
+		$this->assertEquals(QMVariableRelationship::DIRECTION_HIGHER, $c->direction);
 		$this->assertEquals(BaseForwardPearsonCorrelationCoefficientProperty::EFFECT_SIZE_strongly_positive, $c->effectSize);
 		$this->assertEquals(1, $c->getGroupedValueOverDurationOfActionClosestToValuePredictingHighOutcome());
 		$this->assertEquals(0, $c->getGroupedCauseValueClosestToValuePredictingLowOutcome());
@@ -2639,7 +2639,7 @@ abstract class SlimTestCase extends UnitTestCase {
 		$this->assertGreaterThan(0.7 * self::NUMBER_OF_GENERATED_MEASUREMENTS, (float)$nc->averageDailyHighCause);
 		$this->assertLessThan(0.3 * self::NUMBER_OF_GENERATED_MEASUREMENTS, (float)$nc->averageDailyLowCause);
 		$study = $this->getUserStudyV4();
-		/** @var QMCorrelation $statistics */
+		/** @var QMVariableRelationship $statistics */
 		$statistics = $study->statistics;
 		$this->assertContains('lower', strtolower($study->studyText->studyTitle),
 		                      "correlation: " . $statistics->correlationCoefficient . " value predicting high: " .
@@ -2742,7 +2742,7 @@ abstract class SlimTestCase extends UnitTestCase {
 		}
 	}
 	/**
-	 * Retrieve average results from correlations table
+	 * Retrieve average results from user_variable_relationships table
 	 * @return array
 	 */
 	public static function deleteAndRecreateAllAggregatedCorrelations(): array{

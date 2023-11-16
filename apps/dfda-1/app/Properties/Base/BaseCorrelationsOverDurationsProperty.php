@@ -35,7 +35,7 @@ class BaseCorrelationsOverDurationsProperty extends BaseProperty{
 	public const NAME = 'correlations_over_durations';
 	public $canBeChangedToNull = true;
 	public $phpType = PhpTypes::ARRAY;
-	public $title = 'Correlations Over Durations';
+	public $title = 'VariableRelationships Over Durations';
 	public $type = PhpTypes::ARRAY;
 
 }

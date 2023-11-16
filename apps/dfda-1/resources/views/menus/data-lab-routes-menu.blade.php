@@ -81,12 +81,12 @@
 </li>
 <li>
 	<a href="/datalab/correlations" target="_blank" title="Examination of the likely effects of a predictor variable on an outcome variable on average for a specific individual @ datalab/correlations">
-		<i class="fas fa-vial"></i>List Correlations
+		<i class="fas fa-vial"></i>List VariableRelationships
 	</a>
 </li>
 <li>
 	<a href="/datalab/correlations/create" target="_blank" title="Examination of the likely effects of a predictor variable on an outcome variable on average for a specific individual @ datalab/correlations/create">
-		<i class="fas fa-vial"></i>Create Correlation
+		<i class="fas fa-vial"></i>Create UserVariableRelationship
 	</a>
 </li>
 <li>

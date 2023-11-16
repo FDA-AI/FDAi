@@ -307,7 +307,7 @@ trait HasVariable {
 		}
 		if($valueInCommonUnit && is_string($valueInCommonUnit)){
 			$valueInCommonUnit = (float)$valueInCommonUnit;
-		} // Sometimes this gets turned into string in correlations
+		} // Sometimes this gets turned into string in user_variable_relationships
         if($valueInCommonUnit === null){
             le("valueInCommonUnit is null for $type");
         }

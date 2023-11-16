@@ -6,7 +6,7 @@
 
 namespace App\Storage;
 use App\AppSettings\AppSettings;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\DataSources\QMConnector;
 use App\DevOps\XDebug;
 use App\Logging\ConsoleLog;

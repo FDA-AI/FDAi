@@ -454,14 +454,14 @@ class QMSlim extends Slim {
 		$ctrl = 'App\Slim\Controller\Administration:';
 		$this->get('/api/ionic/master/merge', Middleware\QMAuth::authenticateAdmin(), $ctrl . 'ionicMasterMerge');
 		$this->get('/api/administration/cache/clear', Middleware\QMAuth::authenticateAdmin(), $ctrl . 'getCacheClear');
-		$this->get('/api/correlations/update', Middleware\QMAuth::authenticateAdmin(), $ctrl . 'getCorrelationsUpdate');
-		$this->get('/api/correlations/updateAllVariables', Middleware\QMAuth::authenticateAdmin(),
+		$this->get('/api/user_variable_relationships/update', Middleware\QMAuth::authenticateAdmin(), $ctrl . 'getCorrelationsUpdate');
+		$this->get('/api/user_variable_relationships/updateAllVariables', Middleware\QMAuth::authenticateAdmin(),
 			$ctrl . 'getCorrelationsUpdateAllVariables');
-		$this->get('/api/correlations/updateAllUsers', Middleware\QMAuth::authenticateAdmin(),
+		$this->get('/api/user_variable_relationships/updateAllUsers', Middleware\QMAuth::authenticateAdmin(),
 			$ctrl . 'getCorrelationsUpdateAllUsers');
-		$this->get('/api/correlations/updateAVariableForAllUsers', Middleware\QMAuth::authenticateAdmin(),
+		$this->get('/api/user_variable_relationships/updateAVariableForAllUsers', Middleware\QMAuth::authenticateAdmin(),
 			$ctrl . 'getCorrelationsUpdateAVariableForAllUsers');
-		$this->get('/api/correlations/updateOutcomesForAllUsers', Middleware\QMAuth::authenticateAdmin(),
+		$this->get('/api/user_variable_relationships/updateOutcomesForAllUsers', Middleware\QMAuth::authenticateAdmin(),
 			$ctrl . 'getCorrelationsUpdateOutcomesForAllUsers');
 	}
 	/**

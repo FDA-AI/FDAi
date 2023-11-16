@@ -29,7 +29,7 @@ class CorrelateAction extends QMAction implements ShouldQueue {
 		$resource = $request->resource();
 		$label = $resource::label();
 		$this->confirmText =
-			"You can see your correlations by clicking Correlations in the menu. Would you like to correlate?";
+			"You can see your user_variable_relationships by clicking VariableRelationships in the menu. Would you like to correlate?";
 		$this->name = "Correlate $label";
 	}
 	/**

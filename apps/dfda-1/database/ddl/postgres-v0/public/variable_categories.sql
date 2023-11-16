@@ -120,7 +120,7 @@ comment on column variable_categories.number_of_outcome_case_studies is 'Number 
                     update variable_categories
                         left join (
                             select count(id) as total, cause_variable_category_id
-                            from correlations
+                            from user_variable_relationships
                             group by cause_variable_category_id
                         )
                         as grouped on variable_categories.id = grouped.cause_variable_category_id
@@ -133,7 +133,7 @@ comment on column variable_categories.number_of_predictor_case_studies is 'Numbe
                     update variable_categories
                         left join (
                             select count(id) as total, effect_variable_category_id
-                            from correlations
+                            from user_variable_relationships
                             group by effect_variable_category_id
                         )
                         as grouped on variable_categories.id = grouped.effect_variable_category_id

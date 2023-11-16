@@ -6,7 +6,7 @@ use App;
 use App\Buttons\Admin\IgnitionButton;
 use App\Buttons\Admin\PHPUnitButton;
 use App\Computers\ThisComputer;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 use App\DevOps\Jenkins\Build;
 use App\DevOps\XDebug;
 use App\Exceptions\DiffException;

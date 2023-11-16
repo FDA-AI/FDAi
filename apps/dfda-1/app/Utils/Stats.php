@@ -4,7 +4,7 @@
 *  Contributors: ADD YOUR NAME HERE, Mike P. Sinn
  */
 namespace App\Utils;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\ExceptionHandler;
 use App\Logging\QMLog;
 use App\Types\QMArr;
@@ -341,7 +341,7 @@ class Stats {
 		return sqrt(self::variance($data));
 	}
 	/**
-	 * Correlation Function
+	 * UserVariableRelationship Function
 	 * Returns the correlation of two arrays.  The two arrays must
 	 * be of equal length. Non-numeric values are treated as zeroes.
 	 * @param array $x An array of numeric values

@@ -11,8 +11,8 @@ use App\Storage\DB\Writable;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Models\BaseModel;
 use App\Properties\Base\BaseAggregateQmScoreProperty;
-use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Traits\PropertyTraits\IsCalculated;
 class GlobalVariableRelationshipAggregateQmScoreProperty extends BaseAggregateQmScoreProperty
 {
@@ -35,7 +35,7 @@ class GlobalVariableRelationshipAggregateQmScoreProperty extends BaseAggregateQm
         $highEffectChange = GlobalVariableRelationshipPredictsHighEffectChangeProperty::calculate($c);
         if ($highEffectChange !== null) {
             $lowEffectChange = GlobalVariableRelationshipPredictsLowEffectChangeProperty::calculate($c);
-            // Filter out correlations with very little change
+            // Filter out user_variable_relationships with very little change
             // We can't use predictsHighEffectChange/predictsLowEffectChange directly because effects with zero value outcomes like Number of Zits produce absurdly high percent changes
             $changeSpread = abs($highEffectChange - $lowEffectChange);
             if (!$changeSpread) {

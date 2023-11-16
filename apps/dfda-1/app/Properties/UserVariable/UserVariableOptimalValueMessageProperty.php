@@ -40,13 +40,13 @@ class UserVariableOptimalValueMessageProperty extends BaseOptimalValueMessagePro
             if($dbm->isOutcome()){
                 if($correlationsAsEffect = $dbm->calculateNumberOfUserVariableRelationshipsAsEffect()){
 	                $dbm->setBestUserVariableRelationship();
-	                $dbm->throwLogicException("No BEST_USER_VARIABLE_RELATIONSHIP_ID even though we have $correlationsAsEffect correlations as a effect! ".
+	                $dbm->throwLogicException("No BEST_USER_VARIABLE_RELATIONSHIP_ID even though we have $correlationsAsEffect user_variable_relationships as a effect! ".
                         UserVariableRelationship::getDataLabIndexUrl([UserVariableRelationship::FIELD_EFFECT_USER_VARIABLE_ID => $dbm->getUserVariableId()]));
                 }
             }else{
                 if($correlationsAsCause = $dbm->calculateNumberOfUserVariableRelationshipsAsCause()){
 	                $dbm->setBestUserVariableRelationship();
-	                $dbm->throwLogicException("No BEST_USER_VARIABLE_RELATIONSHIP_ID even though we have $correlationsAsCause correlations as a cause!".
+	                $dbm->throwLogicException("No BEST_USER_VARIABLE_RELATIONSHIP_ID even though we have $correlationsAsCause user_variable_relationships as a cause!".
                         UserVariableRelationship::getDataLabIndexUrl([UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID => $dbm->getVariableIdAttribute()]));
                 }
             }

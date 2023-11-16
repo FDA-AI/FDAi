@@ -17,9 +17,9 @@ class VariableCorrelationsWhereEffectVariableButton extends HasManyRelationshipB
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\HasMany';
 	public $color = UserVariableRelationship::COLOR;
 	public $fontAwesome = UserVariableRelationship::FONT_AWESOME;
-	public $id = 'correlations-where-effect-variable-button';
+	public $id = 'user_variable_relationships-where-effect-variable-button';
 	public $image = UserVariableRelationship::DEFAULT_IMAGE;
-	public $text = 'Correlations Where Effect Variable';
-	public $title = 'Correlations Where Effect Variable';
-	public $tooltip = 'Correlations where this is the Effect Variable';
+	public $text = 'VariableRelationships Where Effect Variable';
+	public $title = 'VariableRelationships Where Effect Variable';
+	public $tooltip = 'VariableRelationships where this is the Effect Variable';
 }

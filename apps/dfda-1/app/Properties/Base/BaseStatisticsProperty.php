@@ -11,7 +11,7 @@ use App\Types\PhpTypes;
 use App\UI\ImageUrls;
 use App\UI\FontAwesome;
 use App\Properties\BaseProperty;
-use App\Correlations\QMCorrelation;
+use App\VariableRelationships\QMVariableRelationship;
 class BaseStatisticsProperty extends BaseProperty{
     use IsJsonEncoded;
 	public $dbInput = 'text,65535:nullable';
@@ -33,7 +33,7 @@ class BaseStatisticsProperty extends BaseProperty{
 	public $name = self::NAME;
 	public const NAME = 'statistics';
 	public $canBeChangedToNull = true;
-	public $phpType = QMCorrelation::class;
+	public $phpType = QMVariableRelationship::class;
 	public $title = 'Statistics';
 	public $type = PhpTypes::OBJECT;
     public function getExample(){

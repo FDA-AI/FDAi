@@ -138,7 +138,7 @@ comment on column cohort_study_statistics."Cohort_qm_score" is 'A number represe
 
 comment on column cohort_study_statistics.status is 'Whether the correlation is being analyzed, needs to be analyzed, or is up to date already.';
 
-comment on column cohort_study_statistics.reverse_pearson_correlation_coefficient is 'Correlation when Predictor and Outcome are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation';
+comment on column cohort_study_statistics.reverse_pearson_correlation_coefficient is 'User Variable Relationship when Predictor and Outcome are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation';
 
 comment on column cohort_study_statistics.predictive_pearson_correlation_coefficient is 'Pearson correlation coefficient of Predictor and Outcome values lagged by the onset delay and grouped based on the duration of action. ';
 
@@ -194,7 +194,7 @@ comment on column cohort_study_statistics.effect_follow_up_percent_change_from_b
 
 comment on column cohort_study_statistics.z_score is 'The absolute value of the change over duration of action following the onset delay of treatment divided by the baseline outcome relative standard deviation. A.K.A The number of standard deviations from the mean. A zScore > 2 means pValue < 0.05 and is typically considered statistically significant.';
 
-comment on column cohort_study_statistics.number_of_variables_where_best_cohort_correlation is 'Number of Variables for this Best Cohort Correlation.
+comment on column cohort_study_statistics.number_of_variables_where_best_cohort_correlation is 'Number of Variables for this Best Cohort UserVariableRelationship.
                     [Formula: update cohort_study_statistics
                         left join (
                             select count(id) as total, best_cohort_correlation_id

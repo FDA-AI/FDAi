@@ -3,7 +3,7 @@
 *  Contributors: ADD YOUR NAME HERE, Mike P. Sinn
  */ /** @noinspection PhpUnhandledExceptionInspection */
 namespace App\PhpUnitJobs\Code;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Files\FileFinder;
 use App\Files\PHP\PhpClassFile;
 use App\Models\IpDatum;

@@ -20,7 +20,7 @@ class PopulationTraitCorrelationScatterPlot extends GlobalVariableRelationshipCh
 		}
 		$this->sourceObject = $c;
 		parent::__construct($c,
-			"Trait Correlation Between " . $this->getCauseName() . " and " . $this->getEffectName());
+			"Trait User Variable Relationship Between " . $this->getCauseName() . " and " . $this->getEffectName());
 		$this->setExplanation("People with higher " . $this->getCauseName() . " usually have " .
 			$this->getHigherLower() . " " . $this->getEffectName());
 	}

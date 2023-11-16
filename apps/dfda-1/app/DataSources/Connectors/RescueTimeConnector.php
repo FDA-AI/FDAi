@@ -117,30 +117,30 @@ class RescueTimeConnector extends OAuth2Connector {
 	public static $stupidVariableNames = [
 		'Resting Heart Rate (count)',
 		self::TIME_SPENT.'Productively',
-		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive correlations with both productive and unproductive time for the same variable
+		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive user_variable_relationships with both productive and unproductive time for the same variable
 		self::TIME_SPENT.'Unproductively',
-		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive correlations with both productive and unproductive time for the same variable
+		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive user_variable_relationships with both productive and unproductive time for the same variable
 		self::TIME_SPENT.'Moderately Productively',
-		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive correlations with both productive and unproductive time for the same variable
+		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive user_variable_relationships with both productive and unproductive time for the same variable
 		self::VARIABLE_MODERATELY_UNPRODUCTIVE,
-		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive correlations with both productive and unproductive time for the same variable
+		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive user_variable_relationships with both productive and unproductive time for the same variable
 		self::TIME_SPENT.'Very Productively',
-		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive correlations with both productive and unproductive time for the same variable
+		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive user_variable_relationships with both productive and unproductive time for the same variable
 		self::VARIABLE_VERY_UNPRODUCTIVE,
-		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive correlations with both productive and unproductive time for the same variable
+		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive user_variable_relationships with both productive and unproductive time for the same variable
 		self::VARIABLE_NAME_NEUTRAL_HOURS,
 		self::VARIABLE_NAME_TOTAL_HOURS_FROM_RESCUE_TIME,
 		self::VARIABLE_NAME_UNCATEGORIZED_HOURS_FROM_RESCUE_TIME,
 		'General Utilities Activities',
-		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive correlations with both productive and unproductive time for the same variable
+		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive user_variable_relationships with both productive and unproductive time for the same variable
 		'Moderately Productive Time',
-		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive correlations with both productive and unproductive time for the same variable
+		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive user_variable_relationships with both productive and unproductive time for the same variable
 		'Very Productive Time',
-		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive correlations with both productive and unproductive time for the same variable
+		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive user_variable_relationships with both productive and unproductive time for the same variable
 		'Very Unproductive Time',
-		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive correlations with both productive and unproductive time for the same variable
+		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive user_variable_relationships with both productive and unproductive time for the same variable
 		'Moderately Unproductive Time',
-		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive correlations with both productive and unproductive time for the same variable
+		// Let's only use SCORES, not TIME because more TOTAL time logged causes us to get positive user_variable_relationships with both productive and unproductive time for the same variable
 	];
 	private static $LIMIT = 2678400;
 	public $affiliate = self::AFFILIATE;

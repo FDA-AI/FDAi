@@ -21,7 +21,7 @@ class WalkOrRunDistanceCommonVariable extends QMCommonVariable {
 	public const MINIMUM_ALLOWED_SECONDS_BETWEEN_MEASUREMENTS = 86400;
 	public const NAME = 'Walk Or Run Distance';
 	public const PRICE = 59.990000000000002;
-	public const PRODUCT_URL = 'https://www.amazon.com/Beasyjoy-Pedometer-Wristband-Waterproof-Bracelet/dp/B072ZXZ6WY?psc=1&SubscriptionId=AKIAU4A65MD5FGE2ALOQ&tag=quantimodo04-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B072Z';
+	public const PRODUCT_URL = 'https://www.amazon.com/Beasyjoy-Pedometer-Wristband-Waterproof-Bracelet/dp/B072ZXZ6WY?psc=1&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B072Z';
 	public const PUBLIC = true;
 	public const SYNONYMS = ['Walk Or Run', 'Run Distance', 'Walk', 'Walk Or Run Distance'];
 	public const VARIABLE_CATEGORY_ID = PhysicalActivityVariableCategory::ID;

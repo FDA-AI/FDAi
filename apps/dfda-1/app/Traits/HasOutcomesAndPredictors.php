@@ -10,8 +10,8 @@ use App\Charts\BarChartButton;
 use App\Charts\CorrelationCharts\CorrelationsNetworkGraphQMChart;
 use App\Charts\CorrelationCharts\CorrelationsSankeyQMChart;
 use App\Charts\SankeyQMChart;
-use App\Correlations\CorrelationsAndExplanationResponseBody;
-use App\Correlations\QMCorrelation;
+use App\VariableRelationships\CorrelationsAndExplanationResponseBody;
+use App\VariableRelationships\QMVariableRelationship;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\NotEnoughMeasurementsForCorrelationException;
 use App\Models\GlobalVariableRelationship;
@@ -208,7 +208,7 @@ trait HasOutcomesAndPredictors {
 				->attr('table', 'cellspacing', '0')->attr('table', 'width', '100%')
 				//->attr('table', 'style', 'width: 100%; table-layout: fixed;')
 				->column()->filter()->title('Variable')->value(function($row) use ($me){
-					/** @var QMCorrelation $row */
+					/** @var QMVariableRelationship $row */
 					if($row->causeVariableId === $me->id){
 						$name = $row->effectNameWithSuffix();
 						$id = $row->effectVariableId;
@@ -216,13 +216,13 @@ trait HasOutcomesAndPredictors {
 						$name = $row->causeNameWithSuffix();
 						$id = $row->causeVariableId;
 					}
-					/** @var QMCorrelation $row */
+					/** @var QMVariableRelationship $row */
 					$url = Variable::generateShowUrlById($id);
 					return '<a href="' . $url . '"
                         style="cursor: pointer;">' . $name . '</a>';
 				})->attr('td', 'style', 'width: 75%;')->css('td', 'width', '80%')->attr('td', 'width', '80%')->add()
 				->column()->title('Effect')->value(function($row) use ($me){
-					/** @var QMCorrelation $row */
+					/** @var QMVariableRelationship $row */
 					return $row->getEffectSizeLinkToStudyWithExplanation();
 				})
 				//->css('td', 'color', 'red')
@@ -250,7 +250,7 @@ trait HasOutcomesAndPredictors {
 				//                        '">Full Query</a>';
 				//                })
 				->value(function($row) use ($tableId){
-					/** @var QMCorrelation $row */
+					/** @var QMVariableRelationship $row */
 					$url = $row->getInteractiveStudyUrl();
 					return '<a href="' . $url . '"
                         style="cursor: pointer;">Full Study</a>';

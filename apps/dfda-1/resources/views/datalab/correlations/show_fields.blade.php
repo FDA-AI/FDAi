@@ -7,9 +7,9 @@
     {!! Form::label('qm_score', 'QM Score: ') !!} {{ $correlation->qm_score }}
 </div>
 
-<!-- Forward Pearson Correlation Coefficient Field -->
+<!-- Forward Pearson UserVariableRelationship Coefficient Field -->
 <div class="form-group">
-    {!! Form::label('forward_pearson_correlation_coefficient', 'Forward Pearson Correlation Coefficient:') !!}
+    {!! Form::label('forward_pearson_correlation_coefficient', 'Forward Pearson User Variable Relationship Coefficient:') !!}
     <p>{{ $correlation->forward_pearson_correlation_coefficient }}</p>
 </div>
 
@@ -67,15 +67,15 @@
     <p>{{ $correlation->average_daily_high_cause }}</p>
 </div>
 
-<!-- Average Forward Pearson Correlation Over Onset Delays Field -->
+<!-- Average Forward Pearson UserVariableRelationship Over Onset Delays Field -->
 <div class="form-group">
-    {!! Form::label('average_forward_pearson_correlation_over_onset_delays', 'Average Forward Pearson Correlation Over Onset Delays:') !!}
+    {!! Form::label('average_forward_pearson_correlation_over_onset_delays', 'Average Forward Pearson User Variable Relationship Over Onset Delays:') !!}
     <p>{{ $correlation->average_forward_pearson_correlation_over_onset_delays }}</p>
 </div>
 
-<!-- Average Reverse Pearson Correlation Over Onset Delays Field -->
+<!-- Average Reverse Pearson UserVariableRelationship Over Onset Delays Field -->
 <div class="form-group">
-    {!! Form::label('average_reverse_pearson_correlation_over_onset_delays', 'Average Reverse Pearson Correlation Over Onset Delays:') !!}
+    {!! Form::label('average_reverse_pearson_correlation_over_onset_delays', 'Average Reverse Pearson User Variable Relationship Over Onset Delays:') !!}
     <p>{{ $correlation->average_reverse_pearson_correlation_over_onset_delays }}</p>
 </div>
 
@@ -163,9 +163,9 @@
     <p>{{ $correlation->error }}</p>
 </div>
 
-<!-- Forward Spearman Correlation Coefficient Field -->
+<!-- Forward Spearman UserVariableRelationship Coefficient Field -->
 <div class="form-group">
-    {!! Form::label('forward_spearman_correlation_coefficient', 'Forward Spearman Correlation Coefficient:') !!}
+    {!! Form::label('forward_spearman_correlation_coefficient', 'Forward Spearman User Variable Relationship Coefficient:') !!}
     <p>{{ $correlation->forward_spearman_correlation_coefficient }}</p>
 </div>
 
@@ -187,9 +187,9 @@
     <p>{{ $correlation->onset_delay }}</p>
 </div>
 
-<!-- Onset Delay With Strongest Pearson Correlation Field -->
+<!-- Onset Delay With Strongest Pearson UserVariableRelationship Field -->
 <div class="form-group">
-    {!! Form::label('onset_delay_with_strongest_pearson_correlation', 'Onset Delay With Strongest Pearson Correlation:') !!}
+    {!! Form::label('onset_delay_with_strongest_pearson_correlation', 'Onset Delay With Strongest Pearson UserVariableRelationship:') !!}
     <p>{{ $correlation->onset_delay_with_strongest_pearson_correlation }}</p>
 </div>
 
@@ -205,21 +205,21 @@
     <p>{{ $correlation->p_value }}</p>
 </div>
 
-<!-- Pearson Correlation With No Onset Delay Field -->
+<!-- Pearson UserVariableRelationship With No Onset Delay Field -->
 <div class="form-group">
-    {!! Form::label('pearson_correlation_with_no_onset_delay', 'Pearson Correlation With No Onset Delay:') !!}
+    {!! Form::label('pearson_correlation_with_no_onset_delay', 'Pearson User Variable Relationship With No Onset Delay:') !!}
     <p>{{ $correlation->pearson_correlation_with_no_onset_delay }}</p>
 </div>
 
-<!-- Predictive Pearson Correlation Coefficient Field -->
+<!-- Predictive Pearson UserVariableRelationship Coefficient Field -->
 <div class="form-group">
-    {!! Form::label('predictive_pearson_correlation_coefficient', 'Predictive Pearson Correlation Coefficient:') !!}
+    {!! Form::label('predictive_pearson_correlation_coefficient', 'Predictive Pearson User Variable Relationship Coefficient:') !!}
     <p>{{ $correlation->predictive_pearson_correlation_coefficient }}</p>
 </div>
 
-<!-- Reverse Pearson Correlation Coefficient Field -->
+<!-- Reverse Pearson UserVariableRelationship Coefficient Field -->
 <div class="form-group">
-    {!! Form::label('reverse_pearson_correlation_coefficient', 'Reverse Pearson Correlation Coefficient:') !!}
+    {!! Form::label('reverse_pearson_correlation_coefficient', 'Reverse Pearson User Variable Relationship Coefficient:') !!}
     <p>{{ $correlation->reverse_pearson_correlation_coefficient }}</p>
 </div>
 
@@ -229,7 +229,7 @@
     <p>{{ $correlation->statistical_significance }}</p>
 </div>
 
-<!-- Strongest Pearson Correlation Coefficient Field -->
+<!-- Strongest Pearson UserVariableRelationship Coefficient Field -->
 <div class="form-group">
     {!! Form::label('strongest_pearson_correlation_coefficient', 'Strongest Pearson Correlation Coefficient:') !!}
     <p>{{ $correlation->strongest_pearson_correlation_coefficient }}</p>

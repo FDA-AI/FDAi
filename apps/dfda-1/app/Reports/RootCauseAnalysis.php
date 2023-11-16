@@ -21,7 +21,7 @@ use App\Exceptions\NoEmailAddressException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Exceptions\UserVariableNotFoundException;
 use App\Utils\AppMode;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Mail\RootCauseAnalysisEmail;
 use App\Types\TimeHelper;
 use App\UI\CssHelper;

@@ -4,7 +4,7 @@ use App\Models\OAClient;
 use App\Models\User;
 use App\Properties\Base\BaseClientIdProperty;
 use App\Properties\Base\BaseClientSecretProperty;
-use App\Properties\Correlation\CorrelationCauseVariableIdProperty;
+use App\Properties\UserVariableRelationship\CorrelationCauseVariableIdProperty;
 use App\Utils\UrlHelper;
 use Tests\UnitTestCase;
 

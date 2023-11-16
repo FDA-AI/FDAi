@@ -26,7 +26,7 @@ class DynamicFolder extends Directory {
 	public const FOLDER_APP_CODE_GENERATORS = 'app/CodeGenerators';
 	public const FOLDER_APP_CONSOLE = 'app/Console';
 	public const FOLDER_APP_CONVERSATIONS = 'app/Conversations';
-	public const FOLDER_APP_CORRELATIONS = 'app/Correlations';
+	public const FOLDER_APP_CORRELATIONS = 'app/VariableRelationships';
 	public const FOLDER_APP_DATA_SOURCES = 'app/DataSources';
 	public const FOLDER_APP_DATA_TABLE_SERVICES = 'app/DataTableServices';
 	public const FOLDER_APP_DEV_OPS = 'app/DevOps';

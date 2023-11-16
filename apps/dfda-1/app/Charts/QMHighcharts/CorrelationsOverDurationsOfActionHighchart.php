@@ -13,7 +13,7 @@ class CorrelationsOverDurationsOfActionHighchart extends ColumnHighchartConfig {
 	 */
 	public function __construct($c){
 		parent::__construct();
-		$this->setTitle('Correlations Over Durations of Action');
+		$this->setTitle('VariableRelationships Over Durations of Action');
 		$this->setXAxisTitleText('Assumed Duration Of Action (in Days)');
 		$this->setYAxisTitle('Predictive Coefficient');
 		$this->getYAxis()->plotLines = [['value' => 0, 'width' => 1, 'color' => '#EA4335']];
@@ -28,7 +28,7 @@ class CorrelationsOverDurationsOfActionHighchart extends ColumnHighchartConfig {
 		if($arr = $c->getCorrelationsOverDurations()){
 			$this->populate($arr);
 		}
-		$this->type = "Correlations Over Durations of Action";
+		$this->type = "VariableRelationships Over Durations of Action";
 	}
 	public function populate(array $correlations_over_durations){
 		$series = new Series();

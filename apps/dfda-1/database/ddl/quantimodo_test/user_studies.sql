@@ -2,10 +2,10 @@ create table quantimodo_test.user_studies
 (
     id                            varchar(80)                           not null comment 'Study id which should match OAuth client id'
         primary key,
-    cause_variable_id             int unsigned                          not null comment 'variable ID of the cause variable for which the user desires correlations',
-    effect_variable_id            int unsigned                          not null comment 'variable ID of the effect variable for which the user desires correlations',
-    cause_user_variable_id        int unsigned                          not null comment 'variable ID of the cause variable for which the user desires correlations',
-    effect_user_variable_id       int unsigned                          not null comment 'variable ID of the effect variable for which the user desires correlations',
+    cause_variable_id             int unsigned                          not null comment 'variable ID of the cause variable for which the user desires user_variable_relationships',
+    effect_variable_id            int unsigned                          not null comment 'variable ID of the effect variable for which the user desires user_variable_relationships',
+    cause_user_variable_id        int unsigned                          not null comment 'variable ID of the cause variable for which the user desires user_variable_relationships',
+    effect_user_variable_id       int unsigned                          not null comment 'variable ID of the effect variable for which the user desires user_variable_relationships',
     correlation_id                int                                   null comment 'ID of the correlation statistics',
     user_id                       bigint unsigned                       not null,
     created_at                    timestamp   default CURRENT_TIMESTAMP not null,

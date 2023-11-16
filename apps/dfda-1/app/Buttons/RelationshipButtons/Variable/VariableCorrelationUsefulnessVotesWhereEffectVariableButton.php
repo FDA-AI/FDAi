@@ -19,7 +19,7 @@ class VariableCorrelationUsefulnessVotesWhereEffectVariableButton extends HasMan
 	public $fontAwesome = CorrelationUsefulnessVote::FONT_AWESOME;
 	public $id = 'correlation-usefulness-votes-where-effect-variable-button';
 	public $image = CorrelationUsefulnessVote::DEFAULT_IMAGE;
-	public $text = 'Correlation Usefulness Votes Where Effect Variable';
-	public $title = 'Correlation Usefulness Votes Where Effect Variable';
-	public $tooltip = 'Correlation Usefulness Votes where this is the Effect Variable';
+	public $text = 'User Variable Relationship Usefulness Votes Where Effect Variable';
+	public $title = 'User Variable Relationship Usefulness Votes Where Effect Variable';
+	public $tooltip = 'User Variable Relationship Usefulness Votes where this is the Effect Variable';
 }

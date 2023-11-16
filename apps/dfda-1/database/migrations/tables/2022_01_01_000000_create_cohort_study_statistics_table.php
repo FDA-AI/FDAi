@@ -33,7 +33,7 @@ class CreateCohortStudyStatisticsTable extends Migration
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
             $table->string('status', 25)->comment('Whether the correlation is being analyzed, needs to be analyzed, or is up to date already.');
-            $table->float('reverse_pearson_correlation_coefficient', 0, 0)->comment('Correlation when Predictor and Outcome are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation');
+            $table->float('reverse_pearson_correlation_coefficient', 0, 0)->comment('User Variable Relationship when Predictor and Outcome are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation');
             $table->float('predictive_pearson_correlation_coefficient', 0, 0)->comment('Pearson correlation coefficient of Predictor and Outcome values lagged by the onset delay and grouped based on the duration of action. ');
             $table->string('data_source_name')->nullable();
             $table->integer('predicts_high_effect_change')->comment('The percent change in the outcome typically seen when the predictor value is closer to the predictsHighEffect value. ');
@@ -77,7 +77,7 @@ class CreateCohortStudyStatisticsTable extends Migration
             $table->float('effect_follow_up_percent_change_from_baseline', 0, 0)->comment('Outcome Average at Follow-Up (The average value seen for the outcome during the duration of action following the onset delay of the treatment)');
             $table->float('z_score', 0, 0)->comment('The absolute value of the change over duration of action following the onset delay of treatment divided by the baseline outcome relative standard deviation. A.K.A The number of standard deviations from the mean. A zScore > 2 means pValue < 0.05 and is typically considered statistically significant.');
             $table->json('charts');
-            $table->integer('number_of_variables_where_best_cohort_correlation')->comment('Number of Variables for this Best Cohort Correlation.
+            $table->integer('number_of_variables_where_best_cohort_correlation')->comment('Number of Variables for this Best Cohort UserVariableRelationship.
                     [Formula: update cohort_study_statistics
                         left join (
                             select count(id) as total, best_cohort_correlation_id

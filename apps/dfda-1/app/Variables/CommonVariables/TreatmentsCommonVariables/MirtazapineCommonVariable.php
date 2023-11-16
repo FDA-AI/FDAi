@@ -18,7 +18,7 @@ class MirtazapineCommonVariable extends QMCommonVariable {
 	public const IMAGE_URL = 'https://images-na.ssl-images-amazon.com/images/I/41OSjyvbf9L._SL160_.jpg';
 	public const NAME = 'Mirtazapine';
 	public const PRICE = 39.990000000000002;
-	public const PRODUCT_URL = 'https://www.amazon.com/SERENITY-Natural-Stress-Anxiety-Relief/dp/B00GCRXGTM?SubscriptionId=AKIAU4A65MD5FGE2ALOQ&tag=quantimodo04-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B00GCRXGTM';
+	public const PRODUCT_URL = 'https://www.amazon.com/SERENITY-Natural-Stress-Anxiety-Relief/dp/B00GCRXGTM?linkCode=xm2&camp=2025&creative=165953&creativeASIN=B00GCRXGTM';
 	public const PUBLIC = true;
 	public const SYNONYMS = ['Mirtazapine'];
 	public const VARIABLE_CATEGORY_ID = TreatmentsVariableCategory::ID;

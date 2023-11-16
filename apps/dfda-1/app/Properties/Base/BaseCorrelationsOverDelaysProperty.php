@@ -43,7 +43,7 @@ class BaseCorrelationsOverDelaysProperty extends BaseProperty{
 	public const NAME = 'correlations_over_delays';
 	public $canBeChangedToNull = true;
 	public $phpType = PhpTypes::ARRAY;
-	public $title = 'Correlations Over Delays';
+	public $title = 'VariableRelationships Over Delays';
 	public $type = PhpTypes::ARRAY;
 
 }

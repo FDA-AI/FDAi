@@ -2,7 +2,7 @@
 /** @noinspection PhpUnusedLocalVariableInspection */
 namespace Tests\StagingUnitTests\C\Studies;
 use App\Computers\ThisComputer;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Files\TestArtifacts\TestQueryLogFile;
 use App\Models\UserVariableRelationship;
 use App\Models\User;

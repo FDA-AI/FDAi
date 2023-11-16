@@ -103,7 +103,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Collection|Connector[] $connectors
  * @property Collection|CorrelationCausalityVote[] $correlation_causality_votes
  * @property Collection|CorrelationUsefulnessVote[] $correlation_usefulness_votes
- * @property Collection|UserVariableRelationship[] $correlations
+ * @property Collection|UserVariableRelationship[] $user_variable_relationships
  * @property Collection|DeviceToken[] $device_tokens
  * @property Collection|MeasurementExport[] $measurement_exports
  * @property Collection|MeasurementImport[] $measurement_imports
@@ -488,7 +488,7 @@ abstract class BaseOAClient extends BaseModel {
                     update oa_clients
                         left join (
                             select count(id) as total, client_id
-                            from correlations
+                            from user_variable_relationships
                             group by client_id
                         )
                         as grouped on oa_clients.client_id = grouped.client_id
@@ -705,12 +705,12 @@ abstract class BaseOAClient extends BaseModel {
 			'localKey' => CorrelationUsefulnessVote::FIELD_CLIENT_ID,
 			'methodName' => 'correlation_usefulness_votes',
 		],
-		'correlations' => [
+		'user_variable_relationships' => [
 			'relationshipType' => 'HasMany',
 			'qualifiedUserClassName' => UserVariableRelationship::class,
 			'foreignKey' => UserVariableRelationship::FIELD_CLIENT_ID,
 			'localKey' => UserVariableRelationship::FIELD_CLIENT_ID,
-			'methodName' => 'correlations',
+			'methodName' => 'user_variable_relationships',
 		],
 		'device_tokens' => [
 			'relationshipType' => 'HasMany',

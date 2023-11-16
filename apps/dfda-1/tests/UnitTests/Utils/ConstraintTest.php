@@ -8,7 +8,7 @@ use Tests\UnitTestCase;
 class ConstraintTest extends UnitTestCase
 {
     public function testHumanizeWhereClause(){
-        $c = new Constraint( 'internal_error_message',  'correlations', 'not null', '=');
+        $c = new Constraint( 'internal_error_message',  'user_variable_relationships', 'not null', '=');
         $this->assertEquals("that have a Internal Error Message", $c->humanize());
     }
     public function testNameSearchConstraint(){

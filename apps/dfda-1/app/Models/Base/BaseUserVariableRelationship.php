@@ -394,7 +394,7 @@ abstract class BaseUserVariableRelationship extends BaseModel {
 	public const FIELD_VALUE_PREDICTING_LOW_OUTCOME = 'value_predicting_low_outcome';
 	public const FIELD_WP_POST_ID = 'wp_post_id';
 	public const FIELD_Z_SCORE = 'z_score';
-	public const TABLE = 'correlations';
+	public const TABLE = 'user_variable_relationships';
 	protected $table = self::TABLE;
 	public const CLASS_DESCRIPTION = 'Examination of the relationship between predictor and outcome variables.  This includes the potential optimal values for a given variable. ';
 	protected $casts = [
@@ -636,7 +636,7 @@ abstract class BaseUserVariableRelationship extends BaseModel {
 		self::FIELD_P_VALUE => 'The measure of statistical significance. A value less than 0.05 means that a correlation is statistically significant or consistent enough that it is unlikely to be a coincidence.',
 		self::FIELD_PEARSON_CORRELATION_WITH_NO_ONSET_DELAY => '',
 		self::FIELD_PREDICTIVE_PEARSON_CORRELATION_COEFFICIENT => 'Predictive Pearson Correlation Coefficient',
-		self::FIELD_REVERSE_PEARSON_CORRELATION_COEFFICIENT => 'Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation',
+		self::FIELD_REVERSE_PEARSON_CORRELATION_COEFFICIENT => 'User Variable Relationship when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation',
 		self::FIELD_STATISTICAL_SIGNIFICANCE => 'A function of the effect size and sample size',
 		self::FIELD_STRONGEST_PEARSON_CORRELATION_COEFFICIENT => '',
 		self::FIELD_T_VALUE => 'Function of correlation and number of samples.',
@@ -682,8 +682,8 @@ abstract class BaseUserVariableRelationship extends BaseModel {
                         by which the predictor variable could influence the outcome variable.',
 		self::FIELD_DELETION_REASON => 'The reason the variable was deleted.',
 		self::FIELD_RECORD_SIZE_IN_KB => '',
-		self::FIELD_CORRELATIONS_OVER_DURATIONS => 'Pearson correlations calculated with various duration of action lengths. This can be used to compare short and long term effects. ',
-		self::FIELD_CORRELATIONS_OVER_DELAYS => 'Pearson correlations calculated with various onset delay lags used to identify reversed causality or asses the significant of a correlation with a given lag parameters. ',
+		self::FIELD_CORRELATIONS_OVER_DURATIONS => 'Pearson user_variable_relationships calculated with various duration of action lengths. This can be used to compare short and long term effects. ',
+		self::FIELD_CORRELATIONS_OVER_DELAYS => 'Pearson user_variable_relationships calculated with various onset delay lags used to identify reversed causality or asses the significant of a correlation with a given lag parameters. ',
 		self::FIELD_IS_PUBLIC => '',
 		self::FIELD_SORT_ORDER => '',
 		self::FIELD_BORING => 'The relationship is boring if it is obvious, the predictor is not controllable, the outcome is not a goal, the relationship could not be causal, or the confidence is low. ',

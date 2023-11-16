@@ -18,7 +18,7 @@ class FatIntakeCommonVariable extends QMCommonVariable {
     public const MINIMUM_ALLOWED_VALUE = 0; // I guess this has to be zero to allow for fasting?
 	public const NAME = 'Fat Intake';
 	public const PRICE = 0.98999999999999999;
-	public const PRODUCT_URL = 'https://www.amazon.com/Into-the-Bod-Pod/dp/B077F2SDVB?SubscriptionId=AKIAU4A65MD5FGE2ALOQ&tag=quantimodo04-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B077F2SDVB';
+	public const PRODUCT_URL = 'https://www.amazon.com/Into-the-Bod-Pod/dp/B077F2SDVB?linkCode=xm2&camp=2025&creative=165953&creativeASIN=B077F2SDVB';
 	public const PUBLIC = true;
 	public const SYNONYMS = ['Fat', 'Fat Intake'];
 	public const VARIABLE_CATEGORY_ID = NutrientsVariableCategory::ID;

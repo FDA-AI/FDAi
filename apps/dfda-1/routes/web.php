@@ -381,7 +381,7 @@ Route::prefix('datalab')->middleware(QMAuthenticate::NAME)->group(function () {
     Route::resource('connectorImports', DataLab\ConnectorImportController::class, ["as" => 'datalab']);
     Route::resource('connectorRequests', DataLab\ConnectorRequestController::class, ["as" => 'datalab']);
     Route::resource('connectors', DataLab\ConnectorController::class, ["as" => 'datalab']);
-    Route::resource('correlations', DataLab\CorrelationController::class, ["as" => 'datalab']);
+    Route::resource('user_variable_relationships', DataLab\CorrelationController::class, ["as" => 'datalab']);
     Route::resource('deviceTokens', DataLab\DeviceTokenController::class, ["as" => 'datalab']);
     Route::resource('measurementExports', DataLab\MeasurementExportController::class, ["as" => 'datalab']);
     Route::resource('measurementImports', DataLab\MeasurementImportController::class, ["as" => 'datalab']);
@@ -649,8 +649,8 @@ Route::prefix('api/v2')->group(function () {
         );
         //Read endpoints
         Route::middleware(QMAuthenticate::NAME)->group(function () {
-                Route::get("correlations", [V2\V2CorrelationController::class, 'index']);
-                Route::get("correlations/{id}", [V2\V2CorrelationController::class, 'show']);
+                Route::get("user_variable_relationships", [V2\V2CorrelationController::class, 'index']);
+                Route::get("user_variable_relationships/{id}", [V2\V2CorrelationController::class, 'show']);
                 Route::get("measurements", [V2\V2MeasurementController::class, 'index']);
                 Route::get("measurements/{id}", [V2\V2MeasurementController::class, 'show']);
                 Route::get("userVariables", [V2\V2UserVariableController::class, 'index']);
@@ -668,7 +668,7 @@ Route::prefix('api/v2')->group(function () {
         );
 
         Route::middleware(QMAuthenticate::NAME)->group(function () {
-                Route::post("correlations", [V2\V2CorrelationController::class, 'store']);
+                Route::post("user_variable_relationships", [V2\V2CorrelationController::class, 'store']);
                 Route::post("email", [EmailController::class, 'postEmail']);
                 Route::post("measurements/request_csv", [V2\V2MeasurementController::class, 'postCsvExportRequest']);
                 Route::post("measurements/request_pdf", [V2\V2MeasurementController::class, 'postPdfExportRequest']);

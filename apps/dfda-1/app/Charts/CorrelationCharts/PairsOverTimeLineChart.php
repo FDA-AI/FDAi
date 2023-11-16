@@ -9,7 +9,7 @@ use App\Charts\QMHighcharts\BaseHighstock;
 use App\Charts\QMHighcharts\HighchartConfig;
 use App\Charts\QMHighcharts\HighstockSeries;
 use App\Charts\QMHighcharts\PairsOverTimeHighstock;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\InvalidSourceDataException;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\TooSlowToAnalyzeException;

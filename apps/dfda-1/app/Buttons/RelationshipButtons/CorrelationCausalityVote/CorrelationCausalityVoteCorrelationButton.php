@@ -24,8 +24,8 @@ class CorrelationCausalityVoteCorrelationButton extends BelongsToRelationshipBut
 	public $fontAwesome = UserVariableRelationship::FONT_AWESOME;
 	public $id = 'correlation-button';
 	public $image = UserVariableRelationship::DEFAULT_IMAGE;
-	public $text = 'Correlation';
-	public $title = 'Correlation';
+	public $text = 'UserVariableRelationship';
+	public $title = 'UserVariableRelationship';
 	public $tooltip = UserVariableRelationship::CLASS_DESCRIPTION;
 
 }

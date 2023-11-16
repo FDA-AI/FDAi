@@ -23,7 +23,7 @@ class CaloricIntakeCommonVariable extends QMCommonVariable {
 	public const ONSET_DELAY = 0;
 	public const OUTCOME = true;
 	public const PRICE = 18.949999999999999;
-	public const PRODUCT_URL = 'https://www.amazon.com/Steps-Reverse-Your-PCOS-Metabolism/dp/1626343012?SubscriptionId=AKIAU4A65MD5FGE2ALOQ&tag=quantimodo04-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=1626343012';
+	public const PRODUCT_URL = 'https://www.amazon.com/Steps-Reverse-Your-PCOS-Metabolism/dp/1626343012?linkCode=xm2&camp=2025&creative=165953&creativeASIN=1626343012';
 	public const PUBLIC = true;
 	public const SYNONYMS = ['CaloriesIn', 'Caloric Intake'];
 	public const VARIABLE_CATEGORY_ID = NutrientsVariableCategory::ID;

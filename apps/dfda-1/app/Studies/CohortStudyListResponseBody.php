@@ -5,7 +5,7 @@
  */
 
 namespace App\Studies;
-use App\Correlations\CorrelationListExplanationResponseBody;
+use App\VariableRelationships\CorrelationListExplanationResponseBody;
 class CohortStudyListResponseBody extends StudyListResponseBody {
     public $studies;
     /**

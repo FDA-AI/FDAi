@@ -6,7 +6,7 @@
 
 namespace App\Properties\UserVariable;
 use App\Models\UserVariable;
-use App\Properties\Correlation\CorrelationCauseNumberOfProcessedDailyMeasurementsProperty;
+use App\Properties\UserVariableRelationship\CorrelationCauseNumberOfProcessedDailyMeasurementsProperty;
 use App\Storage\DB\QMQB;
 use App\Traits\PropertyTraits\IsCalculated;
 use App\Traits\PropertyTraits\UserVariableProperty;

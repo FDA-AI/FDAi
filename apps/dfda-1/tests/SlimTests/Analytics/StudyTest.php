@@ -7,8 +7,8 @@ namespace Tests\SlimTests\Analytics;
 use App\AppSettings\AppSettings;
 use App\Buttons\QMButton;
 use App\Cards\QMCard;
-use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\DataSources\QMClient;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
@@ -363,7 +363,7 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
 //        $this->assertLessThan(-0.65, $correlation->strongestPearsonCorrelationCoefficient,
 //            'strongestPearsonCorrelationCoefficient should probably be negative?');
         $study = $this->getUserStudyV4();
-        /** @var QMCorrelation $statistics */
+        /** @var QMVariableRelationship $statistics */
         $statistics = $study->statistics;
         $this->assertContains('lower', strtolower($study->studyText->studyTitle),
             "correlation: ".$statistics->correlationCoefficient.
@@ -441,7 +441,7 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
         }
         $this->saveCauseAndEffectMeasurementItems($causeMeasurementItems, $effectMeasurementItems);
         $correlation = $this->calculateCorrelation();
-        $this->assertEquals(QMCorrelation::DIRECTION_HIGHER, $correlation->direction);
+        $this->assertEquals(QMVariableRelationship::DIRECTION_HIGHER, $correlation->direction);
         $this->assertEquals(BaseForwardPearsonCorrelationCoefficientProperty::EFFECT_SIZE_strongly_positive, $correlation->effectSize);
         $this->assertEquals(1, $correlation->getGroupedValueOverDurationOfActionClosestToValuePredictingHighOutcome());
         $this->assertEquals(0, $correlation->getGroupedCauseValueClosestToValuePredictingLowOutcome());
@@ -493,7 +493,7 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
         $studyResponse = $publishResponse->study;
         //if(!$studyResponse->publishedAt){throw new LogicException("No study->publishedAt!");}
         $correlations = GlobalVariableRelationship::all();
-        //$this->assertCount(1, $correlations, "should have 1 global variable relationship after publishing");
+        //$this->assertCount(1, $user_variable_relationships, "should have 1 global variable relationship after publishing");
         $numberOfUserVariableRelationships = UserVariableRelationship::count();
         if($numberOfUserVariableRelationships > 1){
             $correlations = QMUserVariableRelationship::getOrCreateUserOrGlobalVariableRelationships([]);

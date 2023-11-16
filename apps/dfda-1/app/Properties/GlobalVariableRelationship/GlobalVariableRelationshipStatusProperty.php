@@ -7,7 +7,7 @@
 namespace App\Properties\GlobalVariableRelationship;
 use App\Models\GlobalVariableRelationship;
 use App\Properties\Base\BaseStatusProperty;
-use App\Properties\Correlation\CorrelationStatusProperty;
+use App\Properties\UserVariableRelationship\CorrelationStatusProperty;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 class GlobalVariableRelationshipStatusProperty extends BaseStatusProperty
 {

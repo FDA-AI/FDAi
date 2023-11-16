@@ -14,7 +14,7 @@ class BaseAverageForwardPearsonCorrelationOverOnsetDelaysProperty extends BasePr
 	public $dbInput = 'float,10,0';
 	public $dbType = 'float';
 	public $default = \OpenApi\Generator::UNDEFINED;
-	public $description = 'Average Forward Pearson Correlation coefficient when caclulated using various Onset Delay hyper-parameters';
+	public $description = 'Average Forward Pearson Correlation Coefficient when caclulated using various Onset Delay hyper-parameters';
 	public $fieldType = 'float';
 	public $fontAwesome = FontAwesome::AGGREGATE_CORRELATION;
 	public $htmlType = 'text';
@@ -31,7 +31,7 @@ class BaseAverageForwardPearsonCorrelationOverOnsetDelaysProperty extends BasePr
 	public const NAME = 'average_forward_pearson_correlation_over_onset_delays';
 	public $phpType = 'float';
 	public $rules = 'nullable|numeric';
-	public $title = 'Average Forward Pearson Correlation Over Onset Delays';
+	public $title = 'Average Forward Pearson User Variable Relationship Over Onset Delays';
 	public $type = self::TYPE_NUMBER;
 	public $canBeChangedToNull = true;
 	public $validations = 'nullable|numeric';

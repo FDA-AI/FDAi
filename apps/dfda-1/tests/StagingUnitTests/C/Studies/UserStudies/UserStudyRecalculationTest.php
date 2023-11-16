@@ -1,6 +1,6 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\StagingUnitTests\C\Studies\UserStudies;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Properties\Base\BaseAccessTokenProperty;
 use App\Variables\QMUserVariable;
 use Tests\SlimStagingTestCase;
@@ -13,7 +13,7 @@ class UserStudyRecalculationTest extends SlimStagingTestCase {
     public function testUserStudyRecalculation(){
         $enabled = false;
         if(!$enabled){
-            $this->skipTest("Too slow to generate correlations over parameters because it's not an API request in test.");
+            $this->skipTest("Too slow to generate user_variable_relationships over parameters because it's not an API request in test.");
             return;
         }
 		$expectedString = '';

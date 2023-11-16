@@ -12,7 +12,7 @@ use App\Models\UserVariableRelationship;
 use App\Models\User;
 use App\Models\WpPost;
 use App\Tables\BaseTable;
-use App\Tables\CorrelationsTable;
+use App\Tables\VariableRelationshipsTable;
 use App\Traits\HasCorrelationCoefficient;
 use App\Traits\HasTable;
 use App\Traits\HasModel\HasVariable;
@@ -27,8 +27,8 @@ use App\Exceptions\UserVariableNotFoundException;
 use App\Exceptions\VariableCategoryNotFoundException;
 use App\Utils\AppMode;
 use App\Charts\BarChartButton;
-use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Models\Vote;
 use App\Utils\QMProfile;
 use App\UI\CssHelper;
@@ -257,7 +257,7 @@ class RootCauseAnalysisSection extends AnalyticalReport {
         return $this->getPredictorVariableCategoryName()."-".$this->getRootCauseAnalysis()->getUniqueIndexIdsSlug();
     }
     /**
-     * @return QMCorrelation[]
+     * @return QMVariableRelationship[]
      */
     protected function getCorrelations(): array {
         if ($this->correlations !== null) {
@@ -318,7 +318,7 @@ class RootCauseAnalysisSection extends AnalyticalReport {
      * @return string
      */
     protected function correlationsToListOrTableHtml(array $correlations, string $subSectionTitle): string {
-        if (!$correlations) {le("No correlations for $subSectionTitle");}
+        if (!$correlations) {le("No user_variable_relationships for $subSectionTitle");}
         if (!$this->isWriteToPdf()) {return RootCauseAnalysisSection::getBarChartListHtml($correlations,
             $this::getOutcomeVariableName());}
         return RootCauseAnalysisSection::correlationsToTableHtml($correlations, $subSectionTitle);
@@ -338,7 +338,7 @@ class RootCauseAnalysisSection extends AnalyticalReport {
             $rows[] = $row;
         }
         if (!$rows) {
-            QMLog::error("No valid correlations for $subSectionTitle table");
+            QMLog::error("No valid user_variable_relationships for $subSectionTitle table");
             return '';
         }
         $html = QMTable::arrayToHtmlTable($rows);
@@ -451,7 +451,7 @@ class RootCauseAnalysisSection extends AnalyticalReport {
     /**
      * @param string $title
      * @param string $description
-     * @param QMCorrelation[] $correlations
+     * @param QMVariableRelationship[] $correlations
      * @param string $outcomeName
      * @return string
      */
@@ -494,7 +494,7 @@ class RootCauseAnalysisSection extends AnalyticalReport {
         return $maxChange;
     }
     /**
-     * @param QMCorrelation|UserVariableRelationship $c
+     * @param QMVariableRelationship|UserVariableRelationship $c
      * @param UserVariableRelationship[]|QMUserVariableRelationship[] $correlations
      * @return float|int
      */
@@ -584,7 +584,7 @@ class RootCauseAnalysisSection extends AnalyticalReport {
         $this->maximumCorrelations = $maximumCorrelations;
     }
     /**
-     * @param QMCorrelation[] $correlations
+     * @param QMVariableRelationship[] $correlations
      * @param string $outcomeVariableName
      * @return string
      */
@@ -683,7 +683,7 @@ class RootCauseAnalysisSection extends AnalyticalReport {
         return $this->correlations = $correlations;
     }
     /**
-     * @param QMCorrelation|UserVariableRelationship $c
+     * @param QMVariableRelationship|UserVariableRelationship $c
      * @param array $correlations
      * @param int $absoluteMax
      * @return string
@@ -912,7 +912,7 @@ class RootCauseAnalysisSection extends AnalyticalReport {
         return $a;
     }
     public function getBaseTable(): BaseTable{
-        $t = new CorrelationsTable($this->getCorrelations());
+        $t = new VariableRelationshipsTable($this->getCorrelations());
         return $t;
     }
     public function getVariableIdAttribute(): ?int{

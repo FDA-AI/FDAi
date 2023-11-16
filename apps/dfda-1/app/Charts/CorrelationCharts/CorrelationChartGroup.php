@@ -7,8 +7,8 @@
 namespace App\Charts\CorrelationCharts;
 use App\Charts\ChartGroup;
 use App\Charts\QMChart;
-use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\NotEnoughDataException;
 use App\Studies\QMUserStudy;
 use App\Variables\QMVariable;
@@ -228,7 +228,7 @@ class CorrelationChartGroup extends ChartGroup {
 	protected function getEffectVariable(): QMVariable{
 		return $this->getCorrelation()->getEffectQMVariable();
 	}
-	protected function getCorrelation(): QMCorrelation{
+	protected function getCorrelation(): QMVariableRelationship{
 		return $this->sourceObject;
 	}
 	public static function generateNonTemporalCharts($c): string{

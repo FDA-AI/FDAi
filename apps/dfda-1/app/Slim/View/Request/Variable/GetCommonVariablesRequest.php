@@ -280,10 +280,10 @@ class GetCommonVariablesRequest extends GetVariableRequest {
 	private static function addCorrelationJoins(Builder $qb, string $effectOrCause = null,
 		string $publicEffectOrCause = null){
 		if($effectOrCause == 'cause'){
-			$qb->join('correlations AS c', Variable::TABLE . '.id', '=', 'c.cause_variable_id');
+			$qb->join('user_variable_relationships AS c', Variable::TABLE . '.id', '=', 'c.cause_variable_id');
 		}
 		if($effectOrCause == 'effect'){
-			$qb->join('correlations AS c', Variable::TABLE . '.id', '=', 'c.effect_variable_id');
+			$qb->join('user_variable_relationships AS c', Variable::TABLE . '.id', '=', 'c.effect_variable_id');
 		}
 		if($publicEffectOrCause == 'cause'){
 			$qb->join('global_variable_relationships AS ac', Variable::TABLE . '.id', '=', 'ac.cause_variable_id');

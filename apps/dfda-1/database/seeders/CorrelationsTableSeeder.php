@@ -16,9 +16,9 @@ class CorrelationsTableSeeder extends AbstractSeeder
     {
         
 
-        \DB::table('correlations')->delete();
+        \DB::table('user_variable_relationships')->delete();
         
-        \DB::table('correlations')->insert(array (
+        \DB::table('user_variable_relationships')->insert(array (
             0 => 
             array (
                 'id' => '1',

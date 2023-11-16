@@ -5,7 +5,7 @@
  */
 
 namespace App\Exceptions;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 class NotEnoughOverlappingDataException extends NotEnoughDataException {
     /**
      * @var QMUserVariableRelationship

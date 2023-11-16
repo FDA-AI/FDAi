@@ -16,7 +16,7 @@ class GetCorrelationsTest extends SlimStagingTestCase {
         'REQUEST_METHOD' => 'GET',
         'REMOTE_ADDR' => '10.190.186.209',
         'SCRIPT_NAME' => '',
-        'PATH_INFO' => '/api/v3/correlations',
+        'PATH_INFO' => '/api/v3/user_variable_relationships',
         'SERVER_NAME' => '_',
         'SERVER_PORT' => '443',
         'HTTP_X_FORWARDED_FOR' => '35.202.145.110',

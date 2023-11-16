@@ -17,9 +17,9 @@ class OAClientThirdPartyCorrelationsButton extends HasManyRelationshipButton {
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\HasMany';
 	public $color = ThirdPartyCorrelation::COLOR;
 	public $fontAwesome = ThirdPartyCorrelation::FONT_AWESOME;
-	public $id = 'third-party-correlations-button';
+	public $id = 'third-party-user_variable_relationships-button';
 	public $image = ThirdPartyCorrelation::DEFAULT_IMAGE;
-	public $text = 'Third Party Correlations';
-	public $title = 'Third Party Correlations';
+	public $text = 'Third Party VariableRelationships';
+	public $title = 'Third Party VariableRelationships';
 	public $tooltip = ThirdPartyCorrelation::CLASS_DESCRIPTION;
 }

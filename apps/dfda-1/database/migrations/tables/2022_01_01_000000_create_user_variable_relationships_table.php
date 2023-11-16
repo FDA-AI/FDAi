@@ -13,7 +13,7 @@ class CreateCorrelationsTable extends Migration
      */
     public function up()
     {
-         Schema::create('correlations', function (Blueprint $table) {
+         Schema::create('user_variable_relationships', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger('user_id');
             $table->integer('cause_variable_id')->index('correlations_cause_variable_id_fk');
@@ -57,7 +57,7 @@ class CreateCorrelationsTable extends Migration
             $table->float('p_value', 0, 0)->nullable()->comment('The measure of statistical significance. A value less than 0.05 means that a correlation is statistically significant or consistent enough that it is unlikely to be a coincidence.');
             $table->float('pearson_correlation_with_no_onset_delay', 0, 0)->nullable();
             $table->float('predictive_pearson_correlation_coefficient', 0, 0)->nullable()->comment('Predictive Pearson Correlation Coefficient');
-            $table->float('reverse_pearson_correlation_coefficient', 0, 0)->nullable()->comment('Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation');
+            $table->float('reverse_pearson_correlation_coefficient', 0, 0)->nullable()->comment('User Variable Relationship when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation');
             $table->float('statistical_significance', 0, 0)->nullable()->comment('A function of the effect size and sample size');
             $table->float('strongest_pearson_correlation_coefficient', 0, 0)->nullable();
             $table->float('t_value', 0, 0)->nullable()->comment('Function of correlation and number of samples.');
@@ -103,8 +103,8 @@ class CreateCorrelationsTable extends Migration
                         by which the predictor variable could influence the outcome variable.');
             $table->string('deletion_reason', 280)->nullable()->comment('The reason the variable was deleted.');
             $table->integer('record_size_in_kb')->nullable();
-            $table->text('correlations_over_durations')->nullable()->comment('Pearson correlations calculated with various duration of action lengths. This can be used to compare short and long term effects. ');
-            $table->text('correlations_over_delays')->nullable()->comment('Pearson correlations calculated with various onset delay lags used to identify reversed causality or asses the significant of a correlation with a given lag parameters. ');
+            $table->text('correlations_over_durations')->nullable()->comment('Pearson user_variable_relationships calculated with various duration of action lengths. This can be used to compare short and long term effects. ');
+            $table->text('correlations_over_delays')->nullable()->comment('Pearson user_variable_relationships calculated with various onset delay lags used to identify reversed causality or asses the significant of a correlation with a given lag parameters. ');
             $table->boolean('is_public')->nullable();
             $table->integer('sort_order')->nullable();
             $table->string('slug', 200)->nullable()->unique('correlations_slug_uindex')->comment('The slug is the part of a URL that identifies a page in human-readable keywords.');
@@ -135,6 +135,6 @@ class CreateCorrelationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('correlations');
+        Schema::dropIfExists('user_variable_relationships');
     }
 }

@@ -29,7 +29,7 @@ create table if not exists global_study_votes
     constraint votes_user_id_fk
         foreign key (user_id) references users (id)
 )
-    comment 'Vote thumbs down button for relationships that you think are coincidences and thumbs up for correlations with a plausible causal explanation.'
+    comment 'Vote thumbs down button for relationships that you think are coincidences and thumbs up for user_variable_relationships with a plausible causal explanation.'
     charset = utf8;
 
 create index votes_cause_variable_id_index

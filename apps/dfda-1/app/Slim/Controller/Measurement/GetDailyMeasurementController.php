@@ -54,8 +54,8 @@ class GetDailyMeasurementController extends GetMeasurementController {
 	 * 12:00:00","timezone_type":1,"timezone":"+00:00"}},{"source":"MoodiModo","variable":... And every element in the
 	 * array has a unique timestamp And every timestamp is greater than the preceding timestamp Feature: Tagging of
 	 * Variables with Proportional Ingredients In order to know total intake of specific nutrients when just tracking
-	 * specific foods As a malnourished user I want to see correlations between my nutrient intake and health metrics
-	 * Scenario: Correlation calculations are initiated for sugar variable Given the user has measurements for 2 cans
+	 * specific foods As a malnourished user I want to see user_variable_relationships between my nutrient intake and health metrics
+	 * Scenario: UserVariableRelationship calculations are initiated for sugar variable Given the user has measurements for 2 cans
 	 * of a "coke" variable And the coke variable is tagged with 30 g of sugar per can When measurements are obtained
 	 * for the sugar Then there is also a 30 g measurement obtained for each can measurement
 	 * @SWG\Api(

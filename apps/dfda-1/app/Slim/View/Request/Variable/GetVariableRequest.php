@@ -801,7 +801,7 @@ abstract class GetVariableRequest extends Request {
 	 * @return bool
 	 */
 	private static function sortByCorrelations(string $sortBy = null): bool{
-		$sortByCorrelations = strpos(strtolower($sortBy), 'correlations') !== false;
+		$sortByCorrelations = strpos(strtolower($sortBy), 'user_variable_relationships') !== false;
 		return $sortByCorrelations;
 	}
 	/**

@@ -20,7 +20,7 @@ class BodyMassIndexOrBmiCommonVariable extends QMCommonVariable {
 	public const MINIMUM_ALLOWED_SECONDS_BETWEEN_MEASUREMENTS = 86400;
 	public const NAME = 'Body Mass Index Or BMI';
 	public const PRICE = 99.989999999999995;
-	public const PRODUCT_URL = 'https://www.amazon.com/INEVIFIT-BODY-ANALYZER-Accurate-Bathroom-Composition/dp/B074ZZYFQS?SubscriptionId=AKIAU4A65MD5FGE2ALOQ&tag=quantimodo04-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B074ZZY';
+	public const PRODUCT_URL = 'https://www.amazon.com/INEVIFIT-BODY-ANALYZER-Accurate-Bathroom-Composition/dp/B074ZZYFQS?linkCode=xm2&camp=2025&creative=165953&creativeASIN=B074ZZY';
 	public const PUBLIC = true;
 	public const SYNONYMS = ['BMI', 'Body Mass Index', 'Body Mass Index Or BMI'];
 	public const VARIABLE_CATEGORY_ID = PhysiqueVariableCategory::ID;

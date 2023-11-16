@@ -193,7 +193,7 @@ create table if not exists ct_correlations
     constraint user
         unique (user_id, cause_variable_id, effect_variable_id)
 )
-    comment 'Stores Calculated Correlation Coefficients' charset = utf8;
+    comment 'Stores Calculated User Variable Relationship Coefficients' charset = utf8;
 
 create index cause
     on ct_correlations (cause_variable_id);
@@ -909,7 +909,7 @@ create table if not exists oa_clients
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
-                            from correlations
+                            from user_variable_relationships
                             group by client_id
                         )
                         as grouped on bshaffer_oauth_clients.client_id = grouped.client_id
@@ -1391,7 +1391,7 @@ create table if not exists units
                     update units
                         left join (
                             select count(id) as total, cause_unit_id
-                            from correlations
+                            from user_variable_relationships
                             group by cause_unit_id
                         )
                         as grouped on units.id = grouped.cause_unit_id
@@ -1536,7 +1536,7 @@ create table if not exists variable_categories
                     update variable_categories
                         left join (
                             select count(id) as total, cause_variable_category_id
-                            from correlations
+                            from user_variable_relationships
                             group by cause_variable_category_id
                         )
                         as grouped on variable_categories.id = grouped.cause_variable_category_id
@@ -1548,7 +1548,7 @@ create table if not exists variable_categories
                     update variable_categories
                         left join (
                             select count(id) as total, effect_variable_category_id
-                            from correlations
+                            from user_variable_relationships
                             group by effect_variable_category_id
                         )
                         as grouped on variable_categories.id = grouped.effect_variable_category_id
@@ -1617,7 +1617,7 @@ create table if not exists global_variable_relationships
     optimal_pearson_product                                      double                                                          not null comment 'Optimal Pearson Product',
     average_vote                                                 float(3, 1) default 0.5                                         null comment 'Vote',
     number_of_users                                              int                                                             not null comment 'Number of Users by which correlation is aggregated',
-    number_of_correlations                                       int                                                             not null comment 'Number of Correlations by which correlation is aggregated',
+    number_of_correlations                                       int                                                             not null comment 'Number of VariableRelationships by which correlation is aggregated',
     statistical_significance                                     float(10, 4)                                                    not null comment 'A function of the effect size and sample size',
     cause_unit_id                                                smallint unsigned                                               null comment 'Unit ID of Cause',
     cause_changes                                                int                                                             not null comment 'The number of times the cause measurement value was different from the one preceding it.',
@@ -1626,7 +1626,7 @@ create table if not exists global_variable_relationships
     created_at                                                   timestamp   default CURRENT_TIMESTAMP                           not null,
     updated_at                                                   timestamp   default CURRENT_TIMESTAMP                           not null on update CURRENT_TIMESTAMP,
     status                                                       varchar(25)                                                     not null comment 'Whether the correlation is being analyzed, needs to be analyzed, or is up to date already.',
-    reverse_pearson_correlation_coefficient                      double                                                          not null comment 'Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation',
+    reverse_pearson_correlation_coefficient                      double                                                          not null comment 'User Variable Relationship when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation',
     predictive_pearson_correlation_coefficient                   double                                                          not null comment 'Pearson correlation coefficient of cause and effect values lagged by the onset delay and grouped based on the duration of action. ',
     data_source_name                                             varchar(255)                                                    null,
     predicts_high_effect_change                                  int(5)                                                          not null comment 'The percent change in the outcome typically seen when the predictor value is closer to the predictsHighEffect value. ',
@@ -1708,7 +1708,7 @@ create table if not exists global_variable_relationships
     constraint global_variable_relationships_effect_variable_category_id_fk
         foreign key (effect_variable_category_id) references variable_categories (id)
 )
-    comment 'Stores Calculated Aggregated Correlation Coefficients' charset = utf8;
+    comment 'Stores Calculated Aggregated User Variable Relationship Coefficients' charset = utf8;
 
 create index global_variable_relationships_effect_variable_id_index
     on global_variable_relationships (effect_variable_id);
@@ -1886,7 +1886,7 @@ create table if not exists variables
                     update variables
                         left join (
                             select count(id) as total, cause_variable_id
-                            from correlations
+                            from user_variable_relationships
                             group by cause_variable_id
                         )
                         as grouped on variables.id = grouped.cause_variable_id
@@ -1897,7 +1897,7 @@ create table if not exists variables
                     [Formula: update variables
                         left join (
                             select count(id) as total, effect_variable_id
-                            from correlations
+                            from user_variable_relationships
                             group by effect_variable_id
                         )
                         as grouped on variables.id = grouped.effect_variable_id
@@ -2333,8 +2333,8 @@ create table if not exists ctg_interventions
 
 create table if not exists third_party_correlations
 (
-    cause_id                                                     int unsigned                        not null comment 'variable ID of the cause variable for which the user desires correlations',
-    effect_id                                                    int unsigned                        not null comment 'variable ID of the effect variable for which the user desires correlations',
+    cause_id                                                     int unsigned                        not null comment 'variable ID of the cause variable for which the user desires user_variable_relationships',
+    effect_id                                                    int unsigned                        not null comment 'variable ID of the effect variable for which the user desires user_variable_relationships',
     qm_score                                                     double                              null comment 'QM Score',
     forward_pearson_correlation_coefficient                      float(10, 4)                        null comment 'Pearson correlation coefficient between cause and effect measurements',
     value_predicting_high_outcome                                double                              null comment 'cause value that predicts an above average effect value (in default unit for cause variable)',
@@ -2374,8 +2374,8 @@ create table if not exists third_party_correlations
     optimal_pearson_product                                      double                              null comment 'Optimal Pearson Product',
     p_value                                                      double                              null comment 'The measure of statistical significance. A value less than 0.05 means that a correlation is statistically significant or consistent enough that it is unlikely to be a coincidence.',
     pearson_correlation_with_no_onset_delay                      float                               null,
-    predictive_pearson_correlation_coefficient                   double                              null comment 'Predictive Pearson Correlation Coefficient',
-    reverse_pearson_correlation_coefficient                      double                              null comment 'Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation',
+    predictive_pearson_correlation_coefficient                   double                              null comment 'Predictive Pearson User Variable Relationship Coefficient',
+    reverse_pearson_correlation_coefficient                      double                              null comment 'User Variable Relationship when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation',
     statistical_significance                                     float(10, 4)                        null comment 'A function of the effect size and sample size',
     strongest_pearson_correlation_coefficient                    float                               null,
     t_value                                                      double                              null comment 'Function of correlation and number of samples.',
@@ -2405,7 +2405,7 @@ create table if not exists third_party_correlations
     constraint third_party_correlations_effect_variables_id_fk
         foreign key (effect_id) references variables (id)
 )
-    comment 'Stores Calculated Correlation Coefficients' charset = utf8;
+    comment 'Stores Calculated User Variable Relationship Coefficients' charset = utf8;
 
 create index cause
     on third_party_correlations (cause_id);
@@ -4213,8 +4213,8 @@ create table if not exists correlations
     optimal_pearson_product                                      double                                                          null comment 'Optimal Pearson Product',
     p_value                                                      double                                                          null comment 'The measure of statistical significance. A value less than 0.05 means that a correlation is statistically significant or consistent enough that it is unlikely to be a coincidence.',
     pearson_correlation_with_no_onset_delay                      float                                                           null,
-    predictive_pearson_correlation_coefficient                   double                                                          null comment 'Predictive Pearson Correlation Coefficient',
-    reverse_pearson_correlation_coefficient                      double                                                          null comment 'Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation',
+    predictive_pearson_correlation_coefficient                   double                                                          null comment 'Predictive Pearson User Variable Relationship Coefficient',
+    reverse_pearson_correlation_coefficient                      double                                                          null comment 'User Variable Relationship when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation',
     statistical_significance                                     float(10, 4)                                                    null comment 'A function of the effect size and sample size',
     strongest_pearson_correlation_coefficient                    float                                                           null,
     t_value                                                      double                                                          null comment 'Function of correlation and number of samples.',
@@ -4260,8 +4260,8 @@ create table if not exists correlations
                         by which the predictor variable could influence the outcome variable.',
     deletion_reason                                              varchar(280)                                                    null comment 'The reason the variable was deleted.',
     record_size_in_kb                                            int                                                             null,
-    correlations_over_durations                                  text                                                            not null comment 'Pearson correlations calculated with various duration of action lengths. This can be used to compare short and long term effects. ',
-    correlations_over_delays                                     text                                                            not null comment 'Pearson correlations calculated with various onset delay lags used to identify reversed causality or asses the significant of a correlation with a given lag parameters. ',
+    correlations_over_durations                                  text                                                            not null comment 'Pearson user_variable_relationships calculated with various duration of action lengths. This can be used to compare short and long term effects. ',
+    correlations_over_delays                                     text                                                            not null comment 'Pearson user_variable_relationships calculated with various onset delay lags used to identify reversed causality or asses the significant of a correlation with a given lag parameters. ',
     is_public                                                    tinyint(1)                                                      null,
     sort_order                                                   int                                                             not null,
     boring                                                       tinyint(1)                                                      null comment 'The relationship is boring if it is obvious, the predictor is not controllable, the outcome is not a goal, the relationship could not be causal, or the confidence is low. ',
@@ -4728,8 +4728,8 @@ create table if not exists studies
 (
     id                            varchar(80)                           not null comment 'Study id which should match OAuth client id',
     type                          varchar(20)                           not null comment 'The type of study may be population, individual, or cohort study',
-    cause_variable_id             int unsigned                          not null comment 'variable ID of the cause variable for which the user desires correlations',
-    effect_variable_id            int unsigned                          not null comment 'variable ID of the effect variable for which the user desires correlations',
+    cause_variable_id             int unsigned                          not null comment 'variable ID of the cause variable for which the user desires user_variable_relationships',
+    effect_variable_id            int unsigned                          not null comment 'variable ID of the effect variable for which the user desires user_variable_relationships',
     user_id                       bigint unsigned                       not null,
     created_at                    timestamp   default CURRENT_TIMESTAMP not null,
     deleted_at                    timestamp                             null,
@@ -4944,7 +4944,7 @@ create table if not exists user_variables
     last_original_unit_id                                smallint unsigned                        null comment 'ID of last original Unit',
     `last_value`                                         double                                   null comment 'Last Value',
     last_original_value                                  double unsigned                          null comment 'Last original value which is stored',
-    number_of_correlations                               int                                      null comment 'Number of correlations for this variable',
+    number_of_correlations                               int                                      null comment 'Number of user_variable_relationships for this variable',
     status                                               varchar(25)                              null,
     standard_deviation                                   double                                   null comment 'Standard deviation',
     variance                                             double                                   null comment 'Variance',
@@ -4978,8 +4978,8 @@ create table if not exists user_variables
     deleted_at                                           timestamp                                null,
     second_to_last_value                                 double                                   null,
     third_to_last_value                                  double                                   null,
-    number_of_user_correlations_as_effect                int unsigned                             null comment 'Number of user correlations for which this variable is the effect variable',
-    number_of_user_correlations_as_cause                 int unsigned                             null comment 'Number of user correlations for which this variable is the cause variable',
+    number_of_user_correlations_as_effect                int unsigned                             null comment 'Number of user user_variable_relationships for which this variable is the effect variable',
+    number_of_user_correlations_as_cause                 int unsigned                             null comment 'Number of user user_variable_relationships for which this variable is the cause variable',
     combination_operation                                enum ('SUM', 'MEAN')                     null comment 'How to combine values of this variable (for instance, to see a summary of the values over a month) SUM or MEAN',
     informational_url                                    varchar(2000)                            null comment 'Wikipedia url',
     most_common_connector_id                             int unsigned                             null,
@@ -5449,7 +5449,7 @@ create table if not exists votes
     constraint votes_user_id_fk
         foreign key (user_id) references wp_users (ID)
 )
-    comment 'Vote thumbs down button for relationships that you think are coincidences and thumbs up for correlations with a plausible causal explanation.'
+    comment 'Vote thumbs down button for relationships that you think are coincidences and thumbs up for user_variable_relationships with a plausible causal explanation.'
     charset = utf8;
 
 create index votes_cause_variable_id_index

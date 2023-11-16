@@ -7,7 +7,7 @@
 namespace App\Charts\CorrelationCharts;
 use App\Charts\QMHighcharts\CorrelationsOverOnsetDelaysHighchart;
 use App\Charts\QMHighcharts\HighchartConfig;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\AnalysisException;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\NotEnoughMeasurementsForCorrelationException;
@@ -31,7 +31,7 @@ class CorrelationsOverOnsetDelaysChart extends CorrelationChart {
 		//" the peak correlation is most likely to be the amount of time before ".$correlation->getCauseVariableDisplayNameWithoutSuffix().
 		//" produces an observable effect on ".$correlation->getEffectVariableDisplayNameWithoutSuffix()."."
 		);
-		parent::__construct($c, "Correlation Between " . $c->getCauseNameWithoutCategoryOrUnit() . " and " .
+		parent::__construct($c, "User Variable Relationship Between " . $c->getCauseNameWithoutCategoryOrUnit() . " and " .
 			$c->getEffectNameWithoutCategoryOrUnit() . " by Onset Delay");
 		$l = $c->l();
 		if($l->correlations_over_delays){

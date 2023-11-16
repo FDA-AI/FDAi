@@ -19,7 +19,7 @@ class VariableCorrelationCausalityVotesWhereCauseVariableButton extends HasManyR
 	public $fontAwesome = CorrelationCausalityVote::FONT_AWESOME;
 	public $id = 'correlation-causality-votes-where-cause-variable-button';
 	public $image = CorrelationCausalityVote::DEFAULT_IMAGE;
-	public $text = 'Correlation Causality Votes Where Cause Variable';
-	public $title = 'Correlation Causality Votes Where Cause Variable';
-	public $tooltip = 'Correlation Causality Votes where this is the Cause Variable';
+	public $text = 'User Variable Relationship Causality Votes Where Cause Variable';
+	public $title = 'User Variable Relationship Causality Votes Where Cause Variable';
+	public $tooltip = 'User Variable Relationship Causality Votes where this is the Cause Variable';
 }

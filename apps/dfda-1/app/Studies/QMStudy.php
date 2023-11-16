@@ -11,9 +11,9 @@ use App\Cards\QMCard;
 use App\Cards\StudyCard;
 use App\Charts\ChartGroup;
 use App\Charts\CorrelationCharts\CorrelationChartGroup;
-use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\AlreadyAnalyzedException;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\BadRequestException;
@@ -45,8 +45,8 @@ use App\Models\WpPost;
 use App\Properties\Base\BaseCauseVariableIdProperty;
 use App\Properties\Base\BaseEffectVariableIdProperty;
 use App\Properties\Base\BasePostStatusProperty;
-use App\Properties\Correlation\CorrelationReversePearsonCorrelationCoefficientProperty;
-use App\Properties\Correlation\CorrelationStatusProperty;
+use App\Properties\UserVariableRelationship\CorrelationReversePearsonCorrelationCoefficientProperty;
+use App\Properties\UserVariableRelationship\CorrelationStatusProperty;
 use App\Properties\Study\StudyCauseVariableIdProperty;
 use App\Properties\Study\StudyEffectVariableIdProperty;
 use App\Properties\Study\StudyIdProperty;
@@ -279,7 +279,7 @@ abstract class QMStudy extends DBModel {
         if($this->effectVariable){
             return $this->effectVariable;
         }
-        /** @var QMCorrelation $c */
+        /** @var QMVariableRelationship $c */
         if($c = $this->getHasCorrelationCoefficientIfSet()){
 	        return $this->effectVariable = $c->getOrSetEffectQMVariable();
         }
@@ -293,7 +293,7 @@ abstract class QMStudy extends DBModel {
         if($this->causeVariable){
             return $this->causeVariable;
         }
-        /** @var QMCorrelation $c */
+        /** @var QMVariableRelationship $c */
         if($c = $this->getHasCorrelationCoefficientIfSet()){
 	        return $this->causeVariable = $c->getOrSetCauseQMVariable();
         }
@@ -550,7 +550,7 @@ abstract class QMStudy extends DBModel {
      * @throws NotEnoughMeasurementsForCorrelationException
      * @throws NoUserVariableRelationshipsToAggregateException
      */
-    abstract public function getCreateOrRecalculateStatistics(): QMCorrelation;
+    abstract public function getCreateOrRecalculateStatistics(): QMVariableRelationship;
     /**
      * @return StudyParticipantInstructions
      */
@@ -820,11 +820,11 @@ categories:'.
         return $string;
     }
 	/**
-	 * @return null|QMUserVariableRelationship|QMGlobalVariableRelationship|QMCorrelation|HasCorrelationCoefficient
+	 * @return null|QMUserVariableRelationship|QMGlobalVariableRelationship|QMVariableRelationship|HasCorrelationCoefficient
 	 */
     abstract public function setHasCorrelationCoefficientFromDatabase();
     /**
-     * @return null|QMUserVariableRelationship|QMGlobalVariableRelationship|QMCorrelation|HasCorrelationCoefficient
+     * @return null|QMUserVariableRelationship|QMGlobalVariableRelationship|QMVariableRelationship|HasCorrelationCoefficient
      */
     public function getHasCorrelationCoefficientFromDatabase(){
         $fromDB = $this->correlationFromDatabase;
@@ -871,7 +871,7 @@ categories:'.
      * @return bool
      */
     public static function weShouldGenerateFullStudyWithChartsCssAndInstructions($study = null): bool{
-        if(QMRequest::urlContains('correlations', true)){
+        if(QMRequest::urlContains('user_variable_relationships', true)){
             return false;
         }
         if(QMRequest::urlContains('/feed')){
@@ -1304,7 +1304,7 @@ categories:'.
     public function getCauseQMVariable(): QMVariable {
         $v = $this->causeVariable;
         if(!$v){
-            /** @var QMCorrelation $s */
+            /** @var QMVariableRelationship $s */
             if($s = $this->statistics){$v = $this->causeVariable = $s->getCauseQMVariable();}
         }
         if($v){return $v;}
@@ -1584,12 +1584,12 @@ categories:'.
         return true;
     }
     /**
-     * @param QMCorrelation $statistics
-     * @return QMCorrelation
+     * @param QMVariableRelationship $statistics
+     * @return QMVariableRelationship
      */
-    public function setStatistics(QMCorrelation $statistics): QMCorrelation{
+    public function setStatistics(QMVariableRelationship $statistics): QMVariableRelationship{
         if($existing = $this->getHasCorrelationCoefficientIfSet()){
-            /** @var QMCorrelation $existing */
+            /** @var QMVariableRelationship $existing */
             if($existing->getUpdatedAt() === $statistics->getUpdatedAt() && // No need to setStatisticsDependentProperties again
                 $existing->getCorrelationCoefficient() === $statistics->getCorrelationCoefficient()){
                 return $this->statistics = $statistics; // Replaces the BSON if necessary
@@ -1661,7 +1661,7 @@ categories:'.
         return $effect;
     }
     /**
-     * @param QMCorrelation|HasCorrelationCoefficient $statistics
+     * @param QMVariableRelationship|HasCorrelationCoefficient $statistics
      */
     private function setStatisticsDependentProperties($statistics): void{
         $this->setStudyText();
@@ -1812,7 +1812,7 @@ categories:'.
         $this->getHasCorrelationCoefficient()->analyzePartially($reason); // TODO:  Implement analyzePartially
     }
 	/**
-	 * @return QMCorrelation|HasCorrelationCoefficient|null
+	 * @return QMVariableRelationship|HasCorrelationCoefficient|null
 	 */
 	public function findHasCorrelationCoefficient(){
 		$s = $this->statistics;
@@ -1854,10 +1854,10 @@ categories:'.
         return $this->setStatistics($c);
     }
     /**
-     * @return QMCorrelation
+     * @return QMVariableRelationship
      * @throws NotEnoughDataException
      */
-    abstract public function createStatistics(): QMCorrelation;
+    abstract public function createStatistics(): QMVariableRelationship;
     public function getStudyStatus(): string {
         if($this->studyStatus){
             return $this->studyStatus;
@@ -1895,7 +1895,7 @@ categories:'.
         return $this->studyCharts = $charts;
     }
     /**
-     * @return QMCorrelation|null|HasCorrelationCoefficient
+     * @return QMVariableRelationship|null|HasCorrelationCoefficient
      */
     public function getHasCorrelationCoefficientIfSet(){
         if($this->statistics instanceof NotEnoughDataException){
@@ -1922,7 +1922,7 @@ categories:'.
     public function prepareResponse(): QMStudy{
         $this->setHtmlWithChartsIfPossible();
 		// Let's just look at the variable pages separately because the response will be too big
-	    // When you consider it's got to get all the other correlations, etc.
+	    // When you consider it's got to get all the other user_variable_relationships, etc.
 //		$this->getCauseQMVariable()->getOrSetHighchartConfigs();
 //	    $this->getEffectQMVariable()->getOrSetHighchartConfigs();
         $this->unsetLargeStatisticsProperties();

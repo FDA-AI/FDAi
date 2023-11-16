@@ -13,9 +13,9 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 class BelongsToRelationshipButton extends RelationshipButton
 {
     protected $foreignKeyName; // 'client_id',
-    protected $qualifiedForeignKeyName; // Correlation::FIELD_CLIENT_ID,
+    protected $qualifiedForeignKeyName; // UserVariableRelationship::FIELD_CLIENT_ID,
     protected $ownerKeyName; // 'client_id',
-    protected $qualifiedOwnerKeyName; // Correlation::FIELD_CLIENT_ID,
+    protected $qualifiedOwnerKeyName; // UserVariableRelationship::FIELD_CLIENT_ID,
     protected $childClass;
     /**
      * BelongsToRelationshipButton constructor.

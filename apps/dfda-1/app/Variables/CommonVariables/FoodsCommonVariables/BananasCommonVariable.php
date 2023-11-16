@@ -19,7 +19,7 @@ class BananasCommonVariable extends QMCommonVariable {
 	public const MAXIMUM_ALLOWED_VALUE = 20.0;
 	public const NAME = 'Bananas (serving)';
 	public const PRICE = 14.27;
-	public const PRODUCT_URL = 'https://www.amazon.com/Fresh-Organic-Bananas-Approximately-Bunch/dp/B00ZVIWWB6?SubscriptionId=AKIAU4A65MD5FGE2ALOQ&tag=quantimodo04-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B00ZVIWWB6';
+	public const PRODUCT_URL = 'https://www.amazon.com/Fresh-Organic-Bananas-Approximately-Bunch/dp/B00ZVIWWB6?linkCode=xm2&camp=2025&creative=165953&creativeASIN=B00ZVIWWB6';
 	public const PUBLIC = true;
 	public const SYNONYMS = ['Bananas', 'Banana'];
 	public const VARIABLE_CATEGORY_ID = FoodsVariableCategory::ID;

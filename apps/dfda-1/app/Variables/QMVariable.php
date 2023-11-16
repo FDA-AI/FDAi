@@ -21,9 +21,9 @@ use App\Cards\VariableSettingsCard;
 use App\Charts\ChartGroup;
 use App\Charts\UserVariableCharts\UserVariableChartGroup;
 use App\Charts\VariableCharts\VariableChartChartGroup;
-use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\DataSources\Connectors\QuantiModoConnector;
 use App\DataSources\Connectors\RescueTimeConnector;
 use App\DataSources\QMDataSource;
@@ -3215,7 +3215,7 @@ abstract class QMVariable extends VariableSearchResult {
 			if(is_array($value) && isset($value[0])){
 				$value = $value[0];
 			}
-			if($value instanceof QMCorrelation){
+			if($value instanceof QMVariableRelationship){
 				$value->unsetVariables();
 			}
 		}
@@ -3267,7 +3267,7 @@ abstract class QMVariable extends VariableSearchResult {
 		if($variableCategoryName){
 			$qb->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID, VariableCategoryIdProperty::findByName($variableCategoryName));
 		}
-		// Slows down query Correlation::applyDefaultOrderings($qb);
+		// Slows down query UserVariableRelationship::applyDefaultOrderings($qb);
 		$correlations = $qb->get();
 		$correlations = $correlations->sortByDesc(UserVariableRelationship::FIELD_QM_SCORE);
 		return $this->userVariableRelationshipsAsCause = $correlations;
@@ -3284,7 +3284,7 @@ abstract class QMVariable extends VariableSearchResult {
 		if($variableCategoryName){
 			$qb->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID, VariableCategoryIdProperty::findByName($variableCategoryName));
 		}
-		// Slows down query Correlation::applyDefaultOrderings($qb);
+		// Slows down query UserVariableRelationship::applyDefaultOrderings($qb);
 		$correlations = $qb->get();
 		$correlations = $correlations->sortByDesc(UserVariableRelationship::FIELD_QM_SCORE);
 		return $this->userVariableRelationshipsAsEffect = $correlations;
@@ -3343,7 +3343,7 @@ abstract class QMVariable extends VariableSearchResult {
 				->attr('table', 'cellspacing', '0')->attr('table', 'width', '100%')
 				//->attr('table', 'style', 'width: 100%; table-layout: fixed;')
 				->column()->filter()->title('Variable')->value(function($row) use ($me){
-					/** @var QMCorrelation $row */
+					/** @var QMVariableRelationship $row */
 					if($row->causeVariableId === $me->id){
 						$name = $row->effectNameWithSuffix();
 						$id = $row->effectVariableId;
@@ -3351,13 +3351,13 @@ abstract class QMVariable extends VariableSearchResult {
 						$name = $row->causeNameWithSuffix();
 						$id = $row->causeVariableId;
 					}
-					/** @var QMCorrelation $row */
+					/** @var QMVariableRelationship $row */
 					$url = Variable::generateShowUrl($id);
 					return '<a href="' . $url . '"
                         style="cursor: pointer;">' . $name . '</a>';
 				})->attr('td', 'style', 'width: 75%;')->css('td', 'width', '80%')->attr('td', 'width', '80%')->add()
 				->column()->title('Effect')->value(function($row) use ($me){
-					/** @var QMCorrelation $row */
+					/** @var QMVariableRelationship $row */
 					return $row->getEffectSizeLinkToStudyWithExplanation();
 				})
 				//->css('td', 'color', 'red')
@@ -3385,7 +3385,7 @@ abstract class QMVariable extends VariableSearchResult {
 				//                        '">Full Query</a>';
 				//                })
 				->value(function($row) use ($tableId){
-					/** @var QMCorrelation $row */
+					/** @var QMVariableRelationship $row */
 					$url = $row->getInteractiveStudyUrl();
 					return '<a href="' . $url . '"
                         style="cursor: pointer;">Full Study</a>';

@@ -12,7 +12,7 @@ use App\Logging\QMLog;
 use App\Models\BaseModel;
 use App\Models\UserVariableRelationship;
 use App\Properties\Base\BaseAccessTokenProperty;
-use App\Properties\Correlation\CorrelationStatusProperty;
+use App\Properties\UserVariableRelationship\CorrelationStatusProperty;
 use App\Slim\Middleware\QMAuth;
 use App\Slim\View\Request\QMRequest;
 use App\Storage\DB\QMQB;

@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\UnitTests\Variables;
-use App\Properties\Correlation\CorrelationOptimalPearsonProductProperty;
-use App\Correlations\QMUserVariableRelationshipV1;
+use App\Properties\UserVariableRelationship\CorrelationOptimalPearsonProductProperty;
+use App\VariableRelationships\QMUserVariableRelationshipV1;
 use App\Utils\Stats;
 use Tests\UnitTestCase;
 class VariableCalculationHelperTest extends UnitTestCase

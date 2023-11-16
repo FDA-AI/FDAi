@@ -16,7 +16,7 @@ class CorrelationApiTest extends UnitTestCase
 
         $r = $this->jsonAsUser18535(
             'POST',
-            '/api/v6/correlations', $correlation
+            '/api/v6/user_variable_relationships', $correlation
         );
 
         $this->assertApiResponse($correlation);
@@ -29,16 +29,16 @@ class CorrelationApiTest extends UnitTestCase
 		$this->assertNotNull($found);
 		$this->assertGuest();
 		$this->expectUnauthorizedException();
-		$this->getApiV6('correlations');
+		$this->getApiV6('user_variable_relationships');
 		$this->setAuthenticatedUser(1);
         $r = $this->getJson(
-            '/api/v6/correlations/'.$correlation->id
+            '/api/v6/user_variable_relationships/'.$correlation->id
         );
         $this->assertApiResponse($correlation->toArray());
 		$this->setAuthenticatedUser($correlation->user_id);
 	    $correlation->causality_vote = 1;
 	    $correlation->save();
-	    $r = $this->putJson('/api/v6/correlations/'.$correlation->id, [UserVariableRelationship::FIELD_CAUSALITY_VOTE => -1]);
+	    $r = $this->putJson('/api/v6/user_variable_relationships/'.$correlation->id, [UserVariableRelationship::FIELD_CAUSALITY_VOTE => -1]);
 	    $r->assertStatus(201);
 		$updated = UserVariableRelationship::find($correlation->id);
 	    $this->assertEquals(-1, $updated->causality_vote);
@@ -46,13 +46,13 @@ class CorrelationApiTest extends UnitTestCase
 	    $correlation->causality_vote = 1;
         $r = $this->json(
             'DELETE',
-             '/api/v6/correlations/'.$correlation->id
+             '/api/v6/user_variable_relationships/'.$correlation->id
          );
 	    $r->assertStatus(204);
 	    $this->expectModelNotFoundException();
         $r = $this->json(
             'GET',
-            '/api/v6/correlations/'.$correlation->id
+            '/api/v6/user_variable_relationships/'.$correlation->id
         );
 	    $r->assertStatus(404);
     }

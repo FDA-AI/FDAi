@@ -63,7 +63,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Collection|Application[] $applications
  * @property Collection|Connection[] $connections
  * @property Collection|Connector[] $connectors
- * @property Collection|UserVariableRelationship[] $correlations
+ * @property Collection|UserVariableRelationship[] $user_variable_relationships
  * @property Collection|SentEmail[] $sent_emails
  * @property Collection|\App\Models\SpreadsheetImporter[] $spreadsheet_importers
  * @property Collection|UserVariable[] $user_variables
@@ -288,12 +288,12 @@ abstract class BaseWpPost extends BaseModel {
 			'localKey' => Connector::FIELD_ID,
 			'methodName' => 'connectors',
 		],
-		'correlations' => [
+		'user_variable_relationships' => [
 			'relationshipType' => 'HasMany',
 			'qualifiedUserClassName' => UserVariableRelationship::class,
 			'foreignKey' => UserVariableRelationship::FIELD_WP_POST_ID,
 			'localKey' => UserVariableRelationship::FIELD_ID,
-			'methodName' => 'correlations',
+			'methodName' => 'user_variable_relationships',
 		],
 		'sent_emails' => [
 			'relationshipType' => 'HasMany',

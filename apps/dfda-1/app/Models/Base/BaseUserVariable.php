@@ -689,7 +689,7 @@ abstract class BaseUserVariable extends BaseModel {
 		self::FIELD_LAST_ORIGINAL_UNIT_ID => 'ID of last original Unit',
 		self::FIELD_LAST_VALUE => 'Last Value',
 		self::FIELD_LAST_ORIGINAL_VALUE => 'Last original value which is stored',
-		self::FIELD_NUMBER_OF_CORRELATIONS => 'Number of correlations for this variable',
+		self::FIELD_NUMBER_OF_CORRELATIONS => 'Number of user_variable_relationships for this variable',
 		self::FIELD_STATUS => '',
 		self::FIELD_STANDARD_DEVIATION => 'Standard deviation',
 		self::FIELD_VARIANCE => 'Variance',

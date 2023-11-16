@@ -8,7 +8,7 @@ use App\Logging\QMLog;
 use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipAggregateQmScoreProperty;
 use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipIsPublicProperty;
 use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipNumberOfCorrelationsProperty;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 use App\PhpUnitJobs\JobTestCase;
 class GlobalVariableRelationshipsJob extends JobTestCase {
     public function testGlobalVariableRelationshipsJob(): void{

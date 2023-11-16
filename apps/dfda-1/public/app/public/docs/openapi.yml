@@ -562,8 +562,8 @@ paths:
     get:
       tags:
         - analytics
-      summary: Get correlations
-      description: 'Get a list of correlations that can be used to display top predictors of a given outcome like mood, for instance.'
+      summary: Get user_variable_relationships
+      description: 'Get a list of user_variable_relationships that can be used to display top predictors of a given outcome like mood, for instance.'
       operationId: getCorrelations
       parameters:
         - $ref: '#/components/parameters/causeVariableNameParam'
@@ -1558,7 +1558,7 @@ paths:
       tags:
         - studies
       summary: Post or update vote
-      description: 'I am really good at finding correlations and even compensating for various onset delays and durations of action. However, you are much better than me at knowing if there''s a way that a given factor could plausibly influence an outcome. You can help me learn and get better at my predictions by pressing the thumbs down button for relationships that you think are coincidences and thumbs up once that make logic sense.'
+      description: 'I am really good at finding user_variable_relationships and even compensating for various onset delays and durations of action. However, you are much better than me at knowing if there''s a way that a given factor could plausibly influence an outcome. You can help me learn and get better at my predictions by pressing the thumbs down button for relationships that you think are coincidences and thumbs up once that make logic sense.'
       operationId: postVote
       parameters:
         - $ref: '#/components/parameters/userIdParam'
@@ -2287,7 +2287,7 @@ components:
           description: Mike Sinn
         reverseCorrelation:
           type: number
-          description: 'Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation.'
+          description: 'User Variable Relationship when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation.'
         averagePearsonCorrelationCoefficientOverOnsetDelays:
           type: number
           description: 'Ex: '
@@ -2622,7 +2622,7 @@ components:
           description: Mike Sinn
         reverseCorrelation:
           type: number
-          description: 'Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation.'
+          description: 'User Variable Relationship when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation.'
         averagePearsonCorrelationCoefficientOverOnsetDelays:
           type: number
           description: 'Ex: '
@@ -2632,22 +2632,22 @@ components:
           description: 'Ex: 14764'
         correlationsOverDurationsOfAction:
           type: array
-          description: Correlations calculated with various duration of action hyper-parameters
+          description: VariableRelationships calculated with various duration of action hyper-parameters
           items:
             $ref: '#/components/schemas/HyperParameterCorrelation'
         correlationsOverOnsetDelays:
           type: array
-          description: Correlations calculated with various onset delay hyper-parameters
+          description: VariableRelationships calculated with various onset delay hyper-parameters
           items:
             $ref: '#/components/schemas/HyperParameterCorrelation'
         correlationsOverDurationsOfActionChartConfig:
           type: object
           properties: {}
-          description: Highchart config illustrating correlations calculated with various duration of action hyper-parameters
+          description: Highchart config illustrating user_variable_relationships calculated with various duration of action hyper-parameters
         correlationsOverOnsetDelaysChartConfig:
           type: object
           properties: {}
-          description: Highchart config illustrating correlations calculated with various onset delay hyper-parameters
+          description: Highchart config illustrating user_variable_relationships calculated with various onset delay hyper-parameters
         numberOfUsers:
           type: number
           description: 'Ex: 1'
@@ -5494,7 +5494,7 @@ components:
           format: int32
         numberOfCorrelations:
           type: integer
-          description: Number of correlations for this variable
+          description: Number of user_variable_relationships for this variable
           format: int32
         numberOfCorrelationsAsCause:
           type: integer
@@ -6029,7 +6029,7 @@ components:
           format: int32
         numberOfCorrelations:
           type: integer
-          description: Number of correlations for this variable
+          description: Number of user_variable_relationships for this variable
           format: int32
         numberOfCorrelationsAsCause:
           type: integer
@@ -6726,7 +6726,7 @@ components:
     outcomesOfInterestParam:
       name: outcomesOfInterest
       in: query
-      description: Only include correlations for which the effect is an outcome of interest for the user
+      description: Only include user_variable_relationships for which the effect is an outcome of interest for the user
       schema:
         type: boolean
     platform:

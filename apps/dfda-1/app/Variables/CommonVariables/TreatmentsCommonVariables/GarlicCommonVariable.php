@@ -18,7 +18,7 @@ class GarlicCommonVariable extends QMCommonVariable {
 	public const IMAGE_URL = 'https://images-na.ssl-images-amazon.com/images/I/515N8Eun1pL._SL160_.jpg';
 	public const NAME = 'Garlic';
 	public const PRICE = 39.969999999999999;
-	public const PRODUCT_URL = 'https://www.amazon.com/BRI-Nutrition-Odorless-Garlic-Supplement/dp/B06XH5VVXG?psc=1&SubscriptionId=AKIAU4A65MD5FGE2ALOQ&tag=quantimodo04-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B06XH5VVXG';
+	public const PRODUCT_URL = 'https://www.amazon.com/BRI-Nutrition-Odorless-Garlic-Supplement/dp/B06XH5VVXG?psc=1&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B06XH5VVXG';
 	public const PUBLIC = true;
 	public const SYNONYMS = ['Garlic'];
 	public const VARIABLE_CATEGORY_ID = TreatmentsVariableCategory::ID;

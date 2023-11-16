@@ -32,7 +32,7 @@ class BaseNumberOfRawMeasurementsWithTagsAtLastCorrelationProperty extends BaseP
 	public const NAME = 'number_of_raw_measurements_with_tags_at_last_correlation';
 	public $phpType = \App\Types\PhpTypes::INTEGER;
 	public $rules = 'nullable|integer|min:-2147483648|max:2147483647';
-	public $title = 'Raw Measurements With Tags Last Correlation';
+	public $title = 'Raw Measurements With Tags Last UserVariableRelationship';
 	public $type = self::TYPE_INTEGER;
 	public $canBeChangedToNull = true;
 	public $validations = 'nullable|integer|min:-2147483648|max:2147483647';

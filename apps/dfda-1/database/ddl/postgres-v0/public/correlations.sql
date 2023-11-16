@@ -188,7 +188,7 @@ comment on column correlations.p_value is 'The measure of statistical significan
 
 comment on column correlations.predictive_pearson_correlation_coefficient is 'Predictive Pearson Correlation Coefficient';
 
-comment on column correlations.reverse_pearson_correlation_coefficient is 'Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation';
+comment on column correlations.reverse_pearson_correlation_coefficient is 'User Variable Relationship when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation';
 
 comment on column correlations.statistical_significance is 'A function of the effect size and sample size';
 
@@ -237,9 +237,9 @@ comment on column correlations.causality_vote is 'The opinion of the data owner 
 
 comment on column correlations.deletion_reason is 'The reason the variable was deleted.';
 
-comment on column correlations.correlations_over_durations is 'Pearson correlations calculated with various duration of action lengths. This can be used to compare short and long term effects. ';
+comment on column correlations.correlations_over_durations is 'Pearson user_variable_relationships calculated with various duration of action lengths. This can be used to compare short and long term effects. ';
 
-comment on column correlations.correlations_over_delays is 'Pearson correlations calculated with various onset delay lags used to identify reversed causality or asses the significant of a correlation with a given lag parameters. ';
+comment on column correlations.correlations_over_delays is 'Pearson user_variable_relationships calculated with various onset delay lags used to identify reversed causality or asses the significant of a correlation with a given lag parameters. ';
 
 comment on column correlations.slug is 'The slug is the part of a URL that identifies a page in human-readable keywords.';
 

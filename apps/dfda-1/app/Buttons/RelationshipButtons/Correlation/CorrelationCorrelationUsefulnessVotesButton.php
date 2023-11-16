@@ -19,7 +19,7 @@ class CorrelationCorrelationUsefulnessVotesButton extends HasManyRelationshipBut
 	public $fontAwesome = CorrelationUsefulnessVote::FONT_AWESOME;
 	public $id = 'correlation-usefulness-votes-button';
 	public $image = CorrelationUsefulnessVote::DEFAULT_IMAGE;
-	public $text = 'Correlation Usefulness Votes';
-	public $title = 'Correlation Usefulness Votes';
+	public $text = 'User Variable Relationship Usefulness Votes';
+	public $title = 'User Variable Relationship Usefulness Votes';
 	public $tooltip = CorrelationUsefulnessVote::CLASS_DESCRIPTION;
 }

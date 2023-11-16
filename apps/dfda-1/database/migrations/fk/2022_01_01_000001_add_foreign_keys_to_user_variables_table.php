@@ -15,7 +15,7 @@ class AddForeignKeysToUserVariablesTable extends Migration
     {
         Schema::table('user_variables', function (Blueprint $table) {
             $table->foreign(['client_id'], 'user_variables_client_id_fk')->references(['client_id'])->on('oa_clients');
-            $table->foreign(['best_user_variable_relationship_id'], 'user_variables_correlations_qm_score_fk')->references(['id'])->deferrable()->on('correlations')->onDelete('SET NULL');
+            $table->foreign(['best_user_variable_relationship_id'], 'user_variables_correlations_qm_score_fk')->references(['id'])->deferrable()->on('user_variable_relationships')->onDelete('SET NULL');
             $table->foreign(['default_unit_id'], 'user_variables_default_unit_id_fk')->references(['id'])->deferrable()->on('units');
             $table->foreign(['last_unit_id'], 'user_variables_last_unit_id_fk')->references(['id'])->deferrable()->on('units');
             $table->foreign(['user_id'], 'user_variables_user_id_fk')->references(['ID'])->deferrable()->on('wp_users');

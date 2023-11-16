@@ -188,7 +188,7 @@ comment on column oa_clients.number_of_correlations is 'Number of Individual Cas
                     update bshaffer_oauth_clients
                         left join (
                             select count(id) as total, client_id
-                            from correlations
+                            from user_variable_relationships
                             group by client_id
                         )
                         as grouped on bshaffer_oauth_clients.client_id = grouped.client_id

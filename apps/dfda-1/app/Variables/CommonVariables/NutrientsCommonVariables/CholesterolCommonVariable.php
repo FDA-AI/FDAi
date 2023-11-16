@@ -23,7 +23,7 @@ class CholesterolCommonVariable extends QMCommonVariable {
 	public const ONSET_DELAY = 0;
 	public const OUTCOME = false;
 	public const PRICE = 21.890000000000001;
-	public const PRODUCT_URL = 'https://www.amazon.com/Nature-Made-CholestOff-Original-Caplets/dp/B001F1FXZU?psc=1&SubscriptionId=AKIAU4A65MD5FGE2ALOQ&tag=quantimodo04-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B001F1FXZU';
+	public const PRODUCT_URL = 'https://www.amazon.com/Nature-Made-CholestOff-Original-Caplets/dp/B001F1FXZU?psc=1&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B001F1FXZU';
 	public const PUBLIC = true;
 	public const SYNONYMS = ['Cholesterol'];
 	public const VARIABLE_CATEGORY_ID = NutrientsVariableCategory::ID;

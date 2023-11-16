@@ -5,7 +5,7 @@
  */
 
 namespace App\Models;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Models\Base\BaseThirdPartyCorrelation;
 use App\Traits\HasCauseAndEffect;
 use App\Traits\HasDBModel;
@@ -155,8 +155,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read Variable $effect
  * @property-read VariableCategory|null $effect_variable_category
  * @method static Builder|BaseModel nPerGroup($group, $n = 10)
- * @property int $cause_id variable ID of the cause variable for which the user desires correlations
- * @property int $effect_id variable ID of the effect variable for which the user desires correlations
+ * @property int $cause_id variable ID of the cause variable for which the user desires user_variable_relationships
+ * @property int $effect_id variable ID of the effect variable for which the user desires user_variable_relationships
  * @method static Builder|BaseModel applyRequestParams($request)
  * @method static Builder|BaseModel exclude($columns)
  * @method static Builder|BaseModel excludeLargeColumns()

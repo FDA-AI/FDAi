@@ -7,7 +7,7 @@
 namespace App\Charts\GlobalVariableRelationshipCharts;
 use App\Charts\ChartGroup;
 use App\Charts\QMChart;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 class GlobalVariableRelationshipChartGroup extends ChartGroup {
 	public $populationTraitScatterPlot;
 	/**

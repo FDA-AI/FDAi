@@ -18,7 +18,7 @@ class SucroseCommonVariable extends QMCommonVariable {
 	public const IMAGE_URL = 'https://images-na.ssl-images-amazon.com/images/I/51YLqP5hwqL._SL160_.jpg';
 	public const NAME = 'Sucrose';
 	public const PRICE = 14.99;
-	public const PRODUCT_URL = 'https://www.amazon.com/Sucrose-Molecular-Gastronomy-Non-GMO-Certified/dp/B00CYGWOXE?SubscriptionId=AKIAU4A65MD5FGE2ALOQ&tag=quantimodo04-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B00CYGWOXE';
+	public const PRODUCT_URL = 'https://www.amazon.com/Sucrose-Molecular-Gastronomy-Non-GMO-Certified/dp/B00CYGWOXE?linkCode=xm2&camp=2025&creative=165953&creativeASIN=B00CYGWOXE';
 	public const PUBLIC = true;
 	public const SYNONYMS = ['Sucrose'];
 	public const VARIABLE_CATEGORY_ID = FoodsVariableCategory::ID;

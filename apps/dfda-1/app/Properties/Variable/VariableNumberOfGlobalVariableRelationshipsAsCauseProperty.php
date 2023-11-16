@@ -32,7 +32,7 @@ class VariableNumberOfGlobalVariableRelationshipsAsCauseProperty extends BaseNum
         $v = $this->getVariable();
         $val = $this->getDBValue();
         if($v->best_effect_variable_id && !$val){
-            $this->throwException("best_effect_variable_id but there are not correlations");
+            $this->throwException("best_effect_variable_id but there are not user_variable_relationships");
         }
     }
     public function showOnUpdate(): bool {return false;}

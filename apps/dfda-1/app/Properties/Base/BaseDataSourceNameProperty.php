@@ -10,7 +10,7 @@ use App\Traits\PropertyTraits\IsString;
 use App\Types\PhpTypes;
 use App\UI\ImageUrls;
 use App\UI\FontAwesome;
-use App\Correlations\QMCorrelation;
+use App\VariableRelationships\QMVariableRelationship;
 use App\Slim\Model\StaticModel;
 class BaseDataSourceNameProperty extends BaseNameProperty {
 	use IsString;

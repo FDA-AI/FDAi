@@ -10,9 +10,9 @@ use App\Charts\QMChart;
 use App\Charts\QMHighcharts\HighchartConfig;
 use App\Charts\UserVariableCharts\UserVariableChartGroup;
 use App\Computers\ThisComputer;
-use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\DataSources\QMClient;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\BadRequestException;
@@ -475,7 +475,7 @@ trait ApiTestTrait
         return false;
     }
     /**
-     * @param QMGlobalVariableRelationship|QMCorrelation $ac
+     * @param QMGlobalVariableRelationship|QMVariableRelationship $ac
      * @param int $minimumUsers
      */
     public function checkAggregatedCorrelationProperties($ac, int $minimumUsers = 0){
@@ -497,7 +497,7 @@ trait ApiTestTrait
         $this->checkNotNullAttributes($notNullAttributes, $ac);
     }
     /**
-     * @param QMCorrelation|object $c
+     * @param QMVariableRelationship|object $c
      */
     public function checkSharedCorrelationProperties($c){
         if(is_array($c)){
@@ -1803,7 +1803,7 @@ trait ApiTestTrait
         //$this->assertEquals($expected, $effectLatestFillingTime);
         $pairs = $c->getPairs();
         $this->assertCount(80, $pairs, "Should have 80 pairs");
-        $this->assertEquals(QMCorrelation::DIRECTION_HIGHER, $c->direction);
+        $this->assertEquals(QMVariableRelationship::DIRECTION_HIGHER, $c->direction);
         $this->assertEquals(BaseForwardPearsonCorrelationCoefficientProperty::EFFECT_SIZE_strongly_positive,
             $c->effectSize);
         $this->assertEquals(1, $c->getGroupedValueOverDurationOfActionClosestToValuePredictingHighOutcome());
@@ -1891,10 +1891,10 @@ trait ApiTestTrait
         return $correlations[0];
     }
     /**
-     * @param QMCorrelation $correlation
+     * @param QMVariableRelationship $correlation
      * @param bool $correlateOverTime
      */
-    public function checkCalculatedCorrelationObject(QMCorrelation $correlation, bool $correlateOverTime = true){
+    public function checkCalculatedCorrelationObject(QMVariableRelationship $correlation, bool $correlateOverTime = true){
         if(is_array($correlation)){
             $correlation = (object)$correlation;
         }
@@ -2426,7 +2426,7 @@ trait ApiTestTrait
     }
     protected function dumpTableForEachTestFixture(): void{
         Writable::statementStatic("
-            update correlations c
+            update user_variable_relationships c
                 set c.cause_variable_id = c.cause_variable_id,
                     c.effect_variable_id = c.effect_variable_id;
             update global_variable_relationships c

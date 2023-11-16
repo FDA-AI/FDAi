@@ -129,7 +129,7 @@ comment on column global_variable_relationships.average_vote is 'The average opi
 
 comment on column global_variable_relationships.number_of_users is 'Number of Users by which correlation is aggregated';
 
-comment on column global_variable_relationships.number_of_correlations is 'Number of Correlations by which correlation is aggregated';
+comment on column global_variable_relationships.number_of_correlations is 'Number of VariableRelationships by which correlation is aggregated';
 
 comment on column global_variable_relationships.statistical_significance is 'A function of the effect size and sample size';
 
@@ -143,7 +143,7 @@ comment on column global_variable_relationships.aggregate_qm_score is 'A number 
 
 comment on column global_variable_relationships.status is 'Whether the correlation is being analyzed, needs to be analyzed, or is up to date already.';
 
-comment on column global_variable_relationships.reverse_pearson_correlation_coefficient is 'Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation';
+comment on column global_variable_relationships.reverse_pearson_correlation_coefficient is 'User Variable Relationship when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation';
 
 comment on column global_variable_relationships.predictive_pearson_correlation_coefficient is 'Pearson correlation coefficient of cause and effect values lagged by the onset delay and grouped based on the duration of action. ';
 

@@ -59,8 +59,8 @@
 				        Global Variable Relationships
 			        </span></a>
 	        </li>
-	        <li class="{{ Request::is('datalab/correlations*') ? 'active' : '' }}">
-		        <a href="{{ route('datalab.correlations.index') }}"><i class="fa fa-user"></i><span>
+	        <li class="{{ Request::is('datalab/user_variable_relationships*') ? 'active' : '' }}">
+		        <a href="{{ route('datalab.user_variable_relationships.index') }}"><i class="fa fa-user"></i><span>
 				        User Variable Relationships
 			        </span></a>
 	        </li>

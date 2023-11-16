@@ -11,7 +11,7 @@ use App\Buttons\Vote\VoteDeleteButton;
 use App\Buttons\Vote\VoteDownButton;
 use App\Buttons\Vote\VoteUpButton;
 use App\Cards\QMCard;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Models\Base\BaseVote;
 use App\Properties\Base\BaseCauseVariableIdProperty;
 use App\Properties\Base\BaseClientIdProperty;
@@ -145,8 +145,8 @@ class Vote extends BaseVote {
 	use SearchesRelations, IsVote, Compoships;
 	use HasUser, HasCorrelation, HasGlobalVariableRelationship;
 	public const CLASS_CATEGORY             = "Studies";
-	public const CLASS_DESCRIPTION          = "Vote thumbs down button for relationships that you think are coincidences and thumbs up for correlations with a plausible causal explanation. ";
-	public const CLASS_DESCRIPTION_EXTENDED = "I am really good at finding correlations and even compensating for various onset delays and durations of action. However, you are much better than me at knowing if there's a way that a given factor could plausibly influence an outcome. You can help me learn and get better at my predictions. " .
+	public const CLASS_DESCRIPTION          = "Vote thumbs down button for relationships that you think are coincidences and thumbs up for user_variable_relationships with a plausible causal explanation. ";
+	public const CLASS_DESCRIPTION_EXTENDED = "I am really good at finding user_variable_relationships and even compensating for various onset delays and durations of action. However, you are much better than me at knowing if there's a way that a given factor could plausibly influence an outcome. You can help me learn and get better at my predictions. " .
 	self::CLASS_DESCRIPTION;
 	public const COLOR                      = QMColor::HEX_GREEN;
 	const        DOWN                       = 'down';
@@ -244,16 +244,16 @@ class Vote extends BaseVote {
 		];
 	}
 
-	//    public function getCorrelation(): ?Correlation {
-	//        return Correlation::whereUserId($this->user_id)
-	//            ->where(Correlation::FIELD_CAUSE_VARIABLE_ID, $this->getCauseVariableId())
-	//            ->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $this->getEffectVariableId())
+	//    public function getCorrelation(): ?UserVariableRelationship {
+	//        return UserVariableRelationship::whereUserId($this->user_id)
+	//            ->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $this->getCauseVariableId())
+	//            ->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $this->getEffectVariableId())
 	//            ->first();
 	//    }
 	//    public function getGlobalVariableRelationship(): ?GlobalVariableRelationship {
 	//        return GlobalVariableRelationship::query()
-	//            ->where(Correlation::FIELD_CAUSE_VARIABLE_ID, $this->getCauseVariableId())
-	//            ->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $this->getEffectVariableId())
+	//            ->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $this->getCauseVariableId())
+	//            ->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $this->getEffectVariableId())
 	//            ->first();
 	//    }
 	public static function createView(){
@@ -363,7 +363,7 @@ class Vote extends BaseVote {
 			$success = self::insertVote($userId, $value, $causeId, $effectId);
 		}
 		if($value === self::DOWN_VALUE){
-			// I'm thinking we should keep the correlations so it's easier to delete downvotes in the future and find cause of bad correlations to prevent them ?
+			// I'm thinking we should keep the user_variable_relationships so it's easier to delete downvotes in the future and find cause of bad user_variable_relationships to prevent them ?
 			self::setQMScoreToZero();
 		}
 		//if (self::getVoteValueFromRequest()) {  This is done in an offline job

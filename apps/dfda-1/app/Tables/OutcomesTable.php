@@ -11,7 +11,7 @@ use App\Models\Variable;
 use App\Properties\Base\BaseEffectFollowUpPercentChangeFromBaselineProperty;
 use App\Traits\HasOutcomesAndPredictors;
 use App\Variables\QMVariable;
-class OutcomesTable extends CorrelationsTable {
+class OutcomesTable extends VariableRelationshipsTable {
 	public $id = 'outcomes-data-table-id';
 	protected $orderColumnIndex = 0;
 	protected $orderDirection = self::DESC;

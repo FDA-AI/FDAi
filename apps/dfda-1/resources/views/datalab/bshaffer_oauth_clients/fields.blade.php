@@ -130,9 +130,9 @@
     {!! Form::number('number_of_connectors', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Number Of Correlations Field -->
+<!-- Number Of VariableRelationships Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('number_of_correlations', 'Number Of Correlations:') !!}
+    {!! Form::label('number_of_correlations', 'Number Of VariableRelationships:') !!}
     {!! Form::number('number_of_correlations', null, ['class' => 'form-control']) !!}
 </div>
 

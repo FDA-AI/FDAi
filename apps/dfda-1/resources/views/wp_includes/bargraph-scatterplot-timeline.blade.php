@@ -4,7 +4,7 @@
 @parent
 @stop
 {{--Template Name: bargraph-gauge-scatterplot-timeline--}}
-{{--Description: List of correlations and relationship/longitudinal visualization--}}
+{{--Description: List of user_variable_relationships and relationship/longitudinal visualization--}}
 
 <?php $pluginUrl = '/'.\App\Repos\QMWPPluginRepo::URL_PATH; ?>
 
@@ -223,7 +223,7 @@
 <!-- Menu for barchart settings -->
 <div id="dropdown-barchart-settings" class="dropdown dropdown-tip dropdown-anchor-right">
     <ul class="dropdown-menu">
-        <li><a id="" onclick="sortByCorrelation()">Sort By Correlation</a></li>
+        <li><a id="" onclick="sortByCorrelation()">Sort By UserVariableRelationship</a></li>
         <li><a id="shareScatterplot" onclick="sortByCausality()">Sort By Causality Factor</a></li>
         <li style="padding:3px 15px;"><input type="text" id="minimumNumberOfSamples"
                                              placeholder="Min. Number of Samples"></li>

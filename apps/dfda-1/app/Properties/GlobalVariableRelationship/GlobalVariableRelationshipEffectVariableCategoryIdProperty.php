@@ -21,7 +21,7 @@ class GlobalVariableRelationshipEffectVariableCategoryIdProperty extends BaseEff
         parent::validate();
 //        $ac = $this->getGlobalVariableRelationship();
 //        if($ac->number_of_correlations < 2){
-//            $this->assertNotBoring(); // We can just mark these correlations as boring in DB
+//            $this->assertNotBoring(); // We can just mark these user_variable_relationships as boring in DB
 //        }
     }
 }

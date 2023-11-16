@@ -16,7 +16,7 @@ class IronCommonVariable extends QMCommonVariable {
 	public const IMAGE_URL = 'https://images-na.ssl-images-amazon.com/images/I/415SlDP3JFL._SL160_.jpg';
 	public const NAME = 'Iron';
 	public const PRICE = 16.989999999999998;
-	public const PRODUCT_URL = 'https://www.amazon.com/BLACK-DECKER-IR40V-Nonstick-Automatic/dp/B01NB05WI5?psc=1&SubscriptionId=AKIAU4A65MD5FGE2ALOQ&tag=quantimodo04-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01NB05WI5';
+	public const PRODUCT_URL = 'https://www.amazon.com/BLACK-DECKER-IR40V-Nonstick-Automatic/dp/B01NB05WI5?psc=1&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01NB05WI5';
 	public const PUBLIC = true;
 	public const SYNONYMS = ['Iron'];
 	public const VARIABLE_CATEGORY_ID = NutrientsVariableCategory::ID;

@@ -139,12 +139,12 @@ class VariableIdProperty extends BaseIntegerIdProperty{
                 ");
             }
             if($table === UserVariableRelationship::TABLE){
-                Writable::statementStatic("update correlations c
+                Writable::statementStatic("update user_variable_relationships c
                     join user_variables uv on c.user_id = uv.user_id and c.cause_variable_id = uv.variable_id
                     set c.cause_user_variable_id = uv.id
                     where c.cause_user_variable_id <> uv.id and c.cause_variable_id = $replacementVariableId
                 ");
-                Writable::statementStatic("update correlations c
+                Writable::statementStatic("update user_variable_relationships c
                     join user_variables uv on c.user_id = uv.user_id and c.effect_variable_id = uv.variable_id
                     set c.effect_user_variable_id = uv.id
                     where c.effect_user_variable_id <> uv.id and c.effect_variable_id = $replacementVariableId

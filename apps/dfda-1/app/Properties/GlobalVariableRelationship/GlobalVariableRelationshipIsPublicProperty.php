@@ -8,8 +8,8 @@ namespace App\Properties\GlobalVariableRelationship;
 use App\Logging\QMLog;
 use App\Models\GlobalVariableRelationship;
 use App\Models\Variable;
-use App\Properties\Correlation\CorrelationGlobalVariableRelationshipIdProperty;
-use App\Properties\Correlation\CorrelationIsPublicProperty;
+use App\Properties\UserVariableRelationship\CorrelationGlobalVariableRelationshipIdProperty;
+use App\Properties\UserVariableRelationship\CorrelationIsPublicProperty;
 use App\Storage\DB\Writable;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BaseIsPublicProperty;
@@ -68,7 +68,7 @@ class GlobalVariableRelationshipIsPublicProperty extends BaseIsPublicProperty
     protected static function setPublicWhereUserVariableRelationshipIsPublic(): void{
         Writable::statementStatic("
             update global_variable_relationships ac
-            join correlations c on ac.id = c.global_variable_relationship_id
+            join user_variable_relationships c on ac.id = c.global_variable_relationship_id
             set ac.is_public = true
             where c.is_public = true;
         ");

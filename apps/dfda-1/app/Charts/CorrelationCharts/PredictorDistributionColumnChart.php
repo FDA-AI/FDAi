@@ -8,7 +8,7 @@ namespace App\Charts\CorrelationCharts;
 use App\Charts\DistributionColumnChart;
 use App\Charts\QMHighcharts\ColumnHighchartConfig;
 use App\Charts\QMHighcharts\HighchartConfig;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\NotEnoughDataException;
 use App\Studies\QMUserStudy;
 use App\Types\QMStr;

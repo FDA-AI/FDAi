@@ -4,7 +4,7 @@
  */ /** @noinspection PhpUnhandledExceptionInspection */
 namespace App\PhpUnitJobs\Analytics;
 use App\Computers\ThisComputer;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Models\User;
 use App\Models\UserVariable;
 use App\PhpUnitJobs\JobTestCase;
@@ -23,7 +23,7 @@ class UserVariableRelationshipsJob extends JobTestCase {
         $correlations = QMUserVariableRelationship::analyzeWaitingStaleStuck();
         if(!$correlations){$correlations = QMUserVariableRelationship::analyzeStuck();}
         if(!$correlations){$correlations = QMUserVariableRelationship::analyzeNeverFinished();}
-        $this->assertGreaterThan(0, count($correlations), "We didn't find any correlations that needed analysis!");
+        $this->assertGreaterThan(0, count($correlations), "We didn't find any user_variable_relationships that needed analysis!");
     }
     private static function correlateByUser(): void{
         /** @var QMUser[] $rows */

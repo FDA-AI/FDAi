@@ -8,8 +8,8 @@ namespace App\Studies;
 use App\Buttons\StudyButton;
 use App\Charts\ChartGroup;
 use App\Charts\CorrelationCharts\CorrelationChartGroup;
-use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Exceptions\UnauthorizedException;
@@ -77,7 +77,7 @@ class QMUserStudy extends QMStudy {
      * @return QMUserVariableRelationship
      * @throws NotEnoughDataException
      */
-    public function getCreateOrRecalculateStatistics(): QMCorrelation {
+    public function getCreateOrRecalculateStatistics(): QMVariableRelationship {
         if ($this->getHasCorrelationCoefficientIfSet()) {
 			$this->getStudyHtml()->getStudyAbstractHtml();
             return $this->statistics;
@@ -395,7 +395,7 @@ class QMUserStudy extends QMStudy {
 	 * @throws \App\Exceptions\NotEnoughDataException
 	 * @throws \App\Exceptions\StupidVariableNameException
 	 */
-    public function createStatistics(): QMCorrelation {
+    public function createStatistics(): QMVariableRelationship {
         $cause = $this->getOrSetCauseQMVariable();
         $effect = $this->getOrSetEffectQMVariable();
         $c = new QMUserVariableRelationship(null, $cause, $effect);

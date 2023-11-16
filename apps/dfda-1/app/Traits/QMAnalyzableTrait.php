@@ -35,7 +35,7 @@ use App\Models\Variable;
 use App\Notifications\AnalysisCompletedNotification;
 use App\PhpUnitJobs\JobTestCase;
 use App\Properties\Base\BaseAnalysisStartedAtProperty;
-use App\Properties\Correlation\CorrelationStatusProperty;
+use App\Properties\UserVariableRelationship\CorrelationStatusProperty;
 use App\Properties\User\UserIdProperty;
 use App\Properties\User\UserStatusProperty;
 use App\Properties\UserVariable\UserVariableStatusProperty;

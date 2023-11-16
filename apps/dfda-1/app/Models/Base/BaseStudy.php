@@ -190,8 +190,8 @@ abstract class BaseStudy extends BaseModel {
 	protected $hints = [
 		self::FIELD_ID => 'Study id which should match OAuth client id',
 		self::FIELD_TYPE => 'The type of study may be population, individual, or cohort study',
-		self::FIELD_CAUSE_VARIABLE_ID => 'variable ID of the cause variable for which the user desires correlations',
-		self::FIELD_EFFECT_VARIABLE_ID => 'variable ID of the effect variable for which the user desires correlations',
+		self::FIELD_CAUSE_VARIABLE_ID => 'variable ID of the cause variable for which the user desires user_variable_relationships',
+		self::FIELD_EFFECT_VARIABLE_ID => 'variable ID of the effect variable for which the user desires user_variable_relationships',
 		self::FIELD_USER_ID => '',
 		self::FIELD_CREATED_AT => 'datetime',
 		self::FIELD_DELETED_AT => 'datetime',

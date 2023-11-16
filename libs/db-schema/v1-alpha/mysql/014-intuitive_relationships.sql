@@ -25,7 +25,7 @@ create table if not exists intuitive_relationships
     constraint user
         unique (user_id, cause_variable_id, effect_variable_id)
 )
-    comment 'Stores Calculated Correlation Coefficients' charset = utf8;
+    comment 'Stores Calculated User Variable Relationship Coefficients' charset = utf8;
 
 create index cause
     on intuitive_relationships (cause_variable_id);

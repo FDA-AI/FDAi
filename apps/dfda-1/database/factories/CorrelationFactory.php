@@ -3,11 +3,11 @@
 
 namespace Database\Factories;
 
-use App\Properties\Correlation\CorrelationConfidenceLevelProperty;
+use App\Properties\UserVariableRelationship\CorrelationConfidenceLevelProperty;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\OAClient;
 use App\Models\UserVariableRelationship;
-use App\Properties\Correlation\CorrelationStatusProperty;
+use App\Properties\UserVariableRelationship\CorrelationStatusProperty;
 use App\Properties\User\UserIdProperty;
 use App\VariableCategories\EmotionsVariableCategory;
 use App\Variables\CommonVariables\EmotionsCommonVariables\OverallMoodCommonVariable;
@@ -27,7 +27,7 @@ class CorrelationFactory extends Factory
         $causeUserVariable = $cause->getOrCreateUserVariable($userId);
         $effect = OverallMoodCommonVariable::instance();
         $effectUserVariable = $effect->getOrCreateUserVariable($userId);
-        //$exampleValues = Correlation::getExampleValues();
+        //$exampleValues = UserVariableRelationship::getExampleValues();
         //return $exampleValues;
         return [
             'global_variable_relationship_id' => null,

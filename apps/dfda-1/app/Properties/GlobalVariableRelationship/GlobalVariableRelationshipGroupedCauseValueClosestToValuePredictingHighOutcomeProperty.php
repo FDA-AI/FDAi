@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\GlobalVariableRelationship;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 use App\Logging\QMLog;
 use App\Models\GlobalVariableRelationship;
 use App\Properties\Base\BaseGroupedCauseValueClosestToValuePredictingHighOutcomeProperty;

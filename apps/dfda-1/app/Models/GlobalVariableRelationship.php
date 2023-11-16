@@ -15,9 +15,9 @@ use App\Cards\QMCard;
 use App\Cards\StudyCard;
 use App\Charts\GlobalVariableRelationshipCharts\GlobalVariableRelationshipChartGroup;
 use App\Charts\ChartGroup;
-use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\AlreadyAnalyzedException;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\CommonVariableNotFoundException;
@@ -97,8 +97,8 @@ use Tests\TestGenerators\StagingJobTestFile;
  * App\Models\AggregatedCorrelation
  * @property integer $id
  * @property float $correlation Pearson correlation coefficient between cause and effect measurements
- * @property integer $cause_variable_id variable ID of the cause variable for which the user desires correlations
- * @property integer $effect_variable_id variable ID of the effect variable for which the user desires correlations
+ * @property integer $cause_variable_id variable ID of the cause variable for which the user desires user_variable_relationships
+ * @property integer $effect_variable_id variable ID of the effect variable for which the user desires user_variable_relationships
  * @property integer $onset_delay User estimated or default time after cause measurement before a perceivable effect is
  *     observed
  * @property integer $duration_of_action Time over which the cause is expected to produce a perceivable effect
@@ -111,7 +111,7 @@ use Tests\TestGenerators\StagingJobTestFile;
  * @property float $optimal_pearson_product Optimal Pearson Product
  * @property float $vote Vote
  * @property integer $number_of_users Number of Users by which correlation is aggregated
- * @property integer $number_of_correlations Number of Correlations by which correlation is aggregated
+ * @property integer $number_of_correlations Number of VariableRelationships by which correlation is aggregated
  * @property float $statistical_significance A function of the effect size and sample size
  * @property integer $cause_unit_id Unit ID of the predictor variable
  * @property integer $cause_changes Cause changes
@@ -120,9 +120,9 @@ use Tests\TestGenerators\StagingJobTestFile;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property string $status Status
- * @property float $reverse_pearson_correlation_coefficient Correlation when cause and effect are reversed. For any
+ * @property float $reverse_pearson_correlation_coefficient UserVariableRelationship when cause and effect are reversed. For any
  *     causal relationship, the forward correlation should exceed the reverse correlation
- * @property float $predictive_pearson_correlation_coefficient Predictive Pearson Correlation Coefficient
+ * @property float $predictive_pearson_correlation_coefficient Predictive Pearson UserVariableRelationship Coefficient
  * @property string $data_source Source of data for this correlation
  * @method static \Illuminate\Database\Query\Builder|GlobalVariableRelationship whereId($value)
  * @method static \Illuminate\Database\Query\Builder|GlobalVariableRelationship whereCorrelation($value)
@@ -294,13 +294,13 @@ use Tests\TestGenerators\StagingJobTestFile;
  * @property-read int|null $correlation_causality_votes_count
  * @property-read Collection|CorrelationUsefulnessVote[] $correlation_usefulness_votes
  * @property-read int|null $correlation_usefulness_votes_count
- * @property-read Collection|UserVariableRelationship[] $correlations
+ * @property-read Collection|UserVariableRelationship[] $user_variable_relationships
  * @property-read int|null $correlations_count
  * @property-read Variable $effect_variable
  * @property-read Collection|Variable[] $variables_where_best_global_variable_relationship
  * @property-read int|null $variables_where_best_global_variable_relationship_count
  * @property int|null $number_of_variables_where_best_global_variable_relationship Number of Variables for this Best Aggregate
- *     Correlation.
+ *     UserVariableRelationship.
  *                     [Formula: update global_variable_relationships
  *                         left join (
  *                             select count(id) as total, best_global_variable_relationship_id
@@ -720,7 +720,7 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
                 $correlation->analyzeFullyAndPostIfNecessary(__FUNCTION__);
                 $correlation->save();
 				if($correlation->cause_unit_id !== $this->getCauseVariable()->default_unit_id){
-					le("Correlation {$correlation->id} has wrong cause unit id: {$correlation->cause_unit_id}");
+					le("User Variable Relationship {$correlation->id} has wrong cause unit id: {$correlation->cause_unit_id}");
 				}
 				$recalculated[] = $correlation;
             }
@@ -1055,7 +1055,7 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 	 * @param int $precision
 	 * @return string|null
 	 */
-	protected function causeValueUserUnit(float $inCommonUnit, int $precision = QMCorrelation::SIG_FIGS): string{
+	protected function causeValueUserUnit(float $inCommonUnit, int $precision = QMVariableRelationship::SIG_FIGS): string{
 		return $this->causeValueCommonUnit($inCommonUnit, $precision);
 	}
 	/**
@@ -1063,7 +1063,7 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 	 * @param int $precision
 	 * @return string|null
 	 */
-	protected function effectValueUserUnit(float $inCommonUnit, int $precision = QMCorrelation::SIG_FIGS): string{
+	protected function effectValueUserUnit(float $inCommonUnit, int $precision = QMVariableRelationship::SIG_FIGS): string{
 		return $this->effectValueCommonUnit($inCommonUnit, $precision);
 	}
 	public function getNumberOfChanges(): int{
@@ -1166,7 +1166,7 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 			'Effect' . QMStr::toClassName($effect->getVariableName()),
 			'$c = QMGlobalVariableRelationship::getOrCreateByIds(' . $cause->getVariableIdAttribute() . ' ,' .
 			$effect->getVariableIdAttribute() . ');' . PHP_EOL . "\t\t\$c->analyzeFully('we are testing');",
-			\App\Correlations\QMGlobalVariableRelationship::class);
+			\App\VariableRelationships\QMGlobalVariableRelationship::class);
 	}
 	/**
 	 * @param $causeVariableId
@@ -1313,13 +1313,13 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 	 */
 	public function getCorrelations(): Collection{
 		if($this->hasId()){
-			$this->loadMissing('correlations');
+			$this->loadMissing('user_variable_relationships');
 		} else {
-			if(!$this->relationLoaded('correlations')){
+			if(!$this->relationLoaded('user_variable_relationships')){
 				$correlations = UserVariableRelationship::whereCauseVariableId($this->getCauseVariableId())
 					->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $this->getEffectVariableId())
 					->get();
-				$this->setRelation('correlations', $correlations);
+				$this->setRelation('user_variable_relationships', $correlations);
 			}
 		}
 		return $this->correlations;
@@ -1421,7 +1421,7 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 	 */
 	public function getForwardPearsonSentence(): string{
 		return "<p>The Forward Pearson Predictive Coefficient was " .
-		       $this->getCorrelationCoefficient(QMCorrelation::SIG_FIGS) .
+		       $this->getCorrelationCoefficient(QMVariableRelationship::SIG_FIGS) .
 		       $this->getForwardStatisticsAndAnalysisSettingsString() . '.
             </p>';
 	}
@@ -1440,9 +1440,9 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 		$pValue = $this->getPValue();
 		if($pValue){
 			$string .= $pValue . ', 95% CI ' .
-			           round($this->getReverseCorrelationCoefficient() - $this->getConfidenceInterval(), QMCorrelation::SIG_FIGS) .
+			           round($this->getReverseCorrelationCoefficient() - $this->getConfidenceInterval(), QMVariableRelationship::SIG_FIGS) .
 			           ' to ' .
-			           round($this->getReverseCorrelationCoefficient() + $this->getConfidenceInterval(), QMCorrelation::SIG_FIGS) .
+			           round($this->getReverseCorrelationCoefficient() + $this->getConfidenceInterval(), QMVariableRelationship::SIG_FIGS) .
 			           ', ';
 		}
 		return $string . 'onset delay = -' . $this->getOnsetDelayHumanString() . ', duration of action = -' .

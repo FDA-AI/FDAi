@@ -22,7 +22,7 @@ create table if not exists user_variables
     last_original_unit_id                                smallint unsigned                        null comment 'ID of last original Unit',
     `last_value`                                         double                                   null comment 'Last Value',
     last_original_value                                  double unsigned                          null comment 'Last original value which is stored',
-    number_of_correlations                               int                                      null comment 'Number of correlations for this variable',
+    number_of_correlations                               int                                      null comment 'Number of user_variable_relationships for this variable',
     status                                               varchar(25)                              null,
     standard_deviation                                   double                                   null comment 'Standard deviation',
     variance                                             double                                   null comment 'Variance',
@@ -56,8 +56,8 @@ create table if not exists user_variables
     deleted_at                                           timestamp                                null,
     second_to_last_value                                 double                                   null,
     third_to_last_value                                  double                                   null,
-    number_of_user_correlations_as_effect                int unsigned                             null comment 'Number of user correlations for which this variable is the effect variable',
-    number_of_user_correlations_as_cause                 int unsigned                             null comment 'Number of user correlations for which this variable is the cause variable',
+    number_of_user_correlations_as_effect                int unsigned                             null comment 'Number of user user_variable_relationships for which this variable is the effect variable',
+    number_of_user_correlations_as_cause                 int unsigned                             null comment 'Number of user user_variable_relationships for which this variable is the cause variable',
     combination_operation                                enum ('SUM', 'MEAN')                     null comment 'How to combine values of this variable (for instance, to see a summary of the values over a month) SUM or MEAN',
     informational_url                                    varchar(2000)                            null comment 'Wikipedia url',
     most_common_connector_id                             int unsigned                             null,
@@ -92,9 +92,9 @@ create table if not exists user_variables
     latest_non_tagged_measurement_start_at               timestamp                                null,
     earliest_non_tagged_measurement_start_at             timestamp                                null,
     wp_post_id                                           bigint unsigned                          null,
-    number_of_soft_deleted_measurements                  int                                      null comment 'Formula: update user_variables v 
+    number_of_soft_deleted_measurements                  int                                      null comment 'Formula: update user_variables v
                 inner join (
-                    select measurements.user_variable_id, count(measurements.id) as number_of_soft_deleted_measurements 
+                    select measurements.user_variable_id, count(measurements.id) as number_of_soft_deleted_measurements
                     from measurements
                     where measurements.deleted_at is not null
                     group by measurements.user_variable_id

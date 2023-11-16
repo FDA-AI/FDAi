@@ -17,9 +17,9 @@ class VariableCategoryThirdPartyCorrelationsWhereEffectVariableCategoryButton ex
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\HasMany';
 	public $color = ThirdPartyCorrelation::COLOR;
 	public $fontAwesome = ThirdPartyCorrelation::FONT_AWESOME;
-	public $id = 'third-party-correlations-where-effect-variable-category-button';
+	public $id = 'third-party-user_variable_relationships-where-effect-variable-category-button';
 	public $image = ThirdPartyCorrelation::DEFAULT_IMAGE;
-	public $text = 'Third Party Correlations Where Effect Variable Category';
-	public $title = 'Third Party Correlations Where Effect Variable Category';
-	public $tooltip = 'Third Party Correlations where this is the Effect Variable Category';
+	public $text = 'Third Party VariableRelationships Where Effect Variable Category';
+	public $title = 'Third Party VariableRelationships Where Effect Variable Category';
+	public $tooltip = 'Third Party VariableRelationships where this is the Effect Variable Category';
 }

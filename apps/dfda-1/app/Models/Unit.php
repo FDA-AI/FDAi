@@ -171,7 +171,7 @@ use Str;
  * update units
  * left join (
  * select count(id) as total, cause_unit_id
- * from correlations
+ * from user_variable_relationships
  * group by cause_unit_id
  * )
  * as grouped on units.id = grouped.cause_unit_id
@@ -287,7 +287,7 @@ use Str;
  *                     update units
  *                         left join (
  *                             select count(id) as total, cause_unit_id
- *                             from correlations
+ *                             from user_variable_relationships
  *                             group by cause_unit_id
  *                         )
  *                         as grouped on units.id = grouped.cause_unit_id
@@ -340,7 +340,7 @@ use Str;
  * @property-read int|null $common_tags_where_tag_variable_unit_count
  * @property-read Collection|CommonTag[] $common_tags_where_tagged_variable_unit
  * @property-read int|null $common_tags_where_tagged_variable_unit_count
- * @property-read Collection|UserVariableRelationship[] $correlations
+ * @property-read Collection|UserVariableRelationship[] $user_variable_relationships
  * @property-read int|null $correlations_count
  * @property-read Collection|UserVariableRelationship[] $correlations_where_cause_unit
  * @property-read int|null $correlations_where_cause_unit_count

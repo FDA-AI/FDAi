@@ -14,7 +14,7 @@ class BaseReversePearsonCorrelationCoefficientProperty extends BaseProperty{
 	public $dbInput = 'float,10,0';
 	public $dbType = 'float';
 	public $default = \OpenApi\Generator::UNDEFINED;
-	public $description = 'Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation';
+	public $description = 'User Variable Relationship when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation';
 	public $example = -0.14779745524745;
 	public $fieldType = 'float';
 	public $fontAwesome = FontAwesome::AGGREGATE_CORRELATION;

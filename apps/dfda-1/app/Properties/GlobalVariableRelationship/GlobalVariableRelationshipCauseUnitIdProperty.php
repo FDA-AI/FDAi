@@ -12,7 +12,7 @@ use App\Properties\Unit\UnitNameProperty;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BaseCauseUnitIdProperty;
 use App\Types\QMArr;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 class GlobalVariableRelationshipCauseUnitIdProperty extends BaseCauseUnitIdProperty
 {
     use GlobalVariableRelationshipProperty;

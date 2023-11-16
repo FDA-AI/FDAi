@@ -4,7 +4,7 @@
  */ /** @noinspection PhpUnhandledExceptionInspection */
 /** @noinspection PhpDocMissingThrowsInspection */
 namespace App\PhpUnitJobs\Cleanup;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\InsufficientVarianceException;
 use App\Exceptions\NotEnoughMeasurementsForCorrelationException;
@@ -15,7 +15,7 @@ use App\Logging\QMLog;
 use App\Models\UserVariableRelationship;
 use App\PhpUnitJobs\JobTestCase;
 use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipDataSourceNameProperty;
-use App\Properties\Correlation\CorrelationChartsProperty;
+use App\Properties\UserVariableRelationship\CorrelationChartsProperty;
 use App\Slim\View\Request\Variable\GetCommonVariablesRequest;
 use App\Utils\UrlHelper;
 use Illuminate\Support\Arr;
@@ -61,12 +61,12 @@ class UserVariableRelationshipsCleanUpJobTest extends JobTestCase {
             //->groupBy(self::FIELD_USER_ID)
             ->getArray();
         $userIds = array_unique(Arr::pluck($allRows, 'user_id'));
-        QMLog::infoWithoutContext(count($userIds)." users with correlations older than $date");
+        QMLog::infoWithoutContext(count($userIds)." users with user_variable_relationships older than $date");
         foreach($userIds as $userId){
             $forUser = Arr::where($allRows, static function($row) use ($userId){
                 return $row->user_id === $userId;
             });
-            QMLog::infoWithoutContext(count($forUser)." correlations for user $userId older than $date");
+            QMLog::infoWithoutContext(count($forUser)." user_variable_relationships for user $userId older than $date");
             foreach($forUser as $row){
                 $c = QMUserVariableRelationship::findByNamesOrIds($userId, $row->cause_variable_id, $row->effect_variable_id);
                 if(!$c){
@@ -93,12 +93,12 @@ class UserVariableRelationshipsCleanUpJobTest extends JobTestCase {
         }
     }
     public static function getCorrelationsWithoutMeasurements(){
-        \App\Logging\ConsoleLog::info(UrlHelper::getCleanupSelectUrl("select c.* from correlations c",
-            "delete c from correlations c",
+        \App\Logging\ConsoleLog::info(UrlHelper::getCleanupSelectUrl("select c.* from user_variable_relationships c",
+            "delete c from user_variable_relationships c",
             "left join measurements m on c.cause_user_variable_id = m.user_variable_id where m.id is null",
             "Missing cause measurements"));
-        \App\Logging\ConsoleLog::info(UrlHelper::getCleanupSelectUrl("select c.* from correlations c",
-            "delete c from correlations c",
+        \App\Logging\ConsoleLog::info(UrlHelper::getCleanupSelectUrl("select c.* from user_variable_relationships c",
+            "delete c from user_variable_relationships c",
             "left join measurements m on c.effect_user_variable_id = m.user_variable_id where m.id is null",
             "Missing effect measurements"));
     }

@@ -555,7 +555,7 @@ var qm = {
             }
             var subDomain = qm.urlHelper.getSubDomain();
             subDomain = subDomain.replace('qm-', '');
-            if(subDomain === 'web' || 
+            if(subDomain === 'web' ||
                subDomain === 'staging-web' ||
                subDomain === 'feature' ||
                subDomain === 'dev-web'){
@@ -2278,7 +2278,7 @@ var qm = {
 			    return true;
 		    }
 		    let logout = qm.urlHelper.getParam('logout');
-		    return qm.boolHelper.isTruthy(logout) && 
+		    return qm.boolHelper.isTruthy(logout) &&
 		           !qm.urlHelper.urlContains("logout=0");  // Handles screwed up redirect urls with logout=0%2Fapp%2Flogin
 	    },
 	    loginIfNecessary: async function(){
@@ -4758,7 +4758,7 @@ var qm = {
                 },
                 thumbs: {
                     title: "Help Me Learn",
-                    textContent: "I'm really good at finding correlations and even compensating for various onset delays and durations of action. " +
+                    textContent: "I'm really good at finding user_variable_relationships and even compensating for various onset delays and durations of action. " +
                         "However, you're much better than me at knowing if there's a way that a given factor could plausibly influence an outcome. " +
                         "You can help me learn and get better at my predictions by pressing the thumbs down button for relationships that you don't think could possibly be causal.",
                 },
@@ -9948,7 +9948,7 @@ var qm = {
             return !qm.boolHelper.isFalsey(value);
         },
         isFalsey: function(value) {
-            return value === "false" || value === false || value === 0 || value === "0" || !value 
+            return value === "false" || value === false || value === 0 || value === "0" || !value
                    || value.indexOf("0%2F") === 0; // TODO: Fix redirect urls
         }
     },
@@ -10562,7 +10562,7 @@ var qm = {
                 return false;
             }
             qm.chartHelper.configureHighchartSubProperties(study);
-            if(study.text){  // Hack to make consistent with basic correlations to use same HTML template
+            if(study.text){  // Hack to make consistent with basic user_variable_relationships to use same HTML template
                 study.statistics = qm.objectHelper.copyPropertiesFromOneObjectToAnother(study.text, study.statistics, false);
                 delete study.text;
             }
@@ -11941,7 +11941,7 @@ var qm = {
         },
 	    getFromLocalStorageOrApi: function(params){
 			var deferred = Q.defer();
-			var local = qm.commonVariablesHelper.getFromLocalStorage(params);   
+			var local = qm.commonVariablesHelper.getFromLocalStorage(params);
 			if(local && local.length > 0){
 				deferred.resolve(local);
 			}
@@ -13190,7 +13190,7 @@ var qm = {
     },
 	web3: {
 		getDigitalTwin: async function(){
-			var dt = await qm.api.getAsync('/api/v6/digitalTwin');	
+			var dt = await qm.api.getAsync('/api/v6/digitalTwin');
 			if(!dt){
 				dt = await qm.web3.mintDigitalTwin();
 			}

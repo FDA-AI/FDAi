@@ -2,14 +2,14 @@
 /** @noinspection ArgumentEqualsDefaultValueInspection */
 /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\SlimTests\Analytics;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 use App\Logging\ConsoleLog;
 use App\Logging\QMLogLevel;
 use App\Utils\Env;
 class AggregatedCorrelationsTest extends \Tests\SlimTests\SlimTestCase {
     public function testDurationOfActionCorrelationsFilterParams(){
         $this->setAuthenticatedUser(1);
-        $apiUrl = '/api/correlations';
+        $apiUrl = '/api/user_variable_relationships';
         // durationOfAction parameter test
         $parameters = ['effectVariableName' => 'Body Mass Index Or BMI', 'durationOfAction' => 86400];
         $aggregateCorrelations = $this->getAndDecodeBody($apiUrl, $parameters);
