@@ -223,7 +223,7 @@ use Spatie\Tags\Tag;
  * @method static Builder|VariableCategory whereWpPostId($value)
  * @property-read \Illuminate\Database\Eloquent\Collection|GlobalVariableRelationship[] $global_variable_relationships
  * @property-read int|null $global_variable_relationships_count
- * @property-read \Illuminate\Database\Eloquent\Collection|Correlation[] $correlations
+ * @property-read \Illuminate\Database\Eloquent\Collection|UserVariableRelationship[] $correlations
  * @property-read int|null $correlations_count
  * @property-read \Illuminate\Database\Eloquent\Collection|Measurement[] $measurements
  * @property-read int|null $measurements_count
@@ -297,9 +297,9 @@ use Spatie\Tags\Tag;
  * @property-read \Illuminate\Database\Eloquent\Collection|GlobalVariableRelationship[]
  *     $global_variable_relationships_where_effect_variable_category
  * @property-read int|null $global_variable_relationships_where_effect_variable_category_count
- * @property-read \Illuminate\Database\Eloquent\Collection|Correlation[] $correlations_where_cause_variable_category
+ * @property-read \Illuminate\Database\Eloquent\Collection|UserVariableRelationship[] $correlations_where_cause_variable_category
  * @property-read int|null $correlations_where_cause_variable_category_count
- * @property-read \Illuminate\Database\Eloquent\Collection|Correlation[] $correlations_where_effect_variable_category
+ * @property-read \Illuminate\Database\Eloquent\Collection|UserVariableRelationship[] $correlations_where_effect_variable_category
  * @property-read int|null $correlations_where_effect_variable_category_count
  * @property-read Unit|null $default_unit
  * @property-read \Illuminate\Database\Eloquent\Collection|ThirdPartyCorrelation[]

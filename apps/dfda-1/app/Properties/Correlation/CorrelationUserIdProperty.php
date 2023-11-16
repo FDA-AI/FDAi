@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseUserIdProperty;
 use App\Traits\HasUserFilter;
@@ -13,6 +13,6 @@ class CorrelationUserIdProperty extends BaseUserIdProperty
 {
     use CorrelationProperty;
     use HasUserFilter;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
 }

@@ -21,7 +21,7 @@ use App\Models\CommonTag;
 use App\Models\Connection;
 use App\Models\Connector;
 use App\Models\ConnectorImport;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\CorrelationCausalityVote;
 use App\Models\CorrelationUsefulnessVote;
 use App\Models\DeviceToken;
@@ -103,7 +103,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Collection|Connector[] $connectors
  * @property Collection|CorrelationCausalityVote[] $correlation_causality_votes
  * @property Collection|CorrelationUsefulnessVote[] $correlation_usefulness_votes
- * @property Collection|Correlation[] $correlations
+ * @property Collection|UserVariableRelationship[] $correlations
  * @property Collection|DeviceToken[] $device_tokens
  * @property Collection|MeasurementExport[] $measurement_exports
  * @property Collection|MeasurementImport[] $measurement_imports
@@ -144,7 +144,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read int|null $correlation_usefulness_votes_count
  * @property-read int|null $correlations_count
  * @property-read int|null $device_tokens_count
-
  * @property-read int|null $measurement_exports_count
  * @property-read int|null $measurement_imports_count
  * @property-read int|null $measurements_count
@@ -708,9 +707,9 @@ abstract class BaseOAClient extends BaseModel {
 		],
 		'correlations' => [
 			'relationshipType' => 'HasMany',
-			'qualifiedUserClassName' => Correlation::class,
-			'foreignKey' => Correlation::FIELD_CLIENT_ID,
-			'localKey' => Correlation::FIELD_CLIENT_ID,
+			'qualifiedUserClassName' => UserVariableRelationship::class,
+			'foreignKey' => UserVariableRelationship::FIELD_CLIENT_ID,
+			'localKey' => UserVariableRelationship::FIELD_CLIENT_ID,
 			'methodName' => 'correlations',
 		],
 		'device_tokens' => [
@@ -903,7 +902,7 @@ abstract class BaseOAClient extends BaseModel {
 			CorrelationUsefulnessVote::FIELD_CLIENT_ID);
 	}
 	public function correlations(): HasMany{
-		return $this->hasMany(Correlation::class, Correlation::FIELD_CLIENT_ID, Correlation::FIELD_CLIENT_ID);
+		return $this->hasMany(UserVariableRelationship::class, UserVariableRelationship::FIELD_CLIENT_ID, UserVariableRelationship::FIELD_CLIENT_ID);
 	}
 	public function device_tokens(): HasMany{
 		return $this->hasMany(DeviceToken::class, DeviceToken::FIELD_CLIENT_ID, DeviceToken::FIELD_CLIENT_ID);

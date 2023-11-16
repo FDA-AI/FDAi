@@ -5,7 +5,7 @@
 /** @noinspection PhpUnhandledExceptionInspection */
 namespace App\PhpUnitJobs\Debug;
 use App\Correlations\QMUserVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\PhpUnitJobs\JobTestCase;
 use App\Variables\QMUserVariable;
 class UserVariableRelationshipDebugTest extends JobTestCase {
@@ -25,10 +25,10 @@ class UserVariableRelationshipDebugTest extends JobTestCase {
         $cause->forceAnalyze(__FUNCTION__);
         $correlations = $cause->getCorrelationsAsCause();
         $rows = QMUserVariableRelationship::readonly()
-            ->where(Correlation::FIELD_CAUSE_VARIABLE_ID, $cause->getVariableIdAttribute())
+            ->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $cause->getVariableIdAttribute())
             ->getArray();
         $correlations = QMUserVariableRelationship::get([
-            Correlation::FIELD_USER_ID => 230,
+            UserVariableRelationship::FIELD_USER_ID => 230,
             'causeVariableName'              => self::CAUSE,
             'effectVariableName'             => self::EFFECT,
         ]);

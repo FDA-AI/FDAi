@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\UserVariable;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\UserVariable;
 use App\Astral\CorrelationBaseAstralResource;
 use App\Traits\PropertyTraits\IsCalculated;

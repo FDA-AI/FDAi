@@ -6,26 +6,26 @@
 
 namespace App\Buttons\RelationshipButtons\CorrelationUsefulnessVote;
 use App\Buttons\RelationshipButtons\BelongsToRelationshipButton;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\CorrelationUsefulnessVote;
 class CorrelationUsefulnessVoteCorrelationButton extends BelongsToRelationshipButton {
     public $interesting = true;
 	public $foreignKeyName = CorrelationUsefulnessVote::FIELD_CORRELATION_ID;
 	public $qualifiedForeignKeyName = CorrelationUsefulnessVote::TABLE.'.'.CorrelationUsefulnessVote::FIELD_CORRELATION_ID;
-	public $ownerKeyName = Correlation::FIELD_ID;
-	public $qualifiedOwnerKeyName = Correlation::TABLE.'.'.Correlation::FIELD_ID;
+	public $ownerKeyName = UserVariableRelationship::FIELD_ID;
+	public $qualifiedOwnerKeyName = UserVariableRelationship::TABLE.'.'.UserVariableRelationship::FIELD_ID;
 	public $childClass = CorrelationUsefulnessVote::class;
 	public $parentClass = CorrelationUsefulnessVote::class;
 	public $qualifiedParentKeyName = CorrelationUsefulnessVote::TABLE.'.'.CorrelationUsefulnessVote::FIELD_ID;
-	public $relatedClass = Correlation::class;
+	public $relatedClass = UserVariableRelationship::class;
 	public $methodName = 'correlation';
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo';
-	public $color = Correlation::COLOR;
-	public $fontAwesome = Correlation::FONT_AWESOME;
+	public $color = UserVariableRelationship::COLOR;
+	public $fontAwesome = UserVariableRelationship::FONT_AWESOME;
 	public $id = 'correlation-button';
-	public $image = Correlation::DEFAULT_IMAGE;
+	public $image = UserVariableRelationship::DEFAULT_IMAGE;
 	public $text = 'Correlation';
 	public $title = 'Correlation';
-	public $tooltip = Correlation::CLASS_DESCRIPTION;
+	public $tooltip = UserVariableRelationship::CLASS_DESCRIPTION;
 
 }

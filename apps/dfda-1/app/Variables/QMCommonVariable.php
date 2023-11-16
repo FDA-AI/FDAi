@@ -36,7 +36,7 @@ use App\Logging\QMLog;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\CommonTag;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\Study;
 use App\Models\TrackingReminder;
@@ -1909,10 +1909,10 @@ class QMCommonVariable extends QMVariable {
         $this->logError(__FUNCTION__." because ".$reason);
         $this->setVariableCategory($newCategoryId);
         $this->getMeasurementsQb()->update([Measurement::FIELD_VARIABLE_CATEGORY_ID => $newCategoryId]);
-        Correlation::whereCauseVariableId($this->getId())
-            ->update([Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID => $newCategoryId]);
-        Correlation::whereEffectVariableId($this->getId())
-            ->update([Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID => $newCategoryId]);
+        UserVariableRelationship::whereCauseVariableId($this->getId())
+            ->update([UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID => $newCategoryId]);
+        UserVariableRelationship::whereEffectVariableId($this->getId())
+            ->update([UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID => $newCategoryId]);
         GlobalVariableRelationship::whereCauseVariableId($this->getId())
             ->update([GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID => $newCategoryId]);
         GlobalVariableRelationship::whereEffectVariableId($this->getId())
@@ -2341,16 +2341,16 @@ class QMCommonVariable extends QMVariable {
     /**
      * @param string $predictorVariableCategoryName
      * @param int $limit
-     * @return Collection|Correlation[]
+     * @return Collection|UserVariableRelationship[]
      */
     protected function setCorrelationsForPredictorCategory(string $predictorVariableCategoryName, int $limit = 0): Collection{
         $l = $this->l();
         $qb = $l->correlations_where_effect_variable();
         $qb->with('cause_variable');
         $cat = QMVariableCategory::find($predictorVariableCategoryName);
-        $qb->where(Correlation::TABLE.'.'.Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID, $cat->id);
+        $qb->where(UserVariableRelationship::TABLE.'.'.UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID, $cat->id);
         if($limit){$qb->limit($limit);}
-        $qb->whereNotNull(Correlation::TABLE.'.'.Correlation::FIELD_ANALYSIS_ENDED_AT);
+        $qb->whereNotNull(UserVariableRelationship::TABLE.'.'.UserVariableRelationship::FIELD_ANALYSIS_ENDED_AT);
         $correlations = $qb->get();
         return $this->correlationsForPredictorCategory[$predictorVariableCategoryName][$limit] = $correlations;
     }
@@ -2870,7 +2870,7 @@ class QMCommonVariable extends QMVariable {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return GlobalVariableRelationship[]|Correlation[]|Collection
+	 * @return GlobalVariableRelationship[]|UserVariableRelationship[]|Collection
 	 */
 	public function getOutcomesOrPredictors(int $limit = null, string $variableCategoryName = null): ?Collection{
 		return $this->l()->getOutcomesOrPredictors($limit, $variableCategoryName) ?? null;

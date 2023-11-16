@@ -8,7 +8,7 @@ namespace App\Properties\Correlation;
 use App\Exceptions\InvalidAttributeException;
 use App\Exceptions\InvalidVariableValueException;
 use App\Exceptions\RedundantVariableParameterException;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\IsCalculated;
 use App\Traits\VariableValueTraits\CauseDailyVariableValueTrait;
 use App\Traits\PropertyTraits\CorrelationProperty;
@@ -19,8 +19,8 @@ class CorrelationValuePredictingLowOutcomeProperty extends BaseValuePredictingLo
 {
     use CorrelationProperty, CauseDailyVariableValueTrait;
     use IsCalculated;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     /**
      * @param float $lowEffectMaximum
      * @param Pair[] $allPairs

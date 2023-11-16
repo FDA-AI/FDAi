@@ -6,7 +6,7 @@
 
 namespace App\Charts\QMHighcharts;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Variable;
 use App\Variables\QMVariable;
 use Illuminate\Support\Collection;
@@ -14,12 +14,12 @@ class CorrelationNodeSeries extends NodeSeries {
 	/**
 	 * @param string $name
 	 * @param Variable|QMVariable $variable
-	 * @param Correlation[]|GlobalVariableRelationship[]|Collection $correlations
+	 * @param UserVariableRelationship[]|GlobalVariableRelationship[]|Collection $correlations
 	 */
 	public function __construct(string $name, $variable, $correlations){
 		parent::__construct($name);
 		$withoutSelf = CorrelationNodeSeries::sortAndFilterCorrelations($correlations);
-		/** @var Correlation|GlobalVariableRelationship $c */
+		/** @var UserVariableRelationship|GlobalVariableRelationship $c */
 		foreach($withoutSelf as $c){
 			$cause = addslashes($c->getCauseVariableName());
 			$effect = addslashes($c->getEffectVariableName());
@@ -41,11 +41,11 @@ class CorrelationNodeSeries extends NodeSeries {
 	 */
 	protected static function sortAndFilterCorrelations(Collection $correlations): Collection{
 		$sorted = $correlations->sortByDesc(function($c, $key){
-			/** @var Correlation $c */
+			/** @var UserVariableRelationship $c */
 			return abs($c->getChangeFromBaseline());
 		});
 		$withoutSelf = $sorted->filter(function($c, $key){
-			/** @var Correlation $c */
+			/** @var UserVariableRelationship $c */
 			return $c->cause_variable_id !== $c->effect_variable_id;
 		});
 		return $withoutSelf;

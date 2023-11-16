@@ -48,7 +48,7 @@ use App\Models\Application;
 use App\Models\BaseModel;
 use App\Models\Connection;
 use App\Models\Connector;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Credential;
 use App\Models\DeviceToken;
 use App\Models\IpDatum;
@@ -1512,7 +1512,7 @@ class QMUser extends PublicUser {
 		return $this->correlationsForOutcome[$key] = $correlations;
 	}
 	/**
-	 * @return Correlation[]
+	 * @return UserVariableRelationship[]
 	 */
 	public function setAllUserVariableRelationships(): array{
 		$this->logInfo("Getting all user variable relationships!  WARNING: THIS USES A LOT OF MEMORY! TODO: Use laravel models");
@@ -1816,8 +1816,8 @@ class QMUser extends PublicUser {
 		if($score = QMFileCache::get($key)){
 			return $this->averageQmScore = $score;
 		}
-		$score = QMUserVariableRelationship::readonly()->where(Correlation::FIELD_USER_ID, $this->id)
-			->average(Correlation::FIELD_QM_SCORE);
+		$score = QMUserVariableRelationship::readonly()->where(UserVariableRelationship::FIELD_USER_ID, $this->id)
+			->average(UserVariableRelationship::FIELD_QM_SCORE);
 		$month = 60 * 60 * 24 * 30;
 		if($score){
 			QMFileCache::set($score, $key, $month);
@@ -2369,7 +2369,7 @@ class QMUser extends PublicUser {
 		}
 		$userVariableRelationshipIds = array_unique($userVariableRelationshipIds);
 		$aggregateCorrelationIds = array_unique($aggregateCorrelationIds);
-		$correlations = ($userVariableRelationshipIds) ? Correlation::getWithVariables($userVariableRelationshipIds) : [];
+		$correlations = ($userVariableRelationshipIds) ? UserVariableRelationship::getWithVariables($userVariableRelationshipIds) : [];
 		$aggregateCorrelations = ($aggregateCorrelationIds) ?
 			GlobalVariableRelationship::getWithVariables($aggregateCorrelationIds) : [];
 		foreach($notifications as $n){
@@ -3332,9 +3332,9 @@ class QMUser extends PublicUser {
 	public static function getSqlCalculatedFields(): array{
 		return self::$sqlCalculatedFields = [
 			self::FIELD_NUMBER_OF_CORRELATIONS => [
-				'table' => Correlation::TABLE,
-				'foreign_key' => Correlation::FIELD_USER_ID,
-				'sql' => 'count(' . Correlation::FIELD_ID . ')',
+				'table' => UserVariableRelationship::TABLE,
+				'foreign_key' => UserVariableRelationship::FIELD_USER_ID,
+				'sql' => 'count(' . UserVariableRelationship::FIELD_ID . ')',
 			],
 			self::FIELD_NUMBER_OF_CONNECTIONS => [
 				'table' => Connection::TABLE,

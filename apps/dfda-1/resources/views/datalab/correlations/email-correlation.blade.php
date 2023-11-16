@@ -1,8 +1,8 @@
-<?php /** @var App\Models\Correlation $correlation */ ?>
+<?php /** @var App\Models\UserVariableRelationship $correlation */ ?>
 @extends('layouts.admin-lte-email', ['title' => $correlation->getTitleAttribute() ])
 
 @section('content')
-   <div class="content">
+    <div class="content">
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">

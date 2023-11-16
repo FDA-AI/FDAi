@@ -7,7 +7,7 @@
 namespace App\Properties\Correlation;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\TooSlowToAnalyzeException;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\Base\BaseCorrelationsOverDelaysProperty;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Traits\PropertyTraits\IsCalculated;
@@ -19,8 +19,8 @@ class CorrelationCorrelationsOverDelaysProperty extends BaseCorrelationsOverDela
     use IsCalculated;
 	const DAY_OFFSETS        = [-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32];
 	const DURATION = 86400;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     /**
      * @param QMUserVariableRelationship $model
      * @return QMUserVariableRelationship[]

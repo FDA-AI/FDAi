@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\VariableValueTraits\CauseAggregatedVariableValueTrait;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseGroupedCauseValueClosestToValuePredictingHighOutcomeProperty;
@@ -15,8 +15,8 @@ class CorrelationGroupedCauseValueClosestToValuePredictingHighOutcomeProperty ex
 {
     use CorrelationProperty, CauseAggregatedVariableValueTrait;
     use IsCalculated;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     /**
      * @param QMUserVariableRelationship $model
      * @return float

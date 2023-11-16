@@ -6,17 +6,17 @@
 
 namespace App\Buttons\RelationshipButtons\Correlation;
 use App\Buttons\RelationshipButtons\BelongsToRelationshipButton;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\OAClient;
 class CorrelationOAuthClientButton extends BelongsToRelationshipButton {
 	public $interesting = false;
 	public $foreignKeyName = OAClient::FIELD_ID;
-	public $qualifiedForeignKeyName = Correlation::TABLE . '.' . Correlation::FIELD_CLIENT_ID;
+	public $qualifiedForeignKeyName = UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_CLIENT_ID;
 	public $ownerKeyName = OAClient::FIELD_ID;
 	public $qualifiedOwnerKeyName = OAClient::TABLE . '.' . OAClient::FIELD_ID;
-	public $childClass = Correlation::class;
-	public $parentClass = Correlation::class;
-	public $qualifiedParentKeyName = Correlation::TABLE . '.' . Correlation::FIELD_ID;
+	public $childClass = UserVariableRelationship::class;
+	public $parentClass = UserVariableRelationship::class;
+	public $qualifiedParentKeyName = UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_ID;
 	public $relatedClass = OAClient::class;
 	public $methodName = 'oa_client';
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo';

@@ -7,7 +7,7 @@
 namespace App\Traits\HasMany;
 use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Logging\QMLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Utils\Stats;
 trait HasManyCorrelations {
 	/**
@@ -62,7 +62,7 @@ trait HasManyCorrelations {
 		$numerators = [];
 		$avgStatisticalSignificance = $correlations->avg('statistical_significance');
 		$weightedValues = [];
-		/** @var Correlation $c */
+		/** @var UserVariableRelationship $c */
 		foreach($correlations as $c){
 			$statisticalSignificanceAttribute = $c->getStatisticalSignificanceAttribute();
 			if(!$statisticalSignificanceAttribute){

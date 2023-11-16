@@ -7,7 +7,7 @@
 namespace App\Buttons\RelationshipButtons\UserVariable;
 use App\Buttons\RelationshipButtons\HasManyRelationshipButton;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\UserVariable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -15,13 +15,13 @@ class UserVariableCorrelationsWhereCauseUserVariableButton extends HasManyRelati
 	public $interesting = true;
 	public $parentClass = UserVariable::class;
 	public $qualifiedParentKeyName = UserVariable::TABLE . '.' . UserVariable::FIELD_ID;
-	public $relatedClass = Correlation::class;
+	public $relatedClass = UserVariableRelationship::class;
 	public $methodName = 'correlations_where_cause_user_variable';
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\HasMany';
-	public $color = Correlation::COLOR;
-	public $fontAwesome = Correlation::FONT_AWESOME_EFFECTS;
+	public $color = UserVariableRelationship::COLOR;
+	public $fontAwesome = UserVariableRelationship::FONT_AWESOME_EFFECTS;
 	public $id = 'correlations-where-cause-user-variable-button';
-	public $image = Correlation::DEFAULT_IMAGE;
+	public $image = UserVariableRelationship::DEFAULT_IMAGE;
 	public $text = 'Effects';
 	public $title = 'Effects';
 	public $tooltip = 'Relationships with other outcome variables whereby this is the assumed predictor in the analysis';

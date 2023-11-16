@@ -47,7 +47,7 @@ use App\Exceptions\VariableCategoryNotFoundException;
 use App\Logging\QMLog;
 use App\Logging\QMLogLevel;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\UserVariable;
 use App\Models\Variable;
@@ -2439,7 +2439,7 @@ abstract class QMVariable extends VariableSearchResult {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return GlobalVariableRelationship[]|Correlation[]|Collection
+	 * @return GlobalVariableRelationship[]|UserVariableRelationship[]|Collection
 	 */
 	abstract public function getOutcomesOrPredictors(int $limit = null,
 		string $variableCategoryName = null): ?Collection;
@@ -3045,7 +3045,7 @@ abstract class QMVariable extends VariableSearchResult {
 	/**
 	 * @param string $predictorVariableCategoryName
 	 * @param int $limit
-	 * @return Collection|Correlation[]
+	 * @return Collection|UserVariableRelationship[]
 	 */
 	public function getCorrelationsForPredictorCategory(string $predictorVariableCategoryName,
 		int $limit = 0): Collection{
@@ -3057,7 +3057,7 @@ abstract class QMVariable extends VariableSearchResult {
 	/**
 	 * @param string $predictorVariableCategoryName
 	 * @param int $limit
-	 * @return Collection|Correlation[]
+	 * @return Collection|UserVariableRelationship[]
 	 */
 	abstract protected function setCorrelationsForPredictorCategory(string $predictorVariableCategoryName,
 		int $limit = 0): Collection;
@@ -3229,7 +3229,7 @@ abstract class QMVariable extends VariableSearchResult {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return Correlation[]|Collection
+	 * @return UserVariableRelationship[]|Collection
 	 */
 	public function getCorrelationsAsEffect(int $limit = null, string $variableCategoryName = null){
 		$correlations = $this->userVariableRelationshipsAsEffect;
@@ -3244,7 +3244,7 @@ abstract class QMVariable extends VariableSearchResult {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return Correlation[]|Collection
+	 * @return UserVariableRelationship[]|Collection
 	 */
 	public function getCorrelationsAsCause(int $limit = null, string $variableCategoryName = null){
 		$correlations = $this->userVariableRelationshipsAsCause;
@@ -3259,38 +3259,38 @@ abstract class QMVariable extends VariableSearchResult {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return Correlation[]|Collection
+	 * @return UserVariableRelationship[]|Collection
 	 */
 	public function setUserVariableRelationshipsAsCause(int $limit = null, string $variableCategoryName = null){
-		$qb = Correlation::whereUserId($this->getUserId())
-			->where(Correlation::FIELD_CAUSE_VARIABLE_ID, $this->getVariableIdAttribute())->limit(0);
+		$qb = UserVariableRelationship::whereUserId($this->getUserId())
+			->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $this->getVariableIdAttribute())->limit(0);
 		if($variableCategoryName){
-			$qb->where(Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID, VariableCategoryIdProperty::findByName($variableCategoryName));
+			$qb->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID, VariableCategoryIdProperty::findByName($variableCategoryName));
 		}
 		// Slows down query Correlation::applyDefaultOrderings($qb);
 		$correlations = $qb->get();
-		$correlations = $correlations->sortByDesc(Correlation::FIELD_QM_SCORE);
+		$correlations = $correlations->sortByDesc(UserVariableRelationship::FIELD_QM_SCORE);
 		return $this->userVariableRelationshipsAsCause = $correlations;
 	}
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return Correlation[]|Collection
+	 * @return UserVariableRelationship[]|Collection
 	 */
 	public function setUserVariableRelationshipsAsEffect(int $limit = null, string $variableCategoryName = null){
 		$this->logInfo(__FUNCTION__ . " limit $limit");
-		$qb = Correlation::whereUserId($this->getUserId())
-			->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $this->getVariableIdAttribute())->limit($limit);
+		$qb = UserVariableRelationship::whereUserId($this->getUserId())
+			->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $this->getVariableIdAttribute())->limit($limit);
 		if($variableCategoryName){
-			$qb->where(Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID, VariableCategoryIdProperty::findByName($variableCategoryName));
+			$qb->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID, VariableCategoryIdProperty::findByName($variableCategoryName));
 		}
 		// Slows down query Correlation::applyDefaultOrderings($qb);
 		$correlations = $qb->get();
-		$correlations = $correlations->sortByDesc(Correlation::FIELD_QM_SCORE);
+		$correlations = $correlations->sortByDesc(UserVariableRelationship::FIELD_QM_SCORE);
 		return $this->userVariableRelationshipsAsEffect = $correlations;
 	}
 	/**
-	 * @return Correlation[]|Collection
+	 * @return UserVariableRelationship[]|Collection
 	 */
 	public function getUserVariableRelationships(){
 		$cause = $this->getCorrelationsAsCause();

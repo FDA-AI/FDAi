@@ -5,15 +5,15 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\VariableCategory;
 use \App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseBoringProperty;
 class CorrelationBoringProperty extends BaseBoringProperty
 {
     use CorrelationProperty;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     public static function fixNulls(): void {
         self::setNonPredictorCauseCategoriesBoring();
         self::setNonOutcomeEffectCategoriesBoring();
@@ -21,18 +21,18 @@ class CorrelationBoringProperty extends BaseBoringProperty
     protected static function setNonPredictorCauseCategoriesBoring(): void{
         foreach(VariableCategory::all() as $cat){
             if(!$cat->predictor && $cat->outcome){
-                Correlation::whereCauseVariableCategoryId($cat->getId())
-                    ->whereNull(Correlation::FIELD_BORING)
-                    ->update([Correlation::FIELD_BORING => true]);
+                UserVariableRelationship::whereCauseVariableCategoryId($cat->getId())
+                    ->whereNull(UserVariableRelationship::FIELD_BORING)
+                    ->update([UserVariableRelationship::FIELD_BORING => true]);
             }
         }
     }
     protected static function setNonOutcomeEffectCategoriesBoring(): void{
         foreach(VariableCategory::all() as $cat){
             if(!$cat->outcome && $cat->predictor){
-                Correlation::whereCauseVariableCategoryId($cat->getId())
-                    ->whereNull(Correlation::FIELD_BORING)
-                    ->update([Correlation::FIELD_BORING => true]);
+                UserVariableRelationship::whereCauseVariableCategoryId($cat->getId())
+                    ->whereNull(UserVariableRelationship::FIELD_BORING)
+                    ->update([UserVariableRelationship::FIELD_BORING => true]);
             }
         }
     }

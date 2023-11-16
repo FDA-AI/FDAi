@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\Base\BaseStatusProperty;
 use App\Traits\PropertyTraits\CorrelationProperty;
 class CorrelationStatusProperty extends BaseStatusProperty
@@ -15,8 +15,8 @@ class CorrelationStatusProperty extends BaseStatusProperty
     public const STATUS_ERROR = 'ERROR';
     public const STATUS_WAITING = 'WAITING';
     public const STATUS_ANALYZING = 'ANALYZING';
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     public $enum = [
         self::STATUS_UPDATED,
         self::STATUS_ANALYZING,

@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseQmScoreProperty;
 use App\Correlations\QMUserVariableRelationship;
@@ -13,8 +13,8 @@ class CorrelationQmScoreProperty extends BaseQmScoreProperty
 {
     use CorrelationProperty;
     public const USE_SIMPLIFIED_QM_SCORE = true;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     use \App\Traits\PropertyTraits\IsCalculated;
     /**
      * @param QMUserVariableRelationship $model

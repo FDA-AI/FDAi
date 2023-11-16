@@ -13,7 +13,7 @@
 namespace App\Models\Base;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\ThirdPartyCorrelation;
 use App\Models\Unit;
@@ -77,8 +77,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property WpPost $wp_post
  * @property Collection|GlobalVariableRelationship[] $global_variable_relationships_where_cause_variable_category
  * @property Collection|GlobalVariableRelationship[] $global_variable_relationships_where_effect_variable_category
- * @property Collection|Correlation[] $correlations_where_cause_variable_category
- * @property Collection|Correlation[] $correlations_where_effect_variable_category
+ * @property Collection|UserVariableRelationship[] $correlations_where_cause_variable_category
+ * @property Collection|UserVariableRelationship[] $correlations_where_effect_variable_category
  * @property Collection|Measurement[] $measurements
  * @property Collection|ThirdPartyCorrelation[] $third_party_correlations_where_cause_variable_category
  * @property Collection|ThirdPartyCorrelation[] $third_party_correlations_where_effect_variable_category
@@ -94,7 +94,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read int|null $correlations_where_cause_variable_category_count
  * @property-read int|null $correlations_where_effect_variable_category_count
  * @property mixed $raw
-
  * @property-read int|null $measurements_count
  * @property-read int|null $third_party_correlations_where_cause_variable_category_count
  * @property-read int|null $third_party_correlations_where_effect_variable_category_count
@@ -428,16 +427,16 @@ abstract class BaseVariableCategory extends BaseModel {
 		],
 		'correlations_where_cause_variable_category' => [
 			'relationshipType' => 'HasMany',
-			'qualifiedUserClassName' => Correlation::class,
-			'foreignKey' => Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
-			'localKey' => Correlation::FIELD_ID,
+			'qualifiedUserClassName' => UserVariableRelationship::class,
+			'foreignKey' => UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
+			'localKey' => UserVariableRelationship::FIELD_ID,
 			'methodName' => 'correlations_where_cause_variable_category',
 		],
 		'correlations_where_effect_variable_category' => [
 			'relationshipType' => 'HasMany',
-			'qualifiedUserClassName' => Correlation::class,
-			'foreignKey' => Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID,
-			'localKey' => Correlation::FIELD_ID,
+			'qualifiedUserClassName' => UserVariableRelationship::class,
+			'foreignKey' => UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID,
+			'localKey' => UserVariableRelationship::FIELD_ID,
 			'methodName' => 'correlations_where_effect_variable_category',
 		],
 		'measurements' => [
@@ -521,10 +520,10 @@ abstract class BaseVariableCategory extends BaseModel {
 			static::FIELD_ID);
 	}
 	public function correlations_where_cause_variable_category(): HasMany{
-		return $this->hasMany(Correlation::class, Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID, static::FIELD_ID);
+		return $this->hasMany(UserVariableRelationship::class, UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID, static::FIELD_ID);
 	}
 	public function correlations_where_effect_variable_category(): HasMany{
-		return $this->hasMany(Correlation::class, Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID, static::FIELD_ID);
+		return $this->hasMany(UserVariableRelationship::class, UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID, static::FIELD_ID);
 	}
 	public function measurements(): HasMany{
 		return $this->hasMany(Measurement::class, Measurement::FIELD_VARIABLE_CATEGORY_ID, static::FIELD_ID);

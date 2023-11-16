@@ -7,7 +7,7 @@
 namespace App\Properties\Correlation;
 use App\Correlations\QMCorrelation;
 use App\Logging\QMLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseAverageEffectProperty;
 use App\Utils\Stats;
@@ -17,8 +17,8 @@ class CorrelationAverageEffectProperty extends BaseAverageEffectProperty
 {
     use CorrelationProperty;
     use \App\Traits\PropertyTraits\IsCalculated;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     /**
      * @param Pair[] $pairs
      * @return float|null

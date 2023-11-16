@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseCauseUnitIdProperty;
 use App\Traits\PropertyTraits\IsCalculated;
@@ -13,14 +13,14 @@ class CorrelationCauseUnitIdProperty extends BaseCauseUnitIdProperty
 {
     use CorrelationProperty;
 	use IsCalculated;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     public function showOnUpdate(): bool {return false;}
     public function showOnCreate(): bool {return false;}
     public function showOnIndex(): bool {return false;}
     public function showOnDetail(): bool {return false;}
 	/**
-	 * @param Correlation|\App\Correlations\QMUserVariableRelationship $model
+	 * @param UserVariableRelationship|\App\Correlations\QMUserVariableRelationship $model
 	 * @return int
 	 */
 	public static function calculate($model): int{

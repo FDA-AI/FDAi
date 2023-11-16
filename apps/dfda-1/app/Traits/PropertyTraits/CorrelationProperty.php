@@ -5,14 +5,14 @@
  */
 
 namespace App\Traits\PropertyTraits;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\HasModel\HasCorrelation;
 trait CorrelationProperty {
 	use HasCorrelation;
 	public function getCorrelationId(): int{
 		return $this->getParentModel()->getId();
 	}
-	public function getCorrelation(): Correlation{
+	public function getCorrelation(): UserVariableRelationship{
 		return $this->getParentModel();
 	}
 }

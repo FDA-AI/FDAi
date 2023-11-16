@@ -6,7 +6,7 @@ namespace Database\Factories;
 use App\Properties\Correlation\CorrelationConfidenceLevelProperty;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\OAClient;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\Correlation\CorrelationStatusProperty;
 use App\Properties\User\UserIdProperty;
 use App\VariableCategories\EmotionsVariableCategory;
@@ -62,7 +62,7 @@ class CorrelationFactory extends Factory
             'critical_t_value' => $this->faker->randomDigitNotNull,
             'data_source_name' => $this->faker->word,
             'deleted_at' => null,
-            Correlation::FIELD_DURATION_OF_ACTION => 86400,
+            UserVariableRelationship::FIELD_DURATION_OF_ACTION => 86400,
             'earliest_measurement_start_at' => $this->faker->date('Y-m-d H:i:s'),
             'effect_baseline_average' => $this->faker->randomDigitNotNull,
             'effect_baseline_relative_standard_deviation' => $this->faker->randomDigitNotNull,

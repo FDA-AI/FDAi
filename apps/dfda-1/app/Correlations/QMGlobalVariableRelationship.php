@@ -18,7 +18,7 @@ use App\Exceptions\StupidVariableNameException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Logging\QMLog;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\UserVariable;
 use App\Models\Variable;
 use App\Models\VariableCategory;
@@ -175,7 +175,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
         self::FIELD_FORWARD_PEARSON_CORRELATION_COEFFICIENT  => 'correlationCoefficient',
     ];
     public static $sqlCalculatedFields = [
-        self::FIELD_FORWARD_PEARSON_CORRELATION_COEFFICIENT => 'avg('.Correlation::TABLE.'.'.Correlation::FIELD_FORWARD_PEARSON_CORRELATION_COEFFICIENT.')',
+        self::FIELD_FORWARD_PEARSON_CORRELATION_COEFFICIENT => 'avg('.UserVariableRelationship::TABLE.'.'.UserVariableRelationship::FIELD_FORWARD_PEARSON_CORRELATION_COEFFICIENT.')',
         self::FIELD_ONSET_DELAY => 'nullable|integer|min:-2147483648|max:2147483647',
         self::FIELD_DURATION_OF_ACTION => 'nullable|integer|min:-2147483648|max:2147483647',
         self::FIELD_NUMBER_OF_PAIRS => 'nullable|integer|min:-2147483648|max:2147483647',
@@ -1317,7 +1317,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
         return $this->setPairsOfAveragesForAllUsers();
     }
 	/**
-	 * @return \Illuminate\Support\Collection|Correlation[]
+	 * @return \Illuminate\Support\Collection|UserVariableRelationship[]
 	 */
 	public function getCorrelations():Collection{
 		return $this->firstOrNewLaravelModel()->getCorrelations();
@@ -1339,7 +1339,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
         $validPairs = [];
 		$correlations = $this->getCorrelations();
 	    $pairs = [];
-        /** @var Correlation $correlation */
+        /** @var UserVariableRelationship $correlation */
         foreach($correlations as $correlation){
             $correlation->setGlobalVariableRelationship($this->l());
 			$pairs[] = $correlation->getPairOfAverages();
@@ -1658,7 +1658,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
         GlobalVariableRelationshipAggregateQmScoreProperty::updateAll();
     }
     /**
-     * @return Correlation[]|Collection
+     * @return UserVariableRelationship[]|Collection
      */
     public function analyzeUserVariableRelationshipsIfNecessary(): Collection {
         $correlations = $this->getCorrelations();
@@ -1677,7 +1677,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
         return $this->correlations = collect($good);
     }
 	/**
-	 * @return Correlation[]|Collection
+	 * @return UserVariableRelationship[]|Collection
 	 * @throws \App\Exceptions\StupidVariableNameException
 	 */
     public function analyzeUserVariableRelationships(): Collection {
@@ -1708,9 +1708,9 @@ class QMGlobalVariableRelationship extends QMCorrelation {
         return $this->generateStudyTitle();
     }
     public function getSourceDataUrl(): string {
-        return Correlation::generateDataLabIndexUrl([
-            Correlation::FIELD_CAUSE_VARIABLE_ID => $this->getCauseVariableId(),
-            Correlation::FIELD_EFFECT_VARIABLE_ID => $this->getEffectVariableId(),
+        return UserVariableRelationship::generateDataLabIndexUrl([
+            UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID => $this->getCauseVariableId(),
+            UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID => $this->getEffectVariableId(),
         ]);
     }
     /**
@@ -1737,7 +1737,7 @@ class QMGlobalVariableRelationship extends QMCorrelation {
     }
     /**
      * @param Throwable $e
-     * @param QMUserVariableRelationship|Correlation $c
+     * @param QMUserVariableRelationship|UserVariableRelationship $c
      */
     public function addInvalidCorrelation(Throwable $e, $c): void{
         $this->addException($e);

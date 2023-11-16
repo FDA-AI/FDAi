@@ -9,7 +9,7 @@ use App\Menus\QMMenu;
 use App\Models\Application;
 use App\Models\Connection;
 use App\Models\ConnectorImport;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\SentEmail;
 use App\Models\TrackingReminder;
@@ -37,7 +37,7 @@ class YourDataMenu extends QMMenu {
 		$buttons[] = UserVariable::getAstralIndexButton();
 		$buttons[] = TrackingReminder::getAstralIndexButton();
 		$buttons[] = TrackingReminderNotification::getAstralIndexButton();
-		$buttons[] = Correlation::getAstralIndexButton();
+		$buttons[] = UserVariableRelationship::getAstralIndexButton();
 		$buttons[] = Connection::getAstralIndexButton();
 		$buttons[] = ConnectorImport::getAstralIndexButton();
 		$buttons[] = SentEmail::getAstralIndexButton();

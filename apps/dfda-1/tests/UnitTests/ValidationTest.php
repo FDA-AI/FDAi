@@ -5,7 +5,7 @@ use App\Exceptions\ModelValidationException;
 use App\Files\FileFinder;
 use App\Logging\QMLog;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipCauseUnitIdProperty;
 use App\Properties\BaseProperty;
 use App\Storage\DB\QMDB;
@@ -25,7 +25,7 @@ class ValidationTest extends UnitTestCase
             , GlobalVariableRelationshipCauseUnitIdProperty::class
         );
         if($profile){QMProfile::endProfile();}
-        Correlation::deleteAll();
+        UserVariableRelationship::deleteAll();
         $folders = FileFinder::listFolders('app/Properties');
         foreach($folders as $folder){
             $shortClass = QMStr::afterLast($folder, DIRECTORY_SEPARATOR);

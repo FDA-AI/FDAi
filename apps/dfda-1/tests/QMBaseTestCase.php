@@ -36,7 +36,7 @@ use App\Logging\SolutionButton;
 use App\Menus\Admin\DebugMenu;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\SentEmail;
 use App\Models\TrackingReminder;
@@ -242,7 +242,7 @@ abstract class QMBaseTestCase extends TestCase {
 		return AppMode::getCurrentTestClass() === $class;
 	}
 	public static function deleteUserVariablesMeasurementsRemindersAndCorrelations(){
-		Correlation::deleteAll();
+		UserVariableRelationship::deleteAll();
 		Measurement::deleteAll();
 		static::assertEquals(0, Measurement::count());
 		TrackingReminder::deleteAll();
@@ -2289,13 +2289,13 @@ DIFF:
         $this->assertContains(1, $neverAnalyzed->toArray());
         JobTestCase::setMaximumJobDuration(0);
         $usersAnalyzed = $this->analyzeUsers();
-        $this->assertEquals(0, Correlation::whereNotNull(Correlation::FIELD_WP_POST_ID)->count(),
+        $this->assertEquals(0, UserVariableRelationship::whereNotNull(UserVariableRelationship::FIELD_WP_POST_ID)->count(),
             "We should only post if lots of users or someone up-voted");
         $analyzed = collect($usersAnalyzed)->pluck('id')->all();
         $this->assertContains(1, $analyzed);
         //$this->assertCount(2, $usersAnalyzed);
-        $correlations = Correlation::all();
-        $this->assertCount(2, $correlations, Correlation::getDataLabIndexUrl());
+        $correlations = UserVariableRelationship::all();
+        $this->assertCount(2, $correlations, UserVariableRelationship::getDataLabIndexUrl());
         foreach($correlations as $c){
             $this->assertNotNull($c->analysis_ended_at, "$c analysis never ended? Attributes:". $c->toCLITable());
             $post = $c->findInMemoryOrNewQMStudy()->getWpPostIfExists();
@@ -2310,7 +2310,7 @@ DIFF:
         $this->assertCorrelationAnalysisCompleted();
     }
     /**
-     * @param Correlation|GlobalVariableRelationship|Variable|UserVariable|BaseModel $m
+     * @param UserVariableRelationship|GlobalVariableRelationship|Variable|UserVariable|BaseModel $m
      */
     public function assertAnalysisCompleted(BaseModel $m){
         $this->assertNull($m->deleted_at, "$m is deleted");
@@ -2321,7 +2321,7 @@ DIFF:
      * @return void
      */
     private function assertCorrelationAnalysisCompleted(): void{
-        $correlations = Correlation::all();
+        $correlations = UserVariableRelationship::all();
         foreach($correlations as $correlation){
             $this->assertAnalysisCompleted($correlation);
         }

@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseOnsetDelayWithStrongestPearsonCorrelationProperty;
 use App\Traits\PropertyTraits\IsCalculated;
@@ -14,8 +14,8 @@ class CorrelationOnsetDelayWithStrongestPearsonCorrelationProperty extends BaseO
 {
     use CorrelationProperty;
     use IsCalculated;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     /**
      * @param QMUserVariableRelationship $model
      * @return float

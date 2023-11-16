@@ -6,7 +6,7 @@
 
 namespace App\Formulas;
 use App\Logging\ConsoleLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Storage\DB\Migrations;
 use App\Storage\DB\Writable;
@@ -14,7 +14,7 @@ class SQLView
 {
 	protected const HUGE_TABLES = [
 		Measurement::TABLE,
-		Correlation::TABLE,
+		UserVariableRelationship::TABLE,
 	];
 	public $name;
 	public $columns;

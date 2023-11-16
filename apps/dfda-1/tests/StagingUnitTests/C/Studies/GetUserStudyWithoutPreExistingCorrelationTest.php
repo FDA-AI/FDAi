@@ -4,7 +4,7 @@ namespace Tests\StagingUnitTests\C\Studies;
 use App\Computers\ThisComputer;
 use App\Correlations\QMUserVariableRelationship;
 use App\Files\TestArtifacts\TestQueryLogFile;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\User;
 use App\Models\UserVariable;
 use App\Models\Variable;
@@ -65,9 +65,9 @@ class GetUserStudyWithoutPreExistingCorrelationTest extends SlimStagingTestCase 
         QMUserStudy::deleteStudyAndCorrelation($causeName, $effectName, $userId);
         $cause = Variable::findByNameOrId($causeName);
         $effect = Variable::findByNameOrId($effectName);
-        $correlations = Correlation::whereCauseVariableId($cause->id)
-            ->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $effect->id)
-            ->where(Correlation::FIELD_USER_ID, $userId)
+        $correlations = UserVariableRelationship::whereCauseVariableId($cause->id)
+            ->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $effect->id)
+            ->where(UserVariableRelationship::FIELD_USER_ID, $userId)
             ->withTrashed()
             ->get();
         $this->assertCount(0, $correlations);

@@ -4,7 +4,7 @@ namespace Tests\APIs;
 use App\Storage\DB\TestDB;
 use Tests\UnitTestCase;
 use Tests\ApiTestTrait;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 
 class CorrelationApiTest extends UnitTestCase
 {
@@ -12,7 +12,7 @@ class CorrelationApiTest extends UnitTestCase
     public function test_create_correlation()
     {
         $this->skipTest('Not implemented yet.');
-        $correlation = Correlation::factory()->make()->toArray();
+        $correlation = UserVariableRelationship::factory()->make()->toArray();
 
         $r = $this->jsonAsUser18535(
             'POST',
@@ -24,8 +24,8 @@ class CorrelationApiTest extends UnitTestCase
 	public function test_read_correlation()
     {
 	    //$this->resetSQLiteDB();
-	    $correlation = Correlation::firstOrFakeSave();
-		$found = Correlation::find($correlation->id);
+	    $correlation = UserVariableRelationship::firstOrFakeSave();
+		$found = UserVariableRelationship::find($correlation->id);
 		$this->assertNotNull($found);
 		$this->assertGuest();
 		$this->expectUnauthorizedException();
@@ -38,9 +38,9 @@ class CorrelationApiTest extends UnitTestCase
 		$this->setAuthenticatedUser($correlation->user_id);
 	    $correlation->causality_vote = 1;
 	    $correlation->save();
-	    $r = $this->putJson('/api/v6/correlations/'.$correlation->id, [Correlation::FIELD_CAUSALITY_VOTE => -1]);
+	    $r = $this->putJson('/api/v6/correlations/'.$correlation->id, [UserVariableRelationship::FIELD_CAUSALITY_VOTE => -1]);
 	    $r->assertStatus(201);
-		$updated = Correlation::find($correlation->id);
+		$updated = UserVariableRelationship::find($correlation->id);
 	    $this->assertEquals(-1, $updated->causality_vote);
 	    $this->setAuthenticatedUser($correlation->user_id);
 	    $correlation->causality_vote = 1;

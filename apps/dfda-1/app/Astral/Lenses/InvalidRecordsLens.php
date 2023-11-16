@@ -6,7 +6,7 @@
 
 namespace App\Astral\Lenses;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\BaseProperty;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -32,8 +32,8 @@ class InvalidRecordsLens extends QMLens {
 			//                    Correlation::FIELD_ANALYSIS_STARTED_AT,
 			//                    Correlation::FIELD_INTERNAL_ERROR_MESSAGE,
 			//                ])
-			->whereNotNull(Correlation::FIELD_INTERNAL_ERROR_MESSAGE)
-			->orderBy(Correlation::FIELD_ANALYSIS_STARTED_AT, BaseModel::ORDER_DIRECTION_DESC)));
+			->whereNotNull(UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE)
+			->orderBy(UserVariableRelationship::FIELD_ANALYSIS_STARTED_AT, BaseModel::ORDER_DIRECTION_DESC)));
 	}
 	/**
 	 * Get the fields available to the lens.

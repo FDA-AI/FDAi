@@ -10,7 +10,7 @@ use App\Logging\QMLog;
 use App\Models\BaseModel;
 use App\Models\Connection;
 use App\Models\Connector;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Unit;
 use App\Models\User;
 use App\Models\UserVariable;
@@ -207,7 +207,7 @@ class BaseEloquentDataTable extends EloquentDataTable
      * @return $this
      */
     public function addInternalErrorMessage(string $location = self::MIDDLE): BaseEloquentDataTable{
-        $col = $this->generateColumn(Correlation::FIELD_INTERNAL_ERROR_MESSAGE, function($m) {
+        $col = $this->generateColumn(UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE, function($m) {
             /** @var Variable $m */
             return $m->getInternalErrorMessageLink();
         }, "Errors");
@@ -218,7 +218,7 @@ class BaseEloquentDataTable extends EloquentDataTable
      * @return $this
      */
     public function addUserErrorMessage(string $location = self::MIDDLE): BaseEloquentDataTable{
-        $col = $this->generateColumn(Correlation::FIELD_INTERNAL_ERROR_MESSAGE, function($m) {
+        $col = $this->generateColumn(UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE, function($m) {
             /** @var Variable $m */
             return $m->getInternalErrorMessageLink();
         }, "Errors");
@@ -434,7 +434,7 @@ class BaseEloquentDataTable extends EloquentDataTable
      */
     public function addGaugeLink(string $location = self::PREFIX): BaseEloquentDataTable{
         $col = $this->generateColumn('gauge_link', function($m) {
-            /** @var Correlation $m */
+            /** @var UserVariableRelationship $m */
             return $m->getGaugeLink();
         });
         return $this->addColumnByLocation($col, $location);
@@ -445,7 +445,7 @@ class BaseEloquentDataTable extends EloquentDataTable
      */
     public function addGaugeNameDropDown(string $location = self::PREFIX): BaseEloquentDataTable{
         $col = $this->generateColumn('gauge_name_drop_down', function($m) {
-            /** @var Correlation $m */
+            /** @var UserVariableRelationship $m */
             return $m->getGaugeNameDropDown();
         }, "Name");
         return $this->addColumnByLocation($col, $location);
@@ -494,7 +494,7 @@ class BaseEloquentDataTable extends EloquentDataTable
      */
     public function addEffectImageNameDropDown(string $location = self::MIDDLE): BaseEloquentDataTable{
         $col = $this->generateColumn('effect_link', function($m) {
-            /** @var Correlation $m */
+            /** @var UserVariableRelationship $m */
             return $m->getEffectVariable()->getDataLabImageNameDropDown();
         }, "Outcome", 'effect_variable.name');
         return $this->addColumnByLocation($col, $location);
@@ -505,7 +505,7 @@ class BaseEloquentDataTable extends EloquentDataTable
      */
     public function addCauseImageNameDropDown(string $location = self::MIDDLE): BaseEloquentDataTable{
         $col = $this->generateColumn('cause_link', function($m) {
-            /** @var Correlation $m */
+            /** @var UserVariableRelationship $m */
             return $m->getCauseVariable()->getDataLabImageNameDropDown();
             //return $m->getEffectNameLink();
         }, "Predictor", 'cause_variable.name');
@@ -516,9 +516,9 @@ class BaseEloquentDataTable extends EloquentDataTable
      * @return $this
      */
     public function addEffectSize(string $location = self::MIDDLE): BaseEloquentDataTable{
-        $col = $this->generateColumn(Correlation::FIELD_EFFECT_FOLLOW_UP_PERCENT_CHANGE_FROM_BASELINE,
+        $col = $this->generateColumn(UserVariableRelationship::FIELD_EFFECT_FOLLOW_UP_PERCENT_CHANGE_FROM_BASELINE,
             function($m) {
-                /** @var Correlation $m */
+                /** @var UserVariableRelationship $m */
                 return $m->getEffectSizeLinkToStudyWithExplanation();
             }, 'Effect Size');
         return $this->addColumnByLocation($col, $location);

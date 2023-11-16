@@ -5,15 +5,15 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseCauseUserVariableIdProperty;
 use App\Http\Requests\AstralRequest;
 class CorrelationCauseUserVariableIdProperty extends BaseCauseUserVariableIdProperty
 {
     use CorrelationProperty;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     public function showOnUpdate(): bool {return false;}
     public function showOnCreate(): bool {return false;}
     public function showOnIndex(): bool {

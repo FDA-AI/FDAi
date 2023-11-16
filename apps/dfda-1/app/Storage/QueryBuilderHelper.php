@@ -10,7 +10,7 @@ use App\Exceptions\BadRequestException;
 use App\Http\Parameters\LimitParam;
 use App\Logging\QMLog;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\Base\BaseAccessTokenProperty;
 use App\Properties\Correlation\CorrelationStatusProperty;
 use App\Slim\Middleware\QMAuth;
@@ -358,8 +358,8 @@ class QueryBuilderHelper {
             if(stripos($field, 'error') !== false){
                 $qb->orWhereNotNull($model->getTable().'.'.$field);
             }
-            if($field === Correlation::FIELD_STATUS){
-                $qb->orWhere($model->getTable().'.'. Correlation::FIELD_STATUS, "=", CorrelationStatusProperty::STATUS_ERROR);
+            if($field === UserVariableRelationship::FIELD_STATUS){
+                $qb->orWhere($model->getTable().'.'. UserVariableRelationship::FIELD_STATUS, "=", CorrelationStatusProperty::STATUS_ERROR);
             }
         }
         $qb->withTrashed();
@@ -405,9 +405,9 @@ class QueryBuilderHelper {
 	public static function whereParamsToHumanString(string $column, string $table, $value, $operator = null):string{
         $constraint = new Constraint($column, $table, $value, $operator);
         $map = [
-            Correlation::FIELD_INTERNAL_ERROR_MESSAGE.self::OPERATOR_NOT_NULL => self::HAVE_AN_ERROR,
-            Correlation::FIELD_ANALYSIS_ENDED_AT.self::OPERATOR_IS_NULL => "that have never been analyzed",
-            Correlation::FIELD_ANALYSIS_ENDED_AT.self::OPERATOR_NOT_NULL => "that have been analyzed",
+            UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE.self::OPERATOR_NOT_NULL => self::HAVE_AN_ERROR,
+            UserVariableRelationship::FIELD_ANALYSIS_ENDED_AT.self::OPERATOR_IS_NULL => "that have never been analyzed",
+            UserVariableRelationship::FIELD_ANALYSIS_ENDED_AT.self::OPERATOR_NOT_NULL => "that have been analyzed",
         ];
         // Why?  We're filtering by integer id sometimes? if(!is_string($value)){le('!is_string($value)');}
         $lowerKey = QMStr::snakize($column).strtolower($value);

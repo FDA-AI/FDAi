@@ -7,7 +7,7 @@
 namespace App\Files\JavaScript;
 use App\Folders\DynamicFolder;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Variable;
 use App\Properties\Base\BaseUpdatedAtProperty;
 class VariableShowJavaScriptFile extends ShowJavaScriptFile {
@@ -47,7 +47,7 @@ class VariableShowJavaScriptFile extends ShowJavaScriptFile {
 			$predictors = $v->getPublicPredictors();
 		}
 		$maxChange = $predictors->max(function($c){
-			/** @var Correlation $c */
+			/** @var UserVariableRelationship $c */
 			return abs($c->effect_follow_up_percent_change_from_baseline);
 		});
 		/** @var GlobalVariableRelationship $correlation */
@@ -73,7 +73,7 @@ class VariableShowJavaScriptFile extends ShowJavaScriptFile {
 			$outcomes = $v->getPublicOutcomes();
 		}
 		$maxChange = $outcomes->max(function($c){
-			/** @var Correlation|GlobalVariableRelationship $c */
+			/** @var UserVariableRelationship|GlobalVariableRelationship $c */
 			return abs($c->effect_follow_up_percent_change_from_baseline);
 		});
 		/** @var GlobalVariableRelationship $correlation */

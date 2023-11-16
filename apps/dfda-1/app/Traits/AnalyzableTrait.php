@@ -14,7 +14,7 @@ use App\Exceptions\StupidVariableNameException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Logging\GlobalLogMeta;
 use App\Logging\QMLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\User;
 use App\Astral\Actions\AnalyzeAction;
 use App\Astral\Actions\PHPUnitAction;
@@ -81,7 +81,7 @@ trait AnalyzableTrait {
 	protected static function getRequiredAnalysisFields():array{return [];}
 	protected function requiredAnalysisFieldIsNull(bool $exception): ?string{
 		$required = static::getRequiredAnalysisFields();
-		$required[] = Correlation::FIELD_ANALYSIS_STARTED_AT;
+		$required[] = UserVariableRelationship::FIELD_ANALYSIS_STARTED_AT;
 		foreach($required as $field){
 			$value = $this->getAttribute($field);
 			if($value === null){
@@ -189,7 +189,7 @@ trait AnalyzableTrait {
 	 */
 	public function getCards(Request $request): array{
 		$cards = parent::getCards($request);
-		$cards[] = new AnalysisProgressPartition(Correlation::class);
+		$cards[] = new AnalysisProgressPartition(UserVariableRelationship::class);
 		return $cards;
 	}
 	/**

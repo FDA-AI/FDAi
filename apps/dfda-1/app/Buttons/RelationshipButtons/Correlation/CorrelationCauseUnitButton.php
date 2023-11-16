@@ -6,17 +6,17 @@
 
 namespace App\Buttons\RelationshipButtons\Correlation;
 use App\Buttons\RelationshipButtons\BelongsToRelationshipButton;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Unit;
 class CorrelationCauseUnitButton extends BelongsToRelationshipButton {
 	public $interesting = true;
-	public $foreignKeyName = Correlation::FIELD_CAUSE_UNIT_ID;
-	public $qualifiedForeignKeyName = Correlation::TABLE . '.' . Correlation::FIELD_CAUSE_UNIT_ID;
+	public $foreignKeyName = UserVariableRelationship::FIELD_CAUSE_UNIT_ID;
+	public $qualifiedForeignKeyName = UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_CAUSE_UNIT_ID;
 	public $ownerKeyName = Unit::FIELD_ID;
 	public $qualifiedOwnerKeyName = Unit::TABLE . '.' . Unit::FIELD_ID;
-	public $childClass = Correlation::class;
-	public $parentClass = Correlation::class;
-	public $qualifiedParentKeyName = Correlation::TABLE . '.' . Correlation::FIELD_ID;
+	public $childClass = UserVariableRelationship::class;
+	public $parentClass = UserVariableRelationship::class;
+	public $qualifiedParentKeyName = UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_ID;
 	public $relatedClass = Unit::class;
 	public $methodName = 'cause_unit';
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo';

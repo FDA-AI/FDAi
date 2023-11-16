@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\VariableCategory;
 use App\Properties\Variable\VariableIsPublicProperty;
 use App\Traits\PropertyTraits\CorrelationProperty;
@@ -15,10 +15,10 @@ use App\Types\BoolHelper;
 class CorrelationIsPublicProperty extends BaseIsPublicProperty
 {
     use CorrelationProperty, IsCalculated;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     /**
-     * @param Correlation $model
+     * @param UserVariableRelationship $model
      * @return bool
      */
     public static function calculate($model): bool{

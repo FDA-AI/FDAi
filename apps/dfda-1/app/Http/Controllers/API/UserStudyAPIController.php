@@ -15,7 +15,7 @@ use App\Http\Resources\CorrelationResource;
 use App\Http\Resources\UserResource;
 use App\Http\Resources\UserVariableResource;
 use App\Http\Resources\VariableResource;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\User;
 use App\Properties\Base\BaseCauseVariableIdProperty;
 use App\Properties\Base\BaseEffectVariableIdProperty;
@@ -46,7 +46,7 @@ class UserStudyAPIController extends BaseAPIController {
             $userFromClientSecret = null;
         }
         $us = $this->getUserStudy($data);
-        /** @var Correlation $correlation */
+        /** @var UserVariableRelationship $correlation */
         $correlation = $us->getCreateOrRecalculateStatistics()->l();
         $html = $us->getHtmlPage();
         $response = [

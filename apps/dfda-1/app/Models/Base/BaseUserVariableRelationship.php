@@ -13,7 +13,7 @@
 namespace App\Models\Base;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\CorrelationCausalityVote;
 use App\Models\CorrelationUsefulnessVote;
 use App\Models\OAClient;
@@ -146,28 +146,27 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @package App\Models\Base
  * @property-read int|null $correlation_causality_votes_count
  * @property-read int|null $correlation_usefulness_votes_count
-
  * @property-read int|null $user_variables_where_best_user_variable_relationship_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BaseModel applyRequestParams($request)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BaseModel exclude($columns)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BaseModel excludeLargeColumns()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BaseModel nPerGroup($group, $n = 10)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation newQuery()
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Base\BaseCorrelation onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship newQuery()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Base\BaseUserVariableRelationship onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship query()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereGlobalVariableRelationshipId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereAggregatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereAnalysisEndedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereAggregatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereAnalysisEndedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereAnalysisRequestedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereAnalysisStartedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereAnalysisStartedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereAverageDailyHighCause($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereAverageDailyLowCause($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereAverageEffect($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereAverageEffect($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereAverageEffectFollowingHighCause($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
@@ -176,13 +175,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *     whereAverageForwardPearsonCorrelationOverOnsetDelays($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereAverageReversePearsonCorrelationOverOnsetDelays($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereCausalityVote($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereCausalityVote($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereCauseBaselineAveragePerDay($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereCauseBaselineAveragePerDurationOfAction($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereCauseChanges($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereCauseFillingValue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereCauseChanges($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereCauseFillingValue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereCauseNumberOfProcessedDailyMeasurements($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
@@ -191,21 +190,21 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *     whereCauseTreatmentAveragePerDay($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereCauseTreatmentAveragePerDurationOfAction($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereCauseUnitId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereCauseUnitId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereCauseUserVariableId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereCauseVariableCategoryId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereCauseVariableId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereClientId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereCauseVariableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereClientId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereConfidenceInterval($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereCriticalTValue($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereDataSourceName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereDeletionReason($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereDurationOfAction($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereCriticalTValue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereDataSourceName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereDeletionReason($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereDurationOfAction($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereEarliestMeasurementStartAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
@@ -214,7 +213,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *     whereEffectBaselineRelativeStandardDeviation($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereEffectBaselineStandardDeviation($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereEffectChanges($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereEffectChanges($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereEffectFillingValue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
@@ -229,10 +228,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *     whereEffectUserVariableId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereEffectVariableCategoryId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereEffectVariableId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereExperimentEndAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereExperimentEndTime($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereExperimentStartAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereEffectVariableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereExperimentEndAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereExperimentEndTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereExperimentStartAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereExperimentStartTime($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
@@ -243,22 +242,22 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *     whereGroupedCauseValueClosestToValuePredictingHighOutcome($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereGroupedCauseValueClosestToValuePredictingLowOutcome($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereInterestingVariableCategoryPair($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereInternalErrorMessage($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereLatestMeasurementStartAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereNewestDataAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereNumberOfDays($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereNumberOfPairs($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereOnsetDelay($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereNewestDataAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereNumberOfDays($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereNumberOfPairs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereOnsetDelay($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereOnsetDelayWithStrongestPearsonCorrelation($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereOptimalPearsonProduct($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation wherePValue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship wherePValue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     wherePearsonCorrelationWithNoOnsetDelay($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
@@ -267,33 +266,33 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *     wherePredictsHighEffectChange($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     wherePredictsLowEffectChange($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation wherePublishedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereQmScore($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereReasonForAnalysis($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereRecordSizeInKb($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship wherePublishedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereQmScore($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereReasonForAnalysis($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereRecordSizeInKb($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereReversePearsonCorrelationCoefficient($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereStatisticalSignificance($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereStrongestPearsonCorrelationCoefficient($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereTValue($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereUsefulnessVote($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereUserErrorMessage($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereTValue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereUsefulnessVote($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereUserErrorMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereValuePredictingHighOutcome($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation
  *     whereValuePredictingLowOutcome($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereWpPostId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseCorrelation whereZScore($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Base\BaseCorrelation withTrashed()
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Base\BaseCorrelation withoutTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereWpPostId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Base\BaseUserVariableRelationship whereZScore($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Base\BaseUserVariableRelationship withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Base\BaseUserVariableRelationship withoutTrashed()
  * @mixin \Eloquent
  */
-abstract class BaseCorrelation extends BaseModel {
+abstract class BaseUserVariableRelationship extends BaseModel {
 	use SoftDeletes;
 	use Compoships;
 	public const FIELD_AGGREGATE_CORRELATION_ID = 'global_variable_relationship_id';
@@ -703,121 +702,121 @@ abstract class BaseCorrelation extends BaseModel {
 			'relationshipType' => 'BelongsTo',
 			'qualifiedUserClassName' => GlobalVariableRelationship::class,
 			'foreignKeyColumnName' => 'global_variable_relationship_id',
-			'foreignKey' => Correlation::FIELD_AGGREGATE_CORRELATION_ID,
+			'foreignKey' => UserVariableRelationship::FIELD_AGGREGATE_CORRELATION_ID,
 			'otherKeyColumnName' => 'id',
 			'otherKey' => GlobalVariableRelationship::FIELD_ID,
 			'ownerKeyColumnName' => 'global_variable_relationship_id',
-			'ownerKey' => Correlation::FIELD_AGGREGATE_CORRELATION_ID,
+			'ownerKey' => UserVariableRelationship::FIELD_AGGREGATE_CORRELATION_ID,
 			'methodName' => 'global_variable_relationship',
 		],
 		'cause_unit' => [
 			'relationshipType' => 'BelongsTo',
 			'qualifiedUserClassName' => Unit::class,
 			'foreignKeyColumnName' => 'cause_unit_id',
-			'foreignKey' => Correlation::FIELD_CAUSE_UNIT_ID,
+			'foreignKey' => UserVariableRelationship::FIELD_CAUSE_UNIT_ID,
 			'otherKeyColumnName' => 'id',
 			'otherKey' => Unit::FIELD_ID,
 			'ownerKeyColumnName' => 'cause_unit_id',
-			'ownerKey' => Correlation::FIELD_CAUSE_UNIT_ID,
+			'ownerKey' => UserVariableRelationship::FIELD_CAUSE_UNIT_ID,
 			'methodName' => 'cause_unit',
 		],
 		'cause_variable_category' => [
 			'relationshipType' => 'BelongsTo',
 			'qualifiedUserClassName' => VariableCategory::class,
 			'foreignKeyColumnName' => 'cause_variable_category_id',
-			'foreignKey' => Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
+			'foreignKey' => UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
 			'otherKeyColumnName' => 'id',
 			'otherKey' => VariableCategory::FIELD_ID,
 			'ownerKeyColumnName' => 'cause_variable_category_id',
-			'ownerKey' => Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
+			'ownerKey' => UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
 			'methodName' => 'cause_variable_category',
 		],
 		'cause_variable' => [
 			'relationshipType' => 'BelongsTo',
 			'qualifiedUserClassName' => Variable::class,
 			'foreignKeyColumnName' => 'cause_variable_id',
-			'foreignKey' => Correlation::FIELD_CAUSE_VARIABLE_ID,
+			'foreignKey' => UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID,
 			'otherKeyColumnName' => 'id',
 			'otherKey' => Variable::FIELD_ID,
 			'ownerKeyColumnName' => 'cause_variable_id',
-			'ownerKey' => Correlation::FIELD_CAUSE_VARIABLE_ID,
+			'ownerKey' => UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID,
 			'methodName' => 'cause_variable',
 		],
 		'oa_client' => [
 			'relationshipType' => 'BelongsTo',
 			'qualifiedUserClassName' => OAClient::class,
 			'foreignKeyColumnName' => 'client_id',
-			'foreignKey' => Correlation::FIELD_CLIENT_ID,
+			'foreignKey' => UserVariableRelationship::FIELD_CLIENT_ID,
 			'otherKeyColumnName' => 'client_id',
 			'otherKey' => OAClient::FIELD_CLIENT_ID,
 			'ownerKeyColumnName' => 'client_id',
-			'ownerKey' => Correlation::FIELD_CLIENT_ID,
+			'ownerKey' => UserVariableRelationship::FIELD_CLIENT_ID,
 			'methodName' => 'oa_client',
 		],
 		'effect_variable_category' => [
 			'relationshipType' => 'BelongsTo',
 			'qualifiedUserClassName' => VariableCategory::class,
 			'foreignKeyColumnName' => 'effect_variable_category_id',
-			'foreignKey' => Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID,
+			'foreignKey' => UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID,
 			'otherKeyColumnName' => 'id',
 			'otherKey' => VariableCategory::FIELD_ID,
 			'ownerKeyColumnName' => 'effect_variable_category_id',
-			'ownerKey' => Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID,
+			'ownerKey' => UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID,
 			'methodName' => 'effect_variable_category',
 		],
 		'effect_variable' => [
 			'relationshipType' => 'BelongsTo',
 			'qualifiedUserClassName' => Variable::class,
 			'foreignKeyColumnName' => 'effect_variable_id',
-			'foreignKey' => Correlation::FIELD_EFFECT_VARIABLE_ID,
+			'foreignKey' => UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID,
 			'otherKeyColumnName' => 'id',
 			'otherKey' => Variable::FIELD_ID,
 			'ownerKeyColumnName' => 'effect_variable_id',
-			'ownerKey' => Correlation::FIELD_EFFECT_VARIABLE_ID,
+			'ownerKey' => UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID,
 			'methodName' => 'effect_variable',
 		],
 		'user' => [
 			'relationshipType' => 'BelongsTo',
 			'qualifiedUserClassName' => \App\Models\User::class,
 			'foreignKeyColumnName' => 'user_id',
-			'foreignKey' => Correlation::FIELD_USER_ID,
+			'foreignKey' => UserVariableRelationship::FIELD_USER_ID,
 			'otherKeyColumnName' => 'ID',
 			'otherKey' => \App\Models\User::FIELD_ID,
 			'ownerKeyColumnName' => 'user_id',
-			'ownerKey' => Correlation::FIELD_USER_ID,
+			'ownerKey' => UserVariableRelationship::FIELD_USER_ID,
 			'methodName' => 'user',
 		],
 		'cause_user_variable' => [
 			'relationshipType' => 'BelongsTo',
 			'qualifiedUserClassName' => UserVariable::class,
 			'foreignKeyColumnName' => 'cause_user_variable_id',
-			'foreignKey' => Correlation::FIELD_CAUSE_USER_VARIABLE_ID,
+			'foreignKey' => UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID,
 			'otherKeyColumnName' => 'id',
 			'otherKey' => UserVariable::FIELD_ID,
 			'ownerKeyColumnName' => 'cause_user_variable_id',
-			'ownerKey' => Correlation::FIELD_CAUSE_USER_VARIABLE_ID,
+			'ownerKey' => UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID,
 			'methodName' => 'cause_user_variable',
 		],
 		'effect_user_variable' => [
 			'relationshipType' => 'BelongsTo',
 			'qualifiedUserClassName' => UserVariable::class,
 			'foreignKeyColumnName' => 'effect_user_variable_id',
-			'foreignKey' => Correlation::FIELD_EFFECT_USER_VARIABLE_ID,
+			'foreignKey' => UserVariableRelationship::FIELD_EFFECT_USER_VARIABLE_ID,
 			'otherKeyColumnName' => 'id',
 			'otherKey' => UserVariable::FIELD_ID,
 			'ownerKeyColumnName' => 'effect_user_variable_id',
-			'ownerKey' => Correlation::FIELD_EFFECT_USER_VARIABLE_ID,
+			'ownerKey' => UserVariableRelationship::FIELD_EFFECT_USER_VARIABLE_ID,
 			'methodName' => 'effect_user_variable',
 		],
 		'wp_post' => [
 			'relationshipType' => 'BelongsTo',
 			'qualifiedUserClassName' => WpPost::class,
 			'foreignKeyColumnName' => 'wp_post_id',
-			'foreignKey' => Correlation::FIELD_WP_POST_ID,
+			'foreignKey' => UserVariableRelationship::FIELD_WP_POST_ID,
 			'otherKeyColumnName' => 'ID',
 			'otherKey' => WpPost::FIELD_ID,
 			'ownerKeyColumnName' => 'wp_post_id',
-			'ownerKey' => Correlation::FIELD_WP_POST_ID,
+			'ownerKey' => UserVariableRelationship::FIELD_WP_POST_ID,
 			'methodName' => 'wp_post',
 		],
 		'correlation_causality_votes' => [
@@ -855,44 +854,44 @@ abstract class BaseCorrelation extends BaseModel {
 			[self::FIELD_CAUSE_VARIABLE_ID, self::FIELD_EFFECT_VARIABLE_ID]);
 	}
 	public function cause_unit(): BelongsTo{
-		return $this->belongsTo(Unit::class, Correlation::FIELD_CAUSE_UNIT_ID, Unit::FIELD_ID,
-			Correlation::FIELD_CAUSE_UNIT_ID);
+		return $this->belongsTo(Unit::class, UserVariableRelationship::FIELD_CAUSE_UNIT_ID, Unit::FIELD_ID,
+			UserVariableRelationship::FIELD_CAUSE_UNIT_ID);
 	}
 	public function cause_variable_category(): BelongsTo{
-		return $this->belongsTo(VariableCategory::class, Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
-			VariableCategory::FIELD_ID, Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID);
+		return $this->belongsTo(VariableCategory::class, UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
+			VariableCategory::FIELD_ID, UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID);
 	}
 	public function cause_variable(): BelongsTo{
-		return $this->belongsTo(Variable::class, Correlation::FIELD_CAUSE_VARIABLE_ID, Variable::FIELD_ID,
-			Correlation::FIELD_CAUSE_VARIABLE_ID);
+		return $this->belongsTo(Variable::class, UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, Variable::FIELD_ID,
+			UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID);
 	}
 	public function oa_client(): BelongsTo{
-		return $this->belongsTo(OAClient::class, Correlation::FIELD_CLIENT_ID, OAClient::FIELD_CLIENT_ID,
-			Correlation::FIELD_CLIENT_ID);
+		return $this->belongsTo(OAClient::class, UserVariableRelationship::FIELD_CLIENT_ID, OAClient::FIELD_CLIENT_ID,
+			UserVariableRelationship::FIELD_CLIENT_ID);
 	}
 	public function effect_variable_category(): BelongsTo{
-		return $this->belongsTo(VariableCategory::class, Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID,
-			VariableCategory::FIELD_ID, Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID);
+		return $this->belongsTo(VariableCategory::class, UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID,
+			VariableCategory::FIELD_ID, UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID);
 	}
 	public function effect_variable(): BelongsTo{
-		return $this->belongsTo(Variable::class, Correlation::FIELD_EFFECT_VARIABLE_ID, Variable::FIELD_ID,
-			Correlation::FIELD_EFFECT_VARIABLE_ID);
+		return $this->belongsTo(Variable::class, UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, Variable::FIELD_ID,
+			UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID);
 	}
 	public function user(): BelongsTo{
-		return $this->belongsTo(\App\Models\User::class, Correlation::FIELD_USER_ID, \App\Models\User::FIELD_ID,
-			Correlation::FIELD_USER_ID);
+		return $this->belongsTo(\App\Models\User::class, UserVariableRelationship::FIELD_USER_ID, \App\Models\User::FIELD_ID,
+			UserVariableRelationship::FIELD_USER_ID);
 	}
 	public function cause_user_variable(): BelongsTo{
-		return $this->belongsTo(UserVariable::class, Correlation::FIELD_CAUSE_USER_VARIABLE_ID, UserVariable::FIELD_ID,
-			Correlation::FIELD_CAUSE_USER_VARIABLE_ID);
+		return $this->belongsTo(UserVariable::class, UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID, UserVariable::FIELD_ID,
+			UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID);
 	}
 	public function effect_user_variable(): BelongsTo{
-		return $this->belongsTo(UserVariable::class, Correlation::FIELD_EFFECT_USER_VARIABLE_ID, UserVariable::FIELD_ID,
-			Correlation::FIELD_EFFECT_USER_VARIABLE_ID);
+		return $this->belongsTo(UserVariable::class, UserVariableRelationship::FIELD_EFFECT_USER_VARIABLE_ID, UserVariable::FIELD_ID,
+			UserVariableRelationship::FIELD_EFFECT_USER_VARIABLE_ID);
 	}
 	public function wp_post(): BelongsTo{
-		return $this->belongsTo(WpPost::class, Correlation::FIELD_WP_POST_ID, WpPost::FIELD_ID,
-			Correlation::FIELD_WP_POST_ID);
+		return $this->belongsTo(WpPost::class, UserVariableRelationship::FIELD_WP_POST_ID, WpPost::FIELD_ID,
+			UserVariableRelationship::FIELD_WP_POST_ID);
 	}
 	public function correlation_causality_votes(): HasMany{
 		return $this->hasMany(CorrelationCausalityVote::class, CorrelationCausalityVote::FIELD_CORRELATION_ID,

@@ -388,7 +388,7 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property \Illuminate\Support\Carbon|null $latest_non_tagged_measurement_start_at
  * @property \Illuminate\Support\Carbon|null $earliest_non_tagged_measurement_start_at
  * @property-read OAClient|null $oa_client
- * @property-read Collection|Correlation[] $correlations
+ * @property-read Collection|UserVariableRelationship[] $correlations
  * @property-read int|null $correlations_count
  * @property-read Collection|Measurement[] $measurements
  * @property-read int|null $measurements_count
@@ -425,9 +425,9 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @method static Builder|BaseModel applyRequestParams($request)
  * @method static Builder|BaseModel exclude($columns)
  * @method static Builder|BaseModel excludeLargeColumns()
- * @property-read Collection|Correlation[] $correlations_where_cause_user_variable
+ * @property-read Collection|UserVariableRelationship[] $correlations_where_cause_user_variable
  * @property-read int|null $correlations_where_cause_user_variable_count
- * @property-read Collection|Correlation[] $correlations_where_effect_user_variable
+ * @property-read Collection|UserVariableRelationship[] $correlations_where_effect_user_variable
  * @property-read int|null $correlations_where_effect_user_variable_count
  * @property int|null $number_of_outcome_case_studies Number of Individual Case Studies for this Cause User Variable.
  *                     [Formula: update user_variables
@@ -452,7 +452,6 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @method static Builder|UserVariable whereNumberOfPredictorCaseStudies($value)
  * @method static Builder|UserVariable whereNumberOfTrackingReminderNotifications($value)
  * @method static Builder|UserVariable whereNumberOfTrackingRemindersWhereVariable($value)
-
  * @property-read Collection|ActionEvent[] $actions
  * @property-read int|null $actions_count
  * @property string|null $deletion_reason The reason the variable was deleted.
@@ -527,9 +526,9 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property-read Variable|null $best_cause_variable
  * @property-read Variable|null $best_effect_variable
  * @property-read Connector|null $most_common_connector
- * @property-read Collection|Correlation[] $outcomes
+ * @property-read Collection|UserVariableRelationship[] $outcomes
  * @property-read int|null $outcomes_count
- * @property-read Collection|Correlation[] $predictors
+ * @property-read Collection|UserVariableRelationship[] $predictors
  * @property-read int|null $predictors_count
  * @method static Builder|UserVariable whereBoring($value)
  * @method static Builder|UserVariable whereControllable($value)
@@ -538,9 +537,9 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property string|null $slug The slug is the part of a URL that identifies a page in human-readable keywords.
  * @property int|null $predictor predictor is true if the variable is a factor that could influence an outcome of
  *     interest
- * @property-read Collection|Correlation[] $best_correlations_where_cause_user_variable
+ * @property-read Collection|UserVariableRelationship[] $best_correlations_where_cause_user_variable
  * @property-read int|null $best_correlations_where_cause_user_variable_count
- * @property-read Collection|Correlation[] $best_correlations_where_effect_user_variable
+ * @property-read Collection|UserVariableRelationship[] $best_correlations_where_effect_user_variable
  * @property-read int|null $best_correlations_where_effect_user_variable_count
  * @property-read OAClient|null $client
  * @property-read Collection|UserTag[] $user_tags_where_tag_user_variable
@@ -922,7 +921,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		return $this->attributes[self::FIELD_VARIABLE_ID] ?? null;
 	}
 	/**
-	 * @return \App\Models\Correlation|\Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Relations\HasMany
+	 * @return \App\Models\UserVariableRelationship|\Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Relations\HasMany
 	 */
 	public function setBestCorrelationAsEffect(): mixed{
 		if($this->relationLoaded('best_correlations_where_effect_user_variable')){
@@ -934,13 +933,13 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		return $c;
 	}
 	/**
-	 * @return \App\Models\Correlation|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|mixed|null|object
+	 * @return \App\Models\UserVariableRelationship|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|mixed|null|object
 	 */
 	public function setBestCorrelationAsCause(): mixed{
 		if($this->relationLoaded('best_correlations_where_cause_user_variable')){
 			$c = $this->best_correlations_where_cause_user_variable->first();
 		} else{
-			/** @var Correlation|Builder $qb */
+			/** @var UserVariableRelationship|Builder $qb */
 			$qb = $this->best_correlations_where_cause_user_variable();
 			$c = $qb->first();
 		}
@@ -1588,8 +1587,8 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	/** @noinspection PhpUnused */
 	public function best_correlations_where_cause_user_variable(): HasMany{
 		return $this->correlations_where_cause_user_variable()
-			->where(Correlation::FIELD_EFFECT_USER_VARIABLE_ID, "<>", $this->getId())
-			->orderBy(Correlation::FIELD_QM_SCORE, BaseModel::ORDER_DIRECTION_DESC);
+			->where(UserVariableRelationship::FIELD_EFFECT_USER_VARIABLE_ID, "<>", $this->getId())
+			->orderBy(UserVariableRelationship::FIELD_QM_SCORE, BaseModel::ORDER_DIRECTION_DESC);
 	}
 	/** @noinspection PhpUnused */
 	public function correlations_where_cause_user_variable(): HasMany{
@@ -1618,8 +1617,8 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	}
 	public function best_correlations_where_effect_user_variable(): HasMany{
 		return $this->correlations_where_effect_user_variable()
-			->where(Correlation::FIELD_CAUSE_USER_VARIABLE_ID, "<>", $this->getId())
-			->orderBy(Correlation::FIELD_QM_SCORE, BaseModel::ORDER_DIRECTION_DESC);
+			->where(UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID, "<>", $this->getId())
+			->orderBy(UserVariableRelationship::FIELD_QM_SCORE, BaseModel::ORDER_DIRECTION_DESC);
 	}
 	public function correlations_where_effect_user_variable(): HasMany{
 		return parent::correlations_where_effect_user_variable()->with([
@@ -1697,7 +1696,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return Correlation[]|\Illuminate\Support\Collection
+	 * @return UserVariableRelationship[]|\Illuminate\Support\Collection
 	 */
 	public function getCorrelations(int $limit = null,
 		string $variableCategoryName = null): ?\Illuminate\Support\Collection{
@@ -2169,8 +2168,8 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		return static::DEFAULT_IMAGE;
 	}
 	/**
-	 * @return GlobalVariableRelationship|Correlation
-	 */
+	 * @return GlobalVariableRelationship|UserVariableRelationship
+     */
 	public function getCorrelation(): ?BaseModel{
 		$best = $this->getBestUserVariableRelationship();
 		if(!$best){
@@ -2195,7 +2194,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		if(!$id){
 			return "N/A";
 		}
-		$url = Correlation::generateDataLabShowLink($id, $this->optimal_value_message);
+		$url = UserVariableRelationship::generateDataLabShowLink($id, $this->optimal_value_message);
 		return $url;
 	}
 	public function getCauseOnly(): ?bool{
@@ -2497,8 +2496,8 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		Measurement::whereUserVariableId($this->id)->forceDelete();
 		TrackingReminderNotification::whereUserVariableId($this->id)->forceDelete();
 		TrackingReminder::whereUserVariableId($this->id)->forceDelete();
-		Correlation::whereCauseUserVariableId($this->id)->forceDelete();
-		Correlation::whereEffectUserVariableId($this->id)->forceDelete();
+		UserVariableRelationship::whereCauseUserVariableId($this->id)->forceDelete();
+		UserVariableRelationship::whereEffectUserVariableId($this->id)->forceDelete();
 		UserVariableClient::whereUserVariableId($this->id)->forceDelete();
 		$post = $this->wp_post;
 		if($post){
@@ -3696,8 +3695,8 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		$this->setAttribute(UserVariable::FIELD_BEST_CAUSE_VARIABLE_ID, $bestCauseVariableId);
 	}
 	/**
-	 * @return GlobalVariableRelationship|Correlation
-	 */
+	 * @return GlobalVariableRelationship|UserVariableRelationship
+     */
 	public function setBestCorrelation(){
 		$best = $this->setBestUserVariableRelationship();
 		if($best){
@@ -3980,7 +3979,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return \App\Models\GlobalVariableRelationship[]|Correlation[]|\Illuminate\Support\Collection
+	 * @return \App\Models\GlobalVariableRelationship[]|UserVariableRelationship[]|\Illuminate\Support\Collection
 	 */
 	public function getOutcomesOrPredictors(int $limit = null, string $variableCategoryName = null): Collection{
 		if($this->isOutcome()){
@@ -3996,7 +3995,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	/**
 	 * @param int|null $limit
 	 * @param string|int|null $causeCategory
-	 * @return GlobalVariableRelationship[]|Correlation[]|Collection
+	 * @return GlobalVariableRelationship[]|UserVariableRelationship[]|Collection
 	 */
 	public function getUserOrGlobalVariableRelationshipsAsEffect(int $limit = null, $causeCategory = null): Collection{
 		$catId = (!$causeCategory) ? null : VariableCategoryIdProperty::pluck($causeCategory);
@@ -4010,27 +4009,27 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $causeCategory
-	 * @return Correlation[]|\Illuminate\Support\Collection
+	 * @return UserVariableRelationship[]|\Illuminate\Support\Collection
 	 */
 	public function getCorrelationsAsEffect(int $limit = null, string $causeCategory = null): Collection{
 		$catId = (!$causeCategory) ? null : VariableCategoryIdProperty::pluck($causeCategory);
 		$correlations = $this->relations[__FUNCTION__]["$catId-$limit"] ?? null;
 		if($correlations !== null){return $correlations;}
 		$qb = $this->best_correlations_where_effect_user_variable();
-		if($catId){$qb->where(Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID, $catId);}
+		if($catId){$qb->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID, $catId);}
 		if($limit){$qb->limit($limit);}
         $qb->setEagerLoads([]);
 		$correlations = $qb->get();
 		$count = $correlations->count();
-        $variableIds = $correlations->pluck(Correlation::FIELD_CAUSE_VARIABLE_ID);
+        $variableIds = $correlations->pluck(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID);
         $variables = Variable::findInMemoryOrDB($variableIds);
-        $correlations->each(function(Correlation $correlation) use ($variables){
+        $correlations->each(function(UserVariableRelationship $correlation) use ($variables){
             $id = $correlation->getCauseVariableId();
             $correlation->setCauseVariable($variables[$id]);
         });
-        $userVariableIds = $correlations->pluck(Correlation::FIELD_CAUSE_USER_VARIABLE_ID);
+        $userVariableIds = $correlations->pluck(UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID);
         $userVariables = UserVariable::findInMemoryOrDB($userVariableIds);
-        $correlations->each(function(Correlation $correlation) use ($userVariables){
+        $correlations->each(function(UserVariableRelationship $correlation) use ($userVariables){
             $id = $correlation->getCauseUserVariableId();
             $correlation->setCauseUserVariable($userVariables[$id]);
         });
@@ -4043,28 +4042,28 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $effectCategory
-	 * @return Correlation[]|\Illuminate\Support\Collection
+	 * @return UserVariableRelationship[]|\Illuminate\Support\Collection
 	 */
 	public function getCorrelationsAsCause(int $limit = null, string $effectCategory = null): Collection {
 		$catId = (!$effectCategory) ? null : VariableCategoryIdProperty::pluck($effectCategory);
 		$correlations = $this->relations[__FUNCTION__]["$catId-$limit"] ?? null;
 		if($correlations !== null){return $correlations;}
 		$qb = $this->best_correlations_where_cause_user_variable();
-		if($catId){$qb->where(Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID, $catId);}
+		if($catId){$qb->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID, $catId);}
 		if($limit){$qb->limit($limit);}
         $qb->setEagerLoads([]);
         $correlations = $qb->get();
         $count = $correlations->count();
-        $variableIds = $correlations->pluck(Correlation::FIELD_EFFECT_VARIABLE_ID);
+        $variableIds = $correlations->pluck(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID);
         $variables = Variable::findInMemoryOrDB($variableIds);
-        $correlations->each(function(Correlation $correlation) use ($variables){
+        $correlations->each(function(UserVariableRelationship $correlation) use ($variables){
             $id = $correlation->getEffectVariableId();
-	        /** @var Correlation $correlation */
+	        /** @var UserVariableRelationship $correlation */
 	        $correlation->setEffectVariable($variables[$id]);
         });
-        $userVariableIds = $correlations->pluck(Correlation::FIELD_EFFECT_USER_VARIABLE_ID);
+        $userVariableIds = $correlations->pluck(UserVariableRelationship::FIELD_EFFECT_USER_VARIABLE_ID);
         $userVariables = UserVariable::findInMemoryOrDB($userVariableIds);
-        $correlations->each(function(Correlation $correlation) use ($userVariables){
+        $correlations->each(function(UserVariableRelationship $correlation) use ($userVariables){
             $id = $correlation->getEffectUserVariableId();
             $correlation->setEffectUserVariable($userVariables[$id]);
         });
@@ -4081,7 +4080,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	/**
 	 * @param int|null $limit
 	 * @param string|int|null $effectCategory
-	 * @return GlobalVariableRelationship[]|Correlation[]|Collection
+	 * @return GlobalVariableRelationship[]|UserVariableRelationship[]|Collection
 	 */
 	public function getUserOrGlobalVariableRelationshipsAsCause(int $limit = null, $effectCategory = null): Collection{
 		$catId = (!$effectCategory) ? null : VariableCategoryIdProperty::pluck($effectCategory);
@@ -4352,17 +4351,19 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		return $num;
 	}
 	/**
-	 * @return Correlation|null
+	 * @return UserVariableRelationship|null
 	 */
-	public function getBestCorrelationAsEffect(): ?Correlation {
+	public function getBestCorrelationAsEffect(): ?UserVariableRelationship
+    {
 		$c = $this->relations[__FUNCTION__] ?? null;
 		if($c === false){return null;}
 		return $this->setBestCorrelationAsEffect();
 	}
 	/**
-	 * @return Correlation|null
+	 * @return UserVariableRelationship|null
 	 */
-	public function getBestCorrelationAsCause(): ?Correlation {
+	public function getBestCorrelationAsCause(): ?UserVariableRelationship
+    {
 		$c = $this->relations[__FUNCTION__] ?? null;
 		if($c === false){return null;}
 		return $this->setBestCorrelationAsCause();

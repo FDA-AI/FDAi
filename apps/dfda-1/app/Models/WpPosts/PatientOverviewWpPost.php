@@ -12,7 +12,7 @@ use App\Models\Application;
 use App\Models\BaseModel;
 use App\Models\Connection;
 use App\Models\Connector;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\OAClient;
 use App\Models\SentEmail;
 use App\Models\SpreadsheetImporter;
@@ -105,7 +105,7 @@ use Illuminate\Support\Carbon;
  * @property-read int|null $connections_count
  * @property-read Collection|Connector[] $connectors
  * @property-read int|null $connectors_count
- * @property-read Collection|Correlation[] $correlations
+ * @property-read Collection|UserVariableRelationship[] $correlations
  * @property-read int|null $correlations_count
  * @property-read Collection|SentEmail[] $sent_emails
  * @property-read int|null $sent_emails_count
@@ -156,7 +156,6 @@ use Illuminate\Support\Carbon;
  * @method static Builder|BaseModel exclude($columns)
  * @method static Builder|BaseModel excludeLargeColumns()
  * @property-read int|null $wp_comments_where_comment_post__i_d_count
-
  * @property int|null $record_size_in_kb
  * @property-read Collection|SpreadsheetImporter[] $spreadsheet_importers
  * @property-read int|null $spreadsheet_importers_count

@@ -33,7 +33,7 @@ use App\Logging\ConsoleLog;
 use App\Logging\QMLog;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\OAClient;
 use App\Models\TrackingReminder;
@@ -1369,7 +1369,7 @@ trait ApiTestTrait
         $this->seedWithPositiveLinearCauseEffectMeasurements();
         $user = $this->getCauseUserVariable()->getQMUser();
         $user->analyzeFully(__FUNCTION__);
-        $this->assertEquals(1, Correlation::count(), "We should have 1 correlation!");
+        $this->assertEquals(1, UserVariableRelationship::count(), "We should have 1 correlation!");
         $correlations = QMUserVariableRelationship::getUserVariableRelationships([]);
         $this->checkOptimalValueMessageAndStudyCardsForUserVariables();
         $this->assertEquals(1, $correlations[0]->strongestPearsonCorrelationCoefficient);
@@ -1884,8 +1884,8 @@ trait ApiTestTrait
         $this->assertCount(1, $correlations,
             'We should only have 1 correlation for CauseVariableName and EffectVariableName');
         $this->checkCalculatedCorrelationObject($correlations[0], $correlateOverTime);
-        /** @var Correlation $l */
-        $l = Correlation::find($correlations[0]->id);
+        /** @var UserVariableRelationship $l */
+        $l = UserVariableRelationship::find($correlations[0]->id);
         $this->assertIsString($l->reason_for_analysis);
         $this->assertIsString($l->analysis_ended_at->toString());
         return $correlations[0];
@@ -2515,8 +2515,8 @@ trait ApiTestTrait
      * @return QMPopulationStudy|QMStudy|QMUserStudy
      */
     protected function getOrCreateStudy(int $userId = 1){
-        $c = Correlation::whereUserId($userId)->first();
-        /** @var Correlation $c */
+        $c = UserVariableRelationship::whereUserId($userId)->first();
+        /** @var UserVariableRelationship $c */
         if($c){
             return $c->findInMemoryOrNewQMStudy();
         }
@@ -2577,7 +2577,7 @@ trait ApiTestTrait
         Memory::resetClearOrDeleteAll();
         $this->truncateTrackingReminders();
         $this->truncateTable(Measurement::TABLE);
-        $this->truncateTable(Correlation::TABLE);
+        $this->truncateTable(UserVariableRelationship::TABLE);
         $this->truncateTable(QMTrackingReminderNotification::TABLE);
         $this->truncateTable(UserVariable::TABLE);
         $this->truncateTable(QMCommonTag::TABLE);

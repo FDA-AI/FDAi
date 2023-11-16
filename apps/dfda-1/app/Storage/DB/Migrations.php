@@ -11,7 +11,7 @@ use App\Files\FileHelper;
 use App\Logging\QMLog;
 use App\Models\Button;
 use App\Models\Card;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\CorrelationCausalityVote;
 use App\Models\CorrelationUsefulnessVote;
 use App\Models\Credential;
@@ -146,7 +146,7 @@ class '.$CLASS.' extends Migration{
         $tables = static::getTableNames();
         $stmt = "";
         foreach($tables as $t){
-            $t = Correlation::TABLE;
+            $t = UserVariableRelationship::TABLE;
             $keys = collect(QMDB::getForeignKeysForTable($t));
             $capitalUserKey = $keys->filter(function($keyData) use($needle) {
                 return stripos($keyData->CONSTRAINT_NAME, $needle) !== false;

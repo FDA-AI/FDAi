@@ -6,7 +6,7 @@ namespace App\PhpUnitJobs\Miscellaneous;
 use App\DataSources\Connectors\GithubConnector;
 use App\Logging\QMLog;
 use App\Models\Connection;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\TrackingReminder;
 use App\Models\User;
@@ -29,7 +29,7 @@ class DemoUserDataJobTest extends JobTestCase {
 		UserVariable::TABLE,
 		TrackingReminder::TABLE,
 		Measurement::TABLE,
-		Correlation::TABLE,
+		UserVariableRelationship::TABLE,
 	];
 	private $connectorsToExclude = [
 		GithubConnector::ID,

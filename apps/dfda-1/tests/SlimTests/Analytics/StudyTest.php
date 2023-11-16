@@ -17,7 +17,7 @@ use App\Logging\QMLog;
 use App\Mail\QMSendgrid;
 use App\Models\GlobalVariableRelationship;
 use App\Models\Collaborator;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\DeviceToken;
 use App\Models\OAAccessToken;
 use App\Models\SentEmail;
@@ -414,7 +414,7 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
         $this->assertEquals($this->getExpectedPositiveLinearPairArray(), array_values($actual));
         $u = QMUser::demo();
         $u->analyzeFully(__FUNCTION__);
-        $this->assertEquals(1, Correlation::count());
+        $this->assertEquals(1, UserVariableRelationship::count());
         $positiveCorrelations = QMUserVariableRelationship::getUserVariableRelationships([]);
         $this->checkOptimalValueMessageAndStudyCardsForUserVariables();
         $positiveCorrelation = $positiveCorrelations[0];
@@ -494,7 +494,7 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
         //if(!$studyResponse->publishedAt){throw new LogicException("No study->publishedAt!");}
         $correlations = GlobalVariableRelationship::all();
         //$this->assertCount(1, $correlations, "should have 1 global variable relationship after publishing");
-        $numberOfUserVariableRelationships = Correlation::count();
+        $numberOfUserVariableRelationships = UserVariableRelationship::count();
         if($numberOfUserVariableRelationships > 1){
             $correlations = QMUserVariableRelationship::getOrCreateUserOrGlobalVariableRelationships([]);
             foreach ($correlations as $correlation){$correlation->logInfo("");}
@@ -519,7 +519,7 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
         $this->assertContains('EffectVariableName', $studyHtml->studyHeaderHtml);
     }
     public function testPublishStudyThatsAlreadyBeenAnalyzed(){
-		Correlation::truncate();
+		UserVariableRelationship::truncate();
         GlobalVariableRelationship::truncate();
 	    Study::truncate();
 	    Vote::truncate();
@@ -592,7 +592,7 @@ class StudyTest extends \Tests\SlimTests\SlimTestCase {
         $overview = $this->assertNumberOfPostsWithTitleLike($user, 1, "Overview");
         $posts = $this->assertNumberOfPostsWithTitleLike($user, 1, $user->displayName,
             "We put the user name in their overview post.  Maybe we shouldn't?  Or maybe we should generate random superhero display names? Let's not put use names in titles to protect privacy");
-        $correlations = Correlation::all();
+        $correlations = UserVariableRelationship::all();
         foreach($correlations as $c){$c->validate();}
         try {
             $this->compareHtmlPage('root-cause-analysis', $a->generateHtmlWithHead());

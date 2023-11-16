@@ -34,7 +34,7 @@ use App\Files\FileHelper;
 use App\Logging\QMClockwork;
 use App\Logging\QMLog;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Study;
 use App\Models\UserVariable;
 use App\Models\Vote;
@@ -210,7 +210,7 @@ class QMUserVariableRelationship extends QMCorrelation {
     public $voteStatisticalSignificance;
     public const ALGORITHM_MODIFIED_AT = "2021-03-21";
     public const CALCULATE_REVERSE_CORRELATION = false;
-    public const FIELD_AGGREGATE_CORRELATION_ID = Correlation::FIELD_AGGREGATE_CORRELATION_ID;
+    public const FIELD_AGGREGATE_CORRELATION_ID = UserVariableRelationship::FIELD_AGGREGATE_CORRELATION_ID;
     public const FIELD_ANALYSIS_ENDED_AT = 'analysis_ended_at';
     public const FIELD_ANALYSIS_REQUESTED_AT = 'analysis_requested_at';
     public const FIELD_ANALYSIS_STARTED_AT = 'analysis_started_at';
@@ -289,7 +289,7 @@ class QMUserVariableRelationship extends QMCorrelation {
     public const FIELD_VALUE_PREDICTING_LOW_OUTCOME = 'value_predicting_low_outcome';
     public const FIELD_WP_POST_ID = 'wp_post_id';
     public const FIELD_Z_SCORE = 'z_score';
-    public const LARAVEL_CLASS = Correlation::class;
+    public const LARAVEL_CLASS = UserVariableRelationship::class;
     // Keep this low so at least we get a chart on studies that have little data.  We should just include disclaimers about accuracy
     public const PERCENT_DISTANCE_FROM_MEDIAN_TO_BE_CONSIDERED_HIGH_OR_LOW_EFFECT = 25;
     public const REQUIRED_NEW_MEASUREMENT_PERCENT_FOR_CORRELATION = 10;
@@ -576,9 +576,9 @@ class QMUserVariableRelationship extends QMCorrelation {
      */
     public static function findByIds(int $userId, int $causeId, int $effectId): ?QMUserVariableRelationship {
         $c =
-            Correlation::whereCauseVariableId($causeId)
-                ->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $effectId)
-                ->where(Correlation::FIELD_USER_ID, $userId)
+            UserVariableRelationship::whereCauseVariableId($causeId)
+                ->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $effectId)
+                ->where(UserVariableRelationship::FIELD_USER_ID, $userId)
                 ->first();
         if(!$c){
             return null;
@@ -1367,9 +1367,9 @@ class QMUserVariableRelationship extends QMCorrelation {
      * @internal param bool $round
      */
     public function getDailyValuePredictingHighOutcome(): ?float {
-        $val = $this->getAttribute(Correlation::FIELD_VALUE_PREDICTING_HIGH_OUTCOME);
+        $val = $this->getAttribute(UserVariableRelationship::FIELD_VALUE_PREDICTING_HIGH_OUTCOME);
         if($val === null && $this->laravelModel){
-            return $this->valuePredictingHighOutcome = $this->l()->getAttribute(Correlation::FIELD_VALUE_PREDICTING_HIGH_OUTCOME);
+            return $this->valuePredictingHighOutcome = $this->l()->getAttribute(UserVariableRelationship::FIELD_VALUE_PREDICTING_HIGH_OUTCOME);
         }
         return $val;
     }
@@ -1378,9 +1378,9 @@ class QMUserVariableRelationship extends QMCorrelation {
      * @internal param bool $round
      */
     public function getDailyValuePredictingLowOutcome(): ?float {
-        $val = $this->getAttribute(Correlation::FIELD_VALUE_PREDICTING_LOW_OUTCOME);
+        $val = $this->getAttribute(UserVariableRelationship::FIELD_VALUE_PREDICTING_LOW_OUTCOME);
         if($val === null && $this->laravelModel){
-            return $this->valuePredictingLowOutcome = $this->l()->getAttribute(Correlation::FIELD_VALUE_PREDICTING_LOW_OUTCOME);
+            return $this->valuePredictingLowOutcome = $this->l()->getAttribute(UserVariableRelationship::FIELD_VALUE_PREDICTING_LOW_OUTCOME);
         }
         return $val;
     }
@@ -1758,7 +1758,7 @@ class QMUserVariableRelationship extends QMCorrelation {
 				$this->causeVariableId, $this->effectVariableId);
 			if($ac){
 				if($ac->id !== $this->aggregateCorrelationId){
-					$this->updateDbRow([Correlation::FIELD_AGGREGATE_CORRELATION_ID => $ac->id]);
+					$this->updateDbRow([UserVariableRelationship::FIELD_AGGREGATE_CORRELATION_ID => $ac->id]);
 				}
 				$ac->newest_data_at = db_date(time());
 				$ac->status = GlobalVariableRelationshipStatusProperty::STATUS_WAITING;
@@ -1790,10 +1790,10 @@ class QMUserVariableRelationship extends QMCorrelation {
             'effect_variable_id'                                      => $effectId,
             'forward_pearson_correlation_coefficient'        => $correlationCoefficient,
             'created_at'                                     => date('Y-m-d H:i:s'),
-            Correlation::FIELD_CAUSE_USER_VARIABLE_ID  => $cause->getUserVariableId(),
-            Correlation::FIELD_EFFECT_USER_VARIABLE_ID => $effect->getUserVariableId(),
-            Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID => $cause->variableCategoryId,
-            Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID => $effect->variableCategoryId,
+            UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID  => $cause->getUserVariableId(),
+            UserVariableRelationship::FIELD_EFFECT_USER_VARIABLE_ID => $effect->getUserVariableId(),
+            UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID => $cause->variableCategoryId,
+            UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID => $effect->variableCategoryId,
         ]);
     }
     /**
@@ -2284,7 +2284,7 @@ class QMUserVariableRelationship extends QMCorrelation {
     public static function getExistingUserVariableRelationshipByVariableIds(int $userId, int $causeVariableId, int $effectVariableId){
         $fromMemory = Memory::getNewlyCalculatedUserVariableRelationship($userId, $causeVariableId, $effectVariableId);
         if($fromMemory !== null){return $fromMemory;}
-        $row = Correlation::where(self::FIELD_USER_ID, $userId)
+        $row = UserVariableRelationship::where(self::FIELD_USER_ID, $userId)
             ->where(self::FIELD_CAUSE_VARIABLE_ID, $causeVariableId)
             ->where(self::FIELD_EFFECT_VARIABLE_ID, $effectVariableId)
             ->first();
@@ -3017,9 +3017,9 @@ class QMUserVariableRelationship extends QMCorrelation {
         return $this->charts = $charts;
     }
     /**
-     * @return Correlation
+     * @return UserVariableRelationship
      */
-    public function l(): Correlation{
+    public function l(): UserVariableRelationship{
         return parent::l();
     }
     /**
@@ -3242,9 +3242,9 @@ class QMUserVariableRelationship extends QMCorrelation {
         return null;
     }
 	/**
-	 * @return \App\Models\Correlation
+	 * @return \App\Models\UserVariableRelationship
 	 */
-	public function getCorrelation(): Correlation{
+	public function getCorrelation(): UserVariableRelationship{
 		return $this->l();
 	}
 	/**
@@ -3263,10 +3263,10 @@ class QMUserVariableRelationship extends QMCorrelation {
 		return $this->getCorrelation()->getShowContentView($params);
 	}
 	/**
-	 * @return \App\Models\Correlation|Builder
+	 * @return \App\Models\UserVariableRelationship|Builder
 	 */
 	public static function wherePostable(){
-		return Correlation::wherePostable();
+		return UserVariableRelationship::wherePostable();
 	}
 	public function getDataQuantitySentence():string{
 		return $this->getCauseUserVariable()->getMeasurementQuantitySentence()."\n\n".

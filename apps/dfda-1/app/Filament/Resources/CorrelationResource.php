@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\CorrelationResource\Pages;
 use App\Filament\Resources\CorrelationResource\RelationManagers;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use Exception;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -16,8 +16,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CorrelationResource extends Resource
 {
-    protected static ?string $model = Correlation::class;
-	protected static ?string $modelLabel = Correlation::CLASS_DISPLAY_NAME;
+    protected static ?string $model = UserVariableRelationship::class;
+	protected static ?string $modelLabel = UserVariableRelationship::CLASS_DISPLAY_NAME;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 

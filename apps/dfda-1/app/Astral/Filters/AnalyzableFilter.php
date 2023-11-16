@@ -5,7 +5,7 @@
  */
 
 namespace App\Astral\Filters;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use App\Filters\BooleanFilter;
@@ -19,7 +19,7 @@ class AnalyzableFilter extends BooleanFilter {
 	 */
 	public function apply(Request $request, $query, $value){
 		if($value['failed']){
-			$query->whereNotNull(Correlation::FIELD_INTERNAL_ERROR_MESSAGE);
+			$query->whereNotNull(UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE);
 		}
 		return $query;
 	}

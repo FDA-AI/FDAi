@@ -6,7 +6,7 @@
 
 namespace App\Exceptions;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use Facade\IgnitionContracts\ProvidesSolution;
 use App\Buttons\Analyzable\CreateStudyButton;
 use App\Correlations\QMGlobalVariableRelationship;

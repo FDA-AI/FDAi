@@ -7,7 +7,7 @@
 namespace App\Properties\Correlation;
 use App\Exceptions\InvalidAttributeException;
 use App\Exceptions\NotEnoughOverlappingDataException;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseExperimentEndAtProperty;
 use App\Traits\PropertyTraits\IsCalculated;
@@ -16,10 +16,10 @@ class CorrelationExperimentEndAtProperty extends BaseExperimentEndAtProperty
 {
     use CorrelationProperty;
     use IsCalculated;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     /**
-     * @param Correlation $model
+     * @param UserVariableRelationship $model
      * @return string
      * @throws NotEnoughOverlappingDataException
      */

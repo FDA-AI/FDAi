@@ -7,7 +7,7 @@
 namespace App\Properties\Base;
 use App\Traits\PropertyTraits\IsString;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\IsNumberOfRelated;
 use App\UI\ImageUrls;
 use App\UI\FontAwesome;
@@ -31,7 +31,7 @@ class BaseNumberOfPredictorCaseStudiesProperty extends BaseProperty{
 	public $title = 'Predictor Case Studies';
 	public $type = self::TYPE_INTEGER;
     public static function getRelatedTable(): string{
-        return Correlation::TABLE;
+        return UserVariableRelationship::TABLE;
     }
     public static function getForeignKey(): string{
         return "effect_".Str::snake(static::getParentShortClassName())."_id";

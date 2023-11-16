@@ -16,7 +16,7 @@ use App\Models\Application;
 use App\Models\BaseModel;
 use App\Models\Connection;
 use App\Models\Connector;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\SentEmail;
 use App\Models\UserVariable;
 use App\Models\Variable;
@@ -63,7 +63,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Collection|Application[] $applications
  * @property Collection|Connection[] $connections
  * @property Collection|Connector[] $connectors
- * @property Collection|Correlation[] $correlations
+ * @property Collection|UserVariableRelationship[] $correlations
  * @property Collection|SentEmail[] $sent_emails
  * @property Collection|\App\Models\SpreadsheetImporter[] $spreadsheet_importers
  * @property Collection|UserVariable[] $user_variables
@@ -78,7 +78,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read int|null $connections_count
  * @property-read int|null $connectors_count
  * @property-read int|null $correlations_count
-
  * @property-read int|null $sent_emails_count
  * @property-read int|null $spreadsheet_importers_count
  * @property-read int|null $user_variables_count
@@ -291,9 +290,9 @@ abstract class BaseWpPost extends BaseModel {
 		],
 		'correlations' => [
 			'relationshipType' => 'HasMany',
-			'qualifiedUserClassName' => Correlation::class,
-			'foreignKey' => Correlation::FIELD_WP_POST_ID,
-			'localKey' => Correlation::FIELD_ID,
+			'qualifiedUserClassName' => UserVariableRelationship::class,
+			'foreignKey' => UserVariableRelationship::FIELD_WP_POST_ID,
+			'localKey' => UserVariableRelationship::FIELD_ID,
 			'methodName' => 'correlations',
 		],
 		'sent_emails' => [
@@ -370,7 +369,7 @@ abstract class BaseWpPost extends BaseModel {
 		return $this->hasMany(Connector::class, Connector::FIELD_WP_POST_ID, static::FIELD_ID);
 	}
 	public function correlations(): HasMany{
-		return $this->hasMany(Correlation::class, Correlation::FIELD_WP_POST_ID, static::FIELD_ID);
+		return $this->hasMany(UserVariableRelationship::class, UserVariableRelationship::FIELD_WP_POST_ID, static::FIELD_ID);
 	}
 	public function sent_emails(): HasMany{
 		return $this->hasMany(SentEmail::class, SentEmail::FIELD_WP_POST_ID, static::FIELD_ID);

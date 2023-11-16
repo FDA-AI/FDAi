@@ -7,19 +7,19 @@
 namespace App\Buttons\RelationshipButtons\Correlation;
 use App\Buttons\RelationshipButtons\BelongsToRelationshipButton;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\UI\FontAwesome;
 use App\UI\HtmlHelper;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class CorrelationGlobalVariableRelationshipButton extends BelongsToRelationshipButton {
 	public $interesting = true;
-	public $foreignKeyName = Correlation::FIELD_AGGREGATE_CORRELATION_ID;
-	public $qualifiedForeignKeyName = Correlation::TABLE . '.' . Correlation::FIELD_AGGREGATE_CORRELATION_ID;
+	public $foreignKeyName = UserVariableRelationship::FIELD_AGGREGATE_CORRELATION_ID;
+	public $qualifiedForeignKeyName = UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_AGGREGATE_CORRELATION_ID;
 	public $ownerKeyName = GlobalVariableRelationship::FIELD_ID;
 	public $qualifiedOwnerKeyName = GlobalVariableRelationship::TABLE . '.' . GlobalVariableRelationship::FIELD_ID;
-	public $childClass = Correlation::class;
-	public $parentClass = Correlation::class;
-	public $qualifiedParentKeyName = Correlation::TABLE . '.' . Correlation::FIELD_ID;
+	public $childClass = UserVariableRelationship::class;
+	public $parentClass = UserVariableRelationship::class;
+	public $qualifiedParentKeyName = UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_ID;
 	public $relatedClass = GlobalVariableRelationship::class;
 	public $methodName = 'global_variable_relationship';
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo';

@@ -14,7 +14,7 @@ namespace App\Models\Base;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\CommonTag;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\UserVariable;
 use App\Models\Variable;
@@ -52,7 +52,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Collection|GlobalVariableRelationship[] $global_variable_relationships_where_cause_unit
  * @property Collection|CommonTag[] $common_tags_where_tag_variable_unit
  * @property Collection|CommonTag[] $common_tags_where_tagged_variable_unit
- * @property Collection|Correlation[] $correlations_where_cause_unit
+ * @property Collection|UserVariableRelationship[] $correlations_where_cause_unit
  * @property Collection|Measurement[] $measurements_where_original_unit
  * @property Collection|Measurement[] $measurements
  * @property Collection|UserVariable[] $user_variables_where_default_unit
@@ -64,7 +64,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read int|null $common_tags_where_tag_variable_unit_count
  * @property-read int|null $common_tags_where_tagged_variable_unit_count
  * @property-read int|null $correlations_where_cause_unit_count
-
  * @property-read int|null $measurements_count
  * @property-read int|null $measurements_where_original_unit_count
  * @property-read int|null $user_variables_where_default_unit_count
@@ -332,9 +331,9 @@ Nominal, also called the categorical variable scale, is defined as a scale used 
 		],
 		'correlations_where_cause_unit' => [
 			'relationshipType' => 'HasMany',
-			'qualifiedUserClassName' => Correlation::class,
-			'foreignKey' => Correlation::FIELD_CAUSE_UNIT_ID,
-			'localKey' => Correlation::FIELD_ID,
+			'qualifiedUserClassName' => UserVariableRelationship::class,
+			'foreignKey' => UserVariableRelationship::FIELD_CAUSE_UNIT_ID,
+			'localKey' => UserVariableRelationship::FIELD_ID,
 			'methodName' => 'correlations_where_cause_unit',
 		],
 		'measurements_where_original_unit' => [
@@ -390,7 +389,7 @@ Nominal, also called the categorical variable scale, is defined as a scale used 
 		return $this->hasMany(CommonTag::class, CommonTag::FIELD_TAGGED_VARIABLE_UNIT_ID, static::FIELD_ID);
 	}
 	public function correlations_where_cause_unit(): HasMany{
-		return $this->hasMany(Correlation::class, Correlation::FIELD_CAUSE_UNIT_ID, static::FIELD_ID);
+		return $this->hasMany(UserVariableRelationship::class, UserVariableRelationship::FIELD_CAUSE_UNIT_ID, static::FIELD_ID);
 	}
 	public function measurements_where_original_unit(): HasMany{
 		return $this->hasMany(Measurement::class, Measurement::FIELD_ORIGINAL_UNIT_ID, static::FIELD_ID);

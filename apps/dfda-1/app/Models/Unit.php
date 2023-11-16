@@ -340,11 +340,10 @@ use Str;
  * @property-read int|null $common_tags_where_tag_variable_unit_count
  * @property-read Collection|CommonTag[] $common_tags_where_tagged_variable_unit
  * @property-read int|null $common_tags_where_tagged_variable_unit_count
- * @property-read Collection|Correlation[] $correlations
+ * @property-read Collection|UserVariableRelationship[] $correlations
  * @property-read int|null $correlations_count
- * @property-read Collection|Correlation[] $correlations_where_cause_unit
+ * @property-read Collection|UserVariableRelationship[] $correlations_where_cause_unit
  * @property-read int|null $correlations_where_cause_unit_count
-
  * @property-read Collection|Measurement[] $measurements
  * @property-read int|null $measurements_count
  * @property-read Collection|Measurement[] $measurements_where_original_unit
@@ -466,7 +465,7 @@ class Unit extends BaseUnit {
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 **/
 	public function correlations(): \Illuminate\Database\Eloquent\Relations\HasMany{
-		return $this->hasMany(Correlation::class, 'cause_unit_id');
+		return $this->hasMany(UserVariableRelationship::class, 'cause_unit_id');
 	}
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany

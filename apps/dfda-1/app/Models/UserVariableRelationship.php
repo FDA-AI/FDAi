@@ -33,7 +33,7 @@ use App\Exceptions\UnauthorizedException;
 use App\Fields\Avatar;
 use App\Logging\QMLog;
 use App\Menus\QMMenu;
-use App\Models\Base\BaseCorrelation;
+use App\Models\Base\BaseUserVariableRelationship;
 use App\Properties\Base\BaseEffectFollowUpPercentChangeFromBaselineProperty;
 use App\Properties\Base\BasePostStatusProperty;
 use App\Properties\Correlation\CorrelationExperimentEndAtProperty;
@@ -266,25 +266,25 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property float $reverse_pearson_correlation_coefficient Correlation when cause and effect are reversed. For any
  *     causal relationship, the forward correlation should exceed the reverse correlation
  * @property float $predictive_pearson_correlation_coefficient Predictive Pearson Correlation Coefficient
- * @method static \Illuminate\Database\Query\Builder|Correlation whereId($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereTimestamp($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereUserId($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereCorrelation($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereOnsetDelay($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereDurationOfAction($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereNumberOfPairs($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereValuePredictingHighOutcome($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereValuePredictingLowOutcome($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereOptimalPearsonProduct($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereVote($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereStatisticalSignificance($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereCauseUnit($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereCauseUnitId($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereCauseChanges($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereEffectChanges($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereQmScore($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|Correlation whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereTimestamp($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereCorrelation($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereOnsetDelay($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereDurationOfAction($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereNumberOfPairs($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereValuePredictingHighOutcome($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereValuePredictingLowOutcome($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereOptimalPearsonProduct($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereVote($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereStatisticalSignificance($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereCauseUnit($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereCauseUnitId($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereCauseChanges($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereEffectChanges($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereQmScore($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Correlation
  *     whereReversePearsonCorrelationCoefficient($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Correlation
@@ -328,12 +328,12 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property string|null $client_id
  * @property string|null $published_at
  * @property int|null $wp_post_id
- * @method static Builder|Correlation newModelQuery()
- * @method static Builder|Correlation newQuery()
- * @method static Builder|Correlation query()
- * @method static Builder|Correlation whereAverageDailyHighCause($value)
- * @method static Builder|Correlation whereAverageDailyLowCause($value)
- * @method static Builder|Correlation whereAverageEffect($value)
+ * @method static Builder|UserVariableRelationship newModelQuery()
+ * @method static Builder|UserVariableRelationship newQuery()
+ * @method static Builder|UserVariableRelationship query()
+ * @method static Builder|UserVariableRelationship whereAverageDailyHighCause($value)
+ * @method static Builder|UserVariableRelationship whereAverageDailyLowCause($value)
+ * @method static Builder|UserVariableRelationship whereAverageEffect($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
  *     whereAverageEffectFollowingHighCause($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
@@ -342,54 +342,54 @@ use Titasgailius\SearchRelations\SearchesRelations;
  *     whereAverageForwardPearsonCorrelationOverOnsetDelays($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
  *     whereAverageReversePearsonCorrelationOverOnsetDelays($value)
- * @method static Builder|Correlation whereCauseFillingValue($value)
+ * @method static Builder|UserVariableRelationship whereCauseFillingValue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
  *     whereCauseNumberOfProcessedDailyMeasurements($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
  *     whereCauseNumberOfRawMeasurements($value)
- * @method static Builder|Correlation whereClientId($value)
- * @method static Builder|Correlation whereConfidenceInterval($value)
- * @method static Builder|Correlation whereCriticalTValue($value)
- * @method static Builder|Correlation whereDataSource($value)
- * @method static Builder|Correlation whereDeletedAt($value)
- * @method static Builder|Correlation whereEffectFillingValue($value)
+ * @method static Builder|UserVariableRelationship whereClientId($value)
+ * @method static Builder|UserVariableRelationship whereConfidenceInterval($value)
+ * @method static Builder|UserVariableRelationship whereCriticalTValue($value)
+ * @method static Builder|UserVariableRelationship whereDataSource($value)
+ * @method static Builder|UserVariableRelationship whereDeletedAt($value)
+ * @method static Builder|UserVariableRelationship whereEffectFillingValue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
  *     whereEffectNumberOfProcessedDailyMeasurements($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
  *     whereEffectNumberOfRawMeasurements($value)
- * @method static Builder|Correlation whereExperimentEndTime($value)
- * @method static Builder|Correlation whereExperimentStartTime($value)
+ * @method static Builder|UserVariableRelationship whereExperimentEndTime($value)
+ * @method static Builder|UserVariableRelationship whereExperimentStartTime($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
  *     whereForwardSpearmanCorrelationCoefficient($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
  *     whereGroupedCauseValueClosestToValuePredictingHighOutcome($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
  *     whereGroupedCauseValueClosestToValuePredictingLowOutcome($value)
- * @method static Builder|Correlation whereNumberOfDays($value)
+ * @method static Builder|UserVariableRelationship whereNumberOfDays($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
  *     whereOnsetDelayWithStrongestPearsonCorrelation($value)
- * @method static Builder|Correlation wherePValue($value)
+ * @method static Builder|UserVariableRelationship wherePValue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
  *     wherePearsonCorrelationWithNoOnsetDelay($value)
- * @method static Builder|Correlation wherePredictsHighEffectChange($value)
- * @method static Builder|Correlation wherePredictsLowEffectChange($value)
- * @method static Builder|Correlation wherePublishedAt($value)
+ * @method static Builder|UserVariableRelationship wherePredictsHighEffectChange($value)
+ * @method static Builder|UserVariableRelationship wherePredictsLowEffectChange($value)
+ * @method static Builder|UserVariableRelationship wherePublishedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
  *     whereStrongestPearsonCorrelationCoefficient($value)
- * @method static Builder|Correlation whereTValue($value)
- * @method static Builder|Correlation whereWpPostId($value)
+ * @method static Builder|UserVariableRelationship whereTValue($value)
+ * @method static Builder|UserVariableRelationship whereWpPostId($value)
  * @mixin Eloquent
  * @property string|null $data_source_name
  * @property string|null $status
  * @property int|null $cause_variable_category_id
  * @property int|null $effect_variable_category_id
  * @property int|null $interesting_variable_category_pair
- * @method static Builder|Correlation whereCauseVariableCategoryId($value)
- * @method static Builder|Correlation whereDataSourceName($value)
- * @method static Builder|Correlation whereEffectVariableCategoryId($value)
- * @method static Builder|Correlation whereInterestingVariableCategoryPair($value)
- * @method static Builder|Correlation whereJsonEncoded($value)
- * @method static Builder|Correlation whereStatus($value)
+ * @method static Builder|UserVariableRelationship whereCauseVariableCategoryId($value)
+ * @method static Builder|UserVariableRelationship whereDataSourceName($value)
+ * @method static Builder|UserVariableRelationship whereEffectVariableCategoryId($value)
+ * @method static Builder|UserVariableRelationship whereInterestingVariableCategoryPair($value)
+ * @method static Builder|UserVariableRelationship whereJsonEncoded($value)
+ * @method static Builder|UserVariableRelationship whereStatus($value)
  * @property string|null $newest_data_at
  * @property Carbon|string|null $analysis_ended_at
  * @property string|null $analysis_requested_at
@@ -399,15 +399,15 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property string|null $internal_error_message
  * @property int|null $cause_user_variable_id
  * @property int|null $effect_user_variable_id
- * @method static Builder|Correlation whereAnalysisEndedAt($value)
- * @method static Builder|Correlation whereAnalysisRequestedAt($value)
- * @method static Builder|Correlation whereAnalysisStartedAt($value)
- * @method static Builder|Correlation whereCauseUserVariableId($value)
- * @method static Builder|Correlation whereEffectUserVariableId($value)
- * @method static Builder|Correlation whereInternalErrorMessage($value)
- * @method static Builder|Correlation whereNewestDataAt($value)
- * @method static Builder|Correlation whereReasonForAnalysis($value)
- * @method static Builder|Correlation whereUserErrorMessage($value)
+ * @method static Builder|UserVariableRelationship whereAnalysisEndedAt($value)
+ * @method static Builder|UserVariableRelationship whereAnalysisRequestedAt($value)
+ * @method static Builder|UserVariableRelationship whereAnalysisStartedAt($value)
+ * @method static Builder|UserVariableRelationship whereCauseUserVariableId($value)
+ * @method static Builder|UserVariableRelationship whereEffectUserVariableId($value)
+ * @method static Builder|UserVariableRelationship whereInternalErrorMessage($value)
+ * @method static Builder|UserVariableRelationship whereNewestDataAt($value)
+ * @method static Builder|UserVariableRelationship whereReasonForAnalysis($value)
+ * @method static Builder|UserVariableRelationship whereUserErrorMessage($value)
  * @property string|null $latest_measurement_start_at
  * @property string|null $earliest_measurement_start_at
  * @property float|null $cause_baseline_average_per_day Predictor Average at Baseline (The average low non-treatment
@@ -431,20 +431,20 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property float|null $z_score The absolute value of the change over duration of action following the onset delay of
  *     treatment divided by the baseline outcome relative standard deviation. A.K.A The number of standard deviations
  *     from the mean. A zScore > 2 means pValue < 0.05 and is typically considered statistically significant.
- * @method static Builder|Correlation whereCauseBaselineAveragePerDay($value)
- * @method static Builder|Correlation whereCauseBaselineAveragePerDurationOfAction($value)
- * @method static Builder|Correlation whereCauseTreatmentAveragePerDay($value)
- * @method static Builder|Correlation whereCauseTreatmentAveragePerDurationOfAction($value)
- * @method static Builder|Correlation whereCauseVariableId($value)
- * @method static Builder|Correlation whereEarliestMeasurementStartAt($value)
- * @method static Builder|Correlation whereEffectBaselineAverage($value)
- * @method static Builder|Correlation whereEffectBaselineRelativeStandardDeviation($value)
- * @method static Builder|Correlation whereEffectBaselineStandardDeviation($value)
- * @method static Builder|Correlation whereEffectFollowUpAverage($value)
- * @method static Builder|Correlation whereEffectFollowUpPercentChangeFromBaseline($value)
- * @method static Builder|Correlation whereEffectVariableId($value)
- * @method static Builder|Correlation whereLatestMeasurementStartAt($value)
- * @method static Builder|Correlation whereZScore($value)
+ * @method static Builder|UserVariableRelationship whereCauseBaselineAveragePerDay($value)
+ * @method static Builder|UserVariableRelationship whereCauseBaselineAveragePerDurationOfAction($value)
+ * @method static Builder|UserVariableRelationship whereCauseTreatmentAveragePerDay($value)
+ * @method static Builder|UserVariableRelationship whereCauseTreatmentAveragePerDurationOfAction($value)
+ * @method static Builder|UserVariableRelationship whereCauseVariableId($value)
+ * @method static Builder|UserVariableRelationship whereEarliestMeasurementStartAt($value)
+ * @method static Builder|UserVariableRelationship whereEffectBaselineAverage($value)
+ * @method static Builder|UserVariableRelationship whereEffectBaselineRelativeStandardDeviation($value)
+ * @method static Builder|UserVariableRelationship whereEffectBaselineStandardDeviation($value)
+ * @method static Builder|UserVariableRelationship whereEffectFollowUpAverage($value)
+ * @method static Builder|UserVariableRelationship whereEffectFollowUpPercentChangeFromBaseline($value)
+ * @method static Builder|UserVariableRelationship whereEffectVariableId($value)
+ * @method static Builder|UserVariableRelationship whereLatestMeasurementStartAt($value)
+ * @method static Builder|UserVariableRelationship whereZScore($value)
  * @property-read OAClient|null $oa_client
  * @property-read User $user
  * @property-read UserVariable $user_variable
@@ -460,12 +460,12 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property \Illuminate\Support\Carbon|null $experiment_start_at
  * @property \Illuminate\Support\Carbon|null $experiment_end_at
  * @method static Builder|BaseModel nPerGroup($group, $n = 10)
- * @method static Builder|Correlation whereExperimentEndAt($value)
- * @method static Builder|Correlation whereExperimentStartAt($value)
+ * @method static Builder|UserVariableRelationship whereExperimentEndAt($value)
+ * @method static Builder|UserVariableRelationship whereExperimentStartAt($value)
  * @property int|null $global_variable_relationship_id
  * @property string|null $aggregated_at
- * @method static Builder|Correlation whereGlobalVariableRelationshipId($value)
- * @method static Builder|Correlation whereAggregatedAt($value)
+ * @method static Builder|UserVariableRelationship whereGlobalVariableRelationshipId($value)
+ * @method static Builder|UserVariableRelationship whereAggregatedAt($value)
  * @property int|null $usefulness_vote The opinion of the data owner on whether or not knowledge of this relationship
  *     is useful.
  *                         -1 corresponds to a down vote. 1 corresponds to an up vote. 0 corresponds to removal of a
@@ -475,8 +475,8 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @method static Builder|BaseModel applyRequestParams($request)
  * @method static Builder|BaseModel exclude($columns)
  * @method static Builder|BaseModel excludeLargeColumns()
- * @method static Builder|Correlation whereCausalityVote($value)
- * @method static Builder|Correlation whereUsefulnessVote($value)*@method getCauseVaribleName()
+ * @method static Builder|UserVariableRelationship whereCausalityVote($value)
+ * @method static Builder|UserVariableRelationship whereUsefulnessVote($value)*@method getCauseVaribleName()
  * @property-read GlobalVariableRelationship|null $global_variable_relationship
  * @property-read Unit|null $cause_unit
  * @property-read \Illuminate\Database\Eloquent\Collection|CorrelationCausalityVote[] $correlation_causality_votes
@@ -485,15 +485,14 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property-read int|null $correlation_usefulness_votes_count
  * @property-read \Illuminate\Database\Eloquent\Collection|UserVariable[] $user_variables_where_best_user_variable_relationship
  * @property-read int|null $user_variables_where_best_user_variable_relationship_count
-
  * @property-read \Illuminate\Database\Eloquent\Collection|ActionEvent[] $actions
  * @property-read int|null $actions_count
  * @property string|null $deletion_reason The reason the variable was deleted.
  * @property int|null $record_size_in_kb
- * @method static Builder|Correlation whereDeletionReason($value)
- * @method static Builder|Correlation whereRecordSizeInKb($value)
+ * @method static Builder|UserVariableRelationship whereDeletionReason($value)
+ * @method static Builder|UserVariableRelationship whereRecordSizeInKb($value)
  */
-class Correlation extends BaseCorrelation implements HasMedia {
+class UserVariableRelationship extends BaseUserVariableRelationship implements HasMedia {
 	use HasFactory;
 	use HasUserCauseAndEffect;
 	use HasUser, HasErrors, AnalyzableTrait, HasDBModel, HasVotes;
@@ -506,7 +505,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	 * The single value that should be used to represent the resource when being displayed.
 	 * @var string
 	 */
-	public static $title = Correlation::FIELD_ID;
+	public static $title = UserVariableRelationship::FIELD_ID;
 	/**
 	 * The columns that should be searched.
 	 * @var array
@@ -521,7 +520,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		'effect_variable' => [Variable::FIELD_NAME],
 		'user' => [User::FIELD_DISPLAY_NAME],
 	];
-	public static $group = Correlation::CLASS_CATEGORY;
+	public static $group = UserVariableRelationship::CLASS_CATEGORY;
 	/**
 	 * Indicates if the resource should be globally searchable.
 	 * @var bool
@@ -647,16 +646,16 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	 * @return static[]|Collection
 	 */
 	public static function getMikesUpVotedCorrelations(){
-		$qb = Correlation::whereUpVoted()->where(Correlation::FIELD_USER_ID, UserIdProperty::USER_ID_MIKE);
+		$qb = UserVariableRelationship::whereUpVoted()->where(UserVariableRelationship::FIELD_USER_ID, UserIdProperty::USER_ID_MIKE);
 		return $qb->get();
 	}
 	/**
 	 * @param $userNameOrId
 	 * @param $causeNameOrId
 	 * @param $effectNameOrId
-	 * @return Correlation
+	 * @return UserVariableRelationship
 	 */
-	public static function findByVariableNamesOrIds($userNameOrId, $causeNameOrId, $effectNameOrId): ?Correlation{
+	public static function findByVariableNamesOrIds($userNameOrId, $causeNameOrId, $effectNameOrId): ?UserVariableRelationship{
 		if($mem = static::findInMemoryByIds($userNameOrId, $causeNameOrId, $effectNameOrId)){
 			return $mem;
 		}
@@ -677,9 +676,9 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	 * @param $userNameOrId
 	 * @param $causeNameOrId
 	 * @param $effectNameOrId
-	 * @return Correlation|null
+	 * @return UserVariableRelationship|null
 	 */
-	public static function findInMemoryByIds($userNameOrId, $causeNameOrId, $effectNameOrId): ?Correlation{
+	public static function findInMemoryByIds($userNameOrId, $causeNameOrId, $effectNameOrId): ?UserVariableRelationship{
 		$u = User::findByNameIdOrSynonym($userNameOrId);
 		$cause = Variable::findByNameIdOrSynonym($causeNameOrId);
 		$effect = Variable::findByNameIdOrSynonym($effectNameOrId);
@@ -696,7 +695,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		return $uc;
 	}
 	/**
-	 * @return Correlation|Builder
+	 * @return UserVariableRelationship|Builder
 	 */
 	public static function withUpVotes(){
 		return static::whereHas('vote', function($query){
@@ -705,7 +704,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		});
 	}
 	/**
-	 * @return Correlation|Builder
+	 * @return UserVariableRelationship|Builder
 	 */
 	public static function upVotedForMike(){
 		return static::withUpVotes()->where(self::FIELD_USER_ID, UserIdProperty::USER_ID_MIKE);
@@ -854,7 +853,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	}
 	/**
 	 * @param array|int $ids
-	 * @return Correlation[]
+	 * @return UserVariableRelationship[]
 	 */
 	public static function getWithVariables($ids): array{
 		if(!is_array($ids)){
@@ -984,7 +983,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	 * @return float
 	 */
 	public function getChangeFromBaseline(?int $precision = null): ?float{
-		$val = $this->attributes[Correlation::FIELD_EFFECT_FOLLOW_UP_PERCENT_CHANGE_FROM_BASELINE] ?? null;
+		$val = $this->attributes[UserVariableRelationship::FIELD_EFFECT_FOLLOW_UP_PERCENT_CHANGE_FROM_BASELINE] ?? null;
 		if($val && $precision){
 			return Stats::roundByNumberOfSignificantDigits($val, $precision);
 		}
@@ -995,24 +994,24 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	 * @return float
 	 */
 	public function getEffectBaselineRelativeStandardDeviation(?int $precision = null): float{
-		$val = $this->getAttribute(Correlation::FIELD_EFFECT_BASELINE_RELATIVE_STANDARD_DEVIATION);
+		$val = $this->getAttribute(UserVariableRelationship::FIELD_EFFECT_BASELINE_RELATIVE_STANDARD_DEVIATION);
 		if($precision){
 			return Stats::roundByNumberOfSignificantDigits($val, $precision);
 		}
 		return $val;
 	}
 	public function getCauseVariableCategoryId(): int{
-		return $this->attributes[Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID];
+		return $this->attributes[UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID];
 	}
 	public function getEffectVariableCategoryId(): int{
-		return $this->attributes[Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID];
+		return $this->attributes[UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID];
 	}
 	/**
 	 * @param int|null $precision
 	 * @return float
 	 */
 	public function getCorrelationCoefficient(int $precision = null): ?float{
-		$c = $this->attributes[Correlation::FIELD_FORWARD_PEARSON_CORRELATION_COEFFICIENT] ?? null;
+		$c = $this->attributes[UserVariableRelationship::FIELD_FORWARD_PEARSON_CORRELATION_COEFFICIENT] ?? null;
 		if($c === null){
 			return null;
 		}
@@ -1074,7 +1073,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		return $this->attributes[self::FIELD_USER_ID];
 	}
 	public function getCorrelationsOverDelaysAttribute(): ?array{
-		$str = $this->attributes[Correlation::FIELD_CORRELATIONS_OVER_DELAYS] ?? null;
+		$str = $this->attributes[UserVariableRelationship::FIELD_CORRELATIONS_OVER_DELAYS] ?? null;
 		if(!$str){
 			return null;
 		}
@@ -1086,7 +1085,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		}
 		if(count($arr) < 2){
 			$this->logError("There should be more than one correlation coefficient in correlationsOverDelays");
-			return $this->attributes[Correlation::FIELD_CORRELATIONS_OVER_DELAYS] = null;
+			return $this->attributes[UserVariableRelationship::FIELD_CORRELATIONS_OVER_DELAYS] = null;
 		}
 		return $arr;
 	}
@@ -1095,17 +1094,17 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	 * @noinspection PhpUnused
 	 */
 	public function setCorrelationsOverDelaysAttribute($val){
-		$this->attributes[Correlation::FIELD_CORRELATIONS_OVER_DELAYS] = (is_array($val)) ? json_encode($val) : $val;
+		$this->attributes[UserVariableRelationship::FIELD_CORRELATIONS_OVER_DELAYS] = (is_array($val)) ? json_encode($val) : $val;
 	}
 	public function getCorrelationsOverDurationsAttribute(): ?array{
-		$str = $this->attributes[Correlation::FIELD_CORRELATIONS_OVER_DURATIONS] ?? null;
+		$str = $this->attributes[UserVariableRelationship::FIELD_CORRELATIONS_OVER_DURATIONS] ?? null;
 		if(!$str){
 			return null;
 		}
 		$arr = QMArr::toArray($str);
 		if(count($arr) < 2){
 			$this->logError("There should be more than one correlation coefficient in CORRELATIONS_OVER_DURATIONS");
-			return $this->attributes[Correlation::FIELD_CORRELATIONS_OVER_DURATIONS] = null;
+			return $this->attributes[UserVariableRelationship::FIELD_CORRELATIONS_OVER_DURATIONS] = null;
 		}
 		return $arr;
 	}
@@ -1114,7 +1113,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	 * @noinspection PhpUnused
 	 */
 	public function setCorrelationsOverDurationsAttribute($val){
-		$this->attributes[Correlation::FIELD_CORRELATIONS_OVER_DURATIONS] = (is_array($val)) ? json_encode($val) : $val;
+		$this->attributes[UserVariableRelationship::FIELD_CORRELATIONS_OVER_DURATIONS] = (is_array($val)) ? json_encode($val) : $val;
 	}
 	/**
 	 * @param null $reader
@@ -1218,8 +1217,8 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		if(!$this->hasId()){
 			return static::DEFAULT_IMAGE; // This is an empty model
 		}
-		$causeCatId = $this->attributes[Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID];
-		$effectCatId = $this->attributes[Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID];
+		$causeCatId = $this->attributes[UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID];
+		$effectCatId = $this->attributes[UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID];
 		if(!$this->getCorrelationCoefficient()){
 			return StudyImages::generateVariableCategoriesRobotSharingImageWithBackgroundUrl($causeCatId, $effectCatId);
 		}
@@ -1237,14 +1236,14 @@ class Correlation extends BaseCorrelation implements HasMedia {
 			'-200-200.png');
 	}
 	public function getNameAttribute(): string{
-		if(!$this->getAttribute(Correlation::FIELD_CAUSE_VARIABLE_ID)){
+		if(!$this->getAttribute(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID)){
 			return static::getClassNameTitle();
 		}
 		return "Relationship Between " . $this->getCauseVariableName() . " and " . $this->getEffectVariableName();
 	}
 	public function getEffectSizeLinkToStudyWithExplanation(): string{
 		/** @var BaseEffectFollowUpPercentChangeFromBaselineProperty $p */
-		$p = $this->getPropertyModel(Correlation::FIELD_EFFECT_FOLLOW_UP_PERCENT_CHANGE_FROM_BASELINE);
+		$p = $this->getPropertyModel(UserVariableRelationship::FIELD_EFFECT_FOLLOW_UP_PERCENT_CHANGE_FROM_BASELINE);
 		return $p->getIndexHtml();
 	}
 	/**
@@ -1262,7 +1261,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		return $prefix;
 	}
 	public function getSubtitleAttribute(): string{
-		if(!$this->getAttribute(Correlation::FIELD_CAUSE_VARIABLE_ID)){
+		if(!$this->getAttribute(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID)){
 			return static::getClassDescription();
 		}
 		$str = $this->optimalValueSentence();
@@ -1333,7 +1332,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	 * @throws NotEnoughDataException
 	 */
 	public function getOrCalculateNumberOfDays(): int{
-		$previous = $this->getAttribute(Correlation::FIELD_NUMBER_OF_DAYS);
+		$previous = $this->getAttribute(UserVariableRelationship::FIELD_NUMBER_OF_DAYS);
 		if($previous > 1){
 			return $previous;
 		}
@@ -1345,7 +1344,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 			$endC = $this->calculateExperimentEndAt();
 			$days = (strtotime($endC) - strtotime($startC)) / 86400;
 		}
-		$this->setAttribute(Correlation::FIELD_NUMBER_OF_DAYS, $days);
+		$this->setAttribute(UserVariableRelationship::FIELD_NUMBER_OF_DAYS, $days);
 		return $days;
 	}
 	/**
@@ -1353,7 +1352,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	 * @throws NotEnoughOverlappingDataException
 	 */
 	public function getExperimentEndAt(): string{
-		if($end = $this->getAttribute(Correlation::FIELD_EXPERIMENT_END_AT)){
+		if($end = $this->getAttribute(UserVariableRelationship::FIELD_EXPERIMENT_END_AT)){
 			return $end;
 		}
 		return $this->calculateExperimentEndAt();
@@ -1370,7 +1369,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	 * @throws NotEnoughMeasurementsForCorrelationException
 	 */
 	public function getExperimentStartAt(): string{
-		if($start = $this->getAttribute(Correlation::FIELD_EXPERIMENT_START_AT)){
+		if($start = $this->getAttribute(UserVariableRelationship::FIELD_EXPERIMENT_START_AT)){
 			return $start;
 		}
 		return $this->calculateExperimentStartAt();
@@ -1528,7 +1527,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
             </p>';
 	}
 	public function getFontAwesome(): string{
-		return Correlation::FONT_AWESOME;
+		return UserVariableRelationship::FONT_AWESOME;
 	}
 	/**
 	 * @inheritDoc
@@ -1560,55 +1559,55 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		], WpPost::FIELD_POST_CONTENT, true);
 	}
 	public function setGlobalVariableRelationshipId(int $aggregateCorrelationId): void{
-		$this->setAttribute(Correlation::FIELD_AGGREGATE_CORRELATION_ID, $aggregateCorrelationId);
+		$this->setAttribute(UserVariableRelationship::FIELD_AGGREGATE_CORRELATION_ID, $aggregateCorrelationId);
 	}
 	public function getAggregatedAt(): ?string{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_AGGREGATED_AT] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_AGGREGATED_AT] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->aggregatedAt;
 		}
 	}
 	public function setAggregatedAt(string $aggregatedAt): void{
-		$this->setAttribute(Correlation::FIELD_AGGREGATED_AT, $aggregatedAt);
+		$this->setAttribute(UserVariableRelationship::FIELD_AGGREGATED_AT, $aggregatedAt);
 	}
 	public function getAnalysisRequestedAt(): ?string{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_ANALYSIS_REQUESTED_AT] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_ANALYSIS_REQUESTED_AT] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->analysisRequestedAt;
 		}
 	}
 	public function setAnalysisRequestedAt(string $analysisRequestedAt): void{
-		$this->setAttribute(Correlation::FIELD_ANALYSIS_REQUESTED_AT, $analysisRequestedAt);
+		$this->setAttribute(UserVariableRelationship::FIELD_ANALYSIS_REQUESTED_AT, $analysisRequestedAt);
 	}
 	public function getAnalysisStartedAt(): ?string{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_ANALYSIS_STARTED_AT] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_ANALYSIS_STARTED_AT] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->analysisStartedAt;
 		}
 	}
 	public function setCauseChanges(int $causeChanges): void{
-		$this->setAttribute(Correlation::FIELD_CAUSE_CHANGES, $causeChanges);
+		$this->setAttribute(UserVariableRelationship::FIELD_CAUSE_CHANGES, $causeChanges);
 	}
 	public function getCauseFillingValue(): ?float{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_CAUSE_FILLING_VALUE] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_CAUSE_FILLING_VALUE] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->causeFillingValue;
 		}
 	}
 	public function setCauseFillingValue(float $causeFillingValue): void{
-		$this->setAttribute(Correlation::FIELD_CAUSE_FILLING_VALUE, $causeFillingValue);
+		$this->setAttribute(UserVariableRelationship::FIELD_CAUSE_FILLING_VALUE, $causeFillingValue);
 	}
 	public function getCauseNumberOfProcessedDailyMeasurements(): ?int{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_CAUSE_NUMBER_OF_PROCESSED_DAILY_MEASUREMENTS] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_CAUSE_NUMBER_OF_PROCESSED_DAILY_MEASUREMENTS] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->causeNumberOfProcessedDailyMeasurements;
@@ -1616,37 +1615,37 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	}
 	public function getCauseNumberOfRawMeasurements(): ?int{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_CAUSE_NUMBER_OF_RAW_MEASUREMENTS] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_CAUSE_NUMBER_OF_RAW_MEASUREMENTS] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->causeNumberOfRawMeasurements;
 		}
 	}
 	public function setCauseNumberOfRawMeasurements(int $causeNumberOfRawMeasurements): void{
-		$this->setAttribute(Correlation::FIELD_CAUSE_NUMBER_OF_RAW_MEASUREMENTS, $causeNumberOfRawMeasurements);
+		$this->setAttribute(UserVariableRelationship::FIELD_CAUSE_NUMBER_OF_RAW_MEASUREMENTS, $causeNumberOfRawMeasurements);
 	}
 	public function getUnitId(): ?int{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_CAUSE_UNIT_ID] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_CAUSE_UNIT_ID] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->causeUnitId;
 		}
 	}
 	public function setUnitId(int $causeUnitId): void{
-		$this->setAttribute(Correlation::FIELD_CAUSE_UNIT_ID, $causeUnitId);
+		$this->setAttribute(UserVariableRelationship::FIELD_CAUSE_UNIT_ID, $causeUnitId);
 	}
 	public function setCauseUserVariableId(int $causeUserVariableId): void{
-		$this->setAttribute(Correlation::FIELD_CAUSE_USER_VARIABLE_ID, $causeUserVariableId);
+		$this->setAttribute(UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID, $causeUserVariableId);
 	}
 	public function setCauseVariableCategoryId(int $causeVariableCategoryId): void{
-		$this->setAttribute(Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID, $causeVariableCategoryId);
+		$this->setAttribute(UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID, $causeVariableCategoryId);
 	}
 	public function setCauseVariableId(int $causeVariableId): void{
-		$this->setAttribute(Correlation::FIELD_CAUSE_VARIABLE_ID, $causeVariableId);
+		$this->setAttribute(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $causeVariableId);
 	}
 	public function setConfidenceInterval(float $confidenceInterval): void{
-		$this->setAttribute(Correlation::FIELD_CONFIDENCE_INTERVAL, $confidenceInterval);
+		$this->setAttribute(UserVariableRelationship::FIELD_CONFIDENCE_INTERVAL, $confidenceInterval);
 	}
 	public function getCorrelationsOverDelays(): ?array{
 		if(property_exists($this, 'attributes') && $this->attributes){
@@ -1661,7 +1660,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 			le("Not going to " . __FUNCTION__ . " because there aren't enough correlations.  We should have thrown " .
 				"NotEnoughDataException");
 		}
-		$this->setAttribute(Correlation::FIELD_CORRELATIONS_OVER_DELAYS, $correlationsOverDelays);
+		$this->setAttribute(UserVariableRelationship::FIELD_CORRELATIONS_OVER_DELAYS, $correlationsOverDelays);
 	}
 	public function getCorrelationsOverDurations(): ?array{
 		if(property_exists($this, 'attributes') && $this->attributes){
@@ -1676,99 +1675,99 @@ class Correlation extends BaseCorrelation implements HasMedia {
 			le("Not going to " . __FUNCTION__ . " because there aren't enough correlations.  We should have thrown " .
 				"NotEnoughDataException");
 		}
-		$this->setAttribute(Correlation::FIELD_CORRELATIONS_OVER_DURATIONS, $correlationsOverDurations);
+		$this->setAttribute(UserVariableRelationship::FIELD_CORRELATIONS_OVER_DURATIONS, $correlationsOverDurations);
 	}
 	public function setCriticalTValue(float $criticalTValue): void{
-		$this->setAttribute(Correlation::FIELD_CRITICAL_T_VALUE, $criticalTValue);
+		$this->setAttribute(UserVariableRelationship::FIELD_CRITICAL_T_VALUE, $criticalTValue);
 	}
 	public function getDeletedAt(): ?string{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_DELETED_AT] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_DELETED_AT] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->deletedAt;
 		}
 	}
 	public function setDeletedAt(string $deletedAt): void{
-		$this->setAttribute(Correlation::FIELD_DELETED_AT, $deletedAt);
+		$this->setAttribute(UserVariableRelationship::FIELD_DELETED_AT, $deletedAt);
 	}
 	public function getDeletionReason(): ?string{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_DELETION_REASON] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_DELETION_REASON] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->deletionReason;
 		}
 	}
 	public function setDeletionReason(string $deletionReason): void{
-		$this->setAttribute(Correlation::FIELD_DELETION_REASON, $deletionReason);
+		$this->setAttribute(UserVariableRelationship::FIELD_DELETION_REASON, $deletionReason);
 	}
 	public function setDurationOfAction(int $durationOfAction): void{
-		$this->setAttribute(Correlation::FIELD_DURATION_OF_ACTION, $durationOfAction);
+		$this->setAttribute(UserVariableRelationship::FIELD_DURATION_OF_ACTION, $durationOfAction);
 	}
 	public function getEarliestMeasurementStartAt(): ?string{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_EARLIEST_MEASUREMENT_START_AT] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_EARLIEST_MEASUREMENT_START_AT] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->earliestMeasurementStartAt;
 		}
 	}
 	public function setEarliestMeasurementStartAt(string $earliestMeasurementStartAt): void{
-		$this->setAttribute(Correlation::FIELD_EARLIEST_MEASUREMENT_START_AT, $earliestMeasurementStartAt);
+		$this->setAttribute(UserVariableRelationship::FIELD_EARLIEST_MEASUREMENT_START_AT, $earliestMeasurementStartAt);
 	}
 	public function setEffectBaselineAverage(float $effectBaselineAverage): void{
-		$this->setAttribute(Correlation::FIELD_EFFECT_BASELINE_AVERAGE, $effectBaselineAverage);
+		$this->setAttribute(UserVariableRelationship::FIELD_EFFECT_BASELINE_AVERAGE, $effectBaselineAverage);
 	}
 	public function setEffectBaselineStandardDeviation(float $effectBaselineStandardDeviation): void{
-		$this->setAttribute(Correlation::FIELD_EFFECT_BASELINE_STANDARD_DEVIATION, $effectBaselineStandardDeviation);
+		$this->setAttribute(UserVariableRelationship::FIELD_EFFECT_BASELINE_STANDARD_DEVIATION, $effectBaselineStandardDeviation);
 	}
 	public function setEffectChanges(int $effectChanges): void{
-		$this->setAttribute(Correlation::FIELD_EFFECT_CHANGES, $effectChanges);
+		$this->setAttribute(UserVariableRelationship::FIELD_EFFECT_CHANGES, $effectChanges);
 	}
 	public function setEffectFillingValue(float $effectFillingValue): void{
-		$this->setAttribute(Correlation::FIELD_EFFECT_FILLING_VALUE, $effectFillingValue);
+		$this->setAttribute(UserVariableRelationship::FIELD_EFFECT_FILLING_VALUE, $effectFillingValue);
 	}
 	public function getEffectNumberOfRawMeasurements(): ?int{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_EFFECT_NUMBER_OF_RAW_MEASUREMENTS] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_EFFECT_NUMBER_OF_RAW_MEASUREMENTS] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->effectNumberOfRawMeasurements;
 		}
 	}
 	public function setEffectNumberOfRawMeasurements(int $effectNumberOfRawMeasurements): void{
-		$this->setAttribute(Correlation::FIELD_EFFECT_NUMBER_OF_RAW_MEASUREMENTS, $effectNumberOfRawMeasurements);
+		$this->setAttribute(UserVariableRelationship::FIELD_EFFECT_NUMBER_OF_RAW_MEASUREMENTS, $effectNumberOfRawMeasurements);
 	}
 	public function setEffectUserVariableId(int $effectUserVariableId): void{
-		$this->setAttribute(Correlation::FIELD_EFFECT_USER_VARIABLE_ID, $effectUserVariableId);
+		$this->setAttribute(UserVariableRelationship::FIELD_EFFECT_USER_VARIABLE_ID, $effectUserVariableId);
 	}
 	public function setEffectVariableCategoryId(int $effectVariableCategoryId): void{
-		$this->setAttribute(Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID, $effectVariableCategoryId);
+		$this->setAttribute(UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID, $effectVariableCategoryId);
 	}
 	public function setEffectVariableId(int $effectVariableId): void{
-		$this->setAttribute(Correlation::FIELD_EFFECT_VARIABLE_ID, $effectVariableId);
+		$this->setAttribute(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $effectVariableId);
 	}
 	public function setExperimentEndAt(string $experimentEndAt): void{
-		$this->setAttribute(Correlation::FIELD_EXPERIMENT_END_AT, $experimentEndAt);
+		$this->setAttribute(UserVariableRelationship::FIELD_EXPERIMENT_END_AT, $experimentEndAt);
 	}
 	public function setExperimentStartAt(string $experimentStartAt): void{
-		$this->setAttribute(Correlation::FIELD_EXPERIMENT_START_AT, $experimentStartAt);
+		$this->setAttribute(UserVariableRelationship::FIELD_EXPERIMENT_START_AT, $experimentStartAt);
 	}
 	public function getInterestingVariableCategoryPair(): ?bool{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_INTERESTING_VARIABLE_CATEGORY_PAIR] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_INTERESTING_VARIABLE_CATEGORY_PAIR] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->interestingVariableCategoryPair;
 		}
 	}
 	public function setInterestingVariableCategoryPair(bool $interestingVariableCategoryPair): void{
-		$this->setAttribute(Correlation::FIELD_INTERESTING_VARIABLE_CATEGORY_PAIR, $interestingVariableCategoryPair);
+		$this->setAttribute(UserVariableRelationship::FIELD_INTERESTING_VARIABLE_CATEGORY_PAIR, $interestingVariableCategoryPair);
 	}
 	public function getInternalErrorMessage(): ?string{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_INTERNAL_ERROR_MESSAGE] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->internalErrorMessage;
@@ -1776,41 +1775,41 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	}
 	public function getLatestMeasurementStartAt(): ?string{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_LATEST_MEASUREMENT_START_AT] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_LATEST_MEASUREMENT_START_AT] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->latestMeasurementStartAt;
 		}
 	}
 	public function setLatestMeasurementStartAt(string $latestMeasurementStartAt): void{
-		$this->setAttribute(Correlation::FIELD_LATEST_MEASUREMENT_START_AT, $latestMeasurementStartAt);
+		$this->setAttribute(UserVariableRelationship::FIELD_LATEST_MEASUREMENT_START_AT, $latestMeasurementStartAt);
 	}
 	public function setNewestDataAt(string $newestDataAt): void{
-		$this->setAttribute(Correlation::FIELD_NEWEST_DATA_AT, $newestDataAt);
+		$this->setAttribute(UserVariableRelationship::FIELD_NEWEST_DATA_AT, $newestDataAt);
 	}
 	public function getNumberOfDays(): ?int{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_NUMBER_OF_DAYS] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_NUMBER_OF_DAYS] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->numberOfDays;
 		}
 	}
 	public function setNumberOfDays(int $numberOfDays): void{
-		$this->setAttribute(Correlation::FIELD_NUMBER_OF_DAYS, $numberOfDays);
+		$this->setAttribute(UserVariableRelationship::FIELD_NUMBER_OF_DAYS, $numberOfDays);
 	}
 	public function setOnsetDelay(int $onsetDelay): void{
-		$this->setAttribute(Correlation::FIELD_ONSET_DELAY, $onsetDelay);
+		$this->setAttribute(UserVariableRelationship::FIELD_ONSET_DELAY, $onsetDelay);
 	}
 	public function setPredictsHighEffectChange(int $predictsHighEffectChange): void{
-		$this->setAttribute(Correlation::FIELD_PREDICTS_HIGH_EFFECT_CHANGE, $predictsHighEffectChange);
+		$this->setAttribute(UserVariableRelationship::FIELD_PREDICTS_HIGH_EFFECT_CHANGE, $predictsHighEffectChange);
 	}
 	public function setQmScore(float $qmScore): void{
-		$this->setAttribute(Correlation::FIELD_QM_SCORE, $qmScore);
+		$this->setAttribute(UserVariableRelationship::FIELD_QM_SCORE, $qmScore);
 	}
 	public function getReasonForAnalysis(): ?string{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_REASON_FOR_ANALYSIS] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_REASON_FOR_ANALYSIS] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->reasonForAnalysis;
@@ -1818,18 +1817,18 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	}
 	public function getRecordSizeInKb(): ?int{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_RECORD_SIZE_IN_KB] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_RECORD_SIZE_IN_KB] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->recordSizeInKb;
 		}
 	}
 	public function setStatisticalSignificance(float $statisticalSignificance): void{
-		$this->setAttribute(Correlation::FIELD_STATISTICAL_SIGNIFICANCE, $statisticalSignificance);
+		$this->setAttribute(UserVariableRelationship::FIELD_STATISTICAL_SIGNIFICANCE, $statisticalSignificance);
 	}
 	public function getUserErrorMessage(): ?string{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_USER_ERROR_MESSAGE] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_USER_ERROR_MESSAGE] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->userErrorMessage;
@@ -1837,14 +1836,14 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	}
 	public function getWpPostId(): ?int{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			return $this->attributes[Correlation::FIELD_WP_POST_ID] ?? null;
+			return $this->attributes[UserVariableRelationship::FIELD_WP_POST_ID] ?? null;
 		} else{
 			/** @var QMUserVariableRelationship $this */
 			return $this->wpPostId;
 		}
 	}
 	public function setWpPostId(int $wpPostId): void{
-		$this->setAttribute(Correlation::FIELD_WP_POST_ID, $wpPostId);
+		$this->setAttribute(UserVariableRelationship::FIELD_WP_POST_ID, $wpPostId);
 	}
 	public function getShowContentView(array $params = []): View{
 		return $this->findInMemoryOrNewQMStudy()->getShowContentView($params);
@@ -1886,7 +1885,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		return $all;
 	}
 	public function getAvatar(): string{
-		return Correlation::DEFAULT_IMAGE;
+		return UserVariableRelationship::DEFAULT_IMAGE;
 	}
 	public static function getS3Bucket(): string{ return S3Private::getBucketName(); }
 	public function getSortingScore(): float{
@@ -1899,11 +1898,11 @@ class Correlation extends BaseCorrelation implements HasMedia {
 		return view('chip-search', self::getIndexViewParams());
 	}
 	/**
-	 * @return Correlation[]|\Illuminate\Database\Eloquent\Collection
+	 * @return UserVariableRelationship[]|\Illuminate\Database\Eloquent\Collection
 	 */
 	public static function getIndexModels(): Collection{
-		return Correlation::withUpVotes()->where(Correlation::FIELD_IS_PUBLIC, true)
-			->orderByDesc(Correlation::FIELD_QM_SCORE)->get();
+		return UserVariableRelationship::withUpVotes()->where(UserVariableRelationship::FIELD_IS_PUBLIC, true)
+		                               ->orderByDesc(UserVariableRelationship::FIELD_QM_SCORE)->get();
 	}
 	/**
 	 * @return array
@@ -1921,7 +1920,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	 * @throws TooSlowToAnalyzeException
 	 */
 	public function getValuePredictingHighOutcomeOverDuration(): float{
-		$val = $this->getAttribute(Correlation::FIELD_VALUE_PREDICTING_HIGH_OUTCOME);
+		$val = $this->getAttribute(UserVariableRelationship::FIELD_VALUE_PREDICTING_HIGH_OUTCOME);
 		if($val == null){
 			$val = CorrelationValuePredictingHighOutcomeProperty::calculate($this);
 		}
@@ -1974,7 +1973,7 @@ class Correlation extends BaseCorrelation implements HasMedia {
 	/**
 	 * @return self
 	 */
-	public function getHasCorrelationCoefficient(): Correlation{
+	public function getHasCorrelationCoefficient(): UserVariableRelationship{
 		return $this;
 	}
 	/**

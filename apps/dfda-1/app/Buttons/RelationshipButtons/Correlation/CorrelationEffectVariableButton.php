@@ -6,17 +6,17 @@
 
 namespace App\Buttons\RelationshipButtons\Correlation;
 use App\Buttons\RelationshipButtons\BelongsToRelationshipButton;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Variable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class CorrelationEffectVariableButton extends BelongsToRelationshipButton {
-	public $foreignKeyName = Correlation::FIELD_EFFECT_VARIABLE_ID;
-	public $qualifiedForeignKeyName = Correlation::TABLE . '.' . Correlation::FIELD_EFFECT_VARIABLE_ID;
+	public $foreignKeyName = UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID;
+	public $qualifiedForeignKeyName = UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID;
 	public $ownerKeyName = Variable::FIELD_ID;
 	public $qualifiedOwnerKeyName = Variable::TABLE . '.' . Variable::FIELD_ID;
-	public $childClass = Correlation::class;
-	public $parentClass = Correlation::class;
-	public $qualifiedParentKeyName = Correlation::TABLE . '.' . Correlation::FIELD_ID;
+	public $childClass = UserVariableRelationship::class;
+	public $parentClass = UserVariableRelationship::class;
+	public $qualifiedParentKeyName = UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_ID;
 	public $relatedClass = Variable::class;
 	public $methodName = 'effect_variable';
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo';
@@ -29,7 +29,7 @@ class CorrelationEffectVariableButton extends BelongsToRelationshipButton {
 	public $tooltip = Variable::CLASS_DESCRIPTION;
 	/**
 	 * CorrelationCauseUserVariableButton constructor.
-	 * @param Correlation $methodOrModel
+	 * @param UserVariableRelationship $methodOrModel
 	 * @param BelongsTo|null $relation
 	 */
 	public function __construct($methodOrModel, BelongsTo $relation = null){

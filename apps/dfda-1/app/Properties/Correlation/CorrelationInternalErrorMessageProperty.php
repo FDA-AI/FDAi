@@ -6,28 +6,28 @@
 
 namespace App\Properties\Correlation;
 use App\Logging\QMLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseInternalErrorMessageProperty;
 class CorrelationInternalErrorMessageProperty extends BaseInternalErrorMessageProperty
 {
     use CorrelationProperty;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     public static function fixInvalidRecords(){
         QMLog::error(__METHOD__);
         CorrelationInternalErrorMessageProperty::whereQMQB("=", "0")
-            ->update([Correlation::FIELD_INTERNAL_ERROR_MESSAGE => null]);
-        $qb = Correlation::whereNotNull(Correlation::FIELD_INTERNAL_ERROR_MESSAGE)
-            ->where(Correlation::FIELD_INTERNAL_ERROR_MESSAGE, "<>", "")
+            ->update([UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE => null]);
+        $qb = UserVariableRelationship::whereNotNull(UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE)
+            ->where(UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE, "<>", "")
             ->withTrashed();
         $ids = $qb->pluck('id');
         $count = $ids->count();
         QMLog::error("$count invalid correlations with INTERNAL_ERROR_MESSAGE");
         foreach($ids as $id){
-            $c = Correlation::findInMemoryOrDB($id);
+            $c = UserVariableRelationship::findInMemoryOrDB($id);
             if(!$c){
-                $c = Correlation::withTrashed()->where('id', $id)->first();
+                $c = UserVariableRelationship::withTrashed()->where('id', $id)->first();
                 if(!$c){
                     le("No correlation with id $id");
                 } else {

@@ -5,7 +5,7 @@
  */
 
 namespace App\Tables;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\UI\FontAwesome;
 class CorrelationsTable extends BaseTable {
 	public $id = 'correlations-data-table-id';
@@ -23,7 +23,7 @@ class CorrelationsTable extends BaseTable {
 		/** @noinspection PhpUnhandledExceptionInspection */
 		$this->column()->title('Predictor ' . FontAwesome::html(FontAwesome::QUESTION_CIRCLE))
 			->attr('th', 'title', 'Predictor variable in the relationship. ')->value(function($c){
-				/** @var Correlation $c */
+				/** @var UserVariableRelationship $c */
 				$causeUrl = $c->getCauseUrl();
 				$color = $c->getColor();
 				$causeName = $c->getCauseVariableName();
@@ -34,7 +34,7 @@ class CorrelationsTable extends BaseTable {
 </a>
 ";
 			})->attr('td', 'data-order', function($c){
-				/** @var Correlation $c */
+				/** @var UserVariableRelationship $c */
 				return $c->getCauseVariableName();
 			})->add();
 	}
@@ -43,10 +43,10 @@ class CorrelationsTable extends BaseTable {
 		$this->column()->title('Change from Baseline')
 			//->attr('th', 'title', $this->getSubtitleAttribute())
 			->value(function($correlation){
-				/** @var Correlation $correlation */
+				/** @var UserVariableRelationship $correlation */
 				return $correlation->getGaugeImageHtml("max-height: 50px;");
 			})->attr('td', 'data-order', function($correlation){
-				/** @var Correlation $correlation */
+				/** @var UserVariableRelationship $correlation */
 				return $correlation->getCauseVariableName() . " " . $correlation->getChangeFromBaseline();
 			})->add();
 	}
@@ -55,10 +55,10 @@ class CorrelationsTable extends BaseTable {
 		$this->column()->title(' ')
 			//->attr('th', 'title', $this->getSubtitleAttribute())
 			->value(function($correlation){
-				/** @var Correlation $correlation */
+				/** @var UserVariableRelationship $correlation */
 				return $correlation->getGaugeImageHtml("max-height: 60px;");
 			})->attr('td', 'data-order', function($correlation){
-				/** @var Correlation $correlation */
+				/** @var UserVariableRelationship $correlation */
 				return $correlation->getChangeFromBaseline();
 			})->add();
 	}

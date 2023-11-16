@@ -13,7 +13,7 @@
 namespace App\Models\Base;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\CorrelationCausalityVote;
 use App\Models\CorrelationUsefulnessVote;
 use App\Models\OAClient;
@@ -116,7 +116,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property WpPost $wp_post
  * @property Collection|CorrelationCausalityVote[] $correlation_causality_votes
  * @property Collection|CorrelationUsefulnessVote[] $correlation_usefulness_votes
- * @property Collection|Correlation[] $correlations
+ * @property Collection|UserVariableRelationship[] $correlations
  * @property Collection|Variable[] $variables_where_best_global_variable_relationship
  * @property Collection|Vote[] $votes
  * @package App\Models\Base
@@ -124,7 +124,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read int|null $correlation_usefulness_votes_count
  * @property-read int|null $correlations_count
  * @property mixed $raw
-
  * @property-read int|null $variables_where_best_global_variable_relationship_count
  * @property-read int|null $votes_count
  * @method static Builder|BaseModel applyRequestParams($request)
@@ -641,9 +640,9 @@ abstract class BaseGlobalVariableRelationship extends BaseModel {
 		],
 		'correlations' => [
 			'relationshipType' => 'HasMany',
-			'qualifiedUserClassName' => Correlation::class,
-			'foreignKey' => Correlation::FIELD_AGGREGATE_CORRELATION_ID,
-			'localKey' => Correlation::FIELD_ID,
+			'qualifiedUserClassName' => UserVariableRelationship::class,
+			'foreignKey' => UserVariableRelationship::FIELD_AGGREGATE_CORRELATION_ID,
+			'localKey' => UserVariableRelationship::FIELD_ID,
 			'methodName' => 'correlations',
 		],
 		'variables_where_best_global_variable_relationship' => [
@@ -698,7 +697,7 @@ abstract class BaseGlobalVariableRelationship extends BaseModel {
 			CorrelationUsefulnessVote::FIELD_AGGREGATE_CORRELATION_ID, static::FIELD_ID);
 	}
 	public function correlations(): HasMany{
-		return $this->hasMany(Correlation::class, [self::FIELD_CAUSE_VARIABLE_ID, self::FIELD_EFFECT_VARIABLE_ID],
+		return $this->hasMany(UserVariableRelationship::class, [self::FIELD_CAUSE_VARIABLE_ID, self::FIELD_EFFECT_VARIABLE_ID],
 			[self::FIELD_CAUSE_VARIABLE_ID, self::FIELD_EFFECT_VARIABLE_ID]);
 	}
 	public function variables_where_best_global_variable_relationship(): HasMany{

@@ -34,7 +34,7 @@ use Illuminate\Support\Carbon;
  * @property-read GlobalVariableRelationship|null $global_variable_relationship
  * @property-read OAClient|null $oa_client
  * @property-read Variable $cause_variable
- * @property-read Correlation|null $correlation
+ * @property-read UserVariableRelationship|null $correlation
  * @property-read Variable $effect_variable
  * @property-read User $user
  * @method static Builder|BaseModel applyRequestParams($request)

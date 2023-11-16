@@ -12,7 +12,7 @@ use App\Exceptions\TooManyMeasurementsException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Exceptions\UnauthorizedException;
 use App\Logging\QMLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\PhpUnitJobs\JobTestCase;
 use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipDataSourceNameProperty;
 use App\Properties\Correlation\CorrelationChartsProperty;
@@ -54,10 +54,10 @@ class UserVariableRelationshipsCleanUpJobTest extends JobTestCase {
         $allRows = QMUserVariableRelationship::readonly()
             //->select([UserVariableRelationship::FIELD_USER_ID])
             //->selectRaw("MIN(updated_at) as min_updated_at")
-            ->where(Correlation::FIELD_UPDATED_AT, '<', db_date($date))
-            ->where(Correlation::FIELD_DATA_SOURCE_NAME, GlobalVariableRelationshipDataSourceNameProperty::DATA_SOURCE_NAME_USER)
-            ->whereNull(Correlation::FIELD_DELETED_AT)
-            ->orderBy(Correlation::FIELD_UPDATED_AT, 'asc')
+            ->where(UserVariableRelationship::FIELD_UPDATED_AT, '<', db_date($date))
+            ->where(UserVariableRelationship::FIELD_DATA_SOURCE_NAME, GlobalVariableRelationshipDataSourceNameProperty::DATA_SOURCE_NAME_USER)
+            ->whereNull(UserVariableRelationship::FIELD_DELETED_AT)
+            ->orderBy(UserVariableRelationship::FIELD_UPDATED_AT, 'asc')
             //->groupBy(self::FIELD_USER_ID)
             ->getArray();
         $userIds = array_unique(Arr::pluck($allRows, 'user_id'));

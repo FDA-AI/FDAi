@@ -13,7 +13,7 @@ use App\Models\GlobalVariableRelationship;
 use App\Models\Application;
 use App\Models\Connection;
 use App\Models\Connector;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\CtConditionTreatment;
 use App\Models\Measurement;
 use App\Models\SentEmail;
@@ -261,7 +261,7 @@ class DBJob extends JobTestCase {
 			Application::TABLE,
 			Connection::TABLE,
 			Connector::TABLE,
-			Correlation::TABLE,
+			UserVariableRelationship::TABLE,
 			SentEmail::TABLE,
 			Study::TABLE,
 			User::TABLE,

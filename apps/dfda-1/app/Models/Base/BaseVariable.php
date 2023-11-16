@@ -15,7 +15,7 @@ use App\Models\GlobalVariableRelationship;
 use App\Models\Application;
 use App\Models\BaseModel;
 use App\Models\CommonTag;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\CorrelationCausalityVote;
 use App\Models\CorrelationUsefulnessVote;
 use App\Models\CtgCondition;
@@ -188,8 +188,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Collection|CorrelationCausalityVote[] $correlation_causality_votes_where_effect_variable
  * @property Collection|CorrelationUsefulnessVote[] $correlation_usefulness_votes_where_cause_variable
  * @property Collection|CorrelationUsefulnessVote[] $correlation_usefulness_votes_where_effect_variable
- * @property Collection|Correlation[] $correlations_where_cause_variable
- * @property Collection|Correlation[] $correlations_where_effect_variable
+ * @property Collection|UserVariableRelationship[] $correlations_where_cause_variable
+ * @property Collection|UserVariableRelationship[] $correlations_where_effect_variable
  * @property CtSideEffect $ct_side_effect
  * @property Collection|CtTreatmentSideEffect[] $ct_treatment_side_effects_where_side_effect_variable
  * @property Collection|CtTreatmentSideEffect[] $ct_treatment_side_effects_where_treatment_variable
@@ -230,7 +230,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read int|null $ct_treatment_side_effects_where_side_effect_variable_count
  * @property-read int|null $ct_treatment_side_effects_where_treatment_variable_count
  * @property mixed $raw
-
  * @property-read int|null $measurements_count
  * @property-read int|null $studies_where_cause_variable_count
  * @property-read int|null $studies_where_effect_variable_count
@@ -1211,16 +1210,16 @@ abstract class BaseVariable extends BaseModel {
 		],
 		'correlations_where_cause_variable' => [
 			'relationshipType' => 'HasMany',
-			'qualifiedUserClassName' => Correlation::class,
-			'foreignKey' => Correlation::FIELD_CAUSE_VARIABLE_ID,
-			'localKey' => Correlation::FIELD_ID,
+			'qualifiedUserClassName' => UserVariableRelationship::class,
+			'foreignKey' => UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID,
+			'localKey' => UserVariableRelationship::FIELD_ID,
 			'methodName' => 'correlations_where_cause_variable',
 		],
 		'correlations_where_effect_variable' => [
 			'relationshipType' => 'HasMany',
-			'qualifiedUserClassName' => Correlation::class,
-			'foreignKey' => Correlation::FIELD_EFFECT_VARIABLE_ID,
-			'localKey' => Correlation::FIELD_ID,
+			'qualifiedUserClassName' => UserVariableRelationship::class,
+			'foreignKey' => UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID,
+			'localKey' => UserVariableRelationship::FIELD_ID,
 			'methodName' => 'correlations_where_effect_variable',
 		],
 		'ct_side_effect' => [
@@ -1457,10 +1456,10 @@ abstract class BaseVariable extends BaseModel {
 			static::FIELD_ID);
 	}
 	public function correlations_where_cause_variable(): HasMany{
-		return $this->hasMany(Correlation::class, Correlation::FIELD_CAUSE_VARIABLE_ID, static::FIELD_ID);
+		return $this->hasMany(UserVariableRelationship::class, UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, static::FIELD_ID);
 	}
 	public function correlations_where_effect_variable(): HasMany{
-		return $this->hasMany(Correlation::class, Correlation::FIELD_EFFECT_VARIABLE_ID, static::FIELD_ID);
+		return $this->hasMany(UserVariableRelationship::class, UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, static::FIELD_ID);
 	}
 	public function ct_side_effect(): HasOne{
 		return $this->hasOne(CtSideEffect::class, CtSideEffect::FIELD_VARIABLE_ID, static::FIELD_ID);

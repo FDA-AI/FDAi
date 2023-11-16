@@ -13,7 +13,7 @@
 namespace App\Models\Base;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\OAClient;
 use App\Models\Variable;
 use App\Models\Vote;
@@ -36,11 +36,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property GlobalVariableRelationship $global_variable_relationship
  * @property Variable $cause_variable
  * @property OAClient $oa_client
- * @property Correlation $correlation
+ * @property UserVariableRelationship $correlation
  * @property Variable $effect_variable
  * @property \App\Models\User $user
  * @package App\Models\Base
-
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BaseModel applyRequestParams($request)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BaseModel exclude($columns)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BaseModel excludeLargeColumns()
@@ -155,11 +154,11 @@ abstract class BaseVote extends BaseModel {
 		],
 		'correlation' => [
 			'relationshipType' => 'BelongsTo',
-			'qualifiedUserClassName' => Correlation::class,
+			'qualifiedUserClassName' => UserVariableRelationship::class,
 			'foreignKeyColumnName' => 'correlation_id',
 			'foreignKey' => Vote::FIELD_CORRELATION_ID,
 			'otherKeyColumnName' => 'id',
-			'otherKey' => Correlation::FIELD_ID,
+			'otherKey' => UserVariableRelationship::FIELD_ID,
 			'ownerKeyColumnName' => 'correlation_id',
 			'ownerKey' => Vote::FIELD_CORRELATION_ID,
 			'methodName' => 'correlation',
@@ -200,7 +199,7 @@ abstract class BaseVote extends BaseModel {
 			Vote::FIELD_CLIENT_ID);
 	}
 	public function correlation(): BelongsTo{
-		return $this->belongsTo(Correlation::class, Vote::FIELD_CORRELATION_ID, Correlation::FIELD_ID,
+		return $this->belongsTo(UserVariableRelationship::class, Vote::FIELD_CORRELATION_ID, UserVariableRelationship::FIELD_ID,
 			Vote::FIELD_CORRELATION_ID);
 	}
 	public function effect_variable(): BelongsTo{

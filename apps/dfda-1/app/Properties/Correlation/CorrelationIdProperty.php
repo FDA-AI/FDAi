@@ -6,14 +6,14 @@
 
 namespace App\Properties\Correlation;
 use App\Traits\PropertyTraits\IsPrimaryKey;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseIntegerIdProperty;
 class CorrelationIdProperty extends BaseIntegerIdProperty{
 	use IsPrimaryKey;
     use CorrelationProperty;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     public $isPrimary = true;
     public $autoIncrement = true;
     public const SYNONYMS = [

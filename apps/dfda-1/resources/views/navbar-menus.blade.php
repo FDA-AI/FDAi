@@ -3,44 +3,44 @@
 $user = Auth::user();
 ?>
 
-<!-- Navbar Right Menu -->
+        <!-- Navbar Right Menu -->
 <div class="navbar-custom-menu">
     <!-- // add this dropdown // -->
     <ul class="nav navbar-nav">
         <li class="dropdown messages-menu"
             title="You Have {{ \App\Types\QMStr::abbreviateNumber($user->number_of_correlations) }} Discoveries">
-            <a href="{{ \App\Models\Correlation::generateDataLabIndexUrl() }}" onclick="showLoader()">
-                <i class="{{ \App\Models\Correlation::FONT_AWESOME }}"></i>
-{{--                <span id="correlations-count" class="label label-danger">
-                    {{ \App\Utils\StringHelper::abbreviateNumber($user->number_of_correlations) }}
-                </span>--}}
+            <a href="{{ \App\Models\UserVariableRelationship::generateDataLabIndexUrl() }}" onclick="showLoader()">
+                <i class="{{ \App\Models\UserVariableRelationship::FONT_AWESOME }}"></i>
+                {{--                <span id="correlations-count" class="label label-danger">
+                                    {{ \App\Utils\StringHelper::abbreviateNumber($user->number_of_correlations) }}
+                                </span>--}}
             </a>
         </li>
         <li class="dropdown messages-menu"
             title="You Have {{ \App\Types\QMStr::abbreviateNumber($user->number_of_user_variables) }} Variables">
             <a href="{{ \App\Models\UserVariable::generateDataLabIndexUrl() }}" onclick="showLoader()">
                 <i class="{{ \App\Models\UserVariable::FONT_AWESOME }}"></i>
-{{--                <span id="variables-count" class="label label-info">
-                    {{ \App\Utils\StringHelper::abbreviateNumber($user->number_of_user_variables) }}
-                </span>--}}
+                {{--                <span id="variables-count" class="label label-info">
+                                    {{ \App\Utils\StringHelper::abbreviateNumber($user->number_of_user_variables) }}
+                                </span>--}}
             </a>
         </li>
         <li class="dropdown messages-menu"
             title="You Have {{ \App\Types\QMStr::abbreviateNumber($user->number_of_tracking_reminders) }} Tracking Reminders">
             <a href="{{ \App\Models\TrackingReminder::generateDataLabIndexUrl() }}" onclick="showLoader()">
                 <i class="{{ \App\Models\TrackingReminder::FONT_AWESOME }}"></i>
-{{--                <span id="variables-count" class="label label-warning">
-                    {{ \App\Utils\StringHelper::abbreviateNumber($user->number_of_tracking_reminders) }}
-                </span>--}}
+                {{--                <span id="variables-count" class="label label-warning">
+                                    {{ \App\Utils\StringHelper::abbreviateNumber($user->number_of_tracking_reminders) }}
+                                </span>--}}
             </a>
         </li>
         <li class="dropdown messages-menu"
             title="You've Connected {{ \App\Types\QMStr::abbreviateNumber($user->number_of_connections) }} Data Sources">
             <a href="{{ \App\Models\Connection::generateDataLabIndexUrl() }}" onclick="showLoader()">
                 <i class="{{ \App\Models\Connection::FONT_AWESOME }}"></i>
-{{--                <span id="variables-count" class="label label-success">
-                    {{ \App\Utils\StringHelper::abbreviateNumber($user->number_of_connections) }}
-                </span>--}}
+                {{--                <span id="variables-count" class="label label-success">
+                                    {{ \App\Utils\StringHelper::abbreviateNumber($user->number_of_connections) }}
+                                </span>--}}
             </a>
         </li>
         <li class="dropdown messages-menu"
@@ -52,23 +52,23 @@ $user = Auth::user();
                                 </span>--}}
             </a>
         </li>
-            <li id="search-icon" class="dropdown messages-menu" title="Search">
-                @if( $useSearchModal )
-                    <a href="#" onclick="toggleModal()" title="Search">
-                        <i class="{{ \App\UI\FontAwesome::SEARCH_SOLID }}"></i>
-                    </a>
-                @else
-                    <a href="{{ \App\Utils\IonicHelper::getSearchUrl() }}"
-                       target="_blank"
-                       title="Search">
-                        <i class="{{ \App\UI\FontAwesome::SEARCH_SOLID }}"></i>
-                    </a>
-                @endif
-            </li>
+        <li id="search-icon" class="dropdown messages-menu" title="Search">
+            @if( $useSearchModal )
+                <a href="#" onclick="toggleModal()" title="Search">
+                    <i class="{{ \App\UI\FontAwesome::SEARCH_SOLID }}"></i>
+                </a>
+            @else
+                <a href="{{ \App\Utils\IonicHelper::getSearchUrl() }}"
+                   target="_blank"
+                   title="Search">
+                    <i class="{{ \App\UI\FontAwesome::SEARCH_SOLID }}"></i>
+                </a>
+            @endif
+        </li>
         @isadmin <!-- Still need to implement these -->
-{{--            @include('messages-dropdown-menu')--}}
-{{--            @include('notifications-dropdown-menu')--}}
-{{--            @include('tasks-dropdown-menu')--}}
+        {{--            @include('messages-dropdown-menu')--}}
+        {{--            @include('notifications-dropdown-menu')--}}
+        {{--            @include('tasks-dropdown-menu')--}}
         @endisadmin
         <!-- User Account Menu -->
         <li class="dropdown user user-menu">
@@ -78,7 +78,7 @@ $user = Auth::user();
                 <img src="{{ $user->avatar_image}}"
                      class="user-image" alt="User Image"/>
                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-{{--                <span class="hidden-xs">{{ $user->display_name }}</span> user name takes up lots of space --}}
+                {{--                <span class="hidden-xs">{{ $user->display_name }}</span> user name takes up lots of space --}}
             </a>
             <ul class="dropdown-menu">
                 <!-- The user image in the menu -->

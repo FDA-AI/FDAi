@@ -6,7 +6,7 @@
 
 namespace App\Properties\Correlation;
 use App\Logging\QMLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Unit;
 use App\Traits\PropertyTraits\IsCalculated;
 use App\Traits\VariableValueTraits\CauseDailyVariableValueTrait;
@@ -17,31 +17,31 @@ use App\Slim\Model\Measurement\Pair;
 class CorrelationValuePredictingHighOutcomeProperty extends BaseValuePredictingHighOutcomeProperty
 {
     use CorrelationProperty, CauseDailyVariableValueTrait, IsCalculated;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     public $canBeChangedToNull = false;
     public static function fixInvalidRecords(){
         return parent::fixInvalidRecords();
     }
     public static function fixTooSmall(): array{
         $p = new static();
-        $qb = static::whereRaw(Correlation::TABLE.'.'.$p->name." < ".Unit::TABLE.'.'.Unit::FIELD_MINIMUM_VALUE)
-            ->whereNotNull(Correlation::TABLE.'.'.$p->name)
+        $qb = static::whereRaw(UserVariableRelationship::TABLE.'.'.$p->name." < ".Unit::TABLE.'.'.Unit::FIELD_MINIMUM_VALUE)
+            ->whereNotNull(UserVariableRelationship::TABLE.'.'.$p->name)
             ->whereNotNull(Unit::TABLE.'.'.Unit::FIELD_MINIMUM_VALUE)
-            ->join(Unit::TABLE, Correlation::TABLE.'.'.Correlation::FIELD_CAUSE_UNIT_ID, "=",
+            ->join(Unit::TABLE, UserVariableRelationship::TABLE.'.'.UserVariableRelationship::FIELD_CAUSE_UNIT_ID, "=",
                 Unit::TABLE.'.'.Unit::FIELD_ID);
-        $ids = $qb->pluck(Correlation::TABLE.'.'.Correlation::FIELD_ID);
+        $ids = $qb->pluck(UserVariableRelationship::TABLE.'.'.UserVariableRelationship::FIELD_ID);
         $count = $ids->count();
         \App\Logging\ConsoleLog::info("$count Correlations with $p->name too small for Unit MINIMUM VALUE");
         $i = 0;
         foreach($ids as $id){
             $i++;
             \App\Logging\ConsoleLog::info("PROGRESS: $i of $count completed...");
-            $c = Correlation::find($id);
+            $c = UserVariableRelationship::find($id);
             /** @noinspection PhpUnhandledExceptionInspection */
             $c->getDBModel()->analyzeFully(__METHOD__);
             $cause = $c->getCauseVariable()->getDBModel();
-            $c = Correlation::find($id);
+            $c = UserVariableRelationship::find($id);
             /** @noinspection PhpUnhandledExceptionInspection */
             $cause->validateValueForCommonVariableAndUnit($c->value_predicting_high_outcome,
                 "duration_of_action", $c->duration_of_action);

@@ -7,17 +7,17 @@
 namespace App\PhpUnitJobs;
 use App\Console\Kernel;
 use App\Logging\QMLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 class IndexJob extends JobTestCase
 {
     public function testIndex(){
-        Kernel::artisan("scout:import", ["model" => \App\Models\Correlation::class]);
+        Kernel::artisan("scout:import", ["model" => \App\Models\UserVariableRelationship::class]);
     }
     public function testStatus(){
         Kernel::artisan("scout:status");
     }
     public function testSearch(){
-        $correlation = Correlation::search("Cal");
+        $correlation = UserVariableRelationship::search("Cal");
         //$paginator = $correlation->paginate(10);
         $start = microtime(true);
         $before = microtime(true) - $start;

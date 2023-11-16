@@ -6,7 +6,7 @@ namespace App\PhpUnitJobs\Cleanup;
 use App\Correlations\QMGlobalVariableRelationship;
 use App\Correlations\QMUserVariableRelationship;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\PhpUnitJobs\JobTestCase;
 use App\Properties\Correlation\CorrelationInternalErrorMessageProperty;
 use App\Variables\QMCommonVariable;
@@ -22,10 +22,10 @@ class CorrelationsCleanUpJob extends JobTestCase {
         foreach($variables as $v){
             $deleted = false;
             $deleted = $deleted || QMUserVariableRelationship::writable()
-                    ->where(Correlation::FIELD_CAUSE_VARIABLE_ID, $v->getVariableIdAttribute())
+                    ->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $v->getVariableIdAttribute())
                     ->hardDelete(__METHOD__, true);
             $deleted = $deleted || QMUserVariableRelationship::writable()
-                    ->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $v->getVariableIdAttribute())
+                    ->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $v->getVariableIdAttribute())
                     ->hardDelete(__METHOD__, true);
             $deleted = $deleted || QMGlobalVariableRelationship::writable()
                     ->where(GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $v->getVariableIdAttribute())

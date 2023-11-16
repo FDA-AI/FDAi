@@ -327,7 +327,7 @@ class Study extends BaseStudy implements HasMedia {
 	}
 	public static function newFake(int $userId = UserIdProperty::USER_ID_TEST_USER): BaseModel{
 		$m = parent::newFake();
-		$c = Correlation::firstOrFakeSave();
+		$c = UserVariableRelationship::firstOrFakeSave();
 		$m->id = $c->getStudyId();
 		$m->cause_variable_id = $c->getCauseVariableId();
 		$m->effect_variable_id = $c->getEffectVariableId();

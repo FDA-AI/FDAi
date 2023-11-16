@@ -8,7 +8,7 @@ namespace App\Properties\Base;
 use App\Correlations\QMCorrelation;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\BaseProperty;
 use App\Traits\PropertyTraits\IsFloat;
 use App\UI\FontAwesome;
@@ -208,7 +208,7 @@ class BaseEffectFollowUpPercentChangeFromBaselineProperty extends BaseProperty{
     public function getIndexField($resolveCallback = null, string $name = null): Field{
 	    return $this->getHtmlField(function($value, $resource, $attribute){
 	        if($value === null){return "value is null";}
-                /** @var Correlation $resource */
+                /** @var UserVariableRelationship $resource */
                 return $resource->getEffectSizeLinkToStudyWithExplanation();
             }, $name, $resolveCallback)
             ->sortable(true)
@@ -216,7 +216,7 @@ class BaseEffectFollowUpPercentChangeFromBaselineProperty extends BaseProperty{
     }
     public function getDetailsField($resolveCallback = null, string $name = null): Field{
         return $this->getHtmlField(function($value, $resource, $attribute){
-            /** @var Correlation $resource */
+            /** @var UserVariableRelationship $resource */
             return $resource->aboveAverageSentence();
         }, $name, $resolveCallback);
     }
@@ -235,7 +235,7 @@ class BaseEffectFollowUpPercentChangeFromBaselineProperty extends BaseProperty{
             $c->getChangeFromBaseline());
     }
     /**
-     * @return Correlation|GlobalVariableRelationship
+     * @return UserVariableRelationship|GlobalVariableRelationship
      */
     public function getParentModel(): BaseModel{
         return parent::getParentModel();

@@ -6,7 +6,7 @@
 
 namespace App\Storage\DB;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\Study;
 use App\Models\UserVariable;
@@ -43,11 +43,11 @@ class DemoMySQLDB extends AbstractMySQLDB
 		GlobalVariableRelationship::whereNotIn(GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $causeIds)
 			->whereNotIn(GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $effectIds)
 			->delete();
-	    Correlation::whereNotIn(Correlation::FIELD_CAUSE_VARIABLE_ID, $causeIds)
-		    ->whereNotIn(Correlation::FIELD_EFFECT_VARIABLE_ID, $effectIds)
+	    UserVariableRelationship::whereNotIn(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $causeIds)
+		    ->whereNotIn(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $effectIds)
 		    ->delete();
-	    Study::whereNotIn(Correlation::FIELD_CAUSE_VARIABLE_ID, $causeIds)
-		    ->whereNotIn(Correlation::FIELD_EFFECT_VARIABLE_ID, $effectIds)
+	    Study::whereNotIn(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $causeIds)
+		    ->whereNotIn(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $effectIds)
 		    ->delete();
 		//Measurement::whereNotIn(Measurement::FIELD_VARIABLE_ID, $ids)->delete();
 	    //UserVariable::whereNotIn(UserVariable::FIELD_VARIABLE_ID, $ids)->delete();

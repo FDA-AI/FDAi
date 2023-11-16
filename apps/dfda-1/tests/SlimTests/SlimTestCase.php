@@ -32,7 +32,7 @@ use App\Logging\ConsoleLog;
 use App\Logging\QMLog;
 use App\Logging\QMLogLevel;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\OAClient;
 use App\Models\TrackingReminder;
@@ -132,7 +132,7 @@ abstract class SlimTestCase extends UnitTestCase {
 	}
 	public static function deleteGlobalVariableRelationships(): void{
 		Variable::query()->update([Variable::FIELD_BEST_AGGREGATE_CORRELATION_ID => null]);
-		Correlation::query()->update([Correlation::FIELD_AGGREGATE_CORRELATION_ID => null]);
+		UserVariableRelationship::query()->update([UserVariableRelationship::FIELD_AGGREGATE_CORRELATION_ID => null]);
 		GlobalVariableRelationship::deleteAll();
 		$numberOfGlobalVariableRelationships = GlobalVariableRelationship::count();
 		self::assertEquals(0, $numberOfGlobalVariableRelationships);
@@ -1128,8 +1128,8 @@ abstract class SlimTestCase extends UnitTestCase {
 		$this->assertCount(1, $correlations,
 		                   'We should only have 1 correlation for CauseVariableName and EffectVariableName');
 		$this->checkCalculatedCorrelationObject($correlations[0], $correlateOverTime);
-		/** @var Correlation $l */
-		$l = Correlation::find($correlations[0]->id);
+		/** @var UserVariableRelationship $l */
+		$l = UserVariableRelationship::find($correlations[0]->id);
 		$this->assertIsString($l->reason_for_analysis);
 		$this->assertIsString($l->analysis_ended_at->toString());
 		return $correlations[0];
@@ -1809,7 +1809,7 @@ abstract class SlimTestCase extends UnitTestCase {
 		$this->seedWithPositiveLinearCauseEffectMeasurements();
 		$user = $this->getCauseUserVariable()->getQMUser();
 		$user->analyzeFully(__FUNCTION__);
-		$this->assertEquals(1, Correlation::count(), "We should have 1 correlation!");
+		$this->assertEquals(1, UserVariableRelationship::count(), "We should have 1 correlation!");
 		$correlations = QMUserVariableRelationship::getUserVariableRelationships([]);
 		$this->checkOptimalValueMessageAndStudyCardsForUserVariables();
 		$this->assertEquals(1, $correlations[0]->strongestPearsonCorrelationCoefficient);
@@ -2747,7 +2747,7 @@ abstract class SlimTestCase extends UnitTestCase {
 	 */
 	public static function deleteAndRecreateAllAggregatedCorrelations(): array{
 		self::deleteGlobalVariableRelationships();
-		$userVariableRelationships = Correlation::all();
+		$userVariableRelationships = UserVariableRelationship::all();
 		$agg = [];
 		foreach($userVariableRelationships as $uc){
 			$agg[] = $uc->getOrCreateGlobalVariableRelationship();
@@ -2986,8 +2986,8 @@ abstract class SlimTestCase extends UnitTestCase {
 		self::assertTrue(true);
 	}
 	protected function getOrCreateStudy(int $userId = 1){
-		$c = Correlation::whereUserId($userId)->first();
-		/** @var Correlation $c */
+		$c = UserVariableRelationship::whereUserId($userId)->first();
+		/** @var UserVariableRelationship $c */
 		if($c){return $c->getStudy();}
 		$c = $this->seedWithPositiveLinearCorrelation();
 		return $c->getStudy()->getOrSetQMStudy();

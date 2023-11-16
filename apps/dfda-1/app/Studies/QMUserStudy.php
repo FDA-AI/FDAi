@@ -14,7 +14,7 @@ use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Exceptions\UnauthorizedException;
 use App\Logging\QMLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\Study;
 use App\Models\User;
@@ -412,10 +412,10 @@ class QMUserStudy extends QMStudy {
 		if(!$cause){le( "Could not find cause variable like $causeNameOrId");}
         $effect = QMCommonVariable::findByNameOrId($effectNameOrId);
 		if(!$cause){le( "Could not find effect variable like $effectNameOrId");}
-        Correlation::query()
-            ->where(Correlation::FIELD_CAUSE_VARIABLE_ID, $cause->getVariableIdAttribute())
-            ->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $effect->getVariableIdAttribute())
-            ->where(Correlation::FIELD_USER_ID, $userId)
+        UserVariableRelationship::query()
+            ->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $cause->getVariableIdAttribute())
+            ->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $effect->getVariableIdAttribute())
+            ->where(UserVariableRelationship::FIELD_USER_ID, $userId)
             ->forceDelete();
         Study::query()
             ->where(Study::FIELD_CAUSE_VARIABLE_ID, $cause->getVariableIdAttribute())
@@ -427,7 +427,7 @@ class QMUserStudy extends QMStudy {
      * @return string
      */
     public function getCategoryDescription(): string{
-        return Correlation::CLASS_DESCRIPTION;
+        return UserVariableRelationship::CLASS_DESCRIPTION;
     }
     /**
      * @return string
@@ -447,7 +447,7 @@ class QMUserStudy extends QMStudy {
         return $this->getHasCorrelationCoefficient();
     }
     protected static function generateIndexButtons(): array{
-        $correlations = Correlation::getMikesUpVotedCorrelations();
+        $correlations = UserVariableRelationship::getMikesUpVotedCorrelations();
         $buttons = StudyButton::toButtons($correlations);
         return $buttons;
     }

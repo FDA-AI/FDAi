@@ -6,14 +6,14 @@
 
 namespace App\Buttons\DataLab\Correlations;
 use App\Buttons\QMButton;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 class CreateCorrelationButton extends QMButton {
 	public $accessibilityText = 'Create Correlation';
 	public $action = 'datalab/correlations/create';
-	public $color = Correlation::COLOR;
-	public $fontAwesome = Correlation::FONT_AWESOME;
+	public $color = UserVariableRelationship::COLOR;
+	public $fontAwesome = UserVariableRelationship::FONT_AWESOME;
 	public $id = 'datalab-correlations-create-button';
-	public $image = Correlation::DEFAULT_IMAGE;
+	public $image = UserVariableRelationship::DEFAULT_IMAGE;
 	public $link = 'datalab/correlations/create';
 	public $parameters = [
 		'middleware' => [
@@ -30,6 +30,6 @@ class CreateCorrelationButton extends QMButton {
 	public $target = 'self';
 	public $text = 'Create Correlation';
 	public $title = 'Create Correlation';
-	public $tooltip = Correlation::CLASS_DESCRIPTION;
+	public $tooltip = UserVariableRelationship::CLASS_DESCRIPTION;
 	public $visible = true;
 }

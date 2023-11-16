@@ -2,7 +2,7 @@
 /** @noinspection PhpDocMissingThrowsInspection */
 namespace Tests\StagingUnitTests\Analyzable;
 use App\Correlations\QMUserVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Variable;
 use App\Variables\QMCommonVariable;
 use App\Variables\QMUserVariable;
@@ -37,10 +37,10 @@ class AnalyzableTest extends SlimStagingTestCase {
         $this->checkQueryCount(37);
     }
 	/**
-	 * @covers \App\Models\Correlation::getTagLine
+	 * @covers \App\Models\UserVariableRelationship::getTagLine
 	 */
 	public function testCorrelationWithHighPercentChange(){
-        $c = Correlation::find(119078140);
+        $c = UserVariableRelationship::find(119078140);
         $line = $c->getTagLine();
         $this->assertEquals('Unknown Activities was generally 96 milliseconds higher following above average Overall Mood over the previous 24 hours. ',
             $line);

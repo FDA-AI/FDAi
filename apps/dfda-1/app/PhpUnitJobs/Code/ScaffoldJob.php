@@ -15,7 +15,7 @@ use App\Models\Connection;
 use App\Models\Connector;
 use App\Models\ConnectorImport;
 use App\Models\ConnectorRequest;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\DeviceToken;
 use App\Models\Measurement;
 use App\Models\MeasurementExport;
@@ -64,7 +64,7 @@ class ScaffoldJob extends JobTestCase {
 		Collaborator::generateScaffold();
 		CommonTag::generateScaffold();
 		ConnectorImport::generateScaffold();
-		Correlation::generateScaffold();
+		UserVariableRelationship::generateScaffold();
 		Measurement::generateScaffold();
 		MeasurementExport::generateScaffold();
 		MeasurementImport::generateScaffold();

@@ -294,7 +294,7 @@ use Tests\TestGenerators\StagingJobTestFile;
  * @property-read int|null $correlation_causality_votes_count
  * @property-read Collection|CorrelationUsefulnessVote[] $correlation_usefulness_votes
  * @property-read int|null $correlation_usefulness_votes_count
- * @property-read Collection|Correlation[] $correlations
+ * @property-read Collection|UserVariableRelationship[] $correlations
  * @property-read int|null $correlations_count
  * @property-read Variable $effect_variable
  * @property-read Collection|Variable[] $variables_where_best_global_variable_relationship
@@ -311,7 +311,6 @@ use Tests\TestGenerators\StagingJobTestFile;
  *                     set global_variable_relationships.number_of_variables_where_best_global_variable_relationship =
  *     count(grouped.total)]
  * @method static Builder|GlobalVariableRelationship whereNumberOfVariablesWhereBestGlobalVariableRelationship($value)
-
  * @property-read Collection|ActionEvent[] $actions
  * @property-read int|null $actions_count
  * @property string|null $deletion_reason The reason the variable was deleted.
@@ -530,9 +529,9 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 		return "Relationship Between " . $this->getCauseVariableName() . " and " . $this->getEffectVariableName();
 	}
 	public function getUserVariableRelationshipsAdminUrl(): string{
-		return Correlation::generateDataLabIndexUrl([
-			Correlation::FIELD_CAUSE_VARIABLE_ID => $this->getCauseVariableId(),
-			Correlation::FIELD_EFFECT_VARIABLE_ID => $this->getEffectVariableId(),
+		return UserVariableRelationship::generateDataLabIndexUrl([
+			UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID => $this->getCauseVariableId(),
+			UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID => $this->getEffectVariableId(),
 		]);
 	}
 	public function getUserVariableRelationshipsAdminLink(): string{
@@ -587,7 +586,7 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 	 * @return GlobalVariableRelationship
 	 */
 	public static function fakeFromPropertyModels(int $userId = UserIdProperty::USER_ID_TEST_USER): BaseModel{
-		$c = Correlation::firstOrFakeSave();
+		$c = UserVariableRelationship::firstOrFakeSave();
 		return $c->getOrCreateGlobalVariableRelationship();
 	}
     /**
@@ -817,24 +816,24 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 	 * @return float
 	 */
 	public function getEffectBaselineRelativeStandardDeviation(?int $precision = null): float{
-		$val = $this->getAttribute(Correlation::FIELD_EFFECT_BASELINE_RELATIVE_STANDARD_DEVIATION);
+		$val = $this->getAttribute(UserVariableRelationship::FIELD_EFFECT_BASELINE_RELATIVE_STANDARD_DEVIATION);
 		if($precision){
 			return Stats::roundByNumberOfSignificantDigits($val, $precision);
 		}
 		return $val;
 	}
 	public function getCauseVariableCategoryId(): int{
-		return $this->attributes[Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID];
+		return $this->attributes[UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID];
 	}
 	public function getEffectVariableCategoryId(): int{
-		return $this->attributes[Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID];
+		return $this->attributes[UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID];
 	}
 	/**
 	 * @param int|null $precision
 	 * @return float
 	 */
 	public function getCorrelationCoefficient(int $precision = null): ?float{
-		$c = $this->attributes[Correlation::FIELD_FORWARD_PEARSON_CORRELATION_COEFFICIENT] ?? null;
+		$c = $this->attributes[UserVariableRelationship::FIELD_FORWARD_PEARSON_CORRELATION_COEFFICIENT] ?? null;
 		if($c === null){
 			return null;
 		}
@@ -893,7 +892,7 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 		return $this;
 	}
 	/**
-	 * @return Correlation|Builder
+	 * @return UserVariableRelationship|Builder
 	 */
 	public static function withUpVotes(){
 		return static::whereHas('vote', function($query){
@@ -917,14 +916,14 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 	 * @noinspection PhpMissingReturnTypeInspection
 	 */
 	public function forceDelete(){
-		$this->correlations()->where(Correlation::FIELD_AGGREGATE_CORRELATION_ID, $this->id)
-			->update([Correlation::FIELD_AGGREGATE_CORRELATION_ID => null]);
+		$this->correlations()->where(UserVariableRelationship::FIELD_AGGREGATE_CORRELATION_ID, $this->id)
+			->update([UserVariableRelationship::FIELD_AGGREGATE_CORRELATION_ID => null]);
 		return parent::forceDelete();
 	}
 	public function correlations(): HasMany{
-		return $this->hasMany(Correlation::class, [self::FIELD_CAUSE_VARIABLE_ID, self::FIELD_EFFECT_VARIABLE_ID],
+		return $this->hasMany(UserVariableRelationship::class, [self::FIELD_CAUSE_VARIABLE_ID, self::FIELD_EFFECT_VARIABLE_ID],
 			[self::FIELD_CAUSE_VARIABLE_ID, self::FIELD_EFFECT_VARIABLE_ID])
-			->whereNotIn(Correlation::FIELD_USER_ID, UserIdProperty::getTestSystemAndDeletedUserIds())->with([
+			->whereNotIn(UserVariableRelationship::FIELD_USER_ID, UserIdProperty::getTestSystemAndDeletedUserIds())->with([
 				'cause_user_variable',
 				'effect_user_variable',
 				'user',
@@ -1293,7 +1292,7 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 		return view('chip-search', self::getIndexViewParams());
 	}
 	/**
-	 * @return Correlation[]|\Illuminate\Support\Collection
+	 * @return UserVariableRelationship[]|\Illuminate\Support\Collection
 	 */
 	public static function getIndexModels(): \Illuminate\Support\Collection{
 		return GlobalVariableRelationship::withUpVotes()->where(GlobalVariableRelationship::FIELD_IS_PUBLIC, true)
@@ -1310,15 +1309,15 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 		];
 	}
 	/**
-	 * @return Collection|Correlation[]
+	 * @return Collection|UserVariableRelationship[]
 	 */
 	public function getCorrelations(): Collection{
 		if($this->hasId()){
 			$this->loadMissing('correlations');
 		} else {
 			if(!$this->relationLoaded('correlations')){
-				$correlations = Correlation::whereCauseVariableId($this->getCauseVariableId())
-					->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $this->getEffectVariableId())
+				$correlations = UserVariableRelationship::whereCauseVariableId($this->getCauseVariableId())
+					->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $this->getEffectVariableId())
 					->get();
 				$this->setRelation('correlations', $correlations);
 			}
@@ -1334,7 +1333,7 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 		return $correlations;
 	}
 	public function getPublicCorrelations(): Collection{
-		return $this->getCorrelations()->where(Correlation::FIELD_IS_PUBLIC, true);
+		return $this->getCorrelations()->where(UserVariableRelationship::FIELD_IS_PUBLIC, true);
 	}
 	public function hasPublicCorrelation(): bool{
 		$correlations = $this->getCorrelations();
@@ -1363,11 +1362,12 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 		}
 	}
 	/**
-	 * @return Correlation
-	 */
-	public function getMikesCorrelation(): ?Correlation{
+	 * @return UserVariableRelationship
+     */
+	public function getMikesCorrelation(): ?UserVariableRelationship
+    {
 		$correlations = $this->correlations;
-		return $correlations->where(Correlation::FIELD_USER_ID, UserIdProperty::USER_ID_MIKE)->first();
+		return $correlations->where(UserVariableRelationship::FIELD_USER_ID, UserIdProperty::USER_ID_MIKE)->first();
 	}
 	public function getUUID(): ?string{
 		if($this instanceof QMGlobalVariableRelationship){
@@ -1458,8 +1458,9 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
 		$c = $this->findUserVariableRelationshipInMemory($userId);
 		return $c !== null;
 	}
-	public function findUserVariableRelationshipInMemory(int $userId): ?Correlation{
-		return Correlation::findInMemoryByIds($userId, $this->cause_variable_id, $this->effect_variable_id);
+	public function findUserVariableRelationshipInMemory(int $userId): ?UserVariableRelationship
+    {
+		return UserVariableRelationship::findInMemoryByIds($userId, $this->cause_variable_id, $this->effect_variable_id);
 	}
     /**
      * @param null $writer
@@ -1471,7 +1472,7 @@ class GlobalVariableRelationship extends BaseGlobalVariableRelationship implemen
     }
 	public function analyzeFully(string $reason): QMGlobalVariableRelationship{
 		$correlations = $this->getCorrelations();
-		$correlations->each(function(Correlation $correlation) use ($reason){
+		$correlations->each(function(UserVariableRelationship $correlation) use ($reason){
 			$correlation->analyzeFully($reason);
 		});
 		$dbm = $this->getDBModel();

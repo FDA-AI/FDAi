@@ -13,7 +13,7 @@
 namespace App\Models\Base;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\CorrelationCausalityVote;
 use App\Models\OAClient;
 use App\Models\Variable;
@@ -37,12 +37,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property GlobalVariableRelationship $global_variable_relationship
  * @property Variable $cause_variable
  * @property OAClient $oa_client
- * @property Correlation $correlation
+ * @property UserVariableRelationship $correlation
  * @property Variable $effect_variable
  * @property \App\Models\User $user
  * @package App\Models\Base
  * @property mixed $raw
-
  * @method static Builder|BaseModel applyRequestParams($request)
  * @method static Builder|BaseModel exclude($columns)
  * @method static Builder|BaseModel excludeLargeColumns()
@@ -158,11 +157,11 @@ abstract class BaseCorrelationCausalityVote extends BaseModel {
 		],
 		'correlation' => [
 			'relationshipType' => 'BelongsTo',
-			'qualifiedUserClassName' => Correlation::class,
+			'qualifiedUserClassName' => UserVariableRelationship::class,
 			'foreignKeyColumnName' => 'correlation_id',
 			'foreignKey' => CorrelationCausalityVote::FIELD_CORRELATION_ID,
 			'otherKeyColumnName' => 'id',
-			'otherKey' => Correlation::FIELD_ID,
+			'otherKey' => UserVariableRelationship::FIELD_ID,
 			'ownerKeyColumnName' => 'correlation_id',
 			'ownerKey' => CorrelationCausalityVote::FIELD_CORRELATION_ID,
 			'methodName' => 'correlation',
@@ -203,8 +202,8 @@ abstract class BaseCorrelationCausalityVote extends BaseModel {
 			CorrelationCausalityVote::FIELD_CLIENT_ID);
 	}
 	public function correlation(): BelongsTo{
-		return $this->belongsTo(Correlation::class, CorrelationCausalityVote::FIELD_CORRELATION_ID,
-			Correlation::FIELD_ID, CorrelationCausalityVote::FIELD_CORRELATION_ID);
+		return $this->belongsTo(UserVariableRelationship::class, CorrelationCausalityVote::FIELD_CORRELATION_ID,
+			UserVariableRelationship::FIELD_ID, CorrelationCausalityVote::FIELD_CORRELATION_ID);
 	}
 	public function effect_variable(): BelongsTo{
 		return $this->belongsTo(Variable::class, CorrelationCausalityVote::FIELD_EFFECT_VARIABLE_ID, Variable::FIELD_ID,

@@ -8,7 +8,7 @@ namespace App\Menus\DataLab;
 use App\Exceptions\NoIdException;
 use App\Menus\Astral\SingleModelAstralMenu;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Policies\BasePolicy;
 use App\Slim\Middleware\QMAuth;
 use App\Traits\TestableTrait;
@@ -42,7 +42,7 @@ class SingleModelDataLabMenu extends SingleModelAstralMenu {
 		if($m->isAnalyzable()){
 			$buttons[] = $m->getDataLabAnalyzeButton();
 		}
-		if($m->hasColumn(Correlation::FIELD_WP_POST_ID) && method_exists($m, 'getPostButton')){
+		if($m->hasColumn(UserVariableRelationship::FIELD_WP_POST_ID) && method_exists($m, 'getPostButton')){
 			$buttons[] = $m->getPostButton();
 		}
 		if(QMAuth::isAdmin()){

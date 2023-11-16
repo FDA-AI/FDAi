@@ -32,7 +32,7 @@ use App\Models\Connection;
 use App\Models\Connector;
 use App\Models\ConnectorImport;
 use App\Models\ConnectorRequest;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\OAAccessToken;
 use App\Models\OAClient;
@@ -566,8 +566,8 @@ class TestDB extends QMDB {
 	    TestDB::resetUserTables();
 	    try {SpreadsheetImportRequest::truncate();} catch (ProtectedDatabaseException $e) {le($e);}
 	    UserTag::truncate();
-        Correlation::truncate();
-		if(Correlation::count() > 0){le("Correlation::count() > 0");}
+        UserVariableRelationship::truncate();
+		if(UserVariableRelationship::count() > 0){le("Correlation::count() > 0");}
         self::deleteMeasurementsAndReminders();
 	    UserVariableClient::truncate();
         UserVariable::truncate();

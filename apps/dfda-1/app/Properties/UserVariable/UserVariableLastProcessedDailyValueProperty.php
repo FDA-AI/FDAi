@@ -9,7 +9,7 @@ use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Exceptions\UserVariableNotFoundException;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\UserVariable;
 use App\Properties\Base\BaseLastProcessedDailyValueProperty;
 use App\Traits\PropertyTraits\IsCalculated;
@@ -41,13 +41,13 @@ class UserVariableLastProcessedDailyValueProperty extends BaseLastProcessedDaily
     public static function updateAll(){
         $rows = QMUserVariableRelationship::readonly()
             ->select([
-                Correlation::TABLE . '.' . Correlation::FIELD_USER_ID,
-                Correlation::TABLE . '.' . Correlation::FIELD_CAUSE_VARIABLE_ID,
-                Correlation::TABLE . '.' . Correlation::FIELD_EFFECT_VARIABLE_ID,
+                UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_USER_ID,
+                UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID,
+                UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID,
             ])
             ->leftJoin(UserVariable::TABLE, static function (JoinClause $join) {
-                $join->on(Correlation::TABLE . '.cause_variable_id', '=', UserVariable::TABLE . '.variable_id')
-                    ->on(Correlation::TABLE . '.' . Correlation::FIELD_USER_ID, '=',
+                $join->on(UserVariableRelationship::TABLE . '.cause_variable_id', '=', UserVariable::TABLE . '.variable_id')
+                    ->on(UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_USER_ID, '=',
                         UserVariable::TABLE . '.' . UserVariable::FIELD_USER_ID);
             })
             //->where(UserVariable::FIELD_NUMBER_OF_CORRELATIONS, ">", 0)

@@ -7,7 +7,7 @@
 namespace App\Properties\GlobalVariableRelationship;
 use App\Logging\QMLog;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\Unit\UnitNameProperty;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BaseCauseUnitIdProperty;
@@ -24,7 +24,7 @@ class GlobalVariableRelationshipCauseUnitIdProperty extends BaseCauseUnitIdPrope
      * @return int
      */
     public static function calculate($aggregateCorrelation): ?int {
-        $values = $aggregateCorrelation->pluckFromCorrelations(Correlation::FIELD_CAUSE_UNIT_ID);
+        $values = $aggregateCorrelation->pluckFromCorrelations(UserVariableRelationship::FIELD_CAUSE_UNIT_ID);
         if(!$values){
             QMLog::info("TODO: Fix correlation cause units");
             return null;
@@ -32,7 +32,7 @@ class GlobalVariableRelationshipCauseUnitIdProperty extends BaseCauseUnitIdPrope
         $unique = array_unique($values);
         if(count($unique) !== 1){
             $recalculated = $aggregateCorrelation->recalculateUserVariableRelationshipsWithWrongCauseUnitId();
-            $newValues = $aggregateCorrelation->pluckFromCorrelations(Correlation::FIELD_CAUSE_UNIT_ID);
+            $newValues = $aggregateCorrelation->pluckFromCorrelations(UserVariableRelationship::FIELD_CAUSE_UNIT_ID);
             $uniqueAfter = array_unique($newValues);
             if(count($uniqueAfter) !== 1){
                 le("Different cause units for $aggregateCorrelation even after recalculation: ".

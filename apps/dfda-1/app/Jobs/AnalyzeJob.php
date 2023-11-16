@@ -15,7 +15,7 @@ use App\Exceptions\StupidVariableException;
 use App\Exceptions\StupidVariableNameException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\Correlation\CorrelationStatusProperty;
 use App\Properties\UserVariable\UserVariableStatusProperty;
 use App\Slim\Model\DBModel;
@@ -47,7 +47,7 @@ class AnalyzeJob extends BaseJob {
 	 */
 	public function handle(){
 		$this->exceptionIfAlreadyHandled();
-		/** @var Correlation $bm */
+		/** @var UserVariableRelationship $bm */
 		$bm = $this->study; // We pass BaseModel instead of larger DBModels that can cause memory issues
 		/** @var QMCorrelation $a */
 		$a = $bm->getDBModel();

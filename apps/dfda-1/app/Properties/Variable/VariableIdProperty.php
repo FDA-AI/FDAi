@@ -14,7 +14,7 @@ use App\Exceptions\NotFoundException;
 use App\Exceptions\StupidVariableNameException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Logging\QMLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\Variable;
 use App\Properties\Base\BaseIntegerIdProperty;
@@ -138,7 +138,7 @@ class VariableIdProperty extends BaseIntegerIdProperty{
                     where m.user_variable_id <> uv.id and m.variable_id = $replacementVariableId
                 ");
             }
-            if($table === Correlation::TABLE){
+            if($table === UserVariableRelationship::TABLE){
                 Writable::statementStatic("update correlations c
                     join user_variables uv on c.user_id = uv.user_id and c.cause_variable_id = uv.variable_id
                     set c.cause_user_variable_id = uv.id

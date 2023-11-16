@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseCauseTreatmentAveragePerDurationOfActionProperty;
 use App\Utils\Stats;
@@ -14,8 +14,8 @@ use App\Correlations\QMUserVariableRelationship;
 class CorrelationCauseTreatmentAveragePerDurationOfActionProperty extends BaseCauseTreatmentAveragePerDurationOfActionProperty
 {
     use CorrelationProperty;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     use \App\Traits\PropertyTraits\IsCalculated;
     /**
      * @param QMUserVariableRelationship $model

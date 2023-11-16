@@ -6,7 +6,7 @@
 
 namespace App\Astral\Lenses;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use Illuminate\Database\Eloquent\Builder;
 use App\Http\Requests\LensRequest;
 class CorrelationsWithNoCauseMeasurementsLens extends CorrelationInvalidLens {
@@ -26,8 +26,8 @@ class CorrelationsWithNoCauseMeasurementsLens extends CorrelationInvalidLens {
 			//                    Correlation::FIELD_ANALYSIS_STARTED_AT,
 			//                    Correlation::FIELD_INTERNAL_ERROR_MESSAGE,
 			//                ])
-			->whereNotNull(Correlation::FIELD_INTERNAL_ERROR_MESSAGE)
-			->where(Correlation::FIELD_CAUSE_NUMBER_OF_PROCESSED_DAILY_MEASUREMENTS, 0)
-			->orderBy(Correlation::FIELD_ANALYSIS_STARTED_AT, BaseModel::ORDER_DIRECTION_DESC)));
+			->whereNotNull(UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE)
+			->where(UserVariableRelationship::FIELD_CAUSE_NUMBER_OF_PROCESSED_DAILY_MEASUREMENTS, 0)
+			->orderBy(UserVariableRelationship::FIELD_ANALYSIS_STARTED_AT, BaseModel::ORDER_DIRECTION_DESC)));
 	}
 }

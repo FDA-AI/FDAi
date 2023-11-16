@@ -7,7 +7,7 @@ use App\Properties\Study\StudyCommentStatusProperty;
 use App\Properties\Study\StudyStatusProperty;
 use App\Properties\Study\StudyStudyStatusProperty;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Study;
 use App\Properties\Base\BaseClientIdProperty;
 use App\Properties\Study\StudyTypeProperty;
@@ -21,7 +21,7 @@ class StudyFactory extends Factory
      */
     public function definition(): array
     {
-        $c = Correlation::fakeFromPropertyModels();
+        $c = UserVariableRelationship::fakeFromPropertyModels();
         return [
             Study::FIELD_ID => $c->getStudyId(),
             'type' => StudyTypeProperty::TYPE_INDIVIDUAL,

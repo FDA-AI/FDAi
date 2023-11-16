@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Base;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\UserVariable;
 use App\Properties\Correlation\CorrelationIdProperty;
 use App\Traits\ForeignKeyIdTrait;
@@ -40,10 +40,10 @@ class BaseBestUserVariableRelationshipIdProperty extends CorrelationIdProperty{
 	public $canBeChangedToNull = true;
 	public $validations = 'nullable|integer|min:1|max:2147483647';
     /**
-     * @return Correlation
+     * @return UserVariableRelationship
      */
     public static function getForeignClass(): string{
-        return Correlation::class;
+        return UserVariableRelationship::class;
     }
     /**
      * @param UserVariable|QMUserVariable $uv

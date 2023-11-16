@@ -7,19 +7,19 @@
 namespace App\Buttons\RelationshipButtons\GlobalVariableRelationship;
 use App\Buttons\RelationshipButtons\HasManyRelationshipButton;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 class GlobalVariableRelationshipCorrelationsButton extends HasManyRelationshipButton {
     public $interesting = true;
 	public $parentClass = GlobalVariableRelationship::class;
 	public $qualifiedParentKeyName = GlobalVariableRelationship::TABLE.'.'.GlobalVariableRelationship::FIELD_ID;
-	public $relatedClass = Correlation::class;
-	public $methodName = Correlation::TABLE;
+	public $relatedClass = UserVariableRelationship::class;
+	public $methodName = UserVariableRelationship::TABLE;
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\HasMany';
-	public $color = Correlation::COLOR;
-	public $fontAwesome = Correlation::FONT_AWESOME;
+	public $color = UserVariableRelationship::COLOR;
+	public $fontAwesome = UserVariableRelationship::FONT_AWESOME;
 	public $id = 'correlations-button';
-	public $image = Correlation::DEFAULT_IMAGE;
+	public $image = UserVariableRelationship::DEFAULT_IMAGE;
 	public $text = 'Individual User Studies';
 	public $title = 'Individual User Studies';
 	public $tooltip = "See individual user studies that were aggregated to create this analysis. ";
