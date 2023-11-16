@@ -6,12 +6,12 @@
 
 namespace App\Buttons\RelationshipButtons\Correlation;
 use App\Buttons\RelationshipButtons\HasManyRelationshipButton;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\UserVariable;
 class CorrelationUserVariablesWhereBestUserVariableRelationshipButton extends HasManyRelationshipButton {
 	public $interesting = true;
-	public $parentClass = Correlation::class;
-	public $qualifiedParentKeyName = Correlation::TABLE . '.' . Correlation::FIELD_ID;
+	public $parentClass = UserVariableRelationship::class;
+	public $qualifiedParentKeyName = UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_ID;
 	public $relatedClass = UserVariable::class;
 	public $methodName = 'user_variables_where_best_user_variable_relationship';
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\HasMany';

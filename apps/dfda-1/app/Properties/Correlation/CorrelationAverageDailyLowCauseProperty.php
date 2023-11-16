@@ -6,7 +6,7 @@
 
 namespace App\Properties\Correlation;
 use App\Correlations\QMUserVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\Base\BaseAverageDailyLowCauseProperty;
 use App\Slim\Model\Measurement\Pair;
 use App\Traits\PropertyTraits\CorrelationProperty;
@@ -15,8 +15,8 @@ use App\Types\QMArr;
 class CorrelationAverageDailyLowCauseProperty extends BaseAverageDailyLowCauseProperty {
 	use CorrelationProperty;
 	use IsCalculated;
-	public $parentClass = Correlation::class;
-	public $table = Correlation::TABLE;
+	public $parentClass = UserVariableRelationship::class;
+	public $table = UserVariableRelationship::TABLE;
 	/**
 	 * @param QMUserVariableRelationship $model
 	 * @return bool|float

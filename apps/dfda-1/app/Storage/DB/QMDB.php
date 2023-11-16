@@ -28,7 +28,7 @@ use App\Logging\QMLog;
 use App\Logging\QMLogLevel;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\OAAccessToken;
 use App\Models\OAClient;
@@ -94,7 +94,7 @@ abstract class QMDB extends Connection {
 	public const DRIVER_SQLITE           = 'sqlite';
 	public const LARGE_TABLES = [
 		GlobalVariableRelationship::TABLE,
-		Correlation::TABLE,
+		UserVariableRelationship::TABLE,
 		Measurement::TABLE,
 		UserVariable::TABLE,
 		Variable::TABLE,

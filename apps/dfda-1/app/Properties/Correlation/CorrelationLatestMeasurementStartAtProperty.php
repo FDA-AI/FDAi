@@ -6,15 +6,15 @@
 
 namespace App\Properties\Correlation;
 use App\Logging\QMLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseLatestMeasurementStartAtProperty;
 use App\Correlations\QMUserVariableRelationship;
 class CorrelationLatestMeasurementStartAtProperty extends BaseLatestMeasurementStartAtProperty
 {
     use CorrelationProperty;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     use \App\Traits\PropertyTraits\IsCalculated;
     /**
      * @param QMUserVariableRelationship $model

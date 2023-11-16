@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Base;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\ForeignKeyIdTrait;
 use App\UI\ImageUrls;
 use App\UI\FontAwesome;
@@ -31,6 +31,6 @@ class BaseCorrelationIdProperty extends BaseProperty{
 	public $title = 'Correlation ID';
 	public $type = self::TYPE_INTEGER;
     public static function getForeignClass(): string{
-        return Correlation::class;
+        return UserVariableRelationship::class;
     }
 }

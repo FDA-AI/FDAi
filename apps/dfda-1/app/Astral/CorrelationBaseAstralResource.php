@@ -3,7 +3,7 @@
 *  Contributors: ADD YOUR NAME HERE, Mike P. Sinn
  */ /** @noinspection PhpUnused */
 namespace App\Astral;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\User;
 use App\Models\Variable;
 use Titasgailius\SearchRelations\SearchesRelations;
@@ -13,12 +13,12 @@ class CorrelationBaseAstralResource extends BaseAstralAstralResource {
 	 * The model the resource corresponds to.
 	 * @var string
 	 */
-	public static $model = Correlation::class;
+	public static $model = UserVariableRelationship::class;
 	/**
 	 * The single value that should be used to represent the resource when being displayed.
 	 * @var string
 	 */
-	public static $title = Correlation::FIELD_ID;
+	public static $title = UserVariableRelationship::FIELD_ID;
 	/**
 	 * The columns that should be searched.
 	 * @var array
@@ -48,7 +48,7 @@ class CorrelationBaseAstralResource extends BaseAstralAstralResource {
 	 * @var array
 	 */
 	public static $with = ['cause_variable', 'effect_variable', 'user'];
-	public function getCorrelation(): Correlation{
+	public function getCorrelation(): UserVariableRelationship{
 		/** @noinspection PhpIncompatibleReturnTypeInspection */
 		return $this->getModel();
 	}

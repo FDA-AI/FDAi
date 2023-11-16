@@ -5,7 +5,7 @@
  */
 
 namespace App\DataTableServices;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Utils\Stats;
 use App\Types\QMStr;
 use Illuminate\Database\Eloquent\Builder;
@@ -25,13 +25,13 @@ class CorrelationDataTableService extends BaseDataTableService
             ->addCauseImageNameDropDown("prefix")
             ->addEffectSize("prefix")
             ->addEffectImageNameDropDown("prefix")
-            ->addMiddleColumn(Correlation::FIELD_NUMBER_OF_PAIRS, function(Correlation $m) {
+            ->addMiddleColumn(UserVariableRelationship::FIELD_NUMBER_OF_PAIRS, function(UserVariableRelationship $m) {
                 return $m->number_of_pairs;
             })
-            ->addMiddleColumn(Correlation::FIELD_QM_SCORE, function(Correlation $m) {
+            ->addMiddleColumn(UserVariableRelationship::FIELD_QM_SCORE, function(UserVariableRelationship $m) {
                 return QMStr::truncate(Stats::roundByNumberOfSignificantDigits($m->qm_score, 3), 10);
             })
-            ->addMiddleColumn(Correlation::FIELD_Z_SCORE, function(Correlation $m) {
+            ->addMiddleColumn(UserVariableRelationship::FIELD_Z_SCORE, function(UserVariableRelationship $m) {
                 return QMStr::truncate(Stats::roundByNumberOfSignificantDigits($m->z_score, 3), 10);
             })
             ->addAnalysisEndedAt()
@@ -43,10 +43,10 @@ class CorrelationDataTableService extends BaseDataTableService
     /**
      * Get query source of dataTable.
      *
-     * @param Correlation $model
+     * @param UserVariableRelationship $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Correlation $model): Builder{
+    public function query(UserVariableRelationship $model): Builder{
         return $this->buildDataTableQueryFromRequest($model);
     }
 }

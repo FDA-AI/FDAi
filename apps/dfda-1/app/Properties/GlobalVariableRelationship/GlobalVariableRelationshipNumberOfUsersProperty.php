@@ -6,7 +6,7 @@
 
 namespace App\Properties\GlobalVariableRelationship;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BaseNumberOfUsersProperty;
 use App\Traits\PropertyTraits\IsCalculated;
@@ -24,7 +24,7 @@ class GlobalVariableRelationshipNumberOfUsersProperty extends BaseNumberOfUsersP
      */
     public static function calculate($model): int{
         $correlations = $model->getCorrelations();
-        $ids = $correlations->unique(Correlation::FIELD_USER_ID);
+        $ids = $correlations->unique(UserVariableRelationship::FIELD_USER_ID);
         $model->setAttribute(static::NAME, $val = $ids->count());
         return $val;
     }

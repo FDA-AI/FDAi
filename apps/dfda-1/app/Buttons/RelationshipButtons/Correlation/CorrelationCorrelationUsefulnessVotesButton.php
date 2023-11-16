@@ -6,12 +6,12 @@
 
 namespace App\Buttons\RelationshipButtons\Correlation;
 use App\Buttons\RelationshipButtons\HasManyRelationshipButton;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\CorrelationUsefulnessVote;
 class CorrelationCorrelationUsefulnessVotesButton extends HasManyRelationshipButton {
 	public $interesting = true;
-	public $parentClass = Correlation::class;
-	public $qualifiedParentKeyName = Correlation::TABLE . '.' . Correlation::FIELD_ID;
+	public $parentClass = UserVariableRelationship::class;
+	public $qualifiedParentKeyName = UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_ID;
 	public $relatedClass = CorrelationUsefulnessVote::class;
 	public $methodName = CorrelationUsefulnessVote::TABLE;
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\HasMany';

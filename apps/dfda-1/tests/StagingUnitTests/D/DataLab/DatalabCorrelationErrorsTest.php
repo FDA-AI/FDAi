@@ -2,7 +2,7 @@
 /** @noinspection PhpUnusedLocalVariableInspection */
 /** @noinspection SpellCheckingInspection */
 namespace Tests\StagingUnitTests\D\DataLab;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Override\GeneratedTestRequest;
 use App\Override\QMFileBag;
 use App\Override\QMHeaderBag;
@@ -35,7 +35,7 @@ class DatalabCorrelationErrorsTest extends DatalabTestCase
         $response = $this->stagingRequest(200, "");
         $this->checkTestDuration(28);
         $this->checkQueryCount(14);
-        $this->assertCount(10, $this->lastResponseData('data'), Correlation::generateErrorsIndexUrl());
+        $this->assertCount(10, $this->lastResponseData('data'), UserVariableRelationship::generateErrorsIndexUrl());
         $this->assertDataTableQueryCount(12);
     }
     public function testDataTableCorrelationsWithoutAuth(): void{

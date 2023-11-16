@@ -5,7 +5,7 @@
  */
 
 namespace App\Tables;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\UserVariable;
 use App\Models\Variable;
 use App\Properties\Base\BaseEffectFollowUpPercentChangeFromBaselineProperty;
@@ -37,7 +37,7 @@ class PredictorsTable extends CorrelationsTable {
 		$this->column()->title('Change in ' . $this->getVariable()->getTitleAttribute())
 			//->attr('th', 'title', $this->getSubtitleAttribute())
 			->value(function($correlation){
-				/** @var Correlation $correlation */
+				/** @var UserVariableRelationship $correlation */
 				$change = $correlation->getChangeFromBaseline();
 				$changeStr = BaseEffectFollowUpPercentChangeFromBaselineProperty::generateString($change, 2);
 				$url = $correlation->getUrl();
@@ -50,7 +50,7 @@ class PredictorsTable extends CorrelationsTable {
 </a>
 ";
 			})->attr('td', 'data-order', function($correlation){
-				/** @var Correlation $correlation */
+				/** @var UserVariableRelationship $correlation */
 				return $correlation->getChangeFromBaseline();
 			})->add();
 	}

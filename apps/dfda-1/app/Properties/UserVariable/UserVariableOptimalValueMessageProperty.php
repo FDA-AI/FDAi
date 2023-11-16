@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\UserVariable;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\UserVariable;
 use App\Traits\PropertyTraits\IsCalculated;
 use App\Traits\PropertyTraits\UserVariableProperty;
@@ -41,13 +41,13 @@ class UserVariableOptimalValueMessageProperty extends BaseOptimalValueMessagePro
                 if($correlationsAsEffect = $dbm->calculateNumberOfUserVariableRelationshipsAsEffect()){
 	                $dbm->setBestUserVariableRelationship();
 	                $dbm->throwLogicException("No BEST_USER_VARIABLE_RELATIONSHIP_ID even though we have $correlationsAsEffect correlations as a effect! ".
-                        Correlation::getDataLabIndexUrl([Correlation::FIELD_EFFECT_USER_VARIABLE_ID => $dbm->getUserVariableId()]));
+                        UserVariableRelationship::getDataLabIndexUrl([UserVariableRelationship::FIELD_EFFECT_USER_VARIABLE_ID => $dbm->getUserVariableId()]));
                 }
             }else{
                 if($correlationsAsCause = $dbm->calculateNumberOfUserVariableRelationshipsAsCause()){
 	                $dbm->setBestUserVariableRelationship();
 	                $dbm->throwLogicException("No BEST_USER_VARIABLE_RELATIONSHIP_ID even though we have $correlationsAsCause correlations as a cause!".
-                        Correlation::getDataLabIndexUrl([Correlation::FIELD_CAUSE_USER_VARIABLE_ID => $dbm->getVariableIdAttribute()]));
+                        UserVariableRelationship::getDataLabIndexUrl([UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID => $dbm->getVariableIdAttribute()]));
                 }
             }
         }

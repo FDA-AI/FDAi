@@ -6,7 +6,7 @@
 
 namespace App\Properties\Correlation;
 use App\Exceptions\NotEnoughDataException;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseAverageForwardPearsonCorrelationOverOnsetDelaysProperty;
 use App\Traits\PropertyTraits\IsCalculated;
@@ -16,8 +16,8 @@ class CorrelationAverageForwardPearsonCorrelationOverOnsetDelaysProperty extends
 {
     use CorrelationProperty;
     use IsCalculated;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     /**
      * @param QMUserVariableRelationship $model
      * @return float
@@ -26,7 +26,7 @@ class CorrelationAverageForwardPearsonCorrelationOverOnsetDelaysProperty extends
      */
     public static function calculate($model): float{
         $correlations = $model->getOverDelays();
-        $key = QMStr::camelize(Correlation::FIELD_FORWARD_PEARSON_CORRELATION_COEFFICIENT);
+        $key = QMStr::camelize(UserVariableRelationship::FIELD_FORWARD_PEARSON_CORRELATION_COEFFICIENT);
         $forward = collect($correlations)->where('onsetDelay', ">", 0);
         if(!$forward->count()){
             throw new NotEnoughDataException($model, "No Forward correlations for $model");

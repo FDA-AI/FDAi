@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpDocMissingThrowsInspection */
 /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\SlimTests\Variables;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\Variable;
 use App\Exceptions\AlreadyAnalyzingException;
@@ -22,7 +22,7 @@ class MeasurementTest extends \Tests\SlimTests\SlimTestCase {
     protected function setUp(): void{
         parent::setUp();
 	    TestDB::resetTestDB();
-		Correlation::deleteAll();
+		UserVariableRelationship::deleteAll();
     }
     /**
      * Test code to get list of row measurements with grouping by day

@@ -1,4 +1,4 @@
-<?php /** @var App\Models\Correlation $correlation */ ?>
+<?php /** @var App\Models\UserVariableRelationship $correlation */ ?>
 
 {!! $correlation->getInterestingRelationshipsMenu()->getMaterialStatCards() !!}
 

@@ -7,7 +7,7 @@
 namespace App\Properties\Correlation;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\TooSlowToAnalyzeException;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\Base\BaseCorrelationsOverDurationsProperty;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Traits\PropertyTraits\IsCalculated;
@@ -26,8 +26,8 @@ class CorrelationCorrelationsOverDurationsProperty extends BaseCorrelationsOverD
 		16,
 		32
 	];
-	public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+	public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     /**
      * @param QMUserVariableRelationship $model
      * @return QMUserVariableRelationship[]
@@ -81,7 +81,7 @@ class CorrelationCorrelationsOverDurationsProperty extends BaseCorrelationsOverD
         return null;
     }
     /**
-     * @param QMUserVariableRelationship|Correlation $model
+     * @param QMUserVariableRelationship|UserVariableRelationship $model
      * @return QMUserVariableRelationship[]
      * @throws NotEnoughDataException
      * @throws TooSlowToAnalyzeException

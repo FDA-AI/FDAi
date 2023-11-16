@@ -16,7 +16,7 @@ use App\Logging\ConsoleLog;
 use App\Logging\QMLog;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Study;
 use App\Models\Vote;
 use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipDataSourceNameProperty;
@@ -267,7 +267,7 @@ abstract class QMCorrelation extends DBModel {
 	protected ?StudyHtml $studyHtml = null;
 	/**
      * Correlation constructor.
-     * @param Correlation|GlobalVariableRelationship|null $l
+     * @param UserVariableRelationship|GlobalVariableRelationship|null $l
      */
     public function __construct($l = null){
 		if(!$l){return;}
@@ -1379,7 +1379,7 @@ abstract class QMCorrelation extends DBModel {
         return $s->getOptionsListCard();
     }
     /**
-     * @return GlobalVariableRelationship|Correlation
+     * @return GlobalVariableRelationship|UserVariableRelationship
      */
     public function l(){
         /** @noinspection PhpIncompatibleReturnTypeInspection */
@@ -1441,7 +1441,7 @@ abstract class QMCorrelation extends DBModel {
      * @return int
      */
     public static function deleteByEffectId(int $effectId, string $reason): int {
-        $qb = QMUserVariableRelationship::writable()->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $effectId);
+        $qb = QMUserVariableRelationship::writable()->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $effectId);
         $c = $qb->count();
         QMLog::error("Deleting $c user variable relationships where effect...");
         $deletedUser = $qb->hardDelete($reason, true);
@@ -1493,9 +1493,9 @@ abstract class QMCorrelation extends DBModel {
      * @noinspection PhpParameterNameChangedDuringInheritanceInspection
      */
     public function getAttribute($key){
-        if($key === Correlation::FIELD_USER_ID && $this instanceof QMGlobalVariableRelationship){return UserIdProperty::USER_ID_SYSTEM;}
-        if($key === Correlation::FIELD_CAUSE_VARIABLE_ID && $this->causeVariableId){return $this->causeVariableId;}
-        if($key === Correlation::FIELD_EFFECT_VARIABLE_ID && $this->effectVariableId){return $this->effectVariableId;}
+        if($key === UserVariableRelationship::FIELD_USER_ID && $this instanceof QMGlobalVariableRelationship){return UserIdProperty::USER_ID_SYSTEM;}
+        if($key === UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID && $this->causeVariableId){return $this->causeVariableId;}
+        if($key === UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID && $this->effectVariableId){return $this->effectVariableId;}
         return parent::getAttribute($key);
     }
     public function removeRecursion(){

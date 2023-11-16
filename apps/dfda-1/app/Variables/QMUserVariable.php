@@ -56,7 +56,7 @@ use App\Mail\RootCauseAnalysisEmail;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\CommonTag;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\Study;
 use App\Models\TrackingReminder;
@@ -455,8 +455,8 @@ class QMUserVariable extends QMVariable {
 	];
 	public static $sqlCalculatedFields = [
 		self::FIELD_BEST_CAUSE_VARIABLE_ID => [
-			'table' => Correlation::TABLE,
-			'foreign_key' => Correlation::FIELD_EFFECT_USER_VARIABLE_ID,
+			'table' => UserVariableRelationship::TABLE,
+			'foreign_key' => UserVariableRelationship::FIELD_EFFECT_USER_VARIABLE_ID,
 			'duration' => 0,
 			'sql' => 'select cause_variable_id as calculatedValue
                                 from correlations ac
@@ -466,8 +466,8 @@ class QMUserVariable extends QMVariable {
                                 limit 1',
 		],
 		self::FIELD_BEST_EFFECT_VARIABLE_ID => [
-			'table' => Correlation::TABLE,
-			'foreign_key' => Correlation::FIELD_CAUSE_USER_VARIABLE_ID,
+			'table' => UserVariableRelationship::TABLE,
+			'foreign_key' => UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID,
 			'duration' => 0,
 			'sql' => 'select effect_variable_id as calculatedValue
                                 from correlations ac
@@ -521,15 +521,15 @@ class QMUserVariable extends QMVariable {
             ',
 		],
 		self::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_CAUSE => [
-			'table' => Correlation::TABLE,
-			'foreign_key' => Correlation::FIELD_CAUSE_USER_VARIABLE_ID,
-			'sql' => 'count(' . Correlation::FIELD_ID . ')',
+			'table' => UserVariableRelationship::TABLE,
+			'foreign_key' => UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID,
+			'sql' => 'count(' . UserVariableRelationship::FIELD_ID . ')',
 			'duration' => 1,
 		],
 		self::FIELD_NUMBER_OF_USER_VARIABLE_RELATIONSHIPS_AS_EFFECT => [
-			'table' => Correlation::TABLE,
-			'foreign_key' => Correlation::FIELD_EFFECT_USER_VARIABLE_ID,
-			'sql' => 'count(' . Correlation::FIELD_ID . ')',
+			'table' => UserVariableRelationship::TABLE,
+			'foreign_key' => UserVariableRelationship::FIELD_EFFECT_USER_VARIABLE_ID,
+			'sql' => 'count(' . UserVariableRelationship::FIELD_ID . ')',
 			'duration' => 1,
 		],
 		self::FIELD_NUMBER_OF_MEASUREMENTS => [
@@ -1740,11 +1740,11 @@ class QMUserVariable extends QMVariable {
 			'field' => 'variable_id',
 		];
 		$array[] = [
-			'table' => Correlation::TABLE,
+			'table' => UserVariableRelationship::TABLE,
 			'field' => 'cause_variable_id',
 		];
 		$array[] = [
-			'table' => Correlation::TABLE,
+			'table' => UserVariableRelationship::TABLE,
 			'field' => 'effect_variable_id',
 		];
 		$array[] = [
@@ -4546,9 +4546,9 @@ class QMUserVariable extends QMVariable {
 		return $this->setActionButtons($actionArray);
 	}
 	/**
-	 * @return Correlation
+	 * @return UserVariableRelationship
 	 */
-	public function getBestUserVariableRelationship(): ?Correlation{
+	public function getBestUserVariableRelationship(): ?UserVariableRelationship{
 		$c = $this->bestUserVariableRelationship;
 		if($c){
 			return $c;
@@ -4564,11 +4564,11 @@ class QMUserVariable extends QMVariable {
 		return $this->bestUserVariableRelationship = $c;
 	}
 	/**
-	 * @return Correlation
+	 * @return UserVariableRelationship
 	 */
-	public function setBestUserVariableRelationship(): ?Correlation{
+	public function setBestUserVariableRelationship(): ?UserVariableRelationship{
 		if($id = $this->bestUserVariableRelationshipId){
-			return $this->bestUserVariableRelationship = Correlation::findInMemoryOrDB($id);
+			return $this->bestUserVariableRelationship = UserVariableRelationship::findInMemoryOrDB($id);
 		}
 		$c = false;
 		if($this->isOutcome()){
@@ -4577,9 +4577,9 @@ class QMUserVariable extends QMVariable {
 			}
 		} else{
 			if($primaryOutcome = $this->getUser()->getPrimaryOutcomeQMUserVariable()){
-				$c = Correlation::whereUserId($this->getUserId())
-					->where(Correlation::FIELD_CAUSE_VARIABLE_ID, $this->getVariableIdAttribute())
-					->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $primaryOutcome->getVariableIdAttribute())->first();
+				$c = UserVariableRelationship::whereUserId($this->getUserId())
+					->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $this->getVariableIdAttribute())
+					->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $primaryOutcome->getVariableIdAttribute())->first();
 			}
 			if(!$c){
 				$c = $this->getBestCorrelationAsCause();
@@ -5381,7 +5381,7 @@ class QMUserVariable extends QMVariable {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return Collection|Correlation[]
+	 * @return Collection|UserVariableRelationship[]
 	 */
 	public function setUserVariableRelationshipsAsEffect(int $limit = null, string $variableCategoryName = null): ?Collection{
 		$qb = $this->getUserVariable()->best_correlations_where_effect_user_variable()->with([
@@ -5390,7 +5390,7 @@ class QMUserVariable extends QMVariable {
 		])
 			//->where(Correlation::FIELD_CAUSE_VARIABLE_ID, "<>", $this->getVariableId())
 			->limit($limit);
-		Correlation::applyDefaultOrderings($qb);
+		UserVariableRelationship::applyDefaultOrderings($qb);
 		$correlations = $qb->get();
 		foreach($correlations as $c){
 			$c->setRelationAndAddToMemory('effect_variable', $this->getVariable());
@@ -5401,14 +5401,14 @@ class QMUserVariable extends QMVariable {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return Correlation[]|Collection
+	 * @return UserVariableRelationship[]|Collection
 	 */
 	public function setUserVariableRelationshipsAsCause(int $limit = null, string $variableCategoryName = null): ?Collection{
 		$qb = $this->getUserVariable()->best_correlations_where_cause_user_variable()->with([
 			'effect_variable',
 			'effect_user_variable',
 		])->limit($limit);
-		Correlation::applyDefaultOrderings($qb);
+		UserVariableRelationship::applyDefaultOrderings($qb);
 		$correlations = $qb->get();
 		foreach($correlations as $c){
 			$c->setRelationAndAddToMemory('cause_variable', $this->getVariable());
@@ -5859,14 +5859,14 @@ class QMUserVariable extends QMVariable {
 				->where(self::FIELD_USER_ID, $this->getUserId())->hardDelete($reason, $countFirst);
 			$this->logInfo("Deleted $result $table records...");
 		}
-		$causeEffectTables = [Correlation::TABLE, Vote::TABLE];
+		$causeEffectTables = [UserVariableRelationship::TABLE, Vote::TABLE];
 		foreach($causeEffectTables as $table){
 			$result = Writable::getBuilderByTable($table)
-				->where(Correlation::FIELD_CAUSE_VARIABLE_ID, $this->getVariableIdAttribute())
+				->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $this->getVariableIdAttribute())
 				->where(self::FIELD_USER_ID, $this->getUserId())->hardDelete($reason, $countFirst);
 			$this->logInfo("Deleted $result $table records...");
 			$result = Writable::getBuilderByTable($table)
-				->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $this->getVariableIdAttribute())
+				->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $this->getVariableIdAttribute())
 				->where(self::FIELD_USER_ID, $this->getUserId())->hardDelete($reason, $countFirst);
 			$this->logInfo("Deleted $result $table records...");
 		}
@@ -6004,7 +6004,7 @@ class QMUserVariable extends QMVariable {
 	/**
 	 * @param string $predictorVariableCategoryName
 	 * @param int $limit
-	 * @return Collection|Correlation[]
+	 * @return Collection|UserVariableRelationship[]
 	 */
 	protected function setCorrelationsForPredictorCategory(string $predictorVariableCategoryName,
 		int $limit = 0): Collection{
@@ -6021,11 +6021,11 @@ class QMUserVariable extends QMVariable {
 			'cause_user_variable',
 		]);
 		$cat = QMVariableCategory::find($predictorVariableCategoryName);
-		$qb->where(Correlation::TABLE . '.' . Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID, $cat->id);
+		$qb->where(UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID, $cat->id);
 		if($limit){
 			$qb->limit($limit);
 		}
-		$qb->whereNotNull(Correlation::TABLE . '.' . Correlation::FIELD_ANALYSIS_ENDED_AT);
+		$qb->whereNotNull(UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_ANALYSIS_ENDED_AT);
 		$correlations = $qb->get();
 		return $this->correlationsForPredictorCategory[$predictorVariableCategoryName][$limit] = $correlations;
 	}
@@ -6683,7 +6683,7 @@ class QMUserVariable extends QMVariable {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return GlobalVariableRelationship[]|Correlation[]|Collection
+	 * @return GlobalVariableRelationship[]|UserVariableRelationship[]|Collection
 	 */
 	public function getOutcomesOrPredictors(int $limit = null, string $variableCategoryName = null): ?Collection{
 		return $this->l()->getOutcomesOrPredictors($limit, $variableCategoryName);

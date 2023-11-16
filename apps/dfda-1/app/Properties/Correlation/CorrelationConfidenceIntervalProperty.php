@@ -5,17 +5,17 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseConfidenceIntervalProperty;
 use App\Traits\PropertyTraits\IsCalculated;
 class CorrelationConfidenceIntervalProperty extends BaseConfidenceIntervalProperty
 {
     use CorrelationProperty, IsCalculated;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
 	/**
-	 * @param \App\Correlations\QMUserVariableRelationship|Correlation $model
+	 * @param \App\Correlations\QMUserVariableRelationship|UserVariableRelationship $model
 	 * @throws \App\Exceptions\InsufficientVarianceException
 	 * @throws \App\Exceptions\NotEnoughDataException
 	 * @throws \App\Exceptions\TooSlowToAnalyzeException

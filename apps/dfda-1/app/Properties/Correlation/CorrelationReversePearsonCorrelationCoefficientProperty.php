@@ -8,7 +8,7 @@ namespace App\Properties\Correlation;
 use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\TooSlowToAnalyzeException;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseReversePearsonCorrelationCoefficientProperty;
 use App\Traits\PropertyTraits\IsCalculated;
@@ -16,8 +16,8 @@ class CorrelationReversePearsonCorrelationCoefficientProperty extends BaseRevers
 {
     use CorrelationProperty;
 	use IsCalculated;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
 	/**
 	 * @param QMUserVariableRelationship $model
 	 * @return float

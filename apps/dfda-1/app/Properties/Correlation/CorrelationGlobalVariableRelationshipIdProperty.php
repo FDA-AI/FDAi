@@ -7,7 +7,7 @@
 namespace App\Properties\Correlation;
 use App\Logging\QMLog;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Storage\DB\Writable;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseGlobalVariableRelationshipIdProperty;
@@ -17,10 +17,10 @@ class CorrelationGlobalVariableRelationshipIdProperty extends BaseGlobalVariable
 {
     use CorrelationProperty;
     use IsCalculated;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     /**
-     * @param QMUserVariableRelationship|Correlation $model
+     * @param QMUserVariableRelationship|UserVariableRelationship $model
      * @return mixed|void
      */
     public static function calculate($model){

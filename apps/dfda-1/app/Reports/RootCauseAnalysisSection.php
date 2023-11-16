@@ -8,7 +8,7 @@ namespace App\Reports;
 use App\Exceptions\AlreadyAnalyzedException;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\NotEnoughOverlappingDataException;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\User;
 use App\Models\WpPost;
 use App\Tables\BaseTable;
@@ -482,7 +482,7 @@ class RootCauseAnalysisSection extends AnalyticalReport {
         return $html;
     }
     /**
-     * @param Correlation[]|QMUserVariableRelationship[] $correlations
+     * @param UserVariableRelationship[]|QMUserVariableRelationship[] $correlations
      * @return int
      */
     protected static function getMaxChange(array $correlations): int {
@@ -494,8 +494,8 @@ class RootCauseAnalysisSection extends AnalyticalReport {
         return $maxChange;
     }
     /**
-     * @param QMCorrelation|Correlation $c
-     * @param Correlation[]|QMUserVariableRelationship[] $correlations
+     * @param QMCorrelation|UserVariableRelationship $c
+     * @param UserVariableRelationship[]|QMUserVariableRelationship[] $correlations
      * @return float|int
      */
     public static function getBarWidth($c, array $correlations) {
@@ -683,7 +683,7 @@ class RootCauseAnalysisSection extends AnalyticalReport {
         return $this->correlations = $correlations;
     }
     /**
-     * @param QMCorrelation|Correlation $c
+     * @param QMCorrelation|UserVariableRelationship $c
      * @param array $correlations
      * @param int $absoluteMax
      * @return string

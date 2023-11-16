@@ -6,13 +6,13 @@
 
 namespace App\Traits\VariableValueTraits;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Variable;
 use App\Variables\QMVariable;
 trait EffectVariableValueTrait {
 	use VariableValueTrait;
 	public function getVariable(): Variable{
-		/** @var GlobalVariableRelationship|Correlation $correlation */
+		/** @var GlobalVariableRelationship|UserVariableRelationship $correlation */
 		$correlation = $this->getParentModel();
 		return $correlation->getEffectVariable();
 	}

@@ -9,7 +9,7 @@ use App\Charts\QMHighcharts\MultivariateHighstock;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\NotEnoughMeasurementsForCorrelationException;
 use App\Logging\QMLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseNumberOfPairsProperty;
 use App\Traits\PropertyTraits\IsCalculated;
@@ -19,8 +19,8 @@ class CorrelationNumberOfPairsProperty extends BaseNumberOfPairsProperty
 {
     use CorrelationProperty;
     use IsCalculated;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     /**
      * @param QMUserVariableRelationship $model
      * @return int

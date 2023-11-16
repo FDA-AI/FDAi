@@ -7,7 +7,7 @@
 namespace App\Buttons\RelationshipButtons\Correlation;
 use App\Buttons\RelationshipButtons\BelongsToRelationshipButton;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\UserVariable;
 use App\Properties\Base\BaseCauseVariableIdProperty;
 use App\UI\HtmlHelper;
@@ -15,13 +15,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class CorrelationCauseUserVariableButton extends BelongsToRelationshipButton {
 	const TOOLTIP = "Click for more details about the predictor variable. ";
 	public $interesting = true;
-	public $foreignKeyName = Correlation::FIELD_CAUSE_USER_VARIABLE_ID;
-	public $qualifiedForeignKeyName = Correlation::TABLE . '.' . Correlation::FIELD_CAUSE_USER_VARIABLE_ID;
+	public $foreignKeyName = UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID;
+	public $qualifiedForeignKeyName = UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID;
 	public $ownerKeyName = UserVariable::FIELD_ID;
 	public $qualifiedOwnerKeyName = UserVariable::TABLE . '.' . UserVariable::FIELD_ID;
-	public $childClass = Correlation::class;
-	public $parentClass = Correlation::class;
-	public $qualifiedParentKeyName = Correlation::TABLE . '.' . Correlation::FIELD_ID;
+	public $childClass = UserVariableRelationship::class;
+	public $parentClass = UserVariableRelationship::class;
+	public $qualifiedParentKeyName = UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_ID;
 	public $relatedClass = UserVariable::class;
 	public $methodName = 'cause_user_variable';
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo';
@@ -34,7 +34,7 @@ class CorrelationCauseUserVariableButton extends BelongsToRelationshipButton {
 	public $tooltip = self::TOOLTIP;
 	/**
 	 * CorrelationCauseUserVariableButton constructor.
-	 * @param Correlation|string $methodOrModel
+	 * @param UserVariableRelationship|string $methodOrModel
 	 * @param BelongsTo|null $relation
 	 */
 	public function __construct($methodOrModel, BelongsTo $relation = null){
@@ -53,7 +53,7 @@ class CorrelationCauseUserVariableButton extends BelongsToRelationshipButton {
 			$this->getTooltip(), $this->getBackgroundColor(), $this->getFontAwesome(), $this->getUrl());
 	}
 	/**
-	 * @return Correlation
+	 * @return UserVariableRelationship
 	 */
 	public function getParent(): ?BaseModel{
 		return parent::getParent();

@@ -7,7 +7,7 @@
 namespace App\Charts\CorrelationCharts;
 use App\Charts\NetworkGraphQMChart;
 use App\Charts\SankeyQMChart;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\HasCorrelationNodeSeries;
 use App\Traits\HasOutcomesAndPredictors;
 use App\Types\QMStr;
@@ -56,7 +56,7 @@ class CorrelationsSankeyQMChart extends SankeyQMChart {
 		}
 	}
 	/**
-	 * @return Collection|Correlation[]
+	 * @return Collection|UserVariableRelationship[]
 	 */
 	protected function getOutcomesOrPredictors(): Collection{
 		$variable = $this->getQMVariable();

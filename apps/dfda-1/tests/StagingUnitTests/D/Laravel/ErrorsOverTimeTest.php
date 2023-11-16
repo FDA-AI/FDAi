@@ -3,7 +3,7 @@
 /** @noinspection SpellCheckingInspection */
 namespace Tests\StagingUnitTests\D\Laravel;
 use App\Exceptions\UnauthorizedException;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Override\GeneratedTestRequest;
 use App\Override\QMFileBag;
 use App\Override\QMHeaderBag;
@@ -16,7 +16,7 @@ class ErrorsOverTimeTest extends LaravelStagingTestCase
 {
     protected $REQUEST_URI = "/arrilot/load-widget?id=2&name=OverTimeCardChartWidget&params=eyJpdiI6Ik9PS0FHOWFuR3lNQ1Z3Y2VnOW9GNHc9PSIsInZhbHVlIjoibEpUTjdwbjV0UUJNMjJpWVU0WHRyZUtiNlIyXC9iUXFvXC9CeFwvYTBkN3pMTEc1dzh1djFLN1owXC9USktkZHR2Q0V3Y1pyaFwvcDkrMGkrS3MwdmVwYmEwZnFiZ0VKSXRiMzVtTWI3SDVYN1dlM2lGYzVOVW5hbHNiZUQwWWhaM0tqN1hWMTlyZThrdmVDRXlmclJVTTlwY3dpZEpUNGF3aG4wcWpTeEFRMkN6WkhWRDFWOTFDVjNDWHVsdjc0czI1UWtHODFLbFwvMzUrd0tPNjFQYktObEVnZ0V5QzRLSzBzS3krWjJBYnFQdElZcFg0SW5DNjl3R05uRjFWcUxLS0FVNytrQWZid1k5SW0ydFNpemt1ZjNcL05rSnlVR3AyVUZXUHJqS2phMzZNcE1MVHpvOFwvbzkzN2l4NmpadmxTZHArNTlJTkp6bWNCSHR6ZmZYdXhTdkdFOVUxY3M4TDZpM0hsMjR4WHdMVzdcL09LWjJ2bmQ1S3N1TE81XC9UWUZldGJxWXhvUm1cL2xUSTU0S2xFMk82UVAzbDNzdHpaUTI2Zlhidzd6emYxcndadHQzXC9ac2YyRW9BVVdXRUQ2T0JvUVViXC9aVVRWK1Rra0p1OHEyVHN0ZzhyS1BUTG1GaXdkSUdBOVBnWjF2ZkdTNFwvMWtrbnYrMWYzN0xRSW5KVTlcL0NCMFRvYlo1VTAxd0Z6ZVJyWGlJUkJqdE1XbkdnS0c3eE9jK2NqQkE3RUI5N0x3NkJDWml2a0xOSmc5XC9hWnBOc2JPM3FrNE5PaW9uM3BoZEQxZ3pIemtaa1p4aGVlTXdhWnZvK3lpSUZVTkV5U0JQek1PeUtJWkx2UU1HM1h4TVZFbjFIUVRKeTNLRWJsak53eTM1aytOVGQxU2xNNk45blo3ZlNNdzRIUUFlR0oza25wZGJvTXNhTlNwNzh3aVNXTkxGS2IwT1lJTlREUytwQ2I2N3ZZTWdwcCtPRXRrV2RpZFwvYTRiSTJ6TXVMSnNJTFBcL3MrOVdBQ0h4MVRZbWlBMDJyRG9JOG85dVBNbDVld0t5ZERcL2Faeit3SE51TUpIZlRDK2hOYVJMNEQyUkk9IiwibWFjIjoiZWFmNjk1NjY2ZjEzMGIxZTEzMGQyNGE4NWNjOThmMDA3MTI4ZWExYjRhMmU2ODk0ZGRiOTM0NzRhOGI3MTFmNSJ9";
     public function testErrorsOverTimeWidgetAsRegularUser(): void{
-        $widget = Correlation::getErrorsOverTimeWidget();
+        $widget = UserVariableRelationship::getErrorsOverTimeWidget();
         $chart = $widget->getHighchart();
         $description = $chart->getSubtitleAttribute();
         $this->assertEquals("Individual Case Studies that have an error", $description);

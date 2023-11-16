@@ -12,7 +12,7 @@
  */
 namespace App\Models\Base;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\OAClient;
 use App\Models\TrackingReminder;
@@ -149,15 +149,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property bool $controllable
  * @property bool $boring
  * @property OAClient $oa_client
- * @property Correlation $best_user_variable_relationship
+ * @property UserVariableRelationship $best_user_variable_relationship
  * @property Unit $default_unit
  * @property Unit $last_unit
  * @property \App\Models\User $user
  * @property VariableCategory $variable_category
  * @property Variable $variable
  * @property WpPost $wp_post
- * @property Collection|Correlation[] $correlations_where_cause_user_variable
- * @property Collection|Correlation[] $correlations_where_effect_user_variable
+ * @property Collection|UserVariableRelationship[] $correlations_where_cause_user_variable
+ * @property Collection|UserVariableRelationship[] $correlations_where_effect_user_variable
  * @property Collection|Measurement[] $measurements
  * @property Collection|TrackingReminderNotification[] $tracking_reminder_notifications
  * @property Collection|TrackingReminder[] $tracking_reminders
@@ -170,7 +170,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read int|null $correlations_where_cause_user_variable_count
  * @property-read int|null $correlations_where_effect_user_variable_count
  * @property mixed $raw
-
  * @property-read int|null $measurements_count
  * @property-read int|null $tracking_reminder_notifications_count
  * @property-read int|null $tracking_reminders_count
@@ -823,11 +822,11 @@ abstract class BaseUserVariable extends BaseModel {
 		],
 		'best_user_variable_relationship' => [
 			'relationshipType' => 'BelongsTo',
-			'qualifiedUserClassName' => Correlation::class,
+			'qualifiedUserClassName' => UserVariableRelationship::class,
 			'foreignKeyColumnName' => 'best_user_variable_relationship_id',
 			'foreignKey' => UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID,
 			'otherKeyColumnName' => 'id',
-			'otherKey' => Correlation::FIELD_ID,
+			'otherKey' => UserVariableRelationship::FIELD_ID,
 			'ownerKeyColumnName' => 'best_user_variable_relationship_id',
 			'ownerKey' => UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID,
 			'methodName' => 'best_user_variable_relationship',
@@ -900,16 +899,16 @@ abstract class BaseUserVariable extends BaseModel {
 		],
 		'correlations_where_cause_user_variable' => [
 			'relationshipType' => 'HasMany',
-			'qualifiedUserClassName' => Correlation::class,
-			'foreignKey' => Correlation::FIELD_CAUSE_USER_VARIABLE_ID,
-			'localKey' => Correlation::FIELD_ID,
+			'qualifiedUserClassName' => UserVariableRelationship::class,
+			'foreignKey' => UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID,
+			'localKey' => UserVariableRelationship::FIELD_ID,
 			'methodName' => 'correlations_where_cause_user_variable',
 		],
 		'correlations_where_effect_user_variable' => [
 			'relationshipType' => 'HasMany',
-			'qualifiedUserClassName' => Correlation::class,
-			'foreignKey' => Correlation::FIELD_EFFECT_USER_VARIABLE_ID,
-			'localKey' => Correlation::FIELD_ID,
+			'qualifiedUserClassName' => UserVariableRelationship::class,
+			'foreignKey' => UserVariableRelationship::FIELD_EFFECT_USER_VARIABLE_ID,
+			'localKey' => UserVariableRelationship::FIELD_ID,
 			'methodName' => 'correlations_where_effect_user_variable',
 		],
 		'measurements' => [
@@ -974,7 +973,7 @@ abstract class BaseUserVariable extends BaseModel {
 			UserVariable::FIELD_CLIENT_ID);
 	}
 	public function best_user_variable_relationship(): BelongsTo{
-		return $this->belongsTo(Correlation::class, UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID, Correlation::FIELD_ID,
+		return $this->belongsTo(UserVariableRelationship::class, UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID, UserVariableRelationship::FIELD_ID,
 			UserVariable::FIELD_BEST_USER_VARIABLE_RELATIONSHIP_ID);
 	}
 	public function default_unit(): BelongsTo{
@@ -1002,10 +1001,10 @@ abstract class BaseUserVariable extends BaseModel {
 			UserVariable::FIELD_WP_POST_ID);
 	}
 	public function correlations_where_cause_user_variable(): HasMany{
-		return $this->hasMany(Correlation::class, Correlation::FIELD_CAUSE_USER_VARIABLE_ID, static::FIELD_ID);
+		return $this->hasMany(UserVariableRelationship::class, UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID, static::FIELD_ID);
 	}
 	public function correlations_where_effect_user_variable(): HasMany{
-		return $this->hasMany(Correlation::class, Correlation::FIELD_EFFECT_USER_VARIABLE_ID, static::FIELD_ID);
+		return $this->hasMany(UserVariableRelationship::class, UserVariableRelationship::FIELD_EFFECT_USER_VARIABLE_ID, static::FIELD_ID);
 	}
 	public function measurements(): HasMany{
 		return $this->hasMany(Measurement::class, Measurement::FIELD_USER_VARIABLE_ID, static::FIELD_ID);

@@ -454,7 +454,7 @@ use Throwable;
  * @property-read int|null $collaborators_count
  * @property-read \Illuminate\Database\Eloquent\Collection|Connection[] $connections
  * @property-read int|null $connections_count
- * @property-read \Illuminate\Database\Eloquent\Collection|Correlation[] $correlations
+ * @property-read \Illuminate\Database\Eloquent\Collection|UserVariableRelationship[] $correlations
  * @property-read int|null $correlations_count
  * @property-read \Illuminate\Database\Eloquent\Collection|Credential[] $credentials
  * @property-read int|null $credentials_count
@@ -1898,7 +1898,7 @@ class User extends BaseWpUser
 		Measurement::whereUserId($id)->forceDelete();
 		TrackingReminderNotification::whereUserId($id)->forceDelete();
 		TrackingReminder::whereUserId($id)->forceDelete();
-		Correlation::whereUserId($id)->forceDelete();
+		UserVariableRelationship::whereUserId($id)->forceDelete();
 		UserVariableClient::whereUserId($id)->forceDelete();
 		WpPost::wherePostAuthor($id)->forceDelete();
 		UserVariable::whereUserId($id)->forceDelete();
@@ -3441,7 +3441,7 @@ class User extends BaseWpUser
 		return $user;
 	}
 	/**
-	 * @return \App\Models\Correlation[]|\Illuminate\Database\Eloquent\Collection
+	 * @return \App\Models\UserVariableRelationship[]|\Illuminate\Database\Eloquent\Collection
 	 */
 	public function getCorrelations(): Collection {
 		$this->loadMissing('correlations');
@@ -3689,7 +3689,7 @@ class User extends BaseWpUser
         }
         $userVariableRelationshipIds = array_unique($userVariableRelationshipIds);
         $aggregateCorrelationIds = array_unique($aggregateCorrelationIds);
-        $correlations = ($userVariableRelationshipIds) ? Correlation::getWithVariables($userVariableRelationshipIds) : [];
+        $correlations = ($userVariableRelationshipIds) ? UserVariableRelationship::getWithVariables($userVariableRelationshipIds) : [];
         $aggregateCorrelations = ($aggregateCorrelationIds) ?
             GlobalVariableRelationship::getWithVariables($aggregateCorrelationIds) : [];
         foreach($notifications as $n){

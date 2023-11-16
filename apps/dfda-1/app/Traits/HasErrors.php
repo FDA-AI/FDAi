@@ -6,7 +6,7 @@
 
 namespace App\Traits;
 use App\Buttons\Analyzable\DataLabFailedAnalysesButton;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Slim\Middleware\QMAuth;
 use App\Slim\View\Request\QMRequest;
 use App\Types\QMStr;
@@ -122,7 +122,7 @@ trait HasErrors {
 	 * @return QMAnalyzableTrait
 	 */
 	public function setUserErrorMessage(?string $userErrorMessage): self{
-		$this->setAttribute(Correlation::FIELD_USER_ERROR_MESSAGE, $userErrorMessage);
+		$this->setAttribute(UserVariableRelationship::FIELD_USER_ERROR_MESSAGE, $userErrorMessage);
 		return $this;
 	}
 	/**
@@ -190,7 +190,7 @@ trait HasErrors {
 		if($internalErrorMessage){
 			$this->logInfo($internalErrorMessage);
 		}
-		$this->setAttribute(Correlation::FIELD_INTERNAL_ERROR_MESSAGE, $internalErrorMessage);
+		$this->setAttribute(UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE, $internalErrorMessage);
 		return $this;
 	}
 	protected function truncateInternalErrorMessage(): void{
@@ -199,7 +199,7 @@ trait HasErrors {
 			if(!is_string($m)){
 				le("internalErrorMessage should be a string but is " . gettype($m), $m);
 			}
-			$max = $this->l()->getAttributeMaxLength(Correlation::FIELD_INTERNAL_ERROR_MESSAGE);
+			$max = $this->l()->getAttributeMaxLength(UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE);
 			$this->setInternalErrorMessage(QMStr::truncate($m, $max - 1));
 		}
 	}

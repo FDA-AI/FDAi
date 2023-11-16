@@ -7,7 +7,7 @@
 namespace App\Properties\Base;
 use App\Traits\PropertyTraits\IsInt;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\UI\ImageUrls;
 use App\UI\FontAwesome;
 use App\Properties\BaseProperty;
@@ -53,7 +53,7 @@ class BaseCauseNumberOfRawMeasurementsProperty extends BaseProperty{
     }
     /**
      * @param int $id
-     * @return Correlation
+     * @return UserVariableRelationship
      */
     public static function findParent($id): ?BaseModel{
         return parent::findParent($id);

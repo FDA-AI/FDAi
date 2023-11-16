@@ -28,7 +28,7 @@ use App\Logging\QMLog;
 use App\Logging\SolutionButton;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\User;
 use App\Models\UserVariable;
 use App\Models\Variable;
@@ -646,7 +646,7 @@ trait QMAnalyzableTrait {
 		if(AppMode::isDebug()){$total = $qb->countAndLog();} else {$total = $qb->count();}
 		while($one = $qb->limit(1)->pluck('id')->first()){
 			ConsoleLog::info($qb->count() . " " . $t . " where $reason");
-			/** @var Variable|UserVariable|Correlation|GlobalVariableRelationship|User $l */
+			/** @var Variable|UserVariable|UserVariableRelationship|GlobalVariableRelationship|User $l */
 			$l = $lClass::findInMemoryOrDB($one);
 			$started = $l->analysis_started_at;
 			$newest = $l->newest_data_at;
@@ -717,10 +717,10 @@ trait QMAnalyzableTrait {
             $ignitionLink = $e->getMessage();
         }
 		$this->updateDbRow([
-			Correlation::FIELD_USER_ERROR_MESSAGE => $userError,
-			Correlation::FIELD_INTERNAL_ERROR_MESSAGE => $ignitionLink,
-			Correlation::FIELD_STATUS => CorrelationStatusProperty::STATUS_ERROR,
-			Correlation::UPDATED_AT => now_at(),
+			UserVariableRelationship::FIELD_USER_ERROR_MESSAGE => $userError,
+			UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE => $ignitionLink,
+			UserVariableRelationship::FIELD_STATUS => CorrelationStatusProperty::STATUS_ERROR,
+			UserVariableRelationship::UPDATED_AT => now_at(),
 		]);
 	}
 
@@ -971,7 +971,7 @@ trait QMAnalyzableTrait {
 	 * @param string $status
 	 */
 	public function setStatus(string $status): void{
-		/** @var Correlation $l */
+		/** @var UserVariableRelationship $l */
 		$l = $this->l();
 		$l->status = $this->status = $status;
 		$this->logInfo("Setting status to $status");
@@ -1022,7 +1022,7 @@ trait QMAnalyzableTrait {
 	protected static function getRequiredAnalysisFields():array{return [];}
 	protected function requiredAnalysisFieldIsNull(bool $exception): ?string{
 		$required = static::getRequiredAnalysisFields();
-		$required[] = Correlation::FIELD_ANALYSIS_STARTED_AT;
+		$required[] = UserVariableRelationship::FIELD_ANALYSIS_STARTED_AT;
 		foreach($required as $field){
 			$value = $this->getAttribute($field);
 			if($value === null){
@@ -1111,7 +1111,7 @@ trait QMAnalyzableTrait {
 	 * @param string $reason
 	 */
 	public function setReasonForAnalysis(string $reason){
-		/** @var Correlation $l */
+		/** @var UserVariableRelationship $l */
 		$l = $this->l();
 		$l->reason_for_analysis = $this->reasonForAnalysis = QMStr::truncate($reason, 254);
 	}

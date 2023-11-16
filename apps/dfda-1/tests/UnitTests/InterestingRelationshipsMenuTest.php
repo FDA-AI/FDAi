@@ -4,7 +4,7 @@ use App\Buttons\RelationshipButtons\Measurement\MeasurementConnectorButton;
 use App\Buttons\RelationshipButtons\Measurement\MeasurementUnitButton;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Properties\User\UserIdProperty;
 use App\Storage\DB\TestDB;
@@ -15,8 +15,8 @@ class InterestingRelationshipsMenuTest extends UnitTestCase
     public const DISABLED_UNTIL = "2023-04-01";
     public function testCorrelationRelationshipsMenu(){
         TestDB::loadCompletedAnalysesFixtures();
-        /** @var Correlation $c */
-        $c = Correlation::firstOrFakeSave();
+        /** @var UserVariableRelationship $c */
+        $c = UserVariableRelationship::firstOrFakeSave();
         $c->save();
         $this->assertNotNull($c->getCauseUserVariable());
         $this->assertNotNull($c->getEffectUserVariable());

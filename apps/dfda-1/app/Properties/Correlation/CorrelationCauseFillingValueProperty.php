@@ -5,15 +5,15 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\VariableValueTraits\CauseDailyVariableValueTrait;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseCauseFillingValueProperty;
 class CorrelationCauseFillingValueProperty extends BaseCauseFillingValueProperty
 {
     use CorrelationProperty, CauseDailyVariableValueTrait;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     public function getExample(): ?float{
         $c = $this->getCorrelation();
         $v = $c->getCauseVariable();

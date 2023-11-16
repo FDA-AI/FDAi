@@ -6,7 +6,7 @@
 
 namespace App\Astral\Lenses;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Astral\Metrics\AnalysisProgressPartition;
 use App\Astral\BaseAstralAstralResource;
 use App\Traits\AnalyzableTrait;
@@ -23,8 +23,8 @@ class FailedAnalysesLens extends QMLens {
 	 * @noinspection PhpMissingReturnTypeInspection
 	 */
 	public static function query(LensRequest $request, $query){
-		return $request->withOrdering($request->withFilters($query->whereNotNull(Correlation::FIELD_INTERNAL_ERROR_MESSAGE)
-			->orderBy(Correlation::FIELD_ANALYSIS_STARTED_AT, BaseModel::ORDER_DIRECTION_DESC)));
+		return $request->withOrdering($request->withFilters($query->whereNotNull(UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE)
+			->orderBy(UserVariableRelationship::FIELD_ANALYSIS_STARTED_AT, BaseModel::ORDER_DIRECTION_DESC)));
 	}
 	/**
 	 * Get the cards available on the lens.

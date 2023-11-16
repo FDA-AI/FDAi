@@ -7,7 +7,7 @@
 namespace Tests\SlimTests\Controllers;
 use App\Exceptions\InvalidTimestampException;
 use App\Files\TestArtifacts\TestQueryLogFile;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\TrackingReminder;
 use App\Models\TrackingReminderNotification;
 use App\Models\UserVariable;
@@ -56,7 +56,7 @@ class TrackingRemindersTest extends \Tests\SlimTests\SlimTestCase {
 		parent::setUp(); // parent::setUp come first
 		TestDB::resetUserTables();
 		$this->deleteMeasurementsAndReminders();
-		Correlation::deleteAll();
+		UserVariableRelationship::deleteAll();
 		TestQueryLogFile::flushTestQueryLog();
 	}
 	public function testChangeValenceToNeutral(){

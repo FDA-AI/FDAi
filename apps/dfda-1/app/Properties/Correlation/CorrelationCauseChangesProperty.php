@@ -7,7 +7,7 @@
 namespace App\Properties\Correlation;
 use App\Exceptions\InsufficientVarianceException;
 use App\Exceptions\NotEnoughDataException;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BaseCauseChangesProperty;
 use App\Traits\PropertyTraits\IsCalculated;
@@ -17,8 +17,8 @@ class CorrelationCauseChangesProperty extends BaseCauseChangesProperty
 {
     use CorrelationProperty;
     use IsCalculated;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     /**
      * @param QMUserVariableRelationship $model
      * @return int

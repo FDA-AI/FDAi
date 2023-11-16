@@ -6,17 +6,17 @@
 
 namespace App\Buttons\RelationshipButtons\Correlation;
 use App\Buttons\RelationshipButtons\BelongsToRelationshipButton;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\VariableCategory;
 class CorrelationEffectVariableCategoryButton extends BelongsToRelationshipButton {
 	public $interesting = true;
-	public $foreignKeyName = Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID;
-	public $qualifiedForeignKeyName = Correlation::TABLE . '.' . Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID;
+	public $foreignKeyName = UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID;
+	public $qualifiedForeignKeyName = UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID;
 	public $ownerKeyName = VariableCategory::FIELD_ID;
 	public $qualifiedOwnerKeyName = VariableCategory::TABLE . '.' . VariableCategory::FIELD_ID;
-	public $childClass = Correlation::class;
-	public $parentClass = Correlation::class;
-	public $qualifiedParentKeyName = Correlation::TABLE . '.' . Correlation::FIELD_ID;
+	public $childClass = UserVariableRelationship::class;
+	public $parentClass = UserVariableRelationship::class;
+	public $qualifiedParentKeyName = UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_ID;
 	public $relatedClass = VariableCategory::class;
 	public $methodName = 'effect_variable_category';
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo';

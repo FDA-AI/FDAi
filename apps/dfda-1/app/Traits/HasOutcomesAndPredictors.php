@@ -15,7 +15,7 @@ use App\Correlations\QMCorrelation;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\NotEnoughMeasurementsForCorrelationException;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Variable;
 use App\Models\VariableCategory;
 use App\Tables\OutcomesTable;
@@ -350,7 +350,7 @@ trait HasOutcomesAndPredictors {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return GlobalVariableRelationship[]|Correlation[]|Collection
+	 * @return GlobalVariableRelationship[]|UserVariableRelationship[]|Collection
 	 */
 	public function getOutcomesOrPredictors(int $limit = null, string $variableCategoryName = null): ?Collection{
 		if($this->isOutcome()){
@@ -363,7 +363,7 @@ trait HasOutcomesAndPredictors {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return GlobalVariableRelationship[]|Correlation[]|Collection
+	 * @return GlobalVariableRelationship[]|UserVariableRelationship[]|Collection
 	 */
 	public function getPublicOutcomesOrPredictors(int $limit = null, string $variableCategoryName = null): ?Collection{
 		if($variableCategoryName){
@@ -374,14 +374,14 @@ trait HasOutcomesAndPredictors {
 		if($this->isOutcome()){
 			$correlations = $this->getPublicPredictors();
 			if($variableCategory){
-				$correlations = $correlations->filter(function(Correlation $correlation) use ($variableCategory){
+				$correlations = $correlations->filter(function(UserVariableRelationship $correlation) use ($variableCategory){
 					return $correlation->cause_variable_category_id === $variableCategory->getId();
 				});
 			}
 		} else{
 			$correlations = $this->getPublicOutcomes();
 			if($variableCategory){
-				$correlations = $correlations->filter(function(Correlation $correlation) use ($variableCategory){
+				$correlations = $correlations->filter(function(UserVariableRelationship $correlation) use ($variableCategory){
 					return $correlation->effect_variable_category_id === $variableCategory->getId();
 				});
 			}
@@ -391,7 +391,7 @@ trait HasOutcomesAndPredictors {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return Correlation[]|Collection
+	 * @return UserVariableRelationship[]|Collection
 	 */
 	public function getPredictors(int $limit = null, string $variableCategoryName = null): Collection{
 		$noLimitKey = __FUNCTION__ . "-category-$variableCategoryName-limit-";
@@ -406,7 +406,7 @@ trait HasOutcomesAndPredictors {
 		$qb = $this->predictors()->take($limit);
 		if($variableCategoryName){
 			$cat = QMVariableCategory::find($variableCategoryName);
-			$qb->where(Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID, $cat->getId());
+			$qb->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID, $cat->getId());
 		}
 		$correlations = $qb->get();
 		return $this->setInModelMemory($key, $correlations);
@@ -414,7 +414,7 @@ trait HasOutcomesAndPredictors {
 	/**
 	 * @param int|null $limit
 	 * @param string|null $variableCategoryName
-	 * @return Correlation[]|Collection
+	 * @return UserVariableRelationship[]|Collection
 	 */
 	public function getOutcomes(int $limit = null, string $variableCategoryName = null): Collection{
 		$noLimitKey = __FUNCTION__ . "-category-$variableCategoryName-limit-";
@@ -429,7 +429,7 @@ trait HasOutcomesAndPredictors {
 		$qb = $this->outcomes()->take($limit);
 		if($variableCategoryName){
 			$cat = QMVariableCategory::find($variableCategoryName);
-			$qb->where(Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID, $cat->getId());
+			$qb->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID, $cat->getId());
 		}
 		$correlations = $qb->get();
 		return $this->setInModelMemory($key, $correlations);

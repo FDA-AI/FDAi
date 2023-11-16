@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Base;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Astral\VariableBaseAstralResource;
 use App\Properties\Study\StudyIdProperty;
 use App\UI\ImageUrls;
@@ -90,7 +90,7 @@ class BaseEffectVariableIdProperty extends BaseVariableIdProperty{
 	 */
 	public function getIndexField($resolveCallback = null, string $name = null): Field{
         return $this->getDetailLinkTextField($name, function($value, $resource, $attribute){
-            /** @var Correlation $resource */
+            /** @var UserVariableRelationship $resource */
             return $resource->getEffectVariableName();
         });
     }

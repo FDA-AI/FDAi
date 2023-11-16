@@ -13,7 +13,7 @@
 namespace App\Models\Base;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\CorrelationUsefulnessVote;
 use App\Models\OAClient;
 use App\Models\Variable;
@@ -37,12 +37,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property GlobalVariableRelationship $global_variable_relationship
  * @property Variable $cause_variable
  * @property OAClient $oa_client
- * @property Correlation $correlation
+ * @property UserVariableRelationship $correlation
  * @property Variable $effect_variable
  * @property \App\Models\User $user
  * @package App\Models\Base
  * @property mixed $raw
-
  * @method static Builder|BaseModel applyRequestParams($request)
  * @method static Builder|BaseModel exclude($columns)
  * @method static Builder|BaseModel excludeLargeColumns()
@@ -163,11 +162,11 @@ abstract class BaseCorrelationUsefulnessVote extends BaseModel {
 		],
 		'correlation' => [
 			'relationshipType' => 'BelongsTo',
-			'qualifiedUserClassName' => Correlation::class,
+			'qualifiedUserClassName' => UserVariableRelationship::class,
 			'foreignKeyColumnName' => 'correlation_id',
 			'foreignKey' => CorrelationUsefulnessVote::FIELD_CORRELATION_ID,
 			'otherKeyColumnName' => 'id',
-			'otherKey' => Correlation::FIELD_ID,
+			'otherKey' => UserVariableRelationship::FIELD_ID,
 			'ownerKeyColumnName' => 'correlation_id',
 			'ownerKey' => CorrelationUsefulnessVote::FIELD_CORRELATION_ID,
 			'methodName' => 'correlation',
@@ -208,8 +207,8 @@ abstract class BaseCorrelationUsefulnessVote extends BaseModel {
 			CorrelationUsefulnessVote::FIELD_CLIENT_ID);
 	}
 	public function correlation(): BelongsTo{
-		return $this->belongsTo(Correlation::class, CorrelationUsefulnessVote::FIELD_CORRELATION_ID,
-			Correlation::FIELD_ID, CorrelationUsefulnessVote::FIELD_CORRELATION_ID);
+		return $this->belongsTo(UserVariableRelationship::class, CorrelationUsefulnessVote::FIELD_CORRELATION_ID,
+			UserVariableRelationship::FIELD_ID, CorrelationUsefulnessVote::FIELD_CORRELATION_ID);
 	}
 	public function effect_variable(): BelongsTo{
 		return $this->belongsTo(Variable::class, CorrelationUsefulnessVote::FIELD_EFFECT_VARIABLE_ID,

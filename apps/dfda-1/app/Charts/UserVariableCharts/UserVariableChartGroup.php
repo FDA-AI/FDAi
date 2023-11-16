@@ -13,7 +13,7 @@ use App\Charts\MonthlyColumnChart;
 use App\Charts\QMChart;
 use App\Charts\WeekdayColumnChart;
 use App\Charts\YearlyColumnChart;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Variables\QMUserVariable;
 use App\Variables\QMVariable;
 /** Class UserVariableChartGroup
@@ -43,9 +43,9 @@ class UserVariableChartGroup extends ChartGroup {
 		$this->weekdayColumnChart = new WeekdayColumnChart($variable);
 		$this->monthlyColumnChart = new MonthlyColumnChart($variable);
 		$this->yearlyColumnChart = new YearlyColumnChart($variable);
-		$this->correlationsSankeyChart = new CorrelationsSankeyQMChart($variable, null, Correlation::MAX_LIMIT);
+		$this->correlationsSankeyChart = new CorrelationsSankeyQMChart($variable, null, UserVariableRelationship::MAX_LIMIT);
 		$this->correlationsNetworkGraphChart =
-			new CorrelationsNetworkGraphQMChart($variable, null, Correlation::MAX_LIMIT);
+			new CorrelationsNetworkGraphQMChart($variable, null, UserVariableRelationship::MAX_LIMIT);
 		$this->lineChartWithSmoothing = new MeasurementsLineChart($variable);
 		parent::__construct($variable);
 	}

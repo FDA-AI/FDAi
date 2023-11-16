@@ -9,7 +9,7 @@ use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\Correlation\CorrelationPredictivePearsonCorrelationCoefficientProperty;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BasePredictivePearsonCorrelationCoefficientProperty;

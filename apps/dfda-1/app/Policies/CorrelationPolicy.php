@@ -18,7 +18,7 @@ class CorrelationPolicy extends BasePolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Correlation  $model
+     * @param  \App\Models\UserVariableRelationship  $model
      * @return mixed
      */
     public function view(User $user, $model){
@@ -37,7 +37,7 @@ class CorrelationPolicy extends BasePolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Correlation  $model
+     * @param  \App\Models\UserVariableRelationship  $model
      * @return mixed
      */
     public function update(User $user, $model){
@@ -47,7 +47,7 @@ class CorrelationPolicy extends BasePolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Correlation  $model
+     * @param  \App\Models\UserVariableRelationship  $model
      * @return mixed
      */
     public function delete(User $user, $model){
@@ -57,7 +57,7 @@ class CorrelationPolicy extends BasePolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Correlation  $model
+     * @param  \App\Models\UserVariableRelationship  $model
      * @return mixed
      */
     public function restore(User $user, $model){
@@ -67,7 +67,7 @@ class CorrelationPolicy extends BasePolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Correlation  $model
+     * @param  \App\Models\UserVariableRelationship  $model
      * @return mixed
      */
     public function forceDelete(User $user, $model){

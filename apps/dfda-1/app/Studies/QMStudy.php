@@ -38,7 +38,7 @@ use App\Mail\EmailsDisabledException;
 use App\Mail\StudyJoinEmail;
 use App\Mail\TooManyEmailsException;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Study;
 use App\Models\User;
 use App\Models\WpPost;
@@ -1971,8 +1971,8 @@ categories:'.
     public function hasIds(): bool{
         return isset($this->causeVariableId);
     }
-    public function findUserVariableRelationship(int $userId): ?Correlation {
-        return Correlation::findByIds($userId, $this->getCauseVariableId(),
+    public function findUserVariableRelationship(int $userId): ?UserVariableRelationship {
+        return UserVariableRelationship::findByIds($userId, $this->getCauseVariableId(),
             $this->getEffectVariableId());
     }
     public function findQMUserVariableRelationship(int $userId): ?QMUserVariableRelationship {

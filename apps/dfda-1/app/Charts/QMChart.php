@@ -19,7 +19,7 @@ use App\Files\FileHelper;
 use App\Files\Spreadsheet\QMSpreadsheet;
 use App\Logging\QMLog;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\User\UserIdProperty;
 use App\Repos\ResponsesRepo;
 use App\Slim\Model\StaticModel;
@@ -615,7 +615,7 @@ abstract class QMChart extends StaticModel {
 		return $this->getSourceObject()->getIsPublic();
 	}
 	/**
-	 * @return QMVariable|Correlation|GlobalVariableRelationship|QMUserVariable|QMCommonVariable
+	 * @return QMVariable|UserVariableRelationship|GlobalVariableRelationship|QMUserVariable|QMCommonVariable
 	 */
 	public function getSourceObject(){
 		if(!$this->sourceObject){

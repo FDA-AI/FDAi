@@ -14,7 +14,7 @@ class StudySharing {
     public $sharingTitle;
     private $hasCauseAndEffect;
     /**
-     * @param HasCauseAndEffect|\App\Models\Correlation $hasCauseAndEffect
+     * @param HasCauseAndEffect|\App\Models\UserVariableRelationship $hasCauseAndEffect
      */
     public function __construct($hasCauseAndEffect){
         $this->hasCauseAndEffect = $hasCauseAndEffect;
@@ -32,7 +32,7 @@ class StudySharing {
 	        $this->sharingTitle, $this->sharingDescription, $includeText);
     }
     /**
-     * @return \App\Models\Correlation|HasCauseAndEffect
+     * @return \App\Models\UserVariableRelationship|HasCauseAndEffect
      */
     public function getHasCauseAndEffect(){
         return $this->hasCauseAndEffect;

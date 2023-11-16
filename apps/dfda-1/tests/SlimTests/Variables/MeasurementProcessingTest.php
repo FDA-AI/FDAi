@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpDocMissingThrowsInspection */
 /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\SlimTests\Variables;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\UserVariable;
 use App\Types\TimeHelper;
 use App\Slim\Model\Measurement\QMMeasurement;
@@ -19,7 +19,7 @@ class MeasurementProcessingTest extends \Tests\SlimTests\SlimTestCase{
     public const BASELINE_TIMESTAMP = 1348072640;
 	protected function setUp(): void{
 		parent::setUp();
-		Correlation::deleteAll();
+		UserVariableRelationship::deleteAll();
 	}
 	/**
      * @param $timestamp

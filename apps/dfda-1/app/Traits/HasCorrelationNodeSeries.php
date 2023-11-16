@@ -11,7 +11,7 @@ use App\Charts\QMHighcharts\Options\BaseTooltip;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Variables\QMCommonVariable;
 use Google\Collection;
 trait HasCorrelationNodeSeries {
@@ -22,7 +22,7 @@ trait HasCorrelationNodeSeries {
 	abstract public function getSubtitleAttribute(): string;
 	abstract protected function getTooltip(): BaseTooltip;
 	/**
-	 * @return GlobalVariableRelationship[]|Correlation[]|Collection
+	 * @return GlobalVariableRelationship[]|UserVariableRelationship[]|Collection
 	 */
 	public function getOutcomesOrPredictors(){
 		if($c = $this->correlations){
@@ -37,7 +37,7 @@ trait HasCorrelationNodeSeries {
 		return $this->correlations = $correlations;
 	}
 	/**
-	 * @param GlobalVariableRelationship[]|Correlation[]|Collection $correlations
+	 * @param GlobalVariableRelationship[]|UserVariableRelationship[]|Collection $correlations
 	 */
 	public function setCorrelations($correlations): void{
 		$this->correlations = $correlations;

@@ -76,7 +76,7 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property-read int|null $connections_count
  * @property-read Collection|Connector[] $connectors
  * @property-read int|null $connectors_count
- * @property-read Collection|Correlation[] $correlations
+ * @property-read Collection|UserVariableRelationship[] $correlations
  * @property-read int|null $correlations_count
  * @property-read Collection|Credential[] $credentials
  * @property-read int|null $credentials_count

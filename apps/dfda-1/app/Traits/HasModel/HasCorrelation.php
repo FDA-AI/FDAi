@@ -9,7 +9,7 @@ use App\Buttons\QMButton;
 use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\InvalidVariableValueException;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\BaseProperty;
 use App\Slim\Model\DBModel;
 trait HasCorrelation {
@@ -22,13 +22,13 @@ trait HasCorrelation {
 		if($correlation){
 			return $correlation->getButton();
 		}
-		return Correlation::generateDataLabShowButton($this->getCorrelationId());
+		return UserVariableRelationship::generateDataLabShowButton($this->getCorrelationId());
 	}
 	/**
-	 * @return Correlation
+	 * @return UserVariableRelationship
 	 */
-	public function getCorrelation(): Correlation{
-		if($this instanceof BaseProperty && $this->parentModel instanceof Correlation){
+	public function getCorrelation(): UserVariableRelationship{
+		if($this instanceof BaseProperty && $this->parentModel instanceof UserVariableRelationship){
 			return $this->parentModel;
 		}
 		/** @var BaseModel|DBModel $this */
@@ -36,7 +36,7 @@ trait HasCorrelation {
 			return $l;
 		}
 		$id = $this->getCorrelationId();
-		$correlation = Correlation::findInMemoryOrDB($id);
+		$correlation = UserVariableRelationship::findInMemoryOrDB($id);
 		if(!$correlation){
 			$dbm = QMUserVariableRelationship::getExistingUserVariableRelationshipByVariableIds($this->getUserId(),
 				$this->getCauseVariableId(), $this->getEffectVariableId());

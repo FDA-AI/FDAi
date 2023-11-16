@@ -4,7 +4,7 @@
 namespace Tests\StagingUnitTests\C\Studies;
 use App\Computers\ThisComputer;
 use App\Logging\QMLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Studies\StudyListResponseBody;
 use Tests\SlimStagingTestCase;
 class GetStudiesAnonymouslyTest extends SlimStagingTestCase
@@ -22,8 +22,8 @@ class GetStudiesAnonymouslyTest extends SlimStagingTestCase
 		    QMLog::info($study->title);
             $stats = $study->statistics;
             $titles[] = $study->title;
-            $numberOfUserVariableRelationships = Correlation::whereCauseVariableId($study->causeVariableId)
-                ->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $study->effectVariableId)
+            $numberOfUserVariableRelationships = UserVariableRelationship::whereCauseVariableId($study->causeVariableId)
+                ->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $study->effectVariableId)
                 ->count();
             $this->assertGreaterThan(1, $numberOfUserVariableRelationships,
                 $study->title." only has $numberOfUserVariableRelationships user variable relationships");

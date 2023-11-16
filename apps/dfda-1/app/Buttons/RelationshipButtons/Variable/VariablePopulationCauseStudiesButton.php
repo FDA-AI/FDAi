@@ -7,7 +7,7 @@
 namespace App\Buttons\RelationshipButtons\Variable;
 use App\Buttons\RelationshipButtons\HasManyRelationshipButton;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Variable;
 class VariablePopulationCauseStudiesButton extends HasManyRelationshipButton {
 	public $interesting = false;
@@ -17,7 +17,7 @@ class VariablePopulationCauseStudiesButton extends HasManyRelationshipButton {
 	public $methodName = 'population_cause_studies';
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\HasMany';
 	public $color = GlobalVariableRelationship::COLOR;
-	public $fontAwesome = Correlation::FONT_AWESOME_CAUSES;
+	public $fontAwesome = UserVariableRelationship::FONT_AWESOME_CAUSES;
 	public $id = 'population-cause-studies-button';
 	public $image = GlobalVariableRelationship::DEFAULT_IMAGE;
 	public $text = 'Factors';

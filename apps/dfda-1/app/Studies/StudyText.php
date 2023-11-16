@@ -9,7 +9,7 @@ use App\Correlations\QMCorrelation;
 use App\DataSources\QMDataSource;
 use App\Exceptions\InvalidStringException;
 use App\Exceptions\NotEnoughDataException;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\Base\BaseUserStudyTextProperty;
 use App\Slim\Model\QMUnit;
 use App\Slim\Model\StaticModel;
@@ -58,7 +58,7 @@ class StudyText extends StaticModel {
     public $tagLine;
     /**
      * Study constructor.
-     * @param QMCorrelation|Correlation|\App\Models\GlobalVariableRelationship|null $hasCorrelationCoefficient
+     * @param QMCorrelation|UserVariableRelationship|\App\Models\GlobalVariableRelationship|null $hasCorrelationCoefficient
      * @param HasCauseAndEffect|QMStudy null $hasCauseAndEffect
      * @param null $cached
      */

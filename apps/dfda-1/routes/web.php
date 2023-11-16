@@ -63,7 +63,7 @@ use App\Mail\PhysicianInvitationEmail;
 use App\Mail\PostListMail;
 use App\Menus\SearchMenu;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\User;
 use App\Models\UserVariable;
 use App\Reports\AnalyticalReport;
@@ -174,7 +174,7 @@ Route::prefix('users')->middleware(QMAuthenticate::NAME)->group(function () {
         //->where('variableNameOrId', '.*'); // '.*' allows forward slashes https://laravel.com/docs/5.8/routing#redirect-routes
     Route::get('{userNameOrId}/studies/cause/{causeNameOrId}/effect/{effectNameOrId}',
         function($userNameOrId, $causeNameOrId, $effectNameOrId){
-            return Correlation::findByVariableNamesOrIds($userNameOrId,
+            return UserVariableRelationship::findByVariableNamesOrIds($userNameOrId,
                 $causeNameOrId, $effectNameOrId)
                 ->getShowPage();
         })->where('causeNameOrId', '.*')

@@ -7,7 +7,7 @@
 namespace App\Properties\Correlation;
 use App\Correlations\QMUserVariableRelationship;
 use App\Logging\QMLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Variable;
 use App\Properties\Base\BaseCauseVariableCategoryIdProperty;
 use App\Traits\PropertyTraits\CorrelationProperty;
@@ -15,8 +15,8 @@ use App\Variables\QMVariableCategory;
 class CorrelationCauseVariableCategoryIdProperty extends BaseCauseVariableCategoryIdProperty
 {
     use CorrelationProperty;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     /**
      * @return array
      */
@@ -24,14 +24,14 @@ class CorrelationCauseVariableCategoryIdProperty extends BaseCauseVariableCatego
     {
         $rows = QMUserVariableRelationship::readonly()
             ->select([
-                Correlation::TABLE . '.' . Correlation::FIELD_USER_ID,
-                Correlation::TABLE . '.' . Correlation::FIELD_CAUSE_VARIABLE_ID,
-                Correlation::TABLE . '.' . Correlation::FIELD_EFFECT_VARIABLE_ID,
-                Correlation::TABLE . '.' . Correlation::FIELD_QM_SCORE,
+                UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_USER_ID,
+                UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID,
+                UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID,
+                UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_QM_SCORE,
             ])
             ->join(Variable::TABLE . ' as cv',
                 'cv.' . Variable::FIELD_ID, '=',
-                Correlation::TABLE . '.' . Correlation::FIELD_CAUSE_VARIABLE_ID)
+                UserVariableRelationship::TABLE . '.' . UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID)
             ->whereIn('cv.' . Variable::FIELD_VARIABLE_CATEGORY_ID, QMVariableCategory::getBoringVariableCategoryIds())
             //->limit(10)
             ->getDBModels();

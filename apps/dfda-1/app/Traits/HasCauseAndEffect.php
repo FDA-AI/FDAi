@@ -25,7 +25,7 @@ use App\Logging\QMLog;
 use App\Menus\DynamicMenu;
 use App\Menus\QMMenu;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Study;
 use App\Models\Variable;
 use App\Models\VariableCategory;
@@ -825,13 +825,13 @@ trait HasCauseAndEffect {
 		return $this->getEffectVariable()->getDisplayNameWithCategoryOrUnitSuffix();
 	}
 	/**
-	 * @return QMCorrelation|GlobalVariableRelationship|\App\Models\Correlation|null
+	 * @return QMCorrelation|GlobalVariableRelationship|\App\Models\UserVariableRelationship|null
 	 */
 	public function getHasCorrelationCoefficientIfSet(){
 		if($this instanceof QMCorrelation){
 			return $this;
 		}
-		if($this instanceof Correlation || $this instanceof GlobalVariableRelationship){
+		if($this instanceof UserVariableRelationship || $this instanceof GlobalVariableRelationship){
 			return $this;
 		}
 		if(property_exists($this, 'statistics')){

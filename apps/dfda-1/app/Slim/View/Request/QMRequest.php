@@ -11,7 +11,7 @@ use App\Files\FileHelper;
 use App\Http\Urls\IntendedUrl;
 use App\Logging\QMLog;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\User;
 use App\Models\UserVariable;
 use App\Parameters\StateParameter;
@@ -1208,7 +1208,7 @@ class QMRequest extends \Illuminate\Http\Request {
 		return $requested;
 	}
 	public static function errorFilter(): bool{
-		$internal = QMRequest::getParam(Correlation::FIELD_INTERNAL_ERROR_MESSAGE);
+		$internal = QMRequest::getParam(UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE);
 		if($internal && stripos($internal, "not") === 0){
 			return true;
 		}

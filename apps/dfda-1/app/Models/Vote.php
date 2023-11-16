@@ -128,11 +128,10 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @method static Builder|BaseModel excludeLargeColumns()
  * @property-read Variable $cause_variable
  * @property-read Variable $effect_variable
-
  * @property int|null $correlation_id
  * @property int|null $global_variable_relationship_id
  * @property-read GlobalVariableRelationship|null $global_variable_relationship
- * @property-read Correlation|null $correlation
+ * @property-read UserVariableRelationship|null $correlation
  * @property mixed $raw
  * @method static Builder|Vote whereGlobalVariableRelationshipId($value)
  * @method static Builder|Vote whereCorrelationId($value)
@@ -423,8 +422,8 @@ class Vote extends BaseVote {
 		return QMUserVariableRelationship::writable()->where('user_id', QMAuth::getQMUser()->id)
 			->where(self::FIELD_CAUSE_VARIABLE_ID, BaseCauseVariableIdProperty::fromRequest(true))
 			->where(self::FIELD_EFFECT_VARIABLE_ID, BaseEffectVariableIdProperty::fromRequest(true))->update([
-				Correlation::FIELD_QM_SCORE => 0,
-				Correlation::FIELD_UPDATED_AT => now_at(),
+				UserVariableRelationship::FIELD_QM_SCORE => 0,
+				UserVariableRelationship::FIELD_UPDATED_AT => now_at(),
 			]);
 		// DON'T DO THIS BECAUSE WE DON'T WANT TO DELETE THIRD-PARTY studies
 		//        AggregatedCorrelation::writable()
@@ -539,7 +538,8 @@ class Vote extends BaseVote {
 			GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_ID => $this->getEffectVariableId(),
 		]);
 	}
-	public function getCorrelation(): ?Correlation{
+	public function getCorrelation(): ?UserVariableRelationship
+    {
 		return $this->l()->getCorrelation();
 	}
 	/**

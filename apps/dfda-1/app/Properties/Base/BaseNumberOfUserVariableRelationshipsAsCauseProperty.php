@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Base;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Astral\CorrelationBaseAstralResource;
 use App\Traits\PropertyTraits\IsNumberOfRelated;
 use App\UI\ImageUrls;
@@ -39,7 +39,7 @@ class BaseNumberOfUserVariableRelationshipsAsCauseProperty extends BaseProperty{
 	public $canBeChangedToNull = true;
 	public $validations = 'nullable|integer|min:0|max:2147483647';
     public static function getAstralRelatedResourceClass(): string{return CorrelationBaseAstralResource::class;}
-    protected static function getRelationshipClass(): string{return Correlation::class;}
-    public static function getForeignKey(): string{return Correlation::FIELD_CAUSE_USER_VARIABLE_ID;}
-    public static function getRelatedTable(): string{return Correlation::TABLE;}
+    protected static function getRelationshipClass(): string{return UserVariableRelationship::class;}
+    public static function getForeignKey(): string{return UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID;}
+    public static function getRelatedTable(): string{return UserVariableRelationship::TABLE;}
 }

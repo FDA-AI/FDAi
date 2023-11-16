@@ -7,7 +7,7 @@
 namespace App\Buttons;
 use App\Charts\BarChartButton;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Study;
 use App\Studies\QMStudy;
 use App\Traits\HasCauseAndEffect;
@@ -37,7 +37,7 @@ class StudyButton extends BarChartButton {
 		$this->tooltip = $m->getTagLine();
 	}
 	/**
-	 * @param HasCauseAndEffect[]|Correlation[]|Study[]|GlobalVariableRelationship[] $models
+	 * @param HasCauseAndEffect[]|UserVariableRelationship[]|Study[]|GlobalVariableRelationship[] $models
 	 * @return array
 	 * @noinspection PhpParameterNameChangedDuringInheritanceInspection
 	 */

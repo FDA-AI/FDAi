@@ -131,7 +131,7 @@ use Illuminate\Support\Str;
  * @property-read int|null $connections_count
  * @property-read Collection|Connector[] $connectors
  * @property-read int|null $connectors_count
- * @property-read Collection|Correlation[] $correlations
+ * @property-read Collection|UserVariableRelationship[] $correlations
  * @property-read int|null $correlations_count
  * @property-read Collection|SentEmail[] $sent_emails
  * @property-read int|null $sent_emails_count

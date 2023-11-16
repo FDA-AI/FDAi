@@ -9,7 +9,7 @@ use App\Correlations\QMUserVariableRelationship;
 use App\Exceptions\InsufficientVarianceException;
 use App\Exceptions\NotEnoughMeasurementsForCorrelationException;
 use App\Exceptions\TooSlowToAnalyzeException;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\Base\BasePredictsLowEffectChangeProperty;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Traits\PropertyTraits\IsCalculated;
@@ -18,8 +18,8 @@ class CorrelationPredictsLowEffectChangeProperty extends BasePredictsLowEffectCh
 {
     use CorrelationProperty;
     use IsCalculated;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     /**
      * @param QMUserVariableRelationship $model
      * @return float
@@ -54,7 +54,7 @@ class CorrelationPredictsLowEffectChangeProperty extends BasePredictsLowEffectCh
      */
     public static function fixNullPredictsLowEffectChange()
     {
-        $rows = QMUserVariableRelationship::readonly()->whereNull(Correlation::FIELD_PREDICTS_LOW_EFFECT_CHANGE)->getArray();
+        $rows = QMUserVariableRelationship::readonly()->whereNull(UserVariableRelationship::FIELD_PREDICTS_LOW_EFFECT_CHANGE)->getArray();
         foreach ($rows as $row) {
             $c =
                 QMUserVariableRelationship::findByNamesOrIds($row->user_id, $row->cause_variable_id,

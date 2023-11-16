@@ -6,7 +6,7 @@
 
 namespace App\Properties\Base;
 use App\Exceptions\UnauthorizedException;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Astral\VariableBaseAstralResource;
 use App\Properties\Study\StudyIdProperty;
 use App\Traits\ForeignKeyIdTrait;
@@ -112,7 +112,7 @@ class BaseCauseVariableIdProperty extends BaseVariableIdProperty {
 	 */
 	public function getIndexField($resolveCallback = null, string $name = null): Field{
         return $this->getDetailLinkTextField($name, function($value, $resource, $attribute){
-            /** @var Correlation $resource */
+            /** @var UserVariableRelationship $resource */
             return $resource->getCauseVariableName();
         });
     }

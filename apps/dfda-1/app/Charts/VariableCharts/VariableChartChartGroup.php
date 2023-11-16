@@ -13,7 +13,7 @@ use App\Charts\MonthlyColumnChart;
 use App\Charts\QMChart;
 use App\Charts\WeekdayColumnChart;
 use App\Charts\YearlyColumnChart;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Variables\QMVariable;
 class VariableChartChartGroup extends ChartGroup {
 	public $distributionColumnChart;
@@ -39,9 +39,9 @@ class VariableChartChartGroup extends ChartGroup {
 		$this->monthlyColumnChart = new MonthlyColumnChart($variable);
 		$this->yearlyColumnChart = new YearlyColumnChart($variable);
 		$this->aggregateCorrelationsSankeyChart =
-			new GlobalVariableRelationshipsSankeyQMChart($variable, null, Correlation::MAX_LIMIT);
+			new GlobalVariableRelationshipsSankeyQMChart($variable, null, UserVariableRelationship::MAX_LIMIT);
 		$this->aggregateCorrelationsNetworkGraphChart =
-			new GlobalVariableRelationshipsNetworkGraphQMChart($variable, null, Correlation::MAX_LIMIT);
+			new GlobalVariableRelationshipsNetworkGraphQMChart($variable, null, UserVariableRelationship::MAX_LIMIT);
 		parent::__construct($variable);
 	}
 	public function unsetPrivateAndProtectedProperties(){

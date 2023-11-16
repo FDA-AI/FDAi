@@ -14,7 +14,7 @@ use App\Logging\ConsoleLog;
 use App\Logging\QMLog;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\User;
 use App\Models\Variable;
 use App\Properties\BaseProperty;
@@ -36,7 +36,7 @@ class DBTable extends Table {
 	use LoggerTrait;
 	public const TABLE_ALIASES = [
 		GlobalVariableRelationship::TABLE => 'global_variable_relationships',
-		Correlation::TABLE => 'user_variable_relationships',
+		UserVariableRelationship::TABLE => 'user_variable_relationships',
 		Variable::TABLE => 'global_variables',
 	];
 	private Connection|QMDB $db;

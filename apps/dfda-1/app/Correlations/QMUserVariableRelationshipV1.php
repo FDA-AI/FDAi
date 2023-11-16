@@ -6,7 +6,7 @@
 
 namespace App\Correlations;
 use App\Logging\QMLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 class QMUserVariableRelationshipV1 {
     public const MINIMUM_CHANGES = 3;
     public const MINIMUM_NUMBER_OF_DAYS_IN_COMMON = 10;
@@ -288,9 +288,9 @@ class QMUserVariableRelationshipV1 {
     public function deleteFromDatabase(){
         QMLog::debug("Deleting correlations between $this->causeVariableName and $this->effectVariableName");
         QMUserVariableRelationship::writable()
-            ->where(Correlation::FIELD_USER_ID, $this->userId)
-            ->where(Correlation::FIELD_CAUSE_VARIABLE_ID, $this->causeVariableId)
-            ->where(Correlation::FIELD_EFFECT_VARIABLE_ID, $this->effectVariableId)
+            ->where(UserVariableRelationship::FIELD_USER_ID, $this->userId)
+            ->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $this->causeVariableId)
+            ->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID, $this->effectVariableId)
             ->delete();
     }
     /**

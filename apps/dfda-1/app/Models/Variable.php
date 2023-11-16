@@ -340,7 +340,7 @@ use Spatie\Tags\Tag;
  * @property-read OAClient|null $oa_client
  * @property-read Collection|CommonTag[] $common_tags
  * @property-read int|null $common_tags_count
- * @property-read Collection|Correlation[] $correlations
+ * @property-read Collection|UserVariableRelationship[] $correlations
  * @property-read int|null $correlations_count
  * @property-read Collection|Measurement[] $measurements
  * @property-read int|null $measurements_count
@@ -385,9 +385,9 @@ use Spatie\Tags\Tag;
  * @property-read Variable|null $best_effect_variable
  * @property-read Collection|CommonTag[] $common_tagged_by
  * @property-read int|null $common_tagged_by_count
- * @property-read Collection|Correlation[] $individual_cause_studies
+ * @property-read Collection|UserVariableRelationship[] $individual_cause_studies
  * @property-read int|null $individual_cause_studies_count
- * @property-read Collection|Correlation[] $individual_effect_studies
+ * @property-read Collection|UserVariableRelationship[] $individual_effect_studies
  * @property-read int|null $individual_effect_studies_count
  * @property-read Collection|GlobalVariableRelationship[] $population_cause_studies
  * @property-read int|null $population_cause_studies_count
@@ -523,9 +523,9 @@ use Spatie\Tags\Tag;
  * @property-read int|null $correlation_usefulness_votes_where_cause_variable_count
  * @property-read Collection|CorrelationUsefulnessVote[] $correlation_usefulness_votes_where_effect_variable
  * @property-read int|null $correlation_usefulness_votes_where_effect_variable_count
- * @property-read Collection|Correlation[] $correlations_where_cause_variable
+ * @property-read Collection|UserVariableRelationship[] $correlations_where_cause_variable
  * @property-read int|null $correlations_where_cause_variable_count
- * @property-read Collection|Correlation[] $correlations_where_effect_variable
+ * @property-read Collection|UserVariableRelationship[] $correlations_where_effect_variable
  * @property-read int|null $correlations_where_effect_variable_count
  * @property-read Unit $default_unit
  * @property-read Collection|Study[] $studies_where_cause_variable
@@ -669,7 +669,6 @@ use Spatie\Tags\Tag;
  * @method static Builder|Variable whereNumberOfVotesWhereCauseVariable($value)
  * @method static Builder|Variable whereNumberOfVotesWhereEffectVariable($value)
  * @property string|null $deletion_reason The reason the variable was deleted.
-
  * @method static Builder|Variable whereDeletionReason($value)
  * @property float|null $maximum_allowed_daily_value The maximum allowed value in the default unit for measurements
  *     aggregated over a single day.
@@ -1986,12 +1985,12 @@ class Variable extends BaseVariable implements HasMedia {
 		$correlations = $this->relations[__FUNCTION__]["$catId-$limit"] ?? null;
 		if($correlations !== null){return $correlations;}
 		$qb = $this->global_variable_relationships_where_effect_variable();
-		if($catId){$qb->where(Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID, $catId);}
+		if($catId){$qb->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID, $catId);}
 		if($limit){$qb->limit($limit);}
 		if(!$limit && !$causeCategory){
 			$count = $qb->count();
 			if($count > 1000){
-				$qb->whereIn(Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
+				$qb->whereIn(UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
 					VariableCategory::getInterestingCategoryIds());
 			}
 		}
@@ -2013,7 +2012,7 @@ class Variable extends BaseVariable implements HasMedia {
 		$correlations = $this->relations[__FUNCTION__]["$catId-$limit"] ?? null;
 		if($correlations !== null){return $correlations;}
 		$qb = $this->global_variable_relationships_where_cause_variable();
-		if($catId){$qb->where(Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID, $catId);}
+		if($catId){$qb->where(UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID, $catId);}
 		if($limit){$qb->limit($limit);}
 		GlobalVariableRelationship::applyDefaultOrderings($qb);
 		$correlations = $qb->get();
@@ -2501,7 +2500,7 @@ class Variable extends BaseVariable implements HasMedia {
 			$number = "N/A";
 		}
 		return GlobalVariableRelationship::getAstralIndexButton($params, $number, "Population Causes",
-			Correlation::FONT_AWESOME_EFFECTS,
+			UserVariableRelationship::FONT_AWESOME_EFFECTS,
 			"Population-Level Studies on Potential Causes of " . $this->getTitleAttribute() .
 			" Based on Anonymously Aggregated Data");
 	} // Let's use actual name instead of display name so it's differentiated on index page
@@ -2542,7 +2541,7 @@ class Variable extends BaseVariable implements HasMedia {
 			$number = "N/A";
 		}
 		return GlobalVariableRelationship::getAstralIndexButton($params, $number, "Population Effects",
-			Correlation::FONT_AWESOME_EFFECTS,
+			UserVariableRelationship::FONT_AWESOME_EFFECTS,
 			"Population-Level Studies on Potential Effects of " . $this->getTitleAttribute() .
 			" Based on Anonymously Aggregated Data");
 	}
@@ -2977,7 +2976,7 @@ class Variable extends BaseVariable implements HasMedia {
 		if($n){
 			$buttons[] =
 				GlobalVariableRelationship::getAstralIndexButton([GlobalVariableRelationship::FIELD_CAUSE_VARIABLE_ID => $this->getId()],
-					$n, "Population Effects", Correlation::FONT_AWESOME_EFFECTS,
+					$n, "Population Effects", UserVariableRelationship::FONT_AWESOME_EFFECTS,
 					"Global Population Studies on the Effects of " . $this->getTitleAttribute() .
 					" based on Anonymously Aggregated Data from Many Users");
 		}
@@ -2985,17 +2984,17 @@ class Variable extends BaseVariable implements HasMedia {
 		if($n){
 			$buttons[] =
 				GlobalVariableRelationship::getAstralIndexButton([GlobalVariableRelationship::FIELD_EFFECT_VARIABLE_ID => $this->getId()],
-					$n, "Population Causes", Correlation::FONT_AWESOME_EFFECTS,
+					$n, "Population Causes", UserVariableRelationship::FONT_AWESOME_EFFECTS,
 					"Global Population Studies on the Causes of " . $this->getTitleAttribute() .
 					" based on Anonymously Aggregated Data from Many Users");
 		}
 		if($this->isOutcome()){
-			$buttons[] = Correlation::getAstralIndexButton([Correlation::FIELD_CAUSE_VARIABLE_ID => $this->getId()], null,
+			$buttons[] = UserVariableRelationship::getAstralIndexButton([UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID => $this->getId()], null,
 				"Effects for Individuals", FontAwesome::SIGN_OUT_ALT_SOLID,
 				"Individual N1 Case Study Investigations into the Potential Effects of " . $this->getNameAttribute(),
 				QMColor::HEX_RED);
 		}
-		$buttons[] = Correlation::getAstralIndexButton([Correlation::FIELD_EFFECT_VARIABLE_ID => $this->getId()], null,
+		$buttons[] = UserVariableRelationship::getAstralIndexButton([UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID => $this->getId()], null,
 			"Causes for Individuals", FontAwesome::SIGN_IN_ALT_SOLID,
 			"Individual N1 Case Study Investigations into the Causes of " . $this->getNameAttribute(), QMColor::HEX_RED);
 		$buttons[] = UserVariable::getAstralIndexButton([UserVariable::FIELD_VARIABLE_ID => $this->getId()],
@@ -3381,10 +3380,10 @@ class Variable extends BaseVariable implements HasMedia {
 		return false;
 	}
 	public function individual_cause_studies(): HasMany{
-		return $this->hasMany(Correlation::class, Correlation::FIELD_EFFECT_VARIABLE_ID);
+		return $this->hasMany(UserVariableRelationship::class, UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID);
 	}
 	public function individual_effect_studies(): HasMany{
-		return $this->hasMany(Correlation::class, Correlation::FIELD_CAUSE_VARIABLE_ID);
+		return $this->hasMany(UserVariableRelationship::class, UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID);
 	}
 	/**
 	 * @return bool

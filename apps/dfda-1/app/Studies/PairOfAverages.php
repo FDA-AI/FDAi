@@ -6,7 +6,7 @@
 
 namespace App\Studies;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 class PairOfAverages {
     public float $causeVariableAverageValue;
     public float $effectVariableAverageValue;
@@ -15,13 +15,13 @@ class PairOfAverages {
     protected GlobalVariableRelationship $aggregateCorrelation;
     protected int $number;
 	/**
-	 * @var \App\Models\Correlation
+	 * @var \App\Models\UserVariableRelationship
 	 */
-	private Correlation $correlation;
+	private UserVariableRelationship $correlation;
 	/**
-	 * @param \App\Models\Correlation $correlation
+	 * @param \App\Models\UserVariableRelationship $correlation
 	 */
-	public function __construct(Correlation $correlation) {
+	public function __construct(UserVariableRelationship $correlation) {
 		$this->correlation = $correlation;
 		$this->causeUserVariableId = $correlation->cause_user_variable_id;
 		$this->effectUserVariableId = $correlation->effect_user_variable_id;
@@ -74,9 +74,9 @@ class PairOfAverages {
     }
 
     /**
-     * @return Correlation
+     * @return UserVariableRelationship
      */
-    public function getCorrelation(): Correlation
+    public function getCorrelation(): UserVariableRelationship
     {
         return $this->correlation;
     }

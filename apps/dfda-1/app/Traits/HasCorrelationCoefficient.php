@@ -26,7 +26,7 @@ use App\Exceptions\TooSlowToAnalyzeException;
 use App\Fields\Avatar;
 use App\Http\Parameters\IncludeChartsParam;
 use App\Logging\QMLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Study;
 use App\Models\Variable;
 use App\Models\WpPost;
@@ -154,7 +154,7 @@ trait HasCorrelationCoefficient {
 			'-200-200.png');
 	}
 	public function getNameAttribute(): string{
-		if(!$this->getAttribute(Correlation::FIELD_CAUSE_VARIABLE_ID)){
+		if(!$this->getAttribute(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID)){
 			return static::getClassNameTitle();
 		}
 		return "Relationship Between " . $this->getCauseVariableName() . " and " . $this->getEffectVariableName();
@@ -173,7 +173,7 @@ trait HasCorrelationCoefficient {
 			" over the previous " . $this->getDurationOfActionHumanString() . ". ";
 	}
 	public function getCauseTreatmentAveragePerDurationOfAction(): ?float{
-		return $this->getAttribute(Correlation::FIELD_CAUSE_TREATMENT_AVERAGE_PER_DURATION_OF_ACTION);
+		return $this->getAttribute(UserVariableRelationship::FIELD_CAUSE_TREATMENT_AVERAGE_PER_DURATION_OF_ACTION);
 	}
 	public function getColor(): string{
 		$change = $this->getChangeFromBaseline();
@@ -213,7 +213,7 @@ trait HasCorrelationCoefficient {
 		return $str;
 	}
 	public function getSubtitleAttribute(): string{
-		if(!$this->getAttribute(Correlation::FIELD_CAUSE_VARIABLE_ID)){
+		if(!$this->getAttribute(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID)){
 			return static::getClassDescription();
 		}
 		$str =
@@ -234,7 +234,7 @@ trait HasCorrelationCoefficient {
 		return QMStudy::findInMemoryOrDB($this->getStudyId());
 	}
 	/**
-	 * @return \App\Correlations\QMCorrelation|\App\Models\GlobalVariableRelationship|\App\Models\Correlation|\App\Traits\HasCorrelationCoefficient
+	 * @return \App\Correlations\QMCorrelation|\App\Models\GlobalVariableRelationship|\App\Models\UserVariableRelationship|\App\Traits\HasCorrelationCoefficient
 	 */
 	public function getHasCorrelationCoefficient(){
 		return $this;
@@ -294,7 +294,7 @@ trait HasCorrelationCoefficient {
 	 */
 	public function getAverageEffect(): ?float{
 		if(property_exists($this, 'attributes') && $this->attributes){
-			$val = $this->attributes[Correlation::FIELD_AVERAGE_EFFECT];
+			$val = $this->attributes[UserVariableRelationship::FIELD_AVERAGE_EFFECT];
 		} else{
 			if(!isset($this->averageEffect)){
 				$val = null;
@@ -337,7 +337,7 @@ trait HasCorrelationCoefficient {
 	 * @return bool
 	 */
 	public function typeIsIndividual(): bool{
-		return $this instanceof Correlation || $this instanceof QMUserVariableRelationship;
+		return $this instanceof UserVariableRelationship || $this instanceof QMUserVariableRelationship;
 	}
 	/**
 	 * @return string
@@ -406,15 +406,15 @@ trait HasCorrelationCoefficient {
 	 * @return string
 	 */
 	public function getMeanBaselineString(): string{
-		$val = $this->getAttribute(Correlation::FIELD_EFFECT_BASELINE_AVERAGE);
+		$val = $this->getAttribute(UserVariableRelationship::FIELD_EFFECT_BASELINE_AVERAGE);
 		return $this->effectValueUserUnit($val);
 	}
 	/**
 	 * @return float
 	 */
 	public function getAbsoluteFollowupChange(): float{
-		$baseline = $this->getAttribute(Correlation::FIELD_EFFECT_BASELINE_AVERAGE);
-		$followUp = $this->getAttribute(Correlation::FIELD_EFFECT_FOLLOW_UP_AVERAGE);
+		$baseline = $this->getAttribute(UserVariableRelationship::FIELD_EFFECT_BASELINE_AVERAGE);
+		$followUp = $this->getAttribute(UserVariableRelationship::FIELD_EFFECT_FOLLOW_UP_AVERAGE);
 		return $followUp - $baseline;
 	}
 	/**
@@ -422,10 +422,10 @@ trait HasCorrelationCoefficient {
 	 * @return float
 	 */
 	public function getOrCalculateZScore(?int $precision = null): float{
-		$z = $this->getAttribute(Correlation::FIELD_Z_SCORE);
+		$z = $this->getAttribute(UserVariableRelationship::FIELD_Z_SCORE);
 		if($z === null){
 			$this->calculateOutcomeBaselineStatistics();
-			$z = $this->getAttribute(Correlation::FIELD_Z_SCORE);
+			$z = $this->getAttribute(UserVariableRelationship::FIELD_Z_SCORE);
 		}
 		if($precision){
 			return Stats::roundByNumberOfSignificantDigits($z, $precision);
@@ -437,7 +437,7 @@ trait HasCorrelationCoefficient {
 	 * @return float
 	 */
 	public function getZScore(?int $precision = null): ?float{
-		$z = $this->getAttribute(Correlation::FIELD_Z_SCORE);
+		$z = $this->getAttribute(UserVariableRelationship::FIELD_Z_SCORE);
 		if($precision && $z){
 			return Stats::roundByNumberOfSignificantDigits($z, $precision);
 		}
@@ -595,7 +595,7 @@ trait HasCorrelationCoefficient {
 	}
 	public static function generateListSectionHtml(string $title, string $description, array $correlations,
 		string $outcomeName): string{
-		$list = Correlation::getBarChartListHtml($correlations, $outcomeName);
+		$list = UserVariableRelationship::getBarChartListHtml($correlations, $outcomeName);
 		return "
                 <div>
                     <h2>$title</h2>
@@ -817,7 +817,7 @@ trait HasCorrelationCoefficient {
 	 * @return float
 	 */
 	public function getReverseCorrelationCoefficient(int $precision = null): ?float{
-		return $this->getFromAttributesOrCamelAndRound(Correlation::FIELD_REVERSE_PEARSON_CORRELATION_COEFFICIENT,
+		return $this->getFromAttributesOrCamelAndRound(UserVariableRelationship::FIELD_REVERSE_PEARSON_CORRELATION_COEFFICIENT,
 			$precision);
 	}
 	/**
@@ -825,7 +825,7 @@ trait HasCorrelationCoefficient {
 	 * @return float
 	 */
 	public function getAverageEffectFollowingHighCause(int $precision = null): ?float{
-		return $this->getFromAttributesOrCamelAndRound(Correlation::FIELD_AVERAGE_EFFECT_FOLLOWING_HIGH_CAUSE,
+		return $this->getFromAttributesOrCamelAndRound(UserVariableRelationship::FIELD_AVERAGE_EFFECT_FOLLOWING_HIGH_CAUSE,
 			$precision);
 	}
 	/**
@@ -833,7 +833,7 @@ trait HasCorrelationCoefficient {
 	 * @return float
 	 */
 	public function getAverageEffectFollowingLowCause(int $precision = null): ?float{
-		return $this->getFromAttributesOrCamelAndRound(Correlation::FIELD_AVERAGE_EFFECT_FOLLOWING_LOW_CAUSE,
+		return $this->getFromAttributesOrCamelAndRound(UserVariableRelationship::FIELD_AVERAGE_EFFECT_FOLLOWING_LOW_CAUSE,
 			$precision);
 	}
 	/**
@@ -841,14 +841,14 @@ trait HasCorrelationCoefficient {
 	 * @return float
 	 */
 	public function getAverageDailyHighCause(int $precision = null): ?float{
-		return $this->getFromAttributesOrCamelAndRound(Correlation::FIELD_AVERAGE_DAILY_HIGH_CAUSE, $precision);
+		return $this->getFromAttributesOrCamelAndRound(UserVariableRelationship::FIELD_AVERAGE_DAILY_HIGH_CAUSE, $precision);
 	}
 	/**
 	 * @param int|null $precision
 	 * @return float
 	 */
 	public function getAverageDailyLowCause(int $precision = null): ?float{
-		return $this->getFromAttributesOrCamelAndRound(Correlation::FIELD_AVERAGE_DAILY_LOW_CAUSE, $precision);
+		return $this->getFromAttributesOrCamelAndRound(UserVariableRelationship::FIELD_AVERAGE_DAILY_LOW_CAUSE, $precision);
 	}
 	/**
 	 * @param string $key
@@ -932,7 +932,7 @@ trait HasCorrelationCoefficient {
 	 * @return float
 	 */
 	public function getCauseValueClosestToValuePredictingLowOutcomeGroupedOverDurationOfAction(): ?float{
-		$value = $this->getAttribute(Correlation::FIELD_GROUPED_CAUSE_VALUE_CLOSEST_TO_VALUE_PREDICTING_LOW_OUTCOME);
+		$value = $this->getAttribute(UserVariableRelationship::FIELD_GROUPED_CAUSE_VALUE_CLOSEST_TO_VALUE_PREDICTING_LOW_OUTCOME);
 		if($value === null && !AppMode::isApiRequest()){
 			$this->logError("No groupedCauseValueClosestToValuePredictingLowOutcome so recalculating...");
 			$value = $this->calculateGroupedCauseValueClosestToValuePredictingLowOutcome();
@@ -1091,10 +1091,10 @@ trait HasCorrelationCoefficient {
 		//." over the previous ".$this->getDurationOfActionHumanString();
 	}
 	public function getAvgDailyValuePredictingHighOutcome(): ?float{
-		return $this->getAttribute(Correlation::FIELD_VALUE_PREDICTING_HIGH_OUTCOME);
+		return $this->getAttribute(UserVariableRelationship::FIELD_VALUE_PREDICTING_HIGH_OUTCOME);
 	}
 	public function getAvgDailyValuePredictingLowOutcome(): ?float{
-		return $this->getAttribute(Correlation::FIELD_VALUE_PREDICTING_LOW_OUTCOME);
+		return $this->getAttribute(UserVariableRelationship::FIELD_VALUE_PREDICTING_LOW_OUTCOME);
 	}
 	/**
 	 * @return string
@@ -1148,14 +1148,14 @@ trait HasCorrelationCoefficient {
 	 * @internal param bool $round
 	 */
 	public function getDailyValuePredictingHighOutcome(): ?float{
-		$val = $this->getAttribute(Correlation::FIELD_VALUE_PREDICTING_HIGH_OUTCOME);
+		$val = $this->getAttribute(UserVariableRelationship::FIELD_VALUE_PREDICTING_HIGH_OUTCOME);
 		return $val;
 	}
 	/**
 	 * @return float|null
 	 */
 	public function getDailyValuePredictingLowOutcome(): ?float{
-		$val = $this->getAttribute(Correlation::FIELD_VALUE_PREDICTING_LOW_OUTCOME);
+		$val = $this->getAttribute(UserVariableRelationship::FIELD_VALUE_PREDICTING_LOW_OUTCOME);
 		return $val;
 	}
 	/**
@@ -1186,7 +1186,7 @@ trait HasCorrelationCoefficient {
 	 * @return float
 	 */
 	public function getConfidenceInterval(): float {
-		return $this->getAttribute(Correlation::FIELD_CONFIDENCE_INTERVAL);
+		return $this->getAttribute(UserVariableRelationship::FIELD_CONFIDENCE_INTERVAL);
 	}
 	/**
 	 * @param bool|null $addressingUser
@@ -1230,7 +1230,7 @@ trait HasCorrelationCoefficient {
 	 * @return int
 	 */
 	public function getPredictsLowEffectChange(): ?float {
-		return $this->getAttribute(Correlation::FIELD_PREDICTS_LOW_EFFECT_CHANGE);
+		return $this->getAttribute(UserVariableRelationship::FIELD_PREDICTS_LOW_EFFECT_CHANGE);
 	}
 	/**
 	 * @return string
@@ -1246,20 +1246,20 @@ trait HasCorrelationCoefficient {
 	 * @return float
 	 */
 	public function getGroupedCauseValueClosestToValuePredictingHighOutcome(): float{
-		$val = $this->getAttribute(Correlation::FIELD_GROUPED_CAUSE_VALUE_CLOSEST_TO_VALUE_PREDICTING_HIGH_OUTCOME);
+		$val = $this->getAttribute(UserVariableRelationship::FIELD_GROUPED_CAUSE_VALUE_CLOSEST_TO_VALUE_PREDICTING_HIGH_OUTCOME);
 		return $val;
 	}
 	/**
 	 * @return float
 	 */
 	public function getGroupedCauseValueClosestToValuePredictingLowOutcome(): float{
-		return $this->getAttribute(Correlation::FIELD_GROUPED_CAUSE_VALUE_CLOSEST_TO_VALUE_PREDICTING_LOW_OUTCOME);
+		return $this->getAttribute(UserVariableRelationship::FIELD_GROUPED_CAUSE_VALUE_CLOSEST_TO_VALUE_PREDICTING_LOW_OUTCOME);
 	}
 	/**
 	 * @return float
 	 */
 	public function getGroupedValueOverDurationOfActionClosestToValuePredictingHighOutcome(): float{
-		return $this->getAttribute(Correlation::FIELD_GROUPED_CAUSE_VALUE_CLOSEST_TO_VALUE_PREDICTING_HIGH_OUTCOME);
+		return $this->getAttribute(UserVariableRelationship::FIELD_GROUPED_CAUSE_VALUE_CLOSEST_TO_VALUE_PREDICTING_HIGH_OUTCOME);
 	}
 	/**
 	 * @return string
@@ -1610,8 +1610,8 @@ trait HasCorrelationCoefficient {
 	}
 	public function hyperParams(): array{
 		return [
-			Correlation::FIELD_ONSET_DELAY => $this->getOnsetDelay(),
-			Correlation::FIELD_DURATION_OF_ACTION => $this->getDurationOfAction(),
+			UserVariableRelationship::FIELD_ONSET_DELAY => $this->getOnsetDelay(),
+			UserVariableRelationship::FIELD_DURATION_OF_ACTION => $this->getDurationOfAction(),
 		];
 	}
 	/**

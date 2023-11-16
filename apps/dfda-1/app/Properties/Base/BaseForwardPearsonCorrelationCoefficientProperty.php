@@ -6,7 +6,7 @@
 
 namespace App\Properties\Base;
 use App\Traits\PropertyTraits\IsFloat;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\UI\ImageUrls;
 use App\UI\FontAwesome;
 use App\Properties\BaseProperty;
@@ -40,7 +40,7 @@ class BaseForwardPearsonCorrelationCoefficientProperty extends BaseProperty{
 	public $canBeChangedToNull = false;
 	public $isOrderable = true;
 	public $isSearchable = false;
-    public const NAME = Correlation::FIELD_FORWARD_PEARSON_CORRELATION_COEFFICIENT;
+    public const NAME = UserVariableRelationship::FIELD_FORWARD_PEARSON_CORRELATION_COEFFICIENT;
     public $name = self::NAME;
 	public $phpType = 'float';
 	public $rules = 'required|numeric';
@@ -82,7 +82,7 @@ class BaseForwardPearsonCorrelationCoefficientProperty extends BaseProperty{
     }
 	public const SYNONYMS = [
 	    'correlation_coefficient',
-        Correlation::FIELD_FORWARD_PEARSON_CORRELATION_COEFFICIENT
+        UserVariableRelationship::FIELD_FORWARD_PEARSON_CORRELATION_COEFFICIENT
     ];
     public static function applyRequestParamsToQuery(\Illuminate\Database\Query\Builder $qb): void{
         parent::applyRequestParamsToQuery($qb);

@@ -6,18 +6,18 @@
 
 namespace App\Traits\VariableValueTraits;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Variable;
 use App\Variables\QMVariable;
 trait CauseAggregatedVariableValueTrait {
 	use AggregatedVariableValueTrait;
 	public function getVariable(): Variable{
-		/** @var GlobalVariableRelationship|Correlation $correlation */
+		/** @var GlobalVariableRelationship|UserVariableRelationship $correlation */
 		$correlation = $this->getParentModel();
 		return $correlation->getCauseVariable();
 	}
 	public function getDuration(): int{
-		/** @var Correlation $c */
+		/** @var UserVariableRelationship $c */
 		$c = $this->getParentModel();
 		return $c->duration_of_action;
 	}

@@ -6,7 +6,7 @@
 
 namespace App\Properties\Base;
 use App\Traits\PropertyTraits\IsInt;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Storage\DB\QMQB;
 use App\UI\ImageUrls;
 use App\UI\FontAwesome;
@@ -41,7 +41,7 @@ class BaseCauseNumberOfProcessedDailyMeasurementsProperty extends BaseProperty{
 	public static function fixTooSmall(): array{
         $ids = parent::getIdsWhereTooSmall();
         foreach($ids as $id){
-            $c = Correlation::find($id);
+            $c = UserVariableRelationship::find($id);
             $c->softDelete();
         }
     }

@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Correlation;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Traits\PropertyTraits\CorrelationProperty;
 use App\Properties\Base\BasePredictivePearsonCorrelationCoefficientProperty;
 use App\Correlations\QMUserVariableRelationship;
@@ -14,8 +14,8 @@ class CorrelationPredictivePearsonCorrelationCoefficientProperty extends BasePre
 {
     use CorrelationProperty;
 	use IsCalculated;
-    public $table = Correlation::TABLE;
-    public $parentClass = Correlation::class;
+    public $table = UserVariableRelationship::TABLE;
+    public $parentClass = UserVariableRelationship::class;
     /**
      * @param QMUserVariableRelationship $model
      * @return float|null

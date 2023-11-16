@@ -2,7 +2,7 @@
 /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\UnitTests\Types;
 use App\Files\FileFinder;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\Base\BaseAccessTokenProperty;
 use App\Properties\Variable\VariableNameProperty;
 use App\Slim\Model\QMUnit;
@@ -230,7 +230,7 @@ class StringHelperTest extends UnitTestCase {
             'effect_variable_id' => '1874',
         );
         $this->assertTrue(QMRequest::isModelRequest());
-        $res = QueryBuilderHelper::getHumanizedWhereClause($_GET, Correlation::TABLE);
+        $res = QueryBuilderHelper::getHumanizedWhereClause($_GET, UserVariableRelationship::TABLE);
         $this->assertEquals("where the Cause Variable ID is 89305 and where the Effect Variable ID is 1874",
             $res);
         $title = MetaHtml::generateTitle();

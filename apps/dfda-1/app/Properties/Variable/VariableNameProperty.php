@@ -17,7 +17,7 @@ use App\Exceptions\StupidVariableNameException;
 use App\Fields\Text;
 use App\Files\FileHelper;
 use App\Logging\QMLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\UserVariable;
 use App\Models\Variable;
@@ -589,8 +589,8 @@ class VariableNameProperty extends BaseNameProperty
                 ->where(Measurement::FIELD_VARIABLE_ID, $replacementVariableRow->id)
                 ->count();
         $numberOfCorrelations =
-            $db->table(Correlation::TABLE)
-                ->where(Correlation::FIELD_CAUSE_VARIABLE_ID, $replacementVariableRow->id)
+            $db->table(UserVariableRelationship::TABLE)
+                ->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $replacementVariableRow->id)
                 ->count();
         $message = "$replacementVariableRow->name has $replacementVariableRow->number_of_user_variables users and
             $numberOfMeasurements measurements and $numberOfCorrelations correlations as cause.";
@@ -605,8 +605,8 @@ class VariableNameProperty extends BaseNameProperty
                 ->where(Measurement::FIELD_VARIABLE_ID, $variableToDeleteRow->id)
                 ->count();
         $numberOfCorrelations =
-            $db->table(Correlation::TABLE)
-                ->where(Correlation::FIELD_CAUSE_VARIABLE_ID, $variableToDeleteRow->id)
+            $db->table(UserVariableRelationship::TABLE)
+                ->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $variableToDeleteRow->id)
                 ->count();
         $message = "$variableToDeleteRow->name has $variableToDeleteRow->number_of_user_variables users and
             $numberOfMeasurements measurements and $numberOfCorrelations correlations as cause.";
@@ -633,8 +633,8 @@ class VariableNameProperty extends BaseNameProperty
                 ->where(Measurement::FIELD_VARIABLE_ID, $replacementVariableRow->id)
                 ->count();
         $numberOfCorrelations =
-            $db->table(Correlation::TABLE)
-                ->where(Correlation::FIELD_CAUSE_VARIABLE_ID, $replacementVariableRow->id)
+            $db->table(UserVariableRelationship::TABLE)
+                ->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $replacementVariableRow->id)
                 ->count();
         $message =
             "Replaced and deleted $variableToDeleteRow->name variable and all related records!  Now $replacementVariableName has $numberOfMeasurements measurements and $numberOfCorrelations correlations as cause. ";

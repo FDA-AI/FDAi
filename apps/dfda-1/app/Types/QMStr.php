@@ -14,7 +14,7 @@ use App\Files\PHP\PhpClassFile;
 use App\Logging\QMLog;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\User;
 use App\Properties\WpPost\WpPostPostNameProperty;
 use App\Slim\Middleware\QMAuth;
@@ -2210,7 +2210,7 @@ class QMStr {
 		if($table === User::TABLE){
 			return "Users";
 		}
-		if($table === Correlation::TABLE){
+		if($table === UserVariableRelationship::TABLE){
 			return "Individual Case Studies";
 		}
 		if($table === GlobalVariableRelationship::TABLE){

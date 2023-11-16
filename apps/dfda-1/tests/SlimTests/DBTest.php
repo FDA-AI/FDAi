@@ -9,7 +9,7 @@ use App\Files\FileHelper;
 use App\Files\PHP\BaseModelFile;
 use App\Models\GlobalVariableRelationship;
 use App\Models\Connector;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\IpDatum;
 use App\Models\UserVariable;
 use App\Models\Variable;
@@ -32,10 +32,10 @@ class DBTest extends UnitTestCase {
     public function testUpdateTestDB(): void{
 		$this->skipTest("This test is not needed");
         TestDB::importAndMigrateTestDB(); // Always import and migrate here in case import is disabled in .env
-	    Correlation::newModelInstance()->update([Correlation::FIELD_ANALYSIS_ENDED_AT => null]);
-	    UserVariable::newModelInstance()->update([Correlation::FIELD_ANALYSIS_ENDED_AT => null]);
-	    Variable::newModelInstance()->update([Correlation::FIELD_ANALYSIS_ENDED_AT => null]);
-	    GlobalVariableRelationship::newModelInstance()->update([Correlation::FIELD_ANALYSIS_ENDED_AT => null]);
+	    UserVariableRelationship::newModelInstance()->update([UserVariableRelationship::FIELD_ANALYSIS_ENDED_AT => null]);
+	    UserVariable::newModelInstance()->update([UserVariableRelationship::FIELD_ANALYSIS_ENDED_AT => null]);
+	    Variable::newModelInstance()->update([UserVariableRelationship::FIELD_ANALYSIS_ENDED_AT => null]);
+	    GlobalVariableRelationship::newModelInstance()->update([UserVariableRelationship::FIELD_ANALYSIS_ENDED_AT => null]);
 	    $aggregateCorrelations = GlobalVariableRelationship::all();
 	    foreach($aggregateCorrelations as $aggregateCorrelation){
 		    $aggregateCorrelation->analyzeFully(__FUNCTION__);

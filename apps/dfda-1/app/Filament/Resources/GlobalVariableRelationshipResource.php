@@ -5,7 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\GlobalVariableRelationshipResource\Pages;
 use App\Filament\Resources\GlobalVariableRelationshipResource\RelationManagers;
 use App\Models\GlobalVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use Exception;
 use Filament\Forms;
 use Filament\Resources\Form;

@@ -1,6 +1,6 @@
 <?php namespace Tests\APIs;
 
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Properties\User\UserIdProperty;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\UnitTestCase;
@@ -18,7 +18,7 @@ class StudyApiTest extends UnitTestCase
 
     public function test_create_study()
     {
-        $c = Correlation::fakeFromPropertyModels();
+        $c = UserVariableRelationship::fakeFromPropertyModels();
         $this->assertEquals(UserIdProperty::USER_ID_TEST_USER, $c->user_id);
         $study = Study::factory()->make()->toArray();
         $this->assertEquals(UserIdProperty::USER_ID_TEST_USER, $study['user_id']);
@@ -62,7 +62,7 @@ class StudyApiTest extends UnitTestCase
 
     public function test_delete_study()
     {
-        $c = Correlation::fakeFromPropertyModels();
+        $c = UserVariableRelationship::fakeFromPropertyModels();
         $this->assertEquals(UserIdProperty::USER_ID_TEST_USER, $c->user_id);
         /** @var Study $study */
         $study = Study::fakeSaveFromPropertyModels();

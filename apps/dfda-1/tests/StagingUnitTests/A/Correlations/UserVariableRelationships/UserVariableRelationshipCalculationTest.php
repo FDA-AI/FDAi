@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\StagingUnitTests\A\Correlations\UserVariableRelationships;
 use App\Correlations\QMUserVariableRelationship;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\PhpUnitJobs\Cleanup\UserVariableCleanupJobTest;
 use App\Variables\QMUserVariable;
 use Tests\SlimStagingTestCase;
@@ -20,15 +20,15 @@ class UserVariableRelationshipCalculationTest extends SlimStagingTestCase {
         $this->assertNotNull($cause->latestTaggedMeasurementTime);
         $this->assertNotNull($effect->latestTaggedMeasurementTime);
         $fields = QMUserVariableRelationship::getColumns();
-        Correlation::whereId(0)->forceDelete();
-        $this->assertContains(Correlation::FIELD_ANALYSIS_ENDED_AT, $fields);
-        $this->assertContains(Correlation::FIELD_STATUS, $fields);
+        UserVariableRelationship::whereId(0)->forceDelete();
+        $this->assertContains(UserVariableRelationship::FIELD_ANALYSIS_ENDED_AT, $fields);
+        $this->assertContains(UserVariableRelationship::FIELD_STATUS, $fields);
         $c = QMUserVariableRelationship::getOrCreateUserVariableRelationship($userId, $cause->variableId, $effect->variableId);
         $this->assertTrue($c->uniqueFieldsAreSet());
         $c = new QMUserVariableRelationship(null, $cause, $effect);
         $c->analyzeFully(__FUNCTION__);
         $this->assertGreaterThan(0.1, $c->correlationCoefficient);
-        $row = Correlation::whereId($c->id)->first();
+        $row = UserVariableRelationship::whereId($c->id)->first();
         $this->assertNotEmpty($row->correlations_over_delays);
         $this->assertNotEmpty($row->correlations_over_durations);
     }

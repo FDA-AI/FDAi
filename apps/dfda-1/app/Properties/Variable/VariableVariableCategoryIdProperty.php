@@ -9,7 +9,7 @@ use App\DataSources\QMConnector;
 use App\Exceptions\CommonVariableNotFoundException;
 use App\Exceptions\VariableCategoryNotFoundException;
 use App\Logging\QMLog;
-use App\Models\Correlation;
+use App\Models\UserVariableRelationship;
 use App\Models\Measurement;
 use App\Models\Variable;
 use App\Properties\Base\BaseVariableCategoryIdProperty;
@@ -36,8 +36,8 @@ class VariableVariableCategoryIdProperty extends BaseVariableCategoryIdProperty
         $v->logError("Changing variable category from $old to $new");
         $pairs = [
             Measurement::FIELD_VARIABLE_ID => Measurement::FIELD_VARIABLE_CATEGORY_ID,
-            Correlation::FIELD_CAUSE_VARIABLE_ID => Correlation::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
-            Correlation::FIELD_EFFECT_VARIABLE_ID => Correlation::FIELD_EFFECT_VARIABLE_CATEGORY_ID,
+            UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID => UserVariableRelationship::FIELD_CAUSE_VARIABLE_CATEGORY_ID,
+            UserVariableRelationship::FIELD_EFFECT_VARIABLE_ID => UserVariableRelationship::FIELD_EFFECT_VARIABLE_CATEGORY_ID,
         ];
         foreach($pairs as $variableField => $categoryField){
             $tables = Writable::getTableNamesWithColumns([
