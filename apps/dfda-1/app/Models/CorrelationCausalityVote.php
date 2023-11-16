@@ -5,7 +5,7 @@
  */
 
 namespace App\Models;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 use App\Models\Vote;
 use App\Models\Base\BaseCorrelationCausalityVote;
 use App\Studies\StudyLinks;

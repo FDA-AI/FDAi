@@ -5,7 +5,7 @@
  */
 
 namespace App\Studies;
-use App\Correlations\CorrelationListExplanationResponseBody;
+use App\VariableRelationships\CorrelationListExplanationResponseBody;
 use App\Slim\Model\User\PublicUser;
 use App\Slim\View\Request\QMRequest;
 class StudyListResponseBody extends CorrelationListExplanationResponseBody {

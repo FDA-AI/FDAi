@@ -5,7 +5,7 @@
  */
 
 namespace App\Jobs;
-use App\Correlations\QMCorrelation;
+use App\VariableRelationships\QMVariableRelationship;
 use App\Exceptions\AlreadyAnalyzedException;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\DuplicateFailedAnalysisException;
@@ -16,7 +16,7 @@ use App\Exceptions\StupidVariableNameException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Models\BaseModel;
 use App\Models\Study;
-use App\Properties\Correlation\CorrelationStatusProperty;
+use App\Properties\UserVariableRelationship\CorrelationStatusProperty;
 class AnalyzeStudyJob extends BaseJob {
 	/**
 	 * The number of seconds the job can run before timing out.
@@ -44,7 +44,7 @@ class AnalyzeStudyJob extends BaseJob {
 	public function handle(){
 		$this->exceptionIfAlreadyHandled();
 		$study = $this->study; // We pass BaseModel instead of larger DBModels that can cause memory issues
-		/** @var QMCorrelation $a */
+		/** @var QMVariableRelationship $a */
 		if(!$study->reason_for_analysis){
 			$study->reason_for_analysis = $this->reason;
 		}

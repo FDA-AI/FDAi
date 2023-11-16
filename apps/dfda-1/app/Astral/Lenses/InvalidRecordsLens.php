@@ -28,9 +28,9 @@ class InvalidRecordsLens extends QMLens {
 	public static function query(LensRequest $request, $query){
 		return $request->withOrdering($request->withFilters($query
 			//                ->select( [
-			//                    Correlation::FIELD_ID,
-			//                    Correlation::FIELD_ANALYSIS_STARTED_AT,
-			//                    Correlation::FIELD_INTERNAL_ERROR_MESSAGE,
+			//                    UserVariableRelationship::FIELD_ID,
+			//                    UserVariableRelationship::FIELD_ANALYSIS_STARTED_AT,
+			//                    UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE,
 			//                ])
 			->whereNotNull(UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE)
 			->orderBy(UserVariableRelationship::FIELD_ANALYSIS_STARTED_AT, BaseModel::ORDER_DIRECTION_DESC)));

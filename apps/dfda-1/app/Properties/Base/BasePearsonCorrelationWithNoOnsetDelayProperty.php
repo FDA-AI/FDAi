@@ -29,7 +29,7 @@ class BasePearsonCorrelationWithNoOnsetDelayProperty extends BaseProperty{
 	public const NAME = 'pearson_correlation_with_no_onset_delay';
 	public $phpType = 'float';
 	public $rules = 'nullable|numeric';
-	public $title = 'Pearson Correlation With No Onset Delay';
+	public $title = 'Pearson User Variable Relationship With No Onset Delay';
 	public $type = 'number';
 	public $canBeChangedToNull = true;
 	public $validations = 'nullable|numeric';

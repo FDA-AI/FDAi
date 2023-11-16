@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpDocMissingThrowsInspection */
 /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\UnitTests;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Models\UserVariableRelationship;
 use Tests\UnitTestCase;
 class UserVariableRelationshipUnitTest extends UnitTestCase {

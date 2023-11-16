@@ -23,7 +23,7 @@ use App\Cards\StudyCard;
 use App\Charts\ChartGroup;
 use App\Charts\UserVariableCharts\UserVariableChartGroup;
 use App\CodeGenerators\Swagger\SwaggerDefinition;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\UnauthorizedException;
 use App\Http\Controllers\API\MeasurementAPIController;
 use App\Models\UserTag;
@@ -75,9 +75,9 @@ use App\Properties\Base\BaseNumberOfMeasurementsProperty;
 use App\Properties\Base\BaseNumberOfProcessedDailyMeasurementsProperty;
 use App\Properties\Base\BaseUnitIdProperty;
 use App\Properties\Base\BaseValenceProperty;
-use App\Properties\Correlation\CorrelationCauseChangesProperty;
-use App\Properties\Correlation\CorrelationCauseNumberOfProcessedDailyMeasurementsProperty;
-use App\Properties\Correlation\CorrelationCauseNumberOfRawMeasurementsProperty;
+use App\Properties\UserVariableRelationship\CorrelationCauseChangesProperty;
+use App\Properties\UserVariableRelationship\CorrelationCauseNumberOfProcessedDailyMeasurementsProperty;
+use App\Properties\UserVariableRelationship\CorrelationCauseNumberOfRawMeasurementsProperty;
 use App\Properties\Measurement\MeasurementStartTimeProperty;
 use App\Properties\UserVariable\UserVariableDataSourcesCountProperty;
 use App\Properties\UserVariable\UserVariableEarliestFillingTimeProperty;
@@ -459,7 +459,7 @@ class QMUserVariable extends QMVariable {
 			'foreign_key' => UserVariableRelationship::FIELD_EFFECT_USER_VARIABLE_ID,
 			'duration' => 0,
 			'sql' => 'select cause_variable_id as calculatedValue
-                                from correlations ac
+                                from user_variable_relationships ac
                                 where effect_user_variable_id = $this->id
                                     and ac.deleted_at is null
                                 order by ac.qm_score desc
@@ -470,7 +470,7 @@ class QMUserVariable extends QMVariable {
 			'foreign_key' => UserVariableRelationship::FIELD_CAUSE_USER_VARIABLE_ID,
 			'duration' => 0,
 			'sql' => 'select effect_variable_id as calculatedValue
-                                from correlations ac
+                                from user_variable_relationships ac
                                 where cause_user_variable_id = $this->id
                                     and ac.deleted_at is null
                                 order by ac.qm_score desc
@@ -1837,7 +1837,7 @@ class QMUserVariable extends QMVariable {
 	 */
 	public function correlateAsEffect(): array{
 		try {
-			$this->analyzeFullyIfNecessary("we're calculating all correlations with this variable");
+			$this->analyzeFullyIfNecessary("we're calculating all user_variable_relationships with this variable");
 		} catch (TooSlowToAnalyzeException $e) {
 			le($e);
 		}
@@ -1864,15 +1864,15 @@ class QMUserVariable extends QMVariable {
 			}
 			$this->charts = null;
 			$this->unsetCorrelations();
-			$get = $this->getOutcomesOrPredictors(); // This excludes self-correlations
+			$get = $this->getOutcomesOrPredictors(); // This excludes self-user_variable_relationships
 			$createdCount = count($correlations);
 			$fromDBCount = $get->count();
-			if($createdCount > ($fromDBCount + 1)){  // This excludes self-correlations so we add +1
+			if($createdCount > ($fromDBCount + 1)){  // This excludes self-user_variable_relationships so we add +1
 				$causeNames = array_keys($correlations);
 				$fromDB = BaseNameProperty::listValues($get->all());
-				le("Why did we create $createdCount correlations for effect $this".
+				le("Why did we create $createdCount user_variable_relationships for effect $this".
 				 "\n\tcauses: ".QMStr::list($causeNames).
-					"\nbut only get these $fromDBCount correlations from the database:\n$fromDB"
+					"\nbut only get these $fromDBCount user_variable_relationships from the database:\n$fromDB"
 					."\n\t".$this->getDataLabShowUrl());
 			}
 		}
@@ -1898,7 +1898,7 @@ class QMUserVariable extends QMVariable {
 		if($this->status !== UserVariableStatusProperty::STATUS_CORRELATING){
 			$this->setStatusInDatabase(UserVariableStatusProperty::STATUS_CORRELATING, []);
 		}
-		$this->analyzeFullyIfNecessary("we're calculating all correlations with this variable");
+		$this->analyzeFullyIfNecessary("we're calculating all user_variable_relationships with this variable");
 		if(!$userVariableIds){
 			$userVariableIds = $this->getUserVariableIdsToCorrelateWith();
 		}
@@ -4794,9 +4794,9 @@ class QMUserVariable extends QMVariable {
 		if($this->onsetDelay === null){
 			le('$this->onsetDelay === null');
 		}
-		$this->logInfo("Last calculated all correlations " . TimeHelper::timeSinceHumanString($this->lastCorrelatedAt));
+		$this->logInfo("Last calculated all user_variable_relationships " . TimeHelper::timeSinceHumanString($this->lastCorrelatedAt));
 		$this->getPHPUnitTestUrlForCorrelateAll();
-		$this->analyzeFullyIfNecessary("we're seeing if we need to calculate all correlations with this variable");
+		$this->analyzeFullyIfNecessary("we're seeing if we need to calculate all user_variable_relationships with this variable");
 		$shouldCalculate = $this->weShouldCalculateCorrelations();
 		if(!$shouldCalculate){
 			$this->setStatusInDatabase(UserVariableStatusProperty::STATUS_UPDATED, []);
@@ -5388,7 +5388,7 @@ class QMUserVariable extends QMVariable {
 			'cause_variable',
 			'cause_user_variable',
 		])
-			//->where(Correlation::FIELD_CAUSE_VARIABLE_ID, "<>", $this->getVariableId())
+			//->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, "<>", $this->getVariableId())
 			->limit($limit);
 		UserVariableRelationship::applyDefaultOrderings($qb);
 		$correlations = $qb->get();

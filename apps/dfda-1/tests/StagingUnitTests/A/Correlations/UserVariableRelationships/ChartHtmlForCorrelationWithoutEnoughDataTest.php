@@ -1,6 +1,6 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\StagingUnitTests\A\Correlations\UserVariableRelationships;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\DataSources\Connectors\QuantiModoConnector;
 use App\Properties\Measurement\MeasurementValueProperty;
 use App\Variables\QMUserVariable;

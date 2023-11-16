@@ -31,7 +31,7 @@ class BaseOnsetDelayWithStrongestPearsonCorrelationProperty extends BaseProperty
 	public const NAME = 'onset_delay_with_strongest_pearson_correlation';
 	public $phpType = \App\Types\PhpTypes::INTEGER;
 	public $rules = 'nullable|integer|min:-2147483648|max:2147483647';
-	public $title = 'Onset Delay With Strongest Pearson Correlation';
+	public $title = 'Onset Delay With Strongest Pearson UserVariableRelationship';
 	public $type = self::TYPE_INTEGER;
 	public $canBeChangedToNull = true;
 	public $validations = 'nullable|integer|min:-2147483648|max:2147483647';

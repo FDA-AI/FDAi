@@ -10,7 +10,7 @@ use App\Models\Variable;
 use App\Traits\PropertyTraits\IsNumberOfRelated;
 use App\Traits\PropertyTraits\VariableProperty;
 use App\Properties\Base\BaseNumberOfGlobalVariableRelationshipsAsEffectProperty;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 use App\Variables\QMCommonVariable;
 class VariableNumberOfGlobalVariableRelationshipsAsEffectProperty extends BaseNumberOfGlobalVariableRelationshipsAsEffectProperty
 {
@@ -35,7 +35,7 @@ class VariableNumberOfGlobalVariableRelationshipsAsEffectProperty extends BaseNu
         $v = $this->getVariable();
         $val = $this->getDBValue();
         if($v->best_cause_variable_id && !$val){
-            $this->throwException("best_cause_variable_id but there are not correlations");
+            $this->throwException("best_cause_variable_id but there are not user_variable_relationships");
         }
     }
     public function showOnUpdate(): bool {return false;}

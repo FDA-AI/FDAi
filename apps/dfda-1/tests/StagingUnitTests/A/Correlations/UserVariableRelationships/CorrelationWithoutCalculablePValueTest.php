@@ -3,7 +3,7 @@
 namespace Tests\StagingUnitTests\A\Correlations\UserVariableRelationships;
 use App\Exceptions\NotEnoughDataException;
 use Tests\SlimStagingTestCase;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 class CorrelationWithoutCalculablePValueTest extends SlimStagingTestCase
 {
     public function testCorrelationWithoutCalculablePValue(): void{

@@ -206,7 +206,7 @@ class V2UserVariableController extends Controller {
 	 *      @SWG\Parameter(
 	 *          name="number_of_correlations",
 	 *          in="query",
-	 *          description="Number of correlations for this variable",
+	 *          description="Number of user_variable_relationships for this variable",
 	 *          required=false,
 	 *          type="integer"
 	 *      ),
@@ -626,7 +626,7 @@ class V2UserVariableController extends Controller {
 	 *      @SWG\Parameter(
 	 *          name="number_of_correlations",
 	 *          in="query",
-	 *          description="Number of correlations for this variable",
+	 *          description="Number of user_variable_relationships for this variable",
 	 *          required=false,
 	 *          type="integer"
 	 *      ),

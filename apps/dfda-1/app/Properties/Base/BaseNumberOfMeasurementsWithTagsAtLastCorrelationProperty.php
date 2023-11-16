@@ -32,7 +32,7 @@ class BaseNumberOfMeasurementsWithTagsAtLastCorrelationProperty extends BaseProp
 	public const NAME = 'number_of_measurements_with_tags_at_last_correlation';
 	public $phpType = \App\Types\PhpTypes::INTEGER;
 	public $rules = 'nullable|integer|min:0|max:2147483647';
-	public $title = 'Measurements With Tags Last Correlation';
+	public $title = 'Measurements With Tags Last UserVariableRelationship';
 	public $type = self::TYPE_INTEGER;
 	public $canBeChangedToNull = true;
 	public $validations = 'nullable|integer|min:0|max:2147483647';

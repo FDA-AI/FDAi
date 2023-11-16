@@ -873,7 +873,7 @@ qm.staticData.docs = {
                     "type": "string"
                 },
                 "reverseCorrelation": {
-                    "description": "Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation.",
+                    "description": "User Variable Relationship when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation.",
                     "type": "number"
                 },
                 "averagePearsonCorrelationCoefficientOverOnsetDelays": {
@@ -886,25 +886,25 @@ qm.staticData.docs = {
                     "type": "integer"
                 },
                 "correlationsOverDurationsOfAction": {
-                    "description": "Correlations calculated with various duration of action hyper-parameters",
+                    "description": "VariableRelationships calculated with various duration of action hyper-parameters",
                     "items": {
-                        "$ref": "#\/definitions\/Correlation"
+                        "$ref": "#\/definitions\/UserVariableRelationship"
                     },
                     "type": "array"
                 },
                 "correlationsOverOnsetDelays": {
-                    "description": "Correlations calculated with various onset delay hyper-parameters",
+                    "description": "VariableRelationships calculated with various onset delay hyper-parameters",
                     "items": {
-                        "$ref": "#\/definitions\/Correlation"
+                        "$ref": "#\/definitions\/UserVariableRelationship"
                     },
                     "type": "array"
                 },
                 "correlationsOverDurationsOfActionChartConfig": {
-                    "description": "Highchart config illustrating correlations calculated with various duration of action hyper-parameters",
+                    "description": "Highchart config illustrating user_variable_relationships calculated with various duration of action hyper-parameters",
                     "type": "object"
                 },
                 "correlationsOverOnsetDelaysChartConfig": {
-                    "description": "Highchart config illustrating correlations calculated with various onset delay hyper-parameters",
+                    "description": "Highchart config illustrating user_variable_relationships calculated with various onset delay hyper-parameters",
                     "type": "object"
                 },
                 "numberOfUsers": {
@@ -1380,7 +1380,7 @@ qm.staticData.docs = {
             "properties": {
                 "correlations": {
                     "items": {
-                        "$ref": "#\/definitions\/Correlation"
+                        "$ref": "#\/definitions\/UserVariableRelationship"
                     },
                     "type": "array"
                 },
@@ -2705,7 +2705,7 @@ qm.staticData.docs = {
                     "$ref": "#\/definitions\/ParticipantInstruction"
                 },
                 "statistics": {
-                    "$ref": "#\/definitions\/Correlation"
+                    "$ref": "#\/definitions\/UserVariableRelationship"
                 },
                 "studyCard": {
                     "description": "Contains a summary, images, sharing buttons, and links",
@@ -3087,7 +3087,7 @@ qm.staticData.docs = {
                     "type": "string"
                 },
                 "studyLimitations": {
-                    "description": "Ex: As with any human experiment, it was impossible to control for all potentially confounding variables.\n            Correlation does not necessarily imply correlation.  We can never know for sure if one factor is definitely the cause of an outcome.\n            However, lack of correlation definitely implies the lack of a causal relationship.  Hence, we can with great\n            confidence rule out non-existent relationships. For instance, if we discover no relationship between mood\n            and an antidepressant this information is just as or even more valuable than the discovery that there is a relationship.\n            <br>\n            <br>\n            We can also take advantage of several characteristics of time series data from many subjects  to infer the likelihood of a causal relationship if we do find a correlational relationship.\n            The criteria for causation are a group of minimal conditions necessary to provide adequate evidence of a causal relationship between an incidence and a possible consequence.\n            The list of the criteria is as follows:\n            <br>\n            1. Strength (effect size): A small association does not mean that there is not a causal effect, though the larger the association, the more likely that it is causal.\n            <br>\n            2. Consistency (reproducibility): Consistent findings observed by different persons in different places with different samples strengthens the likelihood of an effect.\n            <br>\n            3. Specificity: Causation is likely if a very specific population at a specific site and disease with no other likely explanation. The more specific an association between a factor and an effect is, the bigger the probability of a causal relationship.\n            <br>\n            4. Temporality: The effect has to occur after the cause (and if there is an expected delay between the cause and expected effect, then the effect must occur after that delay).\n            <br>\n            5. Biological gradient: Greater exposure should generally lead to greater incidence of the effect. However, in some cases, the mere presence of the factor can trigger the effect. In other cases, an inverse proportion is observed: greater exposure leads to lower incidence.\n            <br>\n            6. Plausibility: A plausible mechanism between cause and effect is helpful.\n            <br>\n            7. Coherence: Coherence between epidemiological and laboratory findings increases the likelihood of an effect.\n            <br>\n            8. Experiment: \"Occasionally it is possible to appeal to experimental evidence\".\n            <br>\n            9. Analogy: The effect of similar factors may be considered.\n            <br>\n            <br>\n             The confidence in a causal relationship is bolstered by the fact that time-precedence was taken into account in all calculations. Furthermore, in accordance with the law of large numbers (LLN), the predictive power and accuracy of these results will continually grow over time.  146 paired data points were used in this analysis.   Assuming that the relationship is merely coincidental, as the participant independently modifies their Very Distracting Time values, the observed strength of the relationship will decline until it is below the threshold of significance.  To it another way, in the case that we do find a spurious correlation, suggesting that banana intake improves mood for instance,\n            one will likely increase their banana intake.  Due to the fact that this correlation is spurious, it is unlikely\n            that you will see a continued and persistent corresponding increase in mood.  So over time, the spurious correlation will\n            naturally dissipate.Furthermore, it will be very enlightening to aggregate this data with the data from other participants  with similar genetic, diseasomic, environmentomic, and demographic profiles.",
+                    "description": "Ex: As with any human experiment, it was impossible to control for all potentially confounding variables.\n            User Variable Relationship does not necessarily imply correlation.  We can never know for sure if one factor is definitely the cause of an outcome.\n            However, lack of correlation definitely implies the lack of a causal relationship.  Hence, we can with great\n            confidence rule out non-existent relationships. For instance, if we discover no relationship between mood\n            and an antidepressant this information is just as or even more valuable than the discovery that there is a relationship.\n            <br>\n            <br>\n            We can also take advantage of several characteristics of time series data from many subjects  to infer the likelihood of a causal relationship if we do find a correlational relationship.\n            The criteria for causation are a group of minimal conditions necessary to provide adequate evidence of a causal relationship between an incidence and a possible consequence.\n            The list of the criteria is as follows:\n            <br>\n            1. Strength (effect size): A small association does not mean that there is not a causal effect, though the larger the association, the more likely that it is causal.\n            <br>\n            2. Consistency (reproducibility): Consistent findings observed by different persons in different places with different samples strengthens the likelihood of an effect.\n            <br>\n            3. Specificity: Causation is likely if a very specific population at a specific site and disease with no other likely explanation. The more specific an association between a factor and an effect is, the bigger the probability of a causal relationship.\n            <br>\n            4. Temporality: The effect has to occur after the cause (and if there is an expected delay between the cause and expected effect, then the effect must occur after that delay).\n            <br>\n            5. Biological gradient: Greater exposure should generally lead to greater incidence of the effect. However, in some cases, the mere presence of the factor can trigger the effect. In other cases, an inverse proportion is observed: greater exposure leads to lower incidence.\n            <br>\n            6. Plausibility: A plausible mechanism between cause and effect is helpful.\n            <br>\n            7. Coherence: Coherence between epidemiological and laboratory findings increases the likelihood of an effect.\n            <br>\n            8. Experiment: \"Occasionally it is possible to appeal to experimental evidence\".\n            <br>\n            9. Analogy: The effect of similar factors may be considered.\n            <br>\n            <br>\n             The confidence in a causal relationship is bolstered by the fact that time-precedence was taken into account in all calculations. Furthermore, in accordance with the law of large numbers (LLN), the predictive power and accuracy of these results will continually grow over time.  146 paired data points were used in this analysis.   Assuming that the relationship is merely coincidental, as the participant independently modifies their Very Distracting Time values, the observed strength of the relationship will decline until it is below the threshold of significance.  To it another way, in the case that we do find a spurious correlation, suggesting that banana intake improves mood for instance,\n            one will likely increase their banana intake.  Due to the fact that this correlation is spurious, it is unlikely\n            that you will see a continued and persistent corresponding increase in mood.  So over time, the spurious correlation will\n            naturally dissipate.Furthermore, it will be very enlightening to aggregate this data with the data from other participants  with similar genetic, diseasomic, environmentomic, and demographic profiles.",
                     "type": "string"
                 },
                 "studyObjective": {
@@ -4874,7 +4874,7 @@ qm.staticData.docs = {
                     "type": "integer"
                 },
                 "numberOfCorrelations": {
-                    "description": "Number of correlations for this variable",
+                    "description": "Number of user_variable_relationships for this variable",
                     "format": "int32",
                     "type": "integer"
                 },
@@ -7191,7 +7191,7 @@ qm.staticData.docs = {
             "type": "boolean"
         },
         "outcomesOfInterestParam": {
-            "description": "Only include correlations for which the effect is an outcome of interest for the user",
+            "description": "Only include user_variable_relationships for which the effect is an outcome of interest for the user",
             "in": "query",
             "name": "outcomesOfInterest",
             "required": false,
@@ -7784,7 +7784,7 @@ qm.staticData.docs = {
         },
         "\/v3\/correlations": {
             "get": {
-                "description": "Get a list of correlations that can be used to display top predictors of a given outcome like mood, for instance.",
+                "description": "Get a list of user_variable_relationships that can be used to display top predictors of a given outcome like mood, for instance.",
                 "operationId": "getCorrelations",
                 "parameters": [
                     {
@@ -7864,7 +7864,7 @@ qm.staticData.docs = {
                         ]
                     }
                 ],
-                "summary": "Get correlations",
+                "summary": "Get user_variable_relationships",
                 "tags": [
                     "analytics"
                 ]
@@ -7872,7 +7872,7 @@ qm.staticData.docs = {
         },
         "\/v3\/correlations\/explanations": {
             "get": {
-                "description": "Get explanations of  correlations based on data from a single user.",
+                "description": "Get explanations of  user_variable_relationships based on data from a single user.",
                 "operationId": "getCorrelationExplanations",
                 "parameters": [
                     {
@@ -7902,7 +7902,7 @@ qm.staticData.docs = {
                         "description": "Successful Operation",
                         "schema": {
                             "items": {
-                                "$ref": "#\/definitions\/Correlation"
+                                "$ref": "#\/definitions\/UserVariableRelationship"
                             },
                             "type": "array"
                         }
@@ -10428,7 +10428,7 @@ qm.staticData.docs = {
         },
         "\/v3\/votes": {
             "post": {
-                "description": "I am really good at finding correlations and even compensating for various onset delays and durations of action. However, you are much better than me at knowing if there's a way that a given factor could plausibly influence an outcome. You can help me learn and get better at my predictions by pressing the thumbs down button for relationships that you think are coincidences and thumbs up once that make logic sense.",
+                "description": "I am really good at finding user_variable_relationships and even compensating for various onset delays and durations of action. However, you are much better than me at knowing if there's a way that a given factor could plausibly influence an outcome. You can help me learn and get better at my predictions by pressing the thumbs down button for relationships that you think are coincidences and thumbs up once that make logic sense.",
                 "operationId": "postVote",
                 "parameters": [
                     {

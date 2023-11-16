@@ -8,7 +8,7 @@ namespace App\Variables;
 use App\Buttons\States\OnboardingStateButton;
 use App\Buttons\VariableButton;
 use App\CodeGenerators\Swagger\SwaggerDefinition;
-use App\Correlations\QMCorrelation;
+use App\VariableRelationships\QMVariableRelationship;
 use App\Exceptions\VariableCategoryNotFoundException;
 use App\Files\FileHelper;
 use App\Files\PHP\PhpClassFile;
@@ -140,9 +140,9 @@ abstract class QMVariableCategory extends DBModel {
         }
     }
     /**
-     * @param QMMeasurement|QMCorrelation|QMUserVariable|QMCommonVariable|QMTrackingReminderNotification|QMTrackingReminder $item
+     * @param QMMeasurement|QMVariableRelationship|QMUserVariable|QMCommonVariable|QMTrackingReminderNotification|QMTrackingReminder $item
      * @param bool $unsetUserVariableVariableCategoryId
-     * @return \App\Correlations\QMCorrelation|\App\Slim\Model\Measurement\QMMeasurement|QMCommonVariable|QMTrackingReminder|QMTrackingReminderNotification|QMUserVariable
+     * @return \App\VariableRelationships\QMVariableRelationship|\App\Slim\Model\Measurement\QMMeasurement|QMCommonVariable|QMTrackingReminder|QMTrackingReminderNotification|QMUserVariable
      */
     public static function addVariableCategoryNamesToObject($item, bool $unsetUserVariableVariableCategoryId = false){
         if($unsetUserVariableVariableCategoryId && isset($item->userVariableVariableCategoryId)){

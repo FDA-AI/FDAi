@@ -4,7 +4,7 @@ use App\Logging\QMLog;
 use App\Properties\Variable\VariableNameProperty;
 use App\PhpUnitJobs\Cleanup\CorrelationsCleanUpJob;
 use Tests\SlimStagingTestCase;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 
 class BoringGlobalVariableRelationshipTest extends SlimStagingTestCase
 {

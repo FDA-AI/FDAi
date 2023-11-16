@@ -34,7 +34,7 @@ class BaseLastCorrelationAtProperty extends BaseProperty{
 	public const NAME = 'last_correlation_at';
 	public $phpType = PhpTypes::STRING;
 	public $rules = 'nullable|date';
-	public $title = 'Last Correlation';
+	public $title = 'Last UserVariableRelationship';
 	public $type = self::TYPE_DATETIME;
 	public $canBeChangedToNull = true;
 	public $validations = 'nullable|date';

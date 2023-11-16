@@ -77,7 +77,7 @@ class CreateCohortStudyStatisticsTable extends Migration
             $table->float('effect_follow_up_percent_change_from_baseline', 10, 0)->comment('Outcome Average at Follow-Up (The average value seen for the outcome during the duration of action following the onset delay of the treatment)');
             $table->float('z_score', 10, 0)->comment('The absolute value of the change over duration of action following the onset delay of treatment divided by the baseline outcome relative standard deviation. A.K.A The number of standard deviations from the mean. A zScore > 2 means pValue < 0.05 and is typically considered statistically significant.');
             $table->json('charts');
-            $table->unsignedInteger('number_of_variables_where_best_cohort_correlation')->comment('Number of Variables for this Best Cohort Correlation.
+            $table->unsignedInteger('number_of_variables_where_best_cohort_correlation')->comment('Number of Variables for this Best Cohort UserVariableRelationship.
                     [Formula: update cohort_study_statistics
                         left join (
                             select count(id) as total, best_cohort_correlation_id

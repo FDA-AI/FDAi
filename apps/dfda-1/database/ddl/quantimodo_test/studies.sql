@@ -3,8 +3,8 @@ create table quantimodo_test.studies
     id                            varchar(80)                           not null comment 'Study id which should match OAuth client id'
         primary key,
     type                          varchar(20)                           not null comment 'The type of study may be population, individual, or cohort study',
-    cause_variable_id             int unsigned                          not null comment 'variable ID of the cause variable for which the user desires correlations',
-    effect_variable_id            int unsigned                          not null comment 'variable ID of the effect variable for which the user desires correlations',
+    cause_variable_id             int unsigned                          not null comment 'variable ID of the cause variable for which the user desires user_variable_relationships',
+    effect_variable_id            int unsigned                          not null comment 'variable ID of the effect variable for which the user desires user_variable_relationships',
     user_id                       bigint unsigned                       not null,
     created_at                    timestamp   default CURRENT_TIMESTAMP not null,
     deleted_at                    timestamp                             null,

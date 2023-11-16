@@ -20,7 +20,7 @@ create table quantimodo_test.cohort_study_statistics
     created_at                                                   timestamp   default CURRENT_TIMESTAMP                           not null,
     updated_at                                                   timestamp   default CURRENT_TIMESTAMP                           not null on update CURRENT_TIMESTAMP,
     status                                                       varchar(25)                                                     not null comment 'Whether the correlation is being analyzed, needs to be analyzed, or is up to date already.',
-    reverse_pearson_correlation_coefficient                      double                                                          not null comment 'Correlation when Predictor and Outcome are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation',
+    reverse_pearson_correlation_coefficient                      double                                                          not null comment 'User Variable Relationship when Predictor and Outcome are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation',
     predictive_pearson_correlation_coefficient                   double                                                          not null comment 'Pearson correlation coefficient of Predictor and Outcome values lagged by the onset delay and grouped based on the duration of action. ',
     data_source_name                                             varchar(255)                                                    null,
     predicts_high_effect_change                                  int                                                             not null comment 'The percent change in the outcome typically seen when the predictor value is closer to the predictsHighEffect value. ',
@@ -64,7 +64,7 @@ create table quantimodo_test.cohort_study_statistics
     effect_follow_up_percent_change_from_baseline                float                                                           not null comment 'Outcome Average at Follow-Up (The average value seen for the outcome during the duration of action following the onset delay of the treatment)',
     z_score                                                      float                                                           not null comment 'The absolute value of the change over duration of action following the onset delay of treatment divided by the baseline outcome relative standard deviation. A.K.A The number of standard deviations from the mean. A zScore > 2 means pValue < 0.05 and is typically considered statistically significant.',
     charts                                                       json                                                            not null,
-    number_of_variables_where_best_cohort_correlation            int unsigned                                                    not null comment 'Number of Variables for this Best Cohort Correlation.
+    number_of_variables_where_best_cohort_correlation            int unsigned                                                    not null comment 'Number of Variables for this Best Cohort UserVariableRelationship.
                     [Formula: update cohort_study_statistics
                         left join (
                             select count(id) as total, best_cohort_correlation_id

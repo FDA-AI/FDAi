@@ -55,13 +55,13 @@ create table user_studies
 
 comment on column user_studies.id is 'Study id which should match OAuth client id';
 
-comment on column user_studies.cause_variable_id is 'variable ID of the cause variable for which the user desires correlations';
+comment on column user_studies.cause_variable_id is 'variable ID of the cause variable for which the user desires user_variable_relationships';
 
-comment on column user_studies.effect_variable_id is 'variable ID of the effect variable for which the user desires correlations';
+comment on column user_studies.effect_variable_id is 'variable ID of the effect variable for which the user desires user_variable_relationships';
 
-comment on column user_studies.cause_user_variable_id is 'variable ID of the cause variable for which the user desires correlations';
+comment on column user_studies.cause_user_variable_id is 'variable ID of the cause variable for which the user desires user_variable_relationships';
 
-comment on column user_studies.effect_user_variable_id is 'variable ID of the effect variable for which the user desires correlations';
+comment on column user_studies.effect_user_variable_id is 'variable ID of the effect variable for which the user desires user_variable_relationships';
 
 comment on column user_studies.correlation_id is 'ID of the correlation statistics';
 

@@ -15,10 +15,10 @@ class CreateUserStudiesTable extends Migration
     {
         Schema::create('user_studies', function (Blueprint $table) {
             $table->string('id', 80)->primary()->comment('Study id which should match OAuth client id');
-            $table->unsignedInteger('cause_variable_id')->index('user_studies_cause_variables_id_fk')->comment('variable ID of the cause variable for which the user desires correlations');
-            $table->unsignedInteger('effect_variable_id')->index('user_studies_effect_variables_id_fk')->comment('variable ID of the effect variable for which the user desires correlations');
-            $table->unsignedInteger('cause_user_variable_id')->index('user_studies_cause_user_variables_id_fk')->comment('variable ID of the cause variable for which the user desires correlations');
-            $table->unsignedInteger('effect_user_variable_id')->index('user_studies_effect_user_variables_id_fk')->comment('variable ID of the effect variable for which the user desires correlations');
+            $table->unsignedInteger('cause_variable_id')->index('user_studies_cause_variables_id_fk')->comment('variable ID of the cause variable for which the user desires user_variable_relationships');
+            $table->unsignedInteger('effect_variable_id')->index('user_studies_effect_variables_id_fk')->comment('variable ID of the effect variable for which the user desires user_variable_relationships');
+            $table->unsignedInteger('cause_user_variable_id')->index('user_studies_cause_user_variables_id_fk')->comment('variable ID of the cause variable for which the user desires user_variable_relationships');
+            $table->unsignedInteger('effect_user_variable_id')->index('user_studies_effect_user_variables_id_fk')->comment('variable ID of the effect variable for which the user desires user_variable_relationships');
             $table->integer('correlation_id')->nullable()->unique('user_studies_correlation_id_uindex')->comment('ID of the correlation statistics');
             $table->unsignedBigInteger('user_id');
             $table->timestamp('created_at')->useCurrent();

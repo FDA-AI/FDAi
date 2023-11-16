@@ -36,7 +36,7 @@ class GetAggregatedCorrelationController extends GetCorrelationController {
 		}
 		$correlations = $this->getAggregatedCorrelations($requestParams);
 		if(APIHelper::apiVersionIsAbove(3)){
-			return $this->writeJsonWithGlobalFields(200, ['correlations' => $correlations]);
+			return $this->writeJsonWithGlobalFields(200, ['user_variable_relationships' => $correlations]);
 		} else{
 			$this->writeJsonWithoutGlobalFields(200, $correlations);
 		}

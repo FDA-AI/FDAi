@@ -10,9 +10,9 @@ use App\AppSettings\HostAppSettings;
 use App\Buttons\StudyButton;
 use App\Charts\GlobalVariableRelationshipCharts\GlobalVariableRelationshipChartGroup;
 use App\Charts\ChartGroup;
-use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\DataSources\QMClient;
 use App\Exceptions\ClientNotFoundException;
 use App\Exceptions\NotEnoughDataException;
@@ -210,7 +210,7 @@ class QMCohortStudy extends QMStudy {
      * @return QMGlobalVariableRelationship|QMUserVariableRelationship
      * @throws NotEnoughDataException
      */
-    public function getCreateOrRecalculateStatistics(): QMCorrelation{
+    public function getCreateOrRecalculateStatistics(): QMVariableRelationship{
         if($c = $this->getHasCorrelationCoefficientIfSet()){
             return $c;
         }
@@ -224,10 +224,10 @@ class QMCohortStudy extends QMStudy {
         return "Examination of the likely effects of a predictor variable on an outcome variable for an specific group of individuals";
     }
     /**
-     * @return QMCorrelation
+     * @return QMVariableRelationship
      * @throws NotEnoughDataException
      */
-    public function createStatistics(): QMCorrelation{
+    public function createStatistics(): QMVariableRelationship{
         return $this->createGlobalVariableRelationship();
     }
     /**

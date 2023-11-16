@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\GlobalVariableRelationship;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 use App\Models\GlobalVariableRelationship;
 use App\Models\Vote;
 use App\Properties\Base\BaseAverageVoteProperty;

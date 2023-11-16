@@ -5,8 +5,8 @@
  */
 
 namespace App\Exceptions;
-use App\Correlations\QMUserVariableRelationship;
-use App\Properties\Correlation\CorrelationCauseChangesProperty;
+use App\VariableRelationships\QMUserVariableRelationship;
+use App\Properties\UserVariableRelationship\CorrelationCauseChangesProperty;
 class InsufficientVarianceException extends NotEnoughDataException {
     /**
      * @var QMUserVariableRelationship

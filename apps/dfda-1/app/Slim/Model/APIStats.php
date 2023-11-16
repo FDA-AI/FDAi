@@ -5,7 +5,7 @@
  */
 
 namespace App\Slim\Model;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 use App\DataSources\QMConnector;
 use App\Logging\QMLog;
 use App\Models\User;
@@ -47,7 +47,7 @@ class APIStats {
 		//$errorField = 'status';  // Don't get errored credential records because we cant json_encode them properly in response
 		//$this->credentials = APIStats::getStatsForTable('credentials', $errorField);
 		$this->credentials = self::getStatsForTable('credentials');
-		$this->correlations = self::getStatsForTable('correlations');
+		$this->correlations = self::getStatsForTable('user_variable_relationships');
 		$this->aggregateCorrelations = self::getStatsForTable('global_variable_relationships');
 		$errorField = 'status';
 		$this->variables = self::getStatsForTable('variables', $errorField);

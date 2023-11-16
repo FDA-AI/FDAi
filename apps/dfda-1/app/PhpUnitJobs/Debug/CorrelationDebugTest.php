@@ -4,7 +4,7 @@
  */ /** @noinspection PhpUnhandledExceptionInspection */
 /** @noinspection PhpUnusedLocalVariableInspection */
 namespace App\PhpUnitJobs\Debug;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Variables\QMUserVariable;
 use App\PhpUnitJobs\JobTestCase;
 use App\Slim\Model\User\QMUser;

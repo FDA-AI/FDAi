@@ -7,8 +7,8 @@
 namespace App\Charts;
 use App\Buttons\QMButton;
 use App\Charts\QMHighcharts\HighchartConfig;
-use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\ExceptionHandler;
 use App\Exceptions\HighchartExportException;
 use App\Exceptions\NotEnoughDataException;

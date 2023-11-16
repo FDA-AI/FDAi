@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */
 /** @noinspection PhpUnusedLocalVariableInspection */
 namespace Tests\StagingUnitTests\C\Studies\UserStudies;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Studies\QMStudy;
 use App\Studies\StudyText;
 use Tests\SlimStagingTestCase;

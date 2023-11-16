@@ -3,7 +3,7 @@
 *  Contributors: ADD YOUR NAME HERE, Mike P. Sinn
  */ /** @noinspection PhpUnused */
 namespace App\Slim\Controller\Correlation;
-use App\Correlations\UserVariableRelationshipListExplanationResponseBody;
+use App\VariableRelationships\UserVariableRelationshipListExplanationResponseBody;
 use App\Slim\Controller\GetController;
 class GetCorrelationExplanationsController extends GetController {
 	public function get(){

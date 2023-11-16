@@ -13,7 +13,7 @@ use App\Traits\PropertyTraits\UserVariableProperty;
 use App\Properties\Base\BaseNumberOfUserVariableRelationshipsAsCauseProperty;
 use Illuminate\Http\Request;
 use App\Fields\Field;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Variables\QMUserVariable;
 class UserVariableNumberOfUserVariableRelationshipsAsCauseProperty extends BaseNumberOfUserVariableRelationshipsAsCauseProperty {
     use UserVariableProperty;

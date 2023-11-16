@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Variable;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\InvalidStringException;
 use App\Exceptions\NoUserVariableRelationshipsToAggregateException;

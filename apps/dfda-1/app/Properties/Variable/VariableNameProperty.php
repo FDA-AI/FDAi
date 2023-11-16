@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Variable;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 use App\DataSources\Connectors\RescueTimeConnector;
 use App\Exceptions\ExceptionHandler;
 use App\Exceptions\InvalidAttributeException;
@@ -593,7 +593,7 @@ class VariableNameProperty extends BaseNameProperty
                 ->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $replacementVariableRow->id)
                 ->count();
         $message = "$replacementVariableRow->name has $replacementVariableRow->number_of_user_variables users and
-            $numberOfMeasurements measurements and $numberOfCorrelations correlations as cause.";
+            $numberOfMeasurements measurements and $numberOfCorrelations user_variable_relationships as cause.";
         QMLog::info($message);
         $variableToDeleteRow = Variable::whereName($variableNameToDelete)->first();
         if(!$variableToDeleteRow){
@@ -609,7 +609,7 @@ class VariableNameProperty extends BaseNameProperty
                 ->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $variableToDeleteRow->id)
                 ->count();
         $message = "$variableToDeleteRow->name has $variableToDeleteRow->number_of_user_variables users and
-            $numberOfMeasurements measurements and $numberOfCorrelations correlations as cause.";
+            $numberOfMeasurements measurements and $numberOfCorrelations user_variable_relationships as cause.";
         QMLog::info($message);
         if($requireConfirmation){
             QMLog::info("Are you sure you want to replace it? [y/N]");
@@ -637,7 +637,7 @@ class VariableNameProperty extends BaseNameProperty
                 ->where(UserVariableRelationship::FIELD_CAUSE_VARIABLE_ID, $replacementVariableRow->id)
                 ->count();
         $message =
-            "Replaced and deleted $variableToDeleteRow->name variable and all related records!  Now $replacementVariableName has $numberOfMeasurements measurements and $numberOfCorrelations correlations as cause. ";
+            "Replaced and deleted $variableToDeleteRow->name variable and all related records!  Now $replacementVariableName has $numberOfMeasurements measurements and $numberOfCorrelations user_variable_relationships as cause. ";
         QMLog::info($message);
         return true;
     }

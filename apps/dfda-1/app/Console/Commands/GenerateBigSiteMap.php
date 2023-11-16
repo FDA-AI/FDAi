@@ -33,7 +33,7 @@ class GenerateBigSiteMap extends Command {
         // create new sitemap object
         $sitemap = App::make("sitemap");
         // get all products from db (or wherever you store them)
-        //$correlations = DB::table('global_variable_relationships')->orderBy('id')->get();
+        //$user_variable_relationships = DB::table('global_variable_relationships')->orderBy('id')->get();
         $filters['offset'] = 0;
         $filters['limit'] = 200;
         $correlations = [];
@@ -46,7 +46,7 @@ class GenerateBigSiteMap extends Command {
                 $keepGoing = false;
             }
             $filters['offset'] = $filters['offset'] + $filters['limit'];
-            Log::info(__METHOD__." Got ".count($correlations)." correlations");
+            Log::info(__METHOD__." Got ".count($correlations)." user_variable_relationships");
             $keepGoing = false;
         }
         // counters

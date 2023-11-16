@@ -1,6 +1,6 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\SlimTests\Analytics;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Models\UserVariableRelationship;
 class CorrelationModelTest extends \Tests\SlimTests\SlimTestCase {
 	protected function setUp(): void{

@@ -18,7 +18,7 @@ class FiberCommonVariable extends QMCommonVariable {
 	public const MAXIMUM_ALLOWED_VALUE = 7257.0;
 	public const NAME = 'Fiber';
 	public const PRICE = 19.760000000000002;
-	public const PRODUCT_URL = 'https://www.amazon.com/Vitafusion-Fiber-Gummies-Count-Packaging/dp/B002NPCML0?psc=1&SubscriptionId=AKIAU4A65MD5FGE2ALOQ&tag=quantimodo04-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B002NPCML0';
+	public const PRODUCT_URL = 'https://www.amazon.com/Vitafusion-Fiber-Gummies-Count-Packaging/dp/B002NPCML0?psc=1&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B002NPCML0';
 	public const PUBLIC = true;
 	public const SYNONYMS = ['Fiber'];
 	public const VARIABLE_CATEGORY_ID = NutrientsVariableCategory::ID;

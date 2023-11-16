@@ -9,7 +9,7 @@ use App\Models\GlobalVariableRelationship;
 use App\Traits\VariableValueTraits\EffectDailyVariableValueTrait;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BaseAverageEffectFollowingHighCauseProperty;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 class GlobalVariableRelationshipAverageEffectFollowingHighCauseProperty extends BaseAverageEffectFollowingHighCauseProperty
 {
     use GlobalVariableRelationshipProperty, EffectDailyVariableValueTrait;

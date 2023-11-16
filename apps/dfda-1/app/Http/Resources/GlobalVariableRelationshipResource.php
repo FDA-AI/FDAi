@@ -50,7 +50,7 @@ class GlobalVariableRelationshipResource extends BaseJsonResource
             'confidence_level' => $this->confidence_level,
             'correlation_causality_votes_count' => $this->correlation_causality_votes_count,
             'correlation_usefulness_votes_count' => $this->correlation_usefulness_votes_count,
-            //'correlations' => CorrelationResource::collection($this->whenLoaded('correlations')),
+            //'user_variable_relationships' => CorrelationResource::collection($this->whenLoaded('user_variable_relationships')),
             'correlations_count' => $this->correlations_count,
             'created_at' => $this->created_at,
             'critical_t_value' => $this->critical_t_value,

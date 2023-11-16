@@ -10,10 +10,10 @@ use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Models\GlobalVariableRelationship;
 use App\Models\UserVariableRelationship;
-use App\Properties\Correlation\CorrelationPredictivePearsonCorrelationCoefficientProperty;
+use App\Properties\UserVariableRelationship\CorrelationPredictivePearsonCorrelationCoefficientProperty;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BasePredictivePearsonCorrelationCoefficientProperty;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 class GlobalVariableRelationshipPredictivePearsonCorrelationCoefficientProperty extends BasePredictivePearsonCorrelationCoefficientProperty
 {
     use GlobalVariableRelationshipProperty;
@@ -26,7 +26,7 @@ class GlobalVariableRelationshipPredictivePearsonCorrelationCoefficientProperty 
 	 */
     public static function calculate($model){
 	    try {
-//		    /** @var Correlation[] $userVariableRelationships */
+//		    /** @var UserVariableRelationship[] $userVariableRelationships */
 //		    $userVariableRelationships = $model->getCorrelations();
 //			foreach($userVariableRelationships as $userVariableRelationship){
 //				$correlation = $userVariableRelationship->getQMUserVariableRelationship();

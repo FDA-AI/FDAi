@@ -19,7 +19,7 @@ class VariableCorrelationUsefulnessVotesWhereCauseVariableButton extends HasMany
 	public $fontAwesome = CorrelationUsefulnessVote::FONT_AWESOME;
 	public $id = 'correlation-usefulness-votes-where-cause-variable-button';
 	public $image = CorrelationUsefulnessVote::DEFAULT_IMAGE;
-	public $text = 'Correlation Usefulness Votes Where Cause Variable';
-	public $title = 'Correlation Usefulness Votes Where Cause Variable';
-	public $tooltip = 'Correlation Usefulness Votes where this is the Cause Variable';
+	public $text = 'User Variable Relationship Usefulness Votes Where Cause Variable';
+	public $title = 'User Variable Relationship Usefulness Votes Where Cause Variable';
+	public $tooltip = 'User Variable Relationship Usefulness Votes where this is the Cause Variable';
 }

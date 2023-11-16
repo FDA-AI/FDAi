@@ -33,7 +33,7 @@ class GlobalVariableRelationshipApiTest extends UnitTestCase
 			0 => 'quantimodo',
 			1 => 'quint',
 			2 => 'asdfds',
-			3 => 'no-correlations-user',
+			3 => 'no-user_variable_relationships-user',
 			4 => 'system',
 			5 => 'dr-quantimo-do',
 			6 => 'testuser1499206388501',
@@ -85,7 +85,7 @@ class GlobalVariableRelationshipApiTest extends UnitTestCase
 					                            'populationTraitScatterPlot' =>
 						                            array (
 							                            'chartId' => 'trait-relationship-between-bupropion-sr-intake-and-overall-mood',
-							                            'chartTitle' => 'Trait Correlation Between Bupropion Sr Intake and Overall Mood',
+							                            'chartTitle' => 'Trait User Variable Relationship Between Bupropion Sr Intake and Overall Mood',
 							                            'explanation' => 'People with higher Bupropion Sr Intake usually have lower Overall Mood',
 							                            'highchartConfig' =>
 								                            array (
@@ -97,7 +97,7 @@ class GlobalVariableRelationshipApiTest extends UnitTestCase
 										                            ),
 									                            'title' =>
 										                            array (
-											                            'text' => 'Trait Correlation Between Bupropion Sr Intake and Overall Mood',
+											                            'text' => 'Trait User Variable Relationship Between Bupropion Sr Intake and Overall Mood',
 											                            'enabled' => true,
 										                            ),
 									                            'subtitle' =>
@@ -230,7 +230,7 @@ class GlobalVariableRelationshipApiTest extends UnitTestCase
 									                            'id' => 'trait-relationship-between-bupropion-sr-intake-and-overall-mood',
 									                            'themeName' => 'white',
 									                            'divHeight' => NULL,
-									                            'type' => 'Population Trait Correlation Scatter Plot',
+									                            'type' => 'Population Trait User Variable Relationship Scatter Plot',
 								                            ),
 							                            'id' => 'trait-relationship-between-bupropion-sr-intake-and-overall-mood',
 							                            'imageGeneratedAt' => NULL,
@@ -239,7 +239,7 @@ class GlobalVariableRelationshipApiTest extends UnitTestCase
 							                            'pngUrl' => NULL,
 							                            'subtitle' => NULL,
 							                            'svgUrl' => NULL,
-							                            'title' => 'Trait Correlation Between Bupropion Sr Intake and Overall Mood',
+							                            'title' => 'Trait User Variable Relationship Between Bupropion Sr Intake and Overall Mood',
 							                            'validImageOnS3' => NULL,
 							                            'variableName' => NULL,
 						                            ),

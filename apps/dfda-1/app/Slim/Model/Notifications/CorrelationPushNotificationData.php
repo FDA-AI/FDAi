@@ -5,7 +5,7 @@
  */
 
 namespace App\Slim\Model\Notifications;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 /** Class CorrelationNotificationData
  * @package App\Slim\Model\Notifications
  */

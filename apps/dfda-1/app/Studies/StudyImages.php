@@ -7,7 +7,7 @@
 namespace App\Studies;
 use App\Buttons\States\PredictorSearchStateButton;
 use App\Computers\ThisComputer;
-use App\Correlations\QMCorrelation;
+use App\VariableRelationships\QMVariableRelationship;
 use App\Models\GlobalVariableRelationship;
 use App\Models\UserVariableRelationship;
 use App\Repos\ImagesRepo;
@@ -39,7 +39,7 @@ class StudyImages {
 	public $avatar;
 	/**
 	 * StudyImages constructor.
-	 * @param GlobalVariableRelationship|UserVariableRelationship|QMCorrelation|null $hasCorrelationCoefficient
+	 * @param GlobalVariableRelationship|UserVariableRelationship|QMVariableRelationship|null $hasCorrelationCoefficient
 	 * @param HasCauseAndEffect|QMStudy|null $hasCauseAndEffect
 	 */
 	public function __construct($hasCorrelationCoefficient = null, $hasCauseAndEffect = null){
@@ -150,7 +150,7 @@ class StudyImages {
 	 * @return string
 	 */
 	public static function generateGaugeSharingImageUrl(string $effectSize, $causeCategory, $effectCategory): string{
-		return QMCorrelation::S3_IMAGE_PATH.QMCorrelation::GAUGE_IMAGE_PATH . self::getGaugeFilename($effectSize) .
+		return QMVariableRelationship::S3_IMAGE_PATH.QMVariableRelationship::GAUGE_IMAGE_PATH . self::getGaugeFilename($effectSize) .
 		       '_' . self::getCauseEffectFileName($causeCategory, $effectCategory) . '_background.png';
 	}
 	/**
@@ -179,7 +179,7 @@ class StudyImages {
 	 * @return string
 	 */
 	public static function generateVariableCategoriesRobotSharingImageWithBackgroundUrl($causeCategory, $effectCategory): string{
-		return ImageHelper::STATIC_BASE_URL.QMCorrelation::VARIABLE_CATEGORIES_COMBINED_ROBOT_BACKGROUND .
+		return ImageHelper::STATIC_BASE_URL.QMVariableRelationship::VARIABLE_CATEGORIES_COMBINED_ROBOT_BACKGROUND .
 		       self::getCauseEffectFileName($causeCategory, $effectCategory) . '_robot_background.png';
 	}
 	/**
@@ -188,7 +188,7 @@ class StudyImages {
 	 * @return string
 	 */
 	public static function generateCategoriesWithoutBackgroundRobotImageUrl($causeCategory, $effectCategory): string{
-		return QMCorrelation::S3_IMAGE_PATH.QMCorrelation::VARIABLE_CATEGORIES_COMBINED_ROBOT .
+		return QMVariableRelationship::S3_IMAGE_PATH.QMVariableRelationship::VARIABLE_CATEGORIES_COMBINED_ROBOT .
 		       self::getCauseEffectFileName($causeCategory, $effectCategory) . '_robot.png';
 	}
 	/**
@@ -218,11 +218,11 @@ class StudyImages {
 	 * @return string
 	 */
 	public static function generateSmallCategoriesRobotImageUrl($causeCategory, $effectCategory): string{
-		return QMCorrelation::S3_IMAGE_PATH.QMCorrelation::VARIABLE_CATEGORIES_COMBINED_ROBOT_SMALL .
+		return QMVariableRelationship::S3_IMAGE_PATH.QMVariableRelationship::VARIABLE_CATEGORIES_COMBINED_ROBOT_SMALL .
 		       self::getCauseEffectFileName($causeCategory, $effectCategory) . '_robot-600-315.png';
 	}
 	/**
-	 * @return QMCorrelation|GlobalVariableRelationship|UserVariableRelationship
+	 * @return QMVariableRelationship|GlobalVariableRelationship|UserVariableRelationship
 	 */
 	public function getCorrelation() {
 		return $this->hasCorrelationCoefficient;
@@ -237,7 +237,7 @@ class StudyImages {
 	public static function getStudiesListWithGauges($correlations, ?string $title, ?string $description,
 		bool $addSharingButtons = false): string{
 		if(!$correlations){
-			le("No correlations provided to " . __FUNCTION__);
+			le("No user_variable_relationships provided to " . __FUNCTION__);
 		}
 		$html = '';
 		if($title){
@@ -246,7 +246,7 @@ class StudyImages {
 		if($description){
 			$html .= CssHelper::addBodyCss($description);
 		}
-		$c = QMCorrelation::getFirst($correlations);
+		$c = QMVariableRelationship::getFirst($correlations);
 		$html .= '
                 <div style="display: inline-block;">
                     <img style="max-width: 100%;"

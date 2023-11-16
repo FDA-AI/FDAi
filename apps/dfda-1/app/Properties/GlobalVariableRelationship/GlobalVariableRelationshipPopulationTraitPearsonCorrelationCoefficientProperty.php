@@ -11,7 +11,7 @@ use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BasePopulationTraitPearsonCorrelationCoefficientProperty;
 use App\Utils\Stats;
 use Illuminate\Support\Arr;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 class GlobalVariableRelationshipPopulationTraitPearsonCorrelationCoefficientProperty extends BasePopulationTraitPearsonCorrelationCoefficientProperty
 {
     use GlobalVariableRelationshipProperty;

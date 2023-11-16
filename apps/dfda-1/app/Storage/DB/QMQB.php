@@ -904,7 +904,7 @@ $comments
 	 */
 	public function whereRaw($sql, $bindings = [], $boolean = 'and'): QMQB{
 		if(!str_contains($sql, '.') && !str_contains($sql, '(')){
-			// This doesn't work for length(charts) > 199999.  It makes it correlations.length(charts)
+			// This doesn't work for length(charts) > 199999.  It makes it user_variable_relationships.length(charts)
 			$sql = $this->getTableOrAlias().'.'.$sql;
 		}
 		$this->wheres[] = ['type' => 'raw', 'sql' => $sql, 'boolean' => $boolean];

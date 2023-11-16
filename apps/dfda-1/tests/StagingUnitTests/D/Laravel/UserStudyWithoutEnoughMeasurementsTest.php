@@ -2,7 +2,7 @@
 /** @noinspection PhpUnusedLocalVariableInspection */
 /** @noinspection SpellCheckingInspection */
 namespace Tests\StagingUnitTests\D\Laravel;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 use App\Override\GeneratedTestRequest;
 use App\Override\QMFileBag;
 use App\Override\QMHeaderBag;

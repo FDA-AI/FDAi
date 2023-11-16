@@ -9,9 +9,9 @@ use App\Charts\ChartGroup;
 use App\Charts\VariableCharts\VariableChartChartGroup;
 use App\CodeGenerators\Swagger\SwaggerDefinition;
 use App\Computers\ThisComputer;
-use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\AlreadyAnalyzedException;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\BadRequestException;
@@ -793,11 +793,11 @@ class QMCommonVariable extends QMVariable {
             'field' => 'variable_id'
         ];
         $array[] = [
-            'table' => 'correlations',
+            'table' => 'user_variable_relationships',
             'field' => 'cause_variable_id'
         ];
         $array[] = [
-            'table' => 'correlations',
+            'table' => 'user_variable_relationships',
             'field' => 'effect_variable_id'
         ];
         $array[] = [
@@ -1265,7 +1265,7 @@ class QMCommonVariable extends QMVariable {
      * @return int
      */
     public function hardDeleteCorrelationsWhereOutcome(string $reason): int {
-        return QMCorrelation::deleteByEffectId($this->getVariableIdAttribute(), $reason);
+        return QMVariableRelationship::deleteByEffectId($this->getVariableIdAttribute(), $reason);
     }
     /**
      * @return stdClass

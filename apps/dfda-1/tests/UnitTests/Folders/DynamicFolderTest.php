@@ -40,7 +40,7 @@ class DynamicFolderTest extends UnitTestCase {
 			'FOLDER_APP_CODE_GENERATORS' => 'app/CodeGenerators',
 			'FOLDER_APP_CONSOLE' => 'app/Console',
 			'FOLDER_APP_CONVERSATIONS' => 'app/Conversations',
-			'FOLDER_APP_CORRELATIONS' => 'app/Correlations',
+			'FOLDER_APP_CORRELATIONS' => 'app/VariableRelationships',
 			'FOLDER_APP_DATA_SOURCES' => 'app/DataSources',
 			'FOLDER_APP_DATA_TABLE_SERVICES' => 'app/DataTableServices',
 			'FOLDER_APP_DEV_OPS' => 'app/DevOps',

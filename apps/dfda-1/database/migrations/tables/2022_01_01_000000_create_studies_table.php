@@ -16,8 +16,8 @@ class CreateStudiesTable extends Migration
          Schema::create('studies', function (Blueprint $table) {
             $table->string('id', 80)->primary()->comment('Study id which should match OAuth client id');
             $table->string('type', 20)->comment('The type of study may be population, individual, or cohort study');
-            $table->integer('cause_variable_id')->index('studies_cause_variable_id')->comment('variable ID of the cause variable for which the user desires correlations');
-            $table->integer('effect_variable_id')->index('studies_effect_variable_id')->comment('variable ID of the effect variable for which the user desires correlations');
+            $table->integer('cause_variable_id')->index('studies_cause_variable_id')->comment('variable ID of the cause variable for which the user desires user_variable_relationships');
+            $table->integer('effect_variable_id')->index('studies_effect_variable_id')->comment('variable ID of the effect variable for which the user desires user_variable_relationships');
             $table->bigInteger('user_id');
             $table->timestamp('created_at')->useCurrent();
             $table->softDeletes();

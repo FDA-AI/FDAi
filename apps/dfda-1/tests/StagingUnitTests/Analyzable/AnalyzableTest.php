@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */
 /** @noinspection PhpDocMissingThrowsInspection */
 namespace Tests\StagingUnitTests\Analyzable;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Models\UserVariableRelationship;
 use App\Models\Variable;
 use App\Variables\QMCommonVariable;
@@ -16,12 +16,12 @@ class AnalyzableTest extends SlimStagingTestCase {
 	public function testSlugs(){
         $c = QMUserVariableRelationship::findByNamesOrIds(17901, 5954747, 1398);
         $getUniqueIndexIdsSlug = $c->getUniqueIndexIdsSlug();
-        $this->assertEquals("correlations-user-17901-cause-variable-5954747-effect-variable-1398",
+        $this->assertEquals("user_variable_relationships-user-17901-cause-variable-5954747-effect-variable-1398",
             $getUniqueIndexIdsSlug);
         $charts = $c->getOrSetCharts();
         $chart = $charts->getCorrelationsOverDurationsChart();
         $slug = $chart->getUniqueIndexIdsSlug();
-        $this->assertEquals("correlations-user-17901-cause-variable-5954747-effect-variable-1398-correlations-over-durations-of-action-chart",
+        $this->assertEquals("user_variable_relationships-user-17901-cause-variable-5954747-effect-variable-1398-user_variable_relationships-over-durations-of-action-chart",
             $slug);
     }
 //    public function testAnalyzeVariableForDemoUserWithMissingMeasurements(){

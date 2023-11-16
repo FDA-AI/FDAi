@@ -49,7 +49,7 @@ class MenuTest extends SlimStagingTestCase
 	                                  'Connector Requests' => 'Connector Requests',
 	                                  'Connectors' => 'Connectors',
 	                                  'Contact Us' => 'Contact Us',
-	                                  'Correlations' => 'Correlations',
+	                                  'VariableRelationships' => 'VariableRelationships',
 	                                  'Device Tokens' => 'Device Tokens',
 	                                  'Horizon Queue Manager' => 'Horizon Queue Manager',
 	                                  'Issues' => 'Issues',

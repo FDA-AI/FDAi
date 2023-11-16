@@ -418,22 +418,22 @@ class RouteConfiguration {
 			self::FIELD_PATH => '/v1/aggregatedCorrelations',
 			self::FIELD_AUTH => false,
 			self::FIELD_AUTH_SCOPE => '',
-			self::FIELD_CONTROLLER => 'Correlation\\GetAggregatedCorrelationController',
+			self::FIELD_CONTROLLER => 'UserVariableRelationship\\GetAggregatedCorrelationController',
 			self::FIELD_CACHE_MAX_AGE_IN_DAYS => 1,
 		],
 		[
 			self::FIELD_METHOD => HttpRequest::METHOD_GET,
-			self::FIELD_PATH => '/v1/correlations',
+			self::FIELD_PATH => '/v1/user_variable_relationships',
 			self::FIELD_AUTH => false,
 			self::FIELD_AUTH_SCOPE => '',
-			self::FIELD_CONTROLLER => 'Correlation\\GetCorrelationController',
+			self::FIELD_CONTROLLER => 'UserVariableRelationship\\GetCorrelationController',
 		],
 		[
 			self::FIELD_METHOD => HttpRequest::METHOD_GET,
-			self::FIELD_PATH => '/v1/correlations/explanations',
+			self::FIELD_PATH => '/v1/user_variable_relationships/explanations',
 			self::FIELD_AUTH => false,
 			self::FIELD_AUTH_SCOPE => '',
-			self::FIELD_CONTROLLER => 'Correlation\\GetCorrelationExplanationsController',
+			self::FIELD_CONTROLLER => 'UserVariableRelationship\\GetCorrelationExplanationsController',
 		],
 		[
 			self::FIELD_METHOD => HttpRequest::METHOD_POST,
@@ -752,17 +752,17 @@ class RouteConfiguration {
 		],
 		[
 			self::FIELD_METHOD => HttpRequest::METHOD_POST,
-			self::FIELD_PATH => '/v1/correlations',
+			self::FIELD_PATH => '/v1/user_variable_relationships',
 			self::FIELD_AUTH => false,
 			self::FIELD_AUTH_SCOPE => '',
-			self::FIELD_CONTROLLER => 'Correlation\\PostCorrelationController',
+			self::FIELD_CONTROLLER => 'UserVariableRelationship\\PostCorrelationController',
 		],
 		[
 			self::FIELD_METHOD => HttpRequest::METHOD_GET,
-			self::FIELD_PATH => '/v1/public/correlations/search/:search',
+			self::FIELD_PATH => '/v1/public/user_variable_relationships/search/:search',
 			self::FIELD_AUTH => false,
 			self::FIELD_AUTH_SCOPE => '',
-			self::FIELD_CONTROLLER => 'Correlation\\GetAggregatedCorrelationController',
+			self::FIELD_CONTROLLER => 'UserVariableRelationship\\GetAggregatedCorrelationController',
 			self::FIELD_CACHE_MAX_AGE_IN_DAYS => 1,
 		],
 		[
@@ -770,7 +770,7 @@ class RouteConfiguration {
 			self::FIELD_PATH => '/v1/variables/:variableName/public/causes',
 			self::FIELD_AUTH => false,
 			self::FIELD_AUTH_SCOPE => '',
-			self::FIELD_CONTROLLER => 'Correlation\\GetAggregatedCorrelationController',
+			self::FIELD_CONTROLLER => 'UserVariableRelationship\\GetAggregatedCorrelationController',
 			self::FIELD_CACHE_MAX_AGE_IN_DAYS => 1,
 		],
 		[
@@ -778,7 +778,7 @@ class RouteConfiguration {
 			self::FIELD_PATH => '/v1/variables/:variableName/public/effects',
 			self::FIELD_AUTH => false,
 			self::FIELD_AUTH_SCOPE => '',
-			self::FIELD_CONTROLLER => 'Correlation\\GetAggregatedCorrelationController',
+			self::FIELD_CONTROLLER => 'UserVariableRelationship\\GetAggregatedCorrelationController',
 			self::FIELD_CACHE_MAX_AGE_IN_DAYS => 1,
 		],
 		[
@@ -786,7 +786,7 @@ class RouteConfiguration {
 			self::FIELD_PATH => '/v1/variables/:variableName/causes',
 			self::FIELD_AUTH => false,
 			self::FIELD_AUTH_SCOPE => '',
-			self::FIELD_CONTROLLER => 'Correlation\\GetUserVariableRelationshipController',
+			self::FIELD_CONTROLLER => 'UserVariableRelationship\\GetUserVariableRelationshipController',
 			self::FIELD_CACHE_MAX_AGE_IN_DAYS => 1,
 		],
 		[
@@ -794,7 +794,7 @@ class RouteConfiguration {
 			self::FIELD_PATH => '/v1/variables/:variableName/effects',
 			self::FIELD_AUTH => true,
 			self::FIELD_AUTH_SCOPE => '',
-			self::FIELD_CONTROLLER => 'Correlation\\GetUserVariableRelationshipController',
+			self::FIELD_CONTROLLER => 'UserVariableRelationship\\GetUserVariableRelationshipController',
 			self::FIELD_CACHE_MAX_AGE_IN_DAYS => 1,
 		],
 		// Votes
@@ -1458,10 +1458,10 @@ class RouteConfiguration {
 		],
 		[
 			self::FIELD_METHOD => HttpRequest::METHOD_GET,
-			self::FIELD_PATH => '/correlations',
+			self::FIELD_PATH => '/user_variable_relationships',
 			self::FIELD_AUTH => true,
 			self::FIELD_AUTH_SCOPE => '',
-			self::FIELD_CONTROLLER => 'Correlation\\GetCorrelationController',
+			self::FIELD_CONTROLLER => 'UserVariableRelationship\\GetCorrelationController',
 		],
 		[
 			self::FIELD_METHOD => HttpRequest::METHOD_GET,
@@ -1494,10 +1494,10 @@ class RouteConfiguration {
 		],
 		[
 			self::FIELD_METHOD => HttpRequest::METHOD_GET,
-			self::FIELD_PATH => '/public/correlations/search/:search',
+			self::FIELD_PATH => '/public/user_variable_relationships/search/:search',
 			self::FIELD_AUTH => false,
 			self::FIELD_AUTH_SCOPE => '',
-			self::FIELD_CONTROLLER => 'Correlation\\GetAggregatedCorrelationController',
+			self::FIELD_CONTROLLER => 'UserVariableRelationship\\GetAggregatedCorrelationController',
 			self::FIELD_CACHE_MAX_AGE_IN_DAYS => 1,
 		],
 		[

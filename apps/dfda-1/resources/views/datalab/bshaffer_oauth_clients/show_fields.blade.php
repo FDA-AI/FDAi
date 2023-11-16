@@ -112,9 +112,9 @@
     <p>{{ $bshafferOauthClient->number_of_connectors }}</p>
 </div>
 
-<!-- Number Of Correlations Field -->
+<!-- Number Of VariableRelationships Field -->
 <div class="form-group">
-    {!! Form::label('number_of_correlations', 'Number Of Correlations:') !!}
+    {!! Form::label('number_of_correlations', 'Number Of VariableRelationships:') !!}
     <p>{{ $bshafferOauthClient->number_of_correlations }}</p>
 </div>
 

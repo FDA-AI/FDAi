@@ -9,11 +9,11 @@ use App\Slim\QMSlim;
 use App\Slim\View\Request\Request;
 class GetCorrelationRequest extends Request {
 	/**
-	 * @var string Optional ORIGINAL variable name of the effect variable for which the user desires correlations.
+	 * @var string Optional ORIGINAL variable name of the effect variable for which the user desires user_variable_relationships.
 	 */
 	private $effectName;
 	/**
-	 * @var string Optional ORIGINAL variable name of the cause variable for which the user desires correlations.
+	 * @var string Optional ORIGINAL variable name of the cause variable for which the user desires user_variable_relationships.
 	 */
 	private $causeName;
 	/**

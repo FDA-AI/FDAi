@@ -9,7 +9,7 @@ use App\Models\GlobalVariableRelationship;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BaseCauseTreatmentAveragePerDurationOfActionProperty;
 use App\Traits\PropertyTraits\IsAverageOfCorrelations;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 class GlobalVariableRelationshipCauseTreatmentAveragePerDurationOfActionProperty extends BaseCauseTreatmentAveragePerDurationOfActionProperty
 {
     use GlobalVariableRelationshipProperty, IsAverageOfCorrelations;

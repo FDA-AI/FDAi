@@ -8,7 +8,7 @@ namespace App\Charts\CorrelationCharts;
 use App\Charts\QMHighcharts\BaseHighstock;
 use App\Charts\QMHighcharts\HighchartConfig;
 use App\Charts\QMHighcharts\MultivariateHighstock;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Slim\Model\Measurement\QMMeasurement;

@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\StagingUnitTests\A\Correlations\GlobalVariableRelationships;
 use Tests\SlimStagingTestCase;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 
 class GlobalVariableRelationshipTest extends SlimStagingTestCase
 {

@@ -13,7 +13,7 @@ use App\Buttons\States\OnboardingStateButton;
 use App\Buttons\States\RemindersManageStateButton;
 use App\Buttons\States\StudyCreationStateButton;
 use App\Cards\TrackingReminderNotificationCard;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\DataSources\Connectors\Exceptions\ConnectorDisabledException;
 use App\DataSources\Connectors\GithubConnector;
 use App\DataSources\Connectors\WeatherConnector;
@@ -1421,7 +1421,7 @@ class QMUser extends PublicUser {
 	 * @throws TooSlowToAnalyzeException
 	 */
 	public function correlateAllStale(bool $force = false): bool{
-		SolutionButton::add(__FUNCTION__, 'correlations?userId' . $this->id . "&correlateAll=true");
+		SolutionButton::add(__FUNCTION__, 'user_variable_relationships?userId' . $this->id . "&correlateAll=true");
 		$this->getPHPUnitTestUrlForCorrelateAllStale();
 		if(!$force && !$this->userHasOutcomesAndNonOutcomes()){
 			$this->logInfo("User does not have outcomes and non-outcomes so setting all CORRELATE user variables to UPDATED");
@@ -1504,9 +1504,9 @@ class QMUser extends PublicUser {
 			return $this->correlationsForOutcome[$key];
 		}
 		if($causeVariableCategoryId){
-			$this->logInfoWithoutContext("Getting correlations for variable $variableId with predictor category $causeVariableCategoryId...");
+			$this->logInfoWithoutContext("Getting user_variable_relationships for variable $variableId with predictor category $causeVariableCategoryId...");
 		} else{
-			$this->logInfoWithoutContext("Getting correlations for variable $variableId...");
+			$this->logInfoWithoutContext("Getting user_variable_relationships for variable $variableId...");
 		}
 		$correlations = QMUserVariableRelationship::getUserVariableRelationships($params);
 		return $this->correlationsForOutcome[$key] = $correlations;

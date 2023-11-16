@@ -484,7 +484,7 @@
 </li>
 <li>
 	<a href="/api/v2/correlations-list" target="_blank" title="Account Predictors
-            title from url: Correlations-List
+            title from url: VariableRelationships-List
             title from name: Account predictors
             action:  @ api/v2/correlations-list">Account predictors
 	</a>
@@ -505,9 +505,9 @@
 </li>
 <li>
 	<a href="/api/v2/correlations" target="_blank" title="Api/v2/correlations
-            title from url: Correlations
+            title from url: VariableRelationships
             title from name:
-            action:  @ api/v2/correlations">Correlations
+            action:  @ api/v2/correlations">VariableRelationships
 	</a>
 </li>
 <li>
@@ -932,9 +932,9 @@
 </li>
 <li>
 	<a href="/api/v2/application/correlations" target="_blank" title="Api/v2/application/correlations
-            title from url: Application Correlations
+            title from url: Application VariableRelationships
             title from name:
-            action:  @ api/v2/application/correlations">Application Correlations
+            action:  @ api/v2/application/correlations">Application VariableRelationships
 	</a>
 </li>
 <li>

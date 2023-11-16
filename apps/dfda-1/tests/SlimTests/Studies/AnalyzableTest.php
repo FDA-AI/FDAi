@@ -38,7 +38,7 @@ order by
 			                         0 => 'quantimodo',
 			                         1 => 'quint',
 			                         2 => 'asdfds',
-			                         3 => 'no-correlations-user',
+			                         3 => 'no-user_variable_relationships-user',
 			                         4 => 'dr-quantimo-do',
 			                         5 => 'mike',
 			                         6 => 'demo',

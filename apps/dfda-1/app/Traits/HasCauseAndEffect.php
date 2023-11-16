@@ -15,7 +15,7 @@ use App\Cards\ParticipantInstructionsQMCard;
 use App\Cards\QMCard;
 use App\Cards\StudyCard;
 use App\Charts\BarChartButton;
-use App\Correlations\QMCorrelation;
+use App\VariableRelationships\QMVariableRelationship;
 use App\Exceptions\NotEnoughDataException;
 use App\Logging\ConsoleLog;
 use App\Models\UserVariable;
@@ -825,10 +825,10 @@ trait HasCauseAndEffect {
 		return $this->getEffectVariable()->getDisplayNameWithCategoryOrUnitSuffix();
 	}
 	/**
-	 * @return QMCorrelation|GlobalVariableRelationship|\App\Models\UserVariableRelationship|null
+	 * @return QMVariableRelationship|GlobalVariableRelationship|\App\Models\UserVariableRelationship|null
 	 */
 	public function getHasCorrelationCoefficientIfSet(){
-		if($this instanceof QMCorrelation){
+		if($this instanceof QMVariableRelationship){
 			return $this;
 		}
 		if($this instanceof UserVariableRelationship || $this instanceof GlobalVariableRelationship){
@@ -892,7 +892,7 @@ trait HasCauseAndEffect {
 	 * @param int $precision
 	 * @return string|null
 	 */
-	protected function causeValueCommonUnit(float $inCommonUnit, int $precision = QMCorrelation::SIG_FIGS): string{
+	protected function causeValueCommonUnit(float $inCommonUnit, int $precision = QMVariableRelationship::SIG_FIGS): string{
 		$v = $this->getCauseVariable();
 		return $v->getQMUnit()->getValueAndUnitString($inCommonUnit, false, $precision);
 	}
@@ -901,7 +901,7 @@ trait HasCauseAndEffect {
 	 * @param int $precision
 	 * @return string|null
 	 */
-	protected function effectValueCommonUnit(float $inCommonUnit, int $precision = QMCorrelation::SIG_FIGS): string{
+	protected function effectValueCommonUnit(float $inCommonUnit, int $precision = QMVariableRelationship::SIG_FIGS): string{
 		$v = $this->getEffectVariable();
 		return $v->getQMUnit()->getValueAndUnitString($inCommonUnit, false, $precision);
 	}

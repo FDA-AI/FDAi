@@ -5,7 +5,7 @@ use App\Models\Variable;
 use App\Variables\CommonVariables\SleepCommonVariables\DurationOfAwakeningsDuringSleepCommonVariable;
 use App\Variables\QMCommonVariable;
 use Tests\SlimStagingTestCase;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 class GlobalVariableRelationshipCauseVideoEditingActivitiesEffectDurationOfAwakeningsDuringSleepTest extends SlimStagingTestCase
 {
     public function testGlobalVariableRelationshipCauseVideoEditingActivitiesEffectDurationOfAwakeningsDuringSleep(): void{

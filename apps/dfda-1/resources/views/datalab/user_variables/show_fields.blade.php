@@ -132,9 +132,9 @@
 </div>
 
 
-<!-- Number Of Correlations Field -->
+<!-- Number Of VariableRelationships Field -->
 <div class="form-group">
-    {!! Form::label('number_of_correlations', 'Number Of Correlations:') !!}
+    {!! Form::label('number_of_correlations', 'Number Of VariableRelationships:') !!}
     <p>{{ $userVariable->number_of_correlations }}</p>
 </div>
 
@@ -453,9 +453,9 @@
     <p>{{ $userVariable->last_correlated_at }}</p>
 </div>
 
-<!-- Number Of Measurements With Tags At Last Correlation Field -->
+<!-- Number Of Measurements With Tags At Last UserVariableRelationship Field -->
 <div class="form-group">
-    {!! Form::label('number_of_measurements_with_tags_at_last_correlation', 'Number Of Measurements With Tags At Last Correlation:') !!}
+    {!! Form::label('number_of_measurements_with_tags_at_last_correlation', 'Number Of Measurements With Tags At Last UserVariableRelationship:') !!}
     <p>{{ $userVariable->number_of_measurements_with_tags_at_last_correlation }}</p>
 </div>
 

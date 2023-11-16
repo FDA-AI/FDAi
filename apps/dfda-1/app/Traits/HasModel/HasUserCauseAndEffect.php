@@ -5,7 +5,7 @@
  */
 
 namespace App\Traits\HasModel;
-use App\Correlations\QMCorrelation;
+use App\VariableRelationships\QMVariableRelationship;
 use App\Exceptions\IncompatibleUnitException;
 use App\Exceptions\InvalidVariableValueException;
 use App\Exceptions\NotEnoughDataException;
@@ -88,7 +88,7 @@ trait HasUserCauseAndEffect {
 	 * @throws InvalidVariableValueException
 	 * @throws IncompatibleUnitException
 	 */
-	protected function causeValueUserUnit(float $inCommonUnit, int $precision = QMCorrelation::SIG_FIGS): string{
+	protected function causeValueUserUnit(float $inCommonUnit, int $precision = QMVariableRelationship::SIG_FIGS): string{
 		$uv = $this->getCauseUserVariable();
 		$inUserUnit = $uv->toUserUnit($inCommonUnit);
 		return $uv->getUserUnit()->getValueAndUnitString($inUserUnit, false, $precision);
@@ -102,7 +102,7 @@ trait HasUserCauseAndEffect {
      * @throws IncompatibleUnitException
      * @throws InvalidVariableValueException
      */
-	protected function effectValueUserUnit(float $inCommonUnit, int $precision = QMCorrelation::SIG_FIGS,
+	protected function effectValueUserUnit(float $inCommonUnit, int $precision = QMVariableRelationship::SIG_FIGS,
 		bool $validate = true): string{
 		$uv = $this->getEffectUserVariable();
 		$inUserUnit = $uv->toUserUnit($inCommonUnit, $validate);

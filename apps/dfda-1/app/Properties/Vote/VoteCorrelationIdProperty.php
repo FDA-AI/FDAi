@@ -17,7 +17,7 @@ class VoteCorrelationIdProperty extends BaseCorrelationIdProperty
     public static function updateAll(){
         Writable::statementStatic("
             update votes v
-                join correlations c on v.cause_variable_id = c.cause_variable_id
+                join user_variable_relationships c on v.cause_variable_id = c.cause_variable_id
                     and  v.effect_variable_id = c.effect_variable_id
                     and v.user_id = c.user_id
             set v.correlation_id = c.id

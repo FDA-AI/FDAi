@@ -2,7 +2,7 @@
 /** @noinspection PhpUnusedLocalVariableInspection */
 namespace Tests\StagingUnitTests;
 use Tests\SlimStagingTestCase;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 class GlobalVariableRelationshipAnalysisTest extends SlimStagingTestCase
 {
     public function testGlobalVariableRelationshipAnalysis(): void{

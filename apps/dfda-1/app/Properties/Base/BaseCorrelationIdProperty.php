@@ -28,7 +28,7 @@ class BaseCorrelationIdProperty extends BaseProperty{
 	public $canBeChangedToNull = true;
 	public $phpType = \App\Types\PhpTypes::INTEGER;
 	public $showOnDetail = true;
-	public $title = 'Correlation ID';
+	public $title = 'User Variable Relationship ID';
 	public $type = self::TYPE_INTEGER;
     public static function getForeignClass(): string{
         return UserVariableRelationship::class;

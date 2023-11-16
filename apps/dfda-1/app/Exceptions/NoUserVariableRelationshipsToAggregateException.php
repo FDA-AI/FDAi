@@ -9,7 +9,7 @@ use App\Models\GlobalVariableRelationship;
 use App\Models\UserVariableRelationship;
 use Facade\IgnitionContracts\ProvidesSolution;
 use App\Buttons\Analyzable\CreateStudyButton;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 use App\Utils\IonicHelper;
 use App\Logging\QMLog;
 class NoUserVariableRelationshipsToAggregateException extends NotEnoughDataException implements ProvidesSolution {
@@ -33,7 +33,7 @@ class NoUserVariableRelationshipsToAggregateException extends NotEnoughDataExcep
             "Not Enough Shared Data",
             "There are not enough users who have collected and anonymously shared their data to ".
             "create a population study on the relationship between $c->causeVariableName and $c->effectVariableName. ".
-            "See available correlations at ".$correlation->getAstralIndexUrl(),
+            "See available user_variable_relationships at ".$correlation->getAstralIndexUrl(),
             $internalErrorMessage);
         $this->userErrorMessageBodyHtml = $this->getSolutionDescription().
             "\n".(new CreateStudyButton())->getLink();

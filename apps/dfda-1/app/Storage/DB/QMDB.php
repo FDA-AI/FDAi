@@ -145,7 +145,7 @@ abstract class QMDB extends Connection {
 	public const MAX_TEXT_FIELD_LENGTH = self::LENGTH_LIMIT_TEXT;
 
 	public const TABLES_BY_SIZE_IN_MB = [
-		'correlations' => 13470.14,
+		'user_variable_relationships' => 13470.14,
 		'measurements' => 4676.41,
 		'user_variables' => 3066.61,
 		'global_variable_relationships' => 898.11,
@@ -353,7 +353,7 @@ abstract class QMDB extends Connection {
 		//'common_tags', // 111279 records
 		//'connections', // 3318 records
 		//'connectors', // 60 records
-		//'correlations', // 541221 records
+		//'user_variable_relationships', // 541221 records
 		'credentials',                 // 4681 records
 		'credentials_backup',          // 4529 records
 		'crypto_trades',               // 4 records

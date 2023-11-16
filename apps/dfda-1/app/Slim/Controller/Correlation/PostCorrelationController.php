@@ -3,12 +3,12 @@
 *  Contributors: ADD YOUR NAME HERE, Mike P. Sinn
  */ /** @noinspection PhpUnused */
 namespace App\Slim\Controller\Correlation;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\QMException;
 use App\Slim\Controller\PostController;
 use App\Types\QMArr;
 /** Class PostCorrelationController
- * @package App\Slim\Controller\Correlation
+ * @package App\Slim\Controller\UserVariableRelationship
  */
 class PostCorrelationController extends PostController {
 	public function post(){

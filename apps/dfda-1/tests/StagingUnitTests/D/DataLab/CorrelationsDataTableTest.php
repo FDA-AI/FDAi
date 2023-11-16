@@ -13,11 +13,11 @@ use Tests\DatalabTestCase;
 class CorrelationsDataTableTest extends DatalabTestCase
 {
     const USER_ID = '72128';
-    protected $REQUEST_URI = "/datalab/correlations?correlations_user_id=72128&createTest=1&draw=1&columns%5B0%5D%5Bdata%5D=open_button&columns%5B0%5D%5Bsearchable%5D=false&columns%5B0%5D%5Borderable%5D=&columns%5B1%5D%5Bdata%5D=drop_down_button&columns%5B1%5D%5Bsearchable%5D=false&columns%5B1%5D%5Borderable%5D=&columns%5B2%5D%5Bdata%5D=related_data&columns%5B2%5D%5Bsearchable%5D=false&columns%5B2%5D%5Borderable%5D=&columns%5B3%5D%5Bdata%5D=gauge_link&columns%5B3%5D%5Bsearchable%5D=false&columns%5B3%5D%5Borderable%5D=&columns%5B4%5D%5Bdata%5D=cause_link&columns%5B4%5D%5Bname%5D=cause_variable.name&columns%5B4%5D%5Borderable%5D=&columns%5B5%5D%5Bdata%5D=effect_follow_up_percent_change_from_baseline&columns%5B5%5D%5Borderable%5D=1&columns%5B6%5D%5Bdata%5D=effect_link&columns%5B6%5D%5Bname%5D=effect_variable.name&columns%5B6%5D%5Borderable%5D=&columns%5B7%5D%5Bdata%5D=number_of_pairs&columns%5B7%5D%5Bsearchable%5D=false&columns%5B7%5D%5Borderable%5D=1&columns%5B8%5D%5Bdata%5D=qm_score&columns%5B8%5D%5Borderable%5D=1&columns%5B9%5D%5Bdata%5D=z_score&columns%5B9%5D%5Borderable%5D=1&columns%5B10%5D%5Bdata%5D=analysis_ended_at&columns%5B10%5D%5Bsearchable%5D=false&columns%5B10%5D%5Borderable%5D=1&columns%5B11%5D%5Bdata%5D=errors_link&columns%5B11%5D%5Bsearchable%5D=false&columns%5B11%5D%5Borderable%5D=&columns%5B12%5D%5Bdata%5D=post_link&columns%5B12%5D%5Bsearchable%5D=false&columns%5B12%5D%5Borderable%5D=&columns%5B13%5D%5Bdata%5D=user_id_link&columns%5B13%5D%5Bsearchable%5D=false&columns%5B13%5D%5Borderable%5D=&columns%5B14%5D%5Bdata%5D=updated_at&columns%5B14%5D%5Bsearchable%5D=false&columns%5B14%5D%5Borderable%5D=1&columns%5B15%5D%5Bdata%5D=action&columns%5B15%5D%5Bsearchable%5D=false&columns%5B15%5D%5Borderable%5D=false&order%5B0%5D%5Bcolumn%5D=8&order%5B0%5D%5Bdir%5D=desc&start=0&length=10&search%5Bvalue%5D=&_=1592743261854";
+    protected $REQUEST_URI = "/datalab/user_variable_relationships?correlations_user_id=72128&createTest=1&draw=1&columns%5B0%5D%5Bdata%5D=open_button&columns%5B0%5D%5Bsearchable%5D=false&columns%5B0%5D%5Borderable%5D=&columns%5B1%5D%5Bdata%5D=drop_down_button&columns%5B1%5D%5Bsearchable%5D=false&columns%5B1%5D%5Borderable%5D=&columns%5B2%5D%5Bdata%5D=related_data&columns%5B2%5D%5Bsearchable%5D=false&columns%5B2%5D%5Borderable%5D=&columns%5B3%5D%5Bdata%5D=gauge_link&columns%5B3%5D%5Bsearchable%5D=false&columns%5B3%5D%5Borderable%5D=&columns%5B4%5D%5Bdata%5D=cause_link&columns%5B4%5D%5Bname%5D=cause_variable.name&columns%5B4%5D%5Borderable%5D=&columns%5B5%5D%5Bdata%5D=effect_follow_up_percent_change_from_baseline&columns%5B5%5D%5Borderable%5D=1&columns%5B6%5D%5Bdata%5D=effect_link&columns%5B6%5D%5Bname%5D=effect_variable.name&columns%5B6%5D%5Borderable%5D=&columns%5B7%5D%5Bdata%5D=number_of_pairs&columns%5B7%5D%5Bsearchable%5D=false&columns%5B7%5D%5Borderable%5D=1&columns%5B8%5D%5Bdata%5D=qm_score&columns%5B8%5D%5Borderable%5D=1&columns%5B9%5D%5Bdata%5D=z_score&columns%5B9%5D%5Borderable%5D=1&columns%5B10%5D%5Bdata%5D=analysis_ended_at&columns%5B10%5D%5Bsearchable%5D=false&columns%5B10%5D%5Borderable%5D=1&columns%5B11%5D%5Bdata%5D=errors_link&columns%5B11%5D%5Bsearchable%5D=false&columns%5B11%5D%5Borderable%5D=&columns%5B12%5D%5Bdata%5D=post_link&columns%5B12%5D%5Bsearchable%5D=false&columns%5B12%5D%5Borderable%5D=&columns%5B13%5D%5Bdata%5D=user_id_link&columns%5B13%5D%5Bsearchable%5D=false&columns%5B13%5D%5Borderable%5D=&columns%5B14%5D%5Bdata%5D=updated_at&columns%5B14%5D%5Bsearchable%5D=false&columns%5B14%5D%5Borderable%5D=1&columns%5B15%5D%5Bdata%5D=action&columns%5B15%5D%5Bsearchable%5D=false&columns%5B15%5D%5Borderable%5D=false&order%5B0%5D%5Bcolumn%5D=8&order%5B0%5D%5Bdir%5D=desc&start=0&length=10&search%5Bvalue%5D=&_=1592743261854";
     public function testDatalabCorrelationsAsRegularUser(): void{
         $this->actAsTestUser();
         $response = $this->stagingRequest(200, "");
-        $this->assertCount(0, $this->lastResponseData('data'), "Regular user shouldn't be able to get correlations for USER_ID");
+        $this->assertCount(0, $this->lastResponseData('data'), "Regular user shouldn't be able to get user_variable_relationships for USER_ID");
         foreach($this->lastResponseData('data') as $datum){$this->assertEquals(UserIdProperty::USER_ID_TEST_USER, $datum->user_id);}
         $this->checkTestDuration(5);
         $this->checkQueryCount(6);
@@ -29,8 +29,8 @@ class CorrelationsDataTableTest extends DatalabTestCase
         $this->assertDataTableQueriesEqual([
 	        0 => 'select * from `oa_access_tokens` where `oa_access_tokens`.`access_token` = ? and `oa_access_tokens`.`deleted_at` is null limit 1',
 	        1 => 'select * from `wp_users` where `wp_users`.`ID` = ? and `wp_users`.`deleted_at` is null limit 1',
-	        2 => 'select count(*) as aggregate from (select * from `correlations` where `correlations`.`user_id` = ? and `correlations`.`deleted_at` is null order by `correlations`.`qm_score` desc) count_row_table',
-	        3 => 'select * from `correlations` where `correlations`.`user_id` = ? and `correlations`.`deleted_at` is null order by `correlations`.`qm_score` desc limit 10 offset 0',
+	        2 => 'select count(*) as aggregate from (select * from `user_variable_relationships` where `user_variable_relationships`.`user_id` = ? and `user_variable_relationships`.`deleted_at` is null order by `user_variable_relationships`.`qm_score` desc) count_row_table',
+	        3 => 'select * from `user_variable_relationships` where `user_variable_relationships`.`user_id` = ? and `user_variable_relationships`.`deleted_at` is null order by `user_variable_relationships`.`qm_score` desc limit 10 offset 0',
 	        4 => 'select * from `variables` where `variables`.`id` in (1272, 1280, 1304, 1486, 1906) and `variables`.`deleted_at` is null',
 	        5 => 'select * from `variables` where `variables`.`id` in (1272, 1867, 1906, 5211811, 5211821) and `variables`.`deleted_at` is null',]);
         $this->checkTestDuration(10);
@@ -305,7 +305,7 @@ class CorrelationsDataTableTest extends DatalabTestCase
       'HTTP_COOKIE' => '__cfduid=df3bcb60f11c220f65104c37de9ac7ea41592425988; _ga=GA1.1.1415477443.1592425993; driftt_aid=c8735c86-68c0-4de2-94ce-73a43605c5c5; DFTT_END_USER_PREV_BOOTSTRAPPED=true; u=6ec3e62cc0069a10c6759edd5423df738a0fec0b; _ga=GA1.2.2014257657.1592502511; driftt_aid=df29ce65-369a-440c-9d5e-a1888f0cd13d; driftt_eid=230; final_callback_url=http%3A%2F%2Flocalhost%3A63348%2Fionic%2Fsrc%2Findex.html%23%2Fapp%2Flogin%3Fclient_id%3Dquantimodo%26quantimodoAccessToken%3Dmike-test-token%26quantimodoUserId%3D230; quantimodo_logged_in_af6160480df78a3a6d520187243f05c9=mike%7C1593827300%7Cde069cf4b3bbf933721060a76259dad7%7Cquantimodo; XSRF-TOKEN=eyJpdiI6IkoxMjQ5NHpUNHlReGd5Zml6cHJSZlE9PSIsInZhbHVlIjoieitcL2RWNjdFM3ZTT1IxVHVMOElrNHlwbkYzaUlYNU1nMDBsOGl1S2JQWHZUK3pLSGozWFwveHQ4dEhzYlwvTWNabiIsIm1hYyI6Ijc0MzI1MDYwMDJkMDUxMDZiZGMzMjk3ODQ1ZmVkNGNiOTM5NWQ2ODhlZmZlOGQ2NDIwNTI1MmIxMzA1NTljMDQifQ%3D%3D; laravel_session=eyJpdiI6Imk2dzdXc3ZPOEVkYmJnTkQ0Yk1rMnc9PSIsInZhbHVlIjoibk56TXpUUWtDbTM0VmRlXC90cDMzNTRDZ1N4UlBXSG1meEptd1hJamd6VVhRK1wvN2V1WHBzeVV5UU5LZ09Iem9RIiwibWFjIjoiNGUxNDg2ZjY1NmZiNjBlNmVjY2YxNjIzMzY2ZDliZDBjODlkNjZkOGE5NWUzZWNjMzc3ZWViMjA2ZGJlYzM2NiJ9',
       'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9',
       'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br',
-      'HTTP_REFERER' => getenv('APP_URL').'/datalab/correlations?createTest=1&correlations.user_id=72128',
+      'HTTP_REFERER' => getenv('APP_URL').'/datalab/user_variable_relationships?createTest=1&user_variable_relationships.user_id=72128',
       'HTTP_SEC_FETCH_DEST' => 'empty',
       'HTTP_SEC_FETCH_MODE' => 'cors',
       'HTTP_SEC_FETCH_SITE' => 'same-origin',
@@ -373,7 +373,7 @@ class CorrelationsDataTableTest extends DatalabTestCase
       ],
       'referer' =>
       [
-        0 => getenv('APP_URL').'/datalab/correlations?createTest=1&correlations.user_id=72128',
+        0 => getenv('APP_URL').'/datalab/user_variable_relationships?createTest=1&user_variable_relationships.user_id=72128',
       ],
       'sec-fetch-dest' =>
       [

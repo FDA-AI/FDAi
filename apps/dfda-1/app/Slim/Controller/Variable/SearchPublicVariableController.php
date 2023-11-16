@@ -74,17 +74,17 @@ use InvalidArgumentException;
 class SearchPublicVariableController extends GetController {
 	/**
 	 * GET /public/variables/search/:search
-	 * Get top 5 PUBLIC variables with the most correlations and containing the search characters.
-	 * 'effectOrCause' parameter allows us to specify which column in the `correlations` table will be searched.
+	 * Get top 5 PUBLIC variables with the most user_variable_relationships and containing the search characters.
+	 * 'effectOrCause' parameter allows us to specify which column in the `user_variable_relationships` table will be searched.
 	 * Choices are "effect" or "cause".
 	 * @SWG\Api(
 	 *     path="public/variables/search/{search}",
-	 *     description="Autocomplete search list containing the top 5 PUBLIC variables with the most correlations",
+	 *     description="Autocomplete search list containing the top 5 PUBLIC variables with the most user_variable_relationships",
 	 *     @SWG\Operations(
 	 *         @SWG\Operation(
 	 *             method="GET",
-	 *             summary="Get top 5 PUBLIC variables with the most correlations and containing the search
-	 *     characters.", notes="For example, search for Over and since Overall Mood has a lot of correlations, it
+	 *             summary="Get top 5 PUBLIC variables with the most user_variable_relationships and containing the search
+	 *     characters.", notes="For example, search for Over and since Overall Mood has a lot of user_variable_relationships, it
 	 *     should be in the autocomplete list.", nickname="Variables::getPublicSearch", type="array",
 	 *             @SWG\Items("Variable"),
 	 *             @SWG\Parameters(
@@ -97,7 +97,7 @@ class SearchPublicVariableController extends GetController {
 	 *                 ),
 	 *                 @SWG\Parameter(
 	 *                     name="effectOrCause",
-	 *                     description="Allows us to specify which column in the `correlations` table will be searched.
+	 *                     description="Allows us to specify which column in the `user_variable_relationships` table will be searched.
 	 *     Choices are effect or cause.", paramType="query", required=true, type="string"
 	 *                 )
 	 *             ),

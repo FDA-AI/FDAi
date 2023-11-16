@@ -4,8 +4,8 @@
  */ /** @noinspection PhpDocMissingThrowsInspection */
 /** @noinspection PhpUnhandledExceptionInspection */
 namespace App\PhpUnitJobs\Cleanup;
-use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\InsufficientVarianceException;
 use App\Exceptions\NotEnoughMeasurementsForCorrelationException;
@@ -20,9 +20,9 @@ use App\Models\Variable;
 use App\PhpUnitJobs\JobTestCase;
 use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipEffectFollowUpPercentChangeFromBaselineProperty;
 use App\Properties\GlobalVariableRelationship\GlobalVariableRelationshipNumberOfCorrelationsProperty;
-use App\Properties\Correlation\CorrelationCauseChangesProperty;
-use App\Properties\Correlation\CorrelationCauseNumberOfProcessedDailyMeasurementsProperty;
-use App\Properties\Correlation\CorrelationCauseNumberOfRawMeasurementsProperty;
+use App\Properties\UserVariableRelationship\CorrelationCauseChangesProperty;
+use App\Properties\UserVariableRelationship\CorrelationCauseNumberOfProcessedDailyMeasurementsProperty;
+use App\Properties\UserVariableRelationship\CorrelationCauseNumberOfRawMeasurementsProperty;
 use App\Properties\Variable\VariableNameProperty;
 use App\Storage\DB\Writable;
 use App\Variables\QMUserVariable;
@@ -168,7 +168,7 @@ class GlobalVariableRelationshipsCleanUpJobTest extends JobTestCase {
                    cv.name as causeName,
                    ev.name as effectName
             from global_variable_relationships ac
-            left join correlations c on
+            left join user_variable_relationships c on
                 (ac.cause_variable_id = c.cause_variable_id and ac.effect_variable_id = c.effect_variable_id)
             join variables cv on cv.id = ac.cause_variable_id
             join variables ev on ev.id = ac.effect_variable_id

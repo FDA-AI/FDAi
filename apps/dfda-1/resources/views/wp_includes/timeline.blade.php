@@ -3,7 +3,7 @@
     Timeline
 @parent
 @stop
-{{--Template Name: Analyze Page (v2, no correlations)--}}
+{{--Template Name: Analyze Page (v2, no user_variable_relationships)--}}
 {{--Description: Description: Page based on Wordpress site--}}
 
 <?php $pluginUrl = '/'.\App\Repos\QMWPPluginRepo::URL_PATH; ?>

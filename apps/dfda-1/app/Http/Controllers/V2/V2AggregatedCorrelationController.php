@@ -41,14 +41,14 @@ class V2AggregatedCorrelationController extends Controller {
 	 *      @SWG\Parameter(
 	 *          name="cause_variable_id",
 	 *          in="query",
-	 *          description="Variable ID of the predictor variable for which the user desires correlations",
+	 *          description="Variable ID of the predictor variable for which the user desires user_variable_relationships",
 	 *          required=false,
 	 *          type="integer"
 	 *      ),
 	 *      @SWG\Parameter(
 	 *          name="effect_variable_id",
 	 *          in="query",
-	 *          description="Variable ID of the outcome variable for which the user desires correlations",
+	 *          description="Variable ID of the outcome variable for which the user desires user_variable_relationships",
 	 *          required=false,
 	 *          type="integer"
 	 *      ),
@@ -182,13 +182,13 @@ class V2AggregatedCorrelationController extends Controller {
 	 * @SWG\Parameter(
 	 *          name="reverse_pearson_correlation_coefficient",
 	 *          in="query",
-	 *          description="Correlation when cause and effect are reversed. For any causal relationship, the forward
+	 *          description="UserVariableRelationship when cause and effect are reversed. For any causal relationship, the forward
 	 *     correlation should exceed the reverse correlation", required=false, type="number"
 	 *      ),
 	 * @SWG\Parameter(
 	 *          name="predictive_pearson_correlation_coefficient",
 	 *          in="query",
-	 *          description="Predictive Pearson Correlation Coefficient",
+	 *          description="Predictive Pearson UserVariableRelationship Coefficient",
 	 *          required=false,
 	 *          type="number"
 	 *      ),

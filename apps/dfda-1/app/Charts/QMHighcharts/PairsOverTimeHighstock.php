@@ -6,7 +6,7 @@
 
 namespace App\Charts\QMHighcharts;
 use App\Charts\QMChart;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 class PairsOverTimeHighstock extends MultivariateHighstock {
 	protected $correlationId;
 	protected $correlation;

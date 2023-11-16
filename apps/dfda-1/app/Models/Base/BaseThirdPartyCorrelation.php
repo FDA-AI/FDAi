@@ -389,8 +389,8 @@ abstract class BaseThirdPartyCorrelation extends BaseModel {
 		self::FIELD_WP_POST_ID => 'nullable|integer|min:-2147483648|max:2147483647',
 	];
 	protected $hints = [
-		self::FIELD_CAUSE_ID => 'variable ID of the cause variable for which the user desires correlations',
-		self::FIELD_EFFECT_ID => 'variable ID of the effect variable for which the user desires correlations',
+		self::FIELD_CAUSE_ID => 'variable ID of the cause variable for which the user desires user_variable_relationships',
+		self::FIELD_EFFECT_ID => 'variable ID of the effect variable for which the user desires user_variable_relationships',
 		self::FIELD_QM_SCORE => 'QM Score',
 		self::FIELD_FORWARD_PEARSON_CORRELATION_COEFFICIENT => 'Pearson correlation coefficient between cause and effect measurements',
 		self::FIELD_VALUE_PREDICTING_HIGH_OUTCOME => 'cause value that predicts an above average effect value (in default unit for cause variable)',
@@ -430,7 +430,7 @@ abstract class BaseThirdPartyCorrelation extends BaseModel {
 		self::FIELD_P_VALUE => 'The measure of statistical significance. A value less than 0.05 means that a correlation is statistically significant or consistent enough that it is unlikely to be a coincidence.',
 		self::FIELD_PEARSON_CORRELATION_WITH_NO_ONSET_DELAY => '',
 		self::FIELD_PREDICTIVE_PEARSON_CORRELATION_COEFFICIENT => 'Predictive Pearson Correlation Coefficient',
-		self::FIELD_REVERSE_PEARSON_CORRELATION_COEFFICIENT => 'Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation',
+		self::FIELD_REVERSE_PEARSON_CORRELATION_COEFFICIENT => 'User Variable Relationship when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation',
 		self::FIELD_STATISTICAL_SIGNIFICANCE => 'A function of the effect size and sample size',
 		self::FIELD_STRONGEST_PEARSON_CORRELATION_COEFFICIENT => '',
 		self::FIELD_T_VALUE => 'Function of correlation and number of samples.',

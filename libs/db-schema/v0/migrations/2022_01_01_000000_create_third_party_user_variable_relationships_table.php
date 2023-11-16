@@ -15,9 +15,9 @@ class CreateThirdPartyCorrelationsTable extends Migration
     {
         Schema::create('third_party_correlations', function (Blueprint $table) {
             $table->unsignedInteger('cause_id');//->index('tpc_cause')->comment('variable ID of the cause variable
-            // for which the user desires correlations');
+            // for which the user desires user_variable_relationships');
             $table->unsignedInteger('effect_id');//->index('tpc_effect')->comment('variable ID of the effect variable
-            // for which the user desires correlations');
+            // for which the user desires user_variable_relationships');
             $table->double('qm_score')->nullable();//->comment('QM Score');
             $table->float('forward_pearson_correlation_coefficient', 10, 4)->nullable();//'Pearson correlation coefficient between cause and effect measurements');
             $table->double('value_predicting_high_outcome')->nullable();//'cause value that predicts an above average effect value (in default unit for cause variable)');
@@ -56,8 +56,8 @@ class CreateThirdPartyCorrelationsTable extends Migration
             $table->double('optimal_pearson_product')->nullable();//'Optimal Pearson Product');
             $table->double('p_value')->nullable();//'The measure of statistical significance. A value less than 0.05 means that a correlation is statistically significant or consistent enough that it is unlikely to be a coincidence.');
             $table->float('pearson_correlation_with_no_onset_delay', 10, 0)->nullable();
-            $table->double('predictive_pearson_correlation_coefficient')->nullable();//'Predictive Pearson Correlation Coefficient');
-            $table->double('reverse_pearson_correlation_coefficient')->nullable();//'Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation');
+            $table->double('predictive_pearson_correlation_coefficient')->nullable();//'Predictive Pearson UserVariableRelationship Coefficient');
+            $table->double('reverse_pearson_correlation_coefficient')->nullable();//'UserVariableRelationship when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation');
             $table->float('statistical_significance', 10, 4)->nullable();//'A function of the effect size and sample size');
             $table->float('strongest_pearson_correlation_coefficient', 10, 0)->nullable();
             $table->double('t_value')->nullable();//'Function of correlation and number of samples.');

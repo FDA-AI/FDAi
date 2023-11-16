@@ -7,7 +7,7 @@
 namespace App\Exceptions;
 use App\Solutions\ViewAnalyzableDataSolution;
 use Facade\IgnitionContracts\Solution;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Variables\QMUserVariable;
 class NotEnoughMeasurementsForCorrelationException extends NotEnoughDataException {
     const GET_HELP_IF_YOU_HAVE_ENOUGH_DATA = "Please create a ticket at http://help.quantimo.do if you think you should already have enough data.";

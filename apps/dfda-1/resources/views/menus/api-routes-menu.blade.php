@@ -111,12 +111,12 @@
 </li>
 <li>
 	<a href="/api/v6/correlations" target="_blank" title="Examination of the likely effects of a predictor variable on an outcome variable on average for a specific individual @ api/v6/correlations">
-		<i class="fas fa-vial"></i>Api V6 Correlations
+		<i class="fas fa-vial"></i>Api V6 VariableRelationships
 	</a>
 </li>
 <li>
 	<a href="/api/v6/correlations/create" target="_blank" title="Examination of the likely effects of a predictor variable on an outcome variable on average for a specific individual @ api/v6/correlations/create">
-		<i class="fas fa-vial"></i>Api V6 Correlations Create
+		<i class="fas fa-vial"></i>Api V6 VariableRelationships Create
 	</a>
 </li>
 <li>

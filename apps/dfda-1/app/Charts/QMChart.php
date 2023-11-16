@@ -47,7 +47,7 @@ abstract class QMChart extends StaticModel {
 	protected $imageData = [];
 	protected $jpgHtml;
 	protected $pairs;
-	protected $pngHtml; // Keep protected so we don't have a huge correlations table
+	protected $pngHtml; // Keep protected so we don't have a huge user_variable_relationships table
 	protected $sourceObject;
 	protected $svgHtml;
 	protected const FORMAT_MODIFIED_AT = "01-01-2000";

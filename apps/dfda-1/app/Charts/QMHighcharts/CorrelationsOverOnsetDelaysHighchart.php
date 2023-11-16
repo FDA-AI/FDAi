@@ -14,7 +14,7 @@ class CorrelationsOverOnsetDelaysHighchart extends ColumnHighchartConfig {
 	 */
 	public function __construct($c, QMChart $chart = null) {
 		parent::__construct($chart);
-		$this->setTitle('Correlations Over Onset Delays');
+		$this->setTitle('VariableRelationships Over Onset Delays');
 		$this->setXAxisTitleText('Assumed Onset Delay (in Days)');
 		$this->setYAxisTitle('Predictive Coefficient');
 		$this->getYAxis()->plotLines = [['value' => 0, 'width' => 1, 'color' => '#EA4335']];
@@ -44,7 +44,7 @@ class CorrelationsOverOnsetDelaysHighchart extends ColumnHighchartConfig {
 					The larger the absolute value of the correlation with a negative onset delay (on the left side of
 					the chart), the more likely it is that $this->effectVariableName causally
 					influences $c->causeVariableName.";*/
-		$this->type = "Correlations Over Onset Delays";
+		$this->type = "VariableRelationships Over Onset Delays";
 	}
 	public function populate(array $correlations_over_delays){
 		$series = new Series();

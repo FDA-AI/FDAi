@@ -1,7 +1,7 @@
-<!-- Forward Pearson Correlation Coefficient Field -->
+<!-- Forward Pearson UserVariableRelationship Coefficient Field -->
 <?php /** @var \App\Models\GlobalVariableRelationship $aggregateCorrelation */ ?>
 <div class="form-group">
-    {!! Form::label('forward_pearson_correlation_coefficient', 'Forward Pearson Correlation Coefficient:') !!}
+    {!! Form::label('forward_pearson_correlation_coefficient', 'Forward Pearson User Variable Relationship Coefficient:') !!}
     <p>{{ $aggregateCorrelation->forward_pearson_correlation_coefficient }}</p>
 </div>
 
@@ -53,9 +53,9 @@
     <p>{{ $aggregateCorrelation->number_of_users }}</p>
 </div>
 
-<!-- Number Of Correlations Field -->
+<!-- Number Of VariableRelationships Field -->
 <div class="form-group">
-    {!! Form::label('number_of_correlations', 'Number Of Correlations:') !!}
+    {!! Form::label('number_of_correlations', 'Number Of VariableRelationships:') !!}
     <p>{{ $aggregateCorrelation->number_of_correlations }}</p>
 </div>
 
@@ -95,15 +95,15 @@
     <p>{{ $aggregateCorrelation->status }}</p>
 </div>
 
-<!-- Reverse Pearson Correlation Coefficient Field -->
+<!-- Reverse Pearson UserVariableRelationship Coefficient Field -->
 <div class="form-group">
-    {!! Form::label('reverse_pearson_correlation_coefficient', 'Reverse Pearson Correlation Coefficient:') !!}
+    {!! Form::label('reverse_pearson_correlation_coefficient', 'Reverse Pearson User Variable Relationship Coefficient:') !!}
     <p>{{ $aggregateCorrelation->reverse_pearson_correlation_coefficient }}</p>
 </div>
 
-<!-- Predictive Pearson Correlation Coefficient Field -->
+<!-- Predictive Pearson UserVariableRelationship Coefficient Field -->
 <div class="form-group">
-    {!! Form::label('predictive_pearson_correlation_coefficient', 'Predictive Pearson Correlation Coefficient:') !!}
+    {!! Form::label('predictive_pearson_correlation_coefficient', 'Predictive Pearson User Variable Relationship Coefficient:') !!}
     <p>{{ $aggregateCorrelation->predictive_pearson_correlation_coefficient }}</p>
 </div>
 
@@ -179,9 +179,9 @@
     <p>{{ $aggregateCorrelation->average_daily_high_cause }}</p>
 </div>
 
-<!-- Population Trait Pearson Correlation Coefficient Field -->
+<!-- Population Trait Pearson UserVariableRelationship Coefficient Field -->
 <div class="form-group">
-    {!! Form::label('population_trait_pearson_correlation_coefficient', 'Population Trait Pearson Correlation Coefficient:') !!}
+    {!! Form::label('population_trait_pearson_correlation_coefficient', 'Population Trait Pearson User Variable Relationship Coefficient:') !!}
     <p>{{ $aggregateCorrelation->population_trait_pearson_correlation_coefficient }}</p>
 </div>
 

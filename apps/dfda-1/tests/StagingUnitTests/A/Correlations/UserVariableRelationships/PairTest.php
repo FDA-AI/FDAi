@@ -1,6 +1,6 @@
 <?php /** @noinspection PhpUnhandledExceptionInspection */
 namespace Tests\StagingUnitTests\A\Correlations\UserVariableRelationships;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Variables\CommonVariables\EmotionsCommonVariables\OverallMoodCommonVariable;
 use App\Variables\QMUserVariable;
 use Tests\SlimStagingTestCase;

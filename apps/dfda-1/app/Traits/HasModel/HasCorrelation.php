@@ -6,7 +6,7 @@
 
 namespace App\Traits\HasModel;
 use App\Buttons\QMButton;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\InvalidVariableValueException;
 use App\Models\BaseModel;
 use App\Models\UserVariableRelationship;

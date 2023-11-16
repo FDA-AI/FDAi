@@ -17,9 +17,9 @@ class VariableCorrelationsWhereCauseVariableButton extends HasManyRelationshipBu
 	public $relationshipType = 'Illuminate\\Database\\Eloquent\\Relations\\HasMany';
 	public $color = UserVariableRelationship::COLOR;
 	public $fontAwesome = UserVariableRelationship::FONT_AWESOME;
-	public $id = 'correlations-where-cause-variable-button';
+	public $id = 'user_variable_relationships-where-cause-variable-button';
 	public $image = UserVariableRelationship::DEFAULT_IMAGE;
-	public $text = 'Correlations Where Cause Variable';
-	public $title = 'Correlations Where Cause Variable';
-	public $tooltip = 'Correlations where this is the Cause Variable';
+	public $text = 'VariableRelationships Where Cause Variable';
+	public $title = 'VariableRelationships Where Cause Variable';
+	public $tooltip = 'VariableRelationships where this is the Cause Variable';
 }

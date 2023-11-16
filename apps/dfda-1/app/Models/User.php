@@ -23,7 +23,7 @@ use App\Buttons\RelationshipButtons\User\UserVotesButton;
 use App\Buttons\RelationshipButtons\UserVariable\UserVariableTrackingReminderNotificationsButton;
 use App\Buttons\States\SettingsStateButton;
 use App\Cards\TrackingReminderNotificationCard;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\DataSources\Connectors\Exceptions\ConnectorDisabledException;
 use App\DataSources\Connectors\FacebookConnector;
 use App\DataSources\Connectors\FitbitConnector;
@@ -454,7 +454,7 @@ use Throwable;
  * @property-read int|null $collaborators_count
  * @property-read \Illuminate\Database\Eloquent\Collection|Connection[] $connections
  * @property-read int|null $connections_count
- * @property-read \Illuminate\Database\Eloquent\Collection|UserVariableRelationship[] $correlations
+ * @property-read \Illuminate\Database\Eloquent\Collection|UserVariableRelationship[] $user_variable_relationships
  * @property-read int|null $correlations_count
  * @property-read \Illuminate\Database\Eloquent\Collection|Credential[] $credentials
  * @property-read int|null $credentials_count
@@ -1970,7 +1970,7 @@ class User extends BaseWpUser
 			'oa_refresh_tokens',
 			'collaborators',
 			'connections',
-			'correlations',
+			'user_variable_relationships',
 			'credentials',
 			'measurement_exports',
 			'measurements',
@@ -3444,7 +3444,7 @@ class User extends BaseWpUser
 	 * @return \App\Models\UserVariableRelationship[]|\Illuminate\Database\Eloquent\Collection
 	 */
 	public function getCorrelations(): Collection {
-		$this->loadMissing('correlations');
+		$this->loadMissing('user_variable_relationships');
 		return $this->correlations;
 	}
 	/**

@@ -49,9 +49,9 @@ comment on column studies.id is 'Study id which should match OAuth client id';
 
 comment on column studies.type is 'The type of study may be population, individual, or cohort study';
 
-comment on column studies.cause_variable_id is 'variable ID of the cause variable for which the user desires correlations';
+comment on column studies.cause_variable_id is 'variable ID of the cause variable for which the user desires user_variable_relationships';
 
-comment on column studies.effect_variable_id is 'variable ID of the effect variable for which the user desires correlations';
+comment on column studies.effect_variable_id is 'variable ID of the effect variable for which the user desires user_variable_relationships';
 
 comment on column studies.analysis_parameters is 'Additional parameters for the study such as experiment_end_time, experiment_start_time, cause_variable_filling_value, effect_variable_filling_value';
 

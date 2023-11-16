@@ -14,7 +14,7 @@ class BaseNumberOfCorrelationsProperty extends BaseProperty{
 	public $dbInput = 'integer,false';
 	public $dbType = \Doctrine\DBAL\Types\Types::INTEGER;
 	public $default = \OpenApi\Generator::UNDEFINED;
-	public $description = 'Number of correlations for this variable';
+	public $description = 'Number of user_variable_relationships for this variable';
 	public $example = 148;
 	public $fieldType = self::TYPE_INTEGER;
 	public $fontAwesome = FontAwesome::AGGREGATE_CORRELATION;
@@ -32,7 +32,7 @@ class BaseNumberOfCorrelationsProperty extends BaseProperty{
 	public const NAME = 'number_of_correlations';
 	public $phpType = \App\Types\PhpTypes::INTEGER;
 	public $rules = 'nullable|integer|min:0|max:10000';
-	public $title = 'Correlations';
+	public $title = 'VariableRelationships';
 	public $type = self::TYPE_INTEGER;
 	public $canBeChangedToNull = true;
 	public $validations = 'nullable|integer|min:0|max:10000';

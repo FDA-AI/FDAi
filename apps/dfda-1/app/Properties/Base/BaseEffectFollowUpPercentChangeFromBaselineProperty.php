@@ -5,7 +5,7 @@
  */
 
 namespace App\Properties\Base;
-use App\Correlations\QMCorrelation;
+use App\VariableRelationships\QMVariableRelationship;
 use App\Models\GlobalVariableRelationship;
 use App\Models\BaseModel;
 use App\Models\UserVariableRelationship;
@@ -73,7 +73,7 @@ class BaseEffectFollowUpPercentChangeFromBaselineProperty extends BaseProperty{
      * @return string
      */
     public static function percentToIncreaseDecreaseString(bool $arrows, float $change): string{
-        $change = Stats::roundByNumberOfSignificantDigits($change, QMCorrelation::SIG_FIGS);
+        $change = Stats::roundByNumberOfSignificantDigits($change, QMVariableRelationship::SIG_FIGS);
         if ($arrows) {
             $changeString = "&uarr; " . $change . "%";
         } else {

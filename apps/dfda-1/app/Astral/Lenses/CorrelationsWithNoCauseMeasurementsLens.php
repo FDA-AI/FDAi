@@ -22,9 +22,9 @@ class CorrelationsWithNoCauseMeasurementsLens extends CorrelationInvalidLens {
 	public static function query(LensRequest $request, $query){
 		return $request->withOrdering($request->withFilters($query
 			//                ->select( [
-			//                    Correlation::FIELD_ID,
-			//                    Correlation::FIELD_ANALYSIS_STARTED_AT,
-			//                    Correlation::FIELD_INTERNAL_ERROR_MESSAGE,
+			//                    UserVariableRelationship::FIELD_ID,
+			//                    UserVariableRelationship::FIELD_ANALYSIS_STARTED_AT,
+			//                    UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE,
 			//                ])
 			->whereNotNull(UserVariableRelationship::FIELD_INTERNAL_ERROR_MESSAGE)
 			->where(UserVariableRelationship::FIELD_CAUSE_NUMBER_OF_PROCESSED_DAILY_MEASUREMENTS, 0)

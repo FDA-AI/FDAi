@@ -24,7 +24,7 @@ class CreateGlobalVariableRelationshipsTable extends Migration
             $table->float('optimal_pearson_product', 0, 0)->comment('Optimal Pearson Product');
             $table->float('average_vote', 0, 0)->nullable()->default(0.5)->comment('The average opinion on the causal plausibility of a relationship.');
             $table->integer('number_of_users')->comment('Number of Users by which correlation is aggregated');
-            $table->integer('number_of_correlations')->comment('Number of Correlations by which correlation is aggregated');
+            $table->integer('number_of_correlations')->comment('Number of VariableRelationships by which correlation is aggregated');
             $table->float('statistical_significance', 0, 0)->comment('A function of the effect size and sample size');
             $table->smallInteger('cause_unit_id')->nullable()->index('global_variable_relationships_cause_unit_id_fk')->comment('Unit ID of Cause');
             $table->integer('cause_changes')->comment('The number of times the cause measurement value was different from the one preceding it.');
@@ -33,7 +33,7 @@ class CreateGlobalVariableRelationshipsTable extends Migration
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
             $table->string('status', 25)->comment('Whether the correlation is being analyzed, needs to be analyzed, or is up to date already.');
-            $table->float('reverse_pearson_correlation_coefficient', 0, 0)->comment('Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation');
+            $table->float('reverse_pearson_correlation_coefficient', 0, 0)->comment('User Variable Relationship when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation');
             $table->float('predictive_pearson_correlation_coefficient', 0, 0)->comment('Pearson correlation coefficient of cause and effect values lagged by the onset delay and grouped based on the duration of action. ');
             $table->string('data_source_name')->nullable();
             $table->integer('predicts_high_effect_change')->comment('The percent change in the outcome typically seen when the predictor value is closer to the predictsHighEffect value. ');

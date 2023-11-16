@@ -8,9 +8,9 @@ namespace App\Traits;
 use App\Buttons\QMButton;
 use App\Buttons\StudyButton;
 use App\Charts\BarChartButton;
-use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\DataSources\QMClient;
 use App\Exceptions\AlreadyAnalyzedException;
 use App\Exceptions\IncompatibleUnitException;
@@ -234,7 +234,7 @@ trait HasCorrelationCoefficient {
 		return QMStudy::findInMemoryOrDB($this->getStudyId());
 	}
 	/**
-	 * @return \App\Correlations\QMCorrelation|\App\Models\GlobalVariableRelationship|\App\Models\UserVariableRelationship|\App\Traits\HasCorrelationCoefficient
+	 * @return \App\VariableRelationships\QMVariableRelationship|\App\Models\GlobalVariableRelationship|\App\Models\UserVariableRelationship|\App\Traits\HasCorrelationCoefficient
 	 */
 	public function getHasCorrelationCoefficient(){
 		return $this;
@@ -381,23 +381,23 @@ trait HasCorrelationCoefficient {
 	 */
 	private function getDirectionFromCorrelationCoefficient(): string{
 		$cc = $this->getCorrelationCoefficient();
-		return ($cc >= 0) ? QMCorrelation::DIRECTION_HIGHER : QMCorrelation::DIRECTION_LOWER;
+		return ($cc >= 0) ? QMVariableRelationship::DIRECTION_HIGHER : QMVariableRelationship::DIRECTION_LOWER;
 	}
 	/**
 	 * @return string
 	 */
 	private function getDirectionFromChange(): string{
 		$change = $this->getChangeFromBaseline();
-		return ($change > 0) ? QMCorrelation::DIRECTION_HIGHER : QMCorrelation::DIRECTION_LOWER;
+		return ($change > 0) ? QMVariableRelationship::DIRECTION_HIGHER : QMVariableRelationship::DIRECTION_LOWER;
 	}
 	/**
 	 * @return string
 	 */
 	public function getAbsoluteFollowupChangeString(): string{
 		$absFollowupChange = $this->getAbsoluteFollowupChange();
-		$absFollowupChange = Stats::roundByNumberOfSignificantDigits($absFollowupChange, QMCorrelation::SIG_FIGS);
+		$absFollowupChange = Stats::roundByNumberOfSignificantDigits($absFollowupChange, QMVariableRelationship::SIG_FIGS);
 		try {
-			return $this->effectValueUserUnit($absFollowupChange, QMCorrelation::SIG_FIGS, false);
+			return $this->effectValueUserUnit($absFollowupChange, QMVariableRelationship::SIG_FIGS, false);
 		} catch (IncompatibleUnitException|InvalidVariableValueException $e) {
 			le($e);
 		} // Can't validate because sometimes Body Weight has a negative change from baseline, for instance
@@ -726,7 +726,7 @@ trait HasCorrelationCoefficient {
 	 */
 	private function getDirectionWithArrow(): string{
 		$dir = $this->getDirection();
-		if($dir === QMCorrelation::DIRECTION_HIGHER){
+		if($dir === QMVariableRelationship::DIRECTION_HIGHER){
 			return "&uarr;" . ucwords($dir);
 		}
 		return "&darr;" . ucwords($dir);
@@ -1177,10 +1177,10 @@ trait HasCorrelationCoefficient {
 	 * @return string
 	 */
 	public function getPValueConfidenceIntervalString(): string{
-		return 'p=' . $this->getPValue(QMCorrelation::SIG_FIGS) . ', 95% CI ' .
-			round($this->getCorrelationCoefficient() - $this->getConfidenceInterval(), QMCorrelation::SIG_FIGS) .
+		return 'p=' . $this->getPValue(QMVariableRelationship::SIG_FIGS) . ', 95% CI ' .
+			round($this->getCorrelationCoefficient() - $this->getConfidenceInterval(), QMVariableRelationship::SIG_FIGS) .
 			' to ' .
-			round($this->getCorrelationCoefficient() + $this->getConfidenceInterval(), QMCorrelation::SIG_FIGS);
+			round($this->getCorrelationCoefficient() + $this->getConfidenceInterval(), QMVariableRelationship::SIG_FIGS);
 	}
 	/**
 	 * @return float
@@ -1202,7 +1202,7 @@ trait HasCorrelationCoefficient {
 			$this->getPValueDataPointsOrNumberOfParticipantsFragment() .
 			"that {$this->getCauseVariableDisplayName()} has a " .
 			"{$this->getEffectSize()} predictive relationship (R=" .
-			$this->getCorrelationCoefficient(QMCorrelation::SIG_FIGS) . ') with ' . $this->effectNameWithSuffix() .
+			$this->getCorrelationCoefficient(QMVariableRelationship::SIG_FIGS) . ') with ' . $this->effectNameWithSuffix() .
 			". ";
 	}
 	/**
@@ -1271,9 +1271,9 @@ trait HasCorrelationCoefficient {
 		$pValue = $c->getPValue();
 		if($pValue){
 			$string .= $pValue . ', 95% CI ' .
-				round($c->getReverseCorrelationCoefficient() - $c->getConfidenceInterval(), QMCorrelation::SIG_FIGS) .
+				round($c->getReverseCorrelationCoefficient() - $c->getConfidenceInterval(), QMVariableRelationship::SIG_FIGS) .
 				' to ' .
-				round($c->getReverseCorrelationCoefficient() + $c->getConfidenceInterval(), QMCorrelation::SIG_FIGS) .
+				round($c->getReverseCorrelationCoefficient() + $c->getConfidenceInterval(), QMVariableRelationship::SIG_FIGS) .
 				', ';
 		}
 		return $string . 'onset delay = -' . $c->getOnsetDelayHumanString() . ', duration of action = -' .
@@ -1317,7 +1317,7 @@ trait HasCorrelationCoefficient {
 	public function getForwardPearsonSentence(): string{
 		$c = $this->getHasCorrelationCoefficient();
 		return "<p>The Forward Pearson Predictive Coefficient was " .
-			$c->getCorrelationCoefficient(QMCorrelation::SIG_FIGS) .
+			$c->getCorrelationCoefficient(QMVariableRelationship::SIG_FIGS) .
 			$this->getForwardStatisticsAndAnalysisSettingsString() . '.
             </p>';
 	}
@@ -1388,7 +1388,7 @@ trait HasCorrelationCoefficient {
 	 */
 	public function getReversePearsonSentence(): string{
 		return '<p>The Reverse Pearson Predictive Coefficient was ' .
-			$this->getReverseCorrelationCoefficient(QMCorrelation::SIG_FIGS) .
+			$this->getReverseCorrelationCoefficient(QMVariableRelationship::SIG_FIGS) .
 			$this->getReverseStatisticsAndAnalysisSettingsString() . '.
             </p>';
 	}
@@ -1451,7 +1451,7 @@ trait HasCorrelationCoefficient {
 			return null;
 		}
 		return "{$this->getEffectVariableDisplayName()} is " .
-			$this->getAverageEffectFollowingLowCause(QMCorrelation::SIG_FIGS) .
+			$this->getAverageEffectFollowingLowCause(QMVariableRelationship::SIG_FIGS) .
 			"{$this->getEffectVariableCommonUnitAbbreviatedName()} $percentChangeFromAverageEffectText on average " .
 			"after days with around " . $this->causeValueUnitVariableName($averageDailyLowCause) . ".";
 	}
@@ -1704,10 +1704,10 @@ trait HasCorrelationCoefficient {
 		//        if($strengthLevel === self::EFFECT_SIZE_strongly_positive){$tags[] = "Strong Effect Size";}
 		//        if($strengthLevel === self::EFFECT_SIZE_very_weakly_negative){$tags[] = "Weak Effect Size";}
 		//        if($strengthLevel === self::EFFECT_SIZE_weakly_positive){$tags[] = "Weak Effect Size";}
-		if($this->setDirection() === QMCorrelation::DIRECTION_HIGHER){
+		if($this->setDirection() === QMVariableRelationship::DIRECTION_HIGHER){
 			$tags[] = "Positive Relationship";
 		}
-		if($this->setDirection() === QMCorrelation::DIRECTION_LOWER){
+		if($this->setDirection() === QMVariableRelationship::DIRECTION_LOWER){
 			$tags[] = "Negative Relationship";
 		}
 		if($this->typeIsIndividual()){

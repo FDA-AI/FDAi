@@ -3,9 +3,9 @@
 *  Contributors: ADD YOUR NAME HERE, Mike P. Sinn
  */ /** @noinspection PhpUnused */
 namespace App\Slim\Controller\Correlation;
-use App\Correlations\CorrelationsAndExplanationResponseBody;
-use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\CorrelationsAndExplanationResponseBody;
+use App\VariableRelationships\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\AlreadyAnalyzedException;
 use App\Exceptions\AlreadyAnalyzingException;
 use App\Exceptions\DuplicateFailedAnalysisException;
@@ -142,11 +142,11 @@ class GetCorrelationController extends GetController {
 		if(!$correlations){
 			$cause = BaseCauseVariableIdProperty::getCauseUserVariable();
 			if($cause && $cause->hasEnoughMeasurementsToCorrelate()){
-				$cause->scheduleReCorrelationDynamic('user requested correlations but got none');
+				$cause->scheduleReCorrelationDynamic('user requested user_variable_relationships but got none');
 			}
 			$effect = QMRequest::getEffectUserVariable();
 			if($effect && $effect->hasEnoughMeasurementsToCorrelate()){
-				$effect->scheduleReCorrelationDynamic('user requested correlations but got none');
+				$effect->scheduleReCorrelationDynamic('user requested user_variable_relationships but got none');
 			}
 		}
 	}
@@ -212,7 +212,7 @@ class GetCorrelationController extends GetController {
 		$dataRequirementsMessage = $variable->getCorrelationDataRequirementAndCurrentDataQuantityString() . " " .
 			NotEnoughMeasurementsForCorrelationException::DATA_REQUIREMENT_FOR_CORRELATIONS_STRING;
 		if($variable->hasEnoughMeasurementsToCorrelate()){
-			$variable->scheduleReCorrelationDynamic('user requested correlations but got none');
+			$variable->scheduleReCorrelationDynamic('user requested user_variable_relationships but got none');
 			$response->getExplanation()->description = "An analysis of " . $variable->name .
 				" has been scheduled and you should see some data in a few hours. " . $dataRequirementsMessage;
 		} else{

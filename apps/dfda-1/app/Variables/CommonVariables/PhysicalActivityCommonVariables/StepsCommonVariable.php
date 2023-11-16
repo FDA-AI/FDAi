@@ -18,7 +18,7 @@ class StepsCommonVariable extends QMCommonVariable {
 	public const IMAGE_URL = ImageUrls::FITNESS_TREADMILL;
 	public const NAME = 'Steps';
 	public const PRICE = 33.840000000000003;
-	public const PRODUCT_URL = 'https://www.amazon.com/Pet-Gear-Stairs-150-pounds-Chocolate/dp/B003SZS5JW?psc=1&SubscriptionId=AKIAU4A65MD5FGE2ALOQ&tag=quantimodo04-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B003SZS5JW';
+	public const PRODUCT_URL = 'https://www.amazon.com/Pet-Gear-Stairs-150-pounds-Chocolate/dp/B003SZS5JW?psc=1&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B003SZS5JW';
 	public const PUBLIC = true;
 	public const SYNONYMS = ['Steps', 'Step'];
 	public const VARIABLE_CATEGORY_ID = PhysicalActivityVariableCategory::ID;

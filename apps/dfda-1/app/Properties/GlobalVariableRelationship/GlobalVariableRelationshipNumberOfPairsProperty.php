@@ -9,7 +9,7 @@ use App\Models\GlobalVariableRelationship;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BaseNumberOfPairsProperty;
 use App\Traits\PropertyTraits\IsCalculated;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 class GlobalVariableRelationshipNumberOfPairsProperty extends BaseNumberOfPairsProperty
 {
     use GlobalVariableRelationshipProperty;

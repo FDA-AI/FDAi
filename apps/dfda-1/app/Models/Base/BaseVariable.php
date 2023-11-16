@@ -926,7 +926,7 @@ abstract class BaseVariable extends BaseModel {
                     update variables
                         left join (
                             select count(id) as total, cause_variable_id
-                            from correlations
+                            from user_variable_relationships
                             group by cause_variable_id
                         )
                         as grouped on variables.id = grouped.cause_variable_id
@@ -937,7 +937,7 @@ abstract class BaseVariable extends BaseModel {
                     [Formula: update variables
                         left join (
                             select count(id) as total, effect_variable_id
-                            from correlations
+                            from user_variable_relationships
                             group by effect_variable_id
                         )
                         as grouped on variables.id = grouped.effect_variable_id

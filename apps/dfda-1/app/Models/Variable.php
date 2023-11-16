@@ -27,8 +27,8 @@ use App\Buttons\VariableButton;
 use App\Cards\VariableStatisticsCard;
 use App\Charts\ChartGroup;
 use App\Charts\VariableCharts\VariableChartChartGroup;
-use App\Correlations\CorrelationsAndExplanationResponseBody;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\CorrelationsAndExplanationResponseBody;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\DataSources\QMDataSource;
 use App\Exceptions\AlreadyAnalyzedException;
 use App\Exceptions\AlreadyAnalyzingException;
@@ -340,7 +340,7 @@ use Spatie\Tags\Tag;
  * @property-read OAClient|null $oa_client
  * @property-read Collection|CommonTag[] $common_tags
  * @property-read int|null $common_tags_count
- * @property-read Collection|UserVariableRelationship[] $correlations
+ * @property-read Collection|UserVariableRelationship[] $user_variable_relationships
  * @property-read int|null $correlations_count
  * @property-read Collection|Measurement[] $measurements
  * @property-read int|null $measurements_count
@@ -487,7 +487,7 @@ use Spatie\Tags\Tag;
  *                     update variables
  *                         left join (
  *                             select count(id) as total, cause_variable_id
- *                             from correlations
+ *                             from user_variable_relationships
  *                             group by cause_variable_id
  *                         )
  *                         as grouped on variables.id = grouped.cause_variable_id
@@ -550,7 +550,7 @@ use Spatie\Tags\Tag;
  *                     [Formula: update variables
  *                         left join (
  *                             select count(id) as total, effect_variable_id
- *                             from correlations
+ *                             from user_variable_relationships
  *                             group by effect_variable_id
  *                         )
  *                         as grouped on variables.id = grouped.effect_variable_id
@@ -1778,7 +1778,7 @@ class Variable extends BaseVariable implements HasMedia {
 		if($this->getNumberOfRawMeasurementsWithTagsJoinsChildren()){
 			return;
 		}
-		le("Not posting because no correlations or measurements for " . $this->getTitleAttribute());
+		le("Not posting because no user_variable_relationships or measurements for " . $this->getTitleAttribute());
 	}
 	/**
 	 * @return int

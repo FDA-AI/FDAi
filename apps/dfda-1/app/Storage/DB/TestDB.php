@@ -567,7 +567,7 @@ class TestDB extends QMDB {
 	    try {SpreadsheetImportRequest::truncate();} catch (ProtectedDatabaseException $e) {le($e);}
 	    UserTag::truncate();
         UserVariableRelationship::truncate();
-		if(UserVariableRelationship::count() > 0){le("Correlation::count() > 0");}
+		if(UserVariableRelationship::count() > 0){le("UserVariableRelationship::count() > 0");}
         self::deleteMeasurementsAndReminders();
 	    UserVariableClient::truncate();
         UserVariable::truncate();

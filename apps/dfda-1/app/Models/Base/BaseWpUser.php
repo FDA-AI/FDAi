@@ -186,7 +186,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Collection|ConnectorRequest[] $connector_requests
  * @property Collection|CorrelationCausalityVote[] $correlation_causality_votes
  * @property Collection|CorrelationUsefulnessVote[] $correlation_usefulness_votes
- * @property Collection|UserVariableRelationship[] $correlations
+ * @property Collection|UserVariableRelationship[] $user_variable_relationships
  * @property Collection|DeviceToken[] $device_tokens
  * @property Collection|MeasurementExport[] $measurement_exports
  * @property Collection|MeasurementImport[] $measurement_imports
@@ -1122,12 +1122,12 @@ abstract class BaseWpUser extends BaseModel {
 			'localKey' => CorrelationUsefulnessVote::FIELD_ID,
 			'methodName' => 'correlation_usefulness_votes',
 		],
-		'correlations' => [
+		'user_variable_relationships' => [
 			'relationshipType' => 'HasMany',
 			'qualifiedUserClassName' => UserVariableRelationship::class,
 			'foreignKey' => UserVariableRelationship::FIELD_USER_ID,
 			'localKey' => UserVariableRelationship::FIELD_ID,
-			'methodName' => 'correlations',
+			'methodName' => 'user_variable_relationships',
 		],
 		'device_tokens' => [
 			'relationshipType' => 'HasMany',

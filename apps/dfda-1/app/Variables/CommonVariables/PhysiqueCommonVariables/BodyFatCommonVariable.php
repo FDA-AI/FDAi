@@ -18,7 +18,7 @@ class BodyFatCommonVariable extends QMCommonVariable {
 	public const MINIMUM_ALLOWED_SECONDS_BETWEEN_MEASUREMENTS = 86400;
 	public const NAME = 'Body Fat';
 	public const PRICE = 36.770000000000003;
-	public const PRODUCT_URL = 'https://www.amazon.com/Omron-HBF-306CN-Fat-Loss-Monitor/dp/B000FYZMYK?psc=1&SubscriptionId=AKIAU4A65MD5FGE2ALOQ&tag=quantimodo04-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B000FYZMYK';
+	public const PRODUCT_URL = 'https://www.amazon.com/Omron-HBF-306CN-Fat-Loss-Monitor/dp/B000FYZMYK?psc=1&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B000FYZMYK';
 	public const PUBLIC = true;
 	public const SYNONYMS = ['Body Fat'];
 	public const VARIABLE_CATEGORY_ID = PhysiqueVariableCategory::ID;

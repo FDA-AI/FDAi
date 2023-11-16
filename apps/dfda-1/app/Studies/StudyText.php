@@ -5,7 +5,7 @@
  */
 
 namespace App\Studies;
-use App\Correlations\QMCorrelation;
+use App\VariableRelationships\QMVariableRelationship;
 use App\DataSources\QMDataSource;
 use App\Exceptions\InvalidStringException;
 use App\Exceptions\NotEnoughDataException;
@@ -58,7 +58,7 @@ class StudyText extends StaticModel {
     public $tagLine;
     /**
      * Study constructor.
-     * @param QMCorrelation|UserVariableRelationship|\App\Models\GlobalVariableRelationship|null $hasCorrelationCoefficient
+     * @param QMVariableRelationship|UserVariableRelationship|\App\Models\GlobalVariableRelationship|null $hasCorrelationCoefficient
      * @param HasCauseAndEffect|QMStudy null $hasCauseAndEffect
      * @param null $cached
      */
@@ -239,7 +239,7 @@ class StudyText extends StaticModel {
         $html = '
             <p>
                 As with any human experiment, it was impossible to control for all potentially confounding variables.
-                Correlation does not necessarily imply causation.  We can never know for sure if one factor is definitely the cause of an outcome.
+                User Variable Relationship does not necessarily imply causation.  We can never know for sure if one factor is definitely the cause of an outcome.
                 However, lack of correlation definitely implies the lack of a causal relationship.  Hence, we can with great
                 confidence rule out non-existent relationships.  For instance, if we discover no relationship between mood
                 and an antidepressant this information is just as or even more valuable than the discovery that there is a relationship.
@@ -842,7 +842,7 @@ class StudyText extends StaticModel {
         return $this->getHasCorrelationCoefficient()->getOnsetDelay();
     }
     /**
-     * @param HasCorrelationCoefficient|QMCorrelation $c
+     * @param HasCorrelationCoefficient|QMVariableRelationship $c
      * @param string $title
      * @param bool $arrows
      * @return string

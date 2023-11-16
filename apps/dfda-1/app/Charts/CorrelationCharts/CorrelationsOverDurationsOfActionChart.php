@@ -7,7 +7,7 @@
 namespace App\Charts\CorrelationCharts;
 use App\Charts\QMHighcharts\CorrelationsOverDurationsOfActionHighchart;
 use App\Charts\QMHighcharts\HighchartConfig;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\TooSlowToAnalyzeException;
 use App\Logging\QMLog;
@@ -25,12 +25,12 @@ class CorrelationsOverDurationsOfActionChart extends CorrelationChart {
 		} catch (NotEnoughDataException $e) {
 			return;
 		}
-		$this->setExplanation("Correlation between outcome and aggregated predictor measurements over given number of days"
+		$this->setExplanation("User Variable Relationship between outcome and aggregated predictor measurements over given number of days"
 		//"If the curve exhibits a semi-normal distribution, the duration of action with ".
 		//" the peak correlation is most likely to be the duration over which ".$correlation->getCauseVariableDisplayNameWithoutSuffix(). " has an effect on ".
 		//$correlation->getEffectVariableDisplayNameWithoutSuffix()."."
 		);
-		parent::__construct($c, "Correlation Between " . $c->getCauseNameWithoutCategoryOrUnit() . " and " .
+		parent::__construct($c, "User Variable Relationship Between " . $c->getCauseNameWithoutCategoryOrUnit() . " and " .
 			$c->getEffectNameWithoutCategoryOrUnit() . " by Duration of Action");
 		$l = $c->l();
 		if($l->correlations_over_durations){

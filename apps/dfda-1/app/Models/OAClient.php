@@ -76,7 +76,7 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property-read int|null $connections_count
  * @property-read Collection|Connector[] $connectors
  * @property-read int|null $connectors_count
- * @property-read Collection|UserVariableRelationship[] $correlations
+ * @property-read Collection|UserVariableRelationship[] $user_variable_relationships
  * @property-read int|null $correlations_count
  * @property-read Collection|Credential[] $credentials
  * @property-read int|null $credentials_count
@@ -251,7 +251,7 @@ use Titasgailius\SearchRelations\SearchesRelations;
  *                     update oa_clients
  *                         left join (
  *                             select count(id) as total, client_id
- *                             from correlations
+ *                             from user_variable_relationships
  *                             group by client_id
  *                         )
  *                         as grouped on oa_clients.client_id = grouped.client_id

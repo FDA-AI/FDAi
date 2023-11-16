@@ -92,7 +92,7 @@ class QMDBTest extends UnitTestCase
             10 => 'connector_requests',
             11 => 'correlation_causality_votes',
             12 => 'correlation_usefulness_votes',
-            13 => 'correlations',
+            13 => 'user_variable_relationships',
             14 => 'credentials',
             15 => 'device_tokens',
             16 => 'github_repositories',

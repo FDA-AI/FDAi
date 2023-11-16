@@ -8,19 +8,19 @@ namespace App\Buttons\DataLab\Correlations;
 use App\Buttons\QMButton;
 use App\Models\UserVariableRelationship;
 class CreateCorrelationButton extends QMButton {
-	public $accessibilityText = 'Create Correlation';
-	public $action = 'datalab/correlations/create';
+	public $accessibilityText = 'Create UserVariableRelationship';
+	public $action = 'datalab/user_variable_relationships/create';
 	public $color = UserVariableRelationship::COLOR;
 	public $fontAwesome = UserVariableRelationship::FONT_AWESOME;
-	public $id = 'datalab-correlations-create-button';
+	public $id = 'datalab-user_variable_relationships-create-button';
 	public $image = UserVariableRelationship::DEFAULT_IMAGE;
-	public $link = 'datalab/correlations/create';
+	public $link = 'datalab/user_variable_relationships/create';
 	public $parameters = [
 		'middleware' => [
 			'web',
 			'auth',
 		],
-		'as' => 'datalab.correlations.create',
+		'as' => 'datalab.user_variable_relationships.create',
 		'uses' => 'App\\Http\\Controllers\\DataLab\\CorrelationController@create',
 		'controller' => 'App\\Http\\Controllers\\DataLab\\CorrelationController@create',
 		'namespace' => 'App\\Http\\Controllers',
@@ -28,8 +28,8 @@ class CreateCorrelationButton extends QMButton {
 		'where' => [],
 	];
 	public $target = 'self';
-	public $text = 'Create Correlation';
-	public $title = 'Create Correlation';
+	public $text = 'Create UserVariableRelationship';
+	public $title = 'Create UserVariableRelationship';
 	public $tooltip = UserVariableRelationship::CLASS_DESCRIPTION;
 	public $visible = true;
 }

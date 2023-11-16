@@ -24,10 +24,10 @@ class V2CorrelationController extends Controller {
 	 * @param Guard $auth
 	 * @return JsonResponse
 	 * @SWG\Get(
-	 *      path="/correlations",
-	 *      summary="Get all Correlations",
-	 *      tags={"Correlation"},
-	 *      description="Get all Correlations",
+	 *      path="/user_variable_relationships",
+	 *      summary="Get all VariableRelationships",
+	 *      tags={"UserVariableRelationship"},
+	 *      description="Get all VariableRelationships",
 	 *      produces={"application/json"},
 	 *      @SWG\Parameter(
 	 *          name="access_token",
@@ -60,14 +60,14 @@ class V2CorrelationController extends Controller {
 	 *      @SWG\Parameter(
 	 *          name="cause_variable_id",
 	 *          in="query",
-	 *          description="variable ID of the predictor variable for which the user desires correlations",
+	 *          description="variable ID of the predictor variable for which the user desires user_variable_relationships",
 	 *          required=false,
 	 *          type="integer"
 	 *      ),
 	 *      @SWG\Parameter(
 	 *          name="effect_variable_id",
 	 *          in="query",
-	 *          description="variable ID of the outcome variable for which the user desires correlations",
+	 *          description="variable ID of the outcome variable for which the user desires user_variable_relationships",
 	 *          required=false,
 	 *          type="integer"
 	 *      ),
@@ -182,13 +182,13 @@ class V2CorrelationController extends Controller {
 	 * @SWG\Parameter(
 	 *          name="reverse_pearson_correlation_coefficient",
 	 *          in="query",
-	 *          description="Correlation when cause and effect are reversed. For any causal relationship, the forward
+	 *          description="UserVariableRelationship when cause and effect are reversed. For any causal relationship, the forward
 	 *     correlation should exceed the reverse correlation", required=false, type="number"
 	 *      ),
 	 * @SWG\Parameter(
 	 *          name="predictive_pearson_correlation_coefficient",
 	 *          in="query",
-	 *          description="Predictive Pearson Correlation Coefficient",
+	 *          description="Predictive Pearson UserVariableRelationship Coefficient",
 	 *          required=false,
 	 *          type="number"
 	 *      ),
@@ -225,7 +225,7 @@ class V2CorrelationController extends Controller {
 	 *              @SWG\Property(
 	 *                  property="data",
 	 *                  type="array",
-	 *                  @SWG\Items(ref="#/definitions/Correlation")
+	 *                  @SWG\Items(ref="#/definitions/UserVariableRelationship")
 	 *              )
 	 *          )
 	 *      ),
@@ -254,10 +254,10 @@ class V2CorrelationController extends Controller {
 	 * @param Guard $auth
 	 * @return JsonResponse
 	 * @SWG\Post(
-	 *      path="/correlations",
-	 *      summary="Store Correlation",
-	 *      tags={"Correlation"},
-	 *      description="Store Correlation",
+	 *      path="/user_variable_relationships",
+	 *      summary="Store UserVariableRelationship",
+	 *      tags={"UserVariableRelationship"},
+	 *      description="Store UserVariableRelationship",
 	 *      produces={"application/json"},
 	 *      @SWG\Parameter(
 	 *          name="access_token",
@@ -269,9 +269,9 @@ class V2CorrelationController extends Controller {
 	 *      @SWG\Parameter(
 	 *          name="body",
 	 *          in="body",
-	 *          description="Correlation that should be stored",
+	 *          description="UserVariableRelationship that should be stored",
 	 *          required=false,
-	 *          @SWG\Schema(ref="#/definitions/Correlation")
+	 *          @SWG\Schema(ref="#/definitions/UserVariableRelationship")
 	 *      ),
 	 *      @SWG\Response(
 	 *          response=200,
@@ -284,7 +284,7 @@ class V2CorrelationController extends Controller {
 	 *              ),
 	 *              @SWG\Property(
 	 *                  property="data",
-	 *                  ref="#/definitions/Correlation"
+	 *                  ref="#/definitions/UserVariableRelationship"
 	 *              )
 	 *          )
 	 *      ),
@@ -310,10 +310,10 @@ class V2CorrelationController extends Controller {
 	 * @return JsonResponse
 	 * @throws BadRequestException
 	 * @SWG\Get(
-	 *      path="/correlations/{id}",
-	 *      summary="Get Correlation Details",
-	 *      tags={"Correlation"},
-	 *      description="Get Correlation",
+	 *      path="/user_variable_relationships/{id}",
+	 *      summary="Get UserVariableRelationship Details",
+	 *      tags={"UserVariableRelationship"},
+	 *      description="Get UserVariableRelationship",
 	 *      produces={"application/json"},
 	 *      @SWG\Parameter(
 	 *          name="access_token",
@@ -324,7 +324,7 @@ class V2CorrelationController extends Controller {
 	 *      ),
 	 *      @SWG\Parameter(
 	 *          name="id",
-	 *          description="id of Correlation",
+	 *          description="id of UserVariableRelationship",
 	 *          type="integer",
 	 *          required=true,
 	 *          in="path"
@@ -340,7 +340,7 @@ class V2CorrelationController extends Controller {
 	 *              ),
 	 *              @SWG\Property(
 	 *                  property="data",
-	 *                  ref="#/definitions/Correlation"
+	 *                  ref="#/definitions/UserVariableRelationship"
 	 *              )
 	 *          )
 	 *      ),
@@ -369,10 +369,10 @@ class V2CorrelationController extends Controller {
 	 * @return JsonResponse
 	 * @throws BadRequestException
 	 * @SWG\Put(
-	 *      path="/correlations/{id}",
-	 *      summary="Update Correlation",
-	 *      tags={"Correlation"},
-	 *      description="Update Correlation",
+	 *      path="/user_variable_relationships/{id}",
+	 *      summary="Update UserVariableRelationship",
+	 *      tags={"UserVariableRelationship"},
+	 *      description="Update UserVariableRelationship",
 	 *      produces={"application/json"},
 	 *      @SWG\Parameter(
 	 *          name="access_token",
@@ -383,7 +383,7 @@ class V2CorrelationController extends Controller {
 	 *      ),
 	 *      @SWG\Parameter(
 	 *          name="id",
-	 *          description="id of Correlation",
+	 *          description="id of UserVariableRelationship",
 	 *          type="integer",
 	 *          required=true,
 	 *          in="path"
@@ -391,9 +391,9 @@ class V2CorrelationController extends Controller {
 	 *      @SWG\Parameter(
 	 *          name="body",
 	 *          in="body",
-	 *          description="Correlation that should be updated",
+	 *          description="UserVariableRelationship that should be updated",
 	 *          required=false,
-	 *          @SWG\Schema(ref="#/definitions/Correlation")
+	 *          @SWG\Schema(ref="#/definitions/UserVariableRelationship")
 	 *      ),
 	 *      @SWG\Response(
 	 *          response=200,
@@ -425,7 +425,7 @@ class V2CorrelationController extends Controller {
 		}
 		return new JsonResponse([
 			'success' => true,
-			'data' => "Correlation updated successfully",
+			'data' => "User Variable Relationship updated successfully",
 		]);
 	}
 	/**
@@ -435,10 +435,10 @@ class V2CorrelationController extends Controller {
 	 * @return JsonResponse
 	 * @throws BadRequestException
 	 * @SWG\Delete(
-	 *      path="/correlations/{id}",
-	 *      summary="Delete Correlation",
-	 *      tags={"Correlation"},
-	 *      description="Delete Correlation",
+	 *      path="/user_variable_relationships/{id}",
+	 *      summary="Delete UserVariableRelationship",
+	 *      tags={"UserVariableRelationship"},
+	 *      description="Delete UserVariableRelationship",
 	 *      produces={"application/json"},
 	 *      @SWG\Parameter(
 	 *          name="access_token",
@@ -449,7 +449,7 @@ class V2CorrelationController extends Controller {
 	 *      ),
 	 *      @SWG\Parameter(
 	 *          name="id",
-	 *          description="id of Correlation",
+	 *          description="id of UserVariableRelationship",
 	 *          type="integer",
 	 *          required=true,
 	 *          in="path"
@@ -483,7 +483,7 @@ class V2CorrelationController extends Controller {
 		}
 		return new JsonResponse([
 			'success' => true,
-			'data' => "Correlation deleted successfully",
+			'data' => "User Variable Relationship deleted successfully",
 		]);
 	}
 }

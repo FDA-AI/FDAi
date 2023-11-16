@@ -35,7 +35,7 @@ class CreateUserVariablesTable extends Migration
             $table->unsignedSmallInteger('last_original_unit_id')->nullable()->comment('ID of last original Unit');
             $table->double('last_value')->nullable();//->comment('Last Value');
             $table->double('last_original_value')->unsigned()->nullable();//->comment('Last original value which is stored');
-            $table->integer('number_of_correlations')->nullable();//->comment('Number of correlations for this variable');
+            $table->integer('number_of_correlations')->nullable();//->comment('Number of user_variable_relationships for this variable');
             $table->string('status', 25)->nullable();
             $table->double('standard_deviation')->nullable();//->comment('Standard deviation');
             $table->double('variance')->nullable();//->comment('Variance');

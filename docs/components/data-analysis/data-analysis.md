@@ -98,7 +98,7 @@ Absolutely, given your constraints and requirements, here's a refined methodolog
 3. **Reverse Causality Check**:
   - Assess if symptom severity on previous days predicts treatment intake. This helps in understanding potential feedback mechanisms.
 
-4. **Cross-Correlation Analysis**:
+4. **Cross-UserVariableRelationship Analysis**:
   - Analyze the correlation between treatment and symptom severity across various lags.
   - This aids in understanding potential onset delays and durations of effect.
 

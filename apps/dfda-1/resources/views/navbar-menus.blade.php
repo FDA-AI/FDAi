@@ -11,7 +11,7 @@ $user = Auth::user();
             title="You Have {{ \App\Types\QMStr::abbreviateNumber($user->number_of_correlations) }} Discoveries">
             <a href="{{ \App\Models\UserVariableRelationship::generateDataLabIndexUrl() }}" onclick="showLoader()">
                 <i class="{{ \App\Models\UserVariableRelationship::FONT_AWESOME }}"></i>
-                {{--                <span id="correlations-count" class="label label-danger">
+                {{--                <span id="user_variable_relationships-count" class="label label-danger">
                                     {{ \App\Utils\StringHelper::abbreviateNumber($user->number_of_correlations) }}
                                 </span>--}}
             </a>

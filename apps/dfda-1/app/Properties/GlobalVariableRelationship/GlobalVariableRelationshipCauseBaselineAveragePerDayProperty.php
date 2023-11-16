@@ -8,7 +8,7 @@ namespace App\Properties\GlobalVariableRelationship;
 use App\Models\GlobalVariableRelationship;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BaseCauseBaselineAveragePerDayProperty;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 class GlobalVariableRelationshipCauseBaselineAveragePerDayProperty extends BaseCauseBaselineAveragePerDayProperty
 {
     use GlobalVariableRelationshipProperty;

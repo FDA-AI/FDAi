@@ -3,7 +3,7 @@
 *  Contributors: ADD YOUR NAME HERE, Mike P. Sinn
  */ /** @noinspection PhpUnused */
 namespace App\Slim\Controller;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Slim\View\Request\QMRequest;
 use App\Variables\QMCommonVariable;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;

@@ -13,7 +13,7 @@ class AddForeignKeysToCorrelationsTable extends Migration
      */
     public function up()
     {
-        Schema::table('correlations', function (Blueprint $table) {
+        Schema::table('user_variable_relationships', function (Blueprint $table) {
             $table->foreign(['global_variable_relationship_id'], 'correlations_global_variable_relationships_id_fk')->references(['id'])->deferrable()->on('global_variable_relationships');
             $table->foreign(['cause_unit_id'], 'correlations_cause_unit_id_fk')->references(['id'])->deferrable()->on('units');
             $table->foreign(['cause_variable_category_id'], 'correlations_cause_variable_category_id_fk')->references(['id'])->deferrable()->on('variable_categories');
@@ -34,7 +34,7 @@ class AddForeignKeysToCorrelationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('correlations', function (Blueprint $table) {
+        Schema::table('user_variable_relationships', function (Blueprint $table) {
             $table->dropForeign('correlations_global_variable_relationships_id_fk');
             $table->dropForeign('correlations_cause_unit_id_fk');
             $table->dropForeign('correlations_cause_variable_category_id_fk');

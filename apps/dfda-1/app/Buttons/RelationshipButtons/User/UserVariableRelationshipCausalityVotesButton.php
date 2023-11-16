@@ -19,7 +19,7 @@ class UserVariableRelationshipCausalityVotesButton extends HasManyRelationshipBu
 	public $fontAwesome = CorrelationCausalityVote::FONT_AWESOME;
 	public $id = 'correlation-causality-votes-button';
 	public $image = CorrelationCausalityVote::DEFAULT_IMAGE;
-	public $text = 'Correlation Causality Votes';
-	public $title = 'Correlation Causality Votes';
+	public $text = 'User Variable Relationship Causality Votes';
+	public $title = 'User Variable Relationship Causality Votes';
 	public $tooltip = CorrelationCausalityVote::CLASS_DESCRIPTION;
 }

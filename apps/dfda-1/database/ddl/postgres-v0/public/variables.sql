@@ -315,7 +315,7 @@ comment on column variables.number_of_outcome_case_studies is 'Number of Individ
                     update variables
                         left join (
                             select count(id) as total, cause_variable_id
-                            from correlations
+                            from user_variable_relationships
                             group by cause_variable_id
                         )
                         as grouped on variables.id = grouped.cause_variable_id
@@ -337,7 +337,7 @@ comment on column variables.number_of_predictor_case_studies is 'Number of Indiv
                     [Formula: update variables
                         left join (
                             select count(id) as total, effect_variable_id
-                            from correlations
+                            from user_variable_relationships
                             group by effect_variable_id
                         )
                         as grouped on variables.id = grouped.effect_variable_id

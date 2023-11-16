@@ -12,7 +12,7 @@ abstract class AnalyzableSolution extends ModelSolution {
 	protected $analyzable;
 	/**
 	 * AnalyzableSolution constructor.
-	 * @param QMAnalyzableTrait|\App\Correlations\QMUserVariableRelationship $analyzable
+	 * @param QMAnalyzableTrait|\App\VariableRelationships\QMUserVariableRelationship $analyzable
 	 */
 	public function __construct($analyzable = null){
 		if($analyzable){
@@ -28,7 +28,7 @@ abstract class AnalyzableSolution extends ModelSolution {
 		return $this->links = array_merge($links, $this->getAnalyzable()->getUrls());
 	}
 	/**
-	 * @return QMAnalyzableTrait|\App\Correlations\QMUserVariableRelationship
+	 * @return QMAnalyzableTrait|\App\VariableRelationships\QMUserVariableRelationship
 	 */
 	public function getAnalyzable(){
 		return $this->analyzable;

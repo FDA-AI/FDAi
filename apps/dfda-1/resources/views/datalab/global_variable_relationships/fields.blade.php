@@ -1,6 +1,6 @@
-<!-- Forward Pearson Correlation Coefficient Field -->
+<!-- Forward Pearson UserVariableRelationship Coefficient Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('forward_pearson_correlation_coefficient', 'Forward Pearson Correlation Coefficient:') !!}
+    {!! Form::label('forward_pearson_correlation_coefficient', 'Forward Pearson User Variable Relationship Coefficient:') !!}
     {!! Form::number('forward_pearson_correlation_coefficient', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -52,9 +52,9 @@
     {!! Form::number('number_of_users', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Number Of Correlations Field -->
+<!-- Number Of VariableRelationships Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('number_of_correlations', 'Number Of Correlations:') !!}
+    {!! Form::label('number_of_correlations', 'Number Of VariableRelationships:') !!}
     {!! Form::number('number_of_correlations', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -94,15 +94,15 @@
     {!! Form::text('status', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Reverse Pearson Correlation Coefficient Field -->
+<!-- Reverse Pearson UserVariableRelationship Coefficient Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('reverse_pearson_correlation_coefficient', 'Reverse Pearson Correlation Coefficient:') !!}
+    {!! Form::label('reverse_pearson_correlation_coefficient', 'Reverse Pearson User Variable Relationship Coefficient:') !!}
     {!! Form::number('reverse_pearson_correlation_coefficient', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Predictive Pearson Correlation Coefficient Field -->
+<!-- Predictive Pearson UserVariableRelationship Coefficient Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('predictive_pearson_correlation_coefficient', 'Predictive Pearson Correlation Coefficient:') !!}
+    {!! Form::label('predictive_pearson_correlation_coefficient', 'Predictive Pearson User Variable Relationship Coefficient:') !!}
     {!! Form::number('predictive_pearson_correlation_coefficient', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -178,9 +178,9 @@
     {!! Form::number('average_daily_high_cause', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Population Trait Pearson Correlation Coefficient Field -->
+<!-- Population Trait Pearson UserVariableRelationship Coefficient Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('population_trait_pearson_correlation_coefficient', 'Population Trait Pearson Correlation Coefficient:') !!}
+    {!! Form::label('population_trait_pearson_correlation_coefficient', 'Population Trait Pearson User Variable Relationship Coefficient:') !!}
     {!! Form::number('population_trait_pearson_correlation_coefficient', null, ['class' => 'form-control']) !!}
 </div>
 

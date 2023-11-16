@@ -8,7 +8,7 @@
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row">
-                    {!! Form::model($correlation, ['route' => ['datalab.correlations.update', $correlation->id], 'method' => 'patch']) !!}
+                    {!! Form::model($correlation, ['route' => ['datalab.user_variable_relationships.update', $correlation->id], 'method' => 'patch']) !!}
 
                     @include('datalab.correlations.fields')
 

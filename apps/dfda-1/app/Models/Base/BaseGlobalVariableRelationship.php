@@ -116,7 +116,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property WpPost $wp_post
  * @property Collection|CorrelationCausalityVote[] $correlation_causality_votes
  * @property Collection|CorrelationUsefulnessVote[] $correlation_usefulness_votes
- * @property Collection|UserVariableRelationship[] $correlations
+ * @property Collection|UserVariableRelationship[] $user_variable_relationships
  * @property Collection|Variable[] $variables_where_best_global_variable_relationship
  * @property Collection|Vote[] $votes
  * @package App\Models\Base
@@ -470,7 +470,7 @@ abstract class BaseGlobalVariableRelationship extends BaseModel {
 		self::FIELD_OPTIMAL_PEARSON_PRODUCT => 'Optimal Pearson Product',
 		self::FIELD_AVERAGE_VOTE => 'Vote',
 		self::FIELD_NUMBER_OF_USERS => 'Number of Users by which correlation is aggregated',
-		self::FIELD_NUMBER_OF_CORRELATIONS => 'Number of Correlations by which correlation is aggregated',
+		self::FIELD_NUMBER_OF_CORRELATIONS => 'Number of VariableRelationships by which correlation is aggregated',
 		self::FIELD_STATISTICAL_SIGNIFICANCE => 'A function of the effect size and sample size',
 		self::FIELD_CAUSE_UNIT_ID => 'Unit ID of Cause',
 		self::FIELD_CAUSE_CHANGES => 'The number of times the cause measurement value was different from the one preceding it.',
@@ -479,7 +479,7 @@ abstract class BaseGlobalVariableRelationship extends BaseModel {
 		self::FIELD_CREATED_AT => 'datetime',
 		self::FIELD_UPDATED_AT => 'datetime',
 		self::FIELD_STATUS => 'Whether the correlation is being analyzed, needs to be analyzed, or is up to date already.',
-		self::FIELD_REVERSE_PEARSON_CORRELATION_COEFFICIENT => 'Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation',
+		self::FIELD_REVERSE_PEARSON_CORRELATION_COEFFICIENT => 'User Variable Relationship when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation',
 		self::FIELD_PREDICTIVE_PEARSON_CORRELATION_COEFFICIENT => 'Pearson correlation coefficient of cause and effect values lagged by the onset delay and grouped based on the duration of action. ',
 		self::FIELD_DATA_SOURCE_NAME => '',
 		self::FIELD_PREDICTS_HIGH_EFFECT_CHANGE => 'The percent change in the outcome typically seen when the predictor value is closer to the predictsHighEffect value. ',
@@ -638,12 +638,12 @@ abstract class BaseGlobalVariableRelationship extends BaseModel {
 			'localKey' => CorrelationUsefulnessVote::FIELD_ID,
 			'methodName' => 'correlation_usefulness_votes',
 		],
-		'correlations' => [
+		'user_variable_relationships' => [
 			'relationshipType' => 'HasMany',
 			'qualifiedUserClassName' => UserVariableRelationship::class,
 			'foreignKey' => UserVariableRelationship::FIELD_AGGREGATE_CORRELATION_ID,
 			'localKey' => UserVariableRelationship::FIELD_ID,
-			'methodName' => 'correlations',
+			'methodName' => 'user_variable_relationships',
 		],
 		'variables_where_best_global_variable_relationship' => [
 			'relationshipType' => 'HasMany',

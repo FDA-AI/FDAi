@@ -9,7 +9,7 @@ use App\Models\GlobalVariableRelationship;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BaseEffectFollowUpAverageProperty;
 use App\Traits\PropertyTraits\IsAverageOfCorrelations;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 class GlobalVariableRelationshipEffectFollowUpAverageProperty extends BaseEffectFollowUpAverageProperty
 {
     use GlobalVariableRelationshipProperty, IsAverageOfCorrelations;

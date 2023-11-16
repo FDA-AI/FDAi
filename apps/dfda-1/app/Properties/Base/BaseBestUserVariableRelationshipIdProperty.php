@@ -7,7 +7,7 @@
 namespace App\Properties\Base;
 use App\Models\UserVariableRelationship;
 use App\Models\UserVariable;
-use App\Properties\Correlation\CorrelationIdProperty;
+use App\Properties\UserVariableRelationship\CorrelationIdProperty;
 use App\Traits\ForeignKeyIdTrait;
 use App\Traits\PropertyTraits\IsCalculated;
 use App\UI\ImageUrls;

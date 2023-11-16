@@ -2,7 +2,7 @@
 namespace Tests\StagingUnitTests\A\Feed;
 use App\Cards\QMCard;
 use App\Cards\TrackingReminderNotificationCard;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 use App\Logging\QMLog;
 use App\Properties\Base\BaseAccessTokenProperty;
 use App\Properties\Study\StudyUserTitleProperty;

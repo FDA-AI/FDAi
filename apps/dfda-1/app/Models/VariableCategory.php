@@ -223,7 +223,7 @@ use Spatie\Tags\Tag;
  * @method static Builder|VariableCategory whereWpPostId($value)
  * @property-read \Illuminate\Database\Eloquent\Collection|GlobalVariableRelationship[] $global_variable_relationships
  * @property-read int|null $global_variable_relationships_count
- * @property-read \Illuminate\Database\Eloquent\Collection|UserVariableRelationship[] $correlations
+ * @property-read \Illuminate\Database\Eloquent\Collection|UserVariableRelationship[] $user_variable_relationships
  * @property-read int|null $correlations_count
  * @property-read \Illuminate\Database\Eloquent\Collection|Measurement[] $measurements
  * @property-read int|null $measurements_count
@@ -266,7 +266,7 @@ use Spatie\Tags\Tag;
  *                     update variable_categories
  *                         left join (
  *                             select count(id) as total, cause_variable_category_id
- *                             from correlations
+ *                             from user_variable_relationships
  *                             group by cause_variable_category_id
  *                         )
  *                         as grouped on variable_categories.id = grouped.cause_variable_category_id
@@ -278,7 +278,7 @@ use Spatie\Tags\Tag;
  *                     update variable_categories
  *                         left join (
  *                             select count(id) as total, effect_variable_category_id
- *                             from correlations
+ *                             from user_variable_relationships
  *                             group by effect_variable_category_id
  *                         )
  *                         as grouped on variable_categories.id = grouped.effect_variable_category_id

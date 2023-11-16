@@ -18,8 +18,8 @@ use App\Buttons\RelationshipButtons\Correlation\CorrelationEffectUserVariableBut
 use App\Buttons\RelationshipButtons\RelationshipButton;
 use App\Charts\ChartGroup;
 use App\Charts\CorrelationCharts\CorrelationChartGroup;
-use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\IncompatibleUnitException;
 use App\Exceptions\InvalidStringException;
 use App\Exceptions\InvalidVariableValueException;
@@ -36,11 +36,11 @@ use App\Menus\QMMenu;
 use App\Models\Base\BaseUserVariableRelationship;
 use App\Properties\Base\BaseEffectFollowUpPercentChangeFromBaselineProperty;
 use App\Properties\Base\BasePostStatusProperty;
-use App\Properties\Correlation\CorrelationExperimentEndAtProperty;
-use App\Properties\Correlation\CorrelationExperimentStartAtProperty;
-use App\Properties\Correlation\CorrelationGroupedCauseValueClosestToValuePredictingLowOutcomeProperty;
-use App\Properties\Correlation\CorrelationStatusProperty;
-use App\Properties\Correlation\CorrelationValuePredictingHighOutcomeProperty;
+use App\Properties\UserVariableRelationship\CorrelationExperimentEndAtProperty;
+use App\Properties\UserVariableRelationship\CorrelationExperimentStartAtProperty;
+use App\Properties\UserVariableRelationship\CorrelationGroupedCauseValueClosestToValuePredictingLowOutcomeProperty;
+use App\Properties\UserVariableRelationship\CorrelationStatusProperty;
+use App\Properties\UserVariableRelationship\CorrelationValuePredictingHighOutcomeProperty;
 use App\Properties\User\UserIdProperty;
 use App\Slim\Middleware\QMAuth;
 use App\Slim\Model\DBModel;
@@ -94,9 +94,9 @@ use Overtrue\LaravelFavorite\Traits\Favoriteable;
 use Overtrue\LaravelLike\Traits\Likeable;
 use Spatie\MediaLibrary\HasMedia;
 use Titasgailius\SearchRelations\SearchesRelations;
-/** App\Models\Correlation
+/** App\Models\UserVariableRelationship
  * @OA\Schema (
- *      definition="Correlation",
+ *      definition="UserVariableRelationship",
  *      required={"timestamp", "user_id", "correlation", "cause_variable_id", "effect_variable_id", "onset_delay",
  *     "duration_of_action",
  *     "number_of_pairs", "value_predicting_high_outcome", "value_predicting_low_outcome", "optimal_pearson_product",
@@ -128,13 +128,13 @@ use Titasgailius\SearchRelations\SearchesRelations;
  *      ),
  *      @OA\Property(
  *          property="cause_variable_id",
- *          description="variable ID of the cause variable for which the user desires correlations",
+ *          description="variable ID of the cause variable for which the user desires user_variable_relationships",
  *          type="integer",
  *          format="int32"
  *      ),
  *      @OA\Property(
  *          property="effect_variable_id",
- *          description="variable ID of the effect variable for which the user desires correlations",
+ *          description="variable ID of the effect variable for which the user desires user_variable_relationships",
  *          type="integer",
  *          format="int32"
  *      ),
@@ -227,12 +227,12 @@ use Titasgailius\SearchRelations\SearchesRelations;
  *      ),
  *      @OA\Property(
  *          property="reverse_pearson_correlation_coefficient",
- *          description="Correlation when cause and effect are reversed. For any causal relationship, the forward
+ *          description="UserVariableRelationship when cause and effect are reversed. For any causal relationship, the forward
  *     correlation should exceed the reverse correlation", type="number", format="float"
  *      ),
  *      @OA\Property(
  *          property="predictive_pearson_correlation_coefficient",
- *          description="Predictive Pearson Correlation Coefficient",
+ *          description="Predictive Pearson UserVariableRelationship Coefficient",
  *          type="number",
  *          format="float"
  *      )
@@ -241,8 +241,8 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property integer $timestamp Time at which correlation was calculated
  * @property integer $user_id ID of user that owns this correlation
  * @property float $correlation Pearson correlation coefficient between cause and effect measurements
- * @property integer $cause_variable_id variable ID of the cause variable for which the user desires correlations
- * @property integer $effect_variable_id variable ID of the effect variable for which the user desires correlations
+ * @property integer $cause_variable_id variable ID of the cause variable for which the user desires user_variable_relationships
+ * @property integer $effect_variable_id variable ID of the effect variable for which the user desires user_variable_relationships
  * @property integer $onset_delay User estimated or default time after cause measurement before a perceivable effect is
  *     observed
  * @property integer $duration_of_action Time over which the cause is expected to produce a perceivable effect
@@ -263,9 +263,9 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property Carbon $updated_at
  * @property array $correlations_over_durations
  * @property array $correlations_over_delays
- * @property float $reverse_pearson_correlation_coefficient Correlation when cause and effect are reversed. For any
+ * @property float $reverse_pearson_correlation_coefficient UserVariableRelationship when cause and effect are reversed. For any
  *     causal relationship, the forward correlation should exceed the reverse correlation
- * @property float $predictive_pearson_correlation_coefficient Predictive Pearson Correlation Coefficient
+ * @property float $predictive_pearson_correlation_coefficient Predictive Pearson UserVariableRelationship Coefficient
  * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereId($value)
  * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereTimestamp($value)
  * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereUserId($value)
@@ -285,13 +285,13 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereQmScore($value)
  * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|UserVariableRelationship whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Correlation
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\UserVariableRelationship
  *     whereReversePearsonCorrelationCoefficient($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Correlation
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\UserVariableRelationship
  *     wherePredictivePearsonCorrelationCoefficient($value)
  * @property float $forward_pearson_correlation_coefficient Pearson correlation coefficient between cause and effect
  *     measurements
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Correlation
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\UserVariableRelationship
  *     whereForwardPearsonCorrelationCoefficient($value)
  * @property int|null $predicts_high_effect_change The percent change in the outcome typically seen when the predictor
  *     value is closer to the predictsHighEffect value.
@@ -334,18 +334,18 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @method static Builder|UserVariableRelationship whereAverageDailyHighCause($value)
  * @method static Builder|UserVariableRelationship whereAverageDailyLowCause($value)
  * @method static Builder|UserVariableRelationship whereAverageEffect($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserVariableRelationship
  *     whereAverageEffectFollowingHighCause($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserVariableRelationship
  *     whereAverageEffectFollowingLowCause($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserVariableRelationship
  *     whereAverageForwardPearsonCorrelationOverOnsetDelays($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserVariableRelationship
  *     whereAverageReversePearsonCorrelationOverOnsetDelays($value)
  * @method static Builder|UserVariableRelationship whereCauseFillingValue($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserVariableRelationship
  *     whereCauseNumberOfProcessedDailyMeasurements($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserVariableRelationship
  *     whereCauseNumberOfRawMeasurements($value)
  * @method static Builder|UserVariableRelationship whereClientId($value)
  * @method static Builder|UserVariableRelationship whereConfidenceInterval($value)
@@ -353,28 +353,28 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @method static Builder|UserVariableRelationship whereDataSource($value)
  * @method static Builder|UserVariableRelationship whereDeletedAt($value)
  * @method static Builder|UserVariableRelationship whereEffectFillingValue($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserVariableRelationship
  *     whereEffectNumberOfProcessedDailyMeasurements($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserVariableRelationship
  *     whereEffectNumberOfRawMeasurements($value)
  * @method static Builder|UserVariableRelationship whereExperimentEndTime($value)
  * @method static Builder|UserVariableRelationship whereExperimentStartTime($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserVariableRelationship
  *     whereForwardSpearmanCorrelationCoefficient($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserVariableRelationship
  *     whereGroupedCauseValueClosestToValuePredictingHighOutcome($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserVariableRelationship
  *     whereGroupedCauseValueClosestToValuePredictingLowOutcome($value)
  * @method static Builder|UserVariableRelationship whereNumberOfDays($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserVariableRelationship
  *     whereOnsetDelayWithStrongestPearsonCorrelation($value)
  * @method static Builder|UserVariableRelationship wherePValue($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserVariableRelationship
  *     wherePearsonCorrelationWithNoOnsetDelay($value)
  * @method static Builder|UserVariableRelationship wherePredictsHighEffectChange($value)
  * @method static Builder|UserVariableRelationship wherePredictsLowEffectChange($value)
  * @method static Builder|UserVariableRelationship wherePublishedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Correlation
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserVariableRelationship
  *     whereStrongestPearsonCorrelationCoefficient($value)
  * @method static Builder|UserVariableRelationship whereTValue($value)
  * @method static Builder|UserVariableRelationship whereWpPostId($value)
@@ -1657,7 +1657,7 @@ class UserVariableRelationship extends BaseUserVariableRelationship implements H
 	}
 	public function setCorrelationsOverDelays(array $correlationsOverDelays): void{
 		if(count($correlationsOverDelays) < 2){
-			le("Not going to " . __FUNCTION__ . " because there aren't enough correlations.  We should have thrown " .
+			le("Not going to " . __FUNCTION__ . " because there aren't enough user_variable_relationships.  We should have thrown " .
 				"NotEnoughDataException");
 		}
 		$this->setAttribute(UserVariableRelationship::FIELD_CORRELATIONS_OVER_DELAYS, $correlationsOverDelays);
@@ -1672,7 +1672,7 @@ class UserVariableRelationship extends BaseUserVariableRelationship implements H
 	}
 	public function setCorrelationsOverDurations(array $correlationsOverDurations): void{
 		if(count($correlationsOverDurations) < 2){
-			le("Not going to " . __FUNCTION__ . " because there aren't enough correlations.  We should have thrown " .
+			le("Not going to " . __FUNCTION__ . " because there aren't enough user_variable_relationships.  We should have thrown " .
 				"NotEnoughDataException");
 		}
 		$this->setAttribute(UserVariableRelationship::FIELD_CORRELATIONS_OVER_DURATIONS, $correlationsOverDurations);

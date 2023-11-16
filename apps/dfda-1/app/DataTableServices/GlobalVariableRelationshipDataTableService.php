@@ -35,7 +35,7 @@ class GlobalVariableRelationshipDataTableService extends BaseDataTableService
             ->addInternalErrorMessage()
             ->addMiddleColumns([
                 'forward_pearson_correlation_coefficient' => [
-                    'title'      => 'Correlation',
+                    'title'      => 'UserVariableRelationship',
                     'data'       => 'forward_pearson_correlation_coefficient',
                     'name'       => 'forward_pearson_correlation_coefficient',
                     'searchable' => false

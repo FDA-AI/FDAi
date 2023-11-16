@@ -5,7 +5,7 @@
  */
 
 namespace App\Traits\PropertyTraits;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Models\GlobalVariableRelationship;
 use App\Storage\DB\Writable;
@@ -29,7 +29,7 @@ trait IsAverageOfCorrelations {
                         c.cause_variable_id,
                         c.effect_variable_id,
                         AVG(c.$me) AS avg
-                    FROM correlations c
+                    FROM user_variable_relationships c
                     GROUP BY c.cause_variable_id, c.effect_variable_id
                 ) as sel
                 on sel.cause_variable_id = ac.cause_variable_id and sel.effect_variable_id = ac.effect_variable_id
@@ -50,7 +50,7 @@ trait IsAverageOfCorrelations {
                         c.cause_variable_id,
                         c.effect_variable_id,
                         AVG(c.$me) AS avg
-                    FROM correlations c
+                    FROM user_variable_relationships c
                     GROUP BY c.cause_variable_id, c.effect_variable_id
                 ) as sel
                 on sel.cause_variable_id = ac.cause_variable_id and sel.effect_variable_id = ac.effect_variable_id

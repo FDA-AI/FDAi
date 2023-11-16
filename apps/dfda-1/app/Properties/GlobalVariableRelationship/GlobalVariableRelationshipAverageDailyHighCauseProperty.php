@@ -9,7 +9,7 @@ use App\Exceptions\NoUserVariableRelationshipsToAggregateException;
 use App\Models\GlobalVariableRelationship;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BaseAverageDailyHighCauseProperty;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 class GlobalVariableRelationshipAverageDailyHighCauseProperty extends BaseAverageDailyHighCauseProperty
 {
     use GlobalVariableRelationshipProperty;

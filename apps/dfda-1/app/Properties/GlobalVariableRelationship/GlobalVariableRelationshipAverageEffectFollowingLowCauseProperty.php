@@ -8,7 +8,7 @@ namespace App\Properties\GlobalVariableRelationship;
 use App\Models\GlobalVariableRelationship;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BaseAverageEffectFollowingLowCauseProperty;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 class GlobalVariableRelationshipAverageEffectFollowingLowCauseProperty extends BaseAverageEffectFollowingLowCauseProperty
 {
     use GlobalVariableRelationshipProperty;

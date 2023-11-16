@@ -5,8 +5,8 @@
  */
 
 namespace App\PhpUnitJobs\Cleanup;
-use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Models\GlobalVariableRelationship;
 use App\Models\WpPost;
 use App\Models\WpTerm;

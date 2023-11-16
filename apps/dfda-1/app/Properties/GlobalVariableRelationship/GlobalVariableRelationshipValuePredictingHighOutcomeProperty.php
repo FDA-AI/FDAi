@@ -9,7 +9,7 @@ use App\Models\GlobalVariableRelationship;
 use App\Traits\VariableValueTraits\CauseDailyVariableValueTrait;
 use App\Traits\PropertyTraits\GlobalVariableRelationshipProperty;
 use App\Properties\Base\BaseValuePredictingHighOutcomeProperty;
-use App\Correlations\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
 class GlobalVariableRelationshipValuePredictingHighOutcomeProperty extends BaseValuePredictingHighOutcomeProperty
 {
     use GlobalVariableRelationshipProperty, CauseDailyVariableValueTrait;

@@ -9,7 +9,7 @@ use App\Types\TimeHelper;
 use App\Variables\QMCommonVariable;
 use App\Models\Connection;
 use App\Logging\QMLog;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Variables\QMUserVariable;
 use App\PhpUnitJobs\JobTestCase;
 class GeneralUpdateStatusJob extends JobTestCase {

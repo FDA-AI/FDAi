@@ -27,7 +27,7 @@ use App\Cards\HelpQMCard;
 use App\Cards\VariableStatisticsCard;
 use App\Charts\ChartGroup;
 use App\Charts\UserVariableCharts\UserVariableChartGroup;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\DataSources\QMDataSource;
 use App\Exceptions\BadRequestException;
 use App\Exceptions\IncompatibleUnitException;
@@ -58,9 +58,9 @@ use App\Properties\Base\BaseFillingValueProperty;
 use App\Properties\Base\BaseNumberOfDaysProperty;
 use App\Properties\Base\BaseValenceProperty;
 use App\Properties\BaseProperty;
-use App\Properties\Correlation\CorrelationCauseChangesProperty;
-use App\Properties\Correlation\CorrelationCauseNumberOfProcessedDailyMeasurementsProperty;
-use App\Properties\Correlation\CorrelationCauseNumberOfRawMeasurementsProperty;
+use App\Properties\UserVariableRelationship\CorrelationCauseChangesProperty;
+use App\Properties\UserVariableRelationship\CorrelationCauseNumberOfProcessedDailyMeasurementsProperty;
+use App\Properties\UserVariableRelationship\CorrelationCauseNumberOfRawMeasurementsProperty;
 use App\Properties\Measurement\MeasurementClientIdProperty;
 use App\Properties\Measurement\MeasurementConnectorIdProperty;
 use App\Properties\Measurement\MeasurementOriginalStartAtProperty;
@@ -185,7 +185,7 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property integer $last_original_unit_id ID of last original Unit
  * @property float $last_value Last Value
  * @property integer $last_original_value Last original value which is stored
- * @property integer $number_of_correlations Number of correlations for this variable
+ * @property integer $number_of_correlations Number of user_variable_relationships for this variable
  * @property string $status
  * @property string $error_message
  * @property float $standard_deviation Standard deviation
@@ -388,7 +388,7 @@ use Titasgailius\SearchRelations\SearchesRelations;
  * @property \Illuminate\Support\Carbon|null $latest_non_tagged_measurement_start_at
  * @property \Illuminate\Support\Carbon|null $earliest_non_tagged_measurement_start_at
  * @property-read OAClient|null $oa_client
- * @property-read Collection|UserVariableRelationship[] $correlations
+ * @property-read Collection|UserVariableRelationship[] $user_variable_relationships
  * @property-read int|null $correlations_count
  * @property-read Collection|Measurement[] $measurements
  * @property-read int|null $measurements_count
@@ -433,7 +433,7 @@ use Titasgailius\SearchRelations\SearchesRelations;
  *                     [Formula: update user_variables
  *                         left join (
  *                             select count(id) as total, cause_user_variable_id
- *                             from correlations
+ *                             from user_variable_relationships
  *                             group by cause_user_variable_id
  *                         )
  *                         as grouped on user_variables.id = grouped.cause_user_variable_id
@@ -965,7 +965,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		return $val;
 	}
 	private function queueCorrelation(){
-		Alerter::toast("Correlation queued.  I'll email you when it's complete");
+		Alerter::toast("User Variable Relationship queued.  I'll email you when it's complete");
 	}
 	public static function getSlimClass(): string{ return QMUserVariable::class; }
 	/**
@@ -1689,7 +1689,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		$newCorrelations = $dbm->correlateAsEffect();  // Includes self-correlation
 		$get = $this->getCorrelations(); // Excludes self correlation
 		if(count($newCorrelations) > ($get->count()+1)){ // Excludes self correlation
-			le("too many new correlations");
+			le("too many new user_variable_relationships");
 		}
 		return $newCorrelations;
 	}
@@ -1729,24 +1729,24 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		$currentRawWithTags = $this->getOrCalculateNumberOfRawMeasurementsWithTagsJoinsChildren();
 		$atLastCorrelation = $this->getNumberOfMeasurementsWithTagsAtLastCorrelation();
 		if($currentRawWithTags < $atLastCorrelation){
-			$this->logInfo("Need to calculate correlations correlations because deleted measurements. " .
+			$this->logInfo("Need to calculate user_variable_relationships user_variable_relationships because deleted measurements. " .
 				"We only have $currentRaw RawMeasurements with tags and had $currentRawWithTags rawMeasurements with tags AtLastAnalysis");
 			return true;
 		}
 		if($this->getStatusAttribute() === UserVariableStatusProperty::STATUS_CORRELATE){
-			$this->logInfo("Need to calculate correlations correlations because CORRELATE_STATUS");
+			$this->logInfo("Need to calculate user_variable_relationships user_variable_relationships because CORRELATE_STATUS");
 			return true;
 		}
 		if($currentRawWithTags <
 			CorrelationCauseNumberOfRawMeasurementsProperty::MINIMUM_RAW_MEASUREMENTS_WITH_TAGS_JOINS_CHILDREN){
-			$this->logInfo("Don't need to calculate correlations because we only have $currentRawWithTags RawMeasurementsWithTagsJoinsChildren");
+			$this->logInfo("Don't need to calculate user_variable_relationships because we only have $currentRawWithTags RawMeasurementsWithTagsJoinsChildren");
 			return false;
 		}
 		$numberProcessed = $this->getNumberOfProcessedDailyMeasurements();
 		if($numberProcessed !== null && $numberProcessed <
 			CorrelationCauseNumberOfProcessedDailyMeasurementsProperty::MINIMUM_PROCESSED_DAILY_MEASUREMENTS_WITH_TAGS_JOINS_CHILDREN){
 			$message =
-				"Don't need to calculate correlations because we only have $numberProcessed ProcessedDailyMeasurements";
+				"Don't need to calculate user_variable_relationships because we only have $numberProcessed ProcessedDailyMeasurements";
 			$this->logInfo($message);
 			return false;
 			//throw new NotEnoughMeasurementsException(null,null, $message);
@@ -1754,13 +1754,13 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		$lastCorrelated = $this->getLastCorrelatedAt();
 		$lastCorrelatedString = "last correlated " . TimeHelper::timeSinceHumanString($lastCorrelated);
 		if(strtotime($lastCorrelated) < strtotime(QMUserVariableRelationship::ALGORITHM_MODIFIED_AT)){
-			$this->logInfo("Need to calculate correlations because $lastCorrelatedString and UserVariableRelationship::ALGORITHM_MODIFIED_AT was " .
+			$this->logInfo("Need to calculate user_variable_relationships because $lastCorrelatedString and UserVariableRelationship::ALGORITHM_MODIFIED_AT was " .
 				QMUserVariableRelationship::ALGORITHM_MODIFIED_AT);
 			return true;
 		}
 		$requiredNewRawMeasurements = (1 + $percentChangeRequired / 100) * $atLastCorrelation;
 		if($currentRawWithTags < $requiredNewRawMeasurements){
-			$this->logInfo("Don't need to calculate correlations because we only have $currentRawWithTags RawMeasurements with tags " .
+			$this->logInfo("Don't need to calculate user_variable_relationships because we only have $currentRawWithTags RawMeasurements with tags " .
 				"and had $atLastCorrelation numberOfMeasurementsWithTagsAtLastCorrelation.  Last correlated: " .
 				TimeHelper::timeSinceHumanString($lastCorrelated));
 			return false;
@@ -1769,7 +1769,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 		// for instance,  the measurement count will rarely reach the 10% change threshold to calculate with new
 		// predictors they've recently started tracking
 		if(!$this->outcome){
-			$this->logInfo("Don't need to calculate correlations because ONLY_CORRELATE_OUTCOMES");
+			$this->logInfo("Don't need to calculate user_variable_relationships because ONLY_CORRELATE_OUTCOMES");
 			return false;
 		}
 		return true;
@@ -2007,7 +2007,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 			return;
 		}
 		throw new NotEnoughDataException($this, "Not Enough Data to Publish",
-			"Not posting because no correlations or measurements for $this");
+			"Not posting because no user_variable_relationships or measurements for $this");
 	}
 	public function getNumberOfRawMeasurementsWithTagsJoinsChildren(): ?int{
 		return $this->attributes[UserVariable::FIELD_NUMBER_OF_RAW_MEASUREMENTS_WITH_TAGS_JOINS_CHILDREN] ?? null;
@@ -3111,7 +3111,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 			"Median" => $u->getValueAndUnitString($this->getMedian()),
 			"Minimum Allowed Value" => $u->getValueAndUnitString($this->getMinimumAllowedValueAttribute()),
 			"Number of Changes" => $this->getNumberOfChanges(),
-			"Number of Correlations" => $this->getNumberOfUserVariableRelationships(),
+			"Number of VariableRelationships" => $this->getNumberOfUserVariableRelationships(),
 			"Number of Measurements" => $this->getNumberOfMeasurements(),
 			"Onset Delay" => TimeHelper::convertSecondsToHumanString($this->getOnsetDelay()),
 			"Standard Deviation" => $this->getStandardDeviationAttribute(),
@@ -4401,7 +4401,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	public function downVotedAsEffect(QMUserVariable $effect): bool{
 		foreach($this->getAllVotes() as $vote){
 			if($effect->getVariableIdAttribute() === $vote->getEffectVariableId()){
-				$this->logInfo('Not calculating correlations with variable B ' . $effect->name .
+				$this->logInfo('Not calculating user_variable_relationships with variable B ' . $effect->name .
 					' because user down voted it.');
 				return true;
 			}
@@ -4415,7 +4415,7 @@ class UserVariable extends BaseUserVariable implements HasMedia {
 	public function downVotedAsCause(QMUserVariable $cause): bool{
 		foreach($this->getAllVotes() as $vote){
 			if($cause->getVariableIdAttribute() === $vote->getCauseVariableId()){
-				$this->logInfo('Not calculating correlations with ' . $cause->name .
+				$this->logInfo('Not calculating user_variable_relationships with ' . $cause->name .
 					' as cause because user down voted it');
 				return true;
 			}

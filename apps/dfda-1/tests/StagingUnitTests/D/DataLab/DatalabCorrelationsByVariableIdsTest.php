@@ -11,7 +11,7 @@ use Illuminate\Testing\TestResponse;
 use Tests\LaravelStagingTestCase;
 class DatalabCorrelationsByVariableIdsTest extends LaravelStagingTestCase
 {
-    protected $REQUEST_URI = "/datalab/correlations?cause_variable_id=89305&effect_variable_id=1874";
+    protected $REQUEST_URI = "/datalab/user_variable_relationships?cause_variable_id=89305&effect_variable_id=1874";
     public function testDatalabCorrelationsByVariableIdsAsRegularUser(): void{
         $this->actAsTestUser();
         $response = $this->stagingRequest(200, "");
@@ -69,7 +69,7 @@ class DatalabCorrelationsByVariableIdsTest extends LaravelStagingTestCase
       'HTTP_COOKIE' => '_ga=GA1.1.1415477443.1592425993; driftt_aid=c8735c86-68c0-4de2-94ce-73a43605c5c5; DFTT_END_USER_PREV_BOOTSTRAPPED=true; u=6ec3e62cc0069a10c6759edd5423df738a0fec0b; driftt_aid=df29ce65-369a-440c-9d5e-a1888f0cd13d; XDEBUG_SESSION=PHPSTORM; php-console-server=5; php-console-client=eyJwaHAtY29uc29sZS1jbGllbnQiOjV9; __gads=ID=747672481a4ab161:T=1593795481:S=ALNI_MZhRWXjPuKtS5vGg1WXOPNKdVmSVA; __utmz=109117957.1593836440.1.1.utmcsr=local.quantimo.do|utmccn=(referral)|utmcmd=referral|utmcct=/; __utmc=109117957; __utma=109117957.2014257657.1592502511.1593836440.1593836440.1; _ga=GA1.2.1415477443.1592425993; quantimodo_logged_in_af6160480df78a3a6d520187243f05c9=mike%7C1596214177%7Cde069cf4b3bbf933721060a76259dad7%7Cquantimodo; __cfduid=d78c81ea746227e1437c0203e9b6018d71595018221; _gid=GA1.2.1979930966.1595354005; driftt_eid=87709; XSRF-TOKEN=eyJpdiI6ImNBeitIYnlQXC8ydTFIWEI4M3NqVVJ3PT0iLCJ2YWx1ZSI6Im1GZ1phZURFeWtZRzEyU0RuTk1TWThycFVnUlwvUGZxUGJxOXJRQVZjam81V1gwMVJTYlpuRzduN2pDNjhOTGpiIiwibWFjIjoiN2E0N2ZkYTkxNmIyMDVmYjJjMTQ4Mzg5YTFkNWNmZjRjZTQ5MjQ3ZDk1ODFkNDkwYzExMmJiZjNkZmM1ZDc0ZSJ9; laravel_session=eyJpdiI6ImdcLzNMbUFFV0t1emdFMjJQS0szUVwvUT09IiwidmFsdWUiOiJTSWFGc3h5aGNTVmtHdUJJYUI0R3VSYjVBQzc3QnpROXlyY2xPYkFEVUh4azdcL1kxZzAxcHQ2XC96elN0a0hoNE8iLCJtYWMiOiIwZDI0NzgxZTg1MGZlMDhhMzNkYWY0MTY0MjNlZDJlOGQ0ZTcwNTY2ZmRiM2IzOGQ5OGJkNTE1NTczZmZmODAxIn0%3D',
       'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9',
       'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br',
-      'HTTP_REFERER' => getenv('APP_URL').'/datalab/correlations?cause_variable_id=89305&effect_variable_id=1874',
+      'HTTP_REFERER' => getenv('APP_URL').'/datalab/user_variable_relationships?cause_variable_id=89305&effect_variable_id=1874',
       'HTTP_SEC_FETCH_DEST' => 'document',
       'HTTP_SEC_FETCH_USER' => '?1',
       'HTTP_SEC_FETCH_MODE' => 'navigate',
@@ -145,7 +145,7 @@ class DatalabCorrelationsByVariableIdsTest extends LaravelStagingTestCase
       ),
       'referer' =>
       array (
-        0 => getenv('APP_URL').'/datalab/correlations?cause_variable_id=89305&effect_variable_id=1874',
+        0 => getenv('APP_URL').'/datalab/user_variable_relationships?cause_variable_id=89305&effect_variable_id=1874',
       ),
       'sec-fetch-dest' =>
       array (

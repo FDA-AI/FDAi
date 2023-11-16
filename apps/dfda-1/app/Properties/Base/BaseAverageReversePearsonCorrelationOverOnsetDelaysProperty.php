@@ -29,7 +29,7 @@ class BaseAverageReversePearsonCorrelationOverOnsetDelaysProperty extends BasePr
 	public const NAME = 'average_reverse_pearson_correlation_over_onset_delays';
 	public $phpType = 'float';
 	public $rules = 'nullable|numeric';
-	public $title = 'Average Reverse Pearson Correlation Over Onset Delays';
+	public $title = 'Average Reverse Pearson User Variable Relationship Over Onset Delays';
 	public $type = 'number';
 	public $canBeChangedToNull = true;
 	public $validations = 'nullable|numeric';

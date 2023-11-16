@@ -1,7 +1,7 @@
 create table if not exists third_party_study_results
 (
-    cause_id                                                     int unsigned                        not null comment 'variable ID of the cause variable for which the user desires correlations',
-    effect_id                                                    int unsigned                        not null comment 'variable ID of the effect variable for which the user desires correlations',
+    cause_id                                                     int unsigned                        not null comment 'variable ID of the cause variable for which the user desires user_variable_relationships',
+    effect_id                                                    int unsigned                        not null comment 'variable ID of the effect variable for which the user desires user_variable_relationships',
     qm_score                                                     double                              null comment 'QM Score',
     forward_pearson_correlation_coefficient                      float(10, 4)                        null comment 'Pearson correlation coefficient between cause and effect measurements',
     value_predicting_high_outcome                                double                              null comment 'cause value that predicts an above average effect value (in default unit for cause variable)',
@@ -41,8 +41,8 @@ create table if not exists third_party_study_results
     optimal_pearson_product                                      double                              null comment 'Optimal Pearson Product',
     p_value                                                      double                              null comment 'The measure of statistical significance. A value less than 0.05 means that a correlation is statistically significant or consistent enough that it is unlikely to be a coincidence.',
     pearson_correlation_with_no_onset_delay                      float                               null,
-    predictive_pearson_correlation_coefficient                   double                              null comment 'Predictive Pearson Correlation Coefficient',
-    reverse_pearson_correlation_coefficient                      double                              null comment 'Correlation when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation',
+    predictive_pearson_correlation_coefficient                   double                              null comment 'Predictive Pearson User Variable Relationship Coefficient',
+    reverse_pearson_correlation_coefficient                      double                              null comment 'User Variable Relationship when cause and effect are reversed. For any causal relationship, the forward correlation should exceed the reverse correlation',
     statistical_significance                                     float(10, 4)                        null comment 'A function of the effect size and sample size',
     strongest_pearson_correlation_coefficient                    float                               null,
     t_value                                                      double                              null comment 'Function of correlation and number of samples.',
@@ -72,7 +72,7 @@ create table if not exists third_party_study_results
     constraint third_party_correlations_effect_variables_id_fk
         foreign key (effect_id) references global_variables (id)
 )
-    comment 'Stores Calculated Correlation Coefficients' charset = utf8;
+    comment 'Stores Calculated User Variable Relationship Coefficients' charset = utf8;
 
 create index cause
     on third_party_study_results (cause_id);

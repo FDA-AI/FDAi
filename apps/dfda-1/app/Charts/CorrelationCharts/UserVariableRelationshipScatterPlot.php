@@ -7,8 +7,8 @@
 namespace App\Charts\CorrelationCharts;
 use App\Charts\QMHighcharts\HighchartConfig;
 use App\Charts\QMHighcharts\ScatterHighchartConfig;
-use App\Correlations\QMCorrelation;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Exceptions\HighchartExportException;
 use App\Exceptions\NotEnoughDataException;
 use App\Exceptions\TooSlowToAnalyzeException;
@@ -39,7 +39,7 @@ class UserVariableRelationshipScatterPlot extends CorrelationChart {
 	/**
 	 * @return QMUserVariableRelationship
 	 */
-	public function getCorrelation(): QMCorrelation{
+	public function getCorrelation(): QMVariableRelationship{
 		return $this->getSourceObject();
 	}
 	/**

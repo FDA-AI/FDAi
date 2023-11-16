@@ -466,9 +466,9 @@
     {!! Form::text('timezone', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Number Of Correlations Field -->
+<!-- Number Of VariableRelationships Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('number_of_correlations', 'Number Of Correlations:') !!}
+    {!! Form::label('number_of_correlations', 'Number Of VariableRelationships:') !!}
     {!! Form::number('number_of_correlations', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -496,9 +496,9 @@
     {!! Form::number('number_of_raw_measurements_with_tags', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Number Of Raw Measurements With Tags At Last Correlation Field -->
+<!-- Number Of Raw Measurements With Tags At Last UserVariableRelationship Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('number_of_raw_measurements_with_tags_at_last_correlation', 'Number Of Raw Measurements With Tags At Last Correlation:') !!}
+    {!! Form::label('number_of_raw_measurements_with_tags_at_last_correlation', 'Number Of Raw Measurements With Tags At Last UserVariableRelationship:') !!}
     {!! Form::number('number_of_raw_measurements_with_tags_at_last_correlation', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -514,9 +514,9 @@
     {!! Form::number('number_of_studies', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Last Correlation At Field -->
+<!-- Last UserVariableRelationship At Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('last_correlation_at', 'Last Correlation At:') !!}
+    {!! Form::label('last_correlation_at', 'Last User Variable Relationship At:') !!}
     {!! Form::date('last_correlation_at', null, ['class' => 'form-control','id'=>'last_correlation_at']) !!}
 </div>
 

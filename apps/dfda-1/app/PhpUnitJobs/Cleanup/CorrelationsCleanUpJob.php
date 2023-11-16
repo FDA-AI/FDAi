@@ -3,12 +3,12 @@
 *  Contributors: ADD YOUR NAME HERE, Mike P. Sinn
  */ /** @noinspection PhpUnhandledExceptionInspection */
 namespace App\PhpUnitJobs\Cleanup;
-use App\Correlations\QMGlobalVariableRelationship;
-use App\Correlations\QMUserVariableRelationship;
+use App\VariableRelationships\QMGlobalVariableRelationship;
+use App\VariableRelationships\QMUserVariableRelationship;
 use App\Models\GlobalVariableRelationship;
 use App\Models\UserVariableRelationship;
 use App\PhpUnitJobs\JobTestCase;
-use App\Properties\Correlation\CorrelationInternalErrorMessageProperty;
+use App\Properties\UserVariableRelationship\CorrelationInternalErrorMessageProperty;
 use App\Variables\QMCommonVariable;
 use App\Variables\QMUserVariable;
 use App\Variables\QMVariable;
