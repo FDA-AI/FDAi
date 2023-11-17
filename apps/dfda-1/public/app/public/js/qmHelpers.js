@@ -594,6 +594,7 @@ var qm = {
         },
 	    getQMOrigin: function(){
 		    var origin;
+            //return "https://app.quantimo.do";
 		    if(qm.appMode.isBackEnd()){
 			    origin = process.env.QM_API_ORIGIN || "https://app.quantimo.do";
 		    } else {
@@ -2281,7 +2282,7 @@ var qm = {
 		    return qm.boolHelper.isTruthy(logout) &&
 		           !qm.urlHelper.urlContains("logout=0");  // Handles screwed up redirect urls with logout=0%2Fapp%2Flogin
 	    },
-	    loginIfNecessary: async function(){
+	    loginIfNecessary: function(){
 		    var user = qm.getUser();
 			if(!user){
 				qm.auth.setAfterLoginGoToUrlAndSendToLogin("User is not logged in so we will redirect to login page");

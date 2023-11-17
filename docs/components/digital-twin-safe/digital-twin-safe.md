@@ -34,11 +34,9 @@ Import data from all your apps and wearables, so you can centrally own, control,
 
 ## Demo
 
-![digital-twin-safe-screenshot-home](https://user-images.githubusercontent.com/2808553/200402565-72bc85a3-deb2-4f1a-a9b1-bde108e63d87.png)
+[![digital-twin-safe-screenshot-home](https://user-images.githubusercontent.com/2808553/200402565-72bc85a3-deb2-4f1a-a9b1-bde108e63d87.png)](https://safe.dfda.earth/app/matic:0x2007288C1D35cf8674514ed4860b8Adfa0F0349c/home?access_token=demo)
 
-
-
-Demo available on the Polygon chain at [humanfs.io](https://humanfs.io) and on [GitHub](https://github.com/curedao/digital-twin-safe). 
+Demo available at [safe.dfda.earth](https://safe.dfda.earth/app/matic:0x2007288C1D35cf8674514ed4860b8Adfa0F0349c/home?access_token=demo) and on [GitHub](https://github.com/curedao/digital-twin-safe). 
 
 ## Technology
 

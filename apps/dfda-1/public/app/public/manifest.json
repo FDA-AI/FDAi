@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "CureDAO",
-  "short_name": "curedao",
-  "description": "Crowdsourcing cures.",
+  "name": "Personal FDA",
+  "short_name": "pFDA",
+  "description": "Quantify the effects of foods and drugs on your health and happiness.",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [
