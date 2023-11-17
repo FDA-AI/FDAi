@@ -1,4 +1,4 @@
-# Contributing The Decentralized FDA (dFDA)
+# Contributing The Decentralized FDA
 
 ## For Non-Technical Users:
 
@@ -32,7 +32,7 @@
   - Pull requests with more thumbs-up votes will be considered favorably.
 
 2. **Automated Merging**:
-  - A GitHub Action is set up to automatically merge pull requests that have a positive thumbs-up count after 24 hours.
+  - A [GitHub Action](/.voting.yml) is set up to automatically merge pull requests that have a positive thumbs-up count after 24 hours.
   - Make sure to address any feedback or changes requested by the community.
 
 ## Final Steps

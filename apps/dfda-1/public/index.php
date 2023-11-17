@@ -64,8 +64,11 @@ function serve_public_html(): bool{
 		'.html',
 		'.json',
 	];
-	foreach($staticFiles as $ext){
-		if(str_ends_with($publicPath, $ext)){
+	// Extract the path from the URL, excluding the query string
+	$urlComponents = parse_url($publicPath);
+	$path = $urlComponents['path'] ?? '';
+	foreach($staticFiles as $ext) {
+		if(str_ends_with($path, $ext)){
 			$hasFileExtension = true;
 			if(file_exists($publicPath)){
 				serve_static_file($publicPath);
