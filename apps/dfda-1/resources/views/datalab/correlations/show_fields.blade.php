@@ -9,7 +9,7 @@
 
 <!-- Forward Pearson UserVariableRelationship Coefficient Field -->
 <div class="form-group">
-    {!! Form::label('forward_pearson_correlation_coefficient', 'Forward Pearson User Variable Relationship Coefficient:') !!}
+    {!! Form::label('forward_pearson_correlation_coefficient', 'Forward Pearson Correlation Coefficient:') !!}
     <p>{{ $correlation->forward_pearson_correlation_coefficient }}</p>
 </div>
 
@@ -165,7 +165,7 @@
 
 <!-- Forward Spearman UserVariableRelationship Coefficient Field -->
 <div class="form-group">
-    {!! Form::label('forward_spearman_correlation_coefficient', 'Forward Spearman User Variable Relationship Coefficient:') !!}
+    {!! Form::label('forward_spearman_correlation_coefficient', 'Forward Spearman Correlation Coefficient:') !!}
     <p>{{ $correlation->forward_spearman_correlation_coefficient }}</p>
 </div>
 

@@ -1,6 +1,6 @@
 <!-- Forward Pearson UserVariableRelationship Coefficient Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('forward_pearson_correlation_coefficient', 'Forward Pearson User Variable Relationship Coefficient:') !!}
+    {!! Form::label('forward_pearson_correlation_coefficient', 'Forward Pearson Correlation Coefficient:') !!}
     {!! Form::number('forward_pearson_correlation_coefficient', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -96,7 +96,7 @@
 
 <!-- Reverse Pearson UserVariableRelationship Coefficient Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('reverse_pearson_correlation_coefficient', 'Reverse Pearson User Variable Relationship Coefficient:') !!}
+    {!! Form::label('reverse_pearson_correlation_coefficient', 'Reverse Pearson Correlation Coefficient:') !!}
     {!! Form::number('reverse_pearson_correlation_coefficient', null, ['class' => 'form-control']) !!}
 </div>
 
