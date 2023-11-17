@@ -211,13 +211,13 @@
 
 <!-- Predictive Pearson UserVariableRelationship Coefficient Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('predictive_pearson_correlation_coefficient', 'Predictive Pearson User Variable Relationship Coefficient:') !!}
+    {!! Form::label('predictive_pearson_correlation_coefficient', 'Predictive Pearson Correlation Coefficient:') !!}
     {!! Form::number('predictive_pearson_correlation_coefficient', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Reverse Pearson UserVariableRelationship Coefficient Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('reverse_pearson_correlation_coefficient', 'Reverse Pearson User Variable Relationship Coefficient:') !!}
+    {!! Form::label('reverse_pearson_correlation_coefficient', 'Reverse Pearson Correlation Coefficient:') !!}
     {!! Form::number('reverse_pearson_correlation_coefficient', null, ['class' => 'form-control']) !!}
 </div>
 

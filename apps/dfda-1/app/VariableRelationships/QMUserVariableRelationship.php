@@ -2777,7 +2777,7 @@ class QMUserVariableRelationship extends QMVariableRelationship {
             "Last analyzed: ".$this->getTimeSinceLastAnalyzedHumanString()."\n"
         );
         if($coefficient === null){
-            $this->logError("User Variable Relationship coefficient should not be null!");
+            $this->logError("Correlation Coefficient should not be null!");
             le("User Variable Relationship coefficient should not be null!");
         }
 //		$required = static::getRequiredAnalysisFields();
