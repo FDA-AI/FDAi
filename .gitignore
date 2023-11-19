@@ -51,3 +51,4 @@ Thumbs.db
 /litellm_uuid.txt
 .aider*
 /bfg-1.14.0.jar
+/libs/db-schema/v1-alpha/mysql/litellm_uuid.txt
