@@ -1641,6 +1641,7 @@ var qmStates = [
 ]
 if (typeof window !== "undefined") {
     window.qmStates = qmStates;
+    window.qm = window.qm || {};
     window.qm.qmStaticData = window.qm.qmStaticData || {};
     window.qm.qmStaticData.states = qmStates;
 } else {

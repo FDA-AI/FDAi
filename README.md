@@ -11,9 +11,9 @@ This [monorepo](docs/contributing/repo-structure.md) contains libraries and tool
 
 # 😕 Why are we doing this?
 
-Billions of people are suffering and dying from chronic diseases.
+The current system of clinical research, diagnosis, and treatment is  failing the billions of people are suffering from chronic diseases.
 
-👉 [Learn why the current system is failing...](docs/stuff-that-sucks.md)
+[👉 Problems we're trying to fix...](docs/stuff-that-sucks.md)
 
 # 🧪 Our Hypothesis
 
@@ -43,9 +43,15 @@ Our crazy theory is that we can accomplish the same great feat in the realm of c
 
 </details>
 
-# 🖥️ dFDA Framework
+# 🖥️ dFDA Framework Components
 
-This is a very high-level overview of the architecture.  It's a work in progress.  Please contribute!
+This is a very high-level overview of the architecture. 
+
+The dFDA is intended to be:
+- a set of modular libraries and tools that can be reused in any project
+- an abstract framework of core primitive components rather than a specific implementation
+- a directory of existing open-source projects that can be used to fulfill the requirements of each primitive or component
+- a collaborative effort, so please feel free to [contribute](docs/contributing.md)!
 
 ![dfda-stack-diagram-white-background.svg](docs/images/dfda-stack-diagram-white-background.svg)
 
@@ -142,11 +148,11 @@ dFDa-1 is an initial prototype of the decentralized FDA located in [apps/dfda-1]
 
 <p align="center">
 
-<img src="apps/dfda-1/public/app/public/img/screenshots/all-ionic-quantimodo-screenshots.png" width="800" alt="dFDA screenshots">
+<img src="apps/dfda-1/public/app/public/img/screenshots/record-inbox-import-connectors-analyze-study.png" width="800" alt="dFDA screenshots">
 &nbsp
 </p>
 <p align="center">
-  <img src="apps/dfda-1/public/app/public/img/screenshots/ionic-inbox-screenshot-bg.png" width="300" alt="Reminder Inbox">
+  <img src="apps/dfda-1/public/app/public/img/screenshots/reminder-inbox-screenshot-no-text.png" width="300" alt="Reminder Inbox">
 </p>
 
 Collects and aggregate data on symptoms, diet, sleep, exercise, weather, medication, and anything else from dozens
@@ -159,11 +165,11 @@ Web and mobile push notifications with action buttons.
 
 ![web notification action buttons](docs/components/data-collection/web-notification-action-buttons.png)
 
-## Chrome Extension
+## Browser Extensions
 
-By using the Chrome Extension, you can track your mood, symptoms, or any outcome you want to optimize in a fraction of a second using a unique popup interface.
+By using the Browser Extension, you can track your mood, symptoms, or any outcome you want to optimize in a fraction of a second using a unique popup interface.
 
-![Chrome Extension](docs/components/browser-extension/chrome-extension.png)
+![Chrome Extension](docs/components/browser-extension/browser-extension.png)
 
 ## Data Analysis
 
@@ -181,19 +187,21 @@ It then pairs every combination of variables and identifies likely causal relati
 
 ### Real-time Decision Support Notifications
 
-![](docs/components/real-time-decision-support/notifications-screenshot.png)
+![](docs/components/decision-support-notifications/notifications-screenshot-slide.png)
 
 [More info about real time decision support](docs/components/outcome-labels/outcome-labels.md)
 
 ### 📈 Predictor Search Engine
 
-![Predictor Search](docs/components/predictor-search-engine/predictor-search-simple-list-zoom.png)
+[![Predictor Search Engine](docs/components/predictor-search-engine/predictor-search-simple-list-zoom.png)](docs/components/predictor-search-engine/predictor-search-engine.md)
+
+[👉 More info about the predictor search engine...](docs/components/predictor-search-engine/predictor-search-engine.md)
 
 ### Auto-Generated Observational Studies
 
 ![](docs/components/observational-studies/observational-studies.png)
 
-[More info about observational studies](docs/components/observational-studies/observational-studies.md)
+[👉 More info about observational studies...](docs/components/observational-studies/observational-studies.md)
 
 ## Prototype Demos
 
@@ -230,3 +238,6 @@ It's our goal to avoid any duplication of effort. So please include existing pro
 
 **[👉 Click Here to Contribute](docs/contributing.md)**
 
+# 🛟 Support
+
+If you have any questions or need help, please [create an issue](https://github.com/decentralized-fda/decentralized-fda/issues/new) instead of emailing us so that others can benefit from the discussion.

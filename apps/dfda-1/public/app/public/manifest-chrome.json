@@ -50,7 +50,7 @@
   },
   "background": {
     "scripts": [
-      "qmChromeBackground.js"
+      "js/qmChrome.js"
     ],
     "persistent": true
   }

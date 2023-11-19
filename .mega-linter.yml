@@ -23,8 +23,8 @@ FILTER_REGEX_EXCLUDE: tsconfig.json
 EXCLUDED_DIRECTORIES:
   [
     .obsidian,
-    plugins/optomitron-real-time-decision-support-plugin/analysis-data,
-    plugins/optomitron-real-time-decision-support-plugin/analysis-data/*,
+    plugins/optomitron-decision-support-notifications-plugin/analysis-data,
+    plugins/optomitron-decision-support-notifications-plugin/analysis-data/*,
     .git,
     .github,
     .vscode,

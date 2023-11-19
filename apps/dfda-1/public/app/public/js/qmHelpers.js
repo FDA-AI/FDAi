@@ -594,6 +594,9 @@ var qm = {
         },
 	    getQMOrigin: function(){
 		    var origin;
+            if(qm.platform.isChromeExtension()){
+                return "https://app.quantimo.do";
+            }
             //return "https://app.quantimo.do";
 		    if(qm.appMode.isBackEnd()){
 			    origin = process.env.QM_API_ORIGIN || "https://app.quantimo.do";
@@ -11189,6 +11192,7 @@ var qm = {
             return fullUrl;
         },
         validateUrl: function(url){
+            return; // Not sure what this was for but it breaks chrome_index.html
             if(url.indexOf('index.html') !== -1 &&
                 url.indexOf('2Findex.html') === -1 &&
                 url.indexOf('/index.html') === -1){

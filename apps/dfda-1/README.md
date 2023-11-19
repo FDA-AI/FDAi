@@ -15,12 +15,13 @@ The main purpose is to make it easier, cheaper, and faster to
 
 
 ## Features
-* [Outcome Labels](https://www.curedao.org/blog/outcome-labels-plugind)
-* [Predictor Search Engines](https://www.curedao.org/blog/predictor-search-engine-plugin)
-* [Root Cause Analysis Reports](https://www.curedao.org/blog/root-cause-analysis-plugins)
-* [Observational Mega-Studies](https://www.curedao.org/blog/observational-studies-plugin)
-* [Real-Time Decision Support Notifications](https://www.curedao.org/blog/optomitron)
-* [No Code Health App Builder](https://www.curedao.org/blog/no-code-health-app-builder)
+[outcome-labels.md](../../docs/components/outcome-labels/outcome-labels.md)
+* [Outcome Labels](../../docs/components/outcome-labels/outcome-labels.md)
+* [Predictor Search Engine](../../docs/components/predictor-search-engine/predictor-search-engine.md)
+* [Root Cause Analysis Reports](../../docs/components/root-cause-analysis-reports/root-cause-analysis-reports.md)
+* [Observational Mega-Studies](../../docs/components/observational-studies/observational-studies.md)
+* [Real-Time Decision Support Notifications](../../docs/components/decision-support-notifications/decision-support-notifications.md)
+* [No Code Health App Builder](../../docs/components/no-code-app-builder/no-code-app-builder.md)
 * [AI Robot Doctor](https://www.curedao.org/blog/optomitron)
 * [Chrome Extension](https://www.curedao.org/blog/chrome-extension)  
 
