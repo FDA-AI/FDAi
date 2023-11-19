@@ -15,8 +15,8 @@ class CreateOaAuthorizationCodesTable extends Migration
     {
          Schema::create('oa_authorization_codes', function (Blueprint $table) {
             $table->string('authorization_code', 40)->primary();
-            $table->string('client_id', 80)->index('bshaffer_oauth_authorization_codes_client_id_fk');
-            $table->bigInteger('user_id')->index('bshaffer_oauth_authorization_codes_user_id_fk');
+            $table->string('client_id', 80)->index('oa_authorization_codes_client_id_fk');
+            $table->bigInteger('user_id')->index('oa_authorization_codes_user_id_fk');
             $table->string('redirect_uri', 2000)->nullable();
             $table->timestamp('expires')->nullable();
             $table->string('scope', 2000)->nullable();

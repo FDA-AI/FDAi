@@ -3,10 +3,10 @@ create table oa_authorization_codes
     authorization_code varchar(40)                            not null
         primary key,
     client_id          varchar(80)                            not null
-        constraint bshaffer_oauth_authorization_codes_client_id_fk
+        constraint oa_authorization_codes_client_id_fk
             references oa_clients,
     user_id            bigint                                 not null
-        constraint bshaffer_oauth_authorization_codes_user_id_fk
+        constraint oa_authorization_codes_user_id_fk
             references wp_users,
     redirect_uri       varchar(2000),
     expires            timestamp(0),
@@ -19,9 +19,9 @@ create table oa_authorization_codes
 alter table oa_authorization_codes
     owner to postgres;
 
-create index bshaffer_oauth_authorization_codes_client_id_fk
+create index oa_authorization_codes_client_id_fk
     on oa_authorization_codes (client_id);
 
-create index bshaffer_oauth_authorization_codes_user_id_fk
+create index oa_authorization_codes_user_id_fk
     on oa_authorization_codes (user_id);
 

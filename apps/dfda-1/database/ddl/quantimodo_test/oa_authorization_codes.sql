@@ -10,9 +10,9 @@ create table quantimodo_test.oa_authorization_codes
     updated_at         timestamp default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP,
     created_at         timestamp default CURRENT_TIMESTAMP not null,
     deleted_at         timestamp                           null,
-    constraint bshaffer_oauth_authorization_codes_client_id_fk
+    constraint oa_authorization_codes_client_id_fk
         foreign key (client_id) references quantimodo_test.oa_clients (client_id),
-    constraint bshaffer_oauth_authorization_codes_user_id_fk
+    constraint oa_authorization_codes_user_id_fk
         foreign key (user_id) references quantimodo_test.wp_users (ID)
 )
     charset = utf8mb3;

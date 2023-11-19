@@ -74,7 +74,6 @@ create table if not exists users
     last_email_at                                            timestamp                            null,
     last_push_at                                             timestamp                            null,
     primary_outcome_variable_id                              int unsigned                         null,
-    wp_post_id                                               bigint unsigned                      null,
     analysis_ended_at                                        timestamp                            null,
     analysis_requested_at                                    timestamp                            null,
     analysis_started_at                                      timestamp                            null,
@@ -85,7 +84,7 @@ create table if not exists users
     status                                                   varchar(25)                          null,
     analysis_settings_modified_at                            timestamp                            null,
     number_of_applications                                   int unsigned                         null comment 'Number of Applications for this User.
-                [Formula: 
+                [Formula:
                     update wp_users
                         left join (
                             select count(id) as total, user_id
@@ -97,11 +96,11 @@ create table if not exists users
                 ]
                 ',
     number_of_oauth_access_tokens                            int unsigned                         null comment 'Number of OAuth Access Tokens for this User.
-                [Formula: 
+                [Formula:
                     update wp_users
                         left join (
                             select count(access_token) as total, user_id
-                            from bshaffer_oauth_access_tokens
+                            from oa_access_tokens
                             group by user_id
                         )
                         as grouped on wp_users.ID = grouped.user_id
@@ -109,11 +108,11 @@ create table if not exists users
                 ]
                 ',
     number_of_oauth_authorization_codes                      int unsigned                         null comment 'Number of OAuth Authorization Codes for this User.
-                [Formula: 
+                [Formula:
                     update wp_users
                         left join (
                             select count(authorization_code) as total, user_id
-                            from bshaffer_oauth_authorization_codes
+                            from oa_authorization_codes
                             group by user_id
                         )
                         as grouped on wp_users.ID = grouped.user_id
@@ -121,11 +120,11 @@ create table if not exists users
                 ]
                 ',
     number_of_oauth_clients                                  int unsigned                         null comment 'Number of OAuth Clients for this User.
-                [Formula: 
+                [Formula:
                     update wp_users
                         left join (
                             select count(client_id) as total, user_id
-                            from bshaffer_oauth_clients
+                            from oa_clients
                             group by user_id
                         )
                         as grouped on wp_users.ID = grouped.user_id
@@ -133,11 +132,11 @@ create table if not exists users
                 ]
                 ',
     number_of_oauth_refresh_tokens                           int unsigned                         null comment 'Number of OAuth Refresh Tokens for this User.
-                [Formula: 
+                [Formula:
                     update wp_users
                         left join (
                             select count(refresh_token) as total, user_id
-                            from bshaffer_oauth_refresh_tokens
+                            from oa_refresh_tokens
                             group by user_id
                         )
                         as grouped on wp_users.ID = grouped.user_id
@@ -145,7 +144,7 @@ create table if not exists users
                 ]
                 ',
     number_of_button_clicks                                  int unsigned                         null comment 'Number of Button Clicks for this User.
-                [Formula: 
+                [Formula:
                     update wp_users
                         left join (
                             select count(id) as total, user_id
@@ -157,7 +156,7 @@ create table if not exists users
                 ]
                 ',
     number_of_collaborators                                  int unsigned                         null comment 'Number of Collaborators for this User.
-                [Formula: 
+                [Formula:
                     update wp_users
                         left join (
                             select count(id) as total, user_id
@@ -169,7 +168,7 @@ create table if not exists users
                 ]
                 ',
     number_of_connector_imports                              int unsigned                         null comment 'Number of Connector Imports for this User.
-                [Formula: 
+                [Formula:
                     update wp_users
                         left join (
                             select count(id) as total, user_id
@@ -181,7 +180,7 @@ create table if not exists users
                 ]
                 ',
     number_of_connector_requests                             int unsigned                         null comment 'Number of Connector Requests for this User.
-                [Formula: 
+                [Formula:
                     update wp_users
                         left join (
                             select count(id) as total, user_id
@@ -286,12 +285,10 @@ create table if not exists users
     comment 'General user information and overall statistics' charset = utf8;
 
 alter table oa_clients
-    add constraint bshaffer_oauth_clients_user_id_fk
+    add constraint oa_clients_user_id_fk
         foreign key (user_id) references users (id);
 
 create index user_nicename
     on users (user_nicename);
 
-create index wp_users_wp_posts_ID_fk
-    on users (wp_post_id);
 

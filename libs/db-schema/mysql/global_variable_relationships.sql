@@ -40,7 +40,6 @@ create table if not exists global_variable_relationships
     grouped_cause_value_closest_to_value_predicting_high_outcome double                                                          not null comment 'A realistic daily value (not a fraction from averaging) that typically precedes below average outcome values. ',
     client_id                                                    varchar(255)                                                    null,
     published_at                                                 timestamp                                                       null,
-    wp_post_id                                                   bigint unsigned                                                 null,
     cause_variable_category_id                                   tinyint unsigned                                                not null,
     effect_variable_category_id                                  tinyint unsigned                                                not null,
     interesting_variable_category_pair                           tinyint(1)                                                      not null comment 'True if the combination of cause and effect variable categories are generally interesting.  For instance, treatment cause variables paired with symptom effect variables are interesting. ',
@@ -100,9 +99,7 @@ create table if not exists global_variable_relationships
     constraint global_variable_relationships_client_id_fk
         foreign key (client_id) references oa_clients (client_id),
     constraint global_variable_relationships_effect_variable_category_id_fk
-        foreign key (effect_variable_category_id) references variable_categories (id),
-    constraint global_variable_relationships_wp_posts_ID_fk
-        foreign key (wp_post_id) references wp_posts (ID)
+        foreign key (effect_variable_category_id) references variable_categories (id)
             on update cascade on delete set null
 )
     comment 'Stores Calculated Aggregated User Variable Relationship Coefficients' charset = utf8;

@@ -3,12 +3,12 @@ create table oa_refresh_tokens
     refresh_token varchar(40)                            not null
         primary key,
     client_id     varchar(80)                            not null
-        constraint bshaffer_oauth_refresh_tokens_client_id_fk
+        constraint oa_refresh_tokens_client_id_fk
             references oa_clients
         constraint refresh_tokens_client_id_fk
             references oa_clients,
     user_id       bigint                                 not null
-        constraint bshaffer_oauth_refresh_tokens_user_id_fk
+        constraint oa_refresh_tokens_user_id_fk
             references wp_users,
     expires       timestamp(0),
     scope         varchar(2000),
@@ -23,6 +23,6 @@ alter table oa_refresh_tokens
 create index refresh_tokens_client_id_fk
     on oa_refresh_tokens (client_id);
 
-create index bshaffer_oauth_refresh_tokens_user_id_fk
+create index oa_refresh_tokens_user_id_fk
     on oa_refresh_tokens (user_id);
 

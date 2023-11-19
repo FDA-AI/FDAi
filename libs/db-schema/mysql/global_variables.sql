@@ -80,7 +80,6 @@ create table if not exists global_variables
     earliest_tagged_measurement_start_at                timestamp                                       null comment '[]',
     latest_non_tagged_measurement_start_at              timestamp                                       null comment '[]',
     earliest_non_tagged_measurement_start_at            timestamp                                       null comment '[]',
-    wp_post_id                                          bigint unsigned                                 null comment '[]',
     number_of_soft_deleted_measurements                 int                                             null comment 'Formula: update variables v
                 inner join (
                     select measurements.variable_id, count(measurements.id) as number_of_soft_deleted_measurements
@@ -338,9 +337,7 @@ create table if not exists global_variables
     constraint variables_default_unit_id_fk
         foreign key (default_unit_id) references units (id),
     constraint variables_variable_category_id_fk
-        foreign key (variable_category_id) references variable_categories (id),
-    constraint variables_wp_posts_ID_fk
-        foreign key (wp_post_id) references wp_posts (ID)
+        foreign key (variable_category_id) references variable_categories (id)
             on update cascade on delete set null
 )
     comment 'Variable overviews with statistics, analysis settings, and data visualizations and likely outcomes or predictors based on the anonymously aggregated donated data.'

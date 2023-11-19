@@ -14,7 +14,7 @@ class AddForeignKeysToOaClientsTable extends Migration
     public function up()
     {
         Schema::table('oa_clients', function (Blueprint $table) {
-            $table->foreign(['user_id'], 'bshaffer_oauth_clients_user_id_fk')->references(['ID'])->deferrable()->on('wp_users');
+            $table->foreign(['user_id'], 'oa_clients_user_id_fk')->references(['ID'])->deferrable()->on('wp_users');
         });
     }
 
@@ -26,7 +26,7 @@ class AddForeignKeysToOaClientsTable extends Migration
     public function down()
     {
         Schema::table('oa_clients', function (Blueprint $table) {
-            $table->dropForeign('bshaffer_oauth_clients_user_id_fk');
+            $table->dropForeign('oa_clients_user_id_fk');
         });
     }
 }

@@ -17,7 +17,6 @@ create table if not exists global_studies
     updated_at                    timestamp   default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP,
     client_id                     varchar(255)                          null,
     published_at                  timestamp                             null,
-    wp_post_id                    int                                   null,
     newest_data_at                timestamp                             null,
     analysis_requested_at         timestamp                             null,
     reason_for_analysis           varchar(255)                          null,
