@@ -44,7 +44,7 @@ create table if not exists applications
     build_enabled                     tinyint(1) default 0                 not null,
     wp_post_id                        bigint unsigned                      null,
     number_of_collaborators_where_app int unsigned                         null comment 'Number of Collaborators for this App.
-                [Formula: 
+                [Formula:
                     update applications
                         left join (
                             select count(id) as total, app_id
@@ -73,6 +73,6 @@ create table if not exists applications
     constraint applications_wp_posts_ID_fk
         foreign key (wp_post_id) references wp_posts (ID)
 )
-    comment 'Settings for applications created by the no-code QuantiModo app builder at https://builder.quantimo.do.  '
+    comment 'Settings for applications created by the no-code app builder at https://builder.quantimo.do.  '
     charset = utf8;
 
