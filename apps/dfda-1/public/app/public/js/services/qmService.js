@@ -6078,7 +6078,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
             } else {
                 psychedelicLoader.start();
             }
-            debugger
+            //debugger
 	        // var templateUrl = "templates/loaders/triangles-loader.html"
 	        // I think the high GPU usage crashes the browser
 	        // $ionicLoading.show({templateUrl: templateUrl, duration: duration * 1000});

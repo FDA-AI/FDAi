@@ -19,3 +19,5 @@ Currently, we've implemented causal inference analysis of sparse time series dat
 We're working on implementing a more robust pharmacokinetic predictive model control recurrent neural network.
 
 Ideally, Optimitron AI agent will be able to further improve the precision and accuracy of the real-time recommendations over time by leveraging reinforcement learning and community contributions.
+
+[👉 Learn more about the data analysis here...](../data-analysis/data-analysis.md)

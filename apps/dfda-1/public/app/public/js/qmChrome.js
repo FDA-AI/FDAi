@@ -261,16 +261,28 @@ window.qm.chrome = {
     }
 };
 if(typeof screen !== "undefined"){
+    var qmChrome = window.qm.chrome;
+    debugger
+    // TODO: Remove this redundant definition when you figure out why it's not available
+    qm.chrome.multiplyScreenHeight = function (factor){
+        if(typeof screen === "undefined"){return false;}
+        return parseInt(factor * screen.height);
+    }
+    qm.chrome.multiplyScreenWidth = function (factor){
+        if(typeof screen === "undefined"){return false;}
+        return parseInt(factor * screen.width);
+    }
     qm.chrome.windowParams = {
-        introWindowParams: { url: "index.html#/app/intro", type: 'panel', top: multiplyScreenHeight(0.2), left: multiplyScreenWidth(0.4), width: 450, height: 750, focused: true},
+        introWindowParams: { url: "index.html#/app/intro", type: 'panel', top: qm.chrome.multiplyScreenHeight(0.2), left: qm.chrome.multiplyScreenWidth(0.4), width: 450, height: 750, focused: true},
         facesWindowParams: { url: "android_popup.html", type: 'panel', top: screen.height - 150, left: screen.width - 380, width: 390, height: 110, focused: true},
-        loginWindowParams: { url: "index.html#/app/login", type: 'panel', top: multiplyScreenHeight(0.2), left: multiplyScreenWidth(0.4), width: 450, height: 750, focused: true},
+        loginWindowParams: { url: "index.html#/app/login", type: 'panel', top: qm.chrome.multiplyScreenHeight(0.2), left: qm.chrome.multiplyScreenWidth(0.4), width: 450, height: 750, focused: true},
         fullInboxWindowParams: { url: "index.html#/app/reminders-inbox", type: 'panel', top: screen.height - 800, left: screen.width - 455, width: 450, height: 750},
         compactInboxWindowParams: { url: "index.html#/app/reminders-inbox-compact", type: 'panel', top: screen.height - 360 - 30, left: screen.width - 350, width: 350, height: 360},
         inboxNotificationParams: { type: "basic", title: "How are you?", message: "Click to open reminder inbox", iconUrl: "img/icons/icon_700.png", priority: 2},
         signInNotificationParams: { type: "basic", title: "How are you?", message: "Click to sign in and record a measurement", iconUrl: "img/icons/icon_700.png", priority: 2},
     };
 }
+qm.chrome.initialize();
 if(qm.platform.isChromeExtension()){
     qm.chrome.initialize();
 }
