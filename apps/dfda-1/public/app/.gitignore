@@ -123,3 +123,4 @@ cypress/**/*.map
 !/tmp/.gitignore
 .vercel
 /src/data/buildInfo.js
+/public/local-libs
