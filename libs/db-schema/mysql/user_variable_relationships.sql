@@ -53,7 +53,6 @@ create table if not exists user_variable_relationships
     grouped_cause_value_closest_to_value_predicting_high_outcome double                                                          not null comment 'A realistic daily value (not a fraction from averaging) that typically precedes below average outcome values. ',
     client_id                                                    varchar(255)                                                    null,
     published_at                                                 timestamp                                                       null,
-    wp_post_id                                                   bigint unsigned                                                 null,
     status                                                       varchar(25)                                                     null,
     cause_variable_category_id                                   tinyint unsigned                                                not null,
     effect_variable_category_id                                  tinyint unsigned                                                not null,
@@ -132,9 +131,7 @@ create table if not exists user_variable_relationships
             on update cascade on delete cascade,
     constraint correlations_user_variables_effect_user_variable_id_fk
         foreign key (effect_user_variable_id) references user_variables (id)
-            on update cascade on delete cascade,
-    constraint correlations_wp_posts_ID_fk
-        foreign key (wp_post_id) references wp_posts (ID)
+            on update cascade on delete cascade
             on update cascade on delete set null
 )
     comment 'Examination of the relationship between predictor and outcome variables.  This includes the potential optimal values for a given variable. '

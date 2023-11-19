@@ -8,5 +8,5 @@ namespace App\Properties\Base;
 class BaseBshafferOauthClientsIdProperty extends BaseClientIdProperty
 {
 	public $name = self::NAME;
-	public const NAME = 'bshaffer_oauth_clients_id';
+	public const NAME = 'oa_clients_id';
 }

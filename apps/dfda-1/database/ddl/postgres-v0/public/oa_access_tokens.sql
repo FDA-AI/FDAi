@@ -5,10 +5,10 @@ create table oa_access_tokens
     client_id    varchar(80)                            not null
         constraint access_tokens_client_id_fk
             references oa_clients
-        constraint bshaffer_oauth_access_tokens_client_id_fk
+        constraint oa_access_tokens_client_id_fk
             references oa_clients,
     user_id      bigint                                 not null
-        constraint bshaffer_oauth_access_tokens_user_id_fk
+        constraint oa_access_tokens_user_id_fk
             references wp_users,
     expires      timestamp(0),
     scope        varchar(2000),
@@ -23,6 +23,6 @@ alter table oa_access_tokens
 create index access_tokens_client_id_fk
     on oa_access_tokens (client_id);
 
-create index bshaffer_oauth_access_tokens_user_id_fk
+create index oa_access_tokens_user_id_fk
     on oa_access_tokens (user_id);
 

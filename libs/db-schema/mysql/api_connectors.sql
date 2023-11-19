@@ -15,9 +15,8 @@ create table if not exists api_connectors
     updated_at                   timestamp  default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP,
     client_id                    varchar(80)                          null,
     deleted_at                   timestamp                            null,
-    wp_post_id                   bigint unsigned                      null,
     number_of_connections        int unsigned                         null comment 'Number of Connections for this Connector.
-                [Formula: 
+                [Formula:
                     update connectors
                         left join (
                             select count(id) as total, connector_id
@@ -29,7 +28,7 @@ create table if not exists api_connectors
                 ]
                 ',
     number_of_connector_imports  int unsigned                         null comment 'Number of Connector Imports for this Connector.
-                [Formula: 
+                [Formula:
                     update connectors
                         left join (
                             select count(id) as total, connector_id
@@ -41,7 +40,7 @@ create table if not exists api_connectors
                 ]
                 ',
     number_of_connector_requests int unsigned                         null comment 'Number of Connector Requests for this Connector.
-                [Formula: 
+                [Formula:
                     update connectors
                         left join (
                             select count(id) as total, connector_id
@@ -67,9 +66,7 @@ create table if not exists api_connectors
     constraint connectors_slug_uindex
         unique (slug),
     constraint connectors_client_id_fk
-        foreign key (client_id) references oa_clients (client_id),
-    constraint connectors_wp_posts_ID_fk
-        foreign key (wp_post_id) references wp_posts (ID)
+        foreign key (client_id) references oa_clients (client_id)
 )
     comment 'A connector pulls data from other data providers using their API or a screenscraper. Returns a list of all available connectors and information about them such as their id, name, whether the user has provided access, logo url, connection instructions, and the update history.'
     charset = utf8;

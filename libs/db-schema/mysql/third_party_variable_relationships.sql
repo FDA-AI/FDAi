@@ -52,7 +52,6 @@ create table if not exists third_party_variable_relationships
     grouped_cause_value_closest_to_value_predicting_high_outcome double                              null,
     client_id                                                    varchar(255)                        null,
     published_at                                                 timestamp                           null,
-    wp_post_id                                                   int                                 null,
     status                                                       varchar(25)                         null,
     cause_variable_category_id                                   tinyint unsigned                    null,
     effect_variable_category_id                                  tinyint unsigned                    null,

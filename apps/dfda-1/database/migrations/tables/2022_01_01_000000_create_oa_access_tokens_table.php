@@ -16,7 +16,7 @@ class CreateOaAccessTokensTable extends Migration
          Schema::create('oa_access_tokens', function (Blueprint $table) {
             $table->string('access_token', 40)->primary();
             $table->string('client_id', 80)->index('access_tokens_client_id_fk');
-            $table->bigInteger('user_id')->index('bshaffer_oauth_access_tokens_user_id_fk');
+            $table->bigInteger('user_id')->index('oa_access_tokens_user_id_fk');
             $table->timestamp('expires')->nullable();
             $table->string('scope', 2000)->nullable();
             $table->timestamp('updated_at')->useCurrent();

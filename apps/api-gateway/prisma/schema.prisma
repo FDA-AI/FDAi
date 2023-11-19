@@ -2529,10 +2529,10 @@ model oa_access_tokens {
   created_at   DateTime   @default(now()) @db.Timestamp(0)
   deleted_at   DateTime?  @db.Timestamp(0)
   oa_clients   oa_clients @relation(fields: [client_id], references: [client_id], onUpdate: Restrict, map: "access_tokens_client_id_fk")
-  wp_users     wp_users   @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "bshaffer_oauth_access_tokens_user_id_fk")
+  wp_users     wp_users   @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "oa_access_tokens_user_id_fk")
 
   @@index([client_id], map: "access_tokens_client_id_fk")
-  @@index([user_id], map: "bshaffer_oauth_access_tokens_user_id_fk")
+  @@index([user_id], map: "oa_access_tokens_user_id_fk")
 }
 
 model oa_authorization_codes {
@@ -2545,11 +2545,11 @@ model oa_authorization_codes {
   updated_at         DateTime   @default(now()) @db.Timestamp(0)
   created_at         DateTime   @default(now()) @db.Timestamp(0)
   deleted_at         DateTime?  @db.Timestamp(0)
-  oa_clients         oa_clients @relation(fields: [client_id], references: [client_id], onUpdate: Restrict, map: "bshaffer_oauth_authorization_codes_client_id_fk")
-  wp_users           wp_users   @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "bshaffer_oauth_authorization_codes_user_id_fk")
+  oa_clients         oa_clients @relation(fields: [client_id], references: [client_id], onUpdate: Restrict, map: "oa_authorization_codes_client_id_fk")
+  wp_users           wp_users   @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "oa_authorization_codes_user_id_fk")
 
-  @@index([client_id], map: "bshaffer_oauth_authorization_codes_client_id_fk")
-  @@index([user_id], map: "bshaffer_oauth_authorization_codes_user_id_fk")
+  @@index([client_id], map: "oa_authorization_codes_client_id_fk")
+  @@index([user_id], map: "oa_authorization_codes_user_id_fk")
 }
 
 model oa_clients {
@@ -2588,7 +2588,7 @@ model oa_clients {
   number_of_user_variables                  Int?                              @db.UnsignedInt
   number_of_variables                       Int?                              @db.UnsignedInt
   number_of_votes                           Int?                              @db.UnsignedInt
-  wp_users                                  wp_users                          @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "bshaffer_oauth_clients_user_id_fk")
+  wp_users                                  wp_users                          @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "oa_clients_user_id_fk")
   global_variable_relationships                    global_variable_relationships[]
   applications                              applications?
   button_clicks                             button_clicks[]
@@ -2634,7 +2634,7 @@ model oa_clients {
   votes                                     votes[]
   wp_bp_activity_meta                       wp_bp_activity_meta[]
 
-  @@index([user_id], map: "bshaffer_oauth_clients_user_id_fk")
+  @@index([user_id], map: "oa_clients_user_id_fk")
 }
 
 model oa_refresh_tokens {
@@ -2646,10 +2646,10 @@ model oa_refresh_tokens {
   updated_at    DateTime   @default(now()) @db.Timestamp(0)
   created_at    DateTime   @default(now()) @db.Timestamp(0)
   deleted_at    DateTime?  @db.Timestamp(0)
-  oa_clients    oa_clients @relation(fields: [client_id], references: [client_id], onUpdate: Restrict, map: "bshaffer_oauth_refresh_tokens_client_id_fk")
-  wp_users      wp_users   @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "bshaffer_oauth_refresh_tokens_user_id_fk")
+  oa_clients    oa_clients @relation(fields: [client_id], references: [client_id], onUpdate: Restrict, map: "oa_refresh_tokens_client_id_fk")
+  wp_users      wp_users   @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "oa_refresh_tokens_user_id_fk")
 
-  @@index([user_id], map: "bshaffer_oauth_refresh_tokens_user_id_fk")
+  @@index([user_id], map: "oa_refresh_tokens_user_id_fk")
   @@index([client_id], map: "refresh_tokens_client_id_fk")
 }
 
@@ -4239,12 +4239,12 @@ model wp_bp_activity_meta {
   created_at     DateTime       @default(now()) @db.Timestamp(0)
   deleted_at     DateTime?      @db.Timestamp(0)
   client_id      String?        @db.VarChar(255)
-  oa_clients     oa_clients?    @relation(fields: [client_id], references: [client_id], onDelete: Restrict, onUpdate: Restrict, map: "wp_bp_activity_meta_bshaffer_oauth_clients_client_id_fk")
+  oa_clients     oa_clients?    @relation(fields: [client_id], references: [client_id], onDelete: Restrict, onUpdate: Restrict, map: "wp_bp_activity_meta_oa_clients_client_id_fk")
   wp_bp_activity wp_bp_activity @relation(fields: [activity_id], references: [id], onUpdate: Restrict, map: "wp_bp_activity_meta_wp_bp_activity_id_fk")
 
   @@index([activity_id], map: "activity_id")
   @@index([meta_key(length: 191)], map: "meta_key")
-  @@index([client_id], map: "wp_bp_activity_meta_bshaffer_oauth_clients_client_id_fk")
+  @@index([client_id], map: "wp_bp_activity_meta_oa_clients_client_id_fk")
 }
 
 model wp_bp_friends {

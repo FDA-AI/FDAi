@@ -91,7 +91,6 @@ create table if not exists user_variables
     earliest_tagged_measurement_start_at                 timestamp                                null,
     latest_non_tagged_measurement_start_at               timestamp                                null,
     earliest_non_tagged_measurement_start_at             timestamp                                null,
-    wp_post_id                                           bigint unsigned                          null,
     number_of_soft_deleted_measurements                  int                                      null comment 'Formula: update user_variables v
                 inner join (
                     select measurements.user_variable_id, count(measurements.id) as number_of_soft_deleted_measurements
@@ -160,9 +159,7 @@ create table if not exists user_variables
     constraint user_variables_variable_category_id_fk
         foreign key (variable_category_id) references variable_categories (id),
     constraint user_variables_variables_id_fk
-        foreign key (variable_id) references global_variables (id),
-    constraint user_variables_wp_posts_ID_fk
-        foreign key (wp_post_id) references wp_posts (ID)
+        foreign key (variable_id) references global_variables (id)
             on update cascade on delete set null
 )
     comment 'Variable statistics, analysis settings, and overviews with data visualizations and likely outcomes or predictors based on data for a specific individual'

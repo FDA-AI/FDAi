@@ -20,7 +20,6 @@ create table if not exists variable_categories
     minimum_allowed_seconds_between_measurements int                                             null,
     average_seconds_between_measurements         int                                             null,
     median_seconds_between_measurements          int                                             null,
-    wp_post_id                                   bigint unsigned                                 null,
     filling_type                                 enum ('zero', 'none', 'interpolation', 'value') null,
     number_of_outcome_population_studies         int unsigned                                    null comment 'Number of Global Population Studies for this Cause Variable Category.
                 [Formula:
@@ -115,9 +114,7 @@ create table if not exists variable_categories
     constraint variable_categories_slug_uindex
         unique (slug),
     constraint variable_categories_default_unit_id_fk
-        foreign key (default_unit_id) references units (id),
-    constraint variable_categories_wp_posts_ID_fk
-        foreign key (wp_post_id) references wp_posts (ID)
+        foreign key (default_unit_id) references units (id)
 )
     comment 'Categories of of trackable variables include Treatments, Emotions, Symptoms, and Foods.' charset = utf8;
 

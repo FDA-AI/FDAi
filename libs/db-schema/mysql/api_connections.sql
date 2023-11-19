@@ -22,9 +22,8 @@ create table if not exists api_connections
     reason_for_import                 varchar(255)                        null,
     user_error_message                text                                null,
     internal_error_message            text                                null,
-    wp_post_id                        bigint unsigned                     null,
     number_of_connector_imports       int unsigned                        null comment 'Number of Connector Imports for this Connection.
-                [Formula: 
+                [Formula:
                     update connections
                         left join (
                             select count(id) as total, connection_id
@@ -36,7 +35,7 @@ create table if not exists api_connections
                 ]
                 ',
     number_of_connector_requests      int unsigned                        null comment 'Number of Connector Requests for this Connection.
-                [Formula: 
+                [Formula:
                     update connections
                         left join (
                             select count(id) as total, connection_id
@@ -71,9 +70,7 @@ create table if not exists api_connections
     constraint connections_connectors_id_fk
         foreign key (connector_id) references api_connectors (id),
     constraint connections_user_id_fk
-        foreign key (user_id) references users (id),
-    constraint connections_wp_posts_ID_fk
-        foreign key (wp_post_id) references wp_posts (ID)
+        foreign key (user_id) references users (id)
 )
     comment 'Connections to 3rd party data sources that we can import from for a given user.' charset = utf8;
 

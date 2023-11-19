@@ -42,7 +42,6 @@ create table if not exists applications
     additional_settings               text                                 null comment 'Additional non-design settings for your application.',
     app_status                        text                                 null comment 'The current build status for the iOS app, Android app, and Chrome extension.',
     build_enabled                     tinyint(1) default 0                 not null,
-    wp_post_id                        bigint unsigned                      null,
     number_of_collaborators_where_app int unsigned                         null comment 'Number of Collaborators for this App.
                 [Formula:
                     update applications
@@ -69,9 +68,7 @@ create table if not exists applications
     constraint applications_predictor_variable_id_fk
         foreign key (predictor_variable_id) references global_variables (id),
     constraint applications_user_id_fk
-        foreign key (user_id) references users (id),
-    constraint applications_wp_posts_ID_fk
-        foreign key (wp_post_id) references wp_posts (ID)
+        foreign key (user_id) references users (id)
 )
     comment 'Settings for applications created by the no-code app builder at https://builder.quantimo.do.  '
     charset = utf8;
