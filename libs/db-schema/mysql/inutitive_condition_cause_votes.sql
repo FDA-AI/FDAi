@@ -1,4 +1,4 @@
-create table if not exists inutitive_condition_cause
+create table if not exists inuitive_condition_cause_votes
 (
     id                    int auto_increment
         primary key,
@@ -15,7 +15,7 @@ create table if not exists inutitive_condition_cause
     constraint ct_condition_cause_cause_uindex
         unique (cause_variable_id, condition_variable_id),
     constraint ct_condition_cause_ct_causes_cause_fk
-        foreign key (cause_id) references intuitive_causes (id),
+        foreign key (cause_id) references intuitive_causes_of_illness (id),
     constraint ct_condition_cause_ct_conditions_id_condition_fk
         foreign key (condition_id) references intuitive_conditions (id),
     constraint ct_condition_cause_variables_id_condition_fk

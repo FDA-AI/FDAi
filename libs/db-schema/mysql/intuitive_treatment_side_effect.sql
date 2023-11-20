@@ -1,4 +1,4 @@
-create table if not exists intutitive_treatment_side_effect
+create table if not exists intuitive_treatment_side_effect
 (
     id                      int auto_increment
         primary key,

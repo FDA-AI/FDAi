@@ -1,4 +1,4 @@
-create table if not exists intuitive_causes
+create table if not exists intuitive_causes_of_illness
 (
     id                   int auto_increment
         primary key,
