@@ -49,8 +49,8 @@
 ║ getOutcomes                   │ correlations         │ cause_user_variable_id=50846 & cause_user_variable_id=no... ║
 ║ getOutcomes                   │ user_variables       │ id in (24646, 24647, 24651, 24655, 24658, 24659, 24669, ... ║
 ║ getOutcomes                   │ variables            │ id in (1251, 1252, 1258, 1267, 1272, 1273, 1284, 1293, 1... ║
-║ setDataFromVariable           │ ct_condition_cause   │ condition_variable_id=6051141 & condition_variable_id=no... ║
-║ setDataFromVariable           │ ct_condition_cause   │ cause_variable_id=6051141 & cause_variable_id=not null &... ║
+║ setDataFromVariable           │ intuitive_condition_cause_votes   │ condition_variable_id=6051141 & condition_variable_id=no... ║
+║ setDataFromVariable           │ intuitive_condition_cause_votes   │ cause_variable_id=6051141 & cause_variable_id=not null &... ║
 ║ setDataFromVariable           │ ct_condition_treatme │ treatment_variable_id=6051141 & treatment_variable_id=no... ║
 ║ setDataFromVariable           │ ct_treatment_side_ef │ treatment_variable_id=6051141 & treatment_variable_id=no... ║
 ║ setDataFromVariable           │ ct_condition_treatme │ condition_variable_id=6051141 & condition_variable_id=no... ║

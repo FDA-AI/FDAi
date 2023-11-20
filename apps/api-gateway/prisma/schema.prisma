@@ -1009,10 +1009,10 @@ model ct_causes {
   deleted_at           DateTime?            @db.Timestamp(0)
   number_of_conditions Int                  @db.UnsignedInt
   variables            variables            @relation(fields: [variable_id], references: [id], onUpdate: Restrict, map: "ct_causes_variables_id_fk")
-  ct_condition_cause   ct_condition_cause[]
+  intuitive_condition_cause_votes   intuitive_condition_cause_votes[]
 }
 
-model ct_condition_cause {
+model intuitive_condition_cause_votes {
   id                                                            Int           @id @default(autoincrement())
   condition_id                                                  Int
   cause_id                                                      Int
@@ -1022,15 +1022,15 @@ model ct_condition_cause {
   updated_at                                                    DateTime      @default(now()) @db.Timestamp(0)
   created_at                                                    DateTime      @default(now()) @db.Timestamp(0)
   deleted_at                                                    DateTime?     @db.Timestamp(0)
-  ct_causes                                                     ct_causes     @relation(fields: [cause_id], references: [id], onUpdate: Restrict, map: "ct_condition_cause_ct_causes_cause_fk")
-  ct_conditions                                                 ct_conditions @relation(fields: [condition_id], references: [id], onUpdate: Restrict, map: "ct_condition_cause_ct_conditions_id_condition_fk")
-  variables_ct_condition_cause_condition_variable_idTovariables variables     @relation("ct_condition_cause_condition_variable_idTovariables", fields: [condition_variable_id], references: [id], onUpdate: Restrict, map: "ct_condition_cause_variables_id_condition_fk")
-  variables_ct_condition_cause_cause_variable_idTovariables     variables     @relation("ct_condition_cause_cause_variable_idTovariables", fields: [cause_variable_id], references: [id], onUpdate: Restrict, map: "ct_condition_cause_variables_id_fk")
+  ct_causes                                                     ct_causes     @relation(fields: [cause_id], references: [id], onUpdate: Restrict, map: "intuitive_condition_cause_votes_ct_causes_cause_fk")
+  ct_conditions                                                 ct_conditions @relation(fields: [condition_id], references: [id], onUpdate: Restrict, map: "intuitive_condition_cause_votes_ct_conditions_id_condition_fk")
+  variables_intuitive_condition_cause_votes_condition_variable_idTovariables variables     @relation("intuitive_condition_cause_votes_condition_variable_idTovariables", fields: [condition_variable_id], references: [id], onUpdate: Restrict, map: "intuitive_condition_cause_votes_variables_id_condition_fk")
+  variables_intuitive_condition_cause_votes_cause_variable_idTovariables     variables     @relation("intuitive_condition_cause_votes_cause_variable_idTovariables", fields: [cause_variable_id], references: [id], onUpdate: Restrict, map: "intuitive_condition_cause_votes_variables_id_fk")
 
-  @@unique([cause_id, condition_id], map: "ct_condition_cause_cause_id_condition_id_uindex")
-  @@unique([cause_variable_id, condition_variable_id], map: "ct_condition_cause_cause_uindex")
-  @@index([condition_id], map: "ct_condition_cause_ct_conditions_id_condition_fk")
-  @@index([condition_variable_id], map: "ct_condition_cause_variables_id_condition_fk")
+  @@unique([cause_id, condition_id], map: "intuitive_condition_cause_votes_cause_id_condition_id_uindex")
+  @@unique([cause_variable_id, condition_variable_id], map: "intuitive_condition_cause_votes_cause_uindex")
+  @@index([condition_id], map: "intuitive_condition_cause_votes_ct_conditions_id_condition_fk")
+  @@index([condition_variable_id], map: "intuitive_condition_cause_votes_variables_id_condition_fk")
 }
 
 model ct_condition_symptom {
@@ -1098,7 +1098,7 @@ model ct_conditions {
   number_of_symptoms     Int?                     @db.UnsignedInt
   number_of_causes       Int                      @db.UnsignedInt
   variables              variables                @relation(fields: [variable_id], references: [id], onUpdate: Restrict, map: "ct_conditions_variables_id_fk")
-  ct_condition_cause     ct_condition_cause[]
+  intuitive_condition_cause_votes     intuitive_condition_cause_votes[]
   ct_condition_symptom   ct_condition_symptom[]
   ct_condition_treatment ct_condition_treatment[]
 }
@@ -3990,8 +3990,8 @@ model variables {
   correlations_correlations_cause_variable_idTovariables                                  correlations[]                     @relation("correlations_cause_variable_idTovariables")
   correlations_correlations_effect_variable_idTovariables                                 correlations[]                     @relation("correlations_effect_variable_idTovariables")
   ct_causes                                                                               ct_causes?
-  ct_condition_cause_ct_condition_cause_condition_variable_idTovariables                  ct_condition_cause[]               @relation("ct_condition_cause_condition_variable_idTovariables")
-  ct_condition_cause_ct_condition_cause_cause_variable_idTovariables                      ct_condition_cause[]               @relation("ct_condition_cause_cause_variable_idTovariables")
+  intuitive_condition_cause_votes_intuitive_condition_cause_votes_condition_variable_idTovariables                  intuitive_condition_cause_votes[]               @relation("intuitive_condition_cause_votes_condition_variable_idTovariables")
+  intuitive_condition_cause_votes_intuitive_condition_cause_votes_cause_variable_idTovariables                      intuitive_condition_cause_votes[]               @relation("intuitive_condition_cause_votes_cause_variable_idTovariables")
   ct_condition_symptom_ct_condition_symptom_condition_variable_idTovariables              ct_condition_symptom[]             @relation("ct_condition_symptom_condition_variable_idTovariables")
   ct_condition_symptom_ct_condition_symptom_symptom_variable_idTovariables                ct_condition_symptom[]             @relation("ct_condition_symptom_symptom_variable_idTovariables")
   ct_condition_treatment_ct_condition_treatment_treatment_variable_idTovariables          ct_condition_treatment[]           @relation("ct_condition_treatment_treatment_variable_idTovariables")

@@ -12,7 +12,7 @@ use App\Properties\BaseProperty;
 use App\Slim\Model\DBModel;
 trait HasCtConditionCause {
 	public function getCtConditionCauseId(): int{
-		$nameOrId = $this->getAttribute('ct_condition_cause_id');
+		$nameOrId = $this->getAttribute('intuitive_condition_cause_votes_id');
 		return $nameOrId;
 	}
 	public function getCtConditionCauseButton(): QMButton{
@@ -30,13 +30,13 @@ trait HasCtConditionCause {
 			return $this->parentModel;
 		}
 		/** @var BaseModel|DBModel $this */
-		if($l = $this->getRelationIfLoaded('ct_condition_cause')){
+		if($l = $this->getRelationIfLoaded('intuitive_condition_cause_votes')){
 			return $l;
 		}
 		$id = $this->getCtConditionCauseId();
 		$ctConditionCause = CtConditionCause::findInMemoryOrDB($id);
 		if(property_exists($this, 'relations')){
-			$this->relations['ct_condition_cause'] = $ctConditionCause;
+			$this->relations['intuitive_condition_cause_votes'] = $ctConditionCause;
 		}
 		if(property_exists($this, 'ctConditionCause')){
 			$this->ctConditionCause = $ctConditionCause;

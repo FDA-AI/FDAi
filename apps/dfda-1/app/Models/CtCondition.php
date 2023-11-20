@@ -45,8 +45,8 @@ use Illuminate\Support\Carbon;
  * @method static Builder|CtCondition whereNumberOfSymptoms($value)
  * @method static Builder|CtCondition whereNumberOfTreatments($value)
  * @property-read OAClient $client
- * @property-read Collection|CtConditionCause[] $ct_condition_causes
- * @property-read int|null $ct_condition_causes_count
+ * @property-read Collection|CtConditionCause[] $intuitive_condition_cause_votes
+ * @property-read int|null $intuitive_condition_cause_votes_count
  * @property-read Collection|CtConditionSymptom[] $ct_condition_symptoms
  * @property-read int|null $ct_condition_symptoms_count
  * @property-read Collection|CtConditionTreatment[] $ct_condition_treatments
@@ -81,7 +81,7 @@ class CtCondition extends BaseCtCondition {
 	public function variable(): BelongsTo{
 		return $this->belongsTo(Variable::class, self::FIELD_VARIABLE_ID, Variable::FIELD_ID, self::FIELD_VARIABLE_ID);
 	}
-	public function ct_condition_causes(): HasMany{
+	public function intuitive_condition_cause_votes(): HasMany{
 		return $this->hasMany(CtConditionCause::class, CtConditionCause::FIELD_CONDITION_ID, static::FIELD_ID);
 	}
 	public function ct_condition_treatments(): HasMany{

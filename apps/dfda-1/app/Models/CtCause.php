@@ -41,8 +41,8 @@ use Illuminate\Support\Carbon;
  * @property-read OAClient|null $client
  * @property-read Collection|CtCondition[] $conditions
  * @property-read int|null $conditions_count
- * @property-read Collection|CtConditionCause[] $ct_condition_causes
- * @property-read int|null $ct_condition_causes_count
+ * @property-read Collection|CtConditionCause[] $intuitive_condition_cause_votes
+ * @property-read int|null $intuitive_condition_cause_votes_count
  * @property-read OAClient|null $oa_client
  * @property-read Variable $variable
  */
@@ -63,7 +63,7 @@ class CtCause extends BaseCtCause {
 	 * @return HasManyThrough|CtCondition[]
 	 */
 	public function conditions(): HasManyThrough{
-		//return $this->hasManyThrough('ct_condition_causes');
+		//return $this->hasManyThrough('intuitive_condition_cause_votes');
 		return $this->hasManyThrough(CtCondition::class, CtConditionCause::class, CtConditionCause::FIELD_CAUSE_ID,
 			// Foreign key on users table...
 			'id', // Foreign key on posts table...

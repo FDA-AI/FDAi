@@ -144,7 +144,7 @@
         "inView": true
     },
     {
-        "name": "_airbyte_ct_condition_cause_hashid",
+        "name": "_airbyte_intuitive_condition_cause_votes_hashid",
         "dbType": "text",
         "htmlType": "textarea",
         "validations": "nullable|string|nullable|string|nullable|string",

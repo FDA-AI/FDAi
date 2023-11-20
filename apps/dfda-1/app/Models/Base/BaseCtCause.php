@@ -100,7 +100,7 @@ abstract class BaseCtCause extends BaseModel {
 		return $this->belongsTo(Variable::class, CtCause::FIELD_VARIABLE_ID, Variable::FIELD_ID,
 			CtCause::FIELD_VARIABLE_ID);
 	}
-	public function ct_condition_causes(): \Illuminate\Database\Eloquent\Relations\HasMany{
+	public function intuitive_condition_cause_votes(): \Illuminate\Database\Eloquent\Relations\HasMany{
 		return $this->hasMany(CtConditionCause::class, CtConditionCause::FIELD_CAUSE_ID, static::FIELD_ID);
 	}
 }
