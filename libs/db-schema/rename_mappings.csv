@@ -8,3 +8,6 @@ ct_side_effects,intuitive_side_effects
 ct_symptoms,intuitive_symptoms
 ct_treatment_side_effect,intuitive_treatment_side_effect_frequency
 ct_treatments,intuitive_treatments
+variable,global_variable
+correlation,user_variable_relationship
+aggregate_correlation,global_variable_relationship
