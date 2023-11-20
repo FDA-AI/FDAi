@@ -1,4 +1,4 @@
-create table if not exists intuitive_condition_treatment
+create table if not exists intuitive_condition_treatment_effectiveness
 (
     id                    int auto_increment
         primary key,

@@ -1,4 +1,4 @@
-create table curedao_production_v2.api_connector_devices
+create table api_connector_devices
 (
     id                int auto_increment
         primary key,
