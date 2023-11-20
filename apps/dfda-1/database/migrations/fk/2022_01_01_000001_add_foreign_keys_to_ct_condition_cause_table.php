@@ -13,11 +13,11 @@ class AddForeignKeysToCtConditionCauseTable extends Migration
      */
     public function up()
     {
-        Schema::table('ct_condition_cause', function (Blueprint $table) {
-            $table->foreign(['cause_id'], 'ct_condition_cause_ct_causes_cause_fk')->references(['id'])->deferrable()->on('ct_causes');
-            $table->foreign(['condition_id'], 'ct_condition_cause_ct_conditions_id_condition_fk')->references(['id'])->deferrable()->on('ct_conditions');
-            $table->foreign(['condition_variable_id'], 'ct_condition_cause_variables_id_condition_fk')->references(['id'])->deferrable()->on('variables');
-            $table->foreign(['cause_variable_id'], 'ct_condition_cause_variables_id_fk')->references(['id'])->deferrable()->on('variables');
+        Schema::table('intuitive_condition_cause_votes', function (Blueprint $table) {
+            $table->foreign(['cause_id'], 'intuitive_condition_cause_votes_ct_causes_cause_fk')->references(['id'])->deferrable()->on('ct_causes');
+            $table->foreign(['condition_id'], 'intuitive_condition_cause_votes_ct_conditions_id_condition_fk')->references(['id'])->deferrable()->on('ct_conditions');
+            $table->foreign(['condition_variable_id'], 'intuitive_condition_cause_votes_variables_id_condition_fk')->references(['id'])->deferrable()->on('variables');
+            $table->foreign(['cause_variable_id'], 'intuitive_condition_cause_votes_variables_id_fk')->references(['id'])->deferrable()->on('variables');
         });
     }
 
@@ -28,11 +28,11 @@ class AddForeignKeysToCtConditionCauseTable extends Migration
      */
     public function down()
     {
-        Schema::table('ct_condition_cause', function (Blueprint $table) {
-            $table->dropForeign('ct_condition_cause_ct_causes_cause_fk');
-            $table->dropForeign('ct_condition_cause_ct_conditions_id_condition_fk');
-            $table->dropForeign('ct_condition_cause_variables_id_condition_fk');
-            $table->dropForeign('ct_condition_cause_variables_id_fk');
+        Schema::table('intuitive_condition_cause_votes', function (Blueprint $table) {
+            $table->dropForeign('intuitive_condition_cause_votes_ct_causes_cause_fk');
+            $table->dropForeign('intuitive_condition_cause_votes_ct_conditions_id_condition_fk');
+            $table->dropForeign('intuitive_condition_cause_votes_variables_id_condition_fk');
+            $table->dropForeign('intuitive_condition_cause_votes_variables_id_fk');
         });
     }
 }

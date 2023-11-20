@@ -1,4 +1,4 @@
-create table quantimodo_test.ct_condition_cause
+create table quantimodo_test.intuitive_condition_cause_votes
 (
     id                    int auto_increment
         primary key,
@@ -10,17 +10,17 @@ create table quantimodo_test.ct_condition_cause
     updated_at            timestamp default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP,
     created_at            timestamp default CURRENT_TIMESTAMP not null,
     deleted_at            timestamp                           null,
-    constraint ct_condition_cause_cause_id_condition_id_uindex
+    constraint intuitive_condition_cause_votes_cause_id_condition_id_uindex
         unique (cause_id, condition_id),
-    constraint ct_condition_cause_cause_uindex
+    constraint intuitive_condition_cause_votes_cause_uindex
         unique (cause_variable_id, condition_variable_id),
-    constraint ct_condition_cause_ct_causes_cause_fk
+    constraint intuitive_condition_cause_votes_ct_causes_cause_fk
         foreign key (cause_id) references quantimodo_test.ct_causes (id),
-    constraint ct_condition_cause_ct_conditions_id_condition_fk
+    constraint intuitive_condition_cause_votes_ct_conditions_id_condition_fk
         foreign key (condition_id) references quantimodo_test.ct_conditions (id),
-    constraint ct_condition_cause_variables_id_condition_fk
+    constraint intuitive_condition_cause_votes_variables_id_condition_fk
         foreign key (condition_variable_id) references quantimodo_test.variables (id),
-    constraint ct_condition_cause_variables_id_fk
+    constraint intuitive_condition_cause_votes_variables_id_fk
         foreign key (cause_variable_id) references quantimodo_test.variables (id)
 )
     charset = utf8mb3;

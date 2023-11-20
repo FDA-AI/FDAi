@@ -17,14 +17,14 @@
 ║ getOutcomes                 │ correlations         │ cause_user_variable_id=222073 & cause_user_variable_id=n... ║
 ║ getOutcomes                 │ user_variables       │ id in (222021, 222022, 222023, 222024, 222025, 222026, 2... ║
 ║ getOutcomes                 │ variables            │ id in (97961, 111582, 111592, 111602, 111612, 111622, 11... ║
-║ setDataFromVariable         │ ct_condition_cause   │ condition_variable_id=6059130 & condition_variable_id=no... ║
-║ setDataFromVariable         │ ct_condition_cause   │ cause_variable_id=6059130 & cause_variable_id=not null &... ║
+║ setDataFromVariable         │ intuitive_condition_cause_votes   │ condition_variable_id=6059130 & condition_variable_id=no... ║
+║ setDataFromVariable         │ intuitive_condition_cause_votes   │ cause_variable_id=6059130 & cause_variable_id=not null &... ║
 ║ setDataFromVariable         │ ct_condition_treatme │ treatment_variable_id=6059130 & treatment_variable_id=no... ║
 ║ setDataFromVariable         │ ct_treatment_side_ef │ treatment_variable_id=6059130 & treatment_variable_id=no... ║
 ║ setDataFromVariable         │ ct_condition_treatme │ condition_variable_id=6059130 & condition_variable_id=no... ║
 ║ setDataFromVariable         │ ct_treatment_side_ef │ side_effect_variable_id=6059130 & side_effect_variable_i... ║
-║ setDataFromVariable         │ ct_condition_cause   │ condition_variable_id=6059130 & condition_variable_id=no... ║
-║ setDataFromVariable         │ ct_condition_cause   │ cause_variable_id=6059130 & cause_variable_id=not null &... ║
+║ setDataFromVariable         │ intuitive_condition_cause_votes   │ condition_variable_id=6059130 & condition_variable_id=no... ║
+║ setDataFromVariable         │ intuitive_condition_cause_votes   │ cause_variable_id=6059130 & cause_variable_id=not null &... ║
 ║ setDataFromVariable         │ ct_condition_treatme │ treatment_variable_id=6059130 & treatment_variable_id=no... ║
 ║ setDataFromVariable         │ ct_treatment_side_ef │ treatment_variable_id=6059130 & treatment_variable_id=no... ║
 ║ setDataFromVariable         │ ct_condition_treatme │ condition_variable_id=6059130 & condition_variable_id=no... ║

@@ -64,7 +64,7 @@ abstract class BaseCtConditionCause extends BaseModel {
 	public const FIELD_ID = 'id';
 	public const FIELD_UPDATED_AT = 'updated_at';
 	public const FIELD_VOTES_PERCENT = 'votes_percent';
-	public const TABLE = 'ct_condition_cause';
+	public const TABLE = 'intuitive_condition_cause_votes';
 	protected $table = self::TABLE;
 	public const CLASS_DESCRIPTION = '';
 	protected $casts = [

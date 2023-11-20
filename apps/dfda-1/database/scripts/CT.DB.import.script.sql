@@ -2,7 +2,7 @@
 -- first import CT tables into qm database
 -- tables list which should be imported:
 -- ct_conditions,  ct_sideeffects,  ct_causes,  ct_symptoms,  ct_treatments,
--- ct_condition_cause,  ct_condition_symptom,  ct_condition_treatment,  ct_treatment_sideeffect
+-- intuitive_condition_cause_votes,  ct_condition_symptom,  ct_condition_treatment,  ct_treatment_sideeffect
 
 
 -- insert new category
@@ -58,7 +58,7 @@ delete FROM `ct_condition_symptom` WHERE votes =0;
 -- condition_cause
 insert ignore into correlations(user, correlation, cause, effect, onsetDelay, durationOfAction)
 select 2,(cc.votesPercent/100), (select c.varID from ct_causes c where c.causeID = cc.causeID),
-(select con.varID from ct_conditions con where con.conID = cc.conID), 0, 86400 from ct_condition_cause cc;
+(select con.varID from ct_conditions con where con.conID = cc.conID), 0, 86400 from intuitive_condition_cause_votes cc;
 
 
 -- condition_symptom

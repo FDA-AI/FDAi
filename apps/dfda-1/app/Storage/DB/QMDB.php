@@ -117,7 +117,7 @@ abstract class QMDB extends Connection {
 		1 => 'common_tags',
 		2 => 'connectors',
 		3 => 'ct_causes',
-		4 => 'ct_condition_cause',
+		4 => 'intuitive_condition_cause_votes',
 		5 => 'ct_condition_symptom',
 		6 => 'ct_condition_treatment',
 		7 => 'ct_conditions',
@@ -182,7 +182,7 @@ abstract class QMDB extends Connection {
 		'ct_symptoms' => 0.38,
 		'ct_causes' => 0.31,
 		'telescope_entries_tags' => 0.3,
-		'ct_condition_cause' => 0.25,
+		'intuitive_condition_cause_votes' => 0.25,
 		'ct_treatment_sideeffect' => 0.2,
 		'tracker_sessions' => 0.19,
 		'tracker_log' => 0.17,
@@ -358,7 +358,7 @@ abstract class QMDB extends Connection {
 		'credentials_backup',          // 4529 records
 		'crypto_trades',               // 4 records
 		'ct_causes',                   // 2458 records
-		'ct_condition_cause',          // 3653 records
+		'intuitive_condition_cause_votes',          // 3653 records
 		'ct_condition_symptom',        // 4186 records
 		'ct_condition_treatment',      // 5878 records
 		'ct_conditions',               // 162 records
