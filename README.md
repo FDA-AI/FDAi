@@ -45,7 +45,11 @@ Our crazy theory is that we can accomplish the same great feat in the realm of c
 
 # 🖥️ dFDA Framework Components
 
-This is a very high-level overview of the architecture. 
+This is a very high-level overview of the architecture. The 3 primary primitive components of the dFDA framework are:
+
+1. [Data Silo API Gateway Nodes](#1-data-silo-api-gateway-nodes) that facilitate data export from data silos
+2. [PersonalFDA Nodes](#2-personalfda-nodes) that import, store, and analyze your data to identify how various factors affect your health
+3. [Clinipedia](#3-clinipediathe-wikipedia-of-clinical-research) that contains the aggregate of all available data on the effects of every food, drug, supplement, and medical intervention on human health.
 
 The core characteristics that define the dFDA are:
 - **Modularity** - a set of modular libraries and tools that can be reused in any project
