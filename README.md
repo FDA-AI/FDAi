@@ -4,7 +4,7 @@ description: A set of tools to help regulatory agencies quantify the effects of 
 ---
 # 🌎The Decentralized FDA💊
 
-This [monorepo](docs/contributing/repo-structure.md) contains libraries and tools to help people and organizations quantify the positive and negative effects of every food, supplement, drug, and treatment on every measurable aspect of human health and happiness.
+This [monorepo](docs/contributing/repo-structure.md) contains a set of [FAIR](docs/contributing/fair.md) [libraries](libs) and [apps](apps) to help people and organizations quantify the positive and negative effects of every food, supplement, drug, and treatment on every measurable aspect of human health and happiness.
 
 ![dfda-stack-diagram-white-background.svg](docs/images/dfda-stack-diagram-white-background.svg)
 
@@ -47,11 +47,11 @@ Our crazy theory is that we can accomplish the same great feat in the realm of c
 
 This is a very high-level overview of the architecture. 
 
-The dFDA is intended to be:
-- a set of modular libraries and tools that can be reused in any project
-- an abstract framework of core primitive components rather than a specific implementation
-- a directory of existing open-source projects that can be used to fulfill the requirements of each primitive or component
-- a collaborative effort, so please feel free to [contribute](docs/contributing.md)!
+The core characteristics that define the dFDA are:
+- **Modularity** - a set of modular libraries and tools that can be reused in any project
+- **Protocols** - an abstract framework of core primitive components rather than a specific implementation
+- **Interoperability** - a directory of existing open-source projects that can be used to fulfill the requirements of each primitive or component
+- **Collective Intelligence** - a collaborative effort, so please feel free to [contribute or edit anything](docs/contributing.md)!
 
 ![dfda-stack-diagram-white-background.svg](docs/images/dfda-stack-diagram-white-background.svg)
 
@@ -102,7 +102,7 @@ A key component of Clinipedia are [**Outcome Labels**](docs/components/outcome-l
 
 **👉 [Learn More About Outcome Labels](docs/components/outcome-labels/outcome-labels.md)**
 
-# Human-AI Collective Intelligence Platform
+## Human-AI Collective Intelligence Platform
 
 A collective intelligence coordination platform is needed for facilitating cooperation, communication, and collaborative actions among contributors.
 
@@ -132,7 +132,7 @@ Apps in this monorepo:
 
 dFDa-1 is an initial prototype of the decentralized FDA located in [apps/dfda-1](apps/dfda-1).  It is currently monolithic in nature, so a goal is to modularize it into a set of [FAIR](docs/contributing/fair.md) [libraries](libs) and plugins that can be shared with other apps.
 
-## dFDA v1 Features
+### dFDA v1 Features
 
 * [Data Collection](docs/components/data-collection/data-collection.md)
 * [Data Import](docs/components/data-import/data-import.md)
@@ -159,19 +159,19 @@ Collects and aggregate data on symptoms, diet, sleep, exercise, weather, medicat
 of life-tracking apps and devices. Analyzes data to reveal hidden factors exacerbating or improving symptoms of
 chronic illness.
 
-## Web Notifications
+### Web Notifications
 
 Web and mobile push notifications with action buttons.
 
 ![web notification action buttons](docs/components/data-collection/web-notification-action-buttons.png)
 
-## Browser Extensions
+### Browser Extensions
 
 By using the Browser Extension, you can track your mood, symptoms, or any outcome you want to optimize in a fraction of a second using a unique popup interface.
 
 ![Chrome Extension](docs/components/browser-extension/browser-extension.png)
 
-## Data Analysis
+### Data Analysis
 
 The Analytics Engine performs temporal precedence accounting, longitudinal data aggregation, erroneous data filtering, unit conversions, ingredient tagging, and variable grouping to quantify correlations between symptoms, treatments, and other factors.
 
@@ -224,13 +224,9 @@ A global federation to help the FDA and global regulatory agencies quantify the 
 
 [👉 Tell Us About Your Project!](#)
 
-## 🚧 Initial Prototype
 
-We've implemented an initial centralized and monolithic prototype of this architecture in [apps/dfda-1](apps/dfda-1), better described as a Centralized Decentralized FDA.  However, our goal is to a new, decentralized, simplified, modular, version of this broken into the components below.
 
-We don't want to reinvent the wheel in any way, so if there's an existing project that fulfills the requirements of a component, please [let us know](https://github.com/decentralized-fda/decentralized-fda/discussions) or contribute!
-
-# 🛟 Help Wanted!
+# 🤚 Help Wanted!
 
 Code or documentation improvements are eternally appreciated!
 
