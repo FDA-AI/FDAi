@@ -1,6 +1,6 @@
 ---
 title: 💊 The Decentralized FDA 🌎
-description: A set of tools to help regulatory agencies quantify the effects of millions of factors like foods, drugs, and supplements affect human health and happiness.
+description: A set of tools and global federation to help regulatory agencies quantify the effects of millions of factors like foods, drugs, and supplements affect human health and happiness.
 ---
 # 🌎The Decentralized FDA💊
 
@@ -117,22 +117,25 @@ We'd love your help and input in determining an optimal roadmap for this project
 
 # Why a Monorepo?
 
-Our goal is to develop FAIR (Findable, Accessible, Interoperable, and Reusable) data and analytical tools that can be used by any regulatory agencies, businesses, non-profits or individuals to quantify the effects of every food, drug, supplement, and treatment on every measurable aspect of human health and happiness.
+Our goal is to develop [FAIR (Findable, Accessible, Interoperable, and Reusable)](docs/contributing/fair.md) data and analytical tools that can be used by any regulatory agencies, businesses, non-profits or individuals to quantify the effects of every food, drug, supplement, and treatment on every measurable aspect of human health and happiness.
 
-The Nx Monorepo is to achieve maximum interoperability and minimum duplication of effort between the various 
+The [Nx Monorepo](docs/contributing/repo-structure.md) is to achieve maximum interoperability and minimum duplication of effort between the various 
 projects in order to maximize the speed of development and minimize costs.  This can be 
 done by modularizing the codebase into libraries and plugins that can be shared between the various projects.
 
 Apps in this monorepo:
 
-- [dFDA-1](#dfda-1) - The first version of the decentralized FDA. It is a web app that allows users to track their health data and analyze it to identify the most effective ways to maximize health and happiness.
+- [dFDA-1](apps/dfda-1) - The first version of the decentralized FDA. It is a web app that allows users to track their health data and analyze it to identify the most effective ways to maximize health and happiness.
 - Yours? - If you'd like to create the next version of the dFDA, expand its functionality, or get help with your app, feel free to add it to the [apps](apps) folder and submit a pull request.
 
-## dFDA-1
+# dFDA v1 Prototype
 
-dFDa-1 is an initial prototype of the decentralized FDA located in [apps/dfda-1](apps/dfda-1).  It is currently monolithic in nature, so a goal is to modularize it into a set of [FAIR](docs/contributing/fair.md) [libraries](libs) and plugins that can be shared with other apps.
+We've got a monolithic centralized implementation of the dFDA at [apps/dfda-1](apps/dfda-1) that we're wanting to modularize and decentralize into a set of [FAIR](docs/contributing/fair.md) [libraries](libs) and plugins that can be shared with other apps.
 
-### dFDA v1 Features
+Currently, the main apps are the [Demo Data Collection, Import, and Analysis App](https://app.crowdsourcingcures.org) and the
+[Journal of Citizen Science](https://studies.crowdsourcingcures.org).
+
+### Features
 
 * [Data Collection](docs/components/data-collection/data-collection.md)
 * [Data Import](docs/components/data-import/data-import.md)
@@ -203,28 +206,11 @@ It then pairs every combination of variables and identifies likely causal relati
 
 [👉 More info about observational studies...](docs/components/observational-studies/observational-studies.md)
 
-## Prototype Demos
-
-We've got a monolithic centralized implementation of the dFDA at [apps/dfda-1](apps/dfda-1) that we're wanting to modularize and decentralize.  
-
-Currently, the main apps are the [Demo Data Collection, Import, and Analysis App](https://app.curedao.org) and the
-[Journal of Citizen Science](https://studies.curedao.org).
-
-Try the [Demo Data Collection, Import, and Analysis App](https://app.curedao.org)
-
-
-# [API Reference](docs/api-reference/api-reference.md)
-
-
-
-
-A global federation to help the FDA and global regulatory agencies quantify the effects of millions of factors like foods, drugs, and supplements affect human health.
+# 🤚 Tell Us About Your Project!
 
 🤝 **Join Us**: Whether you're a developer, researcher, health professional, regulatory, or simply passionate about health innovation, your contribution can make a monumental difference!
 
-[👉 Tell Us About Your Project!](#)
-
-
+[👉 Tell Us About Your Project!](docs/community_directory/README.md)
 
 # 🤚 Help Wanted!
 
