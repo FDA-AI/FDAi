@@ -3,7 +3,7 @@ title: style-guide
 description: How to contribute to the documentation.
 published: true
 date: 2022-08-29T16:26:37.033Z
-tags: 
+tags: [contributing, style guide]
 editor: markdown
 dateCreated: 2022-07-27T21:35:30.352Z
 ---
@@ -11,7 +11,7 @@ dateCreated: 2022-07-27T21:35:30.352Z
 # ✍ Writing Style Guide
 
 Please use [Grammarly](https://grammarly.com) and/or [Language Tool](https://languagetool.org)if editing on Githbook to avoid any grammatical errors.
-{% endhint %}
+
 
 ## General principles
 

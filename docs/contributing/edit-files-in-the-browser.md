@@ -1,6 +1,6 @@
 ---
 title: edit-files-in-the-browser
-description: 
+description: How to edit files in the browser
 published: false
 date: 2022-08-31T15:55:29.450Z
 tags: [contributing, tasks]
