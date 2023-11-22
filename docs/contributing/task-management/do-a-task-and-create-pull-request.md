@@ -1,9 +1,9 @@
 ---
 title: do-a-task-and-create-pull-request
-description: 
+description: How to do a task and create a pull request
 published: false
 date: 2022-08-31T08:52:15.031Z
-tags: 
+tags: [tasks, pull requests]
 editor: markdown
 dateCreated: 2022-07-27T21:36:28.395Z
 ---

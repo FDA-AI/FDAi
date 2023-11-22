@@ -1,6 +1,6 @@
 ---
 title: voting
-description: 
+description: How to vote on pull requests
 published: false
 date: 2022-08-31T16:40:27.107Z
 tags: [pull requests, voting, democracy]
