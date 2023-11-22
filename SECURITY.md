@@ -14,7 +14,7 @@ The following table displays the versions of the Decentralized FDA project curre
 To report a security vulnerability within the Decentralized FDA project, follow these steps:
 
 1. **Do not** open a public issue on GitHub.
-2. Send an email to security@curedao.com with the subject "Decentralized FDA Security Vulnerability".
+2. Email security@dfda.earth with the subject "Decentralized FDA Security Vulnerability".
 3. In the email, include a detailed description of the vulnerability, along with the affected component(s) and version(s) of the project.
 4. Optionally, provide a proof of concept, screenshots, or any other relevant information to help us understand and reproduce the issue.
 

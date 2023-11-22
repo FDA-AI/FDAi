@@ -1,10 +1,10 @@
 {
-  "name": "curedao-monorepo",
+  "name": "dfda-monorepo",
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "start-api": "cd apps/api-gateway && npm run start",
-    "cypress:open": "cd apps/ionic && npm run cy:open",
+    "cypress:open": "cd apps/dfda-1 && npm run cy:open",
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",

@@ -148,10 +148,10 @@ Currently, the main apps are the [Demo Data Collection, Import, and Analysis App
   * [🔮Predictor Search Engine](docs/components/predictor-search-engine/predictor-search-engine.md)
   * [🥕 Root Cause Analysis Reports](docs/components/root-cause-analysis-reports/root-cause-analysis-reports.md)
   * [📜Observational Mega-Studies](docs/components/observational-studies/observational-studies.md)
-* [Real-Time Decision Support Notifications](https://www.curedao.org/blog/optomitron)
-* [No Code Health App Builder](https://www.curedao.org/blog/no-code-health-app-builder)
+* [Real-Time Decision Support Notifications](docs/components/decision-support-notifications)
+* [No Code Health App Builder](docs/components/no-code-app-builder)
 * [Personal AI Agent](docs/components/optimiton-ai-agent/optomitron-ai-agent.md)
-* [Chrome Extension](https://www.curedao.org/blog/chrome-extension)
+* [Browser Extension](docs/components/browser-extension)
 
 <p align="center">
 

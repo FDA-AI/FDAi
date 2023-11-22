@@ -2,11 +2,9 @@
 stoplight-id: sz5hf6lkwwyg5
 ---
 
-# CureDAO Monorepo
+# Why a monorepo?
 
-The goal of this monorepo is to achieve maximum interoperability and minimum duplication of effort between the various projects in the digital health ecosystem.  
-
-## Why a monorepo?
+The goal of this monorepo is to achieve maximum interoperability and minimum duplication of effort between the various projects in the digital health ecosystem.
 
 **A monorepo is not a monolith**.  
 
@@ -87,7 +85,7 @@ Run `nx g @nrwl/react:lib my-lib` to generate a library.
 
 > You can also use any of the plugins above to generate libraries as well.
 
-Libraries are shareable across libraries and applications. They can be imported from `@curedao/mylib`.
+Libraries are shareable across libraries and applications. They can be imported from `@dfda/mylib`.
 
 ### Development server
 
