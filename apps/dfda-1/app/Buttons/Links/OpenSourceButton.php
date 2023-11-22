@@ -10,7 +10,7 @@ use App\UI\FontAwesome;
 use App\UI\ImageUrls;
 class OpenSourceButton extends QMButton {
 	public $title = "Open Source";
-	public $link = "https://github.com/curedao/curedao-monorepo";
+	public $link = "https://github.com/decentralized-fda/decentralized-fda";
 	public $image = ImageUrls::DATA_SOURCES_GITHUB_SMALL_MFUESC;
 	public $fontAwesome = FontAwesome::GITHUB;
 	public $tooltip = "A Better World Through Data";

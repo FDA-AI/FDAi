@@ -1,11 +1,5 @@
 ### Release the Chrome Extension
 
-#### Download Them
-- Go to the develop branch on [CircleCI](https://circleci.com/gh/curedao/curedao-web-android-chrome-ios-app-template/tree/develop)
-- Click the most recent green build (at the top)
-- Click the "Artifacts" tab (if you don't see an "Artifacts" tab, append `#artifacts` to the end of the url for the specific build)
-- Download the zip files
-
 #### Build Them (Alternative to Downloading)
 - If you've already downloaded them, you can skip to the Test Them steps
 - Create folder in the root of the repository called `build` (if it doesn't already exist)
