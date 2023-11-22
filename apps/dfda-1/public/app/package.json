@@ -104,7 +104,7 @@
     "express-requests-logger": "^3.0.4",
     "express-session": "^1.15.6",
     "form-data": "3.0.0",
-    "github-api": "^0.10.7",
+    "github-api": "^3.4.0",
     "mathjs": "^11.5.1",
     "moment-timezone": "^0.5.40",
     "morgan": "^1.10.0",
