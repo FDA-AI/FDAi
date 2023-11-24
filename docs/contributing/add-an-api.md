@@ -19,7 +19,7 @@ A: my-api-name-api-spec
 A: true
 ```
 
-2. Paste the API spec file in the newly created `my-api-name-api-spec` file in the [libs](libs) folder.
+2. Paste the API spec file in the newly created `my-api-name-api-spec` file in the [libs](../../libs) folder.
 
 
 3.  Create an API client library from the spec file (replace `my-api-name` with the name of the API):
