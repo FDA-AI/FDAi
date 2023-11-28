@@ -1,10 +1,10 @@
 # Projects Directory
 
-Welcome to the Projects Directory of the Decentralized FDA (dFDA) Community Directory. This space is dedicated to housing specific project descriptions, requirements, and collaboration opportunities that are part of the dFDA initiative. Here, you can find detailed information about ongoing and upcoming projects, as well as how you can contribute to them.
+Welcome to the Projects Directory of the FDAi Community Directory. This space is dedicated to housing specific project descriptions, requirements, and collaboration opportunities that are part of the FDAi initiative. Here, you can find detailed information about ongoing and upcoming projects, as well as how you can contribute to them.
 
 ## Purpose of the Projects Directory
 
-The Projects Directory serves as a centralized location where all stakeholders can access and contribute to the various projects under the dFDA umbrella. It is designed to:
+The Projects Directory serves as a centralized location where all stakeholders can access and contribute to the various projects under the FDAi umbrella. It is designed to:
 
 - Provide clear and concise project descriptions.
 - Outline the requirements and goals for each project.
@@ -42,5 +42,5 @@ Regular updates to the Projects Directory are crucial to keep all stakeholders i
 
 If you have any questions or need assistance with navigating the Projects Directory, proposing a project, or making contributions, please refer to the `CONTRIBUTING.md` file or use the GitHub issue tracker to reach out for support.
 
-Thank you for your contributions and for being a part of the dFDA community. Together, we can drive innovation and progress in the decentralized health regulatory space.
+Thank you for your contributions and for being a part of the FDAi community. Together, we can drive innovation and progress in the decentralized health regulatory space.
 
