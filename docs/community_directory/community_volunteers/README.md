@@ -1,11 +1,11 @@
 # Community Volunteers Directory
 
-Welcome to the Community Volunteers section of the Decentralized FDA (dFDA) Community Directory! This space is dedicated to individual contributors and volunteers who are looking to get involved with the dFDA project. Your passion, skills, and dedication are invaluable to the success of our initiatives.
+Welcome to the Community Volunteers section of the FDAi Community Directory! This space is dedicated to individual contributors and volunteers who are looking to get involved with the FDAi project. Your passion, skills, and dedication are invaluable to the success of our initiatives.
 
 ## Purpose of This Folder
 
 The purpose of this folder is to provide a centralized location where community volunteers can:
-- Find information on how to contribute to the dFDA project.
+- Find information on how to contribute to the FDAi project.
 - Share their own expertise and resources.
 - Connect with other volunteers and project teams.
 
@@ -13,7 +13,7 @@ The purpose of this folder is to provide a centralized location where community 
 
 If you're interested in contributing as a community volunteer, here's how you can get started:
 
-1. Read the main `README.md` file in the root directory to understand the overall structure and goals of the dFDA project.
+1. Read the main `README.md` file in the root directory to understand the overall structure and goals of the FDAi project.
 2. Check out the `CONTRIBUTING.md` file for detailed instructions on how to make contributions.
 3. Explore the subfolders and `README.md` files of other partner groups to see where your skills and interests align.
 
@@ -26,14 +26,14 @@ To add or modify content in this directory:
 3. Add your Markdown page or modify existing content within this folder.
 4. Submit a pull request with a clear description of your changes or additions.
 
-Please ensure that your contributions are clear, concise, and relevant to the dFDA project. For any substantial changes or new proposals, consider opening an issue first to discuss your ideas with the community.
+Please ensure that your contributions are clear, concise, and relevant to the FDAi project. For any substantial changes or new proposals, consider opening an issue first to discuss your ideas with the community.
 
 ## Markdown Pages
 
 We encourage each volunteer to create a Markdown page in this folder with the following information:
 
 - A brief introduction of yourself and your professional background.
-- Your role and interest in the dFDA project.
+- Your role and interest in the FDAi project.
 - How you wish to contribute and areas of expertise you can offer.
 - Contact information or preferred method of communication.
 

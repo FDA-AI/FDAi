@@ -1,17 +1,16 @@
 ---
-title: 💊 The Decentralized FDA 🌎
-description: A set of tools and global federation to help regulatory agencies quantify the effects of millions of factors like foods, drugs, and supplements affect human health and happiness.
+title: 💊 FDAi 🌎
+description: A set of tools and framework to create autonomous agents to help regulatory agencies quantify the effects of millions of factors like foods, drugs, and supplements affect human health and happiness.
 ---
-# 🌎The Decentralized FDA💊
+# 🤖 FDAi 💊
 
-This [monorepo](docs/contributing/repo-structure.md) contains a set of [FAIR](docs/contributing/fair.md) [libraries](libs) and [apps](apps) to help people and organizations quantify the positive and negative effects of every food, supplement, drug, and treatment on every measurable aspect of human health and happiness.
+This [monorepo](docs/contributing/repo-structure.md) contains a set of [FAIR](docs/contributing/fair.md) [libraries](libs) and [apps](apps) and autonomous agents to help people and organizations quantify the positive and negative effects of every food, supplement, drug, and treatment on every measurable aspect of human health and happiness.
 
-![dfda-stack-diagram-white-background.svg](docs/images/dfda-stack-diagram-white-background.svg)
-
+![fdai-framework-diagram-white-bg.png](../../Users/User/OneDrive/Decentralized%20Cures/fdai-framework-diagram-white-bg.png)
 
 # 😕 Why are we doing this?
 
-The current system of clinical research, diagnosis, and treatment is  failing the billions of people are suffering from chronic diseases.
+The current system of clinical research, diagnosis, and treatment is failing the billions of people are suffering from chronic diseases.
 
 [👉 Problems we're trying to fix...](docs/stuff-that-sucks.md)
 
@@ -26,7 +25,7 @@ By harnessing global collective intelligence and oceans of real-world data we ho
 
 So in the 90's, Microsoft spent billions hiring thousands of PhDs to create Encarta, the greatest encyclopedia in history.  A decade later, when Wikipedia was created, the general consensus was that it was going to be a dumpster fire of lies.  Surprisingly, Wikipedia ended up generating information 50X faster than Encarta and was about 1000X cheaper without any loss in accuracy.  This is the magical power of crowdsourcing and open collaboration.
 
-Our crazy theory is that we can accomplish the same great feat in the realm of clinical research.  By crowdsourcing real-world data and observations from patients, clinicians, and researchers, we hope the Decentralized FDA could also generate clinical discoveries 50X faster and 1000X cheaper than current systems.
+Our crazy theory is that we can accomplish the same great feat in the realm of clinical research.  By crowdsourcing real-world data and observations from patients, clinicians, and researchers, we hope to generate clinical discoveries 50X faster and 1000X cheaper than current systems.
 
 ## The Potential of Real-World Evidence-Based Studies
 
@@ -43,15 +42,15 @@ Our crazy theory is that we can accomplish the same great feat in the realm of c
 
 </details>
 
-# 🖥️ dFDA Framework Components
+# 🖥️ FDAi Framework Components
 
-This is a very high-level overview of the architecture. The 3 primary primitive components of the dFDA framework are:
+This is a very high-level overview of the architecture. The 3 primary primitive components of the FDAi framework are:
 
 1. [Data Silo API Gateway Nodes](#1-data-silo-api-gateway-nodes) that facilitate data export from data silos
 2. [PersonalFDA Nodes](#2-personalfda-nodes) that import, store, and analyze your data to identify how various factors affect your health
 3. [Clinipedia](#3-clinipediathe-wikipedia-of-clinical-research) that contains the aggregate of all available data on the effects of every food, drug, supplement, and medical intervention on human health.
 
-The core characteristics that define the dFDA are:
+The core characteristics that define the FDAi are:
 - **Modularity** - a set of modular libraries and tools that can be reused in any project
 - **Protocols** - an abstract framework of core primitive components rather than a specific implementation
 - **Interoperability** - a directory of existing open-source projects that can be used to fulfill the requirements of each primitive or component
@@ -63,13 +62,13 @@ The core characteristics that define the dFDA are:
 
 ![dfda-gateway-api-node-silo.png](docs/components/data-silo-gateway-api-nodes/dfda-gateway-api-node-silo.png)
 
-[dFDA Gateway API Nodes](docs/components/data-silo-gateway-api-nodes) should make it easy for data silos, such as hospitals and digital health apps, to let people export and save their data locally in their [PersonalFDA Nodes](#2-personalfda-nodes).
+[FDAi Gateway API Nodes](docs/components/data-silo-gateway-api-nodes) should make it easy for data silos, such as hospitals and digital health apps, to let people export and save their data locally in their [PersonalFDA Nodes](#2-personalfda-nodes).
 
 **👉 [Learn More About Gateway APIs](docs/components/data-silo-gateway-api-nodes/data-silo-api-gateways.md)**
 
 ## 2. PersonalFDA Nodes
 
-[PersonalFDA Nodes](docs/components/personal-fda-nodes/personal-fda-nodes.md) are applications that can run on your phone or computer. They import, store, and analyze your data to identify how various factors affect your health.  They can also be used to share anonymous analytical results with the [Clinipedia dFDA Wiki](#3-clinipediathe-wikipedia-of-clinical-research) in a secure and privacy-preserving manner.
+[PersonalFDA Nodes](docs/components/personal-fda-nodes/personal-fda-nodes.md) are applications that can run on your phone or computer. They import, store, and analyze your data to identify how various factors affect your health.  They can also be used to share anonymous analytical results with the [Clinipedia FDAi Wiki](#3-clinipediathe-wikipedia-of-clinical-research) in a secure and privacy-preserving manner.
 
 [PersonalFDA Nodes](docs/components/personal-fda-nodes/personal-fda-nodes.md) are composed of two components, a [Digital Twin Safe](docs/components/digital-twin-safe/digital-twin-safe.md) and a [personal AI agent](docs/components/optimiton-ai-agent/optomitron-ai-agent.md) applies causal inference algorithms to estimate how various factors affect your health.
 
@@ -110,7 +109,7 @@ A key component of Clinipedia are [**Outcome Labels**](docs/components/outcome-l
 
 A collective intelligence coordination platform is needed for facilitating cooperation, communication, and collaborative actions among contributors.
 
-**[👉 Learn More or Contribute to the dFDA Collaboration Framework](docs/components/human-ai-collective-intelligence-platform/dfda-collaboration-framework.md)**
+**[👉 Learn More or Contribute to the FDAi Collaboration Framework](docs/components/human-ai-collective-intelligence-platform/dfda-collaboration-framework.md)**
 
 # Roadmap
 
@@ -129,12 +128,12 @@ done by modularizing the codebase into libraries and plugins that can be shared 
 
 Apps in this monorepo:
 
-- [dFDA-1](apps/dfda-1) - The first version of the decentralized FDA. It is a web app that allows users to track their health data and analyze it to identify the most effective ways to maximize health and happiness.
-- Yours? - If you'd like to create the next version of the dFDA, expand its functionality, or get help with your app, feel free to add it to the [apps](apps) folder and submit a pull request.
+- [FDAi-1](apps/dfda-1) - The first version of the decentralized FDA. It is a web app that allows users to track their health data and analyze it to identify the most effective ways to maximize health and happiness.
+- Yours? - If you'd like to create the next version of the FDAi, expand its functionality, or get help with your app, feel free to add it to the [apps](apps) folder and submit a pull request.
 
-# dFDA v1 Prototype
+# FDAi v1 Prototype
 
-We've got a monolithic centralized implementation of the dFDA at [apps/dfda-1](apps/dfda-1) that we're wanting to modularize and decentralize into a set of [FAIR](docs/contributing/fair.md) [libraries](libs) and plugins that can be shared with other apps.
+We've got a monolithic centralized implementation of the FDAi at [apps/dfda-1](apps/dfda-1) that we're wanting to modularize and decentralize into a set of [FAIR](docs/contributing/fair.md) [libraries](libs) and plugins that can be shared with other apps.
 
 Currently, the main apps are the [Demo Data Collection, Import, and Analysis App](https://app.crowdsourcingcures.org) and the
 [Journal of Citizen Science](https://studies.crowdsourcingcures.org).
@@ -155,7 +154,7 @@ Currently, the main apps are the [Demo Data Collection, Import, and Analysis App
 
 <p align="center">
 
-<img src="apps/dfda-1/public/app/public/img/screenshots/record-inbox-import-connectors-analyze-study.png" width="800" alt="dFDA screenshots">
+<img src="apps/dfda-1/public/app/public/img/screenshots/record-inbox-import-connectors-analyze-study.png" width="800" alt="FDAi screenshots">
 &nbsp
 </p>
 <p align="center">
@@ -226,4 +225,4 @@ It's our goal to avoid any duplication of effort. So please include existing pro
 
 # 🛟 Support
 
-If you have any questions or need help, please [create an issue](https://github.com/decentralized-fda/decentralized-fda/issues/new) instead of emailing us so that others can benefit from the discussion.
+If you have any questions or need help, please [create an issue](https://github.com/FDA-AI/FDAi/issues/new) instead of emailing us so that others can benefit from the discussion.

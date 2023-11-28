@@ -12,4 +12,4 @@ For development, you need to copy manifest-chrome.json into manifest.json and th
 
 # 🛟 Support
 
-If you have any questions or need help, please [create an issue](https://github.com/decentralized-fda/decentralized-fda/issues/new) instead of emailing us so that others can benefit from the discussion.
+If you have any questions or need help, please [create an issue](https://github.com/FDA-AI/FDAi/issues/new) instead of emailing us so that others can benefit from the discussion.

@@ -1,4 +1,4 @@
-## Positions at the dFDA
+## Positions at the FDAi
 
 We're currently looking to fulfill the following roles:
 

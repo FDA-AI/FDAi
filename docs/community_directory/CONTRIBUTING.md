@@ -1,11 +1,11 @@
-# Contributing to the Decentralized FDA (dFDA) Community Directory
+# Contributing to the FDAi Community Directory
 
-Thank you for your interest in contributing to the Decentralized FDA (dFDA) Community Directory. This document provides guidelines for contributing to the dFDA project. By participating in this project, you agree to abide by its terms.
+Thank you for your interest in contributing to the FDAi Community Directory. This document provides guidelines for contributing to the FDAi project. By participating in this project, you agree to abide by its terms.
 
 ## How to Contribute
 
 ### Getting Started
-1. Familiarize yourself with the dFDA Community Directory by reading the main `README.md`.
+1. Familiarize yourself with the FDAi Community Directory by reading the main `README.md`.
 2. Decide where your contribution fits in the directory structure.
 
 ### Making Contributions
@@ -43,7 +43,7 @@ Thank you for your interest in contributing to the Decentralized FDA (dFDA) Comm
 - Regularly check your pull requests and issues for any feedback or required changes.
 
 ## Contact Information
-- For general inquiries or assistance, please reach out to the dFDA project maintainers at [contact@email.com].
+- For general inquiries or assistance, please reach out to the FDAi project maintainers at [contact@email.com].
 - For specific collaboration requests, use the contact information provided on the partner's Markdown page in the respective folder.
 
 ## Additional Guidelines
@@ -51,5 +51,5 @@ Thank you for your interest in contributing to the Decentralized FDA (dFDA) Comm
 - Do not include any proprietary, confidential, or sensitive information in your contributions.
 - Encourage community engagement by participating in discussions and sharing your expertise.
 
-By following these guidelines, you help to maintain the quality and integrity of the dFDA Community Directory. We look forward to your valuable contributions and thank you for helping to advance the goals of the Decentralized FDA.
+By following these guidelines, you help to maintain the quality and integrity of the FDAi Community Directory. We look forward to your valuable contributions and thank you for helping to advance the goals of the FDAi.
 

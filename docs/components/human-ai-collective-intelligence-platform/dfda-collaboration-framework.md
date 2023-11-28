@@ -1,12 +1,12 @@
 ---
-title: dFDA Collaboration and Collective Intelligence Framework
-description: A framework for coordinating the efforts of the stakeholders in the dFDA ecosystem.
+title: FDAi Collaboration and Collective Intelligence Framework
+description: A framework for coordinating the efforts of the stakeholders in the FDAi ecosystem.
 tags: [dfda, collaborationism, collective intelligence, coordination]
 ---
 
 > **Note:** This document is a work in progress. We welcome contributions and encourage the inclusion of existing projects that align with this framework's objectives.  Please [contact us](mailto:grants@crowdsourcingcures.org) if you'd like to implement any aspect of this framework.
 
-We are creating the dFDA Collaboration and Collective Intelligence Framework to serve as a central platform for facilitating cooperation, communication, and collaborative actions among stakeholders in the health sector. Its primary objective is to harness collective capabilities towards a shared vision of accelerated clinical discovery and improved health outcomes.
+We are creating the FDAi Collaboration and Collective Intelligence Framework to serve as a central platform for facilitating cooperation, communication, and collaborative actions among stakeholders in the health sector. Its primary objective is to harness collective capabilities towards a shared vision of accelerated clinical discovery and improved health outcomes.
 
 **Desired Features of the Platform:**
 
@@ -21,7 +21,7 @@ We are creating the dFDA Collaboration and Collective Intelligence Framework to 
 
 **Implementation Approach:**
 
-To establish the dFDA platform, we propose leveraging existing open-source tools to ensure cost-efficiency, rapid deployment, and an environment conducive to collaboration. Key steps include:
+To establish the FDAi platform, we propose leveraging existing open-source tools to ensure cost-efficiency, rapid deployment, and an environment conducive to collaboration. Key steps include:
 
 1. **Tool Selection:** Identify open-source tools for communication, collaboration, data sharing, and decentralized governance.
 2. **Infrastructure Setup:** Use platforms like Slack, GitHub, and Trello for core communication and project management.
@@ -47,5 +47,5 @@ To address the competitive nature inherent in human and organizational behavior,
 8. **Cultural Change:** Encourage a shift from competition to collaboration through education and storytelling.
 9. **Collaborative Metrics:** Focus on evaluation criteria that highlight collective efforts and impact.
 
-By integrating these elements, the dFDA initiative aims to foster a collaborative ecosystem that accelerates innovation in health, aligning with the mission of maximizing human lifespan and minimizing net suffering.
+By integrating these elements, the FDAi initiative aims to foster a collaborative ecosystem that accelerates innovation in health, aligning with the mission of maximizing human lifespan and minimizing net suffering.
 

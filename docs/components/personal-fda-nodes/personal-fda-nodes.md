@@ -1,6 +1,6 @@
 ## 2. PersonalFDA Nodes
 
-PersonalFDA Nodes are applications that can run on your phone or computer. They import, store, and analyze your data to identify how various factors affect your health.  They can also be used to share anonymous analytical results with the [Clinipedia dFDA Wiki](../clinipedia/clinipedia.md) in a secure and privacy-preserving manner.
+PersonalFDA Nodes are applications that can run on your phone or computer. They import, store, and analyze your data to identify how various factors affect your health.  They can also be used to share anonymous analytical results with the [Clinipedia FDAi Wiki](../clinipedia/clinipedia.md) in a secure and privacy-preserving manner.
 
 PersonalFDA Nodes are composed of two components, a Digital Twin Safe and an AI agent called Optimitron (or some better name) that uses causal inference to estimate how various factors affect your health.
 

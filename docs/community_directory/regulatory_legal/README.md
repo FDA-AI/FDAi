@@ -1,21 +1,21 @@
 # Regulatory and Legal Partners Directory
 
-Welcome to the Regulatory and Legal Partners section of the Decentralized FDA (dFDA) Community Directory. This folder is dedicated to regulatory experts, legal advisors, and anyone involved in the legal and regulatory aspects of healthcare and pharmaceuticals. Here, we share insights, discuss regulatory frameworks, and collaborate on ensuring that the dFDA operates within legal boundaries while fostering innovation.
+Welcome to the Regulatory and Legal Partners section of the FDAi Community Directory. This folder is dedicated to regulatory experts, legal advisors, and anyone involved in the legal and regulatory aspects of healthcare and pharmaceuticals. Here, we share insights, discuss regulatory frameworks, and collaborate on ensuring that the FDAi operates within legal boundaries while fostering innovation.
 
 ## Purpose of this Folder
 
 The purpose of this folder is to:
 - Serve as a central hub for regulatory and legal partners to find and share information.
 - Provide a space for discussion on regulatory challenges and solutions in the context of decentralized health technologies.
-- Facilitate collaboration on the development of legal frameworks that support the dFDA's mission.
+- Facilitate collaboration on the development of legal frameworks that support the FDAi's mission.
 
 ## How to Get Involved
 
-If you are a regulatory expert or legal advisor and wish to contribute to the dFDA, please follow these steps:
+If you are a regulatory expert or legal advisor and wish to contribute to the FDAi, please follow these steps:
 
-1. Read the main `README.md` file in the root directory to understand the overall structure and goals of the dFDA Community Directory.
+1. Read the main `README.md` file in the root directory to understand the overall structure and goals of the FDAi Community Directory.
 2. Familiarize yourself with the `CONTRIBUTING.md` guidelines to understand how to make contributions to the project.
-3. Create a Markdown page within this folder with an introduction of yourself or your organization, detailing your role, interests, and how you wish to contribute to the dFDA.
+3. Create a Markdown page within this folder with an introduction of yourself or your organization, detailing your role, interests, and how you wish to contribute to the FDAi.
 4. Use pull requests to submit your Markdown page or any other contributions to this folder for review.
 
 ## Contents of this Folder
