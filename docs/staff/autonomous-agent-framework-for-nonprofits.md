@@ -1,6 +1,8 @@
 # Exponential Public Goods
 
-An Autonomous Agent Framework for Nonprofits
+_An Autonomous Agent Framework for Nonprofits_
+
+![collabomatic-autonomous-nonprofit-ai-agent-diagram.svg](../images/collabomatic-autonomous-nonprofit-ai-agent-diagram.svg)
 
 ## Overview
 
@@ -22,11 +24,25 @@ If the exponential trend continues, the parasite could kill its host by extracti
 
 So the only thing private citizens can do is try to create more value than the cybercriminals can extract. We need to ensure that pro-social entities have the same capabilities to counter these threats and drive positive change for humanity.
 
-## Agents for Good
+## Maximizing Leverage for Good
 
-To design an autonomous agent framework for nonprofits to accelerate their missions, we can leverage the principles outlined in the book "Forces for Good" by Leslie Crutchfield and Heather McLeod Grant. 
+![leverage-archimedes-comic.png](../images/leverage-archimedes-comic.png)
+
+In a word, what separates effective non-profits from ineffective ones is leverage.
+
+![nonprofit-leverage.png](../images/nonprofit-leverage.png)
+
+The highest leverage thing we can do at this point is to make it as easy as possible for pro-social entities to operationalize autonomous agents.
+
+## Framework Design
+
+To design an autonomous agent framework for nonprofits to accelerate their missions, we can leverage the principles outlined in the book [_Forces for Good_](https://www.google.com/books/edition/Forces_for_Good/OvlH81q2cBQC?hl=en&gbpv=1&printsec=frontcover) by Leslie Crutchfield and Heather McLeod Grant. 
 
 The framework should enable nonprofits to effectively work with government, tap into the power of free markets, nurture nonprofit networks, build movements of evangelists, share leadership internally, and adapt quickly to changing conditions.
+
+![forces-for-good-organizing-framework.png](../images/forces-for-good-organizing-framework.png)
+[Source: Forces for Good
+The Six Practices of High-Impact Nonprofits](https://www.google.com/books/edition/Forces_for_Good/OvlH81q2cBQC?hl=en&gbpv=1&printsec=frontcover)
 
 # Types of Agents
 
@@ -43,6 +59,8 @@ The autonomous agent framework should facilitate the following functionalities:
 5. **Adaptation and Leadership Agent**: The framework should support adaptive decision-making and leadership sharing within the nonprofit, enabling quick responses to changing conditions and effective internal collaboration.
 
 ## FDAi-Specific Autonomous Agent Framework
+
+![collabomatic-ai-diagram.svg](../images/collabomatic-ai-diagram.svg)
 
 Applying these principles specifically to the FDAi framework would entail the following elements and functions:
 
@@ -82,6 +100,5 @@ By integrating these principles into an autonomous agent framework, nonprofits c
 2. https://ssir.org/articles/entry/local_forces_for_good
 3. https://scott.london/reviews/crutchfield.html
 4. https://www.frontiersin.org/articles/10.3389/frobt.2021.719496
-5. https://www.amazon.com/Forces-Good-Practices-High-Impact-Nonprofits/dp/0470580348
 
 
