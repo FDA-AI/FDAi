@@ -63,7 +63,7 @@ The autonomous agent framework should facilitate the following functionalities:
 
 ## FDAi-Specific Autonomous Agent Framework
 
-![collabomatic-ai-diagram.svg](images/collabomatic-autonomous-nonprofit-ai-agent-diagram.png)
+![collabomatic-ai-diagram.svg](images/collabomatic-autonomous-nonprofit-ai-agent-diagram-black-bg.svg)
 
 Applying these principles specifically to the FDAi framework would entail the following elements and functions:
 
@@ -119,7 +119,7 @@ There are other open-source autonomous agent frameworks worth mentioning. For in
 
 ### Adala
 
-[Adala](https://www.mlq.ai/open-source-ai-agents/), launched by HumanSignal, is an open-source framework for autonomous data labeling agents. Adala agents are designed to learn and improve at data tasks like classification and labeling when provided with ground truth datasets.
+[Adala](https://www.mlq.ai/open-source-ai-agents/), launched by HumanSignal, is an open-source framework for autonomous data labeling agents. Adala's agents are designed to learn and improve at data tasks like classification and labeling when provided with ground truth datasets.
 
 # Related
 
