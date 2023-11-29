@@ -4,7 +4,11 @@ description: A set of tools and framework to create autonomous agents to help re
 ---
 # 🤖 FDAi 💊
 
-This [monorepo](docs/contributing/repo-structure.md) contains a set of [FAIR](docs/contributing/fair.md) [libraries](libs) and [apps](apps) and autonomous agents to help people and organizations quantify the positive and negative effects of every food, supplement, drug, and treatment on every measurable aspect of human health and happiness.
+This [monorepo](docs/contributing/repo-structure.md) contains a set of:
+- [FAIR](docs/contributing/fair.md) [libraries](libs) 
+- [apps](apps) 
+- autonomous agents 
+to help people and organizations quantify the positive and negative effects of every food, supplement, drug, and treatment on every measurable aspect of human health and happiness.
 
 ![fdai-framework-diagram.png](docs/images/fdai-framework-diagram.png)
 
@@ -16,8 +20,9 @@ The current system of clinical research, diagnosis, and treatment is failing the
 
 # 🧪 Our Hypothesis
 
-By harnessing global collective intelligence and oceans of real-world data we hope to emulate Wikipedia's speed of knowledge generation. 
+By harnessing global collective intelligence and oceans of real-world data, we hope to emulate Wikipedia's speed of knowledge generation. 
 
+<!--suppress CheckImageSize, HtmlDeprecatedAttribute -->
 <details>
   <summary>👉 How to generate discoveries 50X faster and 1000X cheaper than current systems...</summary>
 
@@ -44,7 +49,7 @@ Our crazy theory is that we can accomplish the same great feat in the realm of c
 
 # 🖥️ FDAi Framework Components
 
-This is a very high-level overview of the architecture. The 3 primary primitive components of the FDAi framework are:
+This is a very high-level overview of the architecture. The three primary primitive components of the FDAi framework are:
 
 1. [Data Silo API Gateway Nodes](#1-data-silo-api-gateway-nodes) that facilitate data export from data silos
 2. [PersonalFDA Nodes](#2-personalfda-nodes) that import, store, and analyze your data to identify how various factors affect your health
@@ -99,7 +104,7 @@ The [Clinipedia wiki](docs/components/clinipedia/clinipedia.md) should be a glob
 
 ### 3.1 Outcome Labels
 
-A key component of Clinipedia are [**Outcome Labels**](docs/components/outcome-labels/outcome-labels.md) that list the degree to which the product is likely to improve or worsen specific health outcomes or symptoms.
+A key component of Clinipedia is [**Outcome Labels**](docs/components/outcome-labels/outcome-labels.md) that list the degree to which the product is likely to improve or worsen specific health outcomes or symptoms.
 
 ![outcome-labels.png](docs/components/outcome-labels/outcome-labels.png)
 
@@ -123,7 +128,8 @@ We'd love your help and input in determining an optimal roadmap for this project
 Our goal is to develop [FAIR (Findable, Accessible, Interoperable, and Reusable)](docs/contributing/fair.md) data and analytical tools that can be used by any regulatory agencies, businesses, non-profits or individuals to quantify the effects of every food, drug, supplement, and treatment on every measurable aspect of human health and happiness.
 
 The [Nx Monorepo](docs/contributing/repo-structure.md) is to achieve maximum interoperability and minimum duplication of effort between the various 
-projects in order to maximize the speed of development and minimize costs.  This can be 
+projects to maximize the speed of development and minimize costs.
+This can be 
 done by modularizing the codebase into libraries and plugins that can be shared between the various projects.
 
 Apps in this monorepo:
