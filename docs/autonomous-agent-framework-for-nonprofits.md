@@ -63,7 +63,7 @@ The autonomous agent framework should facilitate the following functionalities:
 
 ## FDAi-Specific Autonomous Agent Framework
 
-![collabomatic-ai-diagram.svg](images/collabomatic-ai-diagram.svg)
+![collabomatic-ai-diagram.svg](images/collabomatic-autonomous-nonprofit-ai-agent-diagram.png)
 
 Applying these principles specifically to the FDAi framework would entail the following elements and functions:
 
