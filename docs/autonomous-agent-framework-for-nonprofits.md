@@ -2,7 +2,7 @@
 
 _An Autonomous Agent Framework for Nonprofits_
 
-![collabomatic-autonomous-nonprofit-ai-agent-diagram.svg](../images/collabomatic-autonomous-nonprofit-ai-agent-diagram.svg)
+![chat-dev-nonprofit-autonomous-agents.png](images/chat-dev-nonprofit-autonomous-agents.png)
 
 ## Overview
 
@@ -20,17 +20,17 @@ Anti-social entities like cybercriminal organizations are already using AI to au
 
 If the exponential trend continues, the parasite could kill its host by extracting more value than the host can produce. Governments currently apprehend less than 1% of cybercriminals, so it's unlikely that they will be able to stop this trend. 
 
-![](../images/cost-of-cybercrime-projections-beige.jpg)
+![](images/cost-of-cybercrime-projections-beige.jpg)
 
 So the only thing private citizens can do is try to create more value than the cybercriminals can extract. We need to ensure that pro-social entities have the same capabilities to counter these threats and drive positive change for humanity.
 
 ## Maximizing Leverage for Good
 
-![leverage-archimedes-comic.png](../images/leverage-archimedes-comic.png)
+![leverage-archimedes-comic.png](images/leverage-archimedes-comic.png)
 
 In a word, what separates effective non-profits from ineffective ones is leverage.
 
-![nonprofit-leverage.png](../images/nonprofit-leverage.png)
+![nonprofit-leverage.png](images/nonprofit-leverage.png)
 
 The highest leverage thing we can do at this point is to make it as easy as possible for pro-social entities to operationalize autonomous agents.
 
@@ -40,11 +40,14 @@ To design an autonomous agent framework for nonprofits to accelerate their missi
 
 The framework should enable nonprofits to effectively work with government, tap into the power of free markets, nurture nonprofit networks, build movements of evangelists, share leadership internally, and adapt quickly to changing conditions.
 
-![forces-for-good-organizing-framework.png](../images/forces-for-good-organizing-framework.png)
+![forces-for-good-organizing-framework.png](images/forces-for-good-organizing-framework.png)
 [Source: Forces for Good
 The Six Practices of High-Impact Nonprofits](https://www.google.com/books/edition/Forces_for_Good/OvlH81q2cBQC?hl=en&gbpv=1&printsec=frontcover)
 
 # Types of Agents
+
+![chat-dev-nonprofit-autonomous-agents.png](images/chat-dev-nonprofit-autonomous-agents.png)
+[ChatDev](https://github.com/OpenBMB/ChatDev)
 
 The autonomous agent framework should facilitate the following functionalities:
 
@@ -60,7 +63,7 @@ The autonomous agent framework should facilitate the following functionalities:
 
 ## FDAi-Specific Autonomous Agent Framework
 
-![collabomatic-ai-diagram.svg](../images/collabomatic-ai-diagram.svg)
+![collabomatic-ai-diagram.svg](images/collabomatic-ai-diagram.svg)
 
 Applying these principles specifically to the FDAi framework would entail the following elements and functions:
 
@@ -72,7 +75,7 @@ Applying these principles specifically to the FDAi framework would entail the fo
   - **Market Integration Module:** Develops partnerships with businesses (like pharmacies, online grocers, healthcare providers) for data exchange and service provision. It should have capabilities to analyze market trends and suggest potential partnerships or business models, like software development or data analysis services.
   - **Business Collaboration Toolkit:** Facilitates collaboration with businesses, aligning nonprofit goals with corporate social responsibility initiatives.
 
-3. **Inspire Evangelists:**
+1. **Inspire Evangelists:**
   - **Community Engagement Engine:** This part of the framework manages volunteer databases, rewarding citizen scientists and researchers. It uses gamification strategies to engage users, tracking and rewarding contributions.
   - **Evangelist Development Program:** Develops training modules and engagement strategies to convert supporters into active evangelists.
 
@@ -94,11 +97,64 @@ The framework should be designed to be user-friendly, customizable, and scalable
 
 By integrating these principles into an autonomous agent framework, nonprofits can enhance their capacity to drive positive change and maximize their impact.
 
+# Possible Foundational Frameworks
+
+Open-source autonomous agent frameworks are revolutionizing the way we interact with artificial intelligence (AI). These frameworks, such as ChatDev, AutoGen, and others, provide a platform for creating AI agents that can perform tasks autonomously, interact with environments, humans, and other agents using natural language interfaces.
+
+### ChatDev
+
+[ChatDev](https://www.hindustantimes.com/technology/ai-chatbot-creates-software-in-just-seven-minutes-with-a-cost-of-less-than-1-study-101694534558798.html) is an open-source conversational platform developed by OpenBMB. It emulates an entire software development team, with agents forming a multi-agent organizational structure. These agents collaborate by participating in specialized functional seminars, including tasks such as designing, coding, testing, and documenting. The main goal of ChatDev is to offer an easy-to-use, highly customizable, and extendable framework based on large language models (LLMs). It includes features like Git integration for version control, Human-Agent-Interaction mode for interactive participation in the design stage, and Art mode for generating images used in the software.
+
+### AutoGen
+
+[AutoGen](https://microsoft.github.io/autogen/docs/Use-Cases/agent_chat/), developed by Microsoft, facilitates multi-agent conversations for task completion. This framework allows developers to define multiple agents with specific roles in what is essentially an AI group chat. These agents can converse with one another to provide a solution and can even integrate human feedback. Developers can use AutoGen to build a full spectrum of conversational patterns regarding topics like conversation autonomy, the number of agents involved, and the topology of agent dialogues. AutoGen provides an enhanced inference API that can replace openai.Completion or openai.ChatCompletion.
+
+### Agents
+
+There are other open-source autonomous agent frameworks worth mentioning. For instance, [AGENTS](https://github.com/aiwaves-cn/agents) is an open-source library designed to support important features including planning, memory, tool usage, multi-agent communication, and fine-grained symbolic control. It is user-friendly and research-friendly, enabling non-specialists to build, customize, test, tune, and deploy state-of-the-art autonomous language agents without much coding.
+
+### SuperAGI
+
+[SuperAGI](https://superagi.com) is another open-source infrastructure for building components, tools, frameworks, and models to enable open-source AGI. It offers multiple open-source models via Python, Node.js, and HTTP APIs to power autonomous agents.
+
+### Adala
+
+[Adala](https://www.mlq.ai/open-source-ai-agents/), launched by HumanSignal, is an open-source framework for autonomous data labeling agents. Adala agents are designed to learn and improve at data tasks like classification and labeling when provided with ground truth datasets.
+
+# Related
+
+- [Tentative Roadmap](roadmap.md)
+- [Staff](staff.md)
+
 # References:
 
-1. https://www.mattprd.com/p/the-complete-beginners-guide-to-autonomous-agents
-2. https://ssir.org/articles/entry/local_forces_for_good
-3. https://scott.london/reviews/crutchfield.html
-4. https://www.frontiersin.org/articles/10.3389/frobt.2021.719496
-
-
+* [The Complete Beginner's Guide to Autonomous Agents](https://www.mattprd.com/p/the-complete-beginners-guide-to-autonomous-agents)
+* [Local Forces for Good](https://ssir.org/articles/entry/local_forces_for_good)
+* [Review of Crutchfield](https://scott.london/reviews/crutchfield.html)
+* [Multi-Agent Conversational Framework](https://www.frontiersin.org/articles/10.3389/frobt.2021.719496)
+* [OpenBMB ChatDev](https://github.com/OpenBMB/ChatDev)
+* [Botpress Blog: Open Source Chatbots](https://botpress.com/blog/open-source-chatbots)
+* [Microsoft Autogen Use Cases](https://microsoft.github.io/autogen/docs/Use-Cases/agent_chat/)
+* [Aiwaves Agents](https://github.com/aiwaves-cn/agents)
+* [SuperAGI Official Website](https://superagi.com)
+* [Hindustan Times Article: AI Chatbot Creates Software in Just Seven Minutes](https://www.hindustantimes.com/technology/ai-chatbot-creates-software-in-just-seven-minutes-with-a-cost-of-less-than-1-study-101694534558798.html)
+* [Microsoft Research Paper: Autogen - Enabling Next-Gen LLM Applications via Multi-Agent Conversation Framework](https://www.microsoft.com/en-us/research/publication/autogen-enabling-next-gen-llm-applications-via-multi-agent-conversation-framework/)
+* [arXiv Paper: Multi-Agent Conversation Framework](https://arxiv.org/abs/2309.07870)
+* [SuperAGI Community](https://superagi.com/community/)
+* [MLQ Open Source AI Agents](https://www.mlq.ai/open-source-ai-agents/)
+* [Microsoft Autogen Project](https://www.microsoft.com/en-us/research/project/autogen/)
+* [Hugging Face Paper](https://huggingface.co/papers/2309.07870)
+* [TransformerOptimus SuperAGI GitHub](https://github.com/TransformerOptimus/SuperAGI)
+* [Instant Art Article: Revolutionizing Software Development with AI-Driven Agents](https://instantart.io/chatdev-revolutionizing-software-development-with-ai-driven-agents/)
+* [Reddit Discussion: My Take on Microsoft's Autogen for Multi-Agent Chat](https://www.reddit.com/r/LocalLLaMA/comments/16yzo57/my_take_on_microsofts_autogen_for_multiagent_chat/)
+* [arXiv Paper PDF: Multi-Agent Conversation Framework](https://arxiv.org/pdf/2309.07870.pdf%EF%BC%8C.pdf)
+* [LinkedIn Article: Getting Started with SuperAGI Infrastructure for Building Useful Agents](https://www.linkedin.com/pulse/getting-started-superagi-infrastructure-building-useful-sikdar)
+* [LinkedIn Article: Open Source Contribution to AI](https://www.linkedin.com/posts/munsifraza_opensource-contribution-ai-activity-7109585315329114112-qA36)
+* [Microsoft Autogen GitHub](https://github.com/microsoft/autogen)
+* [Reddit Discussion: Agents - An Open-Source Framework for Autonomous Agents](https://www.reddit.com/r/LocalLLaMA/comments/16jl53m/agents_an_opensource_framework_for_autonomous/)
+* [Awesome-SuperAGI GitHub](https://github.com/TransformerOptimus/Awesome-SuperAGI)
+* [Verloop Blog: The Best Open-Source Chatbot Platforms](https://verloop.io/blog/the-best-open-source-chatbot-platforms/)
+* [YouTube Video: SuperAGI Introduction](https://youtube.com/watch?v=JFotv9PVW_4)
+* [YouTube Video: SuperAGI Demo](https://youtube.com/watch?v=1a3ky1Kx1xs)
+* [SourceForge SuperAGI](https://sourceforge.net/software/product/SuperAGI/)
+* [Airdroid AI Insights: Open-Source Chatbot](https://www.airdroid.com/ai-insights/open-source-chatbot/)

@@ -6,13 +6,13 @@ We're currently looking to fulfill the following roles:
 
 We are looking for a software engineer with to help develop autonomous AI agents that facilitate intelligent voluntary cooperation and reduce duplication of effort between government agencies, disease advocacy non-profits, and digital health companies.
 
-[Read more](cooperation-ai-engineer.md)
+[Read more](staff/cooperation-ai-engineer.md)
 
 ### 2. Autonomous Discovery Engineer
 
 We are seeking a software engineer to assist with the creation of autonomous AI agents to develop and enhance our set of FAIR (Findable, Accessible, Interoperable, and Reusable) libraries and tools to quantify the precise effects of foods, drugs, supplements, and medical interventions on human health.
 
-[Read more](discovery-ai-engineer.md)
+[Read more](staff/discovery-ai-engineer.md)
 
 ### Longer-Term Possible Human or AI Agent Positions
 

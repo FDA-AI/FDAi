@@ -1,6 +1,17 @@
-# Roadmap and Milestones
+# Tentative Roadmap and Milestones
 
-## Phase 1: Organizing a Virtual Collabathon
+> **Note:** This is a work in progress.   Edits and contributions appreciated!
+
+## High-Level Roadmap
+
+1. [**Collabathon**](#phase-1-organizing-a-virtual-collabathon) for talent quantification
+2. Hire Project Architect/Project Manager
+3. Architect Creates Bounties to Facilitate the creation of a General [Autonomous Non-Profit Framework](autonomous-agent-framework-for-nonprofits.md)
+4. Utilize and expand on [general Autonomous Non-Profit Framework](autonomous-agent-framework-for-nonprofits.md) to coordinate with partner organizations to realize each component of the [FDAi](../README.md)
+
+## Detailed Roadmap
+
+### Phase 1: Organizing a Virtual Collabathon
 
 1. **Planning the Collabathon**:
   - Set clear objectives and guidelines for the virtual event.
@@ -15,7 +26,7 @@
   - Conduct the event, focusing on tasks crucial for the initial phase of the project.
   - Monitor participation and contribution quality.
 
-## Phase 2: Recruitment and Initial Development
+### Phase 2: Recruitment and Initial Development
 
 4. **Hiring the AI Engineer/Project Architect**:
   - Select the most promising participant(s) from the Collabathon.
@@ -25,7 +36,7 @@
   - The AI Engineer/Project Architect outlines a basic roadmap for developing the FDAi autonomous agent.
   - Focus on achievable goals within the first year.
 
-## Phase 3: Bounty Creation and Outsourcing
+### Phase 3: Bounty Creation and Outsourcing
 
 6. **Creating Bounties for Specific Tasks**:
   - Identify key development tasks suitable for bounties.
@@ -35,7 +46,7 @@
   - Reach out to freelancers, small firms, or academic institutions for specific tasks.
   - Use online platforms for outsourcing to find talent within the budget.
 
-## Phase 4: Research and Partner Identification
+### Phase 4: Research and Partner Identification
 
 8. **Initial Development of Autonomous Agent**:
   - Begin the development of the agent with the primary function of researching and identifying potential partners.
@@ -45,7 +56,7 @@
   - Direct the autonomous agent to find nonprofits, companies, individuals, and government agencies relevant to the FDAi concept.
   - Prioritize low-cost, high-impact partnerships.
 
-## Phase 5: Communication and Coordination
+### Phase 5: Communication and Coordination
 
 10. **Establishing Communication Channels**:
   - Set up efficient, cost-effective communication methods with identified partners.
@@ -55,7 +66,7 @@
   - Begin discussions with potential partners about mutually beneficial collaborations.
   - Focus on establishing foundations for the FDAi framework.
 
-## Phase 6: Evaluation and Planning for Year 2
+### Phase 6: Evaluation and Planning for Year 2
 
 12. **Assessing Progress and Budget**:
   - Evaluate the achievements of the first year within the $200k budget.
@@ -197,3 +208,4 @@ Creating Clinipedia, a comprehensive and reliable online resource for clinical r
    - Evaluate the achievement of objectives and make adjustments as needed.
 
 By methodically addressing these milestones and tasks, Clinipedia can be developed into a valuable and trusted resource for clinical research and health information.
+

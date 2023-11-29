@@ -1,12 +1,13 @@
 # Budget
 
-## Phase 0: Collabathon and Talent Acquisition
+> **Note:** This is a work in progress.   Edits and contributions appreciated!
+
+## Phase 0: Virtual Global Collabathon
 - Collabathon Planning: $5,000 - $10,000
 - Hosting the Collabathon: $3,000 - $7,000
-- Framework Architect and Project Manager: $80,000 - $120,000
 
-## Phase 1: Research and Alignment
-- Alignment Workshops: $1,000 - $3,000
+## Phase 1: Hire Project Architect/Project Manager
+- Framework Architect and Project Manager: $80,000 - $120,000
 
 ## Phase 2: Autonomous Coordination Agent Planning
 - Development Plan for Autonomous Agent: Included in the project manager's salary
