@@ -6,7 +6,7 @@ description: A set of tools and framework to create autonomous agents to help re
 
 This [monorepo](docs/contributing/repo-structure.md) contains a set of [FAIR](docs/contributing/fair.md) [libraries](libs) and [apps](apps) and autonomous agents to help people and organizations quantify the positive and negative effects of every food, supplement, drug, and treatment on every measurable aspect of human health and happiness.
 
-![fdai-framework-diagram-white-bg.png](../../Users/User/OneDrive/Decentralized%20Cures/fdai-framework-diagram-white-bg.png)
+![fdai-framework-diagram.png](docs/images/fdai-framework-diagram.png)
 
 # 😕 Why are we doing this?
 
@@ -56,7 +56,7 @@ The core characteristics that define the FDAi are:
 - **Interoperability** - a directory of existing open-source projects that can be used to fulfill the requirements of each primitive or component
 - **Collective Intelligence** - a collaborative effort, so please feel free to [contribute or edit anything](docs/contributing.md)!
 
-![dfda-stack-diagram-white-background.svg](docs/images/dfda-stack-diagram-white-background.svg)
+![fdai-framework-diagram.png](docs/images/fdai-framework-diagram.png)
 
 ## 1. Data Silo API Gateway Nodes
 
