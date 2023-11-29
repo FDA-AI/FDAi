@@ -3,7 +3,7 @@
 ## Phase 0: Collabathon and Talent Acquisition
 - Collabathon Planning: $5,000 - $10,000
 - Hosting the Collabathon: $3,000 - $7,000
-- Talent Selection and Hiring (Annual Salary): $80,000 - $120,000
+- Framework Architect and Project Manager: $80,000 - $120,000
 
 ## Phase 1: Research and Alignment
 - Alignment Workshops: $1,000 - $3,000

@@ -10,6 +10,7 @@ Please copy this template into your respective folder (e.g., `/researchers`, `/h
 - **Type of Partner:** (e.g., Researcher, Healthcare Provider, Developer, Regulatory/Legal Expert, Patient Advocacy Group, Industry Stakeholder, Community Volunteer, Funding Source)
 - **Website:** (if applicable)
 - **Location:** (City, Country)
+- **GitHub URL:** (if applicable)
 
 ## About
 
@@ -34,6 +35,7 @@ Mention any specific areas within the FDAi project where you seek collaboration 
 - **Email:**
 - **Phone Number:** (optional)
 - **Preferred Method of Contact:** (e.g., Email, Phone, LinkedIn)
+- **GitHub URL:** (if applicable)
 
 ## How to Engage
 

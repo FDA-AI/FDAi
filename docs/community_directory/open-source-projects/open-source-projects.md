@@ -6,3 +6,8 @@ The goal of the FDAi is to coordinate between open-source projects to accelerate
 
 ## Projects
 
+Please add a file to this folder with your open-source project using [this template](../templates/open_source_project.md).
+
+
+
+
