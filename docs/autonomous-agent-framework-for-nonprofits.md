@@ -6,7 +6,7 @@ _An Autonomous Agent Framework to Maximize Public Goods_
 
 ## Overview
 
-Non-profits are constrained by limited cognitive bandwidth and resources to achieve their mission. The highest leverage thing we can do at this point is to make it as easy as possible for these organizations to operationalize autonomous agents.
+Non-profits are constrained by limited cognitive bandwidth and resources to achieve their mission. The highest leverage thing we can do at this point is to make it as easy as possible for these organizations to operationalize autonomous agents.  Positron is an autonomous agent framework designed to discover and play positive sum games for a net positive sum future.
 
 ## Current Limitations
 
