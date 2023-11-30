@@ -4,32 +4,32 @@
 
 ## High-Level Roadmap
 
-1. [**Collabathon**](#phase-1-organizing-a-virtual-collabathon) for talent quantification
+1. [**Collabathon**](collabathon.md) for idea generation and talent identification
 2. Hire Project Architect/Project Manager
 3. Architect Creates Bounties to Facilitate the creation of a General [Autonomous Non-Profit Framework](autonomous-agent-framework-for-nonprofits.md)
 4. Utilize and expand on [general Autonomous Non-Profit Framework](autonomous-agent-framework-for-nonprofits.md) to coordinate with partner organizations to realize each component of the [FDAi](../README.md)
 
 ## Detailed Roadmap
 
-### Phase 1: Organizing a Virtual Collabathon
+### Phase 1: Organizing a Virtual [Collabathon](collabathon.md)
 
-1. **Planning the Collabathon**:
+1. **Planning the [Collabathon](collabathon.md)**:
   - Set clear objectives and guidelines for the virtual event.
   - Determine the platform and tools needed for hosting the event.
   - Allocate a portion of the budget for event organization and promotion.
 
-2. **Promoting the Collabathon**:
+2. **Promoting the [Collabathon](collabathon.md)**:
   - Use social media, relevant online communities, and industry contacts to promote the event.
   - Emphasize the opportunity for participants to contribute to a groundbreaking project and the potential for future employment.
 
-3. **Hosting the Collabathon**:
+3. **Hosting the [Collabathon](collabathon.md)**:
   - Conduct the event, focusing on tasks crucial for the initial phase of the project.
   - Monitor participation and contribution quality.
 
 ### Phase 2: Recruitment and Initial Development
 
 4. **Hiring the AI Engineer/Project Architect**:
-  - Select the most promising participant(s) from the Collabathon.
+  - Select the most promising participant(s) from the [Collabathon](collabathon.md).
   - Allocate a significant portion of the budget for their salary and resources.
 
 5. **Initial Project Planning**:
@@ -42,7 +42,7 @@
   - Identify key development tasks suitable for bounties.
   - Allocate funds from the budget for these bounties.
 
-7. **Outsourcing Development**:
+7. **Identify Partner Projects to Fulfill Components of the FDAi**:
   - Reach out to freelancers, small firms, or academic institutions for specific tasks.
   - Use online platforms for outsourcing to find talent within the budget.
 
@@ -76,27 +76,9 @@
   - Based on year one's outcomes, plan for the next phase of the project.
   - Consider additional fundraising or grant applications to expand the scope.
 
-### Conclusion
-
-This streamlined approach maximizes the impact of your $200k budget, focusing on essential tasks like organizing a Collabathon, hiring a key team member, and initiating the development of an autonomous agent for research and partnership identification. This strategy prioritizes efficient use of resources, leveraging external contributions, and setting a solid foundation for expanding the project in subsequent years.
-
-## 1: Establish Foundation
-**Objective:** Lay down the groundwork for the FDAi, defining its scope, audience, and core values.
-
-**Tasks:**
-1. **Define Project Scope and Goals:** Clearly outline what the FDAi aims to achieve, its target audience, and its core mission.
-2. **Framing and Naming:** Develop a strong framing narrative and decide on a compelling name for the initiative.
-3. **Identify Target Audience:** List potential board members, disease advocacy organizations, and other key stakeholders.
-4. **Initial Stakeholder Engagement:** Begin outreach to potential board members and key stakeholders to introduce them to the project and gauge interest.
 
 
-## 2: Building the Board of Directors
-**Objective:** Assemble a diverse and influential Board of Directors to guide and support the initiative.
 
-**Tasks:**
-1. **Credibility and Reach:** Identify and onboard individuals with credibility, reach, and a passion for the project’s mission.
-2. **Funding Strategies:** Develop strategies for funding, exploring options like health-focused prizes, grants, and private investments.
-3. **Define Value Proposition for Board Members:** Clearly articulate what’s in it for them, outlining the impact and benefits of their involvement.
 
 ## 3: Collaborations and Partnerships
 **Objective:** Identify and engage with entities already working in similar domains to foster collaboration and knowledge sharing.
