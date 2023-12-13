@@ -1,12 +1,12 @@
-# Project Proposal Template for the Decentralized FDA (dFDA)
+# Project Proposal Template for the FDAi
 
-Thank you for your interest in proposing a project for the Decentralized FDA (dFDA) Community Directory. This template is designed to help you structure your proposal in a clear and consistent manner. Please fill out each section with as much detail as possible to ensure a thorough understanding of your project idea.
+Thank you for your interest in proposing a project for the FDAi Community Directory. This template is designed to help you structure your proposal in a clear and consistent manner. Please fill out each section with as much detail as possible to ensure a thorough understanding of your project idea.
 
 ## Project Title
 Provide a concise and descriptive title for your project.
 
 ## Abstract
-A brief summary of the project, including its purpose and expected impact on the dFDA initiative.
+A brief summary of the project, including its purpose and expected impact on the FDAi initiative.
 
 ## Background and Rationale
 Explain the context and reasons for proposing this project. Include any relevant data, research findings, or existing problems that this project aims to address.
@@ -30,7 +30,7 @@ Outline the budget and resources required for the project, including personnel, 
 List the members of the project team and their roles. If you are seeking additional collaborators, specify the roles and expertise needed.
 
 ## Expected Outcomes
-Detail the expected results and deliverables upon the project's completion. Explain how these outcomes will contribute to the dFDA initiative.
+Detail the expected results and deliverables upon the project's completion. Explain how these outcomes will contribute to the FDAi initiative.
 
 ## Evaluation and Success Criteria
 Describe how the success of the project will be measured. Include any metrics or benchmarks that will be used to evaluate the project's impact.
@@ -43,5 +43,5 @@ Provide contact details for the project proposer(s) and/or the main point of con
 
 ---
 
-Please ensure that your proposal aligns with the dFDA's mission and values. Once completed, submit your proposal using a pull request as outlined in the `CONTRIBUTING.md` document. We look forward to reviewing your innovative ideas for advancing the dFDA initiative.
+Please ensure that your proposal aligns with the FDAi's mission and values. Once completed, submit your proposal using a pull request as outlined in the `CONTRIBUTING.md` document. We look forward to reviewing your innovative ideas for advancing the FDAi initiative.
 
