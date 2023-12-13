@@ -141,7 +141,7 @@ class QMAccessToken extends DBModel {
 				return bin2hex($randomData);
 			}
 		}
-		if(function_exists('mcrypt_create_iv')){
+		if(function_exists('mcrypt_create_iv') && defined('MCRYPT_DEV_URANDOM')){
 			$randomData = mcrypt_create_iv(20, MCRYPT_DEV_URANDOM);
 			if($randomData !== false && strlen($randomData) === 20){
 				return bin2hex($randomData);

@@ -10,7 +10,7 @@ dateCreated: 2022-07-27T21:36:24.019Z
 
 # ➕ How to Create a Task
 
-1. Click the [Issues](https://github.com/decentralized-fda/decentralized-fda/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc) tab
+1. Click the [Issues](https://github.com/FDA-AI/FDAi/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc) tab
 2. Search to see if the task already exists
 3. If it already exists, click it and up-vote it as described 👉 [here](vote-on-tasks-and-sort-by-priority.md)
 4. If not, click the `New issue` button
