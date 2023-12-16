@@ -97,7 +97,7 @@
     "datatables.net-bs4": "^1.10.20",
     "datatables.net-buttons-bs4": "^1.6.1",
     "npm-run-all": "^4.1.5",
-    "octokit": "^2.0.11",
+    "octokit": "^3.1.2",
     "q": "^1.5.1",
     "underscore.string": "^3.3.6"
   }
