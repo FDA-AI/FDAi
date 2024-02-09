@@ -52,3 +52,7 @@ Thumbs.db
 .aider*
 /bfg-1.14.0.jar
 litellm_uuid.txt
+
+# Ignore Smart Connections folder
+.smart-connections
+.space
