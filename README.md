@@ -141,8 +141,8 @@ Apps in this monorepo:
 
 We've got a monolithic centralized implementation of the FDAi at [apps/dfda-1](apps/dfda-1) that we're wanting to modularize and decentralize into a set of [FAIR](docs/contributing/fair.md) [libraries](libs) and plugins that can be shared with other apps.
 
-Currently, the main apps are the [Demo Data Collection, Import, and Analysis App](https://app.crowdsourcingcures.org) and the
-[Journal of Citizen Science](https://studies.crowdsourcingcures.org).
+Currently, the main apps are the [Demo Data Collection, Import, and Analysis App](https://safe.dfda.earth) and the
+[Journal of Citizen Science](https://studies.dfda.earth).
 
 ### Features
 
