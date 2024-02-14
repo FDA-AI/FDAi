@@ -4,13 +4,23 @@ Note: This position is expected to last at least a year or until the FDAi is cap
 
 ### Summary
 
-We are seeking a software engineer to assist with the creation of FDAi AI agent to quantify the precise effects of foods, drugs, supplements, and medical interventions on human health.
+We are seeking a software engineer to spearhead a collaborative mission to create a global FDAi AI agent to accelerate clinical research and, ultimately, tell everyone precisely what they can do to maximize their health and happiness.
 
 **Type:** Full-Time
 
-### About FDAI Initiative:
+### About the FDAi:
 
-Our open-source mono-repository is home to a suite of libraries and applications dedicated to creating personal FDAi AI agents. This agent is designed to import health data for individuals worldwide, convert it to structured data, and apply causal inference analysis to longitudinal time series data. Our mission is to personalize healthcare by determining the positive and negative effects of all foods, drugs, and treatments, suggest optimal treatments, and connect individuals to clinical trials. Additionally, we aggregate data to conduct mega studies on the effects of various substances, publishing our findings to advance global health knowledge.
+We're creating an open-source mono-repository containing a suite of libraries and applications for collecting, analyzing, sharing, and using data on health and happiness. 
+
+Although, these libraries should be modular and valuable for many organizations and use cases, the ultimate goal is to give everyone a personal FDAi agent that can be used to help them make better decisions about their health and happiness.
+
+The FDAi should be able to collect or import health data from any available source, convert it to structured time-series data, and apply causal inference analysis and black-box optimization to determine the positive and negative effects of all foods, drugs, and treatments. 
+
+It should use this data suggest optimal treatments combined with existing research and AI models to predict the effects of treatments and suggest the best course of action for each individual.
+
+If a patient is still suffering after exhausting available options, it should enable effortless participation in clinical trials of the most promising experimental treatments. 
+
+Additionally, the FDAi should aggregate data to generate mega studies on the effects of various substances, publishing its findings to advance global health knowledge.
 
 ### Job Description:
 
@@ -35,6 +45,3 @@ As the Director of the FDAI Initiative, you will oversee the development and mai
 ### How to Apply:
 
 Please submit your resume, cover letter, and any relevant work samples or contributions to open-source projects to hello@fdai.earth. In your cover letter, explain why you are passionate about the FDAI Initiative and how your experience aligns with our mission and objectives.
-
-
-
