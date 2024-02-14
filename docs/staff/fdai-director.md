@@ -6,6 +6,8 @@ Note: This position is expected to last at least a year or until the FDAi is cap
 
 We are seeking a software engineer to spearhead a collaborative mission to create a global FDAi AI agent to accelerate clinical research and, ultimately, tell everyone precisely what they can do to maximize their health and happiness.
 
+The FDAi is not meant to be a standalone product.  It is meant to be a global public good that can be integrated with every health and wellness app, device, EHR, clinical trial, disease and pharmaceutical company, and regulatory agency.
+
 **Type:** Full-Time
 
 ### About the FDAi:
