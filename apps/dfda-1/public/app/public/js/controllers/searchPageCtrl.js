@@ -3,7 +3,7 @@ angular.module('starter').controller('SearchPageCtrl', ["$scope", "$q", "$state"
     function ($scope, $q, $state, $timeout, $rootScope, $ionicLoading, $ionicActionSheet, $stateParams, qmService) {
         var self = this;
         var dialogParams = {requestParams: {}};
-        //debugger
+
         if (!dialogParams.placeholder) {
             dialogParams.placeholder = "Enter a variable";
         }
@@ -150,7 +150,7 @@ angular.module('starter').controller('SearchPageCtrl', ["$scope", "$q", "$state"
                     return deferred.promise;
                 }
             }
-            self.notFoundText = "No variables found. Please try another wording or contact help@curedao.org.";
+            self.notFoundText = "No variables found. Please try another wording or contact mike@quantimo.do.";
             if (query === self.lastApiQuery && self.lastResults) {
                 logDebug("Why are we researching with the same query?", query);
                 deferred.resolve(self.lastResults);
@@ -173,7 +173,7 @@ angular.module('starter').controller('SearchPageCtrl', ["$scope", "$q", "$state"
             logDebug("getFromLocalStorageOrApi in querySearch with params: " +
                 JSON.stringify(dialogParams.requestParams), query);
             if (query && query.length) {
-                //debugger
+
             }
             // Debounce in the template doesn't seem to work so we wait 500ms before searching here
             clearTimeout(qmService.searchTimeout);

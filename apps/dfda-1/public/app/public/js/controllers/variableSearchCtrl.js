@@ -52,8 +52,10 @@ angular.module('starter').controller('VariableSearchCtrl',
                 })
             }
         });
+        $scope.$on('$ionicView.afterEnter', function(e){
+            $scope.helpCard = qmService.populateHelpCard($scope.helpCard, $stateParams)
+        });
 		function goToState(state, params){
-			debugger
 			params = JSON.parse(JSON.stringify(params));
 			params.measurement = null; // We send the measurement back after adding, so it might be stale
 			qmService.goToState(state, params);
@@ -148,7 +150,10 @@ angular.module('starter').controller('VariableSearchCtrl',
             }
         };
         $scope.goToStateFromVariableSearch = function(stateName, params){
-            if(!params){params = $stateParams;}
+            //if(!params){params = $stateParams;} // This prevents correct variable search params when going to add
+	        // a reminder from the variable search page
+			var state  = qmStates.find(function(s){return s.name === stateName});
+			if(!params){params = state.params;}
             goToState(stateName, params);
         };
         // when a query is searched in the search box

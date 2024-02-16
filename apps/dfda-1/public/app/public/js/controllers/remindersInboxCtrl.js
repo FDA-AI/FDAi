@@ -28,63 +28,8 @@ angular.module('starter').controller('RemindersInboxCtrl', ["$scope", "$state", 
             numberOfDisplayedNotifications: 0,
             favoritesTitle: "Your Favorites",
             studiesResponse: null,
-            title: "Inbox",
-            caughtUpCard: {
-                "id": "importDataPage",
-                "title": "All Caught Up!",
-                "color": {
-                    "backgroundColor": "#f09402",
-                    "circleColor": "#fab952"
-                },
-                "image": {
-                    "url": "https://lh3.googleusercontent.com/pw/AM-JKLWOJ1Mj_5QbVOciDBFTYFLlZ-MYEUfECRTZ2PLBQbwyI-Ct28t9Mqv4mPa6FcgYsD2yBLD9I21CSoG5GatCBaugNh9BlyM5ALX1-qvu8rydGNnJTaaDcOxPV1HPCrdSGtg5aifZI_SXzAScJ9ro6YN1hw=s512-no?authuser=0"
-                },
-                "premiumFeature": true,
-                "bodyText": "Great Job!",
-                "nextPageButtonText": "Maybe Later",
-                "buttons": [{
-                    "id": "reminderButton",
-                    "buttonText": "Add a Reminder",
-                    "buttonClass": "button button-clear button-positive ion-bell",
-                    "goToState": qm.staticData.stateNames.reminderSearch,
-                    clickFunctionCall: function(){
-                        qmService.goToState(qm.staticData.stateNames.reminderSearch);
-                    }
-                },{
-                    "id": "measurementButton",
-                    "buttonText": "Record a measurement",
-                    "buttonClass": "button button-clear button-positive ion-edit",
-                    "goToState": qm.staticData.stateNames.measurementAddSearch,
-                    clickFunctionCall: function(){
-                        qmService.goToState(qm.staticData.stateNames.measurementAddSearch);
-                    }
-                },{
-                    "id": "importButton",
-                    "buttonText": "Import Your Data",
-                    "buttonClass": "button button-clear button-positive ion-checkmark",
-                    "goToState": qm.staticData.stateNames.import,
-                    clickFunctionCall: function(){
-                        qmService.goToState(qm.staticData.stateNames.import);
-                    }
-                },{
-                    "id": "studiesButton",
-                    "buttonText": "Discoveries",
-                    "buttonClass": "button button-clear button-positive ion-book",
-                    "goToState": qm.staticData.stateNames.studies,
-                    clickFunctionCall: function(){
-                        qmService.goToState(qm.staticData.stateNames.studies);
-                    }
-                },{
-                    "id": "chartsButton",
-                    "buttonText": "Charts",
-                    "buttonClass": "button button-clear button-positive ion-chart",
-                    "goToState": qm.staticData.stateNames.charts,
-                    clickFunctionCall: function(){
-                        qmService.goToState(qm.staticData.stateNames.charts);
-                    }
-                }],
-                "$$hashKey": "object:1200"
-            }
+            title: $stateParams.title || "Inbox",
+            caughtUpCard: null,
         };
         //createWordCloudFromNotes();
         $scope.$on('$ionicView.beforeEnter', function(e){
@@ -124,6 +69,69 @@ angular.module('starter').controller('RemindersInboxCtrl', ["$scope", "$state", 
                 qm.webNotifications.registerServiceWorker();
             }
             scheduleAutoRefresh();
+            function setupAllCaughtUpCard(){
+				if($scope.state.caughtUpCard){
+					return;
+				}
+                var card = {
+                    "premiumFeature": true,
+                    "bodyText": "Great Job!",
+                    "nextPageButtonText": "Maybe Later",
+                    "buttons": [{
+                        "id": "reminderButton",
+                        "buttonText": "Add a Reminder",
+                        "buttonClass": "button button-clear button-positive ion-android-notifications",
+                        "goToState": qm.staticData.stateNames.reminderSearch,
+                        clickFunctionCall: function(){
+                            qmService.goToState(qm.staticData.stateNames.reminderSearch);
+                        }
+                    },{
+                        "id": "measurementButton",
+                        "buttonText": "Record a Single measurement",
+                        "buttonClass": "button button-clear button-positive ion-edit",
+                        "goToState": qm.staticData.stateNames.measurementAddSearch,
+                        clickFunctionCall: function(){
+                            qmService.goToState(qm.staticData.stateNames.measurementAddSearch);
+                        }
+                    },{
+                        "id": "chartsButton",
+                        //"buttonText": "Charts", // Ally wanted to rename for MetPsy
+                        "buttonText": "My Data & Results",
+                        "buttonClass": "button button-clear button-positive ion-arrow-graph-up-right",
+                        "goToState": qm.staticData.stateNames.charts,
+                        clickFunctionCall: function(){
+                            qmService.goToState(qm.staticData.stateNames.chartSearch);
+                        }
+                    }],
+                    "$$hashKey": "object:1200"
+                };
+                // If metpsy, remove the studiesButton and the importButton
+                if(!qm.metpsy.getEnabled()){
+					var otherButtons = [{
+                            "id": "importButton",
+                            "buttonText": "Import Your Data",
+                            "buttonClass": "button button-clear button-positive ion-checkmark",
+                            "goToState": qm.staticData.stateNames.import,
+                            clickFunctionCall: function(){
+                                qmService.goToState(qm.staticData.stateNames.import);
+                            }
+                        },{
+                            "id": "studiesButton",
+                            "buttonText": "Discoveries",
+                            "buttonClass": "button button-clear button-positive ion-ios-book",
+                            "goToState": qm.staticData.stateNames.studies,
+                            clickFunctionCall: function(){
+                                qmService.goToState(qm.staticData.stateNames.studies);
+                            }
+                        }
+                    ]
+                    if(!qm.metpsy.getEnabled()){
+                        card.buttons = otherButtons.concat(card.buttons);
+                    }
+                }
+                $scope.state.caughtUpCard = card;
+            }
+			setupAllCaughtUpCard();
         });
         $scope.$on('$ionicView.beforeLeave', function(){
             qmLog.debug('RemindersInboxCtrl beforeLeave');
@@ -168,9 +176,9 @@ angular.module('starter').controller('RemindersInboxCtrl', ["$scope", "$state", 
                 $scope.state.title = 'Overdue Meds';
                 $scope.state.favoritesTitle = "As-Needed Meds";
             }else if(getVariableCategoryName()){
-                $scope.state.title = $filter('wordAliases')(getVariableCategoryName()) + " " + $filter('wordAliases')("Reminder Inbox");
+                $scope.state.title = $filter('wordAliases')(getVariableCategoryName()) + " " + qm.appsManager.getAlias("Reminder Inbox");
             }else{
-                $scope.state.title = 'Inbox';
+                $scope.state.title = $stateParams.title || 'Inbox';
             }
         };
         var lastButtonPressTimeStamp, lastClientY, lastClientX;
@@ -435,7 +443,7 @@ angular.module('starter').controller('RemindersInboxCtrl', ["$scope", "$state", 
             }
         }
         var addLocalNotificationsToScope = function(reason){
-            //debugger
+
             qmLog.info("addLocalNotificationsToScope because "+reason || addLocalNotificationsToScope.caller)
             var notifications = getNotifications();
             notifications = qm.notifications.addHumanDay(notifications);
@@ -591,7 +599,7 @@ angular.module('starter').controller('RemindersInboxCtrl', ["$scope", "$state", 
             if(!$scope.state.studiesResponse){
                 qm.studyHelper.getStudiesFromApi({
                     limit: 10,
-                    fallbackToGlobalVariableRelationships: true
+                    fallbackToAggregateCorrelations: true
                 }, function(studiesResponse){
                     $scope.state.studiesResponse = studiesResponse;
                 }, function(error){
