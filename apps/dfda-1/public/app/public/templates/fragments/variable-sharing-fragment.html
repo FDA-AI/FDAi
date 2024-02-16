@@ -11,18 +11,25 @@
                 &nbsp Variable is Public
             </i>
         </ion-toggle>
-        <label ng-click="copyToClipboard(variableObject.chartsLinkStatic)"
+        <label ng-click="state.shareCurrentPage()"
                class="item item-content"
-               ng-if="platform.isWeb && variableObject.shareUserMeasurements === true && variableObject.chartsLinkStatic">
+               ng-if="platform.isWeb && variableObject.shareUserMeasurements === true">
             <i class="icon ion-clipboard"> &nbsp {{copyLinkText}}</i>
         </label>
     </div>
     <p style="text-align: center;" class="pulsating-glowing-text">Share your discoveries!</p>
     <div style="text-align: center;">
         <div class="sharingButtons" style="cursor: pointer">
+	        <div ng-click="state.shareCurrentPage()"
+	             class="show-inline pulsating-glowing-text">
+		        <div class="tooltip" title="{{copyLinkText}}">
+			        <i style="font-size: 32px;" class="ion-link"></i>
+		        </div>
+	        </div>
+
             <div ng-click="shareCharts(variableObject, variableObject.chartsLinkFacebook, $event)"
                  class="show-inline pulsating-glowing-text">
-                <div class="tooltip" title="Share Study to Facebook">
+                <div class="tooltip" title="Share to Facebook">
                     <i style="font-size: 32px;" class="ion-social-facebook"></i>
                 </div>
             </div>
