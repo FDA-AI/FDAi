@@ -67,8 +67,62 @@ window.requestAnimFrame = (function() {
             window.setTimeout(callback, 1000 / 60);
         };
 })();
+const imageLoader = {
+	imageElement: null,
+
+	getImageForLoader: function() {
+		var imageUrl = null;
+		if(window.location.href.indexOf("metpsy") !== -1){
+			imageUrl = "https://static.quantimo.do/app_uploads/metpsy/app_images_splashScreen.png";
+		}
+		return imageUrl;
+	},
+
+	start: function(url) {
+		// Create an image element
+		this.imageElement = document.createElement('img');
+		this.imageElement.src = url;
+
+		// Style the image to be centered on a white background
+		this.imageElement.style.position = 'absolute';
+		this.imageElement.style.top = '50%';
+		this.imageElement.style.left = '50%';
+		this.imageElement.style.transform = 'translate(-50%, -50%)';
+		this.imageElement.style.zIndex = '1000';
+        this.imageElement.style.maxHeight = '100%';
+
+		// Create a white background div
+		this.backgroundDiv = document.createElement('div');
+		this.backgroundDiv.style.position = 'fixed';
+		this.backgroundDiv.style.top = '0';
+		this.backgroundDiv.style.left = '0';
+		this.backgroundDiv.style.width = '100%';
+		this.backgroundDiv.style.height = '100%';
+		this.backgroundDiv.style.backgroundColor = 'white';
+		this.backgroundDiv.style.zIndex = '999';
+
+		// Append the background and image to the body
+		document.body.appendChild(this.backgroundDiv);
+		document.body.appendChild(this.imageElement);
+	},
+
+	stop: function() {
+		// Remove the image element if it exists
+		if (this.imageElement) {
+			this.imageElement.remove();
+			this.imageElement = null;
+		}
+
+		// Remove the white background div if it exists
+		if (this.backgroundDiv) {
+			this.backgroundDiv.remove();
+			this.backgroundDiv = null;
+		}
+	}
+};
+
 var psychedelicLoader = {
-    appended: false,
+    canvasAppended: false,
     showing: false,
     drawParticle: function() {
         c.fillStyle = "rgba(0,0,0,0)";
@@ -81,24 +135,33 @@ var psychedelicLoader = {
         }
     },
     showLoader: function() {
-        if(!psychedelicLoader.showing){return;}
-        if(!psychedelicLoader.appended){
+	    if(psychedelicLoader.showing){return;}
+	    psychedelicLoader.showing = true;
+	    var imageUrl = imageLoader.getImageForLoader();
+	    if(imageUrl){
+		    imageLoader.start(imageUrl);
+		    return;
+	    }
+        if(!psychedelicLoader.canvasAppended){
             document.body.appendChild(canvas);
-            appended = true;
+	        psychedelicLoader.canvasAppended = true;
         }
         window.requestAnimFrame(psychedelicLoader.showLoader);
         psychedelicLoader.drawParticle();
     },
     start: function () {
-        psychedelicLoader.showing = true;
+
         psychedelicLoader.showLoader();
     },
     stop: function () {
-        //debugger
+
+	    imageLoader.stop();
         if(!psychedelicLoader.showing){return;} // Avoid removeChild already removed errors
         psychedelicLoader.showing = false;
-        psychedelicLoader.appended = false;
-        document.body.removeChild(canvas);
+		if(psychedelicLoader.canvasAppended){
+			psychedelicLoader.canvasAppended = false;
+			document.body.removeChild(canvas);
+		}
     }
 };
 //(function() {
