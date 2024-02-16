@@ -3,17 +3,17 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
         getAppsListFromLocalStorage: function(){
             return qm.storage.getItem(qm.items.appList);
         },
-        getAppSettingsArrayFromApi: function(){
-            qmLog.info("getAppSettingsArrayFromApi...");
+        getAppListFromApi: function(){
+            qmLog.info("getAppListFromApi...");
             var deferred = $q.defer();
             var params = qm.api.addGlobalParams({all: true, designMode: true});
-            qm.api.get('/api/v1/appSettings', [], params, function(response){
+            qm.api.get('/api/v1/appSettings/list', [], params, function(response){
                 qmLog.debug(response);
                 /** @namespace response.allAppSettings */
-                var appList = configurationService.convertAppSettingsToAppList(response.allAppSettings);
+                var appList = response.data;
                 configurationService.saveAppList(appList);
-                configurationService.allAppSettings = response.allAppSettings;
-                deferred.resolve(response.allAppSettings);
+                //configurationService.allAppSettings = response.allAppSettings;
+                deferred.resolve(appList);
             }, function(error){
                 deferred.reject(error);
             });
@@ -639,7 +639,7 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
             "title": null,
             "color": qmService.colors.green,
             variableCategoryName: "Emotions",
-            "image": {"url": "https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png"},
+            "image": {"url": "https://static.quantimo.do/img/variable_categories/theatre_mask-96.png"},
             //addButtonText: 'Add Emotion',
             //nextPageButtonText: 'Maybe Later',
             addButtonText: 'Yes',
@@ -651,7 +651,7 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
             //"title": 'Recurring Symptoms?',
             "title": null,
             "color": qmService.colors.blue,
-            "image": {"url": "https://maxcdn.icons8.com/Color/PNG/96/Messaging/sad-96.png"},
+            "image": {"url": "https://static.quantimo.do/img/variable_categories/sad-96.png"},
             variableCategoryName: "Symptoms",
             //addButtonText: 'Add Symptom',
             //nextPageButtonText: 'Maybe Later',
@@ -664,7 +664,7 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
             //"title": 'Common Foods or Drinks?',
             "title": null,
             "color": qmService.colors.blue,
-            "image": {"url": "https://maxcdn.icons8.com/Color/PNG/96/Food/vegetarian_food-96.png"},
+            "image": {"url": "https://static.quantimo.do/img/variable_categories/vegetarian_food-96.png"},
             variableCategoryName: "Foods",
             //addButtonText: 'Add Food or Drink',
             //nextPageButtonText: 'Maybe Later',
@@ -677,7 +677,7 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
             //"title": 'Any Treatments?',
             "title": null,
             "color": qmService.colors.yellow,
-            "image": {"url": "https://maxcdn.icons8.com/Color/PNG/96/Healthcare/pill-96.png"},
+            "image": {"url": "https://static.quantimo.do/img/variable_categories/pill-96.png"},
             variableCategoryName: "Treatments",
             //addButtonText: 'Add Treatment',
             //appComponentTypeChange(appSettings.appDesign.menu.type)nextPageButtonText: 'Maybe Later',
@@ -1277,23 +1277,28 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
             }
         });
     };
-    configurationService.switchApp = function(selectedApp, callback){
-        configurationService.setBuilderClientId(selectedApp.clientId);
+	configurationService.getAppSettingsFromApiWithClientSecret = function(clientId, callback){
+		qm.appsManager.getAppSettingsFromApi(clientId, function(appSettings){
+			qmService.processAndSaveAppSettings(appSettings)
+			configurationService.saveAppSettingsRevisionLocally(function(revisionList){
+				callback(revisionList)
+			})
+		}, function(err){
+			qmLog.error(err)
+		}, {includeClientSecret: true})
+	}
+	configurationService.switchApp = function(selectedApp, callback){
+	    let clientId = selectedApp.clientId
+	    configurationService.setBuilderClientId(clientId);
         configurationService.saveAppSettingsRevisionLocally(function(revisionList){
             qmLog.info("Switching to " + selectedApp.appDisplayName + ": ", selectedApp);
-            if(selectedApp.clientId === $rootScope.appSettings.clientId){
+            if(clientId === $rootScope.appSettings.clientId){
                 callback(revisionList);
                 return;  // Can't do this if we're using it for revisions
             }
+	        qm.storage.setClientId(clientId)
             //window.location.href = window.location.origin + window.location.pathname + '#/app/configuration/' + selectedApp.clientId;
-            qm.appsManager.getAppSettingsFromApi(selectedApp.clientId, function(appSettings){
-                qmService.processAndSaveAppSettings(appSettings);
-                configurationService.saveAppSettingsRevisionLocally(function(revisionList){
-                    callback(revisionList);
-                });
-            }, function(err){
-	            qmLog.error(err);
-            }, {includeClientSecret: true});
+	        configurationService.getAppSettingsFromApiWithClientSecret(clientId, callback)
         });
     };
     configurationService.saveRevisionAndPostAppSettingsAfterConfirmation = function(appSettings){
@@ -1354,7 +1359,7 @@ angular.module('starter').factory('configurationService', function($http, $q, $r
         diet: "Better health through data",
         mood: "Discover new ways to improve your mood!"
     };
-    $rootScope.appTypes = getValuesForSubPropertyInObjectPlusCustom($rootScope.variableCategories, 'appType');
+    $rootScope.appTypes = ['general', 'medication', 'diet', 'mood', 'custom'];
     configurationService.replaceJsonString = function(search, replace, targetObject){
         var targetString = JSON.stringify(targetObject);
         targetString = targetString.replace(search + ',', replace + ',');
