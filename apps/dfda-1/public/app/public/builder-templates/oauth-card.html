@@ -80,7 +80,7 @@
                     </md-icon>
                 </md-button>
                 <md-button class="md-secondary md-icon-button" style="font-size: 30px;"
-                           ng-click="copyToClipboard('https://app.quantimo.do/oauth/authorize')"
+                           ng-click="copyToClipboard('https://app.quantimo.do/oauth/authorize?response_type=token&scope=writemeasurements&client_id={{appSettings.clientId}}&redirect_uri=YOUR_REDIRECT_URI')"
                            aria-label="Copy to clipboard">
                     <md-icon class="ion-clipboard">
                         <md-tooltip md-direction="down">Copy to clipboard</md-tooltip>
@@ -103,7 +103,7 @@
                     </md-icon>
                 </md-button>
                 <md-button class="md-secondary md-icon-button" style="font-size: 30px;"
-                           ng-click="copyToClipboard('https://app.quantimo.do/oauth/token')"
+                           ng-click="copyToClipboard('https://app.quantimo.do/oauth/token?client_id={{appSettings.clientId}}&client_secret={{appSettings.clientSecret}}&code={{appSettings.code}}&redirect_uri=YOUR_REDIRECT_URI')"
                            aria-label="Copy to clipboard">
                     <md-icon class="ion-clipboard">
                         <md-tooltip md-direction="down">Copy to clipboard</md-tooltip>
