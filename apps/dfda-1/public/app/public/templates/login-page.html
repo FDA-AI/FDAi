@@ -48,16 +48,16 @@
                                            ng-click="state.socialLogin('googleplus', $event)">
                                     &nbsp Google Login &nbsp
                                 </md-button>-->
-                                <div class="login-buttons-container">
+<!--                                <div class="login-buttons-container">
                                     <i class="ion-social-google" id="google-button"
                                        ng-click="state.socialLogin('googleplus', $event)">
                                     </i>
-<!--                                   <i class="ion-social-twitter" id="twitter-button" ng-click="state.socialLogin('twitter', $event)"></i>-->
+&lt;!&ndash;                                   <i class="ion-social-twitter" id="twitter-button" ng-click="state.socialLogin('twitter', $event)"></i>
                                    <i class="ion-social-github" id="github-button"
                                       ng-click="state.socialLogin('github', $event)"></i>
                                    <i class="ion-social-facebook" id="facebook-button"
-                                      ng-click="state.socialLogin('facebook', $event)"></i>
-                                </div>
+                                      ng-click="state.socialLogin('facebook', $event)"></i>&ndash;&gt;
+                                </div>-->
                                 <!--                               <md-button id="signInWithFacebook"
                                                                            class="md-raised md-primary icon icon-left ion-social-facebook rainbow-gradient-animation"
                                                                            style="background: #3B5998;"
@@ -140,7 +140,7 @@
                                         <md-button type="submit"
                                                    id="sign-up-button"
                                                    ng-click="state.emailRegister()"
-                                                   class="md-raised md-primary rainbow-gradient-animation center">
+                                                   class="md-raised md-primary center">
                                             Sign Up
                                         </md-button>
                                         <md-button ng-click="state.registrationForm = false;"
@@ -183,17 +183,18 @@
                                         <md-button type="submit"
                                                    id="login-button"
                                                    ng-click="state.emailLogin()"
-                                                   class="md-raised md-primary rainbow-gradient-animation center">
+                                                   class="md-raised md-primary center">
                                             Login
                                         </md-button>
-                                        <md-button href="{{state.forgotPasswordUrl}}"
-                                                   class="center"
+                                        <md-button id="forgot-password-button"
+		                                        href="{{state.forgotPasswordUrl}}"
+                                                   class="center dark-bg white-text"
                                                    md-no-ink>
                                             Forgot Your Password?
                                         </md-button>
-                                        <md-button ng-click="state.loginForm = false;"
-                                                   class="center dark-bg"
-                                                   id="sign-up-button"
+                                        <md-button id="sign-up-button"
+		                                        ng-click="state.loginForm = false;"
+                                                   class="center dark-bg white-text"
                                                    md-no-ink>
                                             Sign Up
                                         </md-button>

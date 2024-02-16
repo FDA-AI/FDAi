@@ -1,5 +1,5 @@
 <ion-view hide-nav-bar="hideNavigationMenu">
-    <ion-nav-title>{{state.title}}</ion-nav-title>
+    <ion-nav-title>{{ state.title | wordAliases }}</ion-nav-title>
     <ion-content ng-class="{ isBrowserView : platform.isWeb == true }">
         <div class="card"
              style="overflow: visible"
