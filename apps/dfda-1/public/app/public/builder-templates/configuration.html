@@ -21,7 +21,7 @@
         <div id="app-builder" ng-if="!patientUser" style="max-height: 100%">
             <div ng-if="appList && appList.length === 0" style="margin-top: 50px;">
                 <div style="text-align: center;">
-                    <md-button class="md-raised md-primary icon icon-left ion-plus-round" 
+                    <md-button class="md-raised md-primary icon icon-left ion-plus-round"
                                ng-click="openNewAppModalPopup()" style="margin: 0 auto;">
                         &nbsp; Create New App
                     </md-button>
@@ -31,7 +31,7 @@
                 <md-content>
                     <md-toolbar>
                         <div class="md-toolbar-tools">
-<!--                            <md-progress-linear md-mode="indeterminate" 
+<!--                            <md-progress-linear md-mode="indeterminate"
                                                 ng-if="!appList || state.loading"></md-progress-linear>-->
                             <md-select style="color: white; line-height: normal;" ng-model="appSettings"
                                        ng-model-options="{trackBy: '$value.clientId'}" aria-label="appList"
@@ -69,7 +69,7 @@
                             </md-content>
                         </md-tab>
 <!--                        <md-tab label="API" style="height: 100%; width: 100%; ">
-                            <iframe ng-public="api-docs.html"
+                            <iframe ng-src="api-docs.html"
                                     data-tap-disabled="true" style="height: 100%; width: 100%; position: absolute;"
                                     frameborder="0">
                             </iframe>
