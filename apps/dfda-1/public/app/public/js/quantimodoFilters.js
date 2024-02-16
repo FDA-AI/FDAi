@@ -60,19 +60,6 @@ angular.module('starter')
             return "";
         };
     })
-    .filter('unique', function(){
-        return function(collection, keyname){
-            var output = [], keys = [];
-            angular.forEach(collection, function(item){
-                var key = item[keyname];
-                if(keys.indexOf(key) === -1){
-                    keys.push(key);
-                    output.push(item);
-                }
-            });
-            return output;
-        };
-    })
     .filter('fromUtcToLocalDate', function(){
         var localDateAndTime;
         return function(epochTime){
@@ -253,7 +240,7 @@ angular.module('starter')
     .filter('timeOfDay', function(){
         return function(time){
             if(time){
-                var mom = qm.timeHelper.toLocalMoment(time)
+                var mom = qm.timeHelper.toLocalMoment(time);
                 return mom.format("h:mmA");
             }
             return "";
@@ -262,7 +249,7 @@ angular.module('starter')
     .filter('timeOfDayDayOfWeek', function(){
         return function(time){
             if(time){
-                var mom = qm.timeHelper.toLocalMoment(time)
+                var mom = qm.timeHelper.toLocalMoment(time);
                 return mom.format("h:mm a dddd").split(/,/g);
             }
             return "";
@@ -271,7 +258,7 @@ angular.module('starter')
     .filter('timeOfDayDayOfWeekNoArray', function(){
         return function(time){
             if(time){
-                var mom = qm.timeHelper.toLocalMoment(time)
+                var mom = qm.timeHelper.toLocalMoment(time);
                 return mom.format("h:mm a dddd");
             }
             return "";
@@ -280,7 +267,7 @@ angular.module('starter')
     .filter('timeOfDayDayOfWeekDate', function(){
         return function(time){
             if(time){
-                var mom = qm.timeHelper.toLocalMoment(time)
+                var mom = qm.timeHelper.toLocalMoment(time);
                 return mom.format("h:mm a dddd, MMMM Do YYYY");
             }
             return "";
@@ -289,7 +276,7 @@ angular.module('starter')
     .filter('justDate', function(){
         return function(time){
             if(time){
-                var mom = qm.timeHelper.toLocalMoment(time)
+                var mom = qm.timeHelper.toLocalMoment(time);
                 return mom.format("MMMM Do YYYY").split(/,/g);
             }
             return "";
@@ -298,7 +285,7 @@ angular.module('starter')
     .filter('justDateNoArray', function(){
         return function(time){
             if(time){
-                var mom = qm.timeHelper.toLocalMoment(time)
+                var mom = qm.timeHelper.toLocalMoment(time);
                 return mom.format("MMMM Do YYYY");
             }
             return "";
@@ -307,7 +294,7 @@ angular.module('starter')
     .filter('dayOfWeekAndDate', function(){
         return function(time){
             if(time){
-                var mom = qm.timeHelper.toLocalMoment(time)
+                var mom = qm.timeHelper.toLocalMoment(time);
                 return mom.format("ddd, MMM Do, YYYY");
             }
             return "";
@@ -316,7 +303,7 @@ angular.module('starter')
     .filter('reminderTime', function(){
         return function(time){
             if(time){
-                var mom = qm.timeHelper.toLocalMoment(time)
+                var mom = qm.timeHelper.toLocalMoment(time);
                 return mom.calendar();
             }
             return "";
@@ -347,13 +334,7 @@ angular.module('starter')
     })
     // returns the Image string against value
     .filter('wordAliases', function(){
-        return function(originalName){
-            var aliasName = qm.getAppSettings().appDesign.wordAliases[originalName];
-            if(typeof (aliasName) !== "undefined"){
-                return aliasName;
-            }
-            return originalName;
-        };
+        return qm.appsManager.replaceWithAliases
     })
     .filter('useHttps', function(){
         return function(originalName){
