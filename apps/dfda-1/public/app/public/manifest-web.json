@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "FDAi",
   "short_name": "FDAi",
-  "description": "Quantify the effects of foods and drugs on your health and happiness.",
+  "description": "Crowdsourcing cures.",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [
