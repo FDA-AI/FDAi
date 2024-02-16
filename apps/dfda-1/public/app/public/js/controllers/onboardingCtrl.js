@@ -46,6 +46,7 @@ angular.module('starter').controller('OnboardingCtrl',
                         }
                 });
                 initializeAddRemindersPageIfNecessary();
+                qmService.hideLoader();
             });
             function getPages(){
                 var pages = $rootScope.appSettings.appDesign.onboarding.active;

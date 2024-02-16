@@ -31,6 +31,9 @@ angular.module('starter').controller('ChartsPageCtrl', ["$scope", "$q", "$state"
                 $scope.hideClipboardButton = true;
             }
         });
+        $scope.$on('$ionicView.afterEnter', function(e){
+            $scope.helpCard = qmService.populateHelpCard($scope.helpCard, $stateParams)
+        });
         function hideLoader(){
             qmService.hideLoader();
             $scope.$broadcast('scroll.refreshComplete');
@@ -132,10 +135,22 @@ angular.module('starter').controller('ChartsPageCtrl', ["$scope", "$q", "$state"
             qmService.goToVariableSettingsByObject($scope.state.variableObject);
         };
         $scope.shareCharts = function(variable, sharingUrl, ev){
+			if(!variable){
+				variable = $scope.state.variableObject;
+			}
             if(!variable.shareUserMeasurements){
                 qmService.showShareVariableConfirmation(variable, sharingUrl, ev);
             }else{
                 qmService.openSharingUrl(sharingUrl);
             }
         };
+		$scope.state.shareCurrentPage = function(){
+			debugger
+			var sharingUrl = window.location.href;
+			sharingUrl = qm.urlHelper.addUrlQueryParamsToUrlString({
+				userId: $scope.state.variableObject.userId,
+				variableId: $scope.state.variableObject.variableId,
+			}, sharingUrl);
+			$scope.copyToClipboard(sharingUrl);
+		}
     }]);

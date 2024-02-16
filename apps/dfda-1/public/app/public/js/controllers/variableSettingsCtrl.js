@@ -284,7 +284,7 @@ angular.module('starter').controller('VariableSettingsCtrl', ["$scope", "$state"
                 $mdDialog.hide($scope.variable);
             };
             function querySearch(query){
-                self.notFoundText = "No articles matching " + query + " were found.  Please try another wording or contact help@curedao.org.";
+                self.notFoundText = "No articles matching " + query + " were found.  Please try another wording or contact mike@quantimo.do.";
                 var deferred = $q.defer();
                 if(!query || !query.length){
                     query = dialogParameters.variableName;

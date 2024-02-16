@@ -325,7 +325,7 @@ angular.module('starter').controller('MeasurementAddCtrl', [
             var deferred = $q.defer();
             qmService.showFullScreenLoader();
             qm.toast.infoToast("Fetching measurement...")
-            //debugger
+
             qm.measurements.find(id)
                 .then(function(m){
                         qmService.hideLoader();

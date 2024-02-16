@@ -3,7 +3,7 @@ angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootSco
     function($scope, $state, $rootScope, $ionicLoading, $injector, $stateParams, $timeout, qmService, $mdDialog){
         function hideLoginPageLoader(){qmService.hideLoader();}
         const handleLogin = async function(response){
-            //debugger
+
             var user = await response.json();
             if(user.data){user = user.data;}
 	        if(user.user){user = user.user;}
@@ -15,11 +15,32 @@ angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootSco
             //useLocalUserNamePasswordForms: qm.platform.isMobileOrChromeExtension(),
             useLocalUserNamePasswordForms: true,
             loading: false,
+	        checkEmail: false,
             alreadyRetried: false,
             showRetry: false,
             registrationForm: false,
             loginForm: false,
 	        forgotPasswordUrl: qm.auth.getForgotPasswordUrl(),
+	        passwordlessLogin: function () {
+				$scope.state.checkEmail = true;
+                var clientId = qm.api.getClientId();
+                var intended_url = window.location.href;
+                if(clientId){
+                    intended_url = qm.urlHelper.addUrlQueryParamsToUrlString({client_id: clientId}, intended_url);
+                }
+				qm.api.postAsync('/auth/passwordless-login', {
+                  email: $scope.state.loginForm.email,
+                  intended_url: intended_url
+                })
+				  .then(function (response) {
+                      console.debug(response);
+                  })
+				  .catch(function(error){
+			        debugger
+			        var message = qm.api.getErrorMessageFromResponse(error);
+			        qmService.showMaterialAlert("Error", message);
+		        });
+	        },
             emailRegister: async function () {
                 var params = $scope.state.registrationForm;
                 params.register = true;
@@ -57,7 +78,8 @@ angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootSco
 	        },
             emailLogin: function () {
                 qmService.showFullScreenLoader(); // Chrome needs to do this because we can't redirect with access token
-                fetch('/api/v1/user',{
+                var url = qm.api.getQMApiOrigin() + '/v1/user';
+	            fetch(url,{
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -109,7 +131,7 @@ angular.module('starter').controller('LoginCtrl', ["$scope", "$state", "$rootSco
             qmLog.error('Login failure: ' + error, metaData, metaData);
         }
         function handleLoginSuccess(){
-            //debugger
+
             if(qm.getUser() && $state.current.name.indexOf('login') !== -1){
                 afterLoginGoToUrlOrState();
             }

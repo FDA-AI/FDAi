@@ -130,7 +130,7 @@ angular.module('starter').controller('historyAllMeasurementsCtrl', ["$scope", "$
         function setHistory(measurements){
             var sorted = qm.arrayHelper.sortByProperty(measurements, $scope.state.sort)
             $scope.safeApply(function () {
-                //debugger
+
                 $scope.state.history = sorted;
             })
         }
@@ -281,7 +281,6 @@ angular.module('starter').controller('historyAllMeasurementsCtrl', ["$scope", "$
                 qm.measurements.getMeasurementsFromApi(params).then(function (measurements) {
                     successHandler(measurements)
                     qm.connectorHelper.update(c.name, function (r){
-                        debugger
                         if(r.measurements){
                             setHistory(r.measurements);
                         } else {

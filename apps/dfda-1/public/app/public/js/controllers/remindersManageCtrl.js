@@ -113,6 +113,9 @@ angular.module('starter').controller('RemindersManageCtrl', ["$scope", "$state",
                 }, 20000);
             });
         });
+        $scope.$on('$ionicView.afterEnter', function(e){
+            $scope.helpCard = qmService.populateHelpCard($scope.helpCard, $stateParams)
+        });
         if(!$rootScope.reminderOrderParameter){
             $rootScope.reminderOrderParameter = 'variableName';
         }
