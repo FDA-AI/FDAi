@@ -1,5 +1,5 @@
 <ion-view hide-nav-bar="hideNavigationMenu">
-    <ion-nav-title>{{state.title}}</ion-nav-title>
+    <ion-nav-title>{{ state.title | wordAliases }}</ion-nav-title>
     <ion-content scroll="{ isBrowserView : platform.isWeb == false }"
                  ng-class="{ isBrowserView : platform.isWeb == true }">
         <ion-refresher on-refresh="refreshCharts()"></ion-refresher>
@@ -7,10 +7,7 @@
                             ng-show="!state.variableObject.charts">
         </md-progress-linear>
         <div ng-cloak>
-	        <md-button ng-click="state.mintLit">
-		        <img src="https://www.mintlit.com/images/mintlit-logo.png" style="width: 32px; height: 32px;"/>
-		        Mint Data Gem
-	        </md-button>
+            <div ng-include="'templates/fragments/help-info-card-fragment.html'"></div>
             <div ng-show="!state.variableObject.charts">
                 <div>
 	                <div class="pac-man"></div>
@@ -100,6 +97,7 @@
                     <i class="icon ion-settings positive"></i>
                     Analysis Settings
                 </md-button>
+	            <md-button ng-click="state.mintLit">Mint Data Gem</md-button>
             </div>
         </div>
     </ion-content>

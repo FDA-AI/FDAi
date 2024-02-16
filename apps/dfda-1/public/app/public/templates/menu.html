@@ -70,6 +70,7 @@
                              ng-src="{{user.avatarImage}}">
                     </a>
                     <button id="menu-search-button"
+                            ng-hide="appSettings.appDesign.miscDesignSettings.hideUpperRightSearchButton.value"
                             style="padding: 0;"
                             class="button button-icon ion-ios-search nav-bar-button"
                             ng-click="showGeneralVariableSearchDialog($event)"></button>
@@ -82,7 +83,7 @@
                     <a id="menu-help-button" target="_blank"
                             style="padding: 0;"
                             class="button button-icon ion-ios-help-outline nav-bar-button"
-                            ng-hide="stateParams.helpText || hideHelpButton"
+                            ng-hide="stateParams.helpText || hideHelpButton || appSettings.appDesign.miscDesignSettings.hideUpperRightHelpButton.value"
                             ng-href="https://curedao.org/help">
                         <md-tooltip md-direction="down">Get Help</md-tooltip>
                     </a>
@@ -95,8 +96,10 @@
                     </button>
                     <button id="menu-more-button"
                             class="button button-icon ion-android-more-vertical nav-bar-button"
-                            ng-show="showActionSheetMenu"
-                            ng-click="showActionSheetMenu()"></button>
+                            ng-show="showActionSheetMenu && !appSettings.appDesign.miscDesignSettings.hideUpperRightMenuButton.value"
+                            ng-click="showActionSheetMenu()">
+                        <md-tooltip md-direction="down">More Options</md-tooltip>
+                    </button>
                 </div>
             </ion-nav-buttons>
         </ion-nav-bar>
@@ -144,7 +147,7 @@
                    is-enabled="!hideNavigationMenu"
                    expose-aside-when="large"
                    ng-class="{'menu-disabled': hideNavigationMenu}">
-        <ion-header-bar class="bar-transparent">
+        <ion-header-bar ng-class="{'bar-transparent': darkMode}">
             <div id="menu-avatar"
                  style="cursor:pointer;"
                  ng-click="goToState('app.settings')"
@@ -201,44 +204,16 @@
                 <div ng-repeat="menuItem in appSettings.appDesign.menu.active">
                     <ion-item id="menu-item-{{menuItem.id}}"
                               class="menu-item"
-                              ng-click="closeMenuIfNeeded(menuItem)"
+                              ng-click="goToStateAndCloseMenuIfNeeded(menuItem)"
                               ng-href="{{menuItem.href}}">
                         <span class="md-title">
-                        <i ng-if="menuItem.showSubMenu && menuItem.subMenu"
-                           class="ion-chevron-down">&nbsp;
-                            {{menuItem.title}}
-                        </i>
-                        <i ng-if="!menuItem.showSubMenu || !menuItem.subMenu"
-                           class="{{menuItem.icon}}">&nbsp;
-                            <span class="md-title">{{menuItem.title}}</span>
-                        </i>
-                            </span>
-                    </ion-item>
-                    <ion-item id="menu-item-{{menuItem.id + '-design'}}"
-                              class="menu-item"
-                              ng-if="false && appSettings.designMode">
-                        <span ng-href="{{menuItem.href}}"
-                              ng-click="closeMenuIfNeeded(menuItem)">
                             <i ng-if="menuItem.showSubMenu && menuItem.subMenu"
-                               class="ion-chevron-down">&nbsp; {{menuItem.title}}</i>
+                            class="ion-chevron-down">&nbsp;
+                                {{ menuItem.title | wordAliases }}
+                            </i>
                             <i ng-if="!menuItem.showSubMenu || !menuItem.subMenu"
-                               class="{{menuItem.icon}}">&nbsp; {{menuItem.title}}</i>
-                        </span>
-                        <span ng-if="appSettings.designMode">
-                            &nbsp&nbsp
-                            <i ng-click="openEditAppSettingsModal('menu', menuItem)"
-                               class="icon ion-edit">
-                                <md-tooltip md-direction="right">Edit Menu Item</md-tooltip>
-                            </i>
-                            &nbsp&nbsp
-                            <i ng-click="addAppComponentElement('menu', menuItem)"
-                               class="icon ion-ios-copy-outline">
-                                <md-tooltip md-direction="right">Duplicate Menu Item</md-tooltip>
-                            </i>
-                            &nbsp&nbsp
-                            <i ng-click="deleteAppComponentElement('menu', menuItem)"
-                               class="icon ion-trash-a">
-                                 <md-tooltip md-direction="right">Delete Menu Item</md-tooltip>
+                            class="{{menuItem.icon}}">&nbsp;
+                                <span class="md-title">{{ menuItem.title  | wordAliases }}</span>
                             </i>
                         </span>
                     </ion-item>
@@ -250,7 +225,7 @@
                               ng-class="{'sub-menu': true}">
                         <!--Don't use menu-close instead of menu-toggle because it clears the state history-->
                         <i class="{{subMenuItem.icon}}"
-                           menu-toggle>&nbsp; {{subMenuItem.title}}
+                           menu-toggle>&nbsp; {{ subMenuItem.title | wordAliases }}
                         </i>
                     </ion-item>
                 </div>
@@ -264,13 +239,17 @@
                     </i>
                 </ion-item>
                 <ion-item
-                        ng-href="https://github.com/curedao/curedao-web-android-chrome-ios-demo-app"
+		                ng-show="window.location.hostname.indexOf('cure') > -1"
                         class="menu-item"
                           id="github">
+	                <a href="https://github.com/curedao/decentralized-fda"
+	                   style="color: #FFFFFF;"
+	                   target="_blank">
                     <i
                             class="ion-social-github"
                             menu-toggle>&nbsp;<span class="md-title"> Fork Me</span>
                     </i>
+		                </a>
                 </ion-item>
             </ion-list>
         </ion-content>

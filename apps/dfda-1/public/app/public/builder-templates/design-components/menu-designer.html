@@ -19,7 +19,7 @@
                         <ion-list id="menu-list">
                             <div ng-repeat="menuItem in appSettings.appDesign.menu.active" style="cursor: pointer;">
                                 <ion-item id="menu-item-{{menuItem.id + '-design'}}">
-                                    <span ng-click="closeMenuIfNeeded(menuItem)">
+                                    <span ng-click="goToStateAndCloseMenuIfNeeded(menuItem)">
                                         <i ng-if="menuItem.showSubMenu && menuItem.subMenu && menuItem.subMenu.length"
                                            class="ion-chevron-down">
                                             &nbsp; {{menuItem.title}}

@@ -325,9 +325,6 @@ document.addEventListener('DOMContentLoaded', function(){
     qmLog.pushDebug("popup addEventListener: calling getUserFromLocalStorage...");
     qm.userHelper.getUserFromLocalStorageOrApi().then(function(user){
         qmLog.setupBugsnag(user);
-    }).catch(function(error){
-        qmLog.error("Error getting user from localStorage or API", error);
-        qm.auth.loginIfNecessary()
     });
 });
 qmLog.pushDebug("popup addEventListener: calling setupBugsnag...");
