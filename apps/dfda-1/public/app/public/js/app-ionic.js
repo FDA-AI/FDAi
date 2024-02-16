@@ -183,9 +183,7 @@ angular.module('starter',
             };
             ionicDatePickerProvider.configDatePicker(datePickerObj);
             var clientId = qm.api.getClientIdFromBuilderQueryOrSubDomain();
-            if(clientId){
-                qm.storage.setItem(qm.items.clientId, clientId);
-            }
+            if(clientId){qm.storage.setClientId(clientId);}
             const authServer = qm.appMode.isAuthServer();
             qmStates.forEach(function(state){
                     if(state.name === ''){
