@@ -24,24 +24,28 @@ const slides = [
 	  animation: ($scope) => { }
   },
   {
-    title: "The Challenge",
-	  backgroundImg: "img/slides/suffering.jpg",
-    img: "img/slides/suffering",
-    speech: "Two billion people suffer from chronic diseases like depression, fibromyalgia, Crone's disease, and multiple sclerosis. There are over 7000 diseases that we still don’t have cures for. Unfortunately, clinical research to help them is really expensive, slow, and imprecise.",
-    animation: () => {}
+    title: "2 Billion People SUFFERING from 7000 Diseases",
+    //img: "img/slides/suffering3.jpg",
+    speech: "Two billion people suffer from chronic diseases like depression, fibromyalgia, Crone's disease, and multiple sclerosis. There are over 7000 diseases that we still don’t have cures for.",
   },
   {
-    title: "A Glimmer of Hope",
-    img: "path/to/hope-image.jpg",
+    title: null,
+    img: "img/slides/studied-molecules-chart-no-background.png",
     speech: "The good news is that there are over 166 billion possible medicinal molecules, and we’ve only tested 0.00001%. So, there could be billions of cures we don’t even know about yet. Unfortunately, we only approve around 30 drugs a year, so at best, it would take over 350 years to find cures at this rate.",
     animation: () => {/* Animation code for A Glimmer of Hope */}
   },
   {
     title: "Dietary Chemicals",
-    img: "path/to/dietary-chemicals-image.jpg",
+    img: "img/slides/chemicals-in-our-diet.png",
     speech: "Lots of these diseases are caused or worsened by chemicals in our diet, but we don’t really know which ones. We only have long-term toxicology data on 2 of the over 2000 flavorings, emulsifiers, sweeteners, pesticides, herbicides, contaminants, and preservatives in our diets. The increase in the number of chemicals has been linked to increases in the incidence of many diseases associated with disrupted gut microbiomes.",
     animation: () => {/* Animation code for Dietary Chemicals */}
   },
+    {
+        title: "Clinical Research is SLOW, EXPENSIVE, and IMPRECISE",
+        //img: "img/slides/suffering3.jpg",
+        speech: "Unfortunately, clinical research to help them is really expensive, slow, and imprecise. It currently costs about $2.6 billion and takes about 12 years to bring a new drug to market. And even then, we only know about the average effect of the drug on the average person. We don’t know how it affects you.",
+        animation: () => {}
+    },
   {
     title: "ROBOTS to the Rescue",
     img: "path/to/robots-image.jpg",
@@ -60,6 +64,11 @@ const slides = [
     speech: "So we’re making API data importers, browser-based autonomous AI agents, AI agents that can call you and ask you about symptoms and stuff, and apps in our free and open-source FDAi GitHub code repository.",
     animation: () => {/* Animation code for Data Importers and Agents */}
   },
+    {
+        title: null,
+        backgroundVideo: "img/slides/Reminder-Inbox.mp4",
+        speech: "It also has a Reminder Inbox to record symptoms, treatments, or anything else manually.",
+    },
   {
     title: "Analyzing Your Data",
     img: "path/to/analyzing-data-image.jpg",
