@@ -5,9 +5,11 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
         qmService.initializeApplication(appSettingsResponse);
         qmService.navBar.setFilterBarSearchIcon(false);
         $scope.state = {
-            title: "FDAi",
+            title: null,
+            image: null,
 			backgroundImage: null,
             hideTriangle: false,
+            backgroundVideo: null,
             triangleName: {
                 lineOne: "FDA",
                 lineTwo: "Ai"
@@ -24,14 +26,15 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 		        $ionicSlideBoxDelegate.previous();
 	        },
 	        slideChanged: function(index){
-				debugger
+				//debugger
 		        qm.visualizer.showCircleVisualizer()
 		        slide = $scope.state.slides[index];
-		        $scope.state.hideTriangle = !!slide.img;
+		        $scope.state.hideTriangle = slide.img || slide.backgroundImg || slide.backgroundVideo || slide.title;
 				if(slide.animation){slide.animation($scope);}
                 $scope.state.backgroundImg = slide.backgroundImg || null;
                 $scope.state.title = slide.title || null;
                 $scope.state.image = slide.img || null;
+                $scope.state.backgroundVideo = slide.backgroundVideo || null;
 		        $scope.state.slideIndex = index;
 		        qm.speech.talkRobot(
 			        slide.speech
@@ -59,5 +62,13 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
             qm.music.fadeOut();
             qm.robot.onRobotClick = null;
 			qmService.showFullScreenLoader();
+        });
+        $scope.$watch('state.backgroundVideo', function(newValue, oldValue) {
+            if (newValue !== oldValue) {
+                var videoElement = document.getElementById('presentation-background-video');
+                if (videoElement) {
+                    videoElement.load();
+                }
+            }
         });
     }]);
