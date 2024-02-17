@@ -5,7 +5,8 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
         qmService.initializeApplication(appSettingsResponse);
         qmService.navBar.setFilterBarSearchIcon(false);
         $scope.state = {
-			backgroundImageUrl: null,
+            title: "FDAi",
+			backgroundImage: null,
             hideTriangle: false,
             triangleName: {
                 lineOne: "FDA",
@@ -27,14 +28,10 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 		        qm.visualizer.showCircleVisualizer()
 		        slide = $scope.state.slides[index];
 		        $scope.state.hideTriangle = !!slide.img;
-				if(slide.animation){
-					slide.animation($scope);
-				}
-				if(slide.backgroundImageUrl){
-					$scope.state.backgroundImg = slide.backgroundImageUrl;
-				} else {
-					$scope.state.backgroundImg = null;
-				}
+				if(slide.animation){slide.animation($scope);}
+                $scope.state.backgroundImg = slide.backgroundImg || null;
+                $scope.state.title = slide.title || null;
+                $scope.state.image = slide.img || null;
 		        $scope.state.slideIndex = index;
 		        qm.speech.talkRobot(
 			        slide.speech

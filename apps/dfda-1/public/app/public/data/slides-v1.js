@@ -15,45 +15,20 @@ const slides = [
 		title: false,
 		img: false,
 		speech: false,
-		animation: ($scope) => {
-			debugger
-			var words = ["2 Billion", "7000 Diseases", "Clinical Research", "Slow", "Imprecise"];
-			words.forEach(function(word, index){
-				setTimeout(function(){
-					$scope.state.title = word;
-				}, index * 1000);
-			});
-		}
+		animation: ($scope) => {}
 	},
   {
     title: false,
     img: false,
     speech: "Hi! I’m your personal FDAi! I’ve been programmed to maximize your health and happiness!",
-	  animation: ($scope) => {
-		  debugger
-		  var words = ["2 Billion", "7000 Diseases", "Clinical Research", "Slow", "Imprecise"];
-		  words.forEach(function(word, index){
-			  setTimeout(function(){
-				  $scope.state.title = word;
-			  }, index * 1000);
-		  });
-	  }
+	  animation: ($scope) => { }
   },
   {
     title: "The Challenge",
 	  backgroundImg: "img/slides/suffering.jpg",
     img: "img/slides/suffering",
     speech: "Two billion people suffer from chronic diseases like depression, fibromyalgia, Crone's disease, and multiple sclerosis. There are over 7000 diseases that we still don’t have cures for. Unfortunately, clinical research to help them is really expensive, slow, and imprecise.",
-    animation: () => {
-	    const words = ["2 Billion", "7000 Diseases", "Clinical Research", "Slow", "Imprecise"];
-	    const displayElement = document.querySelector('#slow-words');
-
-	    for (let i = 0; i < words.length; i++) {
-		    setTimeout(() => {
-			    displayElement.textContent = words[i];
-		    }, i * 1000);
-	    }
-    }
+    animation: () => {}
   },
   {
     title: "A Glimmer of Hope",
@@ -70,7 +45,6 @@ const slides = [
   {
     title: "ROBOTS to the Rescue",
     img: "path/to/robots-image.jpg",
-	  
     speech: "So what’s the solution? No! We can fix it! With the power of ROBOTS! Some robots are really good at thinking up new drugs. Some robots can actually make drugs. My specialty is making it as easy as possible for anyone to participate in clinical research!",
     animation: () => {/* Animation code for ROBOTS to the Rescue */}
   },

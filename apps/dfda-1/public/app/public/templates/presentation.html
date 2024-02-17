@@ -13,15 +13,25 @@
 			</div>
 		</div>
 	</div>
+<div ng-if="state.title"
+     style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Orbitron', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: white; font-size: 5em; font-weight: bold; text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;">
+    hhh
+    {{ state.title }}
+</div>
+
+    <img ng-if="state.image"
+         ng-src="{{state.image}}"
+         style="max-width: 90%;
+            max-height: 90%;
+            margin: 10px auto;
+            display: block;
+            border-radius: 20px;
+            object-fit: contain;
+            border: 5px solid #00ff00; /* Neon green border */
+            box-shadow: 0 0 10px #00ff00; /* Neon green shadow */">
+
 	<ion-slide-box on-slide-changed="state.slideChanged(index)" style="z-index: 2;">
 		<ion-slide ng-repeat="slide in state.slides">
-			<div ng-if="state.title">
-				hi
-				{{ state.title }}
-			</div>
-			<div ng-if="slide.title">
-				{{ slide.title }}
-			</div>
 			<img ng-if="slide.image"
 			     ng-src="{{slide.image}}"
 			     style="max-width: 90%;
