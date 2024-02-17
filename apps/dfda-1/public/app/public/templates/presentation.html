@@ -1,40 +1,57 @@
 <ion-view hide-nav-bar="hideNavigationMenu">
-	<ion-nav-title>FDAi</ion-nav-title>
-	<canvas id="rainbow-canvas"
-	        style="position: absolute; z-index: 1; display: block; opacity: 0.5; pointer-events: none; background-color: transparent;"></canvas>
-	<div id="splash-screen"
-	     class="splash-wrapper" style="width: 100%; position: absolute; height: 100%;">
-		<div class="splash-grid"></div>
-	</div>
-	<div style="display: flex; justify-content: center; align-items: flex-start; height: 100%; width: 100%; position: absolute; margin-top: 10%;">
-		<div style="position: relative;">
-			<div ng-hide="state.hideTriangle"
-			     ng-include="'templates/splash-logo.html'" style="z-index: 3;">
-			</div>
-		</div>
-	</div>
+    <ion-nav-title>FDAi</ion-nav-title>
+    <img ng-src="{{state.backgroundImage}}" id="presentation-background-image">
+    <video id="presentation-background-video" autoplay loop muted playsinline>
+        <source src="{{state.backgroundVideo}}" type="video/mp4">
+    </video>
+    <canvas id="rainbow-canvas"
+            style="position: absolute; z-index: 1; display: block; opacity: 0.5; pointer-events: none; background-color: transparent;"></canvas>
+    <div id="splash-screen"
+         class="splash-wrapper" style="width: 100%; position: absolute; height: 100%;">
+        <div class="splash-grid"></div>
+    </div>
+    <div
+        style="display: flex; justify-content: center; align-items: flex-start; height: 100%; width: 100%; position: absolute; margin-top: 10%;">
+        <div style="position: relative;">
+            <div ng-hide="state.hideTriangle"
+                 ng-include="'templates/splash-logo.html'" style="z-index: 3;">
+            </div>
+        </div>
+    </div>
 <div ng-if="state.title"
-     style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Orbitron', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: white; font-size: 5em; font-weight: bold; text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;">
-    hhh
+     class="michroma-regular"
+     style="position: absolute; top: 50%; left: 50%;
+     color: white; font-size: 60px; font-weight: bold;
+        text-align: center;
+     display: flex; justify-content: center;
+     align-items: center; transform: translate(-50%, -50%);
+     line-height: 1.3;
+     text-shadow: 1px 1px 2px black">
     {{ state.title }}
 </div>
 
-    <img ng-if="state.image"
-         ng-src="{{state.image}}"
-         style="max-width: 90%;
-            max-height: 90%;
-            margin: 10px auto;
-            display: block;
-            border-radius: 20px;
-            object-fit: contain;
-            border: 5px solid #00ff00; /* Neon green border */
-            box-shadow: 0 0 10px #00ff00; /* Neon green shadow */">
+<img ng-if="state.image"
+ng-src="{{state.image}}"
+style="max-width: 90%;
+position: absolute;
+   max-height: 80%;
+   top: 180px;
+   bottom: 150px;
+   left: 0;
+   right: 0;
+   margin: auto;
+   display: block;
+   border-radius: 20px;
+   object-fit: contain;
+   /*border: 5px solid #00ff00; !* Neon green border *!*/
+   /*box-shadow: 0 0 10px #00ff00; !* Neon green shadow *!*/
+   z-index: 11;">
 
-	<ion-slide-box on-slide-changed="state.slideChanged(index)" style="z-index: 2;">
-		<ion-slide ng-repeat="slide in state.slides">
-			<img ng-if="slide.image"
-			     ng-src="{{slide.image}}"
-			     style="max-width: 90%;
+    <ion-slide-box on-slide-changed="state.slideChanged(index)" style="z-index: 2;">
+        <ion-slide ng-repeat="slide in state.slides">
+            <img ng-if="slide.image"
+                 ng-src="{{slide.image}}"
+                 style="max-width: 90%;
             max-height: 90%;
             margin: 10px auto;
             display: block;
@@ -42,11 +59,10 @@
             object-fit: contain;
             border: 5px solid #00ff00; /* Neon green border */
             box-shadow: 0 0 10px #00ff00; /* Neon green shadow */">
-		</ion-slide>
-	</ion-slide-box>
-	<div ng-show="true"
-	     ng-include="'templates/robot.html'"
-	     ng-click="robotClick()"
-	     class="robot-container"
-	     style="left: calc(50% - 80px);"></div>
+        </ion-slide>
+    </ion-slide-box>
+    <div ng-show="true"
+         ng-include="'templates/robot.html'"
+         ng-click="robotClick()"
+         class="robot-container"></div>
 </ion-view>
