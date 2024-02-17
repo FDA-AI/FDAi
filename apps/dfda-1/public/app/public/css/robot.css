@@ -5,9 +5,9 @@
     width: 160px;
     height: 170px;
     bottom: -30px;
-    left: calc(100% - 160px);
-    z-index: 4; }
-
+    left: calc(100% - 300px);
+    z-index: 4;
+}
 .head {
     position: absolute;
     width: 130px;
