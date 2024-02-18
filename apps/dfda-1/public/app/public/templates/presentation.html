@@ -1,6 +1,6 @@
 <ion-view hide-nav-bar="hideNavigationMenu">
     <ion-nav-title>FDAi</ion-nav-title>
-    <img ng-src="{{state.backgroundImage}}" id="presentation-background-image">
+    <img ng-src="{{state.backgroundImg}}" id="presentation-background-image">
     <video id="presentation-background-video" autoplay loop muted playsinline>
         <source src="{{state.backgroundVideo}}" type="video/mp4">
     </video>
@@ -45,7 +45,7 @@ position: absolute;
    object-fit: contain;
    /*border: 5px solid #00ff00; !* Neon green border *!*/
    /*box-shadow: 0 0 10px #00ff00; !* Neon green shadow *!*/
-   z-index: 11;">
+   z-index: 3;">
 
     <ion-slide-box on-slide-changed="state.slideChanged(index)" style="z-index: 2;">
         <ion-slide ng-repeat="slide in state.slides">
@@ -65,4 +65,13 @@ position: absolute;
          ng-include="'templates/robot.html'"
          ng-click="robotClick()"
          class="robot-container"></div>
+
+    <button
+        id="backButton"
+        ng-click="state.previous()"
+        class="presentation-nav-button presentation-left-button"><</button>
+    <button
+        id="nextButton"
+        ng-click="state.next()"
+        class="presentation-nav-button presentation-right-button">></button>
 </ion-view>
