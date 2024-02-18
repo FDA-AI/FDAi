@@ -26,6 +26,8 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 		        $ionicSlideBoxDelegate.previous();
 	        },
 	        slideChanged: function(index){
+                qm.music.play();
+                qm.robot.openMouth();
 				//debugger
 		        qm.visualizer.showCircleVisualizer()
 		        slide = $scope.state.slides[index];
@@ -36,9 +38,14 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                 $scope.state.image = slide.img || null;
                 $scope.state.backgroundVideo = slide.backgroundVideo || null;
 		        $scope.state.slideIndex = index;
+                function callback(){
+                    $timeout(function(){
+                        $scope.state.next();
+                    },0.5 * 1000);
+                }
 		        qm.speech.talkRobot(
 			        slide.speech
-			        , null // $scope.state.next
+			        , callback // $scope.state.next
 			        , function(error){
 				        qmLog.info("Could not read intro slide because: " + error);
 			        }, false, false
@@ -57,6 +64,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
             qmService.navBar.hideNavigationMenu();
             qm.robot.onRobotClick = $scope.state.next;
 			qmService.hideLoader();
+            qm.visualizer.rainbowCircleVisualizerFake();
         });
         $scope.$on('$ionicView.beforeLeave', function(){
             qm.music.fadeOut();
