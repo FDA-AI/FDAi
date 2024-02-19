@@ -27004,3 +27004,31 @@ body::after {
     font-style: italic;
 }
 
+.presentation-nav-button {
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+    font-size: 18px;
+    background-color: transparent; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.presentation-left-button {
+    left: 0;
+}
+
+.presentation-right-button {
+    right: 0;
+}
+
+.presentation-nav-button:hover {
+    background-color: white;
+    color: black;
+}
