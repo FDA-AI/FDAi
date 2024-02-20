@@ -17,73 +17,100 @@ const slides = [
 		speech: false,
 		animation: ($scope) => {}
 	},
+  // {
+  //   title: false,
+  //   img: false,
+  //   speech: "Hi! I’m your personal FDAi! I’ve been programmed to maximize your health and happiness!",
+	//   animation: ($scope) => { }
+  // },
+  // {
+  //   title: "2 Billion People\nSUFFER\nfrom 7000 Diseases",
+  //   //img: "img/slides/suffering3.jpg",
+  //   speech: "Two billion people suffer from chronic diseases like depression, fibromyalgia, Crone's disease,and multiple sclerosis, There are over 7000 diseases that we still don’t have cures for",
+  // },
+  // {
+  //   title: null,
+  //   img: "img/slides/studied-molecules-chart-no-background.png",
+  //   speech: "The good news is that there could be billions of cures we don’t even know about yet, there are over 166 billion possible medicinal molecules, and we’ve only tested 0.00001% so far",
+  //   animation: () => {/* Animation code for A Glimmer of Hope */}
+  // },
+  //   {
+  //       title: null,
+  //       img: "img/slides/slow-research.png",
+  //       speech: "The bad news is that we only approve around 30 drugs a year so, at best, it would take over 350 years to find cures at this rate, So you’ll be long dead by then.",
+  //       animation: () => {/* Animation code for A Glimmer of Hope */}
+  //   },
+  // {
+  //   //title: "Dietary Chemicals",
+  //   img: "img/slides/chemicals-in-our-diet.png",
+  //   speech: "Lots of these diseases are caused or worsened by chemicals in our diet, but we don’t really know which ones,  We only have long-term toxicology data on 2 of the over 2000 preservatives, flavorings, emulsifiers, sweeteners, pesticides, contaminants, and herbicides in our diets, ",
+  //   animation: () => {/* Animation code for Dietary Chemicals */}
+  // },
+  //   {
+  //       //title: "Dietary Chemicals",
+  //       img: "img/slides/correlates-of-disease-incidence.png",
+  //       speech: "The increase in the number of chemicals has been linked to increases in the incidence of many diseases associated with disrupted gut microbiomes,  It’s like everyone is getting Roofied with thousands of experimental, untested drugs without their knowledge",
+  //       animation: () => {/* Animation code for Dietary Chemicals */}
+  //   },
+  //   {
+  //       title: "Clinical Research is SLOW, EXPENSIVE, and IMPRECISE",
+  //       //img: "img/slides/suffering3.jpg",
+  //       speech: "Unfortunately, clinical research is really slow, expensive, and imprecise,  It currently costs about 2.6 billion dollars and takes about 12 years to bring a new drug to market,  And even then, we only know about the average effect of the drug on the average person,  We don’t know how it affects, you.",
+  //       animation: () => {}
+  //   },
   {
-    title: false,
-    img: false,
-    speech: "Hi! I’m your personal FDAi! I’ve been programmed to maximize your health and happiness!",
-	  animation: ($scope) => { }
-  },
-  {
-    title: "2 Billion People SUFFERING from 7000 Diseases",
-    //img: "img/slides/suffering3.jpg",
-    speech: "Two billion people suffer from chronic diseases like depression, fibromyalgia, Crone's disease,and multiple sclerosis, There are over 7000 diseases that we still don’t have cures for",
-  },
-  {
-    title: null,
-    img: "img/slides/studied-molecules-chart-no-background.png",
-    speech: "The good news is that there could be billions of cures we don’t even know about yet, there are over 166 billion possible medicinal molecules, and we’ve only tested 0.00001% so far",
-    animation: () => {/* Animation code for A Glimmer of Hope */}
+    title: "What's the solution?",
+    //img: "img/slides/decay.gif",
+    speech: "So what’s the solution?",
   },
     {
-        title: null,
-        img: "img/slides/slow-research.png",
-        speech: "The bad news is that we only approve around 30 drugs a year so, at best, it would take over 350 years to find cures at this rate, So you’ll be long dead by then.",
-        animation: () => {/* Animation code for A Glimmer of Hope */}
+        title: "Wait for the sweet release of death?",
+        speech: "Should you just continue to suffer and wait patiently",
     },
-  {
-    //title: "Dietary Chemicals",
-    img: "img/slides/chemicals-in-our-diet.png",
-    speech: "Lots of these diseases are caused or worsened by chemicals in our diet, but we don’t really know which ones,  We only have long-term toxicology data on 2 of the over 2000 preservatives, flavorings, emulsifiers, sweeteners, pesticides, contaminants, and herbicides in our diets, ",
-    animation: () => {/* Animation code for Dietary Chemicals */}
-  },
     {
-        //title: "Dietary Chemicals",
-        img: "img/slides/correlates-of-disease-incidence.png",
-        speech: "The increase in the number of chemicals has been linked to increases in the incidence of many diseases associated with disrupted gut microbiomes,  It’s like everyone is getting Roofied with thousands of experimental, untested drugs without their knowledge",
-        animation: () => {/* Animation code for Dietary Chemicals */}
+        img: "img/slides/decay.gif",
+        speech: "for the sweet release of death?",
     },
     {
-        title: "Clinical Research is SLOW, EXPENSIVE, and IMPRECISE",
-        //img: "img/slides/suffering3.jpg",
-        speech: "Unfortunately, clinical research is really slow, expensive, and imprecise,  It currently costs about 2.6 billion dollars and takes about 12 years to bring a new drug to market,  And even then, we only know about the average effect of the drug on the average person,  We don’t know how it affects, you.",
-        animation: () => {}
+        title: "NO!",
+        speech: "No! We can defeat chronic disease",
     },
-  {
-    title: "Should you just wait patiently for the sweet release of death?",
-    //img: "img/slides/robots-image.jpg",
-    speech: "So what’s the solution? Should you just continue to suffer and wait patiently for the sweet release of death?",
-    animation: () => {/* Animation code for ROBOTS to the Rescue */}
-  },
     {
-        title: "NO!\nWe can fix it!\nWith the power of ROBOTS!",
+        //title: "NO!",
+        img: "img/slides/super-fda-robot-transparent.png",
+        speech: "with the power of ROBOTS!",
+    },
+    {
+        //title: "NO!\nWe can fix it!",
+        img: "img/slides/super-fda-robot-transparent.png",
+        speech: "No! We can defeat chronic disease with the power of ROBOTS!",
+    },
+    {
+        title: "NO!\nWe can fix it!",
         //img: "img/slides/robots-image.jpg",
-        speech: "No! We can fix it! With the power of ROBOTS! Some robots are really good at thinking up new drugs,  Some robots can actually, make, drugs, My specialty is making it easy for anyone to participate in clinical research to find out what foods and drugs are safe and effective!",
-        animation: () => {/* Animation code for ROBOTS to the Rescue */}
+        speech: "Some robots can actually, make, drugs, My specialty is making it easy for anyone to participate in clinical research to find out what foods and drugs are safe and effective!",
     },
   {
     //title: "Your Digital Twin Safe",
-    img: "img/slides/digital-twin-safe.png",
-    speech: "The first step is getting your precious, precious data! You automatically generate a lot of data exhaust, like receipts for supplements from Amazon, food from Instacart, prescriptions from CVS, health records, lab tests, digital health apps, and wearable devices,  Unfortunately, it’s kind of worthless when it’s scattered all over the place and just being used by advertisers to target you for Viagra ads",
+    img: "img/slides/digital-exhaust.png",
+    speech: "The first step is getting your precious, precious data! You automatically generate a lot of data exhaust, like receipts for supplements from Amazon, food from Instacart, prescriptions from CVS, health records, lab tests, digital health apps, and wearable devices,   Unfortunately, it’s kind of worthless when it’s scattered all over the place and just being used by advertisers",
     animation: () => {/* Animation code for Your Digital Twin Safe */}
   },
+    {
+        //title: "Your Digital Twin Safe",
+        img: "img/slides/viagra.jpg",
+        speech: " to target you for Viagra ads",
+        animation: () => {/* Animation code for Your Digital Twin Safe */}
+    },
   {
     //title: "Data Importers and Agents",
-    img: "img/slides/reinforcement-learning.png",
+    img: "img/slides/fdai-github.png",
     speech: "So we’re making free and open source apps, reusable software libraries, and AI agents to help you get all your data and analyze it for you!",
     animation: () => {/* Animation code for Data Importers and Agents */}
   },
     {
         title: null,
+        playbackRate: 0.5,
         backgroundVideo: "img/slides/Import.mp4",
         speech: "In the current version of the Digital Twin Safe, you can import data from lots of apps and wearable devices like physical activity from Fitbit or sleep quality, heart rate variability from Oura or productivity from RescueTime, environmental factors, and weight and other vital signs from Withings.",
     },
@@ -95,11 +122,11 @@ const slides = [
   {
     title: "Analyzing Your Data",
       backgroundVideo: "img/slides/studies.mp4",
-    speech: "After I get a couple of months of your sweet, sweet data, I can start analyzing it and generate N-of-1 personal studies telling you how how much different medications, supplements, or foods might improve or worsen your symptoms or mood in this case.",
+    speech: "After I get a couple of months of your data, I can eat it all up. Yum! Then I start analyzing it and generate N-of-1 personal studies telling you how how much different medications, supplements, or foods might improve or worsen your symptoms.",
   },
   {
     //title: "Hill’s 6 Criteria for Causality",
-    img: "img/slides/causal-inference.png",
+    fullScreenImg: "img/slides/causal-inference.png",
     speech: "But, as any obnoxious college graduate will tell you, correlation does not necessarily imply causation,  Just because you took a drug and got better, it doesn’t mean that’s really why your symptoms went away,   " +
         "Even with randomized controlled trials, hundreds of other things are changing in your life and diet,  So, When analyzing the data, I apply Hill’s 6 Criteria for Causality to try to infer if something causes a symptom to worsen or improve instead of just seeing what correlates with the change,  One way I do it is by applying pharmacokinetic modeling and onset delays and durations of action,   For instance, when gluten-sensitive people eat delicious gluten, it usually takes about a 2-day onset delay before they start having symptoms,   Then, when they stop eating it, there’s usually a 10-day duration of action before their gut heals and their symptoms improve,  This has never been possible since no one’s ever been able to collect as much high-resolution time series data as possible with all the fancy apps and devices,  Also, your puny human brains haven’t evolved since the time of the cavemen,   They can only hold seven numbers in working memory at a time.",
   },
