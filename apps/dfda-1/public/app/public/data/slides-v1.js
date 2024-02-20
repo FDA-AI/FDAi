@@ -65,7 +65,7 @@ const slides = [
     animation: () => {/* Animation code for ROBOTS to the Rescue */}
   },
     {
-        title: "NO!\nWe can fix it!\nWith the power of ROBOTS!",
+        title: "NO!\nWe can fix it!",
         //img: "img/slides/robots-image.jpg",
         speech: "No! We can fix it! With the power of ROBOTS! Some robots are really good at thinking up new drugs,  Some robots can actually, make, drugs, My specialty is making it easy for anyone to participate in clinical research to find out what foods and drugs are safe and effective!",
         animation: () => {/* Animation code for ROBOTS to the Rescue */}
@@ -73,9 +73,15 @@ const slides = [
   {
     //title: "Your Digital Twin Safe",
     img: "img/slides/digital-twin-safe.png",
-    speech: "The first step is getting your precious, precious data! You automatically generate a lot of data exhaust, like receipts for supplements from Amazon, food from Instacart, prescriptions from CVS, health records, lab tests, digital health apps, and wearable devices,  Unfortunately, it’s kind of worthless when it’s scattered all over the place and just being used by advertisers to target you for Viagra ads",
+    speech: "The first step is getting your precious, precious data! You automatically generate a lot of data exhaust, like receipts for supplements from Amazon, food from Instacart, prescriptions from CVS, health records, lab tests, digital health apps, and wearable devices,",
     animation: () => {/* Animation code for Your Digital Twin Safe */}
   },
+    {
+        //title: "Your Digital Twin Safe",
+        img: "img/slides/viagra.jpg",
+        speech: "  Unfortunately, it’s kind of worthless when it’s scattered all over the place and just being used by advertisers to target you for Viagra ads",
+        animation: () => {/* Animation code for Your Digital Twin Safe */}
+    },
   {
     //title: "Data Importers and Agents",
     img: "img/slides/reinforcement-learning.png",
@@ -84,6 +90,7 @@ const slides = [
   },
     {
         title: null,
+        playbackRate: 0.5,
         backgroundVideo: "img/slides/Import.mp4",
         speech: "In the current version of the Digital Twin Safe, you can import data from lots of apps and wearable devices like physical activity from Fitbit or sleep quality, heart rate variability from Oura or productivity from RescueTime, environmental factors, and weight and other vital signs from Withings.",
     },
@@ -95,11 +102,11 @@ const slides = [
   {
     title: "Analyzing Your Data",
       backgroundVideo: "img/slides/studies.mp4",
-    speech: "After I get a couple of months of your sweet, sweet data, I can start analyzing it and generate N-of-1 personal studies telling you how how much different medications, supplements, or foods might improve or worsen your symptoms or mood in this case.",
+    speech: "After I get a couple of months of your data, I can eat it all up. Yum! Then I start analyzing it and generate N-of-1 personal studies telling you how how much different medications, supplements, or foods might improve or worsen your symptoms.",
   },
   {
     //title: "Hill’s 6 Criteria for Causality",
-    img: "img/slides/causal-inference.png",
+    fullScreenImg: "img/slides/causal-inference.png",
     speech: "But, as any obnoxious college graduate will tell you, correlation does not necessarily imply causation,  Just because you took a drug and got better, it doesn’t mean that’s really why your symptoms went away,   " +
         "Even with randomized controlled trials, hundreds of other things are changing in your life and diet,  So, When analyzing the data, I apply Hill’s 6 Criteria for Causality to try to infer if something causes a symptom to worsen or improve instead of just seeing what correlates with the change,  One way I do it is by applying pharmacokinetic modeling and onset delays and durations of action,   For instance, when gluten-sensitive people eat delicious gluten, it usually takes about a 2-day onset delay before they start having symptoms,   Then, when they stop eating it, there’s usually a 10-day duration of action before their gut heals and their symptoms improve,  This has never been possible since no one’s ever been able to collect as much high-resolution time series data as possible with all the fancy apps and devices,  Also, your puny human brains haven’t evolved since the time of the cavemen,   They can only hold seven numbers in working memory at a time.",
   },
