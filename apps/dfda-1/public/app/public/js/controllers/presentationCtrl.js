@@ -7,7 +7,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
         $scope.state = {
             title: null,
             image: null,
-			backgroundImage: null,
+			backgroundImg: null,
             hideTriangle: false,
             backgroundVideo: null,
             triangleName: {
@@ -26,6 +26,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 		        $ionicSlideBoxDelegate.previous();
 	        },
 	        slideChanged: function(index){
+                qm.speech.shutUpRobot();
                 qm.music.play();
                 qm.robot.openMouth();
 				//debugger
@@ -64,7 +65,6 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
             qmService.navBar.hideNavigationMenu();
             qm.robot.onRobotClick = $scope.state.next;
 			qmService.hideLoader();
-            qm.visualizer.rainbowCircleVisualizerFake();
         });
         $scope.$on('$ionicView.beforeLeave', function(){
             qm.music.fadeOut();
@@ -75,6 +75,11 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
             if (newValue !== oldValue) {
                 var videoElement = document.getElementById('presentation-background-video');
                 if (videoElement) {
+                    var slide = $scope.state.slides[$scope.state.slideIndex];
+                    videoElement.playbackRate = 1;
+                    if(slide.playbackRate){
+                        videoElement.playbackRate = 0.5; // 50% of the normal speed
+                    }
                     videoElement.load();
                 }
             }
