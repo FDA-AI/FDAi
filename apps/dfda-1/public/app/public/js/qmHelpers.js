@@ -9146,7 +9146,7 @@ var qm = {
         getUtterance: function(text, errorHandler){
             var utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = 'en-US';
-            utterance.rate = 0.9;
+            utterance.rate = 1;
             utterance.pitch = 1;
             utterance.onerror = function(event){
                 var message = 'An error has occurred with the speech synthesis: ' + event.error;

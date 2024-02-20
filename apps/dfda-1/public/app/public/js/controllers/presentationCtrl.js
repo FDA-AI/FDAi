@@ -27,7 +27,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 	        },
 	        slideChanged: function(index){
                 qm.speech.shutUpRobot();
-                qm.music.play();
+                //qm.music.play();
                 qm.robot.openMouth();
 				//debugger
 		        qm.visualizer.showCircleVisualizer()
@@ -42,7 +42,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                 function callback(){
                     $timeout(function(){
                         $scope.state.next();
-                    },0.5 * 1000);
+                    },0.1 * 1000);
                 }
 		        qm.speech.talkRobot(
 			        slide.speech
