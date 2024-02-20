@@ -24,23 +24,36 @@
 
 .eyes {
     position: absolute;
-    top: calc(50% - 10px);
-    right: 25px;
-    left: 25px;
-    height: 20px;
+    top: calc(30% - 10px);
+    right: 15px;
+    left: 15px;
+    height: 63px;
     -webkit-animation: blink 10000ms linear forwards infinite;
-    animation: blink 10000ms linear forwards infinite; }
+    animation: blink 10000ms linear forwards infinite;
+    }
 
 .eyeball {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background: radial-gradient(ellipse, #dffdfe 0%, #11c1f3 50%, #387ef5 60%) no-repeat center;
+    width: 40px; /* Increase the size of the eyes */
+    height: 40px; /* Increase the size of the eyes */
+    background: radial-gradient(ellipse, #dffdfe 0%, #11c1f3 50%, #87CEFA 60%) no-repeat center; /* Change the color of the eyes */
     background-size: 100%;
     z-index: -2;
     border-radius: 100%;
     transition: background-size 0.2s;
-    border: 2px solid #000000; }
+    border: 2px solid #000000;
+}
+
+.eyeball::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, #fff 0%, transparent 70%); /* Add a sparkle to the eyes */
+    border-radius: 50%;
+}
 
 .eyeball_left {
     left: 0;
@@ -59,10 +72,11 @@
     bottom: 15px;
     left: 50px;
     width: 30px;
-    height: 5px;
+    height: 10px;
     background-color: black;
     overflow: hidden;
-    border-radius: 5px;
+    border-bottom-left-radius: 50%; /* Make the bottom left corner rounded */
+    border-bottom-right-radius: 50%; /* Make the bottom right corner rounded */
     transition: height 100ms cubic-bezier(0.455, 0.03, 0.515, 0.955); }
 
 .mouth-container {
