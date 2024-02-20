@@ -24,9 +24,9 @@
 
 .eyes {
     position: absolute;
-    top: calc(30% - 10px);
-    right: 15px;
-    left: 15px;
+    top: calc(40% - 10px);
+    right: 10px;
+    left: 10px;
     height: 63px;
     -webkit-animation: blink 10000ms linear forwards infinite;
     animation: blink 10000ms linear forwards infinite;
@@ -36,7 +36,7 @@
     position: absolute;
     width: 40px; /* Increase the size of the eyes */
     height: 40px; /* Increase the size of the eyes */
-    background: radial-gradient(ellipse, #dffdfe 0%, #11c1f3 50%, #87CEFA 60%) no-repeat center; /* Change the color of the eyes */
+    background: radial-gradient(ellipse, #000 0%, #111827 30%, #6fbded 40%) no-repeat center; /* Change the color of the eyes */
     background-size: 100%;
     z-index: -2;
     border-radius: 100%;
