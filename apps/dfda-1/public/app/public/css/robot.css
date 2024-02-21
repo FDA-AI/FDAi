@@ -301,3 +301,30 @@
     52% {
         -webkit-transform: scale(1, 1);
         transform: scale(1, 1); } }
+
+
+#caption-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    z-index: 1000; /* Ensures it stays on top */
+    max-width: 80%; /* Prevents it from spanning the full width of the screen */
+    overflow: hidden; /* Keeps the text contained */
+}
+
+.caption-text {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    //text-overflow: ellipsis;
+    max-width: 90%; /* Adjust based on your layout to prevent overflow */
+}
+

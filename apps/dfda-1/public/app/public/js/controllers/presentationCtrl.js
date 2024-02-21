@@ -44,6 +44,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                         $scope.state.next();
                     },0.1 * 1000);
                 }
+                qm.speech.setCaption(slide.speech)
 		        qm.speech.talkRobot(
 			        slide.speech
 			        , callback // $scope.state.next
