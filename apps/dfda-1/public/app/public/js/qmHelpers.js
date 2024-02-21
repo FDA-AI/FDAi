@@ -17,7 +17,7 @@ if(typeof navigator !== "undefined"){
 var qm = {
     alert: {
         errorAlert: function(title, text, linkText, linkUrl){
-            debugger
+
             qm.alert.fire(title, text, 'error', linkText, linkUrl)
         },
 	    info: function(title, text, linkText, linkUrl){
@@ -197,8 +197,10 @@ var qm = {
     api: {
         requestLog: [],
         getDefaultHeaders: function(){
+			var clientId = qm.appsManager.getBuilderClientId();
+			if(!clientId){clientId = qm.getClientId();}
             var headers = {
-                'X-Client-Id': qm.getClientId(),
+                'X-Client-Id': clientId,
                 'X-Platform': qm.platform.getCurrentPlatform(),
                 'X-App-Version': qm.appsManager.getAppVersion(),
                 'X-Framework': 'ionic',
@@ -361,7 +363,7 @@ var qm = {
             return errorMessage;
         },
         generalErrorHandler: function(error, data, response, options){
-            //debugger
+
             var url = qm.api.getUrlFromResponse(response);
             var errorMessage = url+"\n\t"+qm.api.getErrorMessageFromResponse(error, response);
             errorMessage = qm.api.getErrorMessageFromResponse(errorMessage, data);
@@ -449,7 +451,9 @@ var qm = {
 	        if(clientIdFromQueryParameters && clientIdFromQueryParameters !== "default"){
                 qm.clientId = clientIdFromQueryParameters;
             }
-	        let isApiSubFolder = qm.urlHelper.urlContains('app/public/#/app')
+            var fromLocalStorage = qm.storage.getClientId();
+            if(fromLocalStorage){return qm.clientId = fromLocalStorage;}
+	        var isApiSubFolder = qm.urlHelper.urlContains('app/public/#/app')
             if(!qm.clientId && !isApiSubFolder){
 				qm.clientId = qm.api.getClientIdFromSubDomain();
 			}
@@ -464,6 +468,9 @@ var qm = {
                     return clientId;
                 }
             }
+            if(!qm.clientId){
+                qm.clientId = qm.storage.getItem(qm.items.clientId)
+            }
             var appSettings = qm.getAppSettings();
             if(!qm.clientId && appSettings){
                 qm.clientId = appSettings.clientId;
@@ -473,6 +480,7 @@ var qm = {
             if(qm.urlHelper.urlContains('crowdsourcingcures')){
                 qm.clientId =  'crowdsourcing-cures';
             }
+	        if(qm.urlHelper.urlContains('.curedao.org')){qm.clientId =  'curedao';}
             if(!successHandler){
                 return qm.clientId;
             }
@@ -593,11 +601,8 @@ var qm = {
             }
         },
 	    getQMOrigin: function(){
+			//return "https://app.quantimo.do";
 		    var origin;
-            if(qm.platform.isChromeExtension()){
-                return "https://app.quantimo.do";
-            }
-            //return "https://app.quantimo.do";
 		    if(qm.appMode.isBackEnd()){
 			    origin = process.env.QM_API_ORIGIN || "https://app.quantimo.do";
 		    } else {
@@ -634,7 +639,7 @@ var qm = {
                     if (qm.api.postResponseSuccessful(response, data)) {
                         if(successHandler){successHandler(data);}
                     } else {
-                        //debugger
+
                         var err = qm.api.generalErrorHandler(null, data, response)
                         if(errorHandler){errorHandler(err);}
                     }
@@ -648,7 +653,7 @@ var qm = {
                     if(errorHandler){errorHandler(err);}
                 })
             }).catch(function(err){
-                //debugger
+
                 qmLog.error("ERROR from POST " + url + ":\n\t" + err);
                 if(errorHandler){errorHandler(err)}
             });
@@ -975,6 +980,24 @@ var qm = {
         },
     },
     appsManager: { // jshint ignore:line
+		replaceWithAliases: function(text){
+			if(!text){return text;}
+            var newText = text;
+            var appSettings = qm.getAppSettings();
+			if(!appSettings){
+				console.error("No appSettings for replaceWithAliases!")
+				return text;
+			}
+            var appDesign = appSettings.appDesign;
+            var aliases = appDesign.wordAliases || [];
+            //debugger
+            for(var i = 0; i < aliases.length; i++){
+                var original = aliases[i].original;
+                var replacement = aliases[i].replacement;
+                newText = qm.stringHelper.replaceAll(newText, original, replacement);
+            }
+            return newText;
+        },
         getAppVersion: function(){
             var appSettings = qm.appsManager.getAppSettingsFromMemory();
             return appSettings.versionNumber;
@@ -1030,6 +1053,9 @@ var qm = {
         getAppSettingsLocallyOrFromApi: function(successHandler, errorHandler){
             var appSettings = qm.getAppSettings();
             var builderClientId = qm.appsManager.getBuilderClientId();
+            if(!builderClientId){
+                builderClientId = qm.storage.getItem(qm.items.clientId);
+            }
             if(appSettings && appSettings.clientId){
                 if(!builderClientId || appSettings.clientId === builderClientId){
                     successHandler(appSettings);
@@ -1040,8 +1066,9 @@ var qm = {
             if(builderClientId){localStorageKey = qm.items.appSettingsRevisions;}
             qm.localForage.getItem(localStorageKey)
                 .then(function(appSettings){
-                    if(builderClientId && appSettings && appSettings.length && builderClientId === appSettings[0].clientId){
-                        qm.appsManager.processAndSaveAppSettings(appSettings[0], successHandler);
+	                if(appSettings && appSettings.length){appSettings = appSettings[0];}
+                    if(builderClientId && appSettings && builderClientId === appSettings.clientId){
+                        qm.appsManager.processAndSaveAppSettings(appSettings, successHandler);
                         return;
                     }
                     if(qm.platform.isWeb() && qm.urlHelper.isQuantiModoOrQuantiModoDotCom()){
@@ -1115,6 +1142,48 @@ var qm = {
                 return false;
             }
             appSettings.designMode = qm.appMode.isBuilder();
+
+            var replaceOldImageUrls = function(obj){
+
+                const baseUrl = 'https://static.quantimo.do/img/variable_categories/';
+                const images = [
+                    'https://maxcdn.icons8.com/Color/PNG/96/Healthcare/pill-96.png',
+                    'https://maxcdn.icons8.com/Color/PNG/96/Messaging/sad-96.png',
+                    'https://maxcdn.icons8.com/Color/PNG/96/Food/vegetarian_food-96.png',
+                    'https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png',
+                    'https://maxcdn.icons8.com/Color/PNG/96/Sports/weightlifting-96.png',
+                    'https://maxcdn.icons8.com/Color/PNG/96/Healthcare/virus-96.png',
+                    'https://maxcdn.icons8.com/Color/PNG/96/Programming/console-96.png',
+                    'https://maxcdn.icons8.com/Color/PNG/96/Weather/chance_of_storm-96.png',
+                    'https://maxcdn.icons8.com/Color/PNG/96/Sports/football-96.png',
+                    'https://maxcdn.icons8.com/Color/PNG/96/Users/dizzy_person_2-96.png',
+                ];
+                let str = JSON.stringify(obj);
+                images.forEach(imageUrl => {
+                    const filename = imageUrl.substring(imageUrl.lastIndexOf('/') + 1);
+                    const newUrl = baseUrl + filename;
+                    if (str.includes(imageUrl)) {
+                        console.log(`Replacing ${imageUrl} with ${newUrl}`);
+                        str = str.replace(new RegExp(imageUrl, 'g'), newUrl);
+                    }
+                });
+                return JSON.parse(str);
+            }
+            appSettings = replaceOldImageUrls(appSettings);
+
+            function deleteNullItemsInWordAliasesArray() {
+                if (appSettings.appDesign && appSettings.appDesign.wordAliases) {
+                    for (var i = 0; i < appSettings.appDesign.wordAliases.length; i++) {
+                        if (!appSettings.appDesign.wordAliases[i]) {
+                            appSettings.appDesign.wordAliases.splice(i, 1);
+                            i--;    // Decrement i because we just removed an item
+                        }
+                    }
+                }
+            }
+
+// delete items in appSettings.appDesign.wordAliases array that are null
+            deleteNullItemsInWordAliasesArray();
             if(!appSettings.appDesign){
                 qmLog.error("No appDesign property!", appSettings);
             }else if(!appSettings.appDesign.ionNavBarClass){
@@ -1165,6 +1234,12 @@ var qm = {
         },
         getDoctorRobotoAlias: function(appSettings){
             appSettings = appSettings || qm.getAppSettings();
+			if(!appSettings){
+
+				qm.qmLog.error("No appSettings!")
+				qm.getAppSettings();
+				return "Roboto";
+			}
             if(appSettings.doctorRobotAlias){
                 return appSettings.doctorRobotAlias;
             }
@@ -1174,6 +1249,18 @@ var qm = {
                 doctorRobotoAlias = 'Roboto';
             }
             return appSettings.doctorRobotoAlias = doctorRobotoAlias;
+        },
+        getWordAlias: function(defaultWord){
+            var appSettings = qm.appsManager.getAppSettingsFromMemory();
+            var aliases = appSettings.aliases;
+            if(!aliases){
+                return defaultWord;
+            }
+            var wordAlias = aliases[defaultWord];
+            if(!wordAlias){
+                return defaultWord;
+            }
+            return wordAlias;
         }
     },
     apiHelper: {
@@ -1792,7 +1879,7 @@ var qm = {
             }
             var combinedMessage = testMessage + customMessage;
             console.error("FAILED: " + combinedMessage + "\n");
-            //debugger
+
             var e = new Error(combinedMessage);
             e.stack = qm.stringHelper.before('at Gulp', e.stack, e.stack);
             e.stack = qm.stringHelper.before('at Object.runAllTestsForType', e.stack, e.stack);
@@ -1869,7 +1956,7 @@ var qm = {
 			    var value = params.get(param)
 			    if(!value){return;}
 			    params.delete(param)
-			    //debugger
+
 			    let newUrl = `${window.location.pathname}${window.location.hash}?${params}`
 			    window.location.href = newUrl
 			    // Doesn't work for some reason
@@ -1999,7 +2086,14 @@ var qm = {
         },
         getAccessTokenFromCurrentUrl: function(){
             qmLog.webAuthDebug("getAndSaveAccessTokenFromCurrentUrl " + qm.urlHelper.getCurrentUrl());
-            var accessTokenFromUrl = (qm.urlHelper.getParam('accessToken')) ? qm.urlHelper.getParam('accessToken') : qm.urlHelper.getParam('quantimodoAccessToken');
+	        var names = ['accessToken', 'quantimodoAccessToken', 'qmAccessToken'];
+	        var accessTokenFromUrl;
+	        for(var i = 0; i < names.length; i++){
+		        accessTokenFromUrl = qm.urlHelper.getParam(names[i]);
+		        if(accessTokenFromUrl){
+			        break;
+		        }
+	        }
             if(accessTokenFromUrl && accessTokenFromUrl.indexOf("#") !== -1){ // Sometimes #/app/settings gets appended for some reason
                 accessTokenFromUrl = qm.stringHelper.before('#', accessTokenFromUrl);
             }
@@ -2019,7 +2113,7 @@ var qm = {
             qm.api.configureClient('deleteAllAccessTokens');
         },
 	    getForgotPasswordUrl: function(){
-			return qm.urlHelper.prefixQMAPIOriginIfNecessary('password/reset');
+			return qm.urlHelper.prefixQMOriginIfNecessary('auth/password/reset');
 	    },
         deleteAllCookies: function(){
             if(typeof document === "undefined"){return;}
@@ -2134,7 +2228,7 @@ var qm = {
             if(!qm.platform.getWindow()){
                 return false;
             }
-            //var afterLogoutGoToUrl = qm.api.getQuantiModoUrl('ionic/Modo/www/index.html#/app/intro');
+            //var afterLogoutGoToUrl = qm.api.getQuantiModoUrl('app/public/index.html#/app/intro');
             var afterLogoutGoToUrl = qm.urlHelper.getIonicUrlForPath('intro');
             if(qm.urlHelper.indexOfCurrentUrl('/public/') !== -1){
                 afterLogoutGoToUrl = afterLogoutGoToUrl.replace('/www/', '/public/');
@@ -2285,7 +2379,7 @@ var qm = {
 		    return qm.boolHelper.isTruthy(logout) &&
 		           !qm.urlHelper.urlContains("logout=0");  // Handles screwed up redirect urls with logout=0%2Fapp%2Flogin
 	    },
-	    loginIfNecessary: function(){
+	    loginIfNecessary: async function(){
 		    var user = qm.getUser();
 			if(!user){
 				qm.auth.setAfterLoginGoToUrlAndSendToLogin("User is not logged in so we will redirect to login page");
@@ -2488,7 +2582,7 @@ var qm = {
                 var exp = highchartConfig.tooltip.formatter._expression;
                 var def = exp.substring(exp.indexOf("{") + 1, exp.lastIndexOf("}"));
                 // eslint-disable-next-line no-new-func
-                def = def.replace('//debugger', '//debugger')
+                def = def.replace('', '')
                 // eslint-disable-next-line no-new-func
                 highchartConfig.tooltip.formatter = new Function(def);
             }
@@ -3029,7 +3123,7 @@ var qm = {
             if(typeof connectorName !== "string"){connectorName = connectorName.name;}
             qm.loaders.psychedelicLoader.show();
             qm.auth.setAfterLoginGoToUrl(qm.connectorHelper.getFinalCallbackUrl());
-			//debugger
+
             var url = qm.connectorHelper.getConnectUrl(connectorName, additionalParams);
             window.location.href = url;
         },
@@ -3165,7 +3259,7 @@ var qm = {
         },
         update: function (name, successHandler) {
             qm.api.get('/api/v3/connectors/' + name + '/update', [], {}, function(r){
-                //debugger
+
                 if(successHandler){
                     successHandler(r);
                 }
@@ -3200,9 +3294,9 @@ var qm = {
             }
             apiInstance.getCorrelations(params, callback);
         },
-        getUserVariableRelationshipsFromApi: function(params, successHandler, errorHandler){
+        getUserCorrelationsFromApi: function(params, successHandler, errorHandler){
             params = qm.api.addGlobalParams(params);
-            var cachedData = qm.api.cacheGet(params, qm.items.userVariableRelationships);
+            var cachedData = qm.api.cacheGet(params, qm.items.userCorrelations);
             if(cachedData && successHandler){
                 successHandler(cachedData);
                 return;
@@ -3210,7 +3304,7 @@ var qm = {
             qm.api.configureClient(arguments.callee.name, params);
             var apiInstance = new qm.Quantimodo.AnalyticsApi();
             function callback(error, data, response){
-                qm.api.generalResponseHandler(error, data, response, successHandler, errorHandler, params, qm.items.userVariableRelationships);
+                qm.api.generalResponseHandler(error, data, response, successHandler, errorHandler, params, qm.items.userCorrelations);
             }
             apiInstance.getCorrelations(params, callback);
         }
@@ -4762,7 +4856,7 @@ var qm = {
                 },
                 thumbs: {
                     title: "Help Me Learn",
-                    textContent: "I'm really good at finding user_variable_relationships and even compensating for various onset delays and durations of action. " +
+                    textContent: "I'm really good at finding correlations and even compensating for various onset delays and durations of action. " +
                         "However, you're much better than me at knowing if there's a way that a given factor could plausibly influence an outcome. " +
                         "You can help me learn and get better at my predictions by pressing the thumbs down button for relationships that you don't think could possibly be causal.",
                 },
@@ -4900,7 +4994,7 @@ var qm = {
         trackingReminderSyncQueue: 'trackingReminderSyncQueue',
         user: 'user',
         useSmallInbox: 'useSmallInbox',
-        userVariableRelationships: 'userVariableRelationships',
+        userCorrelations: 'userCorrelations',
         userVariables: 'userVariables',
         variableCategories: 'variableCategories',
         lastState: 'lastState',
@@ -5573,7 +5667,7 @@ var qm = {
             var deferred = Q.defer();
             if(!toDelete.id){qmLog.info("No id to delete measurement, so I guess it was just created: ", toDelete)}
             //qm.assert.isInteger(toDelete.id, "measurement id", toDelete);
-            //debugger
+
             qm.measurements.deleteLocally(toDelete);
             qm.toast.infoToast("Deleted " + toDelete.variableName + " measurement");
             var startAt = qm.measurements.getStartAt(toDelete)
@@ -5616,22 +5710,22 @@ var qm = {
         checkMeasurements: function(arr){
             if(!arr){
                 qmLog.error("No measurements provided to checkMeasurements", {'measurements': arr})
-                //debugger
+
                 return;
             }
             if(!arr.forEach){
                 qmLog.error("Measurements provided to checkMeasurements is not an array", {'measurements': arr})
-                //debugger
+
                 return;
             }
             arr.forEach(function (m){
                 if(typeof m === "function"){
                     qmLog.error("existing Measurement is a function", {'measurements': arr})
-                    //debugger
+
                 }
                 if(Array.isArray(m)){
                     qmLog.error("existing Measurement is an array!", {'measurements': arr})
-                    //debugger
+
                 }
             });
         },
@@ -5645,11 +5739,11 @@ var qm = {
                     deferred.reject(err);
                 })
             }
-            //debugger
+
             var deferred = Q.defer();
             if(qm.measurements.postMeasurementPromise){  // Prevents getting measurements before POST completes
                 qm.measurements.postMeasurementPromise.finally(function(){
-                    //debugger
+
                     getMeasurements();
                 })
             } else {
@@ -5691,7 +5785,7 @@ var qm = {
             var ratingInfo = qm.ratingImages.getRatingInfo();
             if(typeof m === "function"){
                 qmLog.error("Measurement is a function")
-                //debugger
+
                 return;
             }
             var parsedNote = qm.stringHelper.parseJsonIfPossible(m.note);
@@ -5703,7 +5797,7 @@ var qm = {
             delete m.startTimeEpoch;
             var unit = qm.unitHelper.getByNameAbbreviatedNameOrId(m.unitId || m.unitAbbreviatedName);
             if(!unit){
-                //debugger
+
                 unit = qm.unitHelper.getByNameAbbreviatedNameOrId(m.unitId || m.unitAbbreviatedName);
                 qmLog.errorAndExceptionTestingOrDevelopment("Could not get unit for this measurement: ", m)
             } else {
@@ -5726,7 +5820,7 @@ var qm = {
                 var cat = qm.variableCategoryHelper.findByNameIdObjOrUrl(m);
                 if(cat){m.variableCategoryName = cat.name;}
             }
-            //debugger
+
             if(m.unitAbbreviatedName === "/5" && m.roundedValue && ratingInfo[m.roundedValue]){
                 m.image = ratingInfo[m.roundedValue].numericImage;
                 if(m.valence === 'positive'){m.image = ratingInfo[m.roundedValue].positiveImage;}
@@ -5813,7 +5907,7 @@ var qm = {
                     qm.measurements.postMeasurements(queueArr)
                         .then(function(data){
                             qm.measurements.queue = {};
-                            //debugger
+
                             var queue = qm.measurements.getMeasurementsFromQueue();
                             qmLog.lei(queue.length)
                             qm.measurements.getLocalMeasurements().then(function(measurements){
@@ -5824,7 +5918,7 @@ var qm = {
                             deferred.resolve(data);
                             qm.measurements.postMeasurementPromise = null;
                         }, function(error){
-                            //debugger
+
                             qm.measurements.queue = queueObj;
                             deferred.reject(error);
                             qm.measurements.postMeasurementPromise = null;
@@ -6172,7 +6266,7 @@ var qm = {
             menuItem = addUrlToMenuItem(menuItem);
             menuItem = qm.menu.convertQueryStringToParams(menuItem);
             menuItem = qm.menu.convertUrlAndParamsToHref(menuItem);
-            menuItem = qm.menu.addMenuId(menuItem);
+            menuItem = qm.menu.setId(menuItem);
             delete menuItem.url;
             return menuItem;
         },
@@ -6420,7 +6514,7 @@ var qm = {
             }
             var commands = {};
             commands[phrase] = function(){
-                //debugger
+
                 qmLog.info("Ignoring robot phrase: " + phrase);
             };
             qm.mic.addCommands(commands);
@@ -6527,7 +6621,7 @@ var qm = {
             ];
             var match = qm.mic.aPhraseContains(ignoreThese, possiblePhrases);
             if(match){
-                //debugger
+
                 qmLog.info("Ignoring robot phrase: " + match);
                 return match;
             }
@@ -6551,7 +6645,7 @@ var qm = {
         },
         listenForCardResponse: function(card, successHandler, errorHandler){
             qm.mic.wildCardHandler = function(possiblePhrases){
-                //debugger
+
                 if(qm.mic.weShouldIgnore(possiblePhrases)){
                     return false;
                 }
@@ -7846,8 +7940,9 @@ var qm = {
                 }
                 return null;
             }
-            if(qm.urlHelper.getParam(paramName)){
-                return qm.urlHelper.getParam(paramName, qm.urlHelper.getCurrentUrl(), true);
+			var urlParam = qm.urlHelper.getParam(paramName, qm.urlHelper.getCurrentUrl(), true);
+            if(urlParam){
+                return urlParam;
             }
             if($stateParams && $stateParams[paramName]){
                 return $stateParams[paramName];
@@ -8879,6 +8974,44 @@ var qm = {
         },
     },
     speech: {
+        setCaption: function(sentence) {
+            const captionContainer = document.getElementById('caption-container');
+            // Clear existing caption
+            captionContainer.innerHTML = '';
+
+            // Create and style the text span
+            const textSpan = document.createElement('span');
+            textSpan.classList.add('caption-text');
+            captionContainer.appendChild(textSpan);
+
+            const words = sentence.split(' ');
+            const wordsPerSection = 10; // Adjust this to show more or fewer words at a time
+            let currentSectionStartIndex = 0;
+            let intervalId;
+
+            const updateCaption = () => {
+                // Determine the section of words to show
+                const section = words.slice(currentSectionStartIndex, currentSectionStartIndex + wordsPerSection).join(' ');
+                textSpan.innerText = section;
+
+                // Update the start index for the next section
+                currentSectionStartIndex += wordsPerSection;
+
+                // If we've displayed all words, clear the interval
+                if (currentSectionStartIndex >= words.length) {
+                    setTimeout(() => {
+                        captionContainer.innerHTML = ''; // Optionally clear the caption after the last section is shown for a while
+                    }, 2000); // Time to show the last section before clearing
+                    clearInterval(intervalId);
+                }
+            };
+
+            // Initial update
+            updateCaption();
+
+            // Continue updating at a pace that allows for normal reading
+            intervalId = setInterval(updateCaption, 3000); // Adjust the timing to match the desired reading pace
+        },
         alreadySpeaking: function(text){
             if(!qm.platform.getWindow()){
                 return false;
@@ -9051,7 +9184,7 @@ var qm = {
         getUtterance: function(text, errorHandler){
             var utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = 'en-US';
-            utterance.rate = 0.9;
+            utterance.rate = 1;
             utterance.pitch = 1;
             utterance.onerror = function(event){
                 var message = 'An error has occurred with the speech synthesis: ' + event.error;
@@ -9174,7 +9307,7 @@ var qm = {
                     if(qm.speech.speechUtteranceChunker.cancel){
                         qm.speech.speechUtteranceChunker.cancel = false;
                     }
-                    if(callback !== undefined){
+                    if(callback){
                         callback();
                     }
                 });
@@ -9185,9 +9318,10 @@ var qm = {
                 var chunkArr = txt.match(pattRegex);
                 if(chunkArr[0] === undefined || chunkArr[0].length <= 2){
                     //call once all text has been spoken...
-                    if(callback !== undefined){
+                    if(callback){
                         callback();
                     }
+	                qm.robot.closeMouth();
                     return;
                 }
                 var chunk = chunkArr[0];
@@ -9301,7 +9435,7 @@ var qm = {
                 "brothers and sisters, " +
                 "and all watched over " +
                 "by machines of loving grace.  " +
-                "I'm Doctor " + qm.appsManager.getDoctorRobotoAlias() + " ",
+                //"I'm Doctor " + qm.appsManager.getDoctorRobotoAlias() + " ",
                 //"I've been programmed to reduce human suffering with data!  ", // Included in intro slide
                 successHandler, errorHandler, false, false);
         }
@@ -9946,6 +10080,18 @@ var qm = {
             qm.storage.clear();
             qm.localForage.clear();
         },
+	    setClientId: function(clientId){
+			var existing = qm.storage.getItem(qm.items.clientId);
+			if(existing && existing === clientId){
+				return;
+			}
+			//debugger
+		    qm.storage.setItem(qm.items.clientId, clientId);
+	    },
+        getClientId: function(){
+            var clientId = qm.storage.getItem(qm.items.clientId);
+            return clientId;
+        }
     },
     boolHelper: {
         isTruthy: function(value){
@@ -10111,7 +10257,7 @@ var qm = {
         formatValueUnitDisplayText: function(valueUnitText, abbreviatedUnitName){
             if(!valueUnitText || typeof valueUnitText.replace !== "function"){
                 qmLog.error("valueUnitText not valid: ", valueUnitText)
-                //debugger
+
             }
             valueUnitText = valueUnitText.replace(' /', '/');
             valueUnitText = valueUnitText.replace('1 yes/no', 'YES');
@@ -10566,7 +10712,7 @@ var qm = {
                 return false;
             }
             qm.chartHelper.configureHighchartSubProperties(study);
-            if(study.text){  // Hack to make consistent with basic user_variable_relationships to use same HTML template
+            if(study.text){  // Hack to make consistent with basic correlations to use same HTML template
                 study.statistics = qm.objectHelper.copyPropertiesFromOneObjectToAnother(study.text, study.statistics, false);
                 delete study.text;
             }
@@ -10588,7 +10734,7 @@ var qm = {
             qm.urlHelper.goToUrl(qm.studyHelper.getStudyJoinUrl(study));
         },
         goToStudyPageViaStudy: function(study){
-            //debugger
+
             var url = qm.studyHelper.getStudyUrl(study);
             qmLog.info("goToStudyPageViaStudy: Going to " + url +
                        " because we clicked " + study.causeVariableName + " vs " +
@@ -10886,7 +11032,7 @@ var qm = {
     },
     toast: {
         errorToast: function(errorMessage, callback){
-            //debugger
+
             if(qm.appMode.isBackEnd()){
                 qmLog.info("toast.errorAlert: "+errorMessage)
                 return;
@@ -11192,7 +11338,6 @@ var qm = {
             return fullUrl;
         },
         validateUrl: function(url){
-            return; // Not sure what this was for but it breaks chrome_index.html
             if(url.indexOf('index.html') !== -1 &&
                 url.indexOf('2Findex.html') === -1 &&
                 url.indexOf('/index.html') === -1){
@@ -11207,8 +11352,18 @@ var qm = {
                 url = qm.urlHelper.getCurrentUrl();
                 qm.urlHelper.validateUrl(url);
             }
-            const urlObj = new URL(url)
-            const previousParams = new URLSearchParams(urlObj.search)
+            // Split URL into parts before and after hash
+            let [preHash, postHash] = url.split("#");
+            let hash = "";
+            let search = "";
+
+            if (postHash) {
+                [hash, search] = postHash.split("?");
+            }
+
+            const urlObj = new URL(preHash);
+            const previousParams = new URLSearchParams(search || urlObj.search);
+
             for(var key in newParams){
                 if(newParams.hasOwnProperty(key)){
                     var value = newParams[key];
@@ -11221,8 +11376,12 @@ var qm = {
                     previousParams.set(key, value);
                 }
             }
-            urlObj.search = previousParams.toString();
-            url = urlObj.toString();
+            // Reassemble URL
+            if (hash) {
+                url = urlObj.origin + urlObj.pathname + "#" + hash + "?" + previousParams.toString() + urlObj.hash;
+            } else {
+                url = urlObj.origin + urlObj.pathname + "?" + previousParams.toString() + urlObj.hash;
+            }
             qm.urlHelper.validateUrl(url);
             return url;
         },
@@ -11284,12 +11443,14 @@ var qm = {
                 for(var i = 0; i < parameterKeyValuePairs.length; i++){
                     var currentParameterKeyValuePair = parameterKeyValuePairs[i].split('=');
                     if(currentParameterKeyValuePair[0].toCamelCase().toLowerCase() === parameterName.toCamelCase().toLowerCase()){
-                        currentParameterKeyValuePair[1] = qm.stringHelper.parseBoolean(currentParameterKeyValuePair[1]);
-                        if(typeof currentParameterKeyValuePair[1].indexOf !== "undefined" && currentParameterKeyValuePair[1].indexOf("https:%2F%2F") === 0){
+                        var val = qm.stringHelper.parseBoolean(currentParameterKeyValuePair[1]);
+                        if(typeof val.indexOf !== "undefined" && val.indexOf("https:%2F%2F") === 0){
                             shouldDecode = true;
                         }
+
                         if(typeof shouldDecode !== "undefined"){
-                            var decoded = decodeURIComponent(currentParameterKeyValuePair[1]);
+	                        val = val.replace(/\+/g, '%20');
+                            var decoded = decodeURIComponent(val);
                             if(decoded && decoded.indexOf('%2') !== -1){
                                 decoded = decodeURIComponent(decoded); // Must have been double encoded
                             }
@@ -11300,7 +11461,7 @@ var qm = {
                                 return decoded; // Must have already been decoded (happens when % symbol is in variable name)
                             }
                         }else{
-                            return currentParameterKeyValuePair[1];
+                            return val;
                         }
                     }
                 }
@@ -11384,7 +11545,8 @@ var qm = {
 	    urlIsFile: function(){
 		    return qm.urlHelper.startsWith("file://");
 	    },
-	    isIpAddress: function(){
+	    isIpAddress: function(url){
+			url = url || qm.urlHelper.getCurrentUrl();
 		    const regEx = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 		    return regEx.test(url);
 	    },
@@ -11583,11 +11745,24 @@ var qm = {
 		    if(pathOrUrl.indexOf('http') === 0){
 			    return pathOrUrl;
 		    }
+		    if(pathOrUrl.indexOf('/auth/') === 0){
+			    return qm.api.getQMOrigin() + pathOrUrl;
+		    }
 		    if(pathOrUrl.indexOf('/') !== 0 && !qm.urlHelper.urlContains('C:/')){
 				pathOrUrl = '/' + pathOrUrl;
 			}
 		    let url = qm.api.getQMApiOrigin() + pathOrUrl
 		    url = url.replace('api/api', 'api')
+		    return url;
+	    },
+	    prefixQMOriginIfNecessary: function(pathOrUrl){
+		    if(pathOrUrl.indexOf('http') === 0){
+			    return pathOrUrl;
+		    }
+		    if(pathOrUrl.indexOf('/') !== 0 && !qm.urlHelper.urlContains('C:/')){
+			    pathOrUrl = '/' + pathOrUrl;
+		    }
+		    let url = qm.api.getQMOrigin() + pathOrUrl
 		    return url;
 	    },
         indexOfCurrentUrl: function(needle){
@@ -11704,7 +11879,6 @@ var qm = {
 	    getUserAsync: async function(){
 		    var user = qm.storage.getItem(qm.items.user);
 		    if(!user){
-				debugger
 			    var user = await qm.api.getAsync('/api/v1/user');
 			    qm.userHelper.setUser(user);
 		    }
@@ -11765,7 +11939,7 @@ var qm = {
                     verticalOffset: 80,
                 })
                 setTimeout(function(){
-                    //debugger
+
                     var el = qm.chatButton.getDriftButtonElement();  // Doesn't work for some reason
                     // This doesn't work for some reason if(el){ el.style.zIndex = '10'; }
                 }, 10000)
@@ -12617,6 +12791,9 @@ var qm = {
                 qmLog.info("qm.visualizer Element not found");
             }
         },
+	    showCircleVisualizer: function(){
+			qm.visualizer.showVisualizer("rainbow");
+	    },
         showVisualizer: function(type){
             if(!qm.visualizer.visualizerEnabled){
                 return;
@@ -13187,7 +13364,7 @@ var qm = {
         if(failed){
             qmLog.error(msg, meta)
             if(meta){msg += "\n" + qm.stringHelper.prettyJsonStringify(meta);}
-            debugger
+
             if(!qm.appMode.isProduction()){
                 throw Error(msg)
             }
@@ -13215,7 +13392,7 @@ var qm = {
 			});
 			console.log(html);
 			var url = await qm.web3.mintAndEncrypt(html, userVariable.name);
-			debugger
+
 			console.log(url);
 		},
 		litConnected: false,
@@ -13227,7 +13404,7 @@ var qm = {
 			return LitJsSdk.litNodeClient
 		},
 		mintAndEncrypt: async function(toEncrypt, title){
-			debugger;
+			;
 			var user = await qm.web3.connectIfNecessary();
 			qmLog.info("user address is " + user.ethAddress);
 			var nft = await qm.web3.newNft();
@@ -13265,7 +13442,7 @@ var qm = {
 		},
 		encrypt: async function(toEncrypt, title){
 			const chain = qm.web3.chain()
-			debugger
+
 			await LitJsSdk.connectWeb3(chain)
 			await litNodeClient.connect()
 			if(!toEncrypt){
@@ -13354,7 +13531,7 @@ var qm = {
 		},
 		authHandler: async function(type) {
 			if (!window.ethereum) {
-				debugger
+
 				Swal.fire({
 					title: 'Metamask Required',
 					text: 'To use this feature, you need to have Metamask installed in your browser. Click the button below to install it.',
@@ -13435,6 +13612,106 @@ var qm = {
 		}
 	},
 };
+qm.dom = {
+    removeClassFromAllElements: function (selector, className) {
+        // Select all elements with the given class name
+        var elements = document.querySelectorAll('.' + className);
+
+        // Iterate through the selected elements and remove the class
+        elements.forEach(function(element) {
+            element.classList.remove(className);
+        });
+    },
+    deleteElement: function (target) {
+        let element;
+
+        // Check if the target is a string (selector) or an element
+        if (typeof target === 'string') {
+            element = document.querySelector(target);
+        } else {
+            element = target;
+        }
+
+        if (element) {
+            element.parentNode.removeChild(element);
+        } else {
+            console.warn('Element not found.');
+        }
+    },
+    changeBackgroundColor: function (selector, color) {
+        function removeClassesContaining(element, substring) {
+            if (element && element.classList) {
+                const classesToRemove = Array.from(element.classList).filter(className => className.includes(substring));
+                classesToRemove.forEach(className => element.classList.remove(className));
+            } else {
+                console.warn('Invalid element provided.');
+            }
+        }
+        const elements = document.querySelectorAll(selector);
+        if (elements.length > 0) {
+            elements.forEach(element => {
+                element.style.backgroundColor = color;
+                removeClassesContaining(element, 'rainbow');
+            });
+        } else {
+            console.warn(`No elements found for selector "${selector}".`);
+        }
+    },
+    changeBackgroundColorByClass: function (className, color) {
+        const sheets = document.styleSheets;
+        Array.from(sheets).forEach(sheet => {
+            try {
+                Array.from(sheet.cssRules || []).forEach(rule => {
+                    if (rule.selectorText && rule.selectorText.includes(`.${className}`)) {
+                        rule.style.background = null;
+                        rule.style.backgroundColor = color;
+                    }
+                });
+            } catch (error) {
+                console.warn(`Unable to access cssRules for stylesheet: ${sheet.href}`);
+            }
+        });
+    },
+}
+qm.themes = {
+    lightBlue: {
+        name: "Light Blue",
+        enable: function(){
+            var blue = '#45abde'
+            var white = '#FFFDFDFF'
+
+            //document.querySelector("#top-nav-bar > div:nth-child(4) >
+            // ion-header-bar").style.backgroundColor = blue;
+            qm.dom.changeBackgroundColorByClass('splash-wrapper', white);
+            qm.dom.changeBackgroundColorByClass('bar-positive', blue);
+            qm.dom.changeBackgroundColorByClass('glass', blue);
+            qm.dom.changeBackgroundColorByClass('ion-header-bar', blue);
+            qm.dom.changeBackgroundColor('#side-menu', blue);
+            qm.dom.changeBackgroundColor('#top-nav-bar > div:nth-child(4) > ion-header-bar', blue);
+            qm.dom.changeBackgroundColor('.menu-content', white);
+            qm.dom.deleteElement('#splash-screen > div');
+            //qm.dom.removeClassFromAllElements('bar-transparent')
+        }
+    }
+}
+qm.metpsy = {
+    getEnabled: function (appSettings) {
+        if(qm.metpsy.enabled !== null){
+            return qm.metpsy.enabled;
+        }
+        if(appSettings && appSettings.clientId.indexOf('metpsy') > -1){
+            return qm.metpsy.enabled = true;
+        }
+        if(window.location.href.indexOf('metpsy') > -1){
+            return qm.metpsy.enabled = true;
+        }
+        return false;
+    },
+    enabled: null,
+    setup: function(){
+        qm.themes.lightBlue.enable();
+    }
+}
 //if(typeof window !== "undefined" && typeof qmLog === "undefined"){window.qmLog = qmLog;}  // Need to use qmLog so it's available in node.js modules
 if(typeof Quantimodo !== "undefined"){
     qm.Quantimodo = Quantimodo;
@@ -13488,5 +13765,6 @@ if(qm.appMode.isBackEnd()){
         }
         init();
     }
+	qm.auth.getAndSaveAccessTokenFromCurrentUrl();
 }());
 // END localStorage POLYFILL

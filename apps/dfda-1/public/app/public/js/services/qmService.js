@@ -500,6 +500,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                     if(button.link){
                         return qm.urlHelper.goToUrl(button.link);
                     }
+					if(button.clickHandler){return button.clickHandler();}
                     if(!qmService.buttonClickHandlers[button.functionName]){
                         qmLog.error("qmService.buttonClickHandlers." + button.functionName + " is not defined!", button);
                         return;
@@ -770,9 +771,8 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                     if(qm.platform.isChromeExtension()){
                         usePopup = true;
                     }
-                    if(isIframe && connector.name.indexOf('google') !== -1){
-                        usePopup = true;
-                    }
+                    // Why? if(isIframe && connector.name.indexOf('google') !== -1){usePopup = true;}
+                    if(isIframe){usePopup = true;}
                     if(usePopup){
                         qmService.pusher.loginRedirectionSubscribe();
                         qmService.connectors.webConnectViaPopup(connector, ev, additionalParams);
@@ -1285,11 +1285,13 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                     };
                     var sendCouponEmail = function(){
                         qmService.sendEmailViaAPIDeferred('couponInstructions');
-                        qmService.showMaterialAlert('Coupon Redemption', 'Please go check your email at ' + $rootScope.user.email + ' for instructions to redeem your coupon.');
+                        qmService.showMaterialAlert('Coupon Redemption',
+	                        'Please go check your email at ' + $rootScope.user.email + ' for instructions to redeem your coupon.');
                     };
                     var sendFitbitEmail = function(){
                         qmService.sendEmailViaAPIDeferred('fitbit');
-                        qmService.showMaterialAlert('Get Fitbit', 'Please check your email at ' + $rootScope.user.email + ' for instructions to get and connect Fitbit.');
+                        qmService.showMaterialAlert('Get Fitbit',
+	                        'Please check your email at ' + $rootScope.user.email + ' for instructions to get and connect Fitbit.');
                     };
                     var sendChromeEmail = function(){
                         qmService.sendEmailViaAPIDeferred('chrome');
@@ -1710,6 +1712,9 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                     qmService.storage.setItem(qm.items.afterLoginGoToState, afterLoginGoToState);
                 },
                 getAfterLoginState: function(){
+					if(qm.appMode.isBuilder()){
+						return qm.staticData.stateNames.configuration;
+					}
                     return qm.storage.getItem(qm.items.afterLoginGoToState);
                 },
             },
@@ -2174,7 +2179,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                 var SelectVariableDialogController = function($scope, $state, $rootScope, $stateParams, $filter, qmService,
                                                               $q, $log, dialogParams, $timeout){
                     var self = this;
-                    //debugger
+
                     if(!dialogParams.placeholder){
                         dialogParams.placeholder = "Enter a variable";
                     }
@@ -2317,7 +2322,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                                 return deferred.promise;
                             }
                         }
-                        self.notFoundText = "No variables found. Please try another wording or contact help@curedao.org.";
+                        self.notFoundText = "No variables found. Please try another wording or contact mike@quantimo.do.";
                         if(query === self.lastApiQuery && self.lastResults){
                             logDebug("Why are we researching with the same query?", query);
                             deferred.resolve(self.lastResults);
@@ -2340,7 +2345,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                         logDebug("getFromLocalStorageOrApi in querySearch with params: " +
                             JSON.stringify(dialogParams.requestParams), query);
                         if(query && query.length){
-                            //debugger
+
                         }
                         // Debounce in the template doesn't seem to work so we wait 500ms before searching here
                         clearTimeout(qmService.searchTimeout);
@@ -3336,7 +3341,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
             qm.storage.setItem(qm.items.lastUrl, window.location.href);
         }
         qmService.setCurrentState = function(state){
-            //debugger
+
             qm.storage.setItem(qm.items.currentState, state);
         }
         qmService.getCurrentState = function(){
@@ -3531,6 +3536,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                 $rootScope.sendReminderNotificationEmails = null;
             }
         };
+
         qmService.syncAllUserData = function(){
             qm.reminderHelper.syncReminders();
             return qm.userVariables.getFromLocalStorageOrApi();
@@ -4121,7 +4127,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
             return parseInt((qm.timeHelper.getUnixTimestampInMilliseconds() - lastGotNotificationsAtMilliseconds) / 1000);
         };
         qmService.goToStudyPageViaStudy = function(study){
-            //debugger
+
             if(study){
                 qmService.goToState('app.study', {study: study});
             }else{
@@ -5530,7 +5536,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
             qmService.showInfoToast("Thank you! One moment please...", 30);
             function upgradeErrorHandler(response){
                 qmLog.error("Upgrade failed", null, response);
-                var message = 'Please try again or contact help@curedao.org for help.';
+                var message = 'Please try again or contact mike@quantimo.do for help.';
                 if(response.error){
                     message = response.error + '  ' + message;
                 }
@@ -6073,19 +6079,20 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
         qmService.showFullScreenLoader = function(duration){
 			//return;
             duration = duration || 15;
-            if(typeof psychedelicLoader === "undefined"){
-                qmLog.error("psychedelicLoader undefined!");
-            } else {
-                psychedelicLoader.start();
-            }
-            //debugger
+	        if(typeof psychedelicLoader === "undefined"){
+		        qmLog.error("psychedelicLoader undefined!");
+		        $ionicLoading.show({template: '<div class="loader"></div>', duration: duration * 1000});
+				// Show Ionic 1 loader
+	        } else {
+		        psychedelicLoader.start();
+	        }
+
 	        // var templateUrl = "templates/loaders/triangles-loader.html"
 	        // I think the high GPU usage crashes the browser
 	        // $ionicLoading.show({templateUrl: templateUrl, duration: duration * 1000});
-	        //$ionicLoading.show({template: '<div class="loader"></div>', duration: duration * 1000});
         };
         qmService.hideLoader = function(){
-			//debugger
+
 	        $ionicLoading.hide();
 	        if(typeof psychedelicLoader === "undefined"){
 		        qmLog.error("psychedelicLoader undefined!");
@@ -6237,6 +6244,16 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
         qmService.initializeApplication = function(appSettings){
             qmLog.debug("Initializing application...");
             qm.qmService = qmService;
+            if(typeof appSettings.appDesign.darkMode === 'undefined' ||
+                appSettings.appDesign.darkMode === null) {
+                appSettings.appDesign.darkMode = true;
+            }
+            if(qm.metpsy.getEnabled(appSettings)){
+                appSettings.appDesign.ionNavBarClass = 'bar-positive';
+                appSettings.appDesign.darkMode = false;
+                appSettings.appDesign.intro.futuristicBackground = false;
+                qm.metpsy.setup();
+            }
             if(window.config){
                 return;
             }
@@ -6300,7 +6317,7 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                 "Additional Information: " + '\r\n';
             addAppInformationToTemplate(template, function(template){
                 var emailBody = encodeURIComponent(template);
-                var emailAddress = 'help@curedao.org';
+                var emailAddress = 'mike@quantimo.do';
                 var fallbackUrl = 'http://help.quantimo.do';
                 qmLog.error("Bug Report", template);
                 if(qm.platform.isMobile()){
@@ -6803,6 +6820,14 @@ angular.module('starter').factory('qmService', ["$http", "$q", "$rootScope", "$i
                 qm.storage.setItem(qm.items.deviceTokenToSync, qm.storage.getItem(qm.items.deviceTokenOnServer));
                 qmService.deleteDeviceTokenFromServer();
             }
+        }
+        qmService.populateHelpCard = function(helpCard, $stateParams){
+            helpCard = helpCard || {};
+            //debugger
+            helpCard.title = $stateParams.title;
+            helpCard.icon = $stateParams.ionIcon;
+            helpCard.bodyText = $stateParams.helpText;
+            return helpCard;
         }
         return qmService;
     }]);

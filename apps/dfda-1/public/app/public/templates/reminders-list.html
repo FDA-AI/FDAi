@@ -1,10 +1,11 @@
 <ion-view hide-nav-bar="hideNavigationMenu">
-    <ion-nav-title>{{stateParams.title}}</ion-nav-title>
+    <ion-nav-title>{{ stateParams.title | wordAliases }}</ion-nav-title>
     <ion-content scroll="true"
                  overflow-scroll="true"
                  ng-class="{ isBrowserView : platform.isWeb == true }">
         <md-progress-linear md-mode="indeterminate" ng-show="state.loading"></md-progress-linear>
         <ion-refresher on-refresh="refreshReminders()"></ion-refresher>
+        <div ng-include="'templates/fragments/help-info-card-fragment.html'"></div>
         <div class="card"
              ng-if="state.showNoRemindersCard">
             <div class="item item-avatar">
@@ -58,7 +59,7 @@
         </div>
         <div class="center">
             <md-button id="addReminderButton"
-                       class="rainbow-gradient-animation"
+                       class="md-raised md-primary"
                        ng-click="addNewReminderButtonClick()">
                 <i class="icon ion-plus positive"></i>
                 {{stateParams.addButtonText}}
@@ -72,7 +73,7 @@
          active-icon="ion-minus-round"
          resting-icon="ion-plus-round"
          toggling-method="click"
-         ng-hide="hideNavigationMenu">
+         ng-hide="hideNavigationMenu || appSettings.appDesign.miscDesignSettings.hideFloatingActionButton.value">
         <button id="mfb1"
                 mfb-button
                 icon="ion-android-notifications-none"

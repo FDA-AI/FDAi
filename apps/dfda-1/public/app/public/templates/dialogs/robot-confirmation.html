@@ -1,4 +1,4 @@
-<md-dialog aria-label="{{ctrl.title}}" 
+<md-dialog aria-label="{{ctrl.title}}"
            style="overflow: visible;"> <!--Opacity 1 here didn't fix iPhone5 problem-->
     <form ng-cloak style="overflow: visible">
         <md-toolbar>
@@ -30,15 +30,12 @@
         </md-dialog-content>
         <md-dialog-actions layout="row">
             <md-button id="helpButton"
-                       class="rainbow-gradient-background"
                        ng-click="answer('help')" ng-if="!platform.isMobile" style="min-width: 40px;">
                 Help
             </md-button>
             <md-button id="noButton"
-                       class="rainbow-gradient-background"
                        ng-click="answer('no')" style="min-width: 40px;">{{ctrl.noText}}</md-button>
             <md-button id="yesButton"
-                       class="rainbow-gradient-background"
                        ng-click="answer('yes')" style="min-width: 40px;">Yes</md-button>
         </md-dialog-actions>
     </form>
