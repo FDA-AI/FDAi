@@ -4,8 +4,11 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
                                                                    Upload, $ionicActionSheet, $mdDialog, $stateParams, $sce){
     $scope.controller_name = "ConfigurationCtrl";
     $scope.state = {
-        clientId: getClientId(),
+        clientId: null,
         reminderCard: configurationService.getReminderCard(),
+        loading: true,
+	    aliasForm: {},
+        newAlias: {},
     };
     $scope.menu = {
         addSubMenuItem: configurationService.menu.addSubMenuItem,
@@ -52,7 +55,7 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
         if(!$scope.appList){ // Loading the first time instead of switching from another page
             populateAppsListFromLocalStorage();
             if(configurationService.allAppSettings){
-                populateAppsListAndSwitchToSelectedApp(configurationService.allAppSettings);
+                populateAppsList(configurationService.allAppSettings);
             }else{
                 qmService.showInfoToast("Loading your apps (this could take a minute)");
                 qmService.showFullScreenLoader();
@@ -68,15 +71,27 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
         }
     });
     $scope.$on('$ionicView.afterEnter', function(e){
+        qmService.showFullScreenLoader();
         if($stateParams.hideNavigationMenu !== true){
             qmService.navBar.showNavigationMenu();
         }
         setPopOutUrl();
+		// if(!$rootScope.appSettings.clientSecret){
+		// 	configurationService.getAppSettingsFromApiWithClientSecret(getClientId())
+		// }
+        configurationService.getAppSettingsFromApiWithClientSecret(getClientId())
     });
     // noinspection JSUnusedLocalSymbols
     $scope.$on('$ionicView.beforeLeave', function(e){
         qmLog.info("Leaving configuration state!");
     });
+    function hideLoader(){
+        qmService.hideLoader();
+        $scope.state.loading = false;
+    }
+    function showLoader(){
+        $scope.state.loading = true;
+    }
     function setPopOutUrl(){
         var query = '?clientId=' + getClientId() + '&apiOrigin=' +
                     encodeURIComponent(qm.api.getQMApiOrigin()) +
@@ -106,46 +121,25 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
         var appList = configurationService.getAppsListFromLocalStorage();
         if(appList){
             $scope.appList = appList; // More efficient than updating scope a million times
-            qmService.hideLoader();
+            hideLoader();
         }
     }
-    function populateAppsListFromAppSettingsArray(appSettingsArray){
-        if(!appSettingsArray || !appSettingsArray.length){
+    function populateAppsList(appList){
+        if(!appList || !appList.length){
             $scope.appList = [];
             return;
         }
-        var appList = configurationService.convertAppSettingsToAppList(appSettingsArray);
         qm.storage.setItem(qm.items.appList, appList);
         $scope.appList = appList; // More efficient than updating scope a million times
     }
 	function refreshAppListAndSwitchToSelectedApp(){
 		qmLog.info("refreshAppListAndSwitchToSelectedApp...");
 		qmService.showInfoToast("Downloading your apps...");
-		configurationService.getAppSettingsArrayFromApi().then(function(allAppSettings){
-			populateAppsListAndSwitchToSelectedApp(allAppSettings);
-			qmService.hideLoader();
+		configurationService.getAppListFromApi().then(function(appList){
+			populateAppsList(appList);
+			hideLoader();
 		});
 	}
-    function populateAppsListAndSwitchToSelectedApp(appSettingsArray){
-        qmService.showInfoToast("Synced most recent versions of your " + appSettingsArray.length + " apps!");
-        qmLog.info("populateAppsListAndSwitchToSelectedApp");
-        populateAppsListFromAppSettingsArray(appSettingsArray);
-        var appToSwitchTo = appSettingsArray.find(function(appSettingsObject){
-            return appSettingsObject.clientId === qm.appsManager.getBuilderClientId();
-        });
-        if($rootScope.user.administrator && 
-           !appToSwitchTo && 
-           $rootScope.appSettings.clientId === qm.appsManager.getBuilderClientId()){
-            // This happens when an admin is editing an app they aren't a collaborator of with clientId url param
-            qmService.hideLoader();
-            return;
-        }
-        if(!appToSwitchTo && appSettingsArray.length){
-            appToSwitchTo = appSettingsArray[0];
-        }
-        configurationService.separateUsersAndConfigureAppSettings(appToSwitchTo);
-        qmService.hideLoader();
-    }
     $scope.loadUserList = function(){ // Delay loading user list because it's so big
         qmService.showFullScreenLoader();
         var users = configurationService.users;
@@ -158,7 +152,7 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
         }else{
             qmLog.error("No users!");
         }
-        qmService.hideLoader();
+        hideLoader();
     };
     $scope.appTypeChange = function(){
         configurationService.saveAppSettingsRevisionLocally(function(revisionList){
@@ -255,12 +249,12 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
             console.debug("File upload response: ", response);
             qmService.showInfoToast(displayName + " uploaded!");
             successHandler(response.data.url);
-            qmService.hideLoader();
+            hideLoader();
             configurationService.postAppSettingsAfterConfirmation($rootScope.appSettings, function(appSettingsUpdateResponse){
                 qmLog.info("appSettings image UpdateResponse", appSettingsUpdateResponse);
             });
         }, function(response){
-            qmService.hideLoader();
+            hideLoader();
             if(response.status > 0){
                 $scope.errorMsg = response.status + ': ' + response.data;
             }
@@ -325,9 +319,9 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
                 $rootScope.appSettingObjectToEdit = JSON.parse(newAppSettingObjectToEditString);
             }
             configurationService.postAppSettingsAfterConfirmation();
-            qmService.hideLoader();
+            hideLoader();
         }, function(response){
-            qmService.hideLoader();
+            hideLoader();
             if(response.status > 0){
                 $scope.errorMsg = response.status + ': ' + response.data;
             }
@@ -491,15 +485,16 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
     $scope.switchBackFromPatient = function(){
         qmService.patient.switchBackFromPatient($scope);
     };
-    $scope.switchApp = function(selectedApp){
-        //debugger
-        if(selectedApp.clientId === $rootScope.appSettings.clientId){
+    $scope.switchApp = function(selectedApp, refresh){
+
+        if(!refresh && selectedApp.clientId === $rootScope.appSettings.clientId){
             qmLog.info("Already using " + selectedApp.clientId);
             return false;
         }
+		$scope.state.loading = true;
         qmService.showFullScreenLoader();
         configurationService.switchApp(selectedApp, function(revisionList){
-            qmService.hideLoader();
+            hideLoader();
             $scope.revisionsList = revisionList;
         });
     };
@@ -642,5 +637,17 @@ angular.module('starter').controller('ConfigurationCtrl', function($state, $scop
     };
     $scope.deleteReminder = function(reminderToDelete){
         configurationService.reminders.deleteReminder(reminderToDelete);
+    };
+    $scope.state.addAlias = function() {
+        if ($scope.state.aliasForm.$valid) {
+            $rootScope.appSettings.appDesign.wordAliases.push($scope.state.newAlias);
+            $scope.state.newAlias = {};
+            $scope.postAppSettingsAfterConfirmation();
+        }
+    };
+
+    $scope.state.deleteAlias = function(index) {
+        $rootScope.appSettings.appDesign.wordAliases.splice(index, 1);
+        $scope.postAppSettingsAfterConfirmation();
     };
 });

@@ -1,6 +1,29 @@
 "use strict";
 // noinspection TypeScriptRedundantGenericType,JSUnusedGlobalSymbols
 // noinspection JSUnusedGlobalSymbols
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -37,15 +60,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getContracts = exports.uploadLifeForceImage = exports.generateDataGemCanvas = exports.generateLifeForceCanvas = exports.generateDataGemImage = exports.generateLifeForceNftImage = exports.slugify = exports.mintNFTForUserVariable = exports.deployNftContract = exports.getContractAddress = exports.getLifeForceScore = exports.getUserVariable = exports.calculateVariableScore = exports.getDataSources = exports.getRequest = exports.updateDataSourceButtonLink = exports.getAccessToken = void 0;
 // noinspection JSUnusedGlobalSymbols,TypeScriptRedundantGenericType
 // noinspection TypeScriptRedundantGenericType
-var axios_1 = require("axios");
+var axios_1 = __importDefault(require("axios"));
 var mathjs_1 = require("mathjs");
-var qm = require("./qmHelpers.js");
+var qm = __importStar(require("./qmHelpers.js"));
 var canvas_1 = require("canvas");
-var fs = require("fs");
+var fs = __importStar(require("fs"));
 var fetch = require('node-fetch');
 var FormData = require('form-data');
 var storage = qm.storage;
@@ -504,3 +530,4 @@ function getContracts() {
     });
 }
 exports.getContracts = getContracts;
+//# sourceMappingURL=digitalTwinApi.js.map

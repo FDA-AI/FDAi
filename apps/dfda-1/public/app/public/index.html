@@ -15,7 +15,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Orbitron:400,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <link href="css/study.css" rel="stylesheet">
       <link href="css/robot.css" rel="stylesheet">
       <link rel="manifest" href="manifest.json">
@@ -38,6 +40,7 @@
       <script defer src="https://static.quantimo.do/lib/ngCordova/dist/ng-cordova.min.js"></script>
       <!--<script defer src="https://static.quantimo.do/lib/templates.js"></script>-->
       <script defer src="https://static.quantimo.do/lib/oclazyload/dist/ocLazyLoad.min.js"></script>
+      <!--<script defer src="https://static.quantimo.do/lib/opbeat-angular/opbeat-angular.min.js"></script>-->
       <script defer src="https://static.quantimo.do/lib/quantimodo/quantimodo-web.js"></script>
       <script src="https://static.quantimo.do/js/ionIcons.js"></script> <!-- Needed for qmService to work -->
     <script src="js/qmLogger.js"></script>
@@ -66,6 +69,8 @@
     <script src="js/controllers/remindersInboxCtrl.js"></script>
     <script async src="js/controllers/favoritesCtrl.js"></script>
     <script src="js/controllers/introCtrl.js"></script>
+	  <script src="data/slides-v1.js"></script>
+	  <script src="js/controllers/presentationCtrl.js"></script>
     <!--<script src="js/controllers/fabric.js"></script> Not sure if this does anything.  We might want to enable for native error logging sometime. -->
     <script src="js/controllers/variableSettingsCtrl.js"></script>
     <script src="js/controllers/loginCtrl.js"></script>
@@ -92,7 +97,7 @@
     <script src="js/controllers/studyJoinCtrl.js"></script>
     <script src="js/controllers/studyCreationCtrl.js"></script>
     <script async src="js/controllers/dataSharingCtrl.js"></script>
-    <script async src="js/controllers/chatCtrl.js"></script>
+    <script src="js/controllers/chatCtrl.js"></script>
     <script async src="js/controllers/feedCtrl.js"></script>
     <script async src="js/controllers/votesCtrl.js"></script>
       <script async src="js/controllers/searchBarCtrl.js"></script>
@@ -131,7 +136,6 @@
     <script defer src="https://static.quantimo.do/lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
     <script defer src="https://static.quantimo.do/lib/pluralize/pluralize.js"></script>
     <script defer src="https://static.quantimo.do/lib/angular-clipboard/angular-clipboard.js"></script>
-    <script defer src="https://static.quantimo.do/lib/angular-google-analytics/dist/angular-google-analytics.js"></script>
     <script defer src="https://static.quantimo.do/lib/angular-material-datetimepicker/js/angular-material-datetimepicker.js"></script>
     <script defer src="https://static.quantimo.do/lib/angular-wikipedia-api-factory/dist/angular-wikipedia-api-factory.min.js"></script>
     <script defer src="https://static.quantimo.do/lib/angular-aria/angular-aria.js"></script>
@@ -158,15 +162,15 @@
     <script defer src="https://static.quantimo.do/lib/pouchdb/dist/pouchdb.min.js"></script>
     <script defer src="https://static.quantimo.do/lib/pouchdb-upsert/dist/pouchdb.upsert.js"></script>
     <script defer src="https://static.quantimo.do/lib/quagga/dist/quagga.js"></script>
-
+    <script defer src="https://static.quantimo.do/lib/q/q.js"></script>
     <script defer src="https://static.quantimo.do/lib/compromise/builds/compromise.js"></script> <!-- compromise produces errors when minified for some reason -->
     <script defer src="https://static.quantimo.do/lib/Bravey/build/bravey.js"></script> <!-- Bravey produces errors when minified for some reason -->
         <script async src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	  <script async src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
-	  <script
-			  onload="LitJsSdk.litJsSdkLoadedInALIT()"
-			  src="https://jscdn.litgateway.com/index.web.js"
-	  ></script>
+<!--	  <script-->
+<!--			  onload="LitJsSdk.litJsSdkLoadedInALIT()"-->
+<!--			  src="https://jscdn.litgateway.com/index.web.js"-->
+<!--	  ></script>-->
 	  <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.7/src/glowCookies.min.js"></script>
 	  <script>
 		  glowCookies.start('en', {

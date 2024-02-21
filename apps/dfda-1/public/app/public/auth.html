@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <!-- DO NOT CHANGE LINE ENDINGS ON <!DOCTYPE html> LINE OR IT WILL ADD WHITE BAR TO TOP OF ANDROID APP -->
-    <!--  <meta http-equiv="Content-Security-Policy" content="script-public 'self' https://maps.googleapis.com/ https://maps.gstatic.com/ https://mts0.googleapis.com/ https://*.quantimo.do/ https://cdn.rawgit.com/ https://widget.intercom.io/ https://js.intercomcdn.com 'unsafe-inline' 'unsafe-eval'"> -->
+    <!--  <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com/ https://maps.gstatic.com/ https://mts0.googleapis.com/ https://*.quantimo.do/ https://cdn.rawgit.com/ https://widget.intercom.io/ https://js.intercomcdn.com 'unsafe-inline' 'unsafe-eval'"> -->
     <meta content="frame-src * gap://ready; default-src * blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' * blob:; style-src 'self' 'unsafe-inline' * https://cdn.logrocket.io https://cdn.lr-ingest.io; font-src 'self' *.quantimo.do *.cloudfront.net qm-cordova-hot-code-push.s3.amazonaws.com fonts.zohostatic.com css.zohostatic.com data: https://fonts.zohostatic.com https://fonts.gstatic.com https://mikepsinn.github.io https://fonts.googleapis.com/; img-src * data:;"
           http-equiv="Content-Security-Policy">
     <title></title>
@@ -199,7 +199,7 @@
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+        js.public = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
@@ -245,7 +245,7 @@
                 }), t.load = function(t) {
                     var e, n, o, i;
                     e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"),
-                        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js",
+                        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.public = "https://js.driftt.com/include/" + i + "/" + t + ".js",
                         n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
                 });
             }();

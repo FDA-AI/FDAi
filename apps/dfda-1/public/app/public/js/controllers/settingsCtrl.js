@@ -118,7 +118,8 @@ angular.module('starter').controller('SettingsCtrl', ["$state", "$scope", "$ioni
             if($rootScope.user.combineNotifications){
                 qmService.showMaterialAlert('Disabled Individual Notifications',
                     'You will only get a single generic notification instead of a separate notification for each reminder that you create.  All ' +
-                    'tracking reminder notifications for specific reminders will still show up in your Reminder Inbox.', ev);
+                    'tracking reminder notifications for specific reminders will still show up in your '+
+                    qm.appsManager.replaceWithAliases("Reminder Inbox") + '.', ev);
                 qmService.cancelAllNotifications().then(function(){
                     qmLog.debug('SettingsCtrl combineNotificationChange: Disabled Multiple Notifications and now ' +
                         'refreshTrackingRemindersAndScheduleAlarms will schedule a single notification for highest ' +
@@ -313,7 +314,7 @@ angular.module('starter').controller('SettingsCtrl', ["$state", "$scope", "$ioni
                 qmService.showMaterialAlert('Downgraded', 'Successfully downgraded to QuantiModo Lite');
             }, function(error){
                 qmService.hideLoader();
-                qmService.showMaterialAlert('Error', 'An error occurred while downgrading. Please email help@curedao.org');
+                qmService.showMaterialAlert('Error', 'An error occurred while downgrading. Please email mike@quantimo.do');
                 qmLog.debug(JSON.stringify(error), null);
             });
         };

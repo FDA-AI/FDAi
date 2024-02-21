@@ -1,5 +1,5 @@
 <ion-view hide-nav-bar="true">
-    <ion-nav-title>{{state.title}}</ion-nav-title>
+    <ion-nav-title>{{ state.title | wordAliases }}</ion-nav-title>
     <ion-content>
         <div id="notification-icon"
              ng-click="showActionSheetForNotification(trackingReminderNotifications[0], $event)"

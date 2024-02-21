@@ -14,7 +14,8 @@ var qmStates = [
     },
     {
         "url": "/login",
-        "templateUrl": "templates/login-page.html",
+        //"templateUrl": "templates/login-page.html",
+	    "templateUrl": "templates/passwordless-login-page.html",
         "controller": "LoginCtrl",
         "resolve": {},
         "name": "login"
@@ -41,7 +42,8 @@ var qmStates = [
         },
         "views": {
             "menuContent": {
-                "templateUrl": "templates/login-page.html",
+                //"templateUrl": "templates/login-page.html",
+	            "templateUrl": "templates/passwordless-login-page.html",
                 "controller": "LoginCtrl"
             }
         },
@@ -65,6 +67,24 @@ var qmStates = [
         "resolve": {},
         "name": "app.intro"
     },
+	{
+		"cache": false,
+		"url": "/presentation",
+		"params": {
+			"doNotRedirect": true,
+			"title": "FDAi",
+			"ionIcon": "ion-log-in",
+			"logout": null,
+		},
+		"views": {
+			"menuContent": {
+				"templateUrl": "templates/presentation.html",
+				"controller": "PresentationCtrl"
+			}
+		},
+		"resolve": {},
+		"name": "app.presentation"
+	},
     {
         "url": "/track",
         "cache": false,
@@ -183,7 +203,9 @@ var qmStates = [
             "variableSearchParameters": {
                 "limit": 50,
                 "includePublic": true,
-                // Don't do this or blood pressure doesn't show up. Plus we just put manualTracking at the top anyway.  "manualTracking": true
+                // Don't do this or blood pressure doesn't show up. Plus we just put manualTracking at the top anyway.
+	            "manualTracking": true, // We kind of need this because it shows a bunch of non-manual tracking
+	            // variables. Blood pressure should be manual tracking.
             },
             "hideNavigationMenu": null,
             "skipReminderSettingsIfPossible": null,
@@ -526,7 +548,7 @@ var qmStates = [
             "excludeSingularBloodPressure": true,
             "variableSearchParameters": {
                 "includePublic": false,
-                "numberOfUserVariableRelationships": "(gt)1"
+                "numberOfUserCorrelations": "(gt)1"
             },
             "hideNavigationMenu": null,
             "title": "Select a Variable",
@@ -1641,12 +1663,536 @@ var qmStates = [
 ]
 if (typeof window !== "undefined") {
     window.qmStates = qmStates;
-    window.qm = window.qm || {};
     window.qm.qmStaticData = window.qm.qmStaticData || {};
     window.qm.qmStaticData.states = qmStates;
 } else {
     global.qmStates = qmStates;
     module.exports = qmStates;
+    if(!global.qm) global.qm = {};
     global.qm.qmStaticData = global.qm.qmStaticData || {};
     global.qm.qmStaticData.states = qmStates;
 }
+
+function outputStateNamesTitleAndPathAsArray() {
+    var stateNames = [];
+    for (var i = 0; i < qmStates.length; i++) {
+        var state = qmStates[i];
+        var title = (state.params && state.params.title) ? state.params.title : "";
+        stateNames.push({
+            title: title,
+            name: state.name,
+            url: state.url
+        })
+    }
+    console.log(stateNames)
+    return stateNames;
+}
+//outputStateNamesTitleAndPathAsArray();
+var helpTexts  = [
+    // {
+    //     "title": "App",
+    //     "name": "app",
+    //     "url": "/app",
+    //     "helpText": "Welcome to the app! I'm here to help you achieve your health goals through tracking and analytics."
+    // },
+    {
+        "title": "Login",
+        "name": "login",
+        "url": "/login",
+        "helpText": "Enter your login credentials to access your private account and data."
+    },
+    {
+        "title": "Welcome",
+        "name": "app.welcome",
+        "url": "/welcome",
+        "helpText": "Welcome! Let's get started optimizing your health."
+    },
+    {
+        "title": "Login",
+        "name": "app.login",
+        "url": "/login",
+        "helpText": "Enter your username and password to log in and access your private data."
+    },
+    {
+        "title": "Intro",
+        "name": "app.intro",
+        "url": "/intro",
+        "helpText": "Get an overview of the app and how to use it to track and analyze your health data."
+    },
+    {
+        "title": "Track Primary Outcome",
+        "name": "app.track",
+        "url": "/track",
+        "helpText": "Easily record a measurement of your primary health outcome to begin optimizing it."
+    },
+    {
+        "title": "Select a Variable",
+        "name": "app.search",
+        "url": "/search",
+        "helpText": "Search for the variable you want to track or analyze. I'll help you find it."
+    },
+    {
+        "title": "Select a Variable",
+        "name": "app.searchPage",
+        "url": "/search-page",
+        "helpText": "Browse variables here to select the one you need. Let me know if you need help finding anything."
+    },
+    {
+        "title": "Select a Variable",
+        "name": "app.searchBar",
+        "url": "/search-bar",
+        "helpText": "Use the search bar to quickly find the variable you want to track or analyze."
+    },
+    {
+        "title": "Select a Variable",
+        "name": "app.measurementAddSearch",
+        "url": "/measurement-add-search",
+        "helpText": "Select the specific variable you want to record a measurement for."
+    },
+    {
+        "title": "Select a Variable",
+        "name": "app.reminderSearch",
+        "url": "/reminder-search",
+        "helpText": "Pick the variable to set a reminder to regularly track."
+    },
+    {
+        "title": "Select a Variable",
+        "name": "app.favoriteSearch",
+        "url": "/favorite-search",
+        "helpText": "Choose a variable to add to your favorites for quick access."
+    },
+    {
+        "title": "Record a Measurement",
+        "name": "app.measurementAdd",
+        "url": "/measurement-add",
+        "helpText": "Enter a measurement here to track any variable with just a few taps."
+    },
+    {
+        "title": "Record a Measurement",
+        "name": "app.measurementAddVariable",
+        "url": "/measurement-add-variable-name/:variableName",
+        "helpText": "Record a new measurement for this specific variable to start optimizing it."
+    },
+    {
+        "title": "Variable Settings",
+        "name": "app.variableSettings",
+        "url": "/variable-settings",
+        "helpText": "Manage settings like default value and units for your variables."
+    },
+    {
+        "title": "Variable Settings",
+        "name": "app.variableSettingsVariableName",
+        "url": "/variable-settings/:variableName",
+        "helpText": "Customize the settings for this specific variable, like default value and units."
+    },
+    {
+        "title": "Import Data",
+        "name": "app.import",
+        "url": "/import",
+        "helpText": "Import your historical tracking data to get the full picture and maximize insights."
+    },
+    {
+        "title": "Select a Variable",
+        "name": "app.chartSearch",
+        "url": "/chart-search",
+        "helpText": "Pick the variable you want to visualize in a chart to see patterns and trends."
+    },
+    {
+        "title": "Outcomes",
+        "name": "app.predictorSearch",
+        "url": "/predictor-search",
+        "helpText": "Select an outcome variable to see factors statistically predictive of it."
+    },
+    {
+        "title": "Select Tagee",
+        "name": "app.tageeSearch",
+        "url": "/tagee-search",
+        "helpText": "Pick a variable to tag it with appropriate categories for better organization."
+    },
+    {
+        "title": "Tags",
+        "name": "app.tagSearch",
+        "url": "/tag-search",
+        "helpText": "Search for a tag to see associated variables and quickly categorize them."
+    },
+    {
+        "title": "Tag a Variable",
+        "name": "app.tagAdd",
+        "url": "/tag-add",
+        "helpText": "Tag variables here for better data organization and discoverability."
+    },
+    {
+        "title": "Predictors",
+        "name": "app.outcomeSearch",
+        "url": "/outcome-search",
+        "helpText": "Select an outcome variable first to search for its predictive factors."
+    },
+    {
+        "title": "Select a Variable",
+        "name": "app.searchVariablesWithUserPredictors",
+        "url": "/search-variables-with-user-predictors",
+        "helpText": "Browse variables here that have your personal predictive data."
+    },
+    {
+        "title": "Select a Variable",
+        "name": "app.searchVariablesWithCommonPredictors",
+        "url": "/search-variables-with-common-predictors",
+        "helpText": "View variables that have predictive data aggregated from the crowd."
+    },
+    {
+        "title": "Charts",
+        "name": "app.charts",
+        "url": "/charts/:variableName",
+        "helpText": "Visualize your data in charts to see trends and patterns over time."
+    },
+    {
+        "title": "Studies",
+        "name": "app.studies",
+        "url": "/studies",
+        "helpText": "Join studies or create your own to contribute data for scientific discoveries!"
+    },
+    {
+        "title": "Open Studies",
+        "name": "app.studiesOpen",
+        "url": "/studies/open",
+        "helpText": "Browse open studies here you can join and easily contribute data to."
+    },
+    {
+        "title": "Your Studies",
+        "name": "app.studiesCreated",
+        "url": "/studies/created",
+        "helpText": "Manage the studies you've created and view participation."
+    },
+    {
+        "title": "Top Predictors",
+        "name": "app.predictorsAll",
+        "url": "/predictors/:effectVariableName",
+        "helpText": "See the top predictive factors statistically influencing this variable."
+    },
+    {
+        "title": "Top Outcomes",
+        "name": "app.outcomesAll",
+        "url": "/outcomes/:causeVariableName",
+        "helpText": "Check out the top outcome variables statistically predicted by this factor."
+    },
+    {
+        "title": "Outcomes Label",
+        "name": "app.outcomesLabel",
+        "url": "/outcomes-label/:causeVariableName",
+        "helpText": "Quickly filter and compare outcomes related to this predictive factor."
+    },
+    {
+        "title": "Positive Predictors",
+        "name": "app.predictorsPositive",
+        "url": "/predictors-positive",
+        "helpText": "View variables that are statistically positive predictive factors."
+    },
+    {
+        "title": "Positive Predictors",
+        "name": "app.predictorsPositiveVariable",
+        "url": "/predictors-positive-variable/:effectVariableName",
+        "helpText": "See positive predictors that are statistically increasing this variable."
+    },
+    {
+        "title": "Negative Predictors",
+        "name": "app.predictorsNegative",
+        "url": "/predictors-negative",
+        "helpText": "Check out variables that are statistically negative predictive factors."
+    },
+    {
+        "title": "Negative Predictors",
+        "name": "app.predictorsNegativeVariable",
+        "url": "/predictors-negative-variable/:effectVariableName",
+        "helpText": "Browse negative predictors statistically decreasing this variable."
+    },
+    {
+        "title": "Your Predictors",
+        "name": "app.predictorsUser",
+        "url": "/predictors/user/:effectVariableName",
+        "helpText": "View your personal predictive factors specifically influencing this variable."
+    },
+    {
+        "title": "Common Predictors",
+        "name": "app.predictorsAggregated",
+        "url": "/predictors/aggregated/:effectVariableName",
+        "helpText": "See predictive factors aggregated anonymously from other users for this variable."
+    },
+    {
+        "title": "Study",
+        "name": "app.study",
+        "url": "/study",
+        "helpText": "View details of a specific study and your contribution progress."
+    },
+    {
+        "title": "Join Study",
+        "name": "app.studyJoin",
+        "url": "/study-join",
+        "helpText": "Enroll in a study here to easily contribute data for scientific research."
+    },
+    {
+        "title": "Create Study",
+        "name": "app.studyCreation",
+        "url": "/study-creation",
+        "helpText": "Design your own study and recruit participants to run a private investigation."
+    },
+    {
+        "title": "Settings",
+        "name": "app.settings",
+        "url": "/settings",
+        "helpText": "Customize your app here like units, export options, profile settings, and more."
+    },
+    {
+        "title": "Notification Settings",
+        "name": "app.notificationPreferences",
+        "url": "/notificationPreferences",
+        "helpText": "Manage your notification preferences and settings here."
+    },
+    {
+        "title": "Map",
+        "name": "app.map",
+        "url": "/map",
+        "helpText": "See your tracked data plotted geographically to find location-based patterns."
+    },
+    {
+        "title": "Help",
+        "name": "app.help",
+        "url": "/help",
+        "helpText": "Find answers to questions, learn how the app works, or get helpful tips."
+    },
+    {
+        "title": "Feedback",
+        "name": "app.feedback",
+        "url": "/feedback",
+        "helpText": "Share your ideas and suggestions for improving the app."
+    },
+    {
+        "title": "Feedback",
+        "name": "app.contact",
+        "url": "/contact",
+        "helpText": "Have a question or need to get in touch? Contact us here."
+    },
+    {
+        "title": "History",
+        "name": "app.history",
+        "url": "/history",
+        "helpText": "Review your full tracking history to see trends and make discoveries!"
+    },
+    {
+        "title": "History",
+        "name": "app.historyAll",
+        "url": "/history-all",
+        "helpText": "See your entire tracking history in one place."
+    },
+    {
+        "title": "History",
+        "name": "app.historyAllCategory",
+        "url": "/history-all-category/:variableCategoryName",
+        "helpText": "View your full history for a specific category of variables."
+    },
+    {
+        "title": "History",
+        "name": "app.historyAllVariable",
+        "url": "/history-all-variable/:variableName",
+        "helpText": "Check your complete history for a specific variable."
+    },
+    {
+        "title": "Reminder Inbox",
+        "name": "app.remindersInbox",
+        "url": "/reminders-inbox",
+        "helpText": "View all your tracking reminders here and record measurements."
+    },
+    {
+        "title": "Reminder Inbox",
+        "name": "app.remindersInboxCompact",
+        "url": "/reminders-inbox-compact",
+        "helpText": "Quickly tap to record measurements from your reminder notifications."
+    },
+    {
+        "title": "Favorites",
+        "name": "app.favorites",
+        "url": "/favorites",
+        "helpText": "Quickly access and record measurements for your favorite variables."
+    },
+    {
+        "title": "App Builder",
+        "name": "app.configurationClientId",
+        "url": "/configuration/:clientId",
+        "helpText": "Customize this white labeled app like onboarding, reminders, analytics."
+    },
+    {
+        "title": "App Builder",
+        "name": "app.configuration",
+        "url": "/configuration",
+        "helpText": "Modify app settings, features, design, and functionality."
+    },
+    {
+        "title": "API Clients",
+        "name": "app.clients",
+        "url": "/clients",
+        "helpText": "Manage API secrets and authorized apps and devices."
+    },
+    {
+        "title": "API Portal",
+        "name": "app.apiPortalClientId",
+        "url": "/api-portal/:clientId",
+        "helpText": "View API documentation and generate access tokens."
+    },
+    {
+        "title": "API Portal",
+        "name": "app.apiPortal",
+        "url": "/api-portal",
+        "helpText": "Get API keys, view documentation, and learn how to integrate."
+    },
+    {
+        "title": "Physician Dashboard",
+        "name": "app.physician",
+        "url": "/physician",
+        "helpText": "View aggregate anonymized data across your patients for insights."
+    },
+    {
+        "title": "Users",
+        "name": "app.users",
+        "url": "/users",
+        "helpText": "Manage users in your organization or study."
+    },
+    {
+        "title": "Inbox",
+        "name": "app.remindersInboxToday",
+        "url": "/reminders-inbox-today",
+        "helpText": "See reminders due today and record measurements."
+    },
+    {
+        "title": "Manage Scheduled Meds",
+        "name": "app.manageScheduledMeds",
+        "url": "/manage-scheduled-meds",
+        "helpText": "Add, modify, or delete any of your scheduled medications."
+    },
+    {
+        "title": "Today's Med Schedule",
+        "name": "app.todayMedSchedule",
+        "url": "/today-med-schedule",
+        "helpText": "View and track medications that are scheduled for today."
+    },
+    {
+        "title": "As Needed Meds",
+        "name": "app.asNeededMeds",
+        "url": "/as-needed-meds",
+        "helpText": "Record doses of your as needed medications here."
+    },
+    {
+        "title": "Manage Reminders",
+        "name": "app.remindersManage",
+        "url": "/reminders-manage",
+        "helpText": "Don't forget to track! The Reminders page lets you set up reminders to track at certain times or intervals. This helps you form a tracking habit."
+    },
+    {
+        "title": "Manage Reminders",
+        "name": "app.remindersManageCategory",
+        "url": "/reminders-manage-category/:variableCategoryName",
+        "helpText": "Don't forget to track! The Reminders page lets you set up reminders to track at certain times or intervals. This helps you form a tracking habit."
+    },
+    {
+        "title": "Manage Reminders",
+        "name": "app.remindersList",
+        "url": "/reminders-list",
+        "helpText": "Don't forget to track! The Reminders page lets you set up reminders to track at certain times or intervals. This helps you form a tracking habit."
+    },
+    {
+        "title": "Manage Reminders",
+        "name": "app.remindersListCategory",
+        "url": "/reminders-list-category/:variableCategoryName",
+        "helpText": "Don't forget to track! The Reminders page lets you set up reminders to track at certain times or intervals. This helps you form a tracking habit."
+    },
+    {
+        "title": "Manage Variables",
+        "name": "app.variableList",
+        "url": "/variable-list",
+        "helpText": "Don't forget to track! The Reminders page lets you set up reminders to track at certain times or intervals. This helps you form a tracking habit."
+    },
+    {
+        "title": "Manage Variables",
+        "name": "app.variableListCategory",
+        "url": "/variable-list-category/:variableCategoryName",
+        "helpText": "Don't forget to track! The Reminders page lets you set up reminders to track at certain times or intervals. This helps you form a tracking habit."
+    },
+    {
+        "title": "Add Reminder",
+        "name": "app.reminderAdd",
+        "url": "/reminder-add/:variableName",
+        "helpText": "Set a recurring reminder to track this variable regularly."
+    },
+    {
+        "title": "Getting Started",
+        "name": "app.onboarding",
+        "url": "/onboarding",
+        "helpText": "Learn how to start tracking and optimizing your health!"
+    },
+    {
+        "title": "Upgrade",
+        "name": "app.upgrade",
+        "url": "/upgrade",
+        "helpText": "View premium features and upgrade your account."
+    },
+    {
+        "title": "Manage Data Sharing",
+        "name": "app.dataSharing",
+        "url": "/data-sharing",
+        "helpText": "Control which studies and partners can access your data."
+    },
+    {
+        "title": "",
+        "name": "app.tabs",
+        "url": "/tabs",
+        "helpText": "Switch between sections of the app here."
+    },
+    {
+        "title": "Talk to Dr. Modo",
+        "name": "app.chat",
+        "url": "/chat",
+        "helpText": "Ask me any questions about the app! I'm happy to help."
+    },
+    {
+        "title": "Talk to Dr. Modo",
+        "name": "app.feed",
+        "url": "/feed",
+        "helpText": "See my tips and recommendations tailored to you."
+    },
+    {
+        "title": "Add Favorite",
+        "name": "app.favoriteAdd",
+        "url": "/favorite-add",
+        "helpText": "Quickly add frequently-tracked variables to your favorites."
+    },
+    {
+        "title": "Your Votes",
+        "name": "app.votes",
+        "url": "/votes",
+        "helpText": "See research studies and relationships you've voted on."
+    },
+    {
+        "title": "Data Sharers",
+        "name": "app.sharers",
+        "url": "/sharers",
+        "helpText": "Manage data sharing with partners and research studies."
+    }
+];
+
+function addHelpTextToQMStates(){
+    function getHelpText(name) {
+        for(var i=0; i<helpTexts.length; i++){
+            var helpText = helpTexts[i];
+            if(helpText.name === name) return helpText.helpText;
+        }
+        return null;
+    }
+
+    for(var i=0; i<qmStates.length; i++){
+        var state = qmStates[i];
+        if(!state.params) state.params = {};
+        //if(state.name === "app.chartSearch") debugger
+        var helpText = getHelpText(state.name);
+        if(helpText) state.params.helpText = helpText;
+    }
+    //console.log(JSON.stringify(qmStates, null, 4))
+}
+addHelpTextToQMStates();

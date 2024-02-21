@@ -25,7 +25,7 @@ qm.staticData.appSettings ={
 		"downloadLinks": {
 			"androidApp": "https://play.google.com/store/apps/details?id=com.quantimodo.quantimodo",
 			"iosApp": "https://itunes.apple.com/us/app/quantimodo-life-tracker/id1115037060?mt=8",
-			"chromeExtension": "https://chrome.google.com/webstore/detail/quantimodo-life-tracking/jioloifallegdkgjklafkkbniianjbgi",
+			"chromeExtension": "https://chrome.google.com/webstore/detail/moodimodo/lncgjbhijecjdbdgeigfodmiimpmlelg",
 			"webApp": "https://quantimodo.quantimodo.com",
 			"physicianDashboard": "https://physician.quantimo.do?clientId=quantimodo",
 			"integrationGuide": "https://app.quantimo.do/api/v2/apps/quantimodo/integration",
@@ -34,8 +34,8 @@ qm.staticData.appSettings ={
 				"androidApp": null,
 				"iosApp": null,
 				"chromeExtension": null,
-				"webApp": "Here physicians can import data from other apps and devices, manually record diet, symptoms, treatments and anything else.  Then they can explore their data to find new ways to improve their lives.",
-				"physicianDashboard": "Here physicians can get an authorization url to share with their physicians, allowing them to review and analyze their data.",
+				"webApp": "Here people can import data from other apps and devices, manually record diet, symptoms, treatments and anything else.  Then they can explore their data to find new ways to improve their lives.",
+				"physicianDashboard": "Here physicians can get an authorization url to share with their patients, allowing them to review and analyze their data.",
 				"integrationGuide": "Integrate our SDK and automatically import your users data from dozens of apps and devices.  Then we can analyze it and help you find actionable insights for your users!",
 				"appDesigner": "Easily design QuantiModo with our drag and drop app designer!  Then we can build it for the web, Android, Chrome, and iOS. No coding required!"
 			},
@@ -989,7 +989,7 @@ qm.staticData.appSettings ={
 					},
 					"variableCategoryName": "Emotions",
 					"image": {
-						"url": "https://maxcdn.icons8.com/Color/PNG/96/Cinema/theatre_mask-96.png"
+						"url": "https://static.quantimo.do/img/variable_categories/theatre_mask-96.png"
 					},
 					"addButtonText": "Yes",
 					"nextPageButtonText": "No",
@@ -1005,7 +1005,7 @@ qm.staticData.appSettings ={
 						"circleColor": "#5b95f9"
 					},
 					"image": {
-						"url": "https://maxcdn.icons8.com/Color/PNG/96/Messaging/sad-96.png"
+						"url": "https://static.quantimo.do/img/variable_categories/sad-96.png"
 					},
 					"variableCategoryName": "Symptoms",
 					"addButtonText": "Yes",
@@ -1022,7 +1022,7 @@ qm.staticData.appSettings ={
 						"circleColor": "#5b95f9"
 					},
 					"image": {
-						"url": "https://maxcdn.icons8.com/Color/PNG/96/Food/vegetarian_food-96.png"
+						"url": "https://static.quantimo.do/img/variable_categories/vegetarian_food-96.png"
 					},
 					"variableCategoryName": "Foods",
 					"addButtonText": "Yes",
@@ -1039,7 +1039,7 @@ qm.staticData.appSettings ={
 						"circleColor": "#fab952"
 					},
 					"image": {
-						"url": "https://maxcdn.icons8.com/Color/PNG/96/Healthcare/pill-96.png"
+						"url": "https://static.quantimo.do/img/variable_categories/pill-96.png"
 					},
 					"variableCategoryName": "Treatments",
 					"addButtonText": "Yes",
