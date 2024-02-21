@@ -8987,6 +8987,7 @@ var qm = {
             const words = sentence.split(' ');
             const wordsPerSection = 10; // Adjust this to show more or fewer words at a time
             let currentSectionStartIndex = 0;
+            let intervalId;
 
             const updateCaption = () => {
                 // Determine the section of words to show
@@ -9009,7 +9010,7 @@ var qm = {
             updateCaption();
 
             // Continue updating at a pace that allows for normal reading
-            const intervalId = setInterval(updateCaption, 3000); // Adjust the timing to match the desired reading pace
+            intervalId = setInterval(updateCaption, 3000); // Adjust the timing to match the desired reading pace
         },
         alreadySpeaking: function(text){
             if(!qm.platform.getWindow()){
