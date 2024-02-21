@@ -8974,6 +8974,43 @@ var qm = {
         },
     },
     speech: {
+        setCaption: function(sentence) {
+            const captionContainer = document.getElementById('caption-container');
+            // Clear existing caption
+            captionContainer.innerHTML = '';
+
+            // Create and style the text span
+            const textSpan = document.createElement('span');
+            textSpan.classList.add('caption-text');
+            captionContainer.appendChild(textSpan);
+
+            const words = sentence.split(' ');
+            const wordsPerSection = 10; // Adjust this to show more or fewer words at a time
+            let currentSectionStartIndex = 0;
+
+            const updateCaption = () => {
+                // Determine the section of words to show
+                const section = words.slice(currentSectionStartIndex, currentSectionStartIndex + wordsPerSection).join(' ');
+                textSpan.innerText = section;
+
+                // Update the start index for the next section
+                currentSectionStartIndex += wordsPerSection;
+
+                // If we've displayed all words, clear the interval
+                if (currentSectionStartIndex >= words.length) {
+                    setTimeout(() => {
+                        captionContainer.innerHTML = ''; // Optionally clear the caption after the last section is shown for a while
+                    }, 2000); // Time to show the last section before clearing
+                    clearInterval(intervalId);
+                }
+            };
+
+            // Initial update
+            updateCaption();
+
+            // Continue updating at a pace that allows for normal reading
+            const intervalId = setInterval(updateCaption, 3000); // Adjust the timing to match the desired reading pace
+        },
         alreadySpeaking: function(text){
             if(!qm.platform.getWindow()){
                 return false;
