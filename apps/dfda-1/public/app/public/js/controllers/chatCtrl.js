@@ -89,7 +89,7 @@ angular.module('starter').controller('ChatCtrl', ["$state", "$scope", "$rootScop
             //qm.dialogFlow.apiAiPrepare();
         });
         $scope.$on('$ionicView.beforeLeave', function(e){
-            //debugger
+
             $rootScope.setMicAndSpeechEnabled(false);
         });
         function handleSwipe($event, $target){

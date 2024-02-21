@@ -14,11 +14,12 @@
                 <div id="studyHeaderHtml"
                      class="item-text-wrap padding"
                      ng-if="state.study.studyHtml.studyHeaderHtml"
-                     ng-bind-html="trustAsHtml(state.study.studyHtml.studyHeaderHtml)"
+                     ng-bind-html="trustAsHtml(state.study.studyHtml.studyHeaderHtml, true)"
                      style="text-align: center; padding-top: 10px;">
                 </div>
             </md-card>
-            <div ng-include="'templates/buttons/vote-buttons.html'"></div>
+            <div ng-if="state.study.statistics && state.study.statistics.id"
+		            ng-include="'templates/buttons/vote-buttons.html'"></div>
             <div ng-include="'templates/buttons/study-sharing-buttons.html'"></div>
             <div
               class="center"
@@ -84,7 +85,7 @@
                 </div>
             </div>
         </div>
-        <div ng-cloak ng-show="state.study">
+        <div ng-cloak ng-show="state.study && state.study.studyCharts">
             <div id="studyCharts"
                  style="text-align: center;">
                 <div ng-repeat="(key, chart) in state.study.studyCharts" ng-if="chart.highchartConfig"
@@ -118,7 +119,7 @@
             </div>
             <div id="studyBody" ng-bind-html="trustAsHtml(state.study.studyHtml.studyTextHtml)"></div>
         </div>
-        <div ng-show="state.study.statistics">
+        <div ng-show="state.study.statistics && state.study.statistics.id">
             <div ng-include="'templates/fragments/statistics-fragment.html'"></div>
         </div>
         <div class="card"

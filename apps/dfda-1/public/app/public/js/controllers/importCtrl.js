@@ -50,7 +50,8 @@ angular.module('starter').controller('ImportCtrl', ["$scope", "$ionicLoading", "
                 });
             }
             //if(qmService.login.sendToLoginIfNecessaryAndComeBack()){ return; }
-            loadNativeConnectorPage();
+            debugger
+            if(!isIframe()){loadNativeConnectorPage();}
             if(!userCanConnect()){
                 qmService.refreshUser(); // Check if user upgrade via web since last user refresh
             }
@@ -61,7 +62,44 @@ angular.module('starter').controller('ImportCtrl', ["$scope", "$ionicLoading", "
                 qmService.showMaterialAlert(decodeURIComponent(message), "You should begin seeing your imported data within an hour or so.")
             }
             updateNavigationMenuButton();
+			if(isIframe()){
+				handleIframe();
+			}
         });
+        function isIframe(){
+            //return true;
+            return window.qm.windowHelper.isIframe();
+        }
+        $scope.state.openInNewTab = function () {
+            let title = "Import Your Data";
+            let message = "To import your data, please click the link below to open the authorization page in a new window. ";
+            var buttonText = 'Go to Authorization Page';
+            var token = qm.auth.getAccessToken();
+            var clientId = qm.api.getClientId();
+            var intended_url = qm.urlHelper.addUrlQueryParamsToUrlString({
+                'quantimodoAccessToken': token,
+                'clientId': clientId,
+            }, window.location.href);
+            var user = qm.getUser();
+            qm.api.postAsync('/auth/passwordless-login', {
+                email: user.email,
+                intended_url,
+                subject: title,
+                message,
+                buttonText
+            }).then(function (response) {console.debug(response);})
+                .catch(function(error){
+                    debugger
+                    var message = qm.api.getErrorMessageFromResponse(error);
+                    qmService.showMaterialAlert("Error", message);
+                });
+            window.open(intended_url, '_blank');
+            qmService.stateHelper.goBack();
+        }
+		function handleIframe(){
+            $scope.state.iframe = true;
+            qmService.hideLoader();
+        }
         function userCanConnect(connector){
             if(!$rootScope.user){
                 qmService.refreshUser();
@@ -92,7 +130,7 @@ angular.module('starter').controller('ImportCtrl', ["$scope", "$ionicLoading", "
             $scope.refreshConnectors();
         };
         $scope.showActionSheetForConnector = function(connector){
-            //debugger
+
             connector.showMessage = true;
             var connectorButtons = JSON.parse(JSON.stringify(connector.buttons));
             connectorButtons.push({
@@ -180,7 +218,7 @@ angular.module('starter').controller('ImportCtrl', ["$scope", "$ionicLoading", "
             c.updateStatus = "CONNECTING"; // Need to make error message hidden
             if(qm.arrayHelper.inArray(c.mobileConnectMethod, ['oauth', 'facebook', 'google'])){
                 qmLog.info("connectConnector is inArray('oauth', 'facebook', 'google'): " + JSON.stringify(c), null, c);
-                qm.connectorHelper.webConnectViaRedirect(c, ev, {
+                qmService.connectors.webConnect(c, ev, {
 					link: button.link,
                 });
                 button.text = "Connecting...";
@@ -287,7 +325,7 @@ angular.module('starter').controller('ImportCtrl', ["$scope", "$ionicLoading", "
             qmLog.info("connectorAction button " + JSON.stringify(b), null, b);
             qmLog.info("connectorAction connector " + JSON.stringify(c), null, c);
             c.message = null;
-            //debugger
+
             if(b.text.toLowerCase().indexOf('disconnect') !== -1){
                 disconnectConnector(c, b);
             }else if(b.text.toLowerCase().indexOf('connect') !== -1
@@ -322,7 +360,6 @@ angular.module('starter').controller('ImportCtrl', ["$scope", "$ionicLoading", "
             $scope.refreshConnectors();
         });
         function setConnectors(connectors) {
-            //debugger
 	        connectors.forEach(function(connector){
 				if(!connector.message){connector.message = connector.longDescription || connector.shortDescription;}
 	        })
@@ -334,6 +371,10 @@ angular.module('starter').controller('ImportCtrl', ["$scope", "$ionicLoading", "
             $scope.state.text = '';
         }
         $scope.refreshConnectors = function(){
+            if(isIframe()){
+                qmLog.debug("not refreshing connectors because this is an iframe");
+                return;
+            }
             qmService.refreshConnectors()
                 .then(function(connectors){
                     setConnectors(connectors);

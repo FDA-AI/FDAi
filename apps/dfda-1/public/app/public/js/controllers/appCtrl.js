@@ -34,6 +34,9 @@ angular.module('starter')// Parent Controller - This controller runs before ever
             $scope.closeMenu = function(){
                 $ionicSideMenuDelegate.toggleLeft(false);
             };
+            $scope.hideHelpCard = function(helpCard){
+                helpCard.hide = true;
+            }
             $scope.showVariableActionSheet = function(v, extraButtons, state){
                 qmService.actionSheets.showVariableObjectActionSheet(v.name, v, extraButtons, state);
             }
@@ -137,12 +140,14 @@ angular.module('starter')// Parent Controller - This controller runs before ever
             $scope.showHelpInfoPopup = function(explanationId, ev, modelName){
                 qmService.help.showExplanationsPopup(explanationId, ev, modelName);
             };
-            $scope.closeMenuIfNeeded = function(menuItem){
+            $scope.goToStateAndCloseMenuIfNeeded = function(menuItem){
                 menuItem.showSubMenu = !menuItem.showSubMenu;
                 if(menuItem.click){
                     $scope[menuItem.click] && $scope[menuItem.click]();
                 }else if(!menuItem.subMenu){
                     $scope.closeMenu();
+	                if(menuItem.title){menuItem.params.title = menuItem.title;}
+                    qmService.goToState(menuItem.stateName, menuItem.params);
                 }
             };
             $scope.positiveRatingOptions = qmService.getPositiveRatingOptions();
@@ -360,10 +365,18 @@ angular.module('starter')// Parent Controller - This controller runs before ever
             };
             $scope.copyLinkText = 'Copy Shareable Link';
             $scope.copyToClipboard = function(url, name){
-                name = name || url;
-                $scope.copyLinkText = 'Copied!';
-                clipboard.copyText(url);
-                qmService.showInfoToast('Copied ' + name + ' to clipboard!');
+	            navigator.permissions.query({name: "clipboard-write"}).then(function(result) {
+		            if (result.state == "granted" || result.state == "prompt") {
+			            /* clipboard write permission granted */
+			            name = name || url;
+			            $scope.copyLinkText = 'Copied!';
+			            clipboard.copyText(url);
+			            qmService.showInfoToast('Copied ' + name + ' to clipboard!');
+		            } else {
+			            /* clipboard write permission denied */
+			            qmLog.error('clipboard write permission denied');
+		            }
+	            });
             };
             $scope.copyDemoLink = function(){
                 var url = "https://web.quantimo.do" + window.location.hash;
@@ -395,7 +408,10 @@ angular.module('starter')// Parent Controller - This controller runs before ever
                 qmService.showVariableSearchDialog(dialogParameters, selectVariable, null, ev);
             };
             $scope.switchToPatientInCurrentApp = qmService.patient.switchToPatientInCurrentApp;
-            $scope.trustAsHtml = function(string){
+            $scope.trustAsHtml = function(string, stripHyperLinks){
+				if(stripHyperLinks){
+					string = string.replace(/<a\b[^>]*>(.*?)<\/a>/g, "$1");
+				}
                 return $sce.trustAsHtml(string);
             };
             $rootScope.setMicAndSpeechEnabled = function(value, hideRobot){

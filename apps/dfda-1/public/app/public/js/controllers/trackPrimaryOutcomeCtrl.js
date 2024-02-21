@@ -21,7 +21,7 @@ angular.module('starter').controller('TrackPrimaryOutcomeCtrl',
     });
     $scope.$on('$ionicView.afterEnter', function(e){});
     $scope.storeRatingLocalAndServerAndUpdateCharts = function(numericRatingValue){
-        //debugger
+
         $scope.timeRemaining = true;
         $scope.showRatingFaces = false;
         var measurement = qmService.createPrimaryOutcomeMeasurement(numericRatingValue);
@@ -41,10 +41,10 @@ angular.module('starter').controller('TrackPrimaryOutcomeCtrl',
         }
     };
     var updateCharts = function(){
-        //debugger
+
         var uv = qm.getPrimaryOutcomeVariable()
         qm.measurements.getMeasurements({limit: 900, variableName: uv.name}).then(function (measurements){
-            //debugger
+
             $scope.state.distributionChartConfig = null; // Necessary to render update for some reason
             $scope.safeApply(function(){
                 if(measurements){

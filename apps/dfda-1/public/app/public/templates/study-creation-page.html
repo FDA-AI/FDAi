@@ -1,11 +1,12 @@
 <ion-view ng-controller="StudyCreationCtrl as ctrl"
           hide-nav-bar="hideNavigationMenu">
     <ion-nav-title>Create Study</ion-nav-title>
-    <div style="text-align: center; color: white; padding: 20px; height: 100%">
+    <div class="study-creation-text"
+         ng-class="{'study-creation-text-dark': appSettings.appDesign.darkMode}">
         <div style="position: relative; top: 50%; transform: translateY(-50%);">
             <div>
                 <p ng-if="state.title" style="font-size: 30px; line-height: 1;">
-                    {{state.title}}
+                    {{ state.title | wordAliases }}
                 </p>
                 <p ng-if="state.bodyText">{{state.bodyText}}</p>
             </div>
