@@ -1,5 +1,5 @@
 <ion-view hide-nav-bar="hideNavigationMenu">
-    <ion-nav-title>{{stateParams.title}}</ion-nav-title>
+    <ion-nav-title>{{stateParams.title | wordAliases }}</ion-nav-title>
     <ion-content
                  ng-class="{ isBrowserView : platform.isWeb == true }">
         <ion-refresher on-refresh="refreshReminders()"></ion-refresher>
@@ -11,10 +11,9 @@
                 </div>-->
         <md-progress-linear md-mode="indeterminate" ng-show="state.loading"></md-progress-linear>
         <md-button ng-show="state.showButtons"
-             class="rainbow-gradient-animation"
              ng-click="addNewReminderButtonClick()"
             id="addReminderButton"
-               class="item item-icon-left">
+               class="md-raised md-primary item item-icon-left">
                 <i class="icon ion-plus positive"></i>
                 {{stateParams.addButtonText}}
         </md-button>

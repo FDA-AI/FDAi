@@ -23,8 +23,8 @@ angular.module('starter').controller('IntroCtrl', ["$scope", "$state", "$ionicSl
                 }
             },
             triangleName: {
-                lineOne: "Dr.",
-                lineTwo: "Modo"
+                lineOne: "FDA",
+                lineTwo: "Ai"
             }
         };
         var slide;

@@ -1,11 +1,14 @@
 <ion-view hide-nav-bar="hideNavigationMenu">
-    <ion-nav-title>{{state.title}}</ion-nav-title>
+    <ion-nav-title>{{ state.title | wordAliases }}</ion-nav-title>
     <ion-content scroll="true" overflow-scroll="true">
         <md-progress-linear md-mode="indeterminate"
                             ng-show="state.loading">
         </md-progress-linear>
         <!--<ion-content  ng-class="{ isBrowserView : platform.isWeb == true } "> This breaks pull down to refresh in browser-->
-        <ion-refresher on-refresh="syncNotifications({noCache: true})"></ion-refresher>
+        <ion-refresher ng-if="!platform.isIframe"
+			   pulling-text="Pull to refresh..."
+		        on-refresh="syncNotifications({noCache: true})">
+        </ion-refresher>
         <div ng-if="stateParams.showHelpCards === true && defaultHelpCards && defaultHelpCards[0]">
             <div ng-repeat="helpCard in defaultHelpCards | limitTo:1">
                 <div ng-include="'templates/fragments/help-info-card-fragment.html'"></div>
@@ -36,10 +39,8 @@
                 </div>
             </div>
         </div>
-        <div id="allCaughtUpCard2"
-            ng-if="!state.loading && state.numberOfDisplayedNotifications === 0"
-            ng-repeat="helpCard in [state.caughtUpCard] | limitTo:1">
-            <div ng-include="'templates/fragments/help-info-card-fragment.html'"></div>
+        <div id="allCaughtUpCard2">
+            <div ng-include="'templates/fragments/all-caught-up-card.html'"></div>
         </div>
 <!--        <div id="allCaughtUpCard"
              class="list card"
@@ -104,7 +105,10 @@
               ng-include="'templates/word-cloud.html'">
         </div>-->
         <div id="studies-container"
-             ng-if="state.studiesResponse.studies && state.studiesResponse.studies.length && state.numberOfDisplayedNotifications === 0"
+             ng-if="state.studiesResponse.studies
+             && !appSettings.appDesign.miscDesignSettings.hideStudiesInInbox.value
+             && state.studiesResponse.studies.length
+             && state.numberOfDisplayedNotifications === 0"
              class="list card">
             <div ng-include="'templates/fragments/studies-list-fragment.html'"></div>
             <div class="button-bar">

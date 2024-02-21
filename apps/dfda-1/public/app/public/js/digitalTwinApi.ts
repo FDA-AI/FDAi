@@ -1263,8 +1263,8 @@ export type UserVariable = {
 	mostCommonUnitId?: number
 	mostCommonValue?: number
 	name: string
-	numberOfGlobalVariableRelationshipsAsCause?: number
-	numberOfGlobalVariableRelationshipsAsEffect?: number
+	numberOfAggregateCorrelationsAsCause?: number
+	numberOfAggregateCorrelationsAsEffect?: number
 	numberOfChanges?: number
 	numberOfCorrelations?: number
 	numberOfCorrelationsAsCause?: number
@@ -1274,8 +1274,8 @@ export type UserVariable = {
 	numberOfTrackingReminders?: number
 	numberOfUniqueDailyValues?: number
 	numberOfUniqueValues?: number
-	numberOfUserVariableRelationshipsAsCause?: number
-	numberOfUserVariableRelationshipsAsEffect?: number
+	numberOfUserCorrelationsAsCause?: number
+	numberOfUserCorrelationsAsEffect?: number
 	numberOfUserVariables?: number
 	onsetDelay?: number
 	onsetDelayInHours?: number

@@ -1,5 +1,5 @@
 <ion-view hide-nav-bar="hideNavigationMenu">
-    <ion-nav-title>{{state.title}}</ion-nav-title>
+    <ion-nav-title>{{ state.title | wordAliases }}</ion-nav-title>
     <ion-content ng-class="{ isBrowserView : platform.isWeb == true }">
         <md-progress-linear md-mode="indeterminate"
                             ng-show="state.loading">
@@ -143,7 +143,7 @@
             <span>
             {{state.loadingText}}
             </span>
-	        <div ng-include="'templates/spinner.html'"></div>
+<!--	        <div ng-include="'templates/spinner.html'"></div>-->
         </div>
         <!--Infinite scroll doesn't work on web for some reason.  Various solutions like collection-repeat cause double scroll bar-->
         <div style="text-align: center;"
