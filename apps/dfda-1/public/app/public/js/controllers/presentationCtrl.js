@@ -5,6 +5,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
         qmService.initializeApplication(appSettingsResponse);
         qmService.navBar.setFilterBarSearchIcon(false);
         $scope.state = {
+            autoplay: false,
             title: null,
             image: null,
 			backgroundImg: null,
@@ -26,6 +27,8 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 		        $ionicSlideBoxDelegate.previous();
 	        },
 	        slideChanged: function(index){
+                var lastSlide = $scope.state.slides[$scope.state.slides.length - 1];
+                if(lastSlide && lastSlide.cleanup){lastSlide.cleanup($scope);}
                 qm.speech.shutUpRobot();
                 //qm.music.play();
                 qm.robot.openMouth();
@@ -41,7 +44,9 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 		        $scope.state.slideIndex = index;
                 function callback(){
                     $timeout(function(){
-                        $scope.state.next();
+                        if($scope.state.autoplay){
+                            $scope.state.next();
+                        }
                     },0.1 * 1000);
                 }
                 qm.speech.setCaption(slide.speech)

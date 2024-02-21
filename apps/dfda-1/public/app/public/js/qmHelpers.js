@@ -9353,6 +9353,7 @@ var qm = {
         },
         deepThought: function(callback){
             var deepThoughts = qm.staticData.deepThoughts;
+			if(!deepThoughts){return;}
             var deepThought = deepThoughts[[Math.floor(Math.random() * (deepThoughts.length - 1))]];
             qm.speech.talkRobot(deepThought.text + "! . ! . !", callback);
         },
