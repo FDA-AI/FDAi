@@ -58,37 +58,42 @@ const slides = [
   //       speech: "Unfortunately, clinical research is really slow, expensive, and imprecise,  It currently costs about 2.6 billion dollars and takes about 12 years to bring a new drug to market,  And even then, we only know about the average effect of the drug on the average person,  We don’t know how it affects, you.",
   //       animation: () => {}
   //   },
-  {
-    title: "What's the solution?",
-    //img: "img/slides/decay.gif",
-    speech: "So what’s the solution?",
-  },
-    {
-        title: "Wait for the sweet release of death?",
-        speech: "Should you just continue to suffer and wait patiently",
-    },
-    {
-        img: "img/slides/decay.gif",
-        speech: "for the sweet release of death?",
-    },
-    {
-        title: "NO!",
-        speech: "No! We can defeat chronic disease",
-    },
-    {
-        //title: "NO!",
-        img: "img/slides/super-fda-robot-transparent.png",
-        speech: "with the power of ROBOTS!",
-    },
+  // {
+  //   title: "What's the solution?",
+  //   //img: "img/slides/decay.gif",
+  //   speech: "So what’s the solution?",
+  // },
+  //   {
+  //       title: "Wait for the sweet release of death?",
+  //       speech: "Should you just continue to suffer and wait patiently",
+  //   },
+  //   {
+  //       img: "img/slides/decay.gif",
+  //       speech: "for the sweet release of death?",
+  //   },
+  //   {
+  //       title: "NO!",
+  //       speech: "No! We can defeat chronic disease",
+  //   },
+  //   {
+  //       img: "img/slides/super-fda-robot-transparent.png",
+  //       speech: "with the power of ROBOTS!",
+  //   },
+  //   {
+  //       //title: "NO!\nWe can fix it!",
+  //       //img: "img/slides/ai-drug-discovery.jpg",
+  //       img: "img/slides/alpha-fold-ribbon.gif",
+  //       speech: "Some robots can discover new drugs",
+  //   },
     {
         //title: "NO!\nWe can fix it!",
-        img: "img/slides/super-fda-robot-transparent.png",
-        speech: "No! We can defeat chronic disease with the power of ROBOTS!",
+        img: "img/slides/robot-drugs.gif",
+        speech: "Some robots can discover new drugs and Some robots can actually, make, drugs",
     },
     {
         title: "NO!\nWe can fix it!",
         //img: "img/slides/robots-image.jpg",
-        speech: "Some robots can actually, make, drugs, My specialty is making it easy for anyone to participate in clinical research to find out what foods and drugs are safe and effective!",
+        speech: "My specialty is making it easy for anyone to participate in clinical research to find out what foods and drugs are safe and effective!",
     },
   {
     //title: "Your Digital Twin Safe",
@@ -100,13 +105,17 @@ const slides = [
         //title: "Your Digital Twin Safe",
         img: "img/slides/viagra.jpg",
         speech: " to target you for Viagra ads",
-        animation: () => {/* Animation code for Your Digital Twin Safe */}
+        animation: () => {
+            simulatePopups(50); // Start the simulation with 5 popups
+            removeAllPopupsAfterDelay(5); // Remove all popups after 10 seconds}
+        },
     },
   {
     //title: "Data Importers and Agents",
     img: "img/slides/fdai-github.png",
     speech: "So we’re making free and open source apps, reusable software libraries, and AI agents to help you get all your data and analyze it for you!",
-    animation: () => {/* Animation code for Data Importers and Agents */}
+    animation: () => {
+    }
   },
     {
         title: null,
@@ -168,3 +177,87 @@ const slides = [
     animation: () => {/* Animation code for The Call to Action */}
   }
 ];
+
+// Function to create a popup ad with Windows 95 styling
+function createPopupAd() {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const popup = document.createElement('div');
+    popup.className = 'popup-ad'; // Add a class for easy selection
+    popup.style.position = 'absolute';
+    popup.style.width = '300px';
+    popup.style.minHeight = '200px';
+    popup.style.backgroundColor = '#c0c0c0';
+    popup.style.border = '2px solid #000';
+    popup.style.boxShadow = '3px 3px 0px #000';
+    popup.style.fontFamily = "'MS Sans Serif', Geneva, sans-serif";
+    popup.style.fontSize = '12px';
+    popup.style.color = '#000';
+    popup.style.zIndex = 1000; // Ensure it's on top
+
+    // Title bar
+    const titleBar = document.createElement('div');
+    titleBar.style.backgroundColor = '#00007f';
+    titleBar.style.color = '#ffffff';
+    titleBar.style.padding = '2px 5px';
+    titleBar.textContent = 'Internet Explorer';
+    titleBar.style.display = 'flex';
+    titleBar.style.justifyContent = 'space-between';
+    titleBar.style.alignItems = 'center';
+
+    // Close button
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'X';
+    closeButton.style.background = '#ff0000';
+    closeButton.style.color = '#ffffff';
+    closeButton.style.border = 'none';
+    closeButton.style.padding = '0 4px';
+    closeButton.style.cursor = 'pointer';
+    closeButton.onclick = function() {
+        popup.remove();
+    };
+
+    titleBar.appendChild(closeButton);
+
+    // Content
+    const content = document.createElement('div');
+    content.innerHTML = '<p>🎉 Congratulations! You have won a prize! Click here to claim! 🎉</p>';
+    content.style.padding = '10px';
+
+    // Image
+    const img = document.createElement('img');
+    img.src = 'img/slides/viagra.jpg'; // Placeholder image, replace with your desired image URL
+    img.style.width = '100%'; // Make the image fit the popup
+    img.style.height = 'auto';
+    img.style.marginBottom = '10px'; // Space between image and text
+
+    // Append elements
+    popup.appendChild(titleBar);
+    content.insertBefore(img, content.firstChild); // Insert the image at the beginning of the content
+    popup.appendChild(content);
+
+    // Random position
+    const x = Math.floor(Math.random() * (screenWidth - parseInt(popup.style.width)));
+    const y = Math.floor(Math.random() * (screenHeight - parseInt(popup.style.minHeight)));
+
+    popup.style.left = x + 'px';
+    popup.style.top = y + 'px';
+
+    // Append to body
+    document.body.appendChild(popup);
+}
+
+// Simulate multiple popups
+function simulatePopups(numberOfPopups) {
+    for (let i = 0; i < numberOfPopups; i++) {
+        setTimeout(createPopupAd, i * 50); // Slight delay between popups
+    }
+}
+
+// New function to remove all popups after a specified delay
+function removeAllPopupsAfterDelay(delayInSeconds) {
+    setTimeout(() => {
+        const popups = document.querySelectorAll('.popup-ad');
+        popups.forEach(popup => popup.remove());
+    }, delayInSeconds * 1000); // Convert seconds to milliseconds
+}
