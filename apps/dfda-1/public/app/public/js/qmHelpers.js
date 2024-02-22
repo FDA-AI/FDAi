@@ -6823,7 +6823,7 @@ var qm = {
                 return false;
             }
             qm.music.player[filePath] = new Audio(filePath);
-            qm.music.player[filePath].volume = volume || 0.10;
+            qm.music.player[filePath].volume = volume || 0.05;
             try{
                 qm.music.player[filePath].play();
             }catch (e){
