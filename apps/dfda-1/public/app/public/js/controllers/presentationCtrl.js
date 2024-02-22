@@ -35,12 +35,14 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 				//debugger
 		        qm.visualizer.showCircleVisualizer()
 		        slide = $scope.state.slides[index];
-		        $scope.state.hideTriangle = slide.img || slide.backgroundImg || slide.backgroundVideo || slide.title;
+		        $scope.state.hideTriangle = slide.img || slide.backgroundImg ||
+                    slide.backgroundVideo || slide.title || slide.video;
 				if(slide.animation){slide.animation($scope);}
                 $scope.state.backgroundImg = slide.backgroundImg || null;
                 $scope.state.title = slide.title || null;
                 $scope.state.image = slide.img || null;
                 $scope.state.backgroundVideo = slide.backgroundVideo || null;
+                $scope.state.video = slide.video || null;
 		        $scope.state.slideIndex = index;
                 function callback(){
                     $timeout(function(){
@@ -77,17 +79,23 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
             qm.robot.onRobotClick = null;
 			qmService.showFullScreenLoader();
         });
-        $scope.$watch('state.backgroundVideo', function(newValue, oldValue) {
+        function updateVideo(newValue, oldValue, id){
             if (newValue !== oldValue) {
-                var videoElement = document.getElementById('presentation-background-video');
+                var videoElement = document.getElementById(id);
                 if (videoElement) {
                     var slide = $scope.state.slides[$scope.state.slideIndex];
                     videoElement.playbackRate = 1;
                     if(slide.playbackRate){
-                        videoElement.playbackRate = 0.5; // 50% of the normal speed
+                        videoElement.playbackRate = slide.playbackRate; // 50% of the normal speed
                     }
                     videoElement.load();
                 }
             }
+        }
+        $scope.$watch('state.backgroundVideo', function(newValue, oldValue) {
+            updateVideo(newValue, oldValue, 'presentation-background-video');
+        });
+        $scope.$watch('state.video', function(newValue, oldValue) {
+            updateVideo(newValue, oldValue, 'presentation-video')
         });
     }]);

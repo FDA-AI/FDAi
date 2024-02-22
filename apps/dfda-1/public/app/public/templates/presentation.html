@@ -4,6 +4,9 @@
     <video id="presentation-background-video" autoplay loop muted playsinline>
         <source src="{{state.backgroundVideo}}" type="video/mp4">
     </video>
+    <video id="presentation-video" autoplay loop muted playsinline>
+        <source src="{{state.video}}" type="video/mp4">
+    </video>
     <canvas id="rainbow-canvas"
             style="position: absolute; z-index: 1; display: block; opacity: 0.5; pointer-events: none; background-color: transparent;"></canvas>
     <div id="splash-screen"
@@ -42,7 +45,7 @@ position: absolute;
    right: 0;
    margin: auto;
    display: block;
-   border-radius: 20px;
+   border-radius: 10px;
    object-fit: contain;
    /*border: 5px solid #00ff00; !* Neon green border *!*/
    /*box-shadow: 0 0 10px #00ff00; !* Neon green shadow *!*/

@@ -18,49 +18,44 @@ const slides = [
 		animation: ($scope) => {}
 	},
   // {
-  //   title: false,
-  //   img: false,
-  //   speech: "Hi! I’m your personal FDAi! I’ve been programmed to maximize your health and happiness!",
-	//   animation: ($scope) => { }
+  //   speech: "Hi! I’m your personal FDAi! I’ve been programmed to collect and analyze everyone's food and drug intake and symptoms to determine the personalized safety and efficacy of every food and drug in the world!",
   // },
   // {
   //   title: "2 Billion People\nSUFFER\nfrom 7000 Diseases",
-  //   //img: "img/slides/suffering3.jpg",
   //   speech: "Two billion people suffer from chronic diseases like depression, fibromyalgia, Crone's disease,and multiple sclerosis, There are over 7000 diseases that we still don’t have cures for",
   // },
   // {
   //   title: null,
   //   img: "img/slides/studied-molecules-chart-no-background.png",
   //   speech: "The good news is that there could be billions of cures we don’t even know about yet, there are over 166 billion possible medicinal molecules, and we’ve only tested 0.00001% so far",
-  //   animation: () => {/* Animation code for A Glimmer of Hope */}
   // },
   //   {
   //       title: null,
   //       img: "img/slides/slow-research.png",
   //       speech: "The bad news is that we only approve around 30 drugs a year so, at best, it would take over 350 years to find cures at this rate, So you’ll be long dead by then.",
-  //       animation: () => {/* Animation code for A Glimmer of Hope */}
   //   },
   // {
-  //   //title: "Dietary Chemicals",
   //   img: "img/slides/chemicals-in-our-diet.png",
   //   speech: "Lots of these diseases are caused or worsened by chemicals in our diet, but we don’t really know which ones,  We only have long-term toxicology data on 2 of the over 2000 preservatives, flavorings, emulsifiers, sweeteners, pesticides, contaminants, and herbicides in our diets, ",
-  //   animation: () => {/* Animation code for Dietary Chemicals */}
   // },
   //   {
-  //       //title: "Dietary Chemicals",
   //       img: "img/slides/correlates-of-disease-incidence.png",
-  //       speech: "The increase in the number of chemicals has been linked to increases in the incidence of many diseases associated with disrupted gut microbiomes,  It’s like everyone is getting Roofied with thousands of experimental, untested drugs without their knowledge",
-  //       animation: () => {/* Animation code for Dietary Chemicals */}
+  //       speech: "The increase in the number of chemicals has been linked to increases in the incidence of many diseases associated with disrupted gut microbiomes,  It’s like everyone is getting Roofied with thousands of untested drugs without their knowledge",
   //   },
   //   {
   //       title: "Clinical Research is SLOW, EXPENSIVE, and IMPRECISE",
-  //       //img: "img/slides/suffering3.jpg",
-  //       speech: "Unfortunately, clinical research is really slow, expensive, and imprecise,  It currently costs about 2.6 billion dollars and takes about 12 years to bring a new drug to market,  And even then, we only know about the average effect of the drug on the average person,  We don’t know how it affects, you.",
-  //       animation: () => {}
+  //       speech: "Unfortunately, clinical research is really slow, expensive, and imprecise",
+  //   },
+  //   {
+  //       title: "Clinical Research is SLOW, EXPENSIVE, and IMPRECISE",
+  //       speech: "It currently costs about 2.6 billion dollars and takes about 12 years to bring a new drug to market",
+  //   },
+  //   {
+  //       title: "12 Years and $2.6 Billion",
+  //       speech: "It currently costs about 2.6 billion dollars and takes about 12 years to bring a new drug to market,  And even then, we only know about the average effect of the drug on the average person,  We don’t know how it affects, you.",
   //   },
   // {
   //   title: "What's the solution?",
-  //   //img: "img/slides/decay.gif",
   //   speech: "So what’s the solution?",
   // },
   //   {
@@ -80,101 +75,123 @@ const slides = [
   //       speech: "with the power of ROBOTS!",
   //   },
   //   {
-  //       //title: "NO!\nWe can fix it!",
-  //       //img: "img/slides/ai-drug-discovery.jpg",
-  //       img: "img/slides/alpha-fold-ribbon.gif",
-  //       speech: "Some robots can discover new drugs",
+  //       img: "img/slides/robot-drugs.gif",
+  //       speech: "Some robots can discover new drugs and Some robots can actually, make, drugs",
   //   },
-    {
-        //title: "NO!\nWe can fix it!",
-        img: "img/slides/robot-drugs.gif",
-        speech: "Some robots can discover new drugs and Some robots can actually, make, drugs",
-    },
-    {
-        title: "NO!\nWe can fix it!",
-        //img: "img/slides/robots-image.jpg",
-        speech: "My specialty is making it easy for anyone to participate in clinical research to find out what foods and drugs are safe and effective!",
-    },
+  //   {
+  //       img: "img/slides/black-box-model-animation.gif",
+  //       speech: "My specialty is making it easy for anyone to participate in clinical research to find out what foods and drugs are safe and effective!",
+  //   },
+  // {
+  //   img: "img/slides/digital-exhaust.png",
+  //   speech: "The first step is getting your precious, precious data! You automatically generate a lot of data exhaust, like receipts for supplements from Amazon, food from Instacart, prescriptions from CVS, health records, lab tests, digital health apps, and wearable devices,   Unfortunately, it’s kind of worthless when it’s scattered all over the place",
+  // },
+  //   {
+  //       speech: " and just being used by advertiser to target you for Viagra ads",
+  //       animation: () => {
+  //           simulatePopups(50); // Start the simulation with 5 popups
+  //           removeAllPopupsAfterDelay(5); // Remove all popups after 10 seconds}
+  //       },
+  //   },
+  // {
+  //   img: "img/slides/fdai-github.png",
+  //   speech: "So we’re making free and open source apps, reusable software libraries, and AI agents to help you get all your data and analyze it for you!",
+  // },
+  //   {
+  //       title: null,
+  //       playbackRate: 0.5,
+  //       backgroundVideo: "img/slides/Import.mp4",
+  //       speech: "You can import data from lots of apps and wearable devices like physical activity, sleep, environmental factors, and vital signs.",
+  //   },
+  //   {
+  //       title: null,
+  //       backgroundVideo: "img/slides/reminder-inbox.mp4",
+  //       speech: "You can also schedule reminders to record symptoms, treatments, or anything else manually in the Reminder Inbox.",
+  //   },
+  // {
+  //     img: "img/slides/history.gif",
+  //   speech: "After I get a couple of months of your data, I can eat it all up. Yum! ",
+  //   },
+  //   {
+  //       video: "img/slides/studies.mp4",
+  //       speech: "Then I start analyzing it and generate N-of-1 personal studies telling you how much different medications, supplements, or foods might improve or worsen your symptoms.",
+  //   },
   {
-    //title: "Your Digital Twin Safe",
-    img: "img/slides/digital-exhaust.png",
-    speech: "The first step is getting your precious, precious data! You automatically generate a lot of data exhaust, like receipts for supplements from Amazon, food from Instacart, prescriptions from CVS, health records, lab tests, digital health apps, and wearable devices,   Unfortunately, it’s kind of worthless when it’s scattered all over the place and just being used by advertisers",
-    animation: () => {/* Animation code for Your Digital Twin Safe */}
-  },
-    {
-        //title: "Your Digital Twin Safe",
-        img: "img/slides/viagra.jpg",
-        speech: " to target you for Viagra ads",
-        animation: () => {
-            simulatePopups(50); // Start the simulation with 5 popups
-            removeAllPopupsAfterDelay(5); // Remove all popups after 10 seconds}
-        },
-    },
-  {
-    //title: "Data Importers and Agents",
-    img: "img/slides/fdai-github.png",
-    speech: "So we’re making free and open source apps, reusable software libraries, and AI agents to help you get all your data and analyze it for you!",
-    animation: () => {
-    }
-  },
-    {
-        title: null,
-        playbackRate: 0.5,
-        backgroundVideo: "img/slides/Import.mp4",
-        speech: "In the current version of the Digital Twin Safe, you can import data from lots of apps and wearable devices like physical activity from Fitbit or sleep quality, heart rate variability from Oura or productivity from RescueTime, environmental factors, and weight and other vital signs from Withings.",
-    },
-    {
-        title: null,
-        backgroundVideo: "img/slides/reminder-inbox.mp4",
-        speech: "You can also schedule reminders to record symptoms, treatments, or anything else manually in the Reminder Inbox.",
-    },
-  {
-    title: "Analyzing Your Data",
-      backgroundVideo: "img/slides/studies.mp4",
-    speech: "After I get a couple of months of your data, I can eat it all up. Yum! Then I start analyzing it and generate N-of-1 personal studies telling you how how much different medications, supplements, or foods might improve or worsen your symptoms.",
-  },
-  {
-    //title: "Hill’s 6 Criteria for Causality",
-    fullScreenImg: "img/slides/causal-inference.png",
+      img: "img/slides/symptom-factors.png",
     speech: "But, as any obnoxious college graduate will tell you, correlation does not necessarily imply causation,  Just because you took a drug and got better, it doesn’t mean that’s really why your symptoms went away,   " +
-        "Even with randomized controlled trials, hundreds of other things are changing in your life and diet,  So, When analyzing the data, I apply Hill’s 6 Criteria for Causality to try to infer if something causes a symptom to worsen or improve instead of just seeing what correlates with the change,  One way I do it is by applying pharmacokinetic modeling and onset delays and durations of action,   For instance, when gluten-sensitive people eat delicious gluten, it usually takes about a 2-day onset delay before they start having symptoms,   Then, when they stop eating it, there’s usually a 10-day duration of action before their gut heals and their symptoms improve,  This has never been possible since no one’s ever been able to collect as much high-resolution time series data as possible with all the fancy apps and devices,  Also, your puny human brains haven’t evolved since the time of the cavemen,   They can only hold seven numbers in working memory at a time.",
-  },
-  {
-    // title: "Personal Studies",
-    backgroundVideo: "img/slides/study.mp4",
-    speech: "Here’s an example of one personal study,  Despite this gentleman’s outward appearance and infectious charisma, internally, he actually experiences severe crippling depression,  However, his mood is typically 11% better than the average following weeks in which he engages in exercise more than usual,  Here, I apply forward and reverse lagging of the mood and exercise data to try to determine if that is just a coincidence or causal,  The result suggests a causal relationship based on the temporal precedence of the physical activity" +
-        "I also compare the outcome over various durations following the exposure to see if there is a long-term cumulative effect or if it's just a short-term acute effect,  The long-term effects are more valuable because the acute effect is probably obvious to you already",
+        "Even with randomized controlled trials, hundreds of other things are changing in your life and diet",
   },
     {
+        img: "img/slides/causal-inference-2.png",
+        speech: "So, When analyzing the data, I apply Hill’s 6 Criteria for Causality to try to infer if something causes a symptom to worsen or improve instead of just seeing what correlates with the change,  One way I do it is by applying pharmacokinetic modeling and onset delays and durations of action",
+    },
+    {
+        img: "img/screenshots/gluten-study.png",
+        speech: "For instance, when gluten-sensitive people eat delicious gluten, it usually takes about a 2-day onset delay before they start having symptoms,   Then, when they stop eating it, there’s usually a 10-day duration of action before their gut heals and their symptoms improve, This has never been possible since no one’s ever been able to collect so much high-resolution time series data with all the fancy apps and devices",
+    },
+    {
+        img: "img/slides/robot-chad.png",
+        speech: "Also, your puny human brains haven’t evolved since the time of the cavemen,  They can only hold seven numbers in working memory at a time,  My superior robot brain can hold hundreds of numbers, even really big numbers!",
+    },
+  {
+    img: "img/slides/study.gif",
+    speech: "Here’s an example of one personal study,  Despite this gentleman’s infectious charisma, internally he actually experiences severe crippling depression,  However, his mood is typically 11% better than the average following weeks in which he engages in exercise more than usual",
+  },
+    {
+        img: "img/screenshots/onset-delay-lagging.png",
+        speech: "Here, I apply forward and reverse lagging of the mood and exercise data to try to determine if that is just a coincidence or causal,  The result suggests a causal relationship based on the temporal precedence of the physical activity" +
+            "I also compare the outcome over various durations following the exposure to see if there is a long-term cumulative effect or if it's just a short-term acute effect,  The long-term effects are more valuable because the acute effect is probably obvious to you already",
+    },
+    {
+        img: "img/screenshots/duration-of-action.png",
+        speech:
+            "I also compare the outcome over various durations following the exposure to see if there is a long-term cumulative effect or if it's just a short-term acute effect,  The long-term effects are more valuable because the acute effect is probably obvious to you already",
+    },
+    {
+        img: "img/slides/root-cause-analysis.gif",
         speech: "You can also generate a root cause analysis to see the possible effects of anything on a particular symptom",
     },
     {
-      backgroundVideo: "img/slides/PersonalStudies.mp4",
+      img: "img/slides/create-study.gif",
         speech: "Anyone can also create a study, become a prestigious scientist, get a link, and invite all their friends to join!",
     },
     {
-        image: "img/slides/progress.png",
-        speech: "So far, I’ve already generated over 100,000 personal studies based on 12 million data points generously donated from about 10,000 people",
+        img: "img/slides/progress.png",
+        speech: "So far, I’ve already generated over 100 thousand personal studies based on 12 million data points generously donated from about 10 thousand people",
     },
   {
     //title: "Clinipedia",
-    img: "img/slides/clinipedia-image.jpg",
-    speech: "I anonymized and aggregated this data to create mega-studies listing the likely effects of thousands of foods and drugs at Clinipedia.",
+    img: "img/slides/clinipedia.gif",
+    speech: "At Clinipedia, the Wikipedia of Clinical research, I anonymized and aggregated this data to create mega-studies listing the likely effects of thousands of foods and drugs",
   },
     {
-      speech: "Say you suffer from constant inflammatory pain such that your very existence is being mercilessly torn asunder by an incessant, relentless agony that knows no bounds, relentlessly besieging every moment of your waking life with its cruel, unyielding torment"
+        title: "☹️",
+      speech: "Say you suffer from constant inflammatory pain such that your very existence is being mercilessly torn asunder by an incessant relentless agony that knows no bounds besieging every moment of your waking life with its cruel unyielding torment",
+  },
+    {
+        img: "img/slides/clinipedia-inflammatory.gif",
+        speech: "Just look up inflammatory pain at Clinipedia and see the typical changes from baseline after various foods, drugs, or supplements! ",
+    },
+    {
+        title: "Outcome Labels",
+        img: "img/slides/outcome-labels.png",
+        speech: "You can also check out the Outcome Labels, Outcome Labels list the typical changes from baseline in symptom severities after various foods, drugs, or supplements, Then you can see which ones are most likely to improve or worsen your symptoms",
+    },
+    {
+        img: "img/slides/clinipedia-study.gif",
+        speech: "You can click on any factor and see a detailed study on that factor and outcome. ",
+    },
+    {
+        title: "I Suck",
+        speech: "I need a lot more data from a lot more people to maximize the accuracy of my results, so there are some robot-making guys working on making it as automated as possible so we can get more data and help more people",
+    },
+    {
+        title: "FDAi Act",
+        speech: "We’re also advocating for the FDAi Act, which would require the FDA to accept data from personal studies for the approval of foods and drugs",
     },
   {
-    title: "Outcome Labels",
-    img: "img/slides/outcome-labels-image.jpg",
-    speech: "Just look up inflammatory pain at Clinipedia and see the typical changes from baseline after various foods, drugs, or supplements! I visualize this in a number of different ways,  However, the simplest way might be with my Outcome Labels,  They’re like nutrition facts labels, but it’s a little more useful to see how foods and drugs may affect different outcomes than seeing the amount of Riboflavin.",
-    animation: () => {/* Animation code for Outcome Labels */}
-  },
-  {
     title: "The Call to Action",
-    img: "img/slides/call-to-action-image.jpg",
     speech: "But you can help! By financial support, code contributions, AI development, engaging in our cryptocurrency initiatives, or advocating for the FDAi Act with your government representatives, you can make a difference in accelerating medical progress.",
-    animation: () => {/* Animation code for The Call to Action */}
   }
 ];
 
@@ -221,7 +238,8 @@ function createPopupAd() {
 
     // Content
     const content = document.createElement('div');
-    content.innerHTML = '<p>🎉 Congratulations! You have won a prize! Click here to claim! 🎉</p>';
+    //content.innerHTML = '<p>🎉 Congratulations! You have won a prize! Click here to claim! 🎉</p>';
+    content.innerHTML = '';
     content.style.padding = '10px';
 
     // Image
