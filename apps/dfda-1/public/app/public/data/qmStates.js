@@ -75,6 +75,8 @@ var qmStates = [
 			"title": "FDAi",
 			"ionIcon": "ion-log-in",
 			"logout": null,
+            "slides": "slides",
+            "music": true,
 		},
 		"views": {
 			"menuContent": {
@@ -85,6 +87,27 @@ var qmStates = [
 		"resolve": {},
 		"name": "app.presentation"
 	},
+    {
+        "cache": false,
+        "url": "/convo",
+        "params": {
+            "doNotRedirect": true,
+            "title": "FDAi",
+            "ionIcon": "ion-log-in",
+            "logout": null,
+            "slides": "slidesConvo",
+            "autoplay": false,
+            "music": false,
+        },
+        "views": {
+            "menuContent": {
+                "templateUrl": "templates/presentation.html",
+                "controller": "PresentationCtrl"
+            }
+        },
+        "resolve": {},
+        "name": "app.convo"
+    },
     {
         "url": "/track",
         "cache": false,

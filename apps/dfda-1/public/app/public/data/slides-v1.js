@@ -17,105 +17,105 @@ const slides = [
 		speech: false,
 		animation: ($scope) => {}
 	},
-  // {
-  //   speech: "Hi! I’m your personal FDAi! I’ve been programmed to collect and analyze everyone's food and drug intake and symptoms to determine the personalized safety and efficacy of every food and drug in the world!",
-  // },
-  // {
-  //   title: "2 Billion People\nSUFFER\nfrom 7000 Diseases",
-  //   speech: "Two billion people suffer from chronic diseases like depression, fibromyalgia, Crone's disease,and multiple sclerosis, There are over 7000 diseases that we still don’t have cures for",
-  // },
-  // {
-  //   title: null,
-  //   img: "img/slides/studied-molecules-chart-no-background.png",
-  //   speech: "The good news is that there could be billions of cures we don’t even know about yet, there are over 166 billion possible medicinal molecules, and we’ve only tested 0.00001% so far",
-  // },
-  //   {
-  //       title: null,
-  //       img: "img/slides/slow-research.png",
-  //       speech: "The bad news is that we only approve around 30 drugs a year so, at best, it would take over 350 years to find cures at this rate, So you’ll be long dead by then.",
-  //   },
-  // {
-  //   img: "img/slides/chemicals-in-our-diet.png",
-  //   speech: "Lots of these diseases are caused or worsened by chemicals in our diet, but we don’t really know which ones,  We only have long-term toxicology data on 2 of the over 2000 preservatives, flavorings, emulsifiers, sweeteners, pesticides, contaminants, and herbicides in our diets, ",
-  // },
-  //   {
-  //       img: "img/slides/correlates-of-disease-incidence.png",
-  //       speech: "The increase in the number of chemicals has been linked to increases in the incidence of many diseases associated with disrupted gut microbiomes,  It’s like everyone is getting Roofied with thousands of untested drugs without their knowledge",
-  //   },
-  //   {
-  //       title: "Clinical Research is SLOW, EXPENSIVE, and IMPRECISE",
-  //       speech: "Unfortunately, clinical research is really slow, expensive, and imprecise",
-  //   },
-  //   {
-  //       title: "Clinical Research is SLOW, EXPENSIVE, and IMPRECISE",
-  //       speech: "It currently costs about 2.6 billion dollars and takes about 12 years to bring a new drug to market",
-  //   },
-  //   {
-  //       title: "12 Years and $2.6 Billion",
-  //       speech: "It currently costs about 2.6 billion dollars and takes about 12 years to bring a new drug to market,  And even then, we only know about the average effect of the drug on the average person,  We don’t know how it affects, you.",
-  //   },
-  // {
-  //   title: "What's the solution?",
-  //   speech: "So what’s the solution?",
-  // },
-  //   {
-  //       title: "Wait for the sweet release of death?",
-  //       speech: "Should you just continue to suffer and wait patiently",
-  //   },
-  //   {
-  //       img: "img/slides/decay.gif",
-  //       speech: "for the sweet release of death?",
-  //   },
-  //   {
-  //       title: "NO!",
-  //       speech: "No! We can defeat chronic disease",
-  //   },
-  //   {
-  //       img: "img/slides/super-fda-robot-transparent.png",
-  //       speech: "with the power of ROBOTS!",
-  //   },
-  //   {
-  //       img: "img/slides/robot-drugs.gif",
-  //       speech: "Some robots can discover new drugs and Some robots can actually, make, drugs",
-  //   },
-  //   {
-  //       img: "img/slides/black-box-model-animation.gif",
-  //       speech: "My specialty is making it easy for anyone to participate in clinical research to find out what foods and drugs are safe and effective!",
-  //   },
-  // {
-  //   img: "img/slides/digital-exhaust.png",
-  //   speech: "The first step is getting your precious, precious data! You automatically generate a lot of data exhaust, like receipts for supplements from Amazon, food from Instacart, prescriptions from CVS, health records, lab tests, digital health apps, and wearable devices,   Unfortunately, it’s kind of worthless when it’s scattered all over the place",
-  // },
-  //   {
-  //       speech: " and just being used by advertiser to target you for Viagra ads",
-  //       animation: () => {
-  //           simulatePopups(50); // Start the simulation with 5 popups
-  //           removeAllPopupsAfterDelay(5); // Remove all popups after 10 seconds}
-  //       },
-  //   },
-  // {
-  //   img: "img/slides/fdai-github.png",
-  //   speech: "So we’re making free and open source apps, reusable software libraries, and AI agents to help you get all your data and analyze it for you!",
-  // },
-  //   {
-  //       title: null,
-  //       playbackRate: 0.5,
-  //       backgroundVideo: "img/slides/Import.mp4",
-  //       speech: "You can import data from lots of apps and wearable devices like physical activity, sleep, environmental factors, and vital signs.",
-  //   },
-  //   {
-  //       title: null,
-  //       backgroundVideo: "img/slides/reminder-inbox.mp4",
-  //       speech: "You can also schedule reminders to record symptoms, treatments, or anything else manually in the Reminder Inbox.",
-  //   },
-  // {
-  //     img: "img/slides/history.gif",
-  //   speech: "After I get a couple of months of your data, I can eat it all up. Yum! ",
-  //   },
-  //   {
-  //       video: "img/slides/studies.mp4",
-  //       speech: "Then I start analyzing it and generate N-of-1 personal studies telling you how much different medications, supplements, or foods might improve or worsen your symptoms.",
-  //   },
+  {
+    speech: "Hi! I’m your personal FDAi! I’ve been programmed to collect and analyze everyone's food and drug intake and symptoms to determine the personalized safety and efficacy of every food and drug in the world!",
+  },
+  {
+    title: "2 Billion People\nSUFFER\nfrom 7000 Diseases",
+    speech: "Two billion people suffer from chronic diseases like depression, fibromyalgia, Crone's disease,and multiple sclerosis, There are over 7000 diseases that we still don’t have cures for",
+  },
+  {
+    title: null,
+    img: "img/slides/studied-molecules-chart-no-background.png",
+    speech: "The good news is that there could be billions of cures we don’t even know about yet, there are over 166 billion possible medicinal molecules, and we’ve only tested 0.00001% so far",
+  },
+    {
+        title: null,
+        img: "img/slides/slow-research.png",
+        speech: "The bad news is that we only approve around 30 drugs a year so, at best, it would take over 350 years to find cures at this rate, So you’ll be long dead by then.",
+    },
+  {
+    img: "img/slides/chemicals-in-our-diet.png",
+    speech: "Lots of these diseases are caused or worsened by chemicals in our diet, but we don’t really know which ones,  We only have long-term toxicology data on 2 of the over 7000 preservatives, flavorings, emulsifiers, sweeteners, pesticides, contaminants, and herbicides in our diets, ",
+  },
+    {
+        img: "img/slides/correlates-of-disease-incidence.png",
+        speech: "The increase in the number of chemicals has been linked to increases in the incidence of many diseases associated with disrupted gut microbiomes,  It’s like everyone is getting Roofied with thousands of untested drugs without their knowledge",
+    },
+    {
+        title: "Clinical Research is SLOW, EXPENSIVE, and IMPRECISE",
+        speech: "Unfortunately, clinical research is really slow, expensive, and imprecise",
+    },
+    {
+        title: "12 Years and $2.6 Billion",
+        speech: "It currently costs about 2.6 billion dollars and takes about 12 years to bring a new drug to market,  And even then, we only know about the average effect of the drug on the average person,  We don’t know how it affects, you.",
+    },
+    {
+        title: "People in Clinical Trials Often Are Not Representative of Real Patients",
+        speech: "Only 14.5% of patients with depression are eligible to participate in antidepressant trials.  They exclude anyone with other health conditions like anxiety, people taking other medications, anyone who uses drugs or alcohol.  So, the results of the trials don’t really apply to most people with depression.",
+    },
+  {
+    title: "What's the solution?",
+    speech: "So what’s the solution?",
+  },
+    {
+        title: "Wait for the sweet release of death?",
+        speech: "Should you just continue to suffer and wait patiently",
+    },
+    {
+        img: "img/slides/decay.gif",
+        speech: "for the sweet release of death?",
+    },
+    {
+        title: "NO!",
+        speech: "No! We can defeat chronic disease",
+    },
+    {
+        img: "img/slides/super-fda-robot-transparent.png",
+        speech: "with the power of ROBOTS!",
+    },
+    {
+        img: "img/slides/robot-drugs.gif",
+        speech: "Some robots can discover new drugs and Some robots can actually, make, drugs",
+    },
+    {
+        img: "img/slides/black-box-model-animation.gif",
+        speech: "My specialty is making it easy for anyone to participate in clinical research to find out what foods and drugs are safe and effective!",
+    },
+  {
+    img: "img/slides/digital-exhaust.png",
+    speech: "The first step is getting your precious, precious data! You automatically generate a lot of data exhaust, like receipts for supplements from Amazon, food from Instacart, prescriptions from CVS, health records, lab tests, digital health apps, and wearable devices,   Unfortunately, it’s kind of worthless when it’s scattered all over the place",
+  },
+    {
+        speech: " and just being used by advertiser to target you for Viagra ads",
+        animation: () => {
+            simulatePopups(50); // Start the simulation with 5 popups
+            removeAllPopupsAfterDelay(5); // Remove all popups after 10 seconds}
+        },
+    },
+  {
+    img: "img/slides/fdai-github.png",
+    speech: "So we’re making free and open source apps, reusable software libraries, and AI agents to help you get all your data and analyze it for you!",
+  },
+    {
+        title: null,
+        playbackRate: 0.5,
+        backgroundVideo: "img/slides/Import.mp4",
+        speech: "You can import data from lots of apps and wearable devices like physical activity, sleep, environmental factors, and vital signs.",
+    },
+    {
+        title: null,
+        backgroundVideo: "img/slides/reminder-inbox.mp4",
+        speech: "You can also schedule reminders to record symptoms, treatments, or anything else manually in the Reminder Inbox.",
+    },
+  {
+      img: "img/slides/history.gif",
+    speech: "After I get a couple of months of your data, I can eat it all up. Yum! ",
+    },
+    {
+        video: "img/slides/studies.mp4",
+        speech: "Then I start analyzing it and generate N-of-1 personal studies telling you how much different medications, supplements, or foods might improve or worsen your symptoms.",
+    },
   {
       img: "img/slides/symptom-factors.png",
     speech: "But, as any obnoxious college graduate will tell you, correlation does not necessarily imply causation,  Just because you took a drug and got better, it doesn’t mean that’s really why your symptoms went away,   " +
@@ -127,7 +127,7 @@ const slides = [
     },
     {
         img: "img/screenshots/gluten-study.png",
-        speech: "For instance, when gluten-sensitive people eat delicious gluten, it usually takes about a 2-day onset delay before they start having symptoms,   Then, when they stop eating it, there’s usually a 10-day duration of action before their gut heals and their symptoms improve, This has never been possible since no one’s ever been able to collect so much high-resolution time series data with all the fancy apps and devices",
+        speech: "For instance, when gluten-sensitive people eat delicious gluten, it usually takes about a 2-day onset delay before they start having symptoms,   Then, when they stop eating it, there’s usually a 10-day duration of action before their gut heals and their symptoms improve, causal inference has never been possible since we've been able to collect so much high-resolution time series data before",
     },
     {
         img: "img/slides/robot-chad.png",
@@ -179,20 +179,39 @@ const slides = [
     },
     {
         img: "img/slides/clinipedia-study.gif",
-        speech: "You can click on any factor and see a detailed study on that factor and outcome. ",
+        speech: "You can click on any factor and see a detailed study on that factor and outcome. Unfortunately, even though the data is very broad as in we have data on thousands of factors and outcomes, it’s generally very shallow, so we only have a few people contributing data for each factor and outcome",
     },
     {
         title: "I Suck",
-        speech: "I need a lot more data from a lot more people to maximize the accuracy of my results, so there are some robot-making guys working on making it as automated as possible so we can get more data and help more people",
+        speech: "I need a lot more data from a lot more people to improve the accuracy of my results, so I need help from a lot of real good robot-making guys to make me better and automate data collection as much as possible.",
     },
     {
-        title: "FDAi Act",
-        speech: "We’re also advocating for the FDAi Act, which would require the FDA to accept data from personal studies for the approval of foods and drugs",
+        title: "This is the FDA's Job",
+        speech:
+            "This is really the FDA's job.  Congress just voted on a bill to send 10 billion dollars to Israel so they could blow up Gaza and 10 billion dollars to Gaza to rebuild it, so they surely have 10 billion to make a robot to help the 2 billion people with chronic diseases."
     },
-  {
-    title: "The Call to Action",
-    speech: "But you can help! By financial support, code contributions, AI development, engaging in our cryptocurrency initiatives, or advocating for the FDAi Act with your government representatives, you can make a difference in accelerating medical progress.",
-  }
+    {
+        img: "fdai-act-petition-qrcode.png",
+        speech:
+            "So please scan this code and show your support for the FDAi Act, which would require congress to pay some real good robot making guys to improve me so I can:\n" +
+            "\n" +
+            "1 import your health records, wearable data, and receipts for food, drug, and supplement purchases\n" +
+            "2 regularly call you on the phone or something and ask you \n" +
+            "how severe your health symptoms are\n" +
+            "what foods, drugs, and supplements you took\n" +
+            "3 analyze the resulting high-frequency time series data to figure out how much better or worse your symptoms generally get over the short and long term after any given food, drug, or supplement\n" +
+            "4 combine everyone's data to create global-scale aggregated studies on the precise effects of foods and drugs\n" +
+            "5 Create Outcome Labels for all foods, drugs, and supplements that list the percent change from baseline for all symptoms and health outcomes\n" +
+            "6 tell the 2 billion people with chronic diseases the best things they can do to reduce their symptom severity \n" +
+            "7 make it effortless to join a trial for the most promising experimental new treatment if you're still miserable after exhausting the available treatments\n" +
+            "8 get the new treatment shipped to you\n" +
+            "9 call you every day to ask you if you took it and about your symptoms and side effects\n" +
+            "10 publish the results",
+    }
+  // {
+  //   title: "FDAi ",
+  //   speech: "But you can help! By financial support, code contributions, AI development, engaging in our cryptocurrency initiatives, or advocating for the FDAi Act with your government representatives, you can make a difference in accelerating medical progress.",
+  // }
 ];
 
 // Function to create a popup ad with Windows 95 styling

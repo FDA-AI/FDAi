@@ -1,11 +1,13 @@
 angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$ionicSlideBoxDelegate", "$ionicLoading",
     "$rootScope", "$stateParams", "qmService", "appSettingsResponse", "$timeout",
+    "$document",
     function($scope, $state, $ionicSlideBoxDelegate, $ionicLoading,
-             $rootScope, $stateParams, qmService, appSettingsResponse, $timeout){
+             $rootScope, $stateParams, qmService, appSettingsResponse, $timeout, $document){
         qmService.initializeApplication(appSettingsResponse);
         qmService.navBar.setFilterBarSearchIcon(false);
         $scope.state = {
-            autoplay: false,
+            autoplay: true,
+            musicPlaying: false,
             title: null,
             image: null,
 			backgroundImg: null,
@@ -30,6 +32,10 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                 var lastSlide = $scope.state.slides[$scope.state.slides.length - 1];
                 if(lastSlide && lastSlide.cleanup){lastSlide.cleanup($scope);}
                 qm.speech.shutUpRobot();
+                if($stateParams.music && !$scope.state.musicPlaying){
+                    qm.music.play();
+                    $scope.state.musicPlaying = true;
+                }
                 //qm.music.play();
                 qm.robot.openMouth();
 				//debugger
@@ -67,7 +73,14 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 	        qmService.rootScope.setProperty('speechEnabled', true);
 	        $scope.showRobot = true;
 	        qm.speech.setSpeechEnabled(true);
-	        $scope.state.slides = slides;
+            if($stateParams.slides === 'slidesConvo'){
+                $scope.state.slides = slidesConvo;
+            }else {
+                $scope.state.slides = slides;
+            }
+            if($stateParams.autoplay !== undefined){
+                $scope.state.autoplay = $stateParams.autoplay;
+            }
         });
         $scope.$on('$ionicView.afterEnter', function(){
             qmService.navBar.hideNavigationMenu();
@@ -98,4 +111,21 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
         $scope.$watch('state.video', function(newValue, oldValue) {
             updateVideo(newValue, oldValue, 'presentation-video')
         });
+
+        $document.bind("keydown", function(event) {
+            switch(event.which) {
+                case 32: // Spacebar code
+                case 39: // Right arrow code
+                    $scope.$apply(function () {
+                        $scope.state.next();
+                    });
+                    break;
+                case 37: // Left arrow code
+                    $scope.$apply(function () {
+                        $scope.state.previous();
+                    });
+                    break;
+            }
+        });
+
     }]);
