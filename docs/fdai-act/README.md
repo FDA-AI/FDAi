@@ -3,13 +3,6 @@ banner: docs/images/fdai-framework-diagram.png
 ---
 # FDAi Act
 
-
-Given the comprehensive scope and detailed requirements provided, the FDAi Act must encapsulate a wide array of facets from AI-driven personal health management to democratizing clinical research. This extended version aims to incorporate the necessary elements into a robust legislative framework, ensuring a transformative impact on healthcare through the integration of AI, while addressing bureaucratic, ethical, and data management challenges.
-
----
-
-### The FDAi Act
-
 #### An Act to Revolutionize Healthcare Through the Deployment of the FDAi System, Ensuring Personalized Health Optimization, Accelerated Clinical Discovery, and Global Health Equity
 
 **Preamble**
