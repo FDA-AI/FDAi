@@ -27047,3 +27047,8 @@ body::after {
     background-color: white;
     color: black;
 }
+
+
+.slider-pager {
+    display: none !important;
+}
