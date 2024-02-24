@@ -26,6 +26,7 @@ function getMimeType(fileName) {
     jpeg: 'image/jpeg',
     svg: 'image/svg+xml',
     mp4: 'video/mp4',
+    html: 'text/html',
     // Add more MIME types as needed
   };
 
@@ -46,6 +47,9 @@ async function updateContentTypes() {
       const listedObjects = await s3.send(new ListObjectsV2Command(listParams));
 
       for (const object of listedObjects.Contents) {
+        if (!object.Key.endsWith('.css')) {
+          continue;
+        }
         const mimeType = getMimeType(object.Key);
         console.log(`Updating ${object.Key} to MIME type ${mimeType}`);
 

@@ -4,13 +4,21 @@ const mime = require('mime-types');
 const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
 const { Upload } = require('@aws-sdk/lib-storage');
 
+// Load environment variables
+require('dotenv').config({ path: '../.env' });
+
+if(!process.env.AWS_REGION || !process.env.BUCKET_NAME || !process.env.AWS_ACCESS_KEY_ID || !process.env.AWS_SECRET_ACCESS_KEY) {
+  console.error("Please set the AWS_REGION, BUCKET_NAME, AWS_ACCESS_KEY_ID, and AWS_SECRET_ACCESS_KEY environment variables.");
+  process.exit(1);
+}
+
 // Configure your AWS details
 const s3Client = new S3Client({
   region: process.env.AWS_REGION, // e.g., 'us-east-1'
 });
 
 const bucketName = process.env.BUCKET_NAME;
-const localDir = 'apps/dfda-1/public/app/public'; // Local directory to upload
+const localDir = '../apps/dfda-1/public/app/public'; // Local directory to upload
 
 // Function to upload a file to S3
 async function uploadFile(filePath, fileKey) {
@@ -45,7 +53,9 @@ function uploadDirectory(directoryPath, s3PathPrefix = '') {
 
     items.forEach(item => {
       const localPath = path.join(directoryPath, item.name);
-      const s3Key = path.join(s3PathPrefix, item.name);
+      // Ensure S3 key uses forward slashes, regardless of the operating system
+      const s3Key = (path.join(s3PathPrefix, item.name)).replace(/\\/g, '/');
+
 
       if (item.isDirectory()) {
         uploadDirectory(localPath, s3Key); // Recursively upload directories
