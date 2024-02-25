@@ -6809,6 +6809,7 @@ var qm = {
         player: {},
         status: {},
         isPlaying: function(filePath){
+            filePath = filePath || 'sound/air-of-another-planet-full.mp3';
             return qm.music.status[filePath] === 'play';
         },
         setPlayerStatus: function(filePath, status){
@@ -9188,9 +9189,9 @@ var qm = {
             utterance.pitch = 1;
             utterance.onerror = function(event){
                 var message = 'An error has occurred with the speech synthesis: ' + event.error;
-                qmLog.error(message);
+                qmLog.error(message, event);
                 if(errorHandler){
-                    errorHandler(message);
+                    errorHandler(message, event);
                 }
             };
             utterance.text = text;
@@ -12795,6 +12796,9 @@ var qm = {
 	    showCircleVisualizer: function(){
 			qm.visualizer.showVisualizer("rainbow");
 	    },
+        showSiriVisualizer: function(){
+            qm.visualizer.showVisualizer("siri");
+        },
         showVisualizer: function(type){
             if(!qm.visualizer.visualizerEnabled){
                 return;
@@ -13022,8 +13026,8 @@ var qm = {
              * Display an error message.
              */
             function onStreamError(e){
-                document.body.innerHTML = "<h1>This pen only works with https://</h1>";
-                console.error(e);
+                ///document.body.innerHTML = "<h1>This pen only works with https://</h1>";
+                console.error("onStreamError: ", e);
             }
             /**
              * Utility function to create a number range
