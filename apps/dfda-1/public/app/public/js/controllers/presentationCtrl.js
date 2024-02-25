@@ -1,15 +1,17 @@
 angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$ionicSlideBoxDelegate", "$ionicLoading",
     "$rootScope", "$stateParams", "qmService", "appSettingsResponse", "$timeout",
-    "$document",
+    "$document", '$sce',
     function($scope, $state, $ionicSlideBoxDelegate, $ionicLoading,
-             $rootScope, $stateParams, qmService, appSettingsResponse, $timeout, $document){
+             $rootScope, $stateParams, qmService, appSettingsResponse, $timeout, $document, $sce){
         qmService.initializeApplication(appSettingsResponse);
         qmService.navBar.setFilterBarSearchIcon(false);
         $scope.state = {
+            autoPlayMusic: true,
             autoplay: true,
-            musicPlaying: false,
+            playing: false,
             title: null,
             image: null,
+            music: $stateParams.music,
 			backgroundImg: null,
             hideTriangle: false,
             backgroundVideo: null,
@@ -18,8 +20,25 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                 lineTwo: "Ai"
             },
 	        slideIndex: 0,
+            toggleMusic: function(){
+                if(qm.music.isPlaying($stateParams.music)){
+                    qm.music.fadeOut($stateParams.music);
+                }else{
+                    qm.music.play($stateParams.music);
+                }
+            },
+            pause: function(){
+                if($scope.state.playing) {
+                    $scope.state.autoplay = false;
+                    $scope.state.playing = false;
+                    qm.speech.shutUpRobot();
+                } else {
+                    $scope.state.autoplay = true;
+                    $scope.state.playing = true;
+                    $scope.state.slideChanged($scope.state.slideIndex);
+                }
+            },
 	        start: function(){
-		        qm.music.play();
 		        $scope.state.next();
 	        },
 	        next: function(index){
@@ -29,26 +48,30 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 		        $ionicSlideBoxDelegate.previous();
 	        },
 	        slideChanged: function(index){
+                if(!$scope.state.playing){$scope.state.playing = true;}
                 var lastSlide = $scope.state.slides[$scope.state.slides.length - 1];
                 if(lastSlide && lastSlide.cleanup){lastSlide.cleanup($scope);}
                 qm.speech.shutUpRobot();
-                if($stateParams.music && !$scope.state.musicPlaying){
-                    qm.music.play();
-                    $scope.state.musicPlaying = true;
+                if(!qm.music.isPlaying($stateParams.music) && index === 1 && $stateParams.music){
+                    qm.music.play($stateParams.music);
                 }
                 //qm.music.play();
                 qm.robot.openMouth();
 				//debugger
 		        qm.visualizer.showCircleVisualizer()
+                //qm.visualizer.showSiriVisualizer();
 		        slide = $scope.state.slides[index];
+                if(slide.goToState){
+                    qmService.goToState(slide.goToState);
+                }
 		        $scope.state.hideTriangle = slide.img || slide.backgroundImg ||
                     slide.backgroundVideo || slide.title || slide.video;
 				if(slide.animation){slide.animation($scope);}
-                $scope.state.backgroundImg = slide.backgroundImg || null;
+                $scope.state.backgroundImg = slide.backgroundImg  ? $sce.trustAsResourceUrl(slide.backgroundImg) : null;
                 $scope.state.title = slide.title || null;
-                $scope.state.image = slide.img || null;
-                $scope.state.backgroundVideo = slide.backgroundVideo || null;
-                $scope.state.video = slide.video || null;
+                $scope.state.image = slide.img ? $sce.trustAsResourceUrl(slide.img) : null;
+                $scope.state.backgroundVideo = slide.backgroundVideo  ? $sce.trustAsResourceUrl(slide.backgroundVideo) : null;
+                $scope.state.video = slide.video  ? $sce.trustAsResourceUrl(slide.video) : null;
 		        $scope.state.slideIndex = index;
                 function callback(){
                     $timeout(function(){
@@ -57,7 +80,8 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                         }
                     },0.1 * 1000);
                 }
-                qm.speech.setCaption(slide.speech)
+                if(!slide.speech){return;}
+                //qm.speech.setCaption(slide.speech)
 		        qm.speech.talkRobot(
 			        slide.speech
 			        , callback // $scope.state.next
