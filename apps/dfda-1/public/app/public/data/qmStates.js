@@ -380,6 +380,22 @@ var qmStates = [
         "name": "app.import"
     },
     {
+        "url": "/analyzing",
+        "cache": false,
+        "params": {
+            "showAds": true,
+            "title": "Analyzing Data",
+            "ionIcon": "ion-ios-cloud-download-outline"
+        },
+        "views": {
+            "menuContent": {
+                "templateUrl": "templates/analyzing-page.html",
+                "controller": "AnalyzingCtrl"
+            }
+        },
+        "name": "app.analyzing"
+    },
+    {
         "url": "/chart-search",
         "cache": false,
         "params": {

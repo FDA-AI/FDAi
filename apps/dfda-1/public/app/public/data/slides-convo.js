@@ -4,12 +4,12 @@ const slidesConvo = [
         "speech": false,
     },
     {
-        "title": "Good morning, mike, how are you?",
+        "title": "How are you?",
         "speech": "Good morning, mike, how are you?",
     },
     // Hello, robot. I'm fine.
     {
-        "title": "Good morning, mike, how are you?",
+        "img": "img/slides/frequency-analysis.gif",
         "speech": "Are you sure?  Based on frequency analysis of your speech patterns, you seem to be experiencing some depression,",
     },
     // Yeah, I'm all fucked up,
@@ -18,62 +18,77 @@ const slidesConvo = [
     // My psoriasis severity's like 5 out of 10
     // and my mood is probably 2 out of 10
     {
+        "title": "That sucks! ☹️",
+        "speech": "That sucks!",
+    },
+    {
         "title": "Should I fetch your diet, treatment, and lab data?",
-        "speech": "That sucks!  Do you want me autonomously control your browser to get all your food, drug, and supplement purchase data from your Instacart, Amazon, and CVS accounts and your lab results from Quest so I can try to identify any hidden triggers worsening your symptoms and figure out how to improve them?",
+        "speech": "Do you want me autonomously control your browser to get all your food, drug, and supplement purchase data from your Instacart, Amazon, and CVS accounts and your lab results from Quest so I can try to identify any hidden triggers worsening your symptoms and figure out how to improve them?",
+    },
+    // Whatever, I don't even care anymore
+    {
+        "title": "Fetching Data...",
+        "speech": "Great! Let's eat up that data",
+        "img": "img/slides/autonomous-agent.gif"
     },
     {
-      "title": "Analyzing Data...",
-      "speech": "Great! Just give me a few minutes",
+        img: "img/slides/analyzing-data.gif",
+      //"title": "Analyzing Data...",
+      "speech": "Got it! Just give me a few minutes to analyze it",
     },
     {
-        "title": "Analysis Complete",
-        "speech": "I've completed a comprehensive analysis, including recent dietary inputs, pharmacy records, and lab results, Based on the data, it appears that your symptoms, including depression, may be linked to inflammation mediated by dietary factors, Specifically, consuming gluten, alcohol, or foods high in lectins seems to exacerbate your symptoms starting a couple of days after exposure and lasting about 10 days,  So I'd recommend you try an experiment by avoiding these foods for 20 days and see if your symptoms improve,  Does that sound good to you?",
+        img: "img/slides/lectins-studies.png",
+        "speech": "I've completed a comprehensive analysis, and it appears that your symptoms, including depression, may be linked to inflammation mediated by dietary factors, Specifically, consuming gluten, alcohol, or foods high in lectins seems to exacerbate your symptoms starting a couple of days after exposure and lasting about 10 days,"
     },
     //  What the hell are lectins?
     {
-        "title": "What are Lectins?",
-        "speech": "Lectins are a type of protein found in many plant foods, including grains, legumes, and nightshade vegetables, They can bind to the lining of the gut and interfere with nutrient absorption, potentially leading to inflammation and other symptoms,  So I'd recommend you try an experiment by avoiding these foods for 20 days and see if your symptoms improve,  Does that sound good to you?",
+        "img": "img/slides/lectins.jpeg",
+        "speech": "Lectins are a type of protein found in many plant foods, including grains, legumes, and nightshade vegetables",
     },
-    // Fine, I'll try it,
     {
+        "img": "img/slides/leaky-gut.png",
+        "speech": "They can bind to the lining of the gut and interfere with nutrient absorption, potentially leading to inflammation and other symptoms",
+    },
+    {
+        "title": "Wanna see if avoiding these foods helps?",
+        "speech": "Do you want to try an experiment by avoiding these foods for 20 days and see if your symptoms improve?",
+    },
+    // OK
+    {
+        "img": "img/slides/low-lectin-food.jpg",
         "speech": "Great! Would you like me to populate your Instacart shopping cart with an optimized meal plan that avoids these foods and includes ingredients that have been shown to reduce inflammation and reduce intestinal permeability?",
     },
     // Sure, that'd be great,
     {
-      "title": "Groceries",
+      "img": "img/slides/grocery-shopping.gif",
       "speech": "I'll also avoid gluten as it can contribute to intestinal permeability, allowing gut bacteria substances like LPS to enter the bloodstream and trigger inflammation, This seems to be a root cause connecting your depression, arthritis, acne, and psoriasis, As a vegetarian, you can benefit from more omega-3-rich foods like flaxseeds and chia seeds, which could lead to a 25% improvement in mood and energy for people with a similar multi-omic profile to you, I'll also add vitamin D supplement, given your vegetarian diet, could improve mood by 12% and reduce overall inflammation,   You can just delete the items you don't want and then place the order,",
     },
     // Ok, thank you, kind robot.
     {
-      "title": "Further Assistance",
-      "speech": "You're welcome! Don't hesitate to reach out if you have any questions or need further assistance",
-      "animation": () => {/* animations regarding Further Assistance */}
+      "title": "I love you! Bye! 😘😘😘",
+      "speech": "You're welcome! I'll check in with you whenever you want to see how you're doing, I love you!  Bye!",
     },
     {
         "title": "One month later"
     },
     {
-        "title": "Exploring Treatment Avenues",
-        "speech": "Hi, Mike!  How are you?",
+        "title": "How are you?",
+        "speech": "Hi, Mike! You've been on your new diet about a month now.  How are you feeling?",
     },
-    // My arthritis and psoriasis are a little better, but I'm still pretty depressed.
+    // The new diet is definitely helping, but I'm still a little bit miserable.
+    // My arthritis and psoriasis are both about 3 out of 10, and I still have some anxiety and depression.
     {
-      "title": "Experimental Drug Trial",
-      "speech": "I'm sorry to hear that, However, based on your health data and genetic profile, I've identified a the experimental drug trial with the most promising preclinical results for patients with your subset of depressive symptoms, Participating in this trials not will not only give you access to cutting-edge treatments but also contributes to accelerating clinical discovery, potentially helping others with similar conditions",
-
-    },
-    // OK. What is it?
-    {
-      "title": "Trial Information",
-      "speech": "It's a new biologic therapy designed to suppress the autoimmune response leading to systemic inflammation and neuroinflammation, This approach directly addresses the root cause of your symptoms, including depression, arthritis, acne, and psoriasis, Would you like me to tell the researchers that you're interested in participating? Your involvement could be pivotal in bringing new solutions to many,",
+        img: "img/slides/autonomous-study-search.gif",
+      "speech": "I'm sorry to hear that, However, based on your health data and genetic profile, I've identified a the experimental drug trial with the most promising preclinical results for patients with your subset of symptoms, It's a new clinical-grade probiotic therapy designed to suppress the autoimmune response leading to systemic inflammation and neuroinflammation, This approach directly addresses the root cause of your symptoms, including depression, arthritis, acne, and psoriasis, Would you like me to tell the researchers that you're interested in participating?",
     },
     // Sure, I'll do it,
     {
-        "speech": "Great! I'll have the research team contact you and send the medication to your home,",
+        img: "img/slides/autonomous-study-join.gif",
+        "speech": "Great! I'm contacting the research team now to have them send the medication to your home!",
     },
     {
-      "title": "Microbiome Analysis Recommendation",
-      "speech": "A balanced gut microbiome is crucial for overall health, especially for conditions influenced by inflammation, I just ordered a microbiome analysis to check for dysbiosis, which could be contributing to your symptoms,\n\nBased on the results, we can order specific strains of probiotics to optimize it,",
+      img: "img/slides/autonomous-lab-order.gif",
+      "speech": "Now I'll check your calendar and schedule your baseline and follow-up lab tests, and I'll also schedule a microbiome analysis to see if the probiotic therapy is improving your gut health,",
     },
     // OK. Thanks, robot.
     {
