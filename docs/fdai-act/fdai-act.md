@@ -292,6 +292,34 @@ Research indicates that the widespread adoption of artificial intelligence (AI) 
 
 This substantial reduction in healthcare spending can be attributed to several factors facilitated by AI, including improved efficiency in healthcare delivery, enhanced accuracy in diagnosis and treatment planning, reductions in unnecessary interventions, and optimized resource allocation. AI's potential to transform healthcare through personalized medicine, early detection of diseases, and streamlined clinical trials aligns with the objectives of projects like the FDAi Act, suggesting that similar savings could be anticipated with its implementation.
 
+### Savings from Personalized Medicine and Early Detection
+
+Below we estimate the potential savings from everyone taking every possible preventative health measure with the aid of a superintelligent AI assistant.  This involves several complex variables, including healthcare costs, the efficacy of preventative measures, and the adaptability of healthcare systems to AI technologies. 
+
+### Framework for Estimation
+
+1. **Current Healthcare Spending**: Identify the total current healthcare spending in a given region, such as the United States.
+2. **Preventable Costs**: Determine what percentage of this spending is related to preventable conditions, including chronic diseases that can be mitigated through early intervention, lifestyle changes, and other preventative measures.
+3. **AI Intervention Efficacy**: Estimate the efficacy of a superintelligent AI in reducing the incidence of these preventable conditions through personalized health recommendations, early detection, and treatment optimization.
+4. **Adoption and Compliance Rates**: Consider the rate at which people would adopt such AI technology and comply with its recommendations.
+
+### Assumptions
+
+- **Total Healthcare Spending**: According to data, U.S. healthcare spending reached approximately $4 trillion in recent years.
+- **Preventable Costs**: Research suggests that about 75% of healthcare costs are related to chronic diseases, many of which are preventable.
+- **AI Intervention Efficacy**: Let's conservatively assume that superintelligent AI could help reduce the costs associated with preventable conditions by 40%, given its ability to provide highly personalized healthcare guidance, promote early detection, and optimize treatment plans.
+- **Adoption and Compliance Rates**: While difficult to predict, let's optimistically assume a high adoption and compliance rate of 80% due to the AI's superintelligence and ability to personalize interventions.
+
+### Calculation
+
+1. **Preventable Healthcare Spending**: 75% of $4 trillion = $3 trillion.
+2. **Savings from AI Interventions**: 40% of $3 trillion = $1.2 trillion.
+3. **Adjusted for Adoption and Compliance**: 80% of $1.2 trillion = $960 billion.
+
+### Conclusion
+
+The use of a superintelligent AI assistant for preventative health measures could potentially save up to $960 billion annually in healthcare costs in the United States alone. This figure does not account for the costs of developing, deploying, and maintaining such AI systems, nor does it consider the potential economic impacts of improved population health, such as increased productivity and reduced disability.
+
 ## Section 7. Funding
 
 Congress shall allocate the necessary funds for the development, maintenance, and continual improvement of the FDAi Platform and its associated components.
@@ -364,8 +392,6 @@ Congress shall allocate the necessary funds for the development, maintenance, an
 - **Flexibility and Scalability:** The budget should be adaptable, with room for adjustments as the project progresses and as new technological advancements and partnerships emerge.
 - **Public-Private Partnerships:** To offset costs, partnerships with private entities, research institutions, and international health organizations could be pursued.
 - **Funding Sources:** Funding could come from federal allocations, grants, and potentially contributions from private sector stakeholders interested in advancing healthcare through AI.
-
-
 
 ## Section 8. Effective Date
 
