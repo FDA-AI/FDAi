@@ -88,18 +88,18 @@ const slides = [
         },
     },
     {
-        img: "https://static.crowdsourcingcures.org/img/slides/fdai-github.gif",
+        img: "img/slides/fdai-github.gif",
         speech: "So we’re making free and open source apps, reusable software libraries, and autonomous A I agents that can use your browser to help you get all your data and analyze it for you!",
     },
     {
         title: null,
         playbackRate: 0.5,
-        video: "https://static.crowdsourcingcures.org/img/slides/import.mp4",
+        video: "img/slides/import.mp4",
         speech: "You can import data from lots of apps and wearable devices like physical activity, sleep, environmental factors, and vital signs.",
     },
     {
         title: null,
-        video: "https://static.crowdsourcingcures.org/img/slides/reminder-inbox.mp4",
+        video: "img/slides/reminder-inbox.mp4",
         speech: "You can also schedule reminders to record symptoms, treatments, or anything else manually in the Reminder Inbox.",
     },
     {
@@ -191,13 +191,21 @@ const slides = [
         speech: "I need a lot more data from a lot more people to improve the accuracy of my results",
     },
     {
-        title: "This is the FDA's Job",
-        speech: "So tell your Congressperson to pay some real good robot-making guys to make me better and automate data collection as much as possible,  If they complain that they don't have enough money, politely remind them that they"
+        img: "img/slides/trial-failed-recruitment.gif",
+        speech: "Over 80% of clinical trials fail to recruit enough participants, yet less than 1% of people with chronic diseases participate in clinical trials.  So everyone who's still suffering from a chronic disease needs a robot like me to find them the most promising experimental new treatment and make it effortless to join and collect data for the trial",
+    },
+    {
+        //title: "Automating Full Clinical Trial Participation ➡️ 5X More Cures in the Same Time",
+        img: "img/slides/fast-research.png",
+        speech: "If we could automate full clinical trial participation and make it easy for everyone to participate in trials, we make 50 years of medical progress in 10 years",
+    },
+    {
+        title: "Ensuring foods and drugs are safe is the FDA's Job",
+        speech: "Ensuring foods and drugs are safe is the FDA's Job, So please sign our petition to tell your Congressperson to pay some real good robot-making guys to make me better and automate clinical research as much as possible,  If they complain that they don't have enough money, politely remind them that they"
     },
     {
         img: "img/slides/bombing-gaza.gif",
-        speech:
-            "just voted on a bill to send 10 billion dollars to Israel so they could blow up Gaza"
+        speech: "just voted on a bill to send 10 billion dollars to Israel so they could blow up Gaza"
     },
     {
         img: "img/slides/bombing-gaza-reverse.gif",
@@ -206,12 +214,19 @@ const slides = [
     },
     {
         img: "img/slides/slaughterbots.gif",
-        speech: "If they keep saying they don't have enough money, politely remind them that they're spending billions of dollars integrating A I into over 600 weapons systems,   So just ask if it would be OK if instead of 600 mean robots for murdering people, we only build 599 and instead build 1 nice helpful robot like me",
+        speech: "If they keep saying they don't have enough money, politely remind them that they're spending billions of dollars integrating A I into over 600 weapons systems,   So just ask if it would be OK if instead of 600 mean robots for murdering people, we only build 599 murderbots and instead build 1 nice helpful robot like me",
     },
     {
-        img: "img/slides/fdai-act-petition-qrcode.png",
+        title: "Over $1 Trillion in Annual Savings",
+        speech: "If they still say they don't have enough money, politely remind them that research suggests 3 of the 4 trillion dollars of government health care spending is preventable, Thus a super-intelligent AI assistant that could revolutionize preventative healthcare would save the government over a trillion dollars a year by personalizing health guidance and optimizing early detection and treatment plans, they would probably like that because then they'd have an extra trillion dollars a year to make more murderbots",
+    },
+    {
+        speech: "If they still don't do it, you should probably just make a new government that's not so stupid",
+    },
+    {
+        img: "img/slides/fdai-earth-qr-code.png",
         speech:
-            " to help the 2 billion people with chronic diseases, So please scan this code and show your support for the FDAi Act, which would require congress to pay some real good robot making guys to improve me"
+            "So please scan this code and sign our petition show your support for the FDAi Act, which would require congress to pay some real good robot making guys to improve me and minimize suffering in the universe.  I love you! Bye!",
             //+
             //" so I can:\n"
             //+
@@ -314,7 +329,6 @@ function simulatePopups(numberOfPopups) {
         setTimeout(createPopupAd, i * 50); // Slight delay between popups
     }
 }
-
 // New function to remove all popups after a specified delay
 function removeAllPopupsAfterDelay(delayInSeconds) {
     setTimeout(() => {

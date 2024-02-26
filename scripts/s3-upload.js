@@ -3,21 +3,21 @@ const path = require('path');
 const mime = require('mime-types');
 const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
 const { Upload } = require('@aws-sdk/lib-storage');
+let env = process.env;
+let envPath = fs.existsSync(path.resolve(__dirname, '.env')) ? '.env' : '../.env';
+require('dotenv').config({ path: envPath});
 
-// Load environment variables
-require('dotenv').config({ path: '../.env' });
-
-if(!process.env.AWS_REGION || !process.env.BUCKET_NAME || !process.env.AWS_ACCESS_KEY_ID || !process.env.AWS_SECRET_ACCESS_KEY) {
+if(!env.AWS_REGION || !env.BUCKET_NAME || !env.AWS_ACCESS_KEY_ID || !env.AWS_SECRET_ACCESS_KEY) {
   console.error("Please set the AWS_REGION, BUCKET_NAME, AWS_ACCESS_KEY_ID, and AWS_SECRET_ACCESS_KEY environment variables.");
   process.exit(1);
 }
 
 // Configure your AWS details
 const s3Client = new S3Client({
-  region: process.env.AWS_REGION, // e.g., 'us-east-1'
+  region: env.AWS_REGION, // e.g., 'us-east-1'
 });
 
-const bucketName = process.env.BUCKET_NAME;
+const bucketName = env.BUCKET_NAME;
 const localDir = '../apps/dfda-1/public/app/public'; // Local directory to upload
 
 // Function to upload a file to S3

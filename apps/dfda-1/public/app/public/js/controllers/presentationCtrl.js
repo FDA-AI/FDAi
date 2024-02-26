@@ -5,6 +5,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
              $rootScope, $stateParams, qmService, appSettingsResponse, $timeout, $document, $sce){
         qmService.initializeApplication(appSettingsResponse);
         qmService.navBar.setFilterBarSearchIcon(false);
+        var audio;
         $scope.state = {
             autoPlayMusic: true,
             autoplay: true,
@@ -63,6 +64,18 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 		        slide = $scope.state.slides[index];
                 if(slide.goToState){
                     qmService.goToState(slide.goToState);
+                }
+                if(audio){
+                    fadeOut(audio, 1);
+                    audio = null;
+                }
+                if(slide.audio){
+                    audio = new Audio(slide.audio);
+                    if(slide.volume){audio.volume = slide.volume;}
+                    audio.play();
+                }
+                if(slide.iframe){
+                    loadIframeAndScroll(slide.iframe, slide.scrollX, slide.scrollY);
                 }
 		        $scope.state.hideTriangle = slide.img || slide.backgroundImg ||
                     slide.backgroundVideo || slide.title || slide.video;
@@ -123,8 +136,9 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                     var slide = $scope.state.slides[$scope.state.slideIndex];
                     videoElement.playbackRate = 1;
                     if(slide.playbackRate){
-                        videoElement.playbackRate = slide.playbackRate; // 50% of the normal speed
+                        videoElement.playbackRate = slide.playbackRate;
                     }
+                    videoElement.muted = false;
                     videoElement.load();
                 }
             }
@@ -151,5 +165,20 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                     break;
             }
         });
-
+        // Fade out function
+        function fadeOut(audio, duration) {
+            var step = 0.01; // volume change step
+            duration = duration || 1; // duration in seconds
+            var interval = duration * 1000 / (1/step); // calculate interval length
+            var fade = setInterval(function() {
+                if (audio.volume > 0) {
+                    audio.volume -= step;
+                } else {
+                    // Stop the audio when volume reaches 0
+                    audio.pause();
+                    audio.currentTime = 0;
+                    clearInterval(fade);
+                }
+            }, interval);
+        }
     }]);
