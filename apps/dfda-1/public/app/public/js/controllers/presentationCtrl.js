@@ -95,6 +95,15 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                         }
                     },0.1 * 1000);
                 }
+                if(slide.humanSpeech){
+                    human.talkHuman(
+                        slide.humanSpeech
+                        , callback
+                        , function(error){
+                            qmLog.info("Could not read intro slide because: " + error);
+                        }
+                    );
+                }
                 if(!slide.speech){return;}
                 //qm.speech.setCaption(slide.speech)
 		        qm.speech.talkRobot(
@@ -125,6 +134,9 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
             qmService.navBar.hideNavigationMenu();
             qm.robot.onRobotClick = $scope.state.next;
 			qmService.hideLoader();
+            if($stateParams.showHuman){
+                //human.showHuman();
+            }
         });
         $scope.$on('$ionicView.beforeLeave', function(){
             qm.music.fadeOut();

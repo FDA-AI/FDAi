@@ -3,6 +3,10 @@ const slides = [
         title: false,
     },
     {
+        video: "video/fdai-robot-demo.mp4",
+        autoplay: false,
+    },
+    {
         speech: "Hi! I’m your personal FDAI! I’ve been programmed to collect and analyze everyone's food and drug intake and symptoms to determine the personalized safety and efficacy of every food and drug in the world!",
     },
     {
@@ -64,7 +68,7 @@ const slides = [
         speech: "Should you just continue to suffer and wait patiently",
     },
     {
-        img: "https://static.crowdsourcingcures.org/img/slides/decay.gif",
+        img: "https://static.crowdsourcingcures.org/video/decay.gif",
         speech: "for the sweet release of death?",
     },
     {
@@ -76,12 +80,12 @@ const slides = [
         speech: "with the power of ROBOTS! Some robots can discover new drugs",
     },
     {
-        img: "img/slides/robot-drugs.gif",
-        //img: "https://static.crowdsourcingcures.org/img/slides/robot-drugs.gif",
+        img: "video/robot-drugs.gif",
+        //img: "https://static.crowdsourcingcures.org/video/robot-drugs.gif",
         speech: "and Some robots can actually, make, drugs  ",
     },
     {
-        img: "https://static.crowdsourcingcures.org/img/slides/black-box-model-animation.gif",
+        img: "https://static.crowdsourcingcures.org/video/black-box-model-animation.gif",
         speech: "My specialty is making it easy for anyone to participate in clinical research to find out what foods and drugs are safe and effective!",
     },
     {
@@ -97,22 +101,22 @@ const slides = [
         cleanup: removeAllPopupAds,
     },
     {
-        img: "img/slides/FDAI-github.gif",
+        img: "video/FDAI-github.gif",
         speech: "So we’re making free and open source apps, reusable software libraries, and autonomous A I agents that can use your browser to help you get all your data and analyze it for you!",
     },
     {
         title: null,
         playbackRate: 0.5,
-        video: "img/slides/import.mp4",
+        video: "video/import.mp4",
         speech: "You can import data from lots of apps and wearable devices like physical activity, sleep, environmental factors, and vital signs.",
     },
     {
         title: null,
-        video: "img/slides/reminder-inbox.mp4",
+        video: "video/reminder-inbox.mp4",
         speech: "You can also schedule reminders to record symptoms, treatments, or anything else manually in the Reminder Inbox.",
     },
     {
-        img: "https://static.crowdsourcingcures.org/img/slides/history.gif",
+        img: "https://static.crowdsourcingcures.org/video/history.gif",
         speech: "After I get a couple of months of your data, I can eat it all up.",
     },
     {
@@ -120,7 +124,7 @@ const slides = [
         speech: "Yum! ",
     },
     {
-        video: "https://static.crowdsourcingcures.org/img/slides/studies.mp4",
+        video: "https://static.crowdsourcingcures.org/video/studies.mp4",
         speech: "Then I start analyzing it and generate N-of-1 personal studies telling you how much different medications, supplements, or foods might improve or worsen your symptoms.",
     },
     {
@@ -141,7 +145,7 @@ const slides = [
         speech: "For instance, when gluten-sensitive people eat delicious gluten, it usually takes about a 2-day onset delay before they start having symptoms,   Then, when they stop eating it, there’s usually a 10-day duration of action before their gut heals and their symptoms improve, high-resolution pharmacokinetic modeling from observational data has never been possible since we've never been able to collect enough data before",
     },
     {
-        img: "img/slides/study.gif",
+        img: "video/study.gif",
         speech: "Here’s an example of one personal study,  Despite this gentleman’s infectious charisma, internally he actually experiences severe crippling depression",
     },
     {
@@ -158,11 +162,11 @@ const slides = [
             "I also compare the outcome over various durations following the exposure to see if there is a long-term cumulative effect or if it's just a short-term acute effect,  The long-term effects are more valuable because the acute effect is probably obvious to you already, This analysis suggests that the mood benefits of regular exercise may continue to accumulate of at least a month of above average exercise",
     },
     {
-        img: "img/slides/root-cause-analysis-4x.gif",
+        img: "video/root-cause-analysis-4x.gif",
         speech: "You can also generate a big root cause analysis report to see the possible effects of anything on a particular symptom",
     },
     {
-        img: "img/slides/create-study.gif",
+        img: "video/create-study.gif",
         speech: "Anyone can also create a study, become a prestigious scientist, get a link, and invite all their friends to join!",
     },
     {
@@ -171,7 +175,7 @@ const slides = [
     },
     {
         //title: "Clinipedia",
-        img: "img/slides/clinipedia.gif",
+        img: "video/clinipedia.gif",
         speech: "At Clinipedia, the Wikipedia of Clinical research, I anonymized and aggregated this data to create mega-studies listing the likely effects of thousands of foods and drugs",
     },
     {
@@ -179,7 +183,7 @@ const slides = [
         speech: "Say you suffer from constant inflammatory pain such that your very existence is being mercilessly torn asunder by an incessant relentless agony that knows no bounds besieging every moment of your waking life with its cruel unyielding torment",
     },
     {
-        img: "img/slides/clinipedia-inflammatory.gif",
+        img: "video/clinipedia-inflammatory.gif",
         speech: "Just look up inflammatory pain at Clinipedia and see the typical changes from baseline after various foods, drugs, or supplements! ",
     },
     {
@@ -191,16 +195,16 @@ const slides = [
     //     speech: "Here's an example showing the average change in symptoms after taking the anti-inflammatory nutritional supplement, Curcumin",
     // },
     {
-        img: "img/slides/clinipedia-study.gif",
+        img: "video/clinipedia-study.gif",
         speech: "You can click on any factor and see a detailed study on that factor and outcome, Unfortunately, even though the data is very broad as in we have data on thousands of factors and outcomes, it’s generally very shallow, so we only have a few people contributing data for each factor and outcome",
     },
     {
-        img: "img/slides/johnny-5-need-input.gif",
+        img: "video/johnny-5-need-input.gif",
         title: "Need Input",
         speech: "I need a lot more data from a lot more people to improve the accuracy of my results",
     },
     {
-        img: "img/slides/trial-failed-recruitment.gif",
+        img: "video/trial-failed-recruitment.gif",
         speech: "Over 80% of clinical trials fail to recruit enough participants, yet less than 1% of people with chronic diseases participate in clinical trials,  So everyone who's still suffering from a chronic disease needs a robot like me to find them the most promising experimental new treatment and make it effortless to join and collect data for the trial",
     },
     {
@@ -217,6 +221,10 @@ const slides = [
         speech: "Here's an example of what I could eventually be with your help",
     },
     {
+        video: "video/fdai-robot-demo.mp4",
+        autoplay: false,
+    },
+    {
         title: "I need some real good robot-making guys to make me smart",
         speech: "To be able to do all that, I need some real good robot making guys to make me smart"
     },
@@ -225,16 +233,16 @@ const slides = [
         speech: "Ensuring foods and drugs are safe is the FDA's Job, So please sign our petition to tell your Congressperson to pay some real good robot-making guys to make me better,  If they complain that they don't have enough money, politely remind them that they"
     },
     {
-        img: "img/slides/bombing-gaza.gif",
+        img: "video/bombing-gaza.gif",
         speech: "just voted on a bill to send 10 billion dollars to Israel so they could blow up Gaza"
     },
     {
-        img: "img/slides/bombing-gaza-reverse.gif",
+        img: "video/bombing-gaza-reverse.gif",
         speech:
             "and 10 billion dollars to Gaza to rebuild it, so they surely have 10 billion to make a robot"
     },
     {
-        img: "img/slides/slaughterbots.gif",
+        img: "video/slaughterbots.gif",
         speech: "If they keep saying they don't have enough money, politely remind them that they're spending billions of dollars integrating A I into over 600 weapons systems,   So just ask if it would be OK if instead of 600 mean robots for murdering people, we only build 599 murderbots and instead build 1 nice helpful robot like me",
     },
     {
