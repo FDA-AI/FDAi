@@ -98,6 +98,7 @@ var qmStates = [
             "slides": "slidesConvo",
             "autoplay": false,
             "music": false,
+            "showHuman": true,
         },
         "views": {
             "menuContent": {

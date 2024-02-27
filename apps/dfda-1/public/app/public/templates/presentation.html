@@ -64,7 +64,8 @@ position: absolute;
          ng-include="'templates/robot.html'"
          ng-click="robotClick()"
          class="robot-container"></div>
-
+    <div ng-include="'templates/human.html'"
+         class="human-container"></div>
     <button
         id="backButton"
         ng-click="state.previous()"
