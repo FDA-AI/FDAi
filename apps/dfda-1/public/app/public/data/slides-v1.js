@@ -2,10 +2,10 @@ const slides = [
     {
         title: false,
     },
-    {
-        video: "video/fdai-robot-demo.mp4",
-        autoplay: false,
-    },
+    // {
+    //     video: "video/fdai-robot-demo.mp4",
+    //     autoplay: false,
+    // },
     {
         speech: "Hi! I’m your personal FDAI! I’ve been programmed to collect and analyze everyone's food and drug intake and symptoms to determine the personalized safety and efficacy of every food and drug in the world!",
     },
