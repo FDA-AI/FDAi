@@ -3,7 +3,7 @@ const slides = [
         title: false,
     },
     {
-        speech: "Hi! I’m your personal FDAi! I’ve been programmed to collect and analyze everyone's food and drug intake and symptoms to determine the personalized safety and efficacy of every food and drug in the world!",
+        speech: "Hi! I’m your personal FDAI! I’ve been programmed to collect and analyze everyone's food and drug intake and symptoms to determine the personalized safety and efficacy of every food and drug in the world!",
     },
     {
         title: "2 Billion People\nSUFFER\nfrom 7000 Diseases",
@@ -37,15 +37,23 @@ const slides = [
     },
     {
         title: "12 Years and $2.6 Billion",
-        speech: "It currently costs about 2.6 billion dollars and takes about 12 years to bring a new drug to market,  And even then, we only know about the average effect of the drug on the average person,  We don’t know how it affects, you.",
+        speech: "It currently costs about 2.6 billion dollars and takes about 12 years to bring a new drug to market,  And even then, we only know about the average effect of the drug on a tiny subset of patients,  We don’t know how it affects, you.",
     },
     {
         title: "Trials Are Often Not Representative of Real Patients",
-        speech: "85% of patients with depression are excluded from antidepressant trials.  They exclude people with co-morbid health conditions, ",
+        speech: "85% of patients with depression are excluded from antidepressant trials",
     },
     {
-        img: "img/slides/small-unrepresentative-trials.png",
-        speech: "They exclude people taking other medications, They exclude people who use drugs or alcohol.  So, the results of the trials don’t really apply to most people with depression, Clinical trials are also very small, so they don’t have enough statistical power to detect the effects of drugs on rare side effects or subgroups of people",
+        img: "img/slides/exclusion.png",
+        speech: "They exclude people taking other medications, They exclude people who use drugs or alcohol, They exclude people with other health conditions, So, the results of the trials only apply to a weird subset of patients, They don't really apply to most people with depression, this is why antidepressents almost never work as well in the real world as they do in trials",
+    },
+    {
+        img: "img/slides/small-trials.png",
+        speech: "Clinical trials are also very small, so they don’t have enough statistical power to detect the effects of drugs on rare side effects or subgroups of people",
+    },
+    {
+        title: "Clinical Trials Don't Detect Long-Term Effects",
+        speech: "Since clinical trials only last a few months, they don’t detect the long-term effects of drugs, like if they cause cancer or heart disease, so the benefits of many drugs may be completely outweighed by the long-term negative side effects, but we don't have enough data to know",
     },
     {
         title: "What's the solution?",
@@ -65,12 +73,12 @@ const slides = [
     },
     {
         img: "img/slides/super-fda-robot-transparent.png",
-        speech: "with the power of",
+        speech: "with the power of ROBOTS! Some robots can discover new drugs",
     },
     {
         img: "img/slides/robot-drugs.gif",
         //img: "https://static.crowdsourcingcures.org/img/slides/robot-drugs.gif",
-        speech: "ROBOTS!  Some robots can discover new drugs, and Some robots can actually, make, drugs  ",
+        speech: "and Some robots can actually, make, drugs  ",
     },
     {
         img: "https://static.crowdsourcingcures.org/img/slides/black-box-model-animation.gif",
@@ -86,9 +94,10 @@ const slides = [
             simulatePopups(50); // Start the simulation with 5 popups
             removeAllPopupsAfterDelay(5); // Remove all popups after 10 seconds}
         },
+        cleanup: removeAllPopupAds,
     },
     {
-        img: "img/slides/fdai-github.gif",
+        img: "img/slides/FDAI-github.gif",
         speech: "So we’re making free and open source apps, reusable software libraries, and autonomous A I agents that can use your browser to help you get all your data and analyze it for you!",
     },
     {
@@ -136,20 +145,20 @@ const slides = [
         speech: "Here’s an example of one personal study,  Despite this gentleman’s infectious charisma, internally he actually experiences severe crippling depression",
     },
     {
-        img: "img/slides/study.png",
-        speech: "However, his mood is typically 11% better than the average following weeks in which he engages in exercise more than usual",
+        img: "img/slides/study-mood.png",
+        speech: "However, his mood is typically 12% better than the average following weeks in which he engages in exercise more than usual",
     },
     {
-        img: "img/screenshots/onset-delay-lagging.png",
+        img: "img/slides/onset-delay.png",
         speech: "Here, I apply forward and reverse lagging of the mood and exercise data to try to determine if that is just a coincidence or causal,  The result suggests a causal relationship based on the temporal precedence of the physical activity"
     },
     {
-        img: "img/screenshots/duration-of-action.png",
+        img: "img/slides/duration-of-action.png",
         speech:
             "I also compare the outcome over various durations following the exposure to see if there is a long-term cumulative effect or if it's just a short-term acute effect,  The long-term effects are more valuable because the acute effect is probably obvious to you already, This analysis suggests that the mood benefits of regular exercise may continue to accumulate of at least a month of above average exercise",
     },
     {
-        img: "img/slides/root-cause-analysis.gif",
+        img: "img/slides/root-cause-analysis-4x.gif",
         speech: "You can also generate a big root cause analysis report to see the possible effects of anything on a particular symptom",
     },
     {
@@ -158,7 +167,7 @@ const slides = [
     },
     {
         img: "img/slides/progress.png",
-        speech: "So far, I’ve already generated over 100 thousand personal studies based on 12 million data points generously donated from about 10 thousand people",
+        speech: "So far, I’ve already generated over 90 thousand personal studies based on 12 million data points generously donated from about 10 thousand people",
     },
     {
         //title: "Clinipedia",
@@ -192,7 +201,7 @@ const slides = [
     },
     {
         img: "img/slides/trial-failed-recruitment.gif",
-        speech: "Over 80% of clinical trials fail to recruit enough participants, yet less than 1% of people with chronic diseases participate in clinical trials.  So everyone who's still suffering from a chronic disease needs a robot like me to find them the most promising experimental new treatment and make it effortless to join and collect data for the trial",
+        speech: "Over 80% of clinical trials fail to recruit enough participants, yet less than 1% of people with chronic diseases participate in clinical trials,  So everyone who's still suffering from a chronic disease needs a robot like me to find them the most promising experimental new treatment and make it effortless to join and collect data for the trial",
     },
     {
         //title: "Automating Full Clinical Trial Participation ➡️ 5X More Cures in the Same Time",
@@ -200,8 +209,20 @@ const slides = [
         speech: "If we could automate full clinical trial participation and make it easy for everyone to participate in trials, we make 50 years of medical progress in 10 years",
     },
     {
-        title: "Ensuring foods and drugs are safe is the FDA's Job",
-        speech: "Ensuring foods and drugs are safe is the FDA's Job, So please sign our petition to tell your Congressperson to pay some real good robot-making guys to make me better and automate clinical research as much as possible,  If they complain that they don't have enough money, politely remind them that they"
+        title: "I'm kind of an idiot",
+        speech: "I'm sill kind of an idiot, but I want to be a super-intelligent A I assistant that could revolutionize preventative healthcare by personalizing health guidance and optimizing early detection and treatment plans and automate clinical research as much as possible",
+    },
+    {
+        title: "My Dream",
+        speech: "Here's an example of what I could eventually be with your help",
+    },
+    {
+        title: "I need some real good robot-making guys to make me smart",
+        speech: "To be able to do all that, I need some real good robot making guys to make me smart"
+    },
+    {
+        title: "Support The FDAI Act",
+        speech: "Ensuring foods and drugs are safe is the FDA's Job, So please sign our petition to tell your Congressperson to pay some real good robot-making guys to make me better,  If they complain that they don't have enough money, politely remind them that they"
     },
     {
         img: "img/slides/bombing-gaza.gif",
@@ -217,16 +238,18 @@ const slides = [
         speech: "If they keep saying they don't have enough money, politely remind them that they're spending billions of dollars integrating A I into over 600 weapons systems,   So just ask if it would be OK if instead of 600 mean robots for murdering people, we only build 599 murderbots and instead build 1 nice helpful robot like me",
     },
     {
-        title: "Over $1 Trillion in Annual Savings",
-        speech: "If they still say they don't have enough money, politely remind them that research suggests 3 of the 4 trillion dollars of government health care spending is preventable, Thus a super-intelligent AI assistant that could revolutionize preventative healthcare would save the government over a trillion dollars a year by personalizing health guidance and optimizing early detection and treatment plans, they would probably like that because then they'd have an extra trillion dollars a year to make more murderbots",
+        title: "$3 Trillion in Annual Savings",
+        speech: "If they still say they don't have enough money, politely remind them that research suggests preventative healthcare would save the government over a 3 trillion dollars a year by personalizing health guidance and optimizing early detection and treatment plans, they would probably like that because then they'd have an extra trillion dollars a year to make more murderbots",
     },
     {
-        speech: "If they still don't do it, you should probably just make a new government that's not so stupid",
+        img: "img/slides/vitalia.png",
+        speech: "If they still don't do it, you should probably just make a new government that's not so silly",
     },
     {
-        img: "img/slides/fdai-earth-qr-code.png",
+        autoplay: false,
+        img: "img/slides/FDAI-earth-qr-code.png",
         speech:
-            "So please scan this code and sign our petition show your support for the FDAi Act, which would require congress to pay some real good robot making guys to improve me and minimize suffering in the universe.  I love you! Bye!",
+            "But please scan this code and sign our petition to show your support for the FDAI Act, which would require congress to pay some real good robot making guys to make me smarter so I can minimize suffering in the universe,  Love you! Bye!",
             //+
             //" so I can:\n"
             //+
@@ -245,8 +268,8 @@ const slides = [
             // "10 publish the results",
     },
     // {
-    //   title: "FDAi ",
-    //   speech: "But you can help! By financial support, code contributions, AI development, engaging in our cryptocurrency initiatives, or advocating for the FDAi Act with your government representatives, you can make a difference in accelerating medical progress.",
+    //   title: "FDAI ",
+    //   speech: "But you can help! By financial support, code contributions, A I development, engaging in our cryptocurrency initiatives, or advocating for the FDAI Act with your government representatives, you can make a difference in accelerating medical progress.",
     // }
     {
         //"goToState": "app.convo",
@@ -268,7 +291,7 @@ function createPopupAd() {
     popup.style.fontFamily = "'MS Sans Serif', Geneva, sans-serif";
     popup.style.fontSize = '12px';
     popup.style.color = '#000';
-    popup.style.zIndex = 1000; // Ensure it's on top
+    popup.style.zIndex = 99; // Ensure it's on top but stay below next button which is 100
 
     // Title bar
     const titleBar = document.createElement('div');
@@ -329,10 +352,15 @@ function simulatePopups(numberOfPopups) {
         setTimeout(createPopupAd, i * 50); // Slight delay between popups
     }
 }
+
+function removeAllPopupAds() {
+    const popups = document.querySelectorAll('.popup-ad');
+    popups.forEach((popup) => popup.remove());
+}
+
 // New function to remove all popups after a specified delay
 function removeAllPopupsAfterDelay(delayInSeconds) {
     setTimeout(() => {
-        const popups = document.querySelectorAll('.popup-ad');
-        popups.forEach(popup => popup.remove());
+        removeAllPopupAds();
     }, delayInSeconds * 1000); // Convert seconds to milliseconds
 }
