@@ -110,7 +110,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 			        slide.speech
 			        , callback // $scope.state.next
 			        , function(error){
-				        qmLog.info("Could not read intro slide because: " + error);
+				        qmLog.info("Could not read intro slide because: ", error);
 			        }, false, false
 		        );
 	        },
