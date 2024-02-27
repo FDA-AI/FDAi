@@ -45,13 +45,15 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 	        next: function(index){
 		        $ionicSlideBoxDelegate.next();
 	        },
-	        previous: function(){
+	        previous: function(index){
 		        $ionicSlideBoxDelegate.previous();
 	        },
 	        slideChanged: function(index){
                 if(!$scope.state.playing){$scope.state.playing = true;}
-                var lastSlide = $scope.state.slides[$scope.state.slides.length - 1];
-                if(lastSlide && lastSlide.cleanup){lastSlide.cleanup($scope);}
+                var lastSlide = $scope.state.slides[index - 1];
+                if(lastSlide && lastSlide.cleanup){
+                    lastSlide.cleanup($scope);
+                }
                 qm.speech.shutUpRobot();
                 if(!qm.music.isPlaying($stateParams.music) && index === 1 && $stateParams.music){
                     qm.music.play($stateParams.music);
@@ -74,8 +76,8 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                     if(slide.volume){audio.volume = slide.volume;}
                     audio.play();
                 }
-                if(slide.iframe){
-                    loadIframeAndScroll(slide.iframe, slide.scrollX, slide.scrollY);
+                if(slide.autoplay !== undefined){
+                    $scope.state.autoplay = slide.autoplay;
                 }
 		        $scope.state.hideTriangle = slide.img || slide.backgroundImg ||
                     slide.backgroundVideo || slide.title || slide.video;
@@ -139,7 +141,12 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                         videoElement.playbackRate = slide.playbackRate;
                     }
                     videoElement.muted = false;
+                    videoElement.loop = false;
                     videoElement.load();
+                    // Add event listener for 'ended' event
+                    videoElement.addEventListener('ended', function() {
+                        this.loop = false; // prevent looping after video ends
+                    }, false);
                 }
             }
         }

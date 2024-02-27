@@ -5,7 +5,7 @@
     width: 160px;
     height: 170px;
     bottom: -30px;
-    left: calc(100% - 300px);
+    left: calc(100% - 250px);
     z-index: 4;
 }
 .head {

@@ -76,7 +76,7 @@ var qmStates = [
 			"ionIcon": "ion-log-in",
 			"logout": null,
             "slides": "slides",
-            "music": "sound/air-of-another-planet-full.mp3",
+            //"music": "sound/air-of-another-planet-full.mp3",
 		},
 		"views": {
 			"menuContent": {
