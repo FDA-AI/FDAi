@@ -1,5 +1,188 @@
-<div id="human-container">
-    <div id="human-head"></div>
-    <div id="human-body"></div>
-    <div id="human-mouth"></div>
+<div id="human" style="z-index: 10; cursor: pointer;">
+    <div class="human">
+        <div class="human-neck"></div>
+        <div class="human-arms">
+            <div class="human-arm human-arm_left"></div>
+            <div class="human-arm human-arm_right"></div>
+        </div>
+        <div class="human-torso"></div>
+        <div class="human-head">
+            <div class="human-eyes">
+                <div class="human-eyeball human-eyeball_left"></div>
+                <div class="human-eyeball human-eyeball_right"></div>
+            </div>
+            <div class="human-mouth" ng-click="setSpeechEnabled(false)" aria-label="mute" ng-if="speechEnabled">
+                <md-tooltip>Shut Up, Robot!</md-tooltip>
+                <div class="human-mouth-container">
+                    <div class="human-mouth-container-line"></div>
+                </div>
+            </div>
+            <md-button class="md-icon-button" ng-click="setSpeechEnabled(true)" aria-label="un-mute"
+                       style="margin-top: 40%; margin-left: 34%;" ng-if="!speechEnabled">
+                <md-icon class="ion-volume-mute" style="font-size: 30px;">
+                    <md-tooltip>Enable Freedom of Speech</md-tooltip>
+                </md-icon>
+            </md-button>
+        </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display:none">
+        <defs>
+            <!-- Low -->
+            <filter id="human-low-0">
+                <feTurbulence id="human-turbulence"
+                              baseFrequency="0.02"
+                              numOctaves="3"
+                              result="noise"
+                              seed="0"/>
+                <feDisplacementMap id="human-displacement"
+                                   in="SourceGraphic"
+                                   in2="noise"
+                                   scale="1"/>
+            </filter>
+            <filter id="human-low-1">
+                <feTurbulence id="human-turbulence"
+                              baseFrequency="0.02"
+                              numOctaves="3"
+                              result="noise"
+                              seed="30"/>
+                <feDisplacementMap in="SourceGraphic"
+                                   in2="noise"
+                                   scale="1.5"/>
+            </filter>
+            <filter id="human-low-2">
+                <feTurbulence id="human-turbulence"
+                              baseFrequency="0.02"
+                              numOctaves="3"
+                              result="noise"
+                              seed="2"/>
+                <feDisplacementMap in="SourceGraphic"
+                                   in2="noise"
+                                   scale="1"/>
+            </filter>
+            <filter id="human-low-3">
+                <feTurbulence id="human-turbulence"
+                              baseFrequency="0.02"
+                              numOctaves="3"
+                              result="noise"
+                              seed="30"/>
+                <feDisplacementMap in="SourceGraphic"
+                                   in2="noise"
+                                   scale="1.5"/>
+            </filter>
+            <filter id="human-low-4">
+                <feTurbulence id="human-turbulence"
+                              baseFrequency="0.1"
+                              numOctaves="3"
+                              result="noise"
+                              seed="4"/>
+                <feDisplacementMap in="SourceGraphic"
+                                   in2="noise"
+                                   scale="0.5"/>
+            </filter>
+            <!-- Listening -->
+            <filter id="human-listening-0">
+                <feTurbulence id="human-turbulence"
+                              baseFrequency="0.02"
+                              numOctaves="3"
+                              result="noise"
+                              seed="0"/>
+                <feDisplacementMap id="human-displacement"
+                                   in="SourceGraphic"
+                                   in2="noise"
+                                   scale="2"/>
+            </filter>
+            <filter id="human-listening-1">
+                <feTurbulence id="human-turbulence"
+                              baseFrequency="0.02"
+                              numOctaves="3"
+                              result="noise"
+                              seed="30"/>
+                <feDisplacementMap in="SourceGraphic"
+                                   in2="noise"
+                                   scale="3"/>
+            </filter>
+            <filter id="human-listening-2">
+                <feTurbulence id="human-turbulence"
+                              baseFrequency="0.02"
+                              numOctaves="3"
+                              result="noise"
+                              seed="2"/>
+                <feDisplacementMap in="SourceGraphic"
+                                   in2="noise"
+                                   scale="2"/>
+            </filter>
+            <filter id="human-listening-3">
+                <feTurbulence id="human-turbulence"
+                              baseFrequency="0.02"
+                              numOctaves="3"
+                              result="noise"
+                              seed="30"/>
+                <feDisplacementMap in="SourceGraphic"
+                                   in2="noise"
+                                   scale="3"/>
+            </filter>
+            <filter id="human-listening-4">
+                <feTurbulence id="human-turbulence"
+                              baseFrequency="0.1"
+                              numOctaves="3"
+                              result="noise"
+                              seed="4"/>
+                <feDisplacementMap in="SourceGraphic"
+                                   in2="noise"
+                                   scale="1"/>
+            </filter>
+            <!-- Speaking -->
+            <filter id="human-speaking-0">
+                <feTurbulence id="human-turbulence"
+                              baseFrequency="0.02"
+                              numOctaves="3"
+                              result="noise"
+                              seed="0"/>
+                <feDisplacementMap id="human-displacement"
+                                   in="SourceGraphic"
+                                   in2="noise"
+                                   scale="12"/>
+            </filter>
+            <filter id="human-speaking-1">
+                <feTurbulence id="human-turbulence"
+                              baseFrequency="0.02"
+                              numOctaves="3"
+                              result="noise"
+                              seed="30"/>
+                <feDisplacementMap in="SourceGraphic"
+                                   in2="noise"
+                                   scale="13"/>
+            </filter>
+            <filter id="human-speaking-2">
+                <feTurbulence id="human-turbulence"
+                              baseFrequency="0.02"
+                              numOctaves="3"
+                              result="noise"
+                              seed="2"/>
+                <feDisplacementMap in="SourceGraphic"
+                                   in2="noise"
+                                   scale="12"/>
+            </filter>
+            <filter id="human-speaking-3">
+                <feTurbulence id="human-turbulence"
+                              baseFrequency="0.02"
+                              numOctaves="3"
+                              result="noise"
+                              seed="30"/>
+                <feDisplacementMap in="SourceGraphic"
+                                   in2="noise"
+                                   scale="13"/>
+            </filter>
+            <filter id="human-speaking-4">
+                <feTurbulence id="human-turbulence"
+                              baseFrequency="0.1"
+                              numOctaves="3"
+                              result="noise"
+                              seed="4"/>
+                <feDisplacementMap in="SourceGraphic"
+                                   in2="noise"
+                                   scale="11"/>
+            </filter>
+        </defs>
+    </svg>
 </div>
