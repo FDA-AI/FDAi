@@ -59,7 +59,6 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                     qm.music.play($stateParams.music);
                 }
                 //qm.music.play();
-                qm.robot.openMouth();
 				//debugger
 		        qm.visualizer.showCircleVisualizer()
                 //qm.visualizer.showSiriVisualizer();
@@ -106,6 +105,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                 }
                 if(!slide.speech){return;}
                 //qm.speech.setCaption(slide.speech)
+                qm.robot.openMouth();
 		        qm.speech.talkRobot(
 			        slide.speech
 			        , callback // $scope.state.next

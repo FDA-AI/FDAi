@@ -10,8 +10,8 @@
 .human-head {
     position: absolute;
     width: 100px;
-    left: 20px;
-    height: 100px;
+    left: 29px;
+    height: 102px;
     border-radius: 490px 550px 550px 550px;
     overflow: hidden;
     background: #FFDF00FF linear-gradient(to right, #FFDF00FF 0%, #FFDF00FF 40%, #FFDF00FF 60%, #FFDF00FF 100%);
@@ -36,7 +36,7 @@
     position: absolute;
     width: 40px;
     height: 40px;
-    background: radial-gradient(ellipse, #000 0%, #111827 30%, #6fbded 40%) no-repeat center;
+    background: radial-gradient(ellipse, #000 0%, #111827 30%, #fff 40%) no-repeat center;
     background-size: 100%;
     z-index: -2;
     border-radius: 100%;
@@ -70,13 +70,13 @@
 .human-mouth {
     position: absolute;
     bottom: 15px;
-    left: 50px;
+    left: 36px;
     width: 30px;
     height: 10px;
     background-color: black;
     overflow: hidden;
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
     transition: height 100ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
@@ -116,9 +116,9 @@
     left: calc(50% - 20px);
     width: 40px;
     height: 60px;
-    border-radius: 0px 0px 0 0;
+    border-radius: 10px 10px 0 0;
     border: 2px solid #000000;
-    background: linear-gradient(to right, #ffdf00 0%, #FFDF00FF 40%, #FFDF00FF 60%, #FFDF00FF 100%);
+    background: red;
 }
 
 .human-neck {
@@ -147,7 +147,7 @@
     width: 10px;
     height: 50px;
     border-radius: 10px 10px 0 0;
-    background: repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 7%, #646464 10%), linear-gradient(to right, #ccc 0%, #e6e6e6 40%, #e6e6e6 60%, #ccc 100%);
+    background: red;
 }
 
 .human-arm_left {
