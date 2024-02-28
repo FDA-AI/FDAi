@@ -8918,6 +8918,7 @@ var qm = {
         showing: false,
         openMouth: function(){
             if(qm.robot.getClass()){
+                debugger
                 qm.robot.getClass().classList.add('robot_speaking');
             }
         },

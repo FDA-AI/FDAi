@@ -10,12 +10,14 @@ const human = {
         utterance.onend = successHandler;
         utterance.onerror = errorHandler;
 
+        human.openMouth();
         document.getElementById('human-mouth').style.animation = 'moveMouth 0.2s infinite';
 
         speechSynthesis.speak(utterance);
 
         utterance.onend = () => {
             document.getElementById('human-mouth').style.animation = '';
+            human.closeMouth();
             successHandler();
         };
     },
@@ -27,6 +29,62 @@ const human = {
     },
     hideHuman() {
         document.getElementById('human-container').style.display = 'none';
+    },
+    showing: false,
+    openMouth: function(){
+        if(human.getClass()){
+            human.getClass().classList.add('human_speaking');
+        }
+    },
+    frown: function(){
+        // Make a frown
+        if(human.getClass()){
+            human.getClass().classList
+                .add('human_frown');
+        }
+    },
+    closeMouth: function(){
+        if(human.getClass()){
+            human.getClass().classList.remove('human_speaking');
+        }
+    },
+    hideRobot: function(){
+        qmLog.info("Hiding human");
+        if(human.getElement()){
+            human.getElement().style.display = "none";
+        }
+        human.showing = qm.rootScope.showRobot = false;
+    },
+    showRobot: function(){
+        if(!qm.speech.getSpeechAvailable()){
+            return;
+        }
+        var human = human.getElement();
+        if(!human){
+            qmLog.info("No human!");
+            return false;
+        }
+        qmLog.info("Showing human");
+        human.getElement().style.display = "block";
+        human.showing = qm.rootScope.showRobot = true;
+    },
+    getElement: function(){
+        var element = document.querySelector('#human');
+        return element;
+    },
+    getClass: function(){
+        var element = document.querySelector('.human');
+        return element;
+    },
+    toggle: function(){
+        if(human.showing){
+            human.hideRobot();
+        }else{
+            human.showRobot();
+        }
+    },
+    onRobotClick: function(){
+        qmLog.info("onRobotClick called but not defined");
     }
 };
 
