@@ -4,9 +4,14 @@ const human = {
             errorHandler('Speech synthesis not supported');
             return;
         }
+        let mouth = document.querySelector('.human-mouth');
+        mouth.classList.add('human-mouth-open');
 
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.voice = speechSynthesis.getVoices().find(voice => voice.lang === 'en-US' && voice.gender === 'male');
+        utterance.voice = speechSynthesis.getVoices()
+            //.find(voice => voice.lang === 'en-US' && voice.gender === 'male')
+            .find(voice => voice.voiceURI === 'Microsoft Mark - English (United States)')
+
         utterance.onend = successHandler;
         utterance.onerror = errorHandler;
 
@@ -23,6 +28,8 @@ const human = {
     },
     shutUpHuman() {
         speechSynthesis.cancel();
+        let mouth = document.querySelector('.human-mouth');
+        mouth.classList.remove('human-mouth-open');
     },
     showHuman() {
         document.getElementById('human-container').style.display = 'block';
@@ -34,6 +41,10 @@ const human = {
     openMouth: function(){
         if(human.getClass()){
             human.getClass().classList.add('human_speaking');
+            let element = document.getElementById("human-tongue");
+            if(element){
+                element.style.display = "block";
+            }
         }
     },
     frown: function(){
@@ -46,6 +57,10 @@ const human = {
     closeMouth: function(){
         if(human.getClass()){
             human.getClass().classList.remove('human_speaking');
+        }
+        let element = document.getElementById("human-tongue");
+        if(element){
+            element.style.display = "none";
         }
     },
     hideRobot: function(){

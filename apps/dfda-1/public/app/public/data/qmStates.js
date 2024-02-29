@@ -96,9 +96,11 @@ var qmStates = [
             "ionIcon": "ion-log-in",
             "logout": null,
             "slides": "slidesConvo",
-            "autoplay": false,
+            "autoplay": true,
             "music": false,
             "showHuman": true,
+            hideTriangle: true,
+            backgroundImg: "img/slides/simpsons-living-room.png",
         },
         "views": {
             "menuContent": {

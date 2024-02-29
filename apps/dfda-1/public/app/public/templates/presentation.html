@@ -65,6 +65,8 @@ position: absolute;
          ng-click="robotClick()"
          class="robot-container"></div>
     <div ng-include="'templates/human.html'"
+         ng-show="state.showHuman"
+         id="human-container"
          class="human-container"></div>
     <button
         id="backButton"

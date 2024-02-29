@@ -5,7 +5,7 @@ const slidesConvo = [
     },
     {
         title: "How are you?",
-        speech: "Good morning, mike, how are you?",
+        speech: "Good morning, how are you?",
     },
     {
         "humanSpeech": "Hello, robot. I'm fine."
@@ -17,7 +17,7 @@ const slidesConvo = [
         speech: "Are you sure?  Based on frequency analysis of your speech patterns, you seem to be experiencing some depression,",
     },
     {
-        "humanSpeech": "Yeah, my mood is probably 2 out of 10. My arthritis severity is about 9/10. My psoriasis severity's like 5 out of 10. I've been to tons of specialists over the years for my various conditions. Rheumatologists, dermatologists, psychiatrists, psychologists, gastroenterologists. They prescribed probably over 50 drugs but I'm still pretty miserable."
+        "humanSpeech": "Yeah, I was just being polite, On a scale of 1 to 10 my mood is probably 2, arthritis severity 9 and psoriasis severity's like 5. I've been to rheumatologists, dermatologists, psychiatrists, psychologists, gastroenterologists. They prescribed over 50 drugs but I'm still miserable."
     },
     {
         title: "That sucks! ☹️",
@@ -47,7 +47,7 @@ const slidesConvo = [
 },
     {
         title: "Fetching Data...",
-        speech: "Great! Let's eat up that data!",
+        speech: "Great! Time to eat that data!",
     },
     {
         title: "Fetching Prescription Data...",
@@ -108,7 +108,7 @@ const slidesConvo = [
         speech: "Great! Would you like me to populate your shopping cart with an optimized meal plan that avoids these foods and includes ingredients that have been shown to reduce inflammation and reduce intestinal permeability?",
     },
     {
-        humanSpeech: "Sure, that'd be great"
+        humanSpeech: "Sure, pick me up a pack of smokes while you're at it"
     },
     {
       "img": "video/grocery-shopping.gif",
