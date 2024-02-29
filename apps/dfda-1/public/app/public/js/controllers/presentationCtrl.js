@@ -63,11 +63,13 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 		        $ionicSlideBoxDelegate.previous();
 	        },
 	        slideChanged: function(index){
+                human.closeMouth()
                 if(!$scope.state.playing){$scope.state.playing = true;}
                 var lastSlide = $scope.state.slides[index - 1];
                 if(lastSlide && lastSlide.cleanup){
                     lastSlide.cleanup($scope);
                 }
+                audioEnded = videoEnded = speechEnded = true;
                 qm.speech.shutUpRobot();
                 if(!qm.music.isPlaying($stateParams.music) && index === 1 && $stateParams.music){
                     qm.music.play($stateParams.music);
@@ -125,7 +127,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                             checkAndProceed();
                         }
                         , function(error){
-                            qmLog.info("Could not read intro slide because: " + error);
+                            qmLog.info("Could not read intro slide because: ", error);
                         }
                     );
                 }
@@ -186,7 +188,6 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
             if(!newValue){newValue = null;}
             if (newValue !== oldValue) {
                 var videoElement = document.getElementById(id);
-                debugger
                 if (videoElement) {
                     var slide = $scope.state.slides[$scope.state.slideIndex];
                     videoElement.playbackRate = 1;
@@ -195,16 +196,26 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                     }
                     videoElement.muted = false;
                     videoElement.loop = false;
-                    videoEnded = false;
+                    if(newValue){
+                        setVideoEnded(false, slide);
+                    }
                     videoElement.load();
+                    videoElement.addEventListener('error', function(event) {
+                        setVideoEnded(true, slide);
+                        console.error("Video error occurred: ", event);
+                    });
                     // Add event listener for 'ended' event
                     videoElement.addEventListener('ended', function() {
                         this.loop = false; // prevent looping after video ends
-                        videoEnded = true;
+                        setVideoEnded(true, slide);
                         checkAndProceed();
                     }, false);
                 }
             }
+        }
+        function setVideoEnded(value, slide){
+            videoEnded = value;
+            console.log("Setting videoEnded to: ", value, "slide: ", slide);
         }
         $scope.$watch('state.backgroundVideo', function(newValue, oldValue) {
             updateVideo(newValue, oldValue, 'presentation-background-video');

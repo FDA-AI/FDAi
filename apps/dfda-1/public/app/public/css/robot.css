@@ -112,7 +112,7 @@
 
 .robot-torso-text {
     position: absolute;
-    /* bottom: 0; */
+    top: 5px;
     left: 0;
     right: 0;
     text-align: center;

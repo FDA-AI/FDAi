@@ -9281,7 +9281,7 @@ var qm = {
                 qmLog.debug("annyang still listening!")
             }
             qm.speech.utterances.push(utterance); // https://stackoverflow.com/questions/23483990/speechsynthesis-api-onend-callback-not-working
-            console.info("speechSynthesis.speak(utterance)", utterance);
+            //console.info("speechSynthesis.speak(utterance)", utterance);
             utterance.onend = function(event){
                 clearTimeout(qm.speech.timeoutResumeInfinity);
                 if(qm.mic.isListening()){
@@ -12808,7 +12808,7 @@ var qm = {
                 return;
             }
             type = type || "siri";
-            qmLog.info("Showing visualizer type: " + type);
+            //qmLog.info("Showing visualizer type: " + type);
             if(type === "rainbow"){
                 var visualizer = qm.visualizer.getRainbowVisualizerCanvas();
                 visualizer.style.display = "block";
@@ -12841,7 +12841,7 @@ var qm = {
             }
         },
         rainbowCircleVisualizer: function(){
-            qmLog.info("Showing rainbowCircleVisualizer...");
+            //qmLog.info("Showing rainbowCircleVisualizer...");
             var visualizer = qm.visualizer.getRainbowVisualizerCanvas();
             if(visualizer){
                 visualizer.style.display = "block";

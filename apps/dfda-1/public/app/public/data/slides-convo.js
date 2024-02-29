@@ -17,7 +17,7 @@ const slidesConvo = [
         speech: "Are you sure?  Based on frequency analysis of your speech patterns, you seem to be experiencing some depression,",
     },
     {
-        "humanSpeech": "Yeah, I was just being polite, On a scale of 1 to 10 my mood is probably 2, arthritis severity 9 and psoriasis severity's like 5. I've been to rheumatologists, dermatologists, psychiatrists, psychologists, gastroenterologists. They prescribed over 50 drugs but I'm still miserable."
+        "humanSpeech": "Yeah, I was just being polite, I actually want to blow my brains out. On a scale of 1 to 10 my mood is probably 2, arthritis severity 9 and psoriasis severity's like 5. I've been to rheumatologists, dermatologists, psychiatrists, psychologists, gastroenterologists, even a veterinarian. They prescribed over 50 drugs but I'm still miserable."
     },
     {
         title: "That sucks! ☹️",

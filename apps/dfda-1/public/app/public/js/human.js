@@ -62,6 +62,8 @@ const human = {
         if(element){
             element.style.display = "none";
         }
+        let mouth = document.querySelector('#human-mouth');
+        mouth.classList.remove('human-mouth-talking');
     },
     hideRobot: function(){
         qmLog.info("Hiding human");
