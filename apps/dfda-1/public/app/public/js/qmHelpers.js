@@ -8918,7 +8918,7 @@ var qm = {
         showing: false,
         openMouth: function(){
             if(qm.robot.getClass()){
-                debugger
+                //debugger
                 qm.robot.getClass().classList.add('robot_speaking');
             }
         },
@@ -9241,7 +9241,10 @@ var qm = {
             }
             qmLog.info("talkRobot called with " + text);
             qm.mic.addIgnoreCommand(text);
-            if(!qm.speech.voices){qm.speech.voices = speechSynthesis.getVoices();}
+            if(!qm.speech.voices){
+                qm.speech.voices = speechSynthesis.getVoices();
+                console.log("voices", qm.speech.voices)
+            }
             if(!qm.speech.voices.length){
                 qmLog.info("Waiting for voices to load with " + text);
                 qm.speech.pendingUtteranceText = text;

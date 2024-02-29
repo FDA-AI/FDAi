@@ -6,6 +6,19 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
         qmService.initializeApplication(appSettingsResponse);
         qmService.navBar.setFilterBarSearchIcon(false);
         var audio;
+        var audioEnded = true;
+        var speechEnded = true;
+        var videoEnded = true;
+        function checkAndProceed() {
+            var done = audioEnded && speechEnded && videoEnded;
+            if(done){
+                $timeout(function(){
+                    if($scope.state.autoplay){
+                        $scope.state.next();
+                    }
+                },0.1 * 1000);
+            }
+        }
         $scope.state = {
             autoPlayMusic: true,
             autoplay: true,
@@ -16,6 +29,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 			backgroundImg: null,
             hideTriangle: false,
             backgroundVideo: null,
+            showHuman: null,
             triangleName: {
                 lineOne: "FDA",
                 lineTwo: "Ai"
@@ -70,34 +84,46 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                     fadeOut(audio, 1);
                     audio = null;
                 }
-                if(slide.audio){
-                    audio = new Audio(slide.audio);
-                    if(slide.volume){audio.volume = slide.volume;}
-                    audio.play();
-                }
+
                 if(slide.autoplay !== undefined){
                     $scope.state.autoplay = slide.autoplay;
                 }
-		        $scope.state.hideTriangle = slide.img || slide.backgroundImg ||
+		        $scope.state.hideTriangle = $stateParams.hideTriangle || slide.img || slide.backgroundImg ||
                     slide.backgroundVideo || slide.title || slide.video;
 				if(slide.animation){slide.animation($scope);}
-                $scope.state.backgroundImg = slide.backgroundImg  ? $sce.trustAsResourceUrl(slide.backgroundImg) : null;
+                var bgImg = null
+                if($stateParams.backgroundImg){bgImg = $stateParams.backgroundImg;}
+                if(slide.backgroundImg){bgImg = slide.backgroundImg;}
+                if(bgImg !== $scope.state.backgroundImg){
+                    if(bgImg){
+                        $scope.state.backgroundImg = $sce.trustAsResourceUrl(bgImg);
+                    } else {
+                        $scope.state.backgroundImg = null;
+                    }
+                }
                 $scope.state.title = slide.title || null;
                 $scope.state.image = slide.img ? $sce.trustAsResourceUrl(slide.img) : null;
                 $scope.state.backgroundVideo = slide.backgroundVideo  ? $sce.trustAsResourceUrl(slide.backgroundVideo) : null;
                 $scope.state.video = slide.video  ? $sce.trustAsResourceUrl(slide.video) : null;
 		        $scope.state.slideIndex = index;
-                function callback(){
-                    $timeout(function(){
-                        if($scope.state.autoplay){
-                            $scope.state.next();
-                        }
-                    },0.1 * 1000);
+                if(slide.audio){
+                    audioEnded = false;
+                    audio = new Audio(slide.audio);
+                    if(slide.volume){audio.volume = slide.volume;}
+                    audio.play();
+                    audio.onended = function() {
+                        audioEnded = true;
+                        checkAndProceed();
+                    };
                 }
                 if(slide.humanSpeech){
+                    speechEnded = false;
                     human.talkHuman(
                         slide.humanSpeech
-                        , callback
+                        , function(){
+                            speechEnded = true;
+                            checkAndProceed();
+                        }
                         , function(error){
                             qmLog.info("Could not read intro slide because: " + error);
                         }
@@ -105,10 +131,14 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                 }
                 if(!slide.speech){return;}
                 //qm.speech.setCaption(slide.speech)
-                qm.robot.openMouth();
+                //qm.robot.openMouth();
+                speechEnded = false;
 		        qm.speech.talkRobot(
 			        slide.speech
-			        , callback // $scope.state.next
+			        , function(){
+                        speechEnded = true;
+                        checkAndProceed();
+                    } // $scope.state.next
 			        , function(error){
 				        qmLog.info("Could not read intro slide because: ", error);
 			        }, false, false
@@ -136,6 +166,14 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 			qmService.hideLoader();
             if($stateParams.showHuman){
                 //human.showHuman();
+                $scope.state.showHuman = true;
+            }
+            if($stateParams.backgroundImg){
+                $scope.state.backgroundImg = $sce.trustAsResourceUrl($stateParams.backgroundImg);
+            }
+            if($stateParams.hideTriangle){$scope.state.hideTriangle = true;}
+            if($stateParams.backgroundImg){
+                $scope.state.backgroundImg = $sce.trustAsResourceUrl($stateParams.backgroundImg);
             }
         });
         $scope.$on('$ionicView.beforeLeave', function(){
@@ -144,8 +182,11 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 			qmService.showFullScreenLoader();
         });
         function updateVideo(newValue, oldValue, id){
+            if(!oldValue){oldValue = null;}
+            if(!newValue){newValue = null;}
             if (newValue !== oldValue) {
                 var videoElement = document.getElementById(id);
+                debugger
                 if (videoElement) {
                     var slide = $scope.state.slides[$scope.state.slideIndex];
                     videoElement.playbackRate = 1;
@@ -154,10 +195,13 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                     }
                     videoElement.muted = false;
                     videoElement.loop = false;
+                    videoEnded = false;
                     videoElement.load();
                     // Add event listener for 'ended' event
                     videoElement.addEventListener('ended', function() {
                         this.loop = false; // prevent looping after video ends
+                        videoEnded = true;
+                        checkAndProceed();
                     }, false);
                 }
             }
@@ -191,7 +235,11 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
             var interval = duration * 1000 / (1/step); // calculate interval length
             var fade = setInterval(function() {
                 if (audio.volume > 0) {
-                    audio.volume -= step;
+                    if(audio.volume - step < 0) {
+                        audio.volume = 0;
+                    } else {
+                        audio.volume -= step;
+                    }
                 } else {
                     // Stop the audio when volume reaches 0
                     audio.pause();
