@@ -85,13 +85,13 @@ position: absolute;
         ng-show="state.playing"
         style="right: 50px;"
         ng-click="state.pause()"
-        class="presentation-nav-button presentation-right-button">⏸️</button>
+        class="presentation-nav-button presentation-right-button">⏸️</button>-->
     <button
         id="play"
         ng-show="!state.playing"
         style="right: 50px;"
-        ng-click="state.slideChanged(state.slideIndex)"
-        class="presentation-nav-button presentation-right-button">▶️</button>-->
+        ng-click="state.start()"
+        class="presentation-nav-button presentation-right-button">▶️</button>
     <button
         id="nextButton"
         ng-click="state.next()"

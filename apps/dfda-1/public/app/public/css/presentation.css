@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@900&display=swap");
+
+body {
+    font-family: Arial, sans-serif;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* flex-direction: column; */
+    background: radial-gradient(rgba(118, 0, 191, 0.5) 0%, transparent 70%), linear-gradient(#04042a 40%, #04042a 70%);
+    /* perspective: 700px; */
+    font-size: clamp(10px, 2vw, 20px);
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    /* overflow: hidden; */
+}
+
+.slide {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    /* border: 1px solid #ddd; */
+    border-radius: 5px;
+    /* background-color: #fff; */
+    /* box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); */
+}
+
+.slide h2 {
+    color: #f7fcff;
+    font-size: 27px;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+.slide p {
+    color: #666;
+    font-size: 18px;
+}
+
+a {
+    color: #fff;
+}
+
+.bubble-wrap {
+    /* width: 300px; */
+    margin: 20px auto;
+}
+
+.bubble {
+    position: relative;
+    padding: 20px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: #7F7F7F solid 1px;
+    font-size: 1em;
+    line-height: 1.25em;
+    width: 90%;
+}
+
+.bubble.left:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 16px 16px 16px 0;
+    border-color: transparent #FFFFFF;
+    display: block;
+    width: 0;
+    z-index: 1;
+    left: -15px;
+    top: 50%;
+    margin-top: -16px
+
+}
+
+.bubble.left:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 16px 16px 16px 0;
+    border-color: transparent #7F7F7F;
+    display: block;
+    width: 0;
+    z-index: 0;
+    left: -16px;
+    top: 50%;
+    margin-top: -16px;
+}
+
+.bubble.right:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 16px 0 16px 16px;
+    border-color: transparent #FFFFFF;
+    display: block;
+    width: 0;
+    z-index: 1;
+    right: -16px;
+    top: 50%;
+    margin-top: -16px;
+}
+
+.bubble.right:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 16px 0 16px 16px;
+    border-color: transparent #000;
+    display: block;
+    width: 0;
+    z-index: 0;
+    right: -16px;
+    top: 50%;
+    margin-top: -16px;
+}
+
+.lines {
+  position: fixed;
+  width: 100vw;
+  height: 4em;
+  background: linear-gradient(rgba(89, 193, 254, 0.2) 20%, #59c1fe 40%, #59c1fe 60%, rgba(89, 193, 254, 0.2) 80%);
+  background-size: 1px 0.5em;
+  box-shadow: 0 0 1em rgba(89, 193, 254, 0.4);
+  transform: translateY(-1em);
+  left: 0;
+}
+
+h1 {
+  position: relative;
+    font-family: "Exo", serif;
+  font-size: 9em;
+  margin: 0;
+  transform: skew(-15deg);
+  letter-spacing: 0.03em;
+}
+h1::after {
+  content: "";
+  position: absolute;
+  top: -0.1em;
+  right: 0.05em;
+  width: 0.4em;
+  height: 0.4em;
+  background: radial-gradient(white 3%, rgba(255, 255, 255, 0.3) 15%, rgba(255, 255, 255, 0.05) 60%, transparent 80%), radial-gradient(rgba(255, 255, 255, 0.2) 50%, transparent 60%) 50% 50%/5% 100%, radial-gradient(rgba(255, 255, 255, 0.2) 50%, transparent 60%) 50% 50%/70% 5%;
+  background-repeat: no-repeat;
+}
+h1 span:first-child {
+  display: block;
+  text-shadow: 0 0 0.1em #8ba2d0, 0 0 0.2em black, 0 0 5em #165ff3;
+  -webkit-text-stroke: 0.06em rgba(0, 0, 0, 0.5);
+}
+h1 span:last-child {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: linear-gradient(#032d50 25%, #00a1ef 35%, white 50%, #20125f 50%, #8313e7 55%, #ff61af 75%);
+  -webkit-text-stroke: 0.01em #94a0b9;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  /* font-family: "Mr Dafoe"; */
+    font-size: 5.5em;
+    margin: -0.6em 0 0;
+    color: white;
+  /* text-shadow: 0 0 0.05em #fff, 0 0 0.2em #fe05e1, 0 0 0.3em #fe05e1; */
+  /* transform: rotate(-7deg); */
+}
+
+.grid {
+  background: linear-gradient(transparent 65%, rgba(46, 38, 255, 0.4) 75%, #7d41e6 80%, rgba(46, 38, 255, 0.4) 85%, transparent 95%), linear-gradient(90deg, transparent 65%, rgba(46, 38, 255, 0.4) 75%, #7d41e6 80%, rgba(46, 38, 255, 0.4) 85%, transparent 95%);
+  background-size: 30px 30px;
+  width: 200vw;
+  height: 300vh;
+  position: absolute;
+  bottom: -120vh;
+  transform: rotateX(-100deg);
+}
+
+.bubble-wrap {
+    position: relative;
+}
+
+.robot-icon {
+    position: absolute;
+    right: -20px; /* adjust as needed */
+    top: 0;
+    background-image: url('img/robots/robot-head.png');
+    background-size: cover;
+    width: 40px; /* adjust as needed */
+    height: 40px; /* adjust as needed */
+    top: 6px;
+}

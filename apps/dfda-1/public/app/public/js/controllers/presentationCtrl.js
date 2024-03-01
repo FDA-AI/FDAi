@@ -23,7 +23,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
         function humanTalk(slide, errorHandler) {
             speechEnded = false;
             human.talkHuman(
-                slide.humanSpeech,
+                slide.humanSpeech.replace(".", ","),
                 function () {
                     speechEnded = true;
                     checkAndProceed();
@@ -165,12 +165,12 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                 if(slide.humanSpeech){
                     humanTalk(slide);
                 }
-                if(!slide.speech){return;}
-                //qm.speech.setCaption(slide.speech)
+                if(!slide.robotSpeech){return;}
+                //qm.robotSpeech.setCaption(slide.robotSpeech)
                 //qm.robot.openMouth();
                 speechEnded = false;
 		        qm.speech.talkRobot(
-			        slide.speech
+			        slide.robotSpeech.replace(".", ",")
 			        , function(){
                         speechEnded = true;
                         checkAndProceed();
