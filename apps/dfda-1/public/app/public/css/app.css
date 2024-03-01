@@ -26241,7 +26241,7 @@ body::after {
   margin: 19px;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, .9);
-  backdrop-filter: blur(5px);
+  /*backdrop-filter: blur(5px);*/
   box-shadow: 0 1px 3px rgb(0 0 0 / 50%);
 }
 

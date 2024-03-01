@@ -1,6 +1,8 @@
 <ion-view hide-nav-bar="hideNavigationMenu">
     <ion-nav-title>FDAi</ion-nav-title>
-    <img ng-src="{{state.backgroundImg}}" id="presentation-background-image">
+    <img ng-if="state.backgroundImg"
+        ng-src="{{state.backgroundImg}}"
+         id="presentation-background-image">
     <video id="presentation-background-video" autoplay loop muted playsinline>
         <source src="{{state.backgroundVideo}}" type="video/mp4">
     </video>
@@ -18,7 +20,7 @@
     <div
         style="display: flex; justify-content: center; align-items: flex-start; height: 100%; width: 100%; position: absolute; margin-top: 10%;">
         <div style="position: relative;">
-            <div ng-hide="state.hideTriangle"
+            <div ng-show="state.showTriangle"
                  ng-include="'templates/splash-logo.html'" style="z-index: 3;">
             </div>
         </div>

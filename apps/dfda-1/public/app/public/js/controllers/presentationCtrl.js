@@ -5,7 +5,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
              $rootScope, $stateParams, qmService, appSettingsResponse, $timeout, $document, $sce){
         qmService.initializeApplication(appSettingsResponse);
         qmService.navBar.setFilterBarSearchIcon(false);
-        var audio;
+        var audio, continuousAudio;
         var audioEnded = true;
         var speechEnded = true;
         var videoEnded = true;
@@ -16,9 +16,52 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                     if($scope.state.autoplay){
                         $scope.state.next();
                     }
-                },0.1 * 1000);
+                },0.2 * 1000);
             }
         }
+
+        function humanTalk(slide, errorHandler) {
+            speechEnded = false;
+            human.talkHuman(
+                slide.humanSpeech,
+                function () {
+                    speechEnded = true;
+                    checkAndProceed();
+                },                 function (error) {
+                    qmLog.info('Could not read intro slide because: ', error);
+                    if(errorHandler){
+                        errorHandler(error);
+                    }
+                }
+            );
+        }
+
+        function playContinuousAudio(slide) {
+            var alreadyPlaying = continuousAudio &&
+                continuousAudio.src.indexOf(slide.continuousAudio) > 0;
+            if(alreadyPlaying){return;}
+            if(continuousAudio){continuousAudio.pause();}
+            continuousAudio = new Audio(slide.continuousAudio);
+            if (slide.continuousAudioVolume) {
+                continuousAudio.volume = slide.continuousAudioVolume;
+            }
+            continuousAudio.loop = false;
+            continuousAudio.play();
+        }
+
+        function playAudio(slide) {
+            audioEnded = false;
+            audio = new Audio(slide.audio);
+            if (slide.volume) {
+                audio.volume = slide.volume;
+            }
+            audio.play();
+            audio.onended = function () {
+                audioEnded = true;
+                checkAndProceed();
+            };
+        }
+
         $scope.state = {
             autoPlayMusic: true,
             autoplay: true,
@@ -27,7 +70,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
             image: null,
             music: $stateParams.music,
 			backgroundImg: null,
-            hideTriangle: false,
+            showTriangle: false,
             backgroundVideo: null,
             showHuman: null,
             triangleName: {
@@ -54,15 +97,23 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                 }
             },
 	        start: function(){
-		        $scope.state.next();
+                $scope.state.slideIndex = 0;
+                $scope.state.slideChanged($scope.state.slideIndex);
 	        },
-	        next: function(index){
+	        next: function(){
 		        $ionicSlideBoxDelegate.next();
+                $scope.state.slideIndex++;
+                $scope.state.slideChanged($scope.state.slideIndex);
 	        },
-	        previous: function(index){
+	        previous: function(){
 		        $ionicSlideBoxDelegate.previous();
+                $scope.state.slideIndex--;
+                $scope.state.slideChanged($scope.state.slideIndex);
 	        },
-	        slideChanged: function(index){
+	        slideChanged: function(){
+                var index = $scope.state.slideIndex;
+                slide = $scope.state.slides[index];
+                qm.storage.setItem('presentationSlideIndex', index);
                 human.closeMouth()
                 if(!$scope.state.playing){$scope.state.playing = true;}
                 var lastSlide = $scope.state.slides[index - 1];
@@ -76,9 +127,8 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                 }
                 //qm.music.play();
 				//debugger
-		        qm.visualizer.showCircleVisualizer()
+		        //qm.visualizer.showCircleVisualizer()
                 //qm.visualizer.showSiriVisualizer();
-		        slide = $scope.state.slides[index];
                 if(slide.goToState){
                     qmService.goToState(slide.goToState);
                 }
@@ -86,50 +136,34 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                     fadeOut(audio, 1);
                     audio = null;
                 }
-
+                if(slide.showHuman === true){$scope.state.showHuman = true;}
+                if(slide.showTriangle !== "undefined"){$scope.state.showTriangle = slide.showTriangle;}
+                if(slide.showHuman === false){$scope.state.showHuman = false;}
                 if(slide.autoplay !== undefined){
                     $scope.state.autoplay = slide.autoplay;
                 }
-		        $scope.state.hideTriangle = $stateParams.hideTriangle || slide.img || slide.backgroundImg ||
-                    slide.backgroundVideo || slide.title || slide.video;
 				if(slide.animation){slide.animation($scope);}
                 var bgImg = null
                 if($stateParams.backgroundImg){bgImg = $stateParams.backgroundImg;}
-                if(slide.backgroundImg){bgImg = slide.backgroundImg;}
+                if(slide.backgroundImg !== "undefined"){bgImg = slide.backgroundImg;}
                 if(bgImg !== $scope.state.backgroundImg){
                     if(bgImg){
                         $scope.state.backgroundImg = $sce.trustAsResourceUrl(bgImg);
                     } else {
-                        $scope.state.backgroundImg = null;
+                        $scope.state.backgroundImg = false;
                     }
                 }
                 $scope.state.title = slide.title || null;
                 $scope.state.image = slide.img ? $sce.trustAsResourceUrl(slide.img) : null;
                 $scope.state.backgroundVideo = slide.backgroundVideo  ? $sce.trustAsResourceUrl(slide.backgroundVideo) : null;
                 $scope.state.video = slide.video  ? $sce.trustAsResourceUrl(slide.video) : null;
-		        $scope.state.slideIndex = index;
-                if(slide.audio){
-                    audioEnded = false;
-                    audio = new Audio(slide.audio);
-                    if(slide.volume){audio.volume = slide.volume;}
-                    audio.play();
-                    audio.onended = function() {
-                        audioEnded = true;
-                        checkAndProceed();
-                    };
+                if(slide.audio){playAudio(slide);}
+                if(slide.continuousAudio){playContinuousAudio(slide);}
+                if(slide.continuousAudio === false && continuousAudio){
+                    continuousAudio.pause();
                 }
                 if(slide.humanSpeech){
-                    speechEnded = false;
-                    human.talkHuman(
-                        slide.humanSpeech
-                        , function(){
-                            speechEnded = true;
-                            checkAndProceed();
-                        }
-                        , function(error){
-                            qmLog.info("Could not read intro slide because: ", error);
-                        }
-                    );
+                    humanTalk(slide);
                 }
                 if(!slide.speech){return;}
                 //qm.speech.setCaption(slide.speech)
@@ -140,7 +174,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 			        , function(){
                         speechEnded = true;
                         checkAndProceed();
-                    } // $scope.state.next
+                    }
 			        , function(error){
 				        qmLog.info("Could not read intro slide because: ", error);
 			        }, false, false
@@ -163,6 +197,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
             }
         });
         $scope.$on('$ionicView.afterEnter', function(){
+            $scope.state.slideIndex = qm.storage.getItem('presentationSlideIndex') || 0;
             qmService.navBar.hideNavigationMenu();
             qm.robot.onRobotClick = $scope.state.next;
 			qmService.hideLoader();
@@ -173,10 +208,7 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
             if($stateParams.backgroundImg){
                 $scope.state.backgroundImg = $sce.trustAsResourceUrl($stateParams.backgroundImg);
             }
-            if($stateParams.hideTriangle){$scope.state.hideTriangle = true;}
-            if($stateParams.backgroundImg){
-                $scope.state.backgroundImg = $sce.trustAsResourceUrl($stateParams.backgroundImg);
-            }
+            if($stateParams.showTriangle){$scope.state.showTriangle = true;}
         });
         $scope.$on('$ionicView.beforeLeave', function(){
             qm.music.fadeOut();
