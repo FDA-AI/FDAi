@@ -76,6 +76,7 @@ var qmStates = [
 			"ionIcon": "ion-log-in",
 			"logout": null,
             "slides": "slides",
+            showTriangle: true,
             //"music": "sound/air-of-another-planet-full.mp3",
 		},
 		"views": {
@@ -99,7 +100,7 @@ var qmStates = [
             "autoplay": true,
             "music": false,
             "showHuman": true,
-            hideTriangle: true,
+            showTriangle: false,
             backgroundImg: "img/slides/simpsons-living-room.png",
         },
         "views": {

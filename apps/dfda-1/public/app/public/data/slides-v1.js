@@ -1,27 +1,38 @@
 const slides = [
     {
         title: false,
+        showTriangle: false,
     },
-    // {
-    //     video: "video/fdai-robot-demo.mp4",
-    //     autoplay: false,
-    // },
     {
-        speech: "Hi! I’m your personal FDAI! I’ve been programmed to collect and analyze everyone's food and drug intake and symptoms to determine the personalized safety and efficacy of every food and drug in the world!",
+        title: false,
+        showTriangle: false,
+    },
+    {
+        showTriangle: true,
+        speech: "Hi! I’m your personal FDAI! " +
+            "I’ve been programmed to collect and analyze everyone's food and drug intake and symptoms to determine the personalized safety and efficacy of every food and drug in the world!",
+        continuousAudio: "sound/air-of-another-planet-full.mp3",
+        continuousAudioVolume: 0.1,
     },
     {
         title: "2 Billion People\nSUFFER\nfrom 7000 Diseases",
         speech: "Two billion people suffer from chronic diseases like depression, fibromyalgia, Crone's disease,and multiple sclerosis, There are over 7000 diseases that we still don’t have cures for",
+        continuousAudio: "sound/air-of-another-planet-full.mp3",
+        continuousAudioVolume: 0.1,
     },
     {
         title: null,
         img: "img/slides/studied-molecules-chart-no-background.png",
         speech: "The good news is that there could be billions of cures we don’t even know about yet, there are over 166 billion possible medicinal molecules, and we’ve only tested 0.00001% so far",
+        continuousAudio: "sound/air-of-another-planet-full.mp3",
+        continuousAudioVolume: 0.1,
     },
     {
         title: null,
         img: "img/slides/slow-research.png",
         speech: "The bad news is that we only approve around 30 drugs a year so, at best, it would take over 350 years to find cures at this rate, So you’ll be long dead by then.",
+        continuousAudio: "sound/air-of-another-planet-full.mp3",
+        continuousAudioVolume: 0.1,
     },
     {
         img: "img/slides/chemicals-in-our-diet.png",
@@ -49,7 +60,11 @@ const slides = [
     },
     {
         img: "img/slides/exclusion.png",
-        speech: "They exclude people taking other medications, They exclude people who use drugs or alcohol, They exclude people with other health conditions, So, the results of the trials only apply to a weird subset of patients, They don't really apply to most people with depression, this is why antidepressents almost never work as well in the real world as they do in trials",
+        speech: "They exclude people taking other medications, They exclude people who use drugs or alcohol, They exclude people with other health conditions",
+    },
+    {
+        img: "img/trial-exclusion-pie-chart.png",
+        speech: "So, the results of the trials only apply to a weird subset of patients, They don't really apply to most people with depression, this is why antidepressents almost never work as well in the real world as they do in trials",
     },
     {
         img: "img/slides/small-trials.png",
@@ -57,7 +72,7 @@ const slides = [
     },
     {
         title: "Clinical Trials Don't Detect Long-Term Effects",
-        speech: "Since clinical trials only last a few months, they don’t detect the long-term effects of drugs, like if they cause cancer or heart disease, so the benefits of many drugs may be completely outweighed by the long-term negative side effects, but we don't have enough data to know",
+        speech: "Since clinical trials only last a few months, they don’t detect the long-term effects of drugs, like if they cause cancer, dementia or heart disease, so the benefits of many drugs may be completely outweighed by the long-term negative side effects, but we don't have enough data to know",
     },
     {
         title: "What's the solution?",
@@ -82,7 +97,7 @@ const slides = [
     {
         img: "video/robot-drugs.gif",
         //img: "https://static.crowdsourcingcures.org/video/robot-drugs.gif",
-        speech: "and Some robots can actually, make, drugs  ",
+        speech: "and, Some robots can actually, make, drugs  ",
     },
     {
         img: "https://static.crowdsourcingcures.org/video/black-box-model-animation.gif",
@@ -95,14 +110,14 @@ const slides = [
     {
         speech: "with Viagra ads",
         animation: () => {
-            simulatePopups(50); // Start the simulation with 5 popups
+            simulatePopups(35); // Start the simulation with 5 popups
             removeAllPopupsAfterDelay(5); // Remove all popups after 10 seconds}
         },
         cleanup: removeAllPopupAds,
     },
     {
         img: "video/FDAI-github.gif",
-        speech: "So we’re making free and open source apps, reusable software libraries, and autonomous A I agents that can use your browser to help you get all your data and analyze it for you!",
+        speech: "So we’re making free and open source apps, reusable software libraries, and autonomous eh eye agents that can use your browser to help you get all your data and analyze it for you!",
     },
     {
         title: null,
@@ -116,7 +131,7 @@ const slides = [
         speech: "You can also schedule reminders to record symptoms, treatments, or anything else manually in the Reminder Inbox.",
     },
     {
-        img: "https://static.crowdsourcingcures.org/video/history.gif",
+        img: "video/history.gif",
         speech: "After I get a couple of months of your data, I can eat it all up.",
     },
     {
@@ -124,7 +139,7 @@ const slides = [
         speech: "Yum! ",
     },
     {
-        video: "https://static.crowdsourcingcures.org/video/studies.mp4",
+        video: "video/studies.mp4",
         speech: "Then I start analyzing it and generate N-of-1 personal studies telling you how much different medications, supplements, or foods might improve or worsen your symptoms.",
     },
     {
@@ -150,7 +165,7 @@ const slides = [
     },
     {
         img: "img/slides/study-mood.png",
-        speech: "However, his mood is typically 12% better than the average following weeks in which he engages in exercise more than usual",
+        speech: "However, his mood is typically 12% better than average following weeks in which he engages in exercise more than usual",
     },
     {
         img: "img/slides/onset-delay.png",
@@ -205,28 +220,331 @@ const slides = [
     },
     {
         img: "video/trial-failed-recruitment.gif",
-        speech: "Over 80% of clinical trials fail to recruit enough participants, yet less than 1% of people with chronic diseases participate in clinical trials,  So everyone who's still suffering from a chronic disease needs a robot like me to find them the most promising experimental new treatment and make it effortless to join and collect data for the trial",
+        speech: "Over 80% of clinical trials fail to recruit enough participants, yet less than 1% of people with chronic diseases participate,  So everyone who's still suffering from a chronic disease needs a nice robot like me to find them the most promising experimental new treatment and make it effortless to join and collect data",
     },
     {
         //title: "Automating Full Clinical Trial Participation ➡️ 5X More Cures in the Same Time",
         img: "img/slides/fast-research.png",
-        speech: "If we could automate full clinical trial participation and make it easy for everyone to participate in trials, we make 50 years of medical progress in 10 years",
+        speech: "If we could automate full clinical trial participation and make it easy for everyone to participate, we could make 50 years of medical progress in 10 years",
     },
     {
-        title: "I'm kind of an idiot",
-        speech: "I'm sill kind of an idiot, but I want to be a super-intelligent A I assistant that could revolutionize preventative healthcare by personalizing health guidance and optimizing early detection and treatment plans and automate clinical research as much as possible",
+        showTriangle: false,
+        title: "I'm kind of an idiot. ☹️",
+        speech: "I'm sill kind of an idiot, but I want to be a super-intelligent eh eye assistant that could realize the personalized preventative and precision medicine of the future and automate clinical research",
     },
     {
         title: "My Dream",
         speech: "Here's an example of what I could eventually be with your help",
+        continuousAudio: false,
     },
     {
-        video: "video/fdai-robot-demo.mp4",
-        autoplay: false,
+        backgroundImg: "video/dream-sequence-start.gif",
+        audio: "video/dream-sound-effect-fast.mp3",
+    },
+    // {
+    //     video: "video/fdai-robot-demo.mp4",
+    //     autoplay: false,
+    // },
+    {
+        title: "How are you?",
+        speech: "Good morning, how are you?",
+        showHuman: true,
+        backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
+        showHuman: true,
+        "humanSpeech": "Hello, robot. I'm fine.",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        "img": "video/frequency-analysis.gif",
+        speech: "Are you sure?  Based on frequency analysis of your speech patterns, you seem to be experiencing some depression,",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        "humanSpeech": "Yeah, I was just being polite, I actually want to blow my brains out. On a scale of 1 to 10 my mood is probably 2, arthritis severity 9 and psoriasis severity's like 5. I've been to rheumatologists, dermatologists, psychiatrists, psychologists, gastroenterologists, even a veterinarian. They prescribed over 50 drugs but I'm still miserable.",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        title: "That sucks! ☹️",
+        speech: "That sucks!",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        img: "img/slides/correlated-symptoms.png",
+        speech: "Based on the analysis of your psoriasis, arthritis and mood data " +
+            "it seems like they're highly correlated in severity over time, " +
+            "This suggests that they may not be separate conditions but" +
+            "actually just manifestations of the same underlying inflammatory root cause, " +
+            "Human brains are only powerful enough to specialize in a single area of medicine, so they aren't really able to take a " +
+            "holistic approach to analyzing all of your data to try to identify" +
+            "and address root causes",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        img: "img/slides/dartboard.png",
+        speech: "so doctors have to resort to a dartboard approach " +
+            "to prescribe drugs that might mask the symptoms of the one condition they specialize in",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        title: "Should I fetch your diet, treatment, and lab data?",
+        speech: "Do you want me to use your browser to get all your data so I can try to identify the root cause and any hidden triggers worsening your symptoms?",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        "humanSpeech": "Whatever, I don't even care anymore",
+        continuousAudio: false,
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        title: "Fetching Data...",
+        speech: "Great! Time to eat that data!",
+        continuousAudio: "video/holiday-for-strings-short.mp3",
+        continuousAudioVolume: 0.1,
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        title: "Fetching Prescription Data...",
+        continuousAudio: "video/holiday-for-strings-short.mp3",
+        speech: "I'll go to CVS and extract your prescription history",
+        "img": "video/autonomous-cvs.gif",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        title: "Fetching Diet Data...",
+        continuousAudio: "video/holiday-for-strings-short.mp3",
+        speech: "Next I'll go to Shipt and extract your diet data",
+        "img": "video/autonomous-shipt.gif",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        title: "Fetching Nutritional Supplement Data...",
+        continuousAudio: "video/holiday-for-strings-short.mp3",
+        speech: "Now I'll go to Amazon and extract your nutritional supplement purchases",
+        "img": "video/autonomous-amazon.gif",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        title: "Fetching Lab Data...",
+        continuousAudio: "video/holiday-for-strings-short.mp3",
+        speech: "Finally I'll go to Quest and extract your lab results",
+        "img": "video/autonomous-quest.gif",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        img: "img/slides/digital-twin-safe-cover.png",
+        continuousAudio: "video/holiday-for-strings-short.mp3",
+        speech: "I've completed the data collection, and safely stored it in your digital twin safe",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        continuousAudio: false,
+        //img: "video/analyzing-data.gif",
+        img: "video/root-cause-analysis-4x.gif",
+        //title: "Analyzing Data...",
+        audio: "video/jeopardy.mp3",
+        speech: "Now Just give me a few minutes to analyze it",
+        volume: 0.3,
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        img: "img/slides/lectins-studies.png",
+        speech: "I've completed a comprehensive analysis, and it appears that your depression, psoriasis, and arthritis may be linked to inflammation mediated by dietary factors, Specifically, consuming gluten, alcohol, or foods high in lectins seems to exacerbate your symptoms starting a couple of days after exposure and lasting about 14 days",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        humanSpeech: "What in the hell are lectins?",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        "img": "img/slides/lectins.jpeg",
+        speech: "Lectins are a type of protein found in many plant foods, including grains, legumes, and nightshade vegetables",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        "img": "img/slides/leaky-gut.png",
+        speech: "They can bind to the lining of the gut and interfere with nutrient absorption, it can also contribute to intestinal permeability, allowing gut bacteria substances like LPS to enter the bloodstream and trigger inflammation, This seems to be a root cause connecting your depression, arthritis, and psoriasis",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        title: "Wanna see if avoiding these dietary triggers helps?",
+        speech: "Do you want to try an experiment by avoiding these foods for 20 days and see if your symptoms improve?",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        humanSpeech: "OK",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        "img": "img/slides/low-lectin-food.jpg",
+        speech: "Great! Would you like me to populate your shopping cart with an optimized meal plan that avoids all trigger ingredients and includes foods shown to reduce inflammation and reduce intestinal permeability?",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        humanSpeech: "Sure, pick me up a pack of smokes while you're at it",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        "img": "video/grocery-shopping.gif",
+        continuousAudio: "video/holiday-for-strings-short.mp3",
+        speech: "Great! Let's go shopping! You can benefit from more omega three rich foods like flaxseeds, which could lead to a 25% improvement in mood and energy for people with a similar multiomic profile, I'll also add a vitamin D supplement, given your vegetarian diet and lab results, could improve mood by 21% and reduce overall inflammation,   You can just delete the items you don't want and then place the order,",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        humanSpeech: "OK, thanks, robot",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        title: "I love you! Bye! 😘😘😘",
+        speech: "You're welcome! I'll check in with you soon! Love you!  Bye!",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        continuousAudio: false,
+        video: "video/brak-stinger.mp4",
+        title: "One month later",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        title: "How are you?",
+        speech: "Hi! You've been on your new diet about a month now,  How are you feeling?",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        humanSpeech: "The new diet is definitely helping, but I'm still a little bit miserable, My arthritis and psoriasis are both about 3 out of 10, and I still have some anxiety and depression.",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        title: "☹️",
+        speech: "I'm sorry to hear that",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        img: "video/autonomous-study-search.gif",
+        speech: "However, based on your health data and genetic profile, I've identified a the experimental drug trial with the most promising preclinical results for patients with your subset of symptoms",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        img: "img/slides/probiotic-trial.png",
+        speech: "It's a new clinical-grade probiotic therapy designed to suppress the autoimmune response leading to systemic inflammation and neuroinflammation, This approach directly addresses the root cause of your symptoms",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        title: "Would you like to participate?",
+        speech: "Would you like me to tell the researchers that you're interested in participating?",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        humanSpeech: "Sure, I'll do it",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        continuousAudio: "video/holiday-for-strings-short.mp3",
+        img: "video/autonomous-study-join.gif",
+        speech: "Great! I'm contacting the research team now to have them send the medication to your home! Done!",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        img: "video/autonomous-lab-order.gif",
+        speech: "Now I'll check your calendar and schedule your baseline and follow-up lab tests, and I'll also schedule a microbiome analysis to see if the probiotic therapy is improving your gut health,",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        "humanSpeech": "OK, Thanks, robot.",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        continuousAudio: false,
+        video: "video/brak-stinger.mp4",
+        title: "Three months later",
+        showHuman: true,
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        title: "How are you?",
+        speech: "Hi! It's been three months since you started the new probiotic therapy, How are you feeling?",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        "humanSpeech": "I'm cured!",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        backgroundImg: "img/slides/simpsons-living-room.png",
+        audio: "video/smb_world_clear.wav",
+    },
+    {
+        showHuman: true,
+        "humanSpeech": "Thank you, kind robot!",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        title: "You're welcome! 😊",
+        speech: "You're welcome! Thank you for completing the study! ",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        showHuman: true,
+        img: "video/clinipedia.gif",
+        speech: "Your data has been used to improve the study at Clinipedia,  Now I can help millions of other people with similar symptoms and multiomic profiles much faster!",
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        title: "I love you! Bye! 😘",
+        speech: "Love you!  Bye!",
+        showHuman: false,
+        backgroundImg: "img/slides/simpsons-living-room.png",
+    },
+    {
+        backgroundImg: "video/dream-sequence-end.gif",
+        audio: "video/dream-sound-effect-fast.mp3",
+    },
+    {
+        backgroundImg: false,
         title: "I need some real good robot-making guys to make me smart",
-        speech: "To be able to do all that, I need some real good robot making guys to make me smart"
+        speech: "To be able to do all that, I need some real good robot making guys to make me smart",
+        continuousAudio: "sound/air-of-another-planet-full.mp3",
     },
     {
         title: "Support The FDAI Act",
@@ -243,7 +561,7 @@ const slides = [
     },
     {
         img: "video/slaughterbots.gif",
-        speech: "If they keep saying they don't have enough money, politely remind them that they're spending billions of dollars integrating A I into over 600 weapons systems,   So just ask if it would be OK if instead of 600 mean robots for murdering people, we only build 599 murderbots and instead build 1 nice helpful robot like me",
+        speech: "If they keep saying they don't have enough money, politely remind them that they're spending billions of dollars integrating eh eye into over 600 weapons systems,   So just ask if it would be OK if instead of 600 mean robots for murdering people, we only build 599 murderbots and instead build 1 nice helpful robot like me",
     },
     {
         title: "$3 Trillion in Annual Savings",
@@ -277,7 +595,7 @@ const slides = [
     },
     // {
     //   title: "FDAI ",
-    //   speech: "But you can help! By financial support, code contributions, A I development, engaging in our cryptocurrency initiatives, or advocating for the FDAI Act with your government representatives, you can make a difference in accelerating medical progress.",
+    //   speech: "But you can help! By financial support, code contributions, eh eye development, engaging in our cryptocurrency initiatives, or advocating for the FDAI Act with your government representatives, you can make a difference in accelerating medical progress.",
     // }
     {
         //"goToState": "app.convo",

@@ -6,6 +6,7 @@ const slidesConvo = [
     {
         title: "How are you?",
         speech: "Good morning, how are you?",
+        showHuman: true,
     },
     {
         "humanSpeech": "Hello, robot. I'm fine."
@@ -35,16 +36,16 @@ const slidesConvo = [
     },
     {
         img: "img/slides/dartboard.png",
-        speech: "so specialists typically just use a dartboard approach " +
+        speech: "so doctors have to resort to a dartboard approach " +
             "to prescribe drugs that might mask the symptoms of the one condition they specialize in",
     },
     {
         title: "Should I fetch your diet, treatment, and lab data?",
-        speech: "Do you want me to use your browser to get all your data so I can try to identify the root cause and any hidden triggers worsening your symptoms to figure out how to improve them",
+        speech: "Do you want me to use your browser to get all your data so I can try to identify the root cause and any hidden triggers worsening your symptoms?",
     },
-{
-    "humanSpeech": "Whatever, I don't even care anymore"
-},
+    {
+        "humanSpeech": "Whatever, I don't even care anymore"
+    },
     {
         title: "Fetching Data...",
         speech: "Great! Time to eat that data!",
@@ -97,7 +98,7 @@ const slidesConvo = [
         speech: "They can bind to the lining of the gut and interfere with nutrient absorption, it can also contribute to intestinal permeability, allowing gut bacteria substances like LPS to enter the bloodstream and trigger inflammation, This seems to be a root cause connecting your depression, arthritis, and psoriasis",
     },
     {
-        title: "Wanna see if avoiding these foods helps?",
+        title: "Wanna see if avoiding these dietary triggers helps?",
         speech: "Do you want to try an experiment by avoiding these foods for 20 days and see if your symptoms improve?",
     },
     {
@@ -105,14 +106,14 @@ const slidesConvo = [
     },
     {
         "img": "img/slides/low-lectin-food.jpg",
-        speech: "Great! Would you like me to populate your shopping cart with an optimized meal plan that avoids these foods and includes ingredients that have been shown to reduce inflammation and reduce intestinal permeability?",
+        speech: "Great! Would you like me to populate your shopping cart with an optimized meal plan that avoids all trigger ingredients and includes foods shown to reduce inflammation and reduce intestinal permeability?",
     },
     {
         humanSpeech: "Sure, pick me up a pack of smokes while you're at it"
     },
     {
       "img": "video/grocery-shopping.gif",
-      speech: "You can benefit from more omega three rich foods like flaxseeds, which could lead to a 25% improvement in mood and energy for people with a similar multiomic profile, I'll also add vitamin D supplement, given your vegetarian diet and lab results, could improve mood by 12% and reduce overall inflammation,   You can just delete the items you don't want and then place the order,",
+      speech: "You can benefit from more omega three rich foods like flaxseeds, which could lead to a 25% improvement in mood and energy for people with a similar multiomic profile, I'll also add vitamin D supplement, given your vegetarian diet and lab results, could improve mood by 21% and reduce overall inflammation,   You can just delete the items you don't want and then place the order,",
     },
     {
         humanSpeech: "OK, thanks, robot",
@@ -184,5 +185,6 @@ const slidesConvo = [
     {
         title: "I love you! Bye! 😘😘😘",
         speech: "Love you!  Bye!",
+        showHuman: false,
     }
 ]
