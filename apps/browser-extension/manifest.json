@@ -2,12 +2,35 @@
   "manifest_version": 3,
   "name": "Digital Twin Safe",
   "version": "1.0",
-  "description": "Easily record your diet, symptoms, and treatments to figure out what's fucking you up!",
-  "permissions": ["alarms", "notifications", "storage", "activeTab", "tabs"],
+  "description": "Easily record your diet, symptoms, and treatments to accelerate clinical discovery!",
+  "permissions": [
+    "alarms",
+    "contextMenus",
+    "scripting",
+    "notifications",
+    "storage",
+    "activeTab",
+    "tabs",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "https://www.amazon.com/"
+  ],
   "background": {
     "service_worker": "background.js"
   },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    },
+    {
+      "matches": ["https://safe.fdai.earth/*"],
+      "js": ["contentScriptForFdai.js"]
+    }
+  ],
   "action": {
+    "default_popup": "popup.html",
     "default_icon": {
       "16": "icons/icon_16.png",
       "48": "icons/icon_48.png",
