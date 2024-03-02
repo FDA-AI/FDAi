@@ -11,8 +11,8 @@ const slides = [
         continuousAudioVolume: 0.1,
     },
     {
-        title: "2 Billion People\nSUFFER\nfrom 7000 Diseases",
-        robotSpeech: "Two billion people suffer from chronic diseases like depression, fibromyalgia, Crone's disease,and multiple sclerosis, There are over 7000 diseases that we still don’t have cures for",
+        title: "2 Billion People SUFFER from 7000 Diseases",
+        robotSpeech: "Two billion people suffer from chronic diseases like depression, fibromyalgia, Crone's disease,and multiple sclerosis, There are over 7000 diseases that we still don’t have cures for.",
         continuousAudio: "sound/air-of-another-planet-full.mp3",
         continuousAudioVolume: 0.1,
     },
@@ -32,11 +32,11 @@ const slides = [
     },
     {
         img: "img/slides/chemicals-in-our-diet.png",
-        robotSpeech: "Lots of these diseases are caused or worsened by chemicals in your food, but we don’t really know which ones,  We only have long-term toxicology data on 2 of the over 7000 preservatives, flavorings, emulsifiers, sweeteners, pesticides, contaminants, and herbicides in your diet",
+        robotSpeech: "Lots of these diseases are caused or worsened by chemicals in your food, but we don’t really know which ones,  We only have long-term toxicology data on 2 of the over 7000 preservatives, flavorings, emulsifiers, sweeteners, pesticides, contaminants, and herbicides in your diet.",
     },
     {
         img: "img/slides/correlates-of-disease-incidence-labeled.png",
-        robotSpeech: "The increase in the number of chemicals has been linked to increases in the incidence of many diseases associated with disrupted gut microbiomes",
+        robotSpeech: "The increase in the number of chemicals has been linked to increases in the incidence of many diseases associated with disrupted gut microbiomes.",
     },
     {
         img: "img/slides/food-industrial-complex.png",
