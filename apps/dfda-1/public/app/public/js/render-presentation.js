@@ -1,6 +1,8 @@
 function renderSlides(slides) {
     let html = '';
     slides.forEach((slide) => {
+        var showImages = false;
+        var censor = true;
         if (
             !slide.title &&
             !slide.robotSpeech &&
@@ -15,7 +17,7 @@ function renderSlides(slides) {
             html += `<h2>${slide.title}</h2>`;
         }
 
-        if (slide.video) {
+        if (slide.video && showImages) {
             html += `<video width="320" height="240" controls>
                 <source src="${slide.video}" type="video/mp4">
                 Your browser does not support the video tag.
@@ -23,6 +25,9 @@ function renderSlides(slides) {
         }
 
         if (slide.robotSpeech) {
+            if(censor && slide.robotSpeech.includes('murder')){
+                return;
+            }
             html += `
             <div class="bubble-wrap">
                 <div class="bubble right">
@@ -42,7 +47,7 @@ function renderSlides(slides) {
             </div>
             `;
         }
-        if (slide.img) {
+        if (slide.img && showImages) {
             html += `<img src="${slide.img}" alt="Slide image">`;
         }
 
