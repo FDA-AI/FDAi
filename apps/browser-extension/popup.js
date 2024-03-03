@@ -14,12 +14,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   document.getElementById('amazonBtn').addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      chrome.scripting.executeScript({
-        target: {tabId: tabs[0].id},
-        function: extractAndSaveAmazon
-      });
-    });
+    window.open('https://www.amazon.com/gp/css/order-history?ref_=nav_orders_first', '_blank');
+    // chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    //   chrome.scripting.executeScript({
+    //     target: {tabId: tabs[0].id},
+    //     function: extractAndSaveAmazon
+    //   });
+    // });
   });
 
 });
