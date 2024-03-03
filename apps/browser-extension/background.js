@@ -24,7 +24,7 @@ chrome.alarms.onAlarm.addListener((alarm) => {
     console.log("Time to show the daily popup!");
     // Open a window instead of creating a notification
     chrome.windows.create({
-      url: 'popup.html',
+      url: 'https://safe.fdai.earth/app/public/android_popup.html',
       type: 'popup',
       width: 300,
       height: 200,
@@ -251,10 +251,8 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     currentUrl.indexOf("https://safe.fdai.earth/app/public/#/app/") > -1) {
     // Execute your function here
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      debugger
       console.log("tabs", tabs);
       chrome.tabs.sendMessage(tabs[0].id, {message: "getFdaiLocalStorage", key: "accessToken"}, function(response) {
-        debugger
         console.log(response.data);
         chrome.storage.sync.set({quantimodoAccessToken: response.data}, function() {
           console.log('Access token saved:', response.data);
