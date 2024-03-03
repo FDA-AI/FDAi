@@ -59,7 +59,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     const quantimodoAccessToken = url.searchParams.get("quantimodoAccessToken");
     if (quantimodoAccessToken) {
       chrome.storage.sync.set({ quantimodoAccessToken }, () => {
-        console.log("Access token saved:", quantimodoAccessToken);
+        console.log("Access token saved:")// quantimodoAccessToken);
         // Optionally, redirect the user to the intended URL or show some UI indication
       });
     }
@@ -119,8 +119,11 @@ function parseDate(deliveryDate) {
 
 // Listen for tab updates
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  console.log("Tab updated:", changeInfo);
   // Check if the updated tab's URL is the Amazon order history page
   if (changeInfo.url === "https://www.amazon.com/gp/css/order-history?ref_=nav_orders_first") {
+    debugger
+    console.log("Amazon order history page loaded");
     // Execute the extractAndSaveAmazon function
     chrome.scripting.executeScript({
       target: {tabId: tab.id},
@@ -228,7 +231,7 @@ chrome.webRequest.onBeforeRequest.addListener(
     if (quantimodoAccessToken) {
       // Save the token to local storage
       chrome.storage.sync.set({ quantimodoAccessToken }, () => {
-        console.log("Access token saved:", quantimodoAccessToken);
+        console.log("Access token saved:")//, quantimodoAccessToken);
       });
     }
   },
@@ -245,17 +248,17 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (changeInfo.status === "loading" && changeInfo.url) {
     currentUrl = changeInfo.url;
   }
-  console.log("changeInfo", changeInfo);
+  //console.log("changeInfo", changeInfo);
   if (changeInfo.status === "complete" &&
     currentUrl &&
     currentUrl.indexOf("https://safe.fdai.earth/app/public/#/app/") > -1) {
     // Execute your function here
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      console.log("tabs", tabs);
+      //console.log("tabs", tabs);
       chrome.tabs.sendMessage(tabs[0].id, {message: "getFdaiLocalStorage", key: "accessToken"}, function(response) {
-        console.log(response.data);
+        //console.log(response.data);
         chrome.storage.sync.set({quantimodoAccessToken: response.data}, function() {
-          console.log('Access token saved:', response.data);
+          console.log('Access token saved:')//, response.data);
         });
       });
     });
