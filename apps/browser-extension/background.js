@@ -1,3 +1,5 @@
+const extractAndSaveAmazon = require('./extractAndSaveAmazon');
+
 chrome.runtime.onInstalled.addListener(() => {
   setDailyAlarm(); // Set an alarm on installation
 });
@@ -144,59 +146,7 @@ async function getQuantimodoAccessToken() {
   });
 }
 
-async function extractAndSaveAmazon() {
-  const productBoxes = document.querySelectorAll('.a-fixed-left-grid.item-box.a-spacing-small, .a-fixed-left-grid.item-box.a-spacing-none');
-  const deliveryDate = document.querySelector('.delivery-box__primary-text').textContent.trim();
-  const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
-  let measurements = [];
 
-  for (const box of productBoxes) {
-    const productImage = box.querySelector('.product-image a img').src;
-    const productTitle = box.querySelector('.yohtmlc-product-title').textContent.trim();
-    const productLink = box.querySelector('.product-image a').href;
-
-    // Check if the product is already in localStorage
-    const isProductStored = storedProducts.some(product => product.url === productLink);
-
-    if (!isProductStored) {
-      // If not stored, add the product to the array and localStorage
-      const newProduct = {
-        date: deliveryDate,
-        title: productTitle,
-        image: productImage,
-        url: productLink
-      };
-      storedProducts.push(newProduct);
-      localStorage.setItem('products', JSON.stringify(storedProducts));
-
-      // Add the product details to the array
-      measurements.push({
-        startAt: parseDate(deliveryDate),
-        variableName: productTitle,
-        unitName: "Count",
-        value: 1,
-        url: productLink,
-        image: productImage
-      });
-    }
-  }
-
-  if(measurements.length > 0) {
-    const quantimodoAccessToken = await getQuantimodoAccessToken();
-    const response = await fetch('https://safe.fdai.earth/api/v1/measurements', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${quantimodoAccessToken}`
-      },
-      body: JSON.stringify(measurements)
-    });
-    const data = await response.json();
-    console.log('Response from Quantimodo API:', data);
-  }
-
-  console.log(`Processed ${productBoxes.length} products.`);
-}
 
 function hasAccessToken() {
   return new Promise((resolve, reject) => {
@@ -255,6 +205,10 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     // Execute your function here
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       //console.log("tabs", tabs);
+      if(!tabs[0]) {
+        console.log("No active tabs. Tabs:", tabs);
+        return;
+      }
       chrome.tabs.sendMessage(tabs[0].id, {message: "getFdaiLocalStorage", key: "accessToken"}, function(response) {
         //console.log(response.data);
         chrome.storage.sync.set({quantimodoAccessToken: response.data}, function() {
