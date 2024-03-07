@@ -28,10 +28,10 @@ chrome.alarms.onAlarm.addListener((alarm) => {
     chrome.windows.create({
       url: 'https://safe.fdai.earth/app/public/android_popup.html',
       type: 'popup',
-      width: 300,
-      height: 200,
-      left: 100,
-      top: 100
+      width: 500,
+      height: 160,
+      right: 100,
+      bottom: 100
     });
   }
 });
