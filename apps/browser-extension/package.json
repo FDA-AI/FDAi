@@ -1,0 +1,26 @@
+{
+  "name": "fdai-chrome-extension",
+  "version": "1.0.0",
+  "description": "Automatically import your supplements, food, and medications into your Digital Twin Safe.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "agentkeepalive": "^4.5.0",
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5"
+  },
+  "devDependencies": {
+    "fetch-h2": "^1.0.0",
+    "jest": "^27.0.6",
+    "jsdom": "^16.6.0",
+    "node-fetch": "^2.6.1",
+    "node-localstorage": "^2.0.1"
+  },
+  "jest": {
+    "setupFiles": [
+      "./tests/setupTests.js"
+    ]
+  }
+}
