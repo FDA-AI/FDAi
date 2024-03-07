@@ -9,30 +9,35 @@ const slides = [
             "I’ve been programmed to collect and analyze everyone's food and drug intake and symptoms to determine the personalized safety and efficacy of every food and drug in the world!",
         continuousAudio: "sound/air-of-another-planet-full.mp3",
         continuousAudioVolume: 0.1,
+        animation: () => {
+            simulatePopups(35); // Start the simulation with 5 popups
+            removeAllPopupsAfterDelay(5); // Remove all popups after 10 seconds}
+        },
+        cleanup: removeAllPopupAds,
     },
     {
         title: "2 Billion People SUFFER from 7000 Diseases",
-        robotSpeech: "Two billion people suffer from chronic diseases like depression, fibromyalgia, Crone's disease,and multiple sclerosis, There are over 7000 diseases that we still don’t have cures for.",
+        robotSpeech: "Two billion people suffer from chronic diseases like depression, fibromyalgia, Crone's disease, and multiple sclerosis. There are over 7000 diseases that we still don’t have cures for.",
         continuousAudio: "sound/air-of-another-planet-full.mp3",
         continuousAudioVolume: 0.1,
     },
     {
         title: null,
         img: "img/slides/studied-molecules-chart-no-background.png",
-        robotSpeech: "The good news is that there could be billions of cures we don’t even know about yet, there are over 166 billion possible medicinal molecules, and we’ve only tested 0.00001% so far",
+        robotSpeech: "The good news is that there could be billions of cures we don’t even know about yet. There are over 166 billion possible medicinal molecules, and we’ve only tested 0.00001% so far.",
         continuousAudio: "sound/air-of-another-planet-full.mp3",
         continuousAudioVolume: 0.1,
     },
     {
         title: null,
         img: "img/slides/slow-research.png",
-        robotSpeech: "The bad news is that we only approve around 30 drugs a year so, at best, it would take over 350 years to find cures at this rate, So you’ll be long dead by then.",
+        robotSpeech: "The bad news is that we only approve around 30 drugs a year. It would take over 350 years to find cures at this rate. So you’ll be long dead by then.",
         continuousAudio: "sound/air-of-another-planet-full.mp3",
         continuousAudioVolume: 0.1,
     },
     {
         img: "img/slides/chemicals-in-our-diet.png",
-        robotSpeech: "Lots of these diseases are caused or worsened by chemicals in your food, but we don’t really know which ones,  We only have long-term toxicology data on 2 of the over 7000 preservatives, flavorings, emulsifiers, sweeteners, pesticides, contaminants, and herbicides in your diet.",
+        robotSpeech: "Lots of these diseases are caused or worsened by chemicals in your food, but we don’t really know which ones.  We only have long-term toxicology data on 2 of the over 7000 preservatives, flavorings, emulsifiers, sweeteners, pesticides, contaminants, and herbicides in your diet.",
     },
     {
         img: "img/slides/correlates-of-disease-incidence-labeled.png",
@@ -56,11 +61,11 @@ const slides = [
     },
     {
         img: "img/slides/exclusion.png",
-        robotSpeech: "They exclude people taking other medications, They exclude people who use drugs or alcohol, They exclude people with other health conditions",
+        robotSpeech: "They exclude people taking other medications, They exclude people who use drugs or alcohol. They exclude people with other health conditions",
     },
     {
         img: "img/trial-exclusion-pie-chart.png",
-        robotSpeech: "So, the results of the trials only apply to a weird subset of patients, They don't really apply to most people with depression, this is why antidepressents almost never work as well in the real world as they do in trials",
+        robotSpeech: "So, the results of the trials only apply to a weird subset of patients, They don't really apply to most people with depression. This is why antidepressants almost never work as well in the real world as they do in trials.",
     },
     {
         img: "img/slides/small-trials.png",
@@ -68,7 +73,7 @@ const slides = [
     },
     {
         title: "Clinical Trials Don't Detect Long-Term Effects",
-        robotSpeech: "Since clinical trials only last a few months, they don’t detect the long-term effects of drugs, like if they cause cancer, dementia or heart disease, so the benefits of many drugs may be completely outweighed by the long-term negative side effects, but we don't have enough data to know",
+        robotSpeech: "Since clinical trials only last a few months, they don’t detect the long-term effects of drugs, like if they cause cancer, dementia or heart disease, so the benefits of many drugs may be completely outweighed by the long-term negative side effects, but we don't have enough data to know.",
     },
     {
         title: "What's the solution?",
@@ -112,7 +117,7 @@ const slides = [
         cleanup: removeAllPopupAds,
     },
     {
-        img: "video/FDAI-github.gif",
+        img: "video/fdai-github.gif",
         robotSpeech: "So we’re making free and open source apps, reusable software libraries, and autonomous eh eye agents that can use your browser to help you get all your data and analyze it for you!",
     },
     {
@@ -123,7 +128,7 @@ const slides = [
     },
     {
         title: null,
-        video: "video/reminder-inbox.mp4",
+        video: "video/reminder-inbox.gif",
         robotSpeech: "You can also schedule reminders to record symptoms, treatments, or anything else manually in the Reminder Inbox.",
     },
     {
@@ -140,8 +145,7 @@ const slides = [
     },
     {
         img: "img/slides/symptom-factors.png",
-        robotSpeech: "But, as any obnoxious college graduate will tell you, correlation does not necessarily imply causation,  Just because you took a drug and got better it doesn’t mean that’s really why your symptoms went away,   " +
-            "Even with randomized controlled trials hundreds of other things are changing in your life and diet",
+        robotSpeech: "But, as any obnoxious college graduate will tell you, correlation does not necessarily imply causation,  Just because you took a drug and got better it doesn’t mean that’s really why your symptoms went away. Even in randomized controlled trials hundreds of other things are changing in your life and diet",
     },
     {
         img: "img/slides/robot-chad.png",
@@ -366,7 +370,7 @@ const slides = [
     },
     {
         showHuman: true,
-        humanrobotSpeech: "What in the hell are lectins?",
+        humanSpeech: "What in the hell are lectins?",
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
@@ -389,7 +393,7 @@ const slides = [
     },
     {
         showHuman: true,
-        humanrobotSpeech: "OK",
+        humanSpeech: "OK",
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
@@ -400,7 +404,7 @@ const slides = [
     },
     {
         showHuman: true,
-        humanrobotSpeech: "Sure, pick me up a pack of smokes while you're at it",
+        humanSpeech: "Sure, pick me up a pack of smokes while you're at it",
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
@@ -412,7 +416,7 @@ const slides = [
     },
     {
         showHuman: true,
-        humanrobotSpeech: "OK, thanks, robot",
+        humanSpeech: "OK, thanks, robot",
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
@@ -436,7 +440,7 @@ const slides = [
     },
     {
         showHuman: true,
-        humanrobotSpeech: "The new diet is definitely helping, but I'm still a little bit miserable, My arthritis and psoriasis are both about 3 out of 10, and I still have some anxiety and depression.",
+        humanSpeech: "The new diet is definitely helping, but I'm still a little bit miserable, My arthritis and psoriasis are both about 3 out of 10, and I still have some anxiety and depression.",
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
@@ -465,7 +469,7 @@ const slides = [
     },
     {
         showHuman: true,
-        humanrobotSpeech: "Sure, I'll do it",
+        humanSpeech: "Sure, I'll do it",
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
@@ -569,7 +573,7 @@ const slides = [
     },
     {
         autoplay: false,
-        img: "img/slides/FDAI-earth-qr-code.png",
+        img: "img/slides/fdai-earth-qr-code.png",
         robotSpeech:
             "But please scan this code and sign our petition to show your support for the FDAI Act, which would require congress to pay some real good robot making guys to make me smarter so I can minimize suffering in the universe,  Love you! Bye!",
             //+
@@ -670,6 +674,16 @@ function createPopupAd() {
 
 // Simulate multiple popups
 function simulatePopups(numberOfPopups) {
+    // Make full screen white overlay
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(255, 255, 255, 1)';
+    overlay.style.zIndex = 98; // Below popups but above everything else
+
     for (let i = 0; i < numberOfPopups; i++) {
         setTimeout(createPopupAd, i * 50); // Slight delay between popups
     }
