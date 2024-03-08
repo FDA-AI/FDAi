@@ -1,4 +1,14 @@
+function showNotification(title, message) {
+  chrome.notifications.create({
+    type: 'basic',
+    iconUrl: 'icons/icon.png', // Path to the icon for the notification
+    title: title,
+    message: message
+  });
+}
+
 export async function extractAndSaveAmazon(html) {
+  debugger
 
   html = html || document;
 
@@ -6,6 +16,7 @@ export async function extractAndSaveAmazon(html) {
   let measurements = JSON.parse(localStorage.getItem('measurements')) || [];
   for (const orderCard of orderCards) {
     console.log('Order card:', orderCard);
+    debugger
     let startAt = orderCard.querySelector('.delivery-box__primary-text').textContent.trim();
     if(startAt === 'Order received') {
       continue;
@@ -18,6 +29,8 @@ export async function extractAndSaveAmazon(html) {
       const image = box.querySelector('.product-image a img').src;
       const variableName = "Purchase of " + box.querySelector('.yohtmlc-product-title').textContent.trim();
       const url = box.querySelector('.product-image a').href;
+
+      showNotification('Saving Purchase Data', `Saving ${variableName} from Amazon`);
 
 
       // Check if the product is already in localStorage
