@@ -25,8 +25,11 @@ chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === "trackingPopup") {
     console.log("Time to show the daily popup!");
     // Open a window instead of creating a notification
+    //debugger
+    let origin = 'https://safe.fdai.earth';
+    //origin = 'https://local.quantimo.do';
     chrome.windows.create({
-      url: 'https://safe.fdai.earth/app/public/android_popup.html',
+      url: origin+'/app/public/android_popup.html',
       type: 'popup',
       width: 500,
       height: 160,
@@ -100,7 +103,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     //   target: {tabId: tab.id},
     //   function: extractAndSaveAmazon
     // });
-    chrome.tabs.create({url: "https://www.amazon.com/gp/css/order-history?ref_=nav_orders_first"});
+    chrome.tabs.create({url: "https://www.amazon.com/gp/css/order-history"});
   }
 });
 
@@ -123,7 +126,7 @@ function parseDate(deliveryDate) {
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   console.log("Tab updated:", changeInfo);
   // Check if the updated tab's URL is the Amazon order history page
-  if (changeInfo.url === "https://www.amazon.com/gp/css/order-history?ref_=nav_orders_first") {
+  if (changeInfo.url && changeInfo.url.startsWith("https://www.amazon.com/gp/css/order-history")) {
     debugger
     console.log("Amazon order history page loaded");
     // Execute the extractAndSaveAmazon function
