@@ -1,4 +1,4 @@
-const extractAndSaveAmazon = require('./extractAndSaveAmazon');
+import { extractAndSaveAmazon } from './extractAndSaveAmazon.js';
 
 chrome.runtime.onInstalled.addListener(() => {
   setDailyAlarm(); // Set an alarm on installation
@@ -7,7 +7,7 @@ chrome.runtime.onInstalled.addListener(() => {
 function setDailyAlarm() {
   chrome.storage.sync.get("frequency", ({ frequency }) => {
     const minutes = parseInt(frequency, 10) || 1440; // Default to 1440 minutes (once a day) if not set
-    chrome.alarms.create("dailyPopup", { periodInMinutes: minutes });
+    chrome.alarms.create("trackingPopup", { periodInMinutes: minutes });
   });
 }
 
@@ -22,7 +22,7 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
 
 chrome.alarms.onAlarm.addListener((alarm) => {
   console.log("Got an alarm!", alarm);
-  if (alarm.name === "dailyPopup") {
+  if (alarm.name === "trackingPopup") {
     console.log("Time to show the daily popup!");
     // Open a window instead of creating a notification
     chrome.windows.create({
@@ -30,8 +30,8 @@ chrome.alarms.onAlarm.addListener((alarm) => {
       type: 'popup',
       width: 500,
       height: 160,
-      right: 100,
-      bottom: 100
+      left: 100,
+      top: 100
     });
   }
 });

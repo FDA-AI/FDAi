@@ -1,4 +1,4 @@
-async function extractAndSaveAmazon(html) {
+export async function extractAndSaveAmazon(html) {
 
   html = html || document;
 
@@ -80,4 +80,4 @@ async function extractAndSaveAmazon(html) {
 
 }
 
-module.exports = extractAndSaveAmazon;
+//module.exports = extractAndSaveAmazon;
