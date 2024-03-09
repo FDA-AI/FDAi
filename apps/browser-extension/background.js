@@ -27,7 +27,7 @@ function showTrackingPopup() {
   console.log('Time to show the daily popup!');
 
   let origin = 'https://safe.fdai.earth';
-  origin = 'https://local.quantimo.do';
+  //origin = 'https://local.quantimo.do';
 
   if (popupId !== null) {
     chrome.windows.get(popupId, { populate: true }, (win) => {
@@ -36,10 +36,11 @@ function showTrackingPopup() {
         chrome.windows.create({
           url: origin + '/app/public/android_popup.html',
           type: 'popup',
-          width: 500,
-          height: 160,
+          width: 1,
+          height: 1,
           left: 100,
-          top: 100
+          top: 100,
+          focused: false
         }, (win) => {
           popupId = win.id;
         });
@@ -53,10 +54,11 @@ function showTrackingPopup() {
     chrome.windows.create({
       url: origin + '/app/public/android_popup.html',
       type: 'popup',
-      width: 500,
-      height: 160,
+      width: 1,
+      height: 1,
       left: 100,
-      top: 100
+      top: 100,
+      focused: false
     }, (win) => {
       popupId = win.id;
     });
