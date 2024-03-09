@@ -20,22 +20,60 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
   }
 });
 
-chrome.alarms.onAlarm.addListener((alarm) => {
-  console.log("Got an alarm!", alarm);
-  if (alarm.name === "trackingPopup") {
-    console.log("Time to show the daily popup!");
-    // Open a window instead of creating a notification
-    //debugger
-    let origin = 'https://safe.fdai.earth';
-    //origin = 'https://local.quantimo.do';
+let popupId = null;
+
+function showTrackingPopup() {
+  debugger
+  console.log('Time to show the daily popup!');
+
+  let origin = 'https://safe.fdai.earth';
+  origin = 'https://local.quantimo.do';
+
+  if (popupId !== null) {
+    chrome.windows.get(popupId, { populate: true }, (win) => {
+      if (chrome.runtime.lastError) {
+        // The window was closed or never created. Create it.
+        chrome.windows.create({
+          url: origin + '/app/public/android_popup.html',
+          type: 'popup',
+          width: 500,
+          height: 160,
+          left: 100,
+          top: 100
+        }, (win) => {
+          popupId = win.id;
+        });
+      } else {
+        // The window exists. Update it.
+        chrome.windows.update(popupId, { focused: true });
+      }
+    });
+  } else {
+    // No window ID, create a new window.
     chrome.windows.create({
-      url: origin+'/app/public/android_popup.html',
+      url: origin + '/app/public/android_popup.html',
       type: 'popup',
       width: 500,
       height: 160,
       left: 100,
       top: 100
+    }, (win) => {
+      popupId = win.id;
     });
+  }
+}
+
+// background.js
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === "showTrackingPopup") {
+    showTrackingPopup();
+  }
+});
+
+chrome.alarms.onAlarm.addListener((alarm) => {
+  console.log("Got an alarm!", alarm);
+  if (alarm.name === "trackingPopup") {
+    showTrackingPopup();
   }
 });
 
