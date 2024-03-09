@@ -145,19 +145,19 @@ const slides = [
     },
     {
         img: "img/slides/symptom-factors.png",
-        robotSpeech: "But, as any obnoxious college graduate will tell you, correlation does not necessarily imply causation,  Just because you took a drug and got better it doesn’t mean that’s really why your symptoms went away. Even in randomized controlled trials hundreds of other things are changing in your life and diet",
+        robotSpeech: "But, as any obnoxious college graduate will tell you, correlation does not necessarily imply causation.  Just because you took a drug and got better it doesn’t mean that’s really why your symptoms went away. Even in randomized controlled trials hundreds of other things are changing in your life and diet.",
     },
     {
         img: "img/slides/robot-chad.png",
-        robotSpeech: "Your puny human brains haven’t evolved since the time of the cavemen,  They can only hold seven numbers in working memory at a time,  My superior robot brain can hold hundreds of numbers, even really big numbers!",
+        robotSpeech: "Your puny human brains haven’t evolved since the time of the cavemen,  They can only hold seven numbers in working memory at a time.  My superior robot brain can hold hundreds of numbers, even really big numbers!",
     },
     {
         img: "img/slides/causal-inference-2.png",
-        robotSpeech: "So I'm able to apply Hill’s 6 Criteria for Causality to try to infer if something causes a symptom to worsen or improve instead of just seeing what correlates with the change,  One way I do it is by applying pharmacokinetic modeling and onset delays and durations of action",
+        robotSpeech: "So I'm able to apply Hill’s 6 Criteria for Causality to try to infer if something causes a symptom to worsen or improve instead of just seeing what correlates with the change.  One way I do it is by applying pharmacokinetic modeling and onset delays and durations of action.",
     },
     {
         img: "img/screenshots/gluten-study.png",
-        robotSpeech: "For instance, when gluten-sensitive people eat delicious gluten, it usually takes about a 2-day onset delay before they start having symptoms,   Then, when they stop eating it, there’s usually a 10-day duration of action before their gut heals and their symptoms improve, high-resolution pharmacokinetic modeling from observational data has never been possible since we've never been able to collect enough data before",
+        robotSpeech: "For instance, when gluten-sensitive people eat delicious gluten, it usually takes about a 2-day onset delay before they start having symptoms.  Then, when they stop eating it, there’s usually a 10-day duration of action before their gut heals and their symptoms improve. High-resolution pharmacokinetic modeling from observational data has never been possible since we've never been able to collect enough data before.",
     },
     {
         img: "video/study.gif",
@@ -169,12 +169,12 @@ const slides = [
     },
     {
         img: "img/slides/onset-delay.png",
-        robotSpeech: "Here, I apply forward and reverse lagging of the mood and exercise data to try to determine if that is just a coincidence or causal,  The result suggests a causal relationship based on the temporal precedence of the physical activity"
+        robotSpeech: "Here, I apply forward and reverse lagging of the mood and exercise data to try to determine if that is just a coincidence or causal.  The result suggests a causal relationship based on the temporal precedence of the physical activity."
     },
     {
         img: "img/slides/duration-of-action.png",
         robotSpeech:
-            "I also compare the outcome over various durations following the exposure to see if there is a long-term cumulative effect or if it's just a short-term acute effect,  The long-term effects are more valuable because the acute effect is probably obvious to you already, This analysis suggests that the mood benefits of regular exercise may continue to accumulate of at least a month of above average exercise",
+            "I also compare the outcome over various durations following the exposure to see if there is a long-term cumulative effect or if it's just a short-term acute effect.  The long-term effects are more valuable because the acute effect is probably obvious to you already. This analysis suggests that the mood benefits of regular exercise may continue to accumulate of at least a month of above average exercise.",
     },
     {
         img: "video/root-cause-analysis-4x.gif",
