@@ -253,6 +253,10 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
         return;
       }
       chrome.tabs.sendMessage(tabs[0].id, {message: "getFdaiLocalStorage", key: "accessToken"}, function(response) {
+        if(!response) {
+          console.error("No response from getFdaiLocalStorage");
+          return;
+        }
         //console.log(response.data);
         chrome.storage.sync.set({quantimodoAccessToken: response.data}, function() {
           console.log('Access token saved:')//, response.data);
