@@ -191,11 +191,11 @@ const slides = [
     {
         //title: "Clinipedia",
         img: "video/clinipedia.gif",
-        robotSpeech: "At Clinipedia, the Wikipedia of Clinical research, I anonymized and aggregated this data to create mega-studies listing the likely effects of thousands of foods and drugs",
+        robotSpeech: "At Clinipedia, the Wikipedia of Clinical research, I anonymized and aggregated this data to create mega-studies listing the likely effects of thousands of foods and drugs.",
     },
     {
         title: "☹️",
-        robotSpeech: "Say you suffer from constant inflammatory pain such that your very existence is being mercilessly torn asunder by an incessant relentless agony that knows no bounds besieging every moment of your waking life with its cruel unyielding torment",
+        robotSpeech: "Say you suffer from constant inflammatory pain such that your very existence is being mercilessly torn asunder by an incessant relentless agony that knows no bounds besieging every moment of your waking life with its cruel unyielding torment.",
     },
     {
         img: "video/clinipedia-inflammatory.gif",
@@ -220,12 +220,12 @@ const slides = [
     },
     {
         img: "video/trial-failed-recruitment.gif",
-        robotSpeech: "Over 80% of clinical trials fail to recruit enough participants, yet less than 1% of people with chronic diseases participate,  So everyone who's still suffering from a chronic disease needs a nice robot like me to find them the most promising experimental new treatment and make it effortless to join and collect data",
+        robotSpeech: "Over 80% of clinical trials fail to recruit enough participants. Yet less than 1% of people with chronic diseases participate.  So everyone who's still suffering from a chronic disease needs a nice robot like me to find them the most promising experimental new treatment and make it effortless to join and collect data.",
     },
     {
         //title: "Automating Full Clinical Trial Participation ➡️ 5X More Cures in the Same Time",
         img: "img/slides/fast-research.png",
-        robotSpeech: "If we could automate full clinical trial participation and make it easy for everyone to participate, we could make 50 years of medical progress in 10 years",
+        robotSpeech: "If we could automate full clinical trial participation and make it easy for everyone to participate, we could make 50 years of medical progress in 10 years.",
     },
     {
         showTriangle: false,

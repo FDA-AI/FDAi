@@ -21,6 +21,9 @@ export async function extractAndSaveAmazon(html) {
     if(startAt === 'Order received') {
       continue;
     }
+    if(startAt.includes('Arriving')) {
+      continue;
+    }
     startAt = startAt.replace('Delivered ', '').trim();
     startAt = startAt + ', ' + new Date().getFullYear();
     startAt = parseDate(startAt);
