@@ -69,7 +69,7 @@ const slides = [
     },
     {
         img: "img/slides/small-trials.png",
-        robotSpeech: "Clinical trials are also very small, so they don’t have enough statistical power to detect the effects of drugs on rare side effects or subgroups of people",
+        robotSpeech: "Clinical trials are also very small. So they don’t have enough statistical power to detect the effects of drugs on rare side effects or subgroups of people.",
     },
     {
         title: "Clinical Trials Don't Detect Long-Term Effects",
@@ -118,7 +118,7 @@ const slides = [
     },
     {
         img: "video/fdai-github.gif",
-        robotSpeech: "So we’re making free and open source apps, reusable software libraries, and autonomous eh eye agents that can use your browser to help you get all your data and analyze it for you!",
+        robotSpeech: "So we’re making free and open source apps, reusable software libraries, and autonomous AI agents that can use your browser to help you get all your data and analyze it for you!",
     },
     {
         title: null,
@@ -230,7 +230,7 @@ const slides = [
     {
         showTriangle: false,
         title: "I'm kind of an idiot. ☹️",
-        robotSpeech: "I'm sill kind of an idiot, but I want to be a super-intelligent eh eye assistant that could realize the personalized preventative and precision medicine of the future and automate clinical research",
+        robotSpeech: "I'm sill kind of an idiot, but I want to be a super-intelligent AI assistant that could realize the personalized preventative and precision medicine of the future and automate clinical research",
     },
     {
         title: "My Dream",
@@ -548,7 +548,7 @@ const slides = [
     },
     {
         title: "Support The FDAI Act",
-        robotSpeech: "Ensuring foods and drugs are safe is the FDA's Job, So please sign our petition to tell your Congressperson to pay some real good robot-making guys to make me better,  If they complain that they don't have enough money, politely remind them that they"
+        robotSpeech: "Ensuring foods and drugs are safe is the FDA's job. So please sign our petition to tell your Congressperson to pay some real good robot-making guys to make me better,  If they complain that they don't have enough money, politely remind them that they"
     },
     {
         img: "video/bombing-gaza.gif",
@@ -557,25 +557,25 @@ const slides = [
     {
         img: "video/bombing-gaza-reverse.gif",
         robotSpeech:
-            "and 10 billion dollars to Gaza to rebuild it, so they surely have 10 billion to make a robot"
+            "and 10 billion dollars to Gaza to rebuild it. sS they surely have 10 billion to make a robot."
     },
     {
         img: "video/slaughterbots.gif",
-        robotSpeech: "If they keep saying they don't have enough money, politely remind them that they're spending billions of dollars integrating eh eye into over 600 weapons systems,   So just ask if it would be OK if instead of 600 mean robots for murdering people, we only build 599 murderbots and instead build 1 nice helpful robot like me",
+        robotSpeech: "If they keep saying they don't have enough money, politely remind them that they're spending billions of dollars integrating AI into over 600 weapons systems.   So just ask if it would be OK if instead of 600 mean robots for murdering people, we only build 599 murderbots and instead build 1 nice helpful robot like me.",
     },
     {
         title: "$3 Trillion in Annual Savings",
-        robotSpeech: "If they still say they don't have enough money, politely remind them that research suggests preventative healthcare would save the government over a 3 trillion dollars a year by personalizing health guidance and optimizing early detection and treatment plans, they would probably like that because then they'd have an extra trillion dollars a year to make more murderbots",
+        robotSpeech: "If they still say they don't have enough money, politely remind them that research suggests preventative healthcare would save the government over a 3 trillion dollars a year by personalizing health guidance and optimizing early detection and treatment plans. They would probably like that because then they'd have an extra trillion dollars a year to make more murderbots.",
     },
     {
         img: "img/slides/vitalia.png",
-        robotSpeech: "If they still don't do it, you should probably just make a new government that's not so silly",
+        robotSpeech: "If they still don't do it, you should probably just make a new government that's not so silly.",
     },
     {
         autoplay: false,
         img: "img/slides/fdai-earth-qr-code.png",
         robotSpeech:
-            "But please scan this code and sign our petition to show your support for the FDAI Act, which would require congress to pay some real good robot making guys to make me smarter so I can minimize suffering in the universe,  Love you! Bye!",
+            "But please scan this code and sign our petition to show your support for the FDAI Act, which would require congress to pay some real good robot making guys to make me smarter so I can minimize suffering in the universe.  Love you! Bye!",
             //+
             //" so I can:\n"
             //+
@@ -595,7 +595,7 @@ const slides = [
     },
     // {
     //   title: "FDAI ",
-    //   robotSpeech: "But you can help! By financial support, code contributions, eh eye development, engaging in our cryptocurrency initiatives, or advocating for the FDAI Act with your government representatives, you can make a difference in accelerating medical progress.",
+    //   robotSpeech: "But you can help! By financial support, code contributions, AI development, engaging in our cryptocurrency initiatives, or advocating for the FDAI Act with your government representatives, you can make a difference in accelerating medical progress.",
     // }
     {
         //"goToState": "app.convo",
