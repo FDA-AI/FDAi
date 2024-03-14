@@ -19,11 +19,15 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                 },0.2 * 1000);
             }
         }
+        function formatSpeech(speech){
+            speech = speech.replace(" AI ", " eh eye ");
+            return speech.replace(".", ",");
+        }
 
         function humanTalk(slide, errorHandler) {
             speechEnded = false;
             human.talkHuman(
-                slide.humanSpeech.replace(".", ","),
+                formatSpeech(slide.humanSpeech),
                 function () {
                     speechEnded = true;
                     checkAndProceed();
@@ -170,8 +174,8 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                 //qm.robot.openMouth();
                 speechEnded = false;
 		        qm.speech.talkRobot(
-			        slide.robotSpeech.replace(".", ",")
-			        , function(){
+                    formatSpeech(slide.humanSpeech),
+                    function(){
                         speechEnded = true;
                         checkAndProceed();
                     }
