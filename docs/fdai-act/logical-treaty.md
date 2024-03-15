@@ -1,129 +1,143 @@
-# Quantitative Cost-Benefit Analysis
+# The Annual Cost of War
 
-## 1. Opportunity Cost of Military Spending:
-- **Global military expenditure in 2020:** $1,981 billion
-- **1% reallocation to FDAi:** $19.81 billion annually
-- **Potential economic gain from productive investment of reallocated funds (assuming a 1.5x multiplier effect):** $29.72 billion annually
+## Direct Costs:
 
-## 2. Direct Health Benefits:
-- **Global economic burden of chronic diseases:** $47 trillion over the next 20 years
-- **Potential reduction in disease burden through AI-driven research (assuming a conservative 10% reduction):** $4.7 trillion over 20 years
-- **Equivalent annual benefit:** $235 billion
+1. **Military Expenditure: $1,981 billion.** This reflects the total global spending on armed forces, including salaries, operations, maintenance, and procurement of weapons and equipment.
+2. **Economic Impact of Conflict: $521 billion.** Costs incurred due to the immediate effects of war, such as destruction of property, loss of life, and the displacement of people.
+3. **Infrastructure Destruction: $1,875 billion.** Represents the cost to repair or replace infrastructure damaged or destroyed during conflicts, including roads, bridges, and utilities.
+4. **Trade and Investment Disruption: $616 billion.** Estimated losses from interruptions in trade flows and deterred investments in conflict zones or areas under threat.
 
-## 3. Indirect Economic Benefits:
-- **Estimated annual global cost of conflict-related losses, infrastructure destruction, trade disruption, and resource diversion:** $3.45 trillion
-- **Potential annual savings from 1% reduction in these costs:** $34.5 billion
-- **Potential annual gain from productive investment of these savings (assuming a 1.5x multiplier):** $51.75 billion
+## Indirect Costs:
 
-## 4. Long-Term Economic Growth:
-- **Potential increase in global GDP growth due to healthier populations and increased productivity (assuming a conservative 0.1 percentage point increase):** $88 billion annually, based on 2020 global GDP
+1. **Human Costs: $1,000 billion (using statistical value of life).** Calculated by applying a monetary value to the loss of life, this figure represents the cost of human casualties of war.
+2. **Opportunity Costs: Lost economic benefits from military spending.** Resources spent on military endeavors could have been used for other societal needs, such as education or healthcare.
+3. **Multiplier Effect: Additional economic activity from productive investment.** Reflects the lost economic growth that could have been generated if resources were invested in productive sectors rather than military spending.
+4. **Long-term Healthcare for Veterans: $200 billion.** Costs associated with providing ongoing medical care, rehabilitation, and support services to veterans injured during military service.
+5. **Psychological Impacts on Populations: $100 billion.** Expenses related to treating mental health issues like PTSD, depression, and anxiety stemming from the trauma of war.
+6. **Loss of Human Capital: $300 billion.** Economic impact of losing skilled and productive individuals to conflict, affecting the workforce and future earning potentials.
+7. **Environmental Degradation: $100 billion.** Costs to address environmental damage caused by warfare, including land degradation, pollution, and loss of biodiversity.
+8. **Refugee Support: $150 billion.** Expenses for providing assistance to refugees, including shelter, food, healthcare, and integration services.
 
-## 5. Benefits of a World Without War:
-- **Estimated net present value of a world without war:** $24 quadrillion globally, or approximately $3 million per person over a lifetime
-- **Assuming a gradual realization of these benefits over the lifetime of a person born today (72 years), the annual benefit would be:** $333.3 trillion
+## Calculations and Equations:
 
-## 6. Net Present Value (NPV) over the lifetime of a person born today (72 years):
-- **Annual benefits:** $29.72 billion (reallocated funds) + $235 billion (reduced disease burden) + $51.75 billion (reduced conflict costs) + $88 billion (increased GDP growth) + $333.3 trillion (benefits of a world without war) = $333.7 trillion
-- **NPV at a 3% discount rate over 72 years:** $10.2 quadrillion
+- **Human Cost of War:** `Annual Deaths × Statistical Value of Life`
+- **Total Direct Costs:** `Military Expenditure + Economic Impact of Conflict + Infrastructure Destruction + Trade and Investment Disruption`
+- **Total Indirect Costs:** `Human Costs + Long-term Healthcare for Veterans + Psychological Impacts on Populations + Loss of Human Capital + Environmental Degradation + Refugee Support`
+- **Updated Total Annual Cost of War:** `Total Direct Costs + Total Indirect Costs`
 
-## 7. Per Capita Lifetime NPV:
-- **Assuming a global population of 7.9 billion:** $1.3 million per person
+### Total Annual Cost of War:
 
-## 8. Comparison to Costs:
-- **Annual 1% reallocation of military expenditures:** $19.81 billion
-- **Lifetime benefit-to-cost ratio:** $10.2 quadrillion / ($19.81 billion × 72 years) = 7,163
-- **Every $1 invested in the LOGICAL Fund over a person's lifetime is expected to generate $7,163 in economic and human benefits.**
+- **Direct Costs Total:** $4,993 billion.
+- **Indirect Costs Total:** $2,245.25 billion.
+- **Updated Total Annual Cost:** $7,238.25 billion.
 
-These revised figures, incorporating the estimated benefits of a world without war, further underscore the immense potential of the LOGICAL Treaty. The lifetime NPV of $10.2 quadrillion and the per capita lifetime NPV of $1.3 million highlight the truly transformative impact this initiative could have on the human condition.
+### Total Cost to the Average Person Over Their Lifetime
 
-The lifetime benefit-to-cost ratio of 7,163 is a staggering testament to the power of investing in health, cooperation, and peace. It suggests that the LOGICAL Treaty is not just a sound investment but an unparalleled opportunity to create a better world for ourselves and for generations to come.
+Assuming a global population of 7.8 billion and an average lifespan of 80 years:
 
+1. **Annual Per Capita Cost:** $7,238.25 billion / 7.8 billion = $928.24
+2. **Lifetime Cost Per Person:** $928.24 × 80 years = $74,259.2
 
-# Cost of War Per Person
+### Insights
 
-## TL;DR
-War Costs the Average Person $30M Over Their Lifetime
+The comprehensive annual cost of war, factoring in both direct and updated indirect costs, is approximately $7,238.25 billion. This equates to a staggering cost of about $74,259.2 per person over an 80-year lifespan, underscoring the profound economic and human impacts of global conflicts.
 
-To comprehensively quantify the equivalent financial benefits of ending war and the combined net present value (NPV) over a human lifetime, we synthesize data and estimates from various analyses. This involves projecting savings and potential gains from reduced military spending, minimized conflict losses, increased productive investments, and enhanced economic growth over an average human lifespan.
+## Cumulative Savings from Decreased Annual Cost of War
 
-## Assumptions
+Given the initial annual cost of war is approximately $7,238.25 billion, we explore the scenario where this cost decreases by 1% every year for 80 years. This decrease reflects potential efficiencies, peacekeeping successes, and the reallocation of resources towards more productive and peaceful endeavors. Here's how the calculations unfold:
 
-* Average Human Life Expectancy: 72 years
-* Discount Rate for NPV Calculation: 3% (reflecting typical long-term economic growth)
-* Annual Global Military Expenditure: [$1,981 billion](https://www.ebrd.com/publications/transition-report-202223-the-economics-of-war-and-peace) (2020 figure)
-* Annual Economic Impact of Conflict: [$521 billion](https://www.ebrd.com/publications/transition-report-202223-the-economics-of-war-and-peace) (related to deaths, injuries, and displacement)
-* Economic Impact of War-Related Infrastructure Destruction: [$1,875 billion](https://www.ebrd.com/publications/transition-report-202223-the-economics-of-war-and-peace) (based on 15 years’ worth of GDP growth over 20 years)
-* Economic Impact of War-Related Trade and Investment Disruption: [$616 billion](https://www.ebrd.com/publications/transition-report-202223-the-economics-of-war-and-peace)
-* Potential Annual Gain from Productive Use of War-Related Resources: [$440 billion](https://www.ebrd.com/publications/transition-report-202223-the-economics-of-war-and-peace)
-* Multiplier Effect of Productive Investments: 1.5
+## Initial Assumptions:
 
-## Calculations
+- **Initial Annual Cost of War:** $7,238.25 billion.
+- **Annual Decrease Rate:** 1% per year.
+- **Duration:** 80 years.
+- **Global Population:** 7.8 billion.
 
-### Direct Savings from Reduced Military Spending
+## Calculations:
 
-* Annual Savings: [$1,981 billion](https://www.ebrd.com/publications/transition-report-202223-the-economics-of-war-and-peace)
-* Savings Over 72 Years (assuming constant spending): $142,632 billion
+1. **Total Cost with Decrease:** We calculate the total cost over 80 years, taking into account the 1% annual decrease. This involves summing up the cost for each year, where each subsequent year's cost is 1% less than the previous year's.
 
-### Indirect Gains from Productive Investment of Military Spending
+2. **Total Cost without Decrease:** For comparison, we calculate what the total cost would have been if it remained constant at $7,238.25 billion per year over 80 years.
 
-* Annual Additional Economic Activity: [$1,981 billion](https://www.ebrd.com/publications/transition-report-202223-the-economics-of-war-and-peace) × 0.5 = $990.5 billion
-* Gains Over 72 Years (assuming constant additional activity): $71,316 billion
+3. **Cumulative Savings:** The difference between the total cost without the decrease and the total cost with the decrease gives us the cumulative savings over 80 years.
 
-### Savings from Reduced Conflict-Related Losses
+4. **Per Capita Savings:** To determine the impact on an individual level, we divide the cumulative savings by the global population of 7.8 billion.
 
-* Annual Savings: [$521 billion](https://www.ebrd.com/publications/transition-report-202223-the-economics-of-war-and-peace)
-* Savings Over 72 Years (assuming a 2% annual increase): $58,229 billion
+## Results:
 
-### Savings from Reduced Infrastructure Destruction
+- **Cumulative Savings:** Approximately $179 trillion over 80 years.
+- **Per Capita Savings:** Approximately $22,969.68 per person over 80 years.
 
-* Annual Savings: [$1,875 billion](https://www.ebrd.com/publications/transition-report-202223-the-economics-of-war-and-peace)
-* Savings Over 72 Years (assuming constant destruction): $135,000 billion
+By reducing the annual cost of war by a modest 1% annually over the course of 80 years, the global community could save nearly $179.16 trillion, translating to almost $23,000 in savings per person.
 
-### Savings from Reduced Trade and Investment Disruption
+# Transformative Impact of Redirecting War Savings to Healthcare Innovation
 
-* Annual Savings: [$616 billion](https://www.ebrd.com/publications/transition-report-202223-the-economics-of-war-and-peace)
-* Savings Over 72 Years (assuming constant disruption): $44,352 billion
+The global cost of conflict is staggering, not just in human lives but also in economic terms. By imagining the redirection of $179,163.49 billion, initially earmarked for warfare over 80 years, towards healthcare innovation, we explore the potential to save lives, reduce disability, and significantly impact the global economy.
 
-### Gains from Productive Use of War-Related Resources
+### Assumptions
 
-* Annual Additional Economic Activity: [$440 billion](https://www.ebrd.com/publications/transition-report-202223-the-economics-of-war-and-peace)
-* Gains Over 72 Years (assuming constant additional activity): $31,680 billion
+- **Efficiency and Cost Reduction in R&D:** 50% increase
+- **Lives Saved:** 50 million, through breakthrough treatments for major diseases.
+- **Reduced Disability Years:** 500 million, significantly improving global health.
+- **Productivity Increase:** 5% increase in global productivity from vastly improved health outcomes.
 
-### Gains from Increased Economic Growth
+### Economic Benefits
 
-* Assumption: A [0.5 percentage](https://www.ebrd.com/publications/transition-report-202223-the-economics-of-war-and-peace) point increase in global GDP growth due to peace and productive investment
-* 2020 Global GDP: $88 trillion
-* Projected GDP After 72 Years with 0.5 percentage point annual increase: $382 trillion
-* Potential Gain: $294 trillion
+- **Direct Investment Impact:** $268,745 billion in effective healthcare innovation value.
+- **Lives Saved Economic Benefit:** $500,000 billion.
+- **Reduced Disability Years Economic Benefit:** $25,000 billion.
+- **Productivity Increase Economic Benefit:** $320,000 billion.
 
-### Total Savings and Gains Over 72 Years
+### Total Economic Benefit
 
+The total economic benefit is approximately $1,113,745 billion. This figure reflects the unparalleled impact of fully harnessing AI and healthcare innovation to cure disease.
 
-$142,632 billion + $71,316 billion + $58,229 billion + $135,000 billion + $44,352 billion + $31,680 billion + $294,000 billion = $777,209 billion
+# Per Capita Economic Benefit of Automated Clinical Research
 
+The transformative potential of redirecting funds from warfare to healthcare innovation can be further understood by examining the per capita economic benefits. This scenario optimistically assumes a 50% increase in R&D efficiency through AI, saving 50 million lives, reducing 500 million disability years, and boosting global productivity by 5%.
 
-### Net Present Value (NPV) Calculation
+## Calculation
 
-Using a discount rate of 3%, the NPV of $777,209 billion over 72 years is:
+Given the total economic benefit of approximately $1,113,745 billion from redirecting war savings towards healthcare innovation, and considering the global population of 7.8 billion, we can calculate the per capita benefit as follows:
 
-NPV = Total Savings and Gains × [Discount Rate1−(1+Discount Rate)−Number of Years​]
+Per Capita Total Economic Benefit = Total Economic Benefit / Global Population = **$142,787.82** per person
 
-= $777,209 billion × [0.031−(1.03)−72​]
+This figure represents the economic value that could be realized on an individual level if the substantial funds currently allocated to warfare were instead invested in maximizing the potential of healthcare innovation.
 
-= $23,698,571 billion or approximately $24 quadrillion
+The redirection of funds from warfare to healthcare innovation presents an opportunity to significantly improve global health outcomes and economic prosperity. From saving millions of lives to enhancing productivity and reducing disabilities, the potential benefits are immense.
 
-### Per Capita NPV
+By automating clinical research we can unlock unprecedented levels of health, well-being, and economic growth, creating a lasting legacy of peace and prosperity.
 
-Assuming a global population of 7.9 billion, the per capita NPV is:
+# $142k for 5 Hours of Your Time
 
-$23,698,571 billion ÷ 7.9 billion = $3,000,123 or approximately $3 million per person
+Historical examples show that petitions with support from over 1% of the population have a high likelihood of being adopted. So all you have to do is
 
-## Conclusion
+## Factors Influencing Time Investment
 
-The estimated equivalent financial benefits of ending war, considering savings from reduced military spending, reduced conflict-related losses, reduced infrastructure destruction, reduced trade and investment disruption, and gains from productive investments and increased economic growth, amount to a staggering $24 quadrillion in net present value terms over a typical human lifetime. This equates to approximately **$3 million per person globally**.
+1. **Number of Friends:** The average number of significant relationships one might actively maintain, often cited as Dunbar's number, is around 150.
 
-These figures, while based on numerous assumptions and rough estimates, illustrate the monumental potential economic benefits of achieving world peace and redirecting war-related resources to productive investments. They suggest that the long-term financial value of initiatives that promote peace could be immense, potentially in the quadrillions of dollars.
+2. **Method of Communication:** Personal messages or emails are considered for this estimation, assuming they strike a balance between personal touch and efficiency.
 
-Of course, the true value of peace goes far beyond what can be captured in financial terms. Yet, this financial analysis provides a compelling economic case for investing in peace and human well-being, underscoring the importance of initiatives like the Global Health Fund not just as moral imperatives, but also as sound long-term economic strategies for the betterment of all humanity.
+3. **Time Per Friend:** It's estimated that drafting and sending a personal message or email would take approximately 2 minutes per friend. This includes the time to write the message and possibly tailor it slightly for each friend.
 
-As we contemplate the future of our world, these figures provide a powerful reminder of the enormous costs of our current path and the incredible potential of a different way forward, inviting us to work towards a world where resources currently devoted to war are instead harnessed for the good of all.
+## Calculation
+
+Given the average number of friends (150) and the estimated time per friend (2 minutes), the total time investment can be calculated as follows:
+
+- **Total Friends:** 150
+- **Time per Friend:** 2 minutes
+
+Total Time = Number of Friends × Time per Friend
+= 150 friends × 2 minutes/friend
+= 300 minutes
+
+Converting this into hours:
+
+Total Time in Hours = Total Time in Minutes / 60
+= 300 minutes / 60
+= 5 hours
+
+Based on this estimation, an average person would need to invest approximately 5 hours to individually reach out to all 150 of their friends via personal messages or emails about the treaty. This calculation assumes a brief but personalized communication method, emphasizing the importance of each conversation in promoting global initiatives.
+
+Remember, the actual time could vary depending on how in-depth the conversations go and whether other communication methods are used in tandem, such as social media posts or phone calls, which could reach multiple friends simultaneously or require more time per conversation, respectively.
+
