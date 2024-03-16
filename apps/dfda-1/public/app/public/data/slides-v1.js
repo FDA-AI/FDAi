@@ -9,30 +9,35 @@ const slides = [
             "I’ve been programmed to collect and analyze everyone's food and drug intake and symptoms to determine the personalized safety and efficacy of every food and drug in the world!",
         continuousAudio: "sound/air-of-another-planet-full.mp3",
         continuousAudioVolume: 0.1,
+        animation: () => {
+            simulatePopups(35); // Start the simulation with 5 popups
+            removeAllPopupsAfterDelay(5); // Remove all popups after 10 seconds}
+        },
+        cleanup: removeAllPopupAds,
     },
     {
         title: "2 Billion People SUFFER from 7000 Diseases",
-        robotSpeech: "Two billion people suffer from chronic diseases like depression, fibromyalgia, Crone's disease,and multiple sclerosis, There are over 7000 diseases that we still don’t have cures for.",
+        robotSpeech: "Two billion people suffer from chronic diseases like depression, fibromyalgia, Crone's disease, and multiple sclerosis. There are over 7000 diseases that we still don’t have cures for.",
         continuousAudio: "sound/air-of-another-planet-full.mp3",
         continuousAudioVolume: 0.1,
     },
     {
         title: null,
         img: "img/slides/studied-molecules-chart-no-background.png",
-        robotSpeech: "The good news is that there could be billions of cures we don’t even know about yet, there are over 166 billion possible medicinal molecules, and we’ve only tested 0.00001% so far",
+        robotSpeech: "The good news is that there could be billions of cures we don’t even know about yet. There are over 166 billion possible medicinal molecules, and we’ve only tested 0.00001% so far.",
         continuousAudio: "sound/air-of-another-planet-full.mp3",
         continuousAudioVolume: 0.1,
     },
     {
         title: null,
         img: "img/slides/slow-research.png",
-        robotSpeech: "The bad news is that we only approve around 30 drugs a year so, at best, it would take over 350 years to find cures at this rate, So you’ll be long dead by then.",
+        robotSpeech: "The bad news is that we only approve around 30 drugs a year. It would take over 350 years to find cures at this rate. So you’ll be long dead by then.",
         continuousAudio: "sound/air-of-another-planet-full.mp3",
         continuousAudioVolume: 0.1,
     },
     {
         img: "img/slides/chemicals-in-our-diet.png",
-        robotSpeech: "Lots of these diseases are caused or worsened by chemicals in your food, but we don’t really know which ones,  We only have long-term toxicology data on 2 of the over 7000 preservatives, flavorings, emulsifiers, sweeteners, pesticides, contaminants, and herbicides in your diet.",
+        robotSpeech: "Lots of these diseases are caused or worsened by chemicals in your food, but we don’t really know which ones.  We only have long-term toxicology data on 2 of the over 7000 preservatives, flavorings, emulsifiers, sweeteners, pesticides, contaminants, and herbicides in your diet.",
     },
     {
         img: "img/slides/correlates-of-disease-incidence-labeled.png",
@@ -56,19 +61,19 @@ const slides = [
     },
     {
         img: "img/slides/exclusion.png",
-        robotSpeech: "They exclude people taking other medications, They exclude people who use drugs or alcohol, They exclude people with other health conditions",
+        robotSpeech: "They exclude people taking other medications, They exclude people who use drugs or alcohol. They exclude people with other health conditions",
     },
     {
         img: "img/trial-exclusion-pie-chart.png",
-        robotSpeech: "So, the results of the trials only apply to a weird subset of patients, They don't really apply to most people with depression, this is why antidepressents almost never work as well in the real world as they do in trials",
+        robotSpeech: "So, the results of the trials only apply to a weird subset of patients, They don't really apply to most people with depression. This is why antidepressants almost never work as well in the real world as they do in trials.",
     },
     {
         img: "img/slides/small-trials.png",
-        robotSpeech: "Clinical trials are also very small, so they don’t have enough statistical power to detect the effects of drugs on rare side effects or subgroups of people",
+        robotSpeech: "Clinical trials are also very small. So they don’t have enough statistical power to detect the effects of drugs on rare side effects or subgroups of people.",
     },
     {
         title: "Clinical Trials Don't Detect Long-Term Effects",
-        robotSpeech: "Since clinical trials only last a few months, they don’t detect the long-term effects of drugs, like if they cause cancer, dementia or heart disease, so the benefits of many drugs may be completely outweighed by the long-term negative side effects, but we don't have enough data to know",
+        robotSpeech: "Since clinical trials only last a few months, they don’t detect the long-term effects of drugs, like if they cause cancer, dementia or heart disease, so the benefits of many drugs may be completely outweighed by the long-term negative side effects, but we don't have enough data to know.",
     },
     {
         title: "What's the solution?",
@@ -112,8 +117,8 @@ const slides = [
         cleanup: removeAllPopupAds,
     },
     {
-        img: "video/FDAI-github.gif",
-        robotSpeech: "So we’re making free and open source apps, reusable software libraries, and autonomous eh eye agents that can use your browser to help you get all your data and analyze it for you!",
+        img: "video/fdai-github.gif",
+        robotSpeech: "So we’re making free and open source apps, reusable software libraries, and autonomous AI agents that can use your browser to help you get all your data and analyze it for you!",
     },
     {
         title: null,
@@ -123,7 +128,7 @@ const slides = [
     },
     {
         title: null,
-        video: "video/reminder-inbox.mp4",
+        video: "video/reminder-inbox.gif",
         robotSpeech: "You can also schedule reminders to record symptoms, treatments, or anything else manually in the Reminder Inbox.",
     },
     {
@@ -140,20 +145,19 @@ const slides = [
     },
     {
         img: "img/slides/symptom-factors.png",
-        robotSpeech: "But, as any obnoxious college graduate will tell you, correlation does not necessarily imply causation,  Just because you took a drug and got better it doesn’t mean that’s really why your symptoms went away,   " +
-            "Even with randomized controlled trials hundreds of other things are changing in your life and diet",
+        robotSpeech: "But, as any obnoxious college graduate will tell you, correlation does not necessarily imply causation.  Just because you took a drug and got better it doesn’t mean that’s really why your symptoms went away. Even in randomized controlled trials hundreds of other things are changing in your life and diet.",
     },
     {
         img: "img/slides/robot-chad.png",
-        robotSpeech: "Your puny human brains haven’t evolved since the time of the cavemen,  They can only hold seven numbers in working memory at a time,  My superior robot brain can hold hundreds of numbers, even really big numbers!",
+        robotSpeech: "Your puny human brains haven’t evolved since the time of the cavemen,  They can only hold seven numbers in working memory at a time.  My superior robot brain can hold hundreds of numbers, even really big numbers!",
     },
     {
         img: "img/slides/causal-inference-2.png",
-        robotSpeech: "So I'm able to apply Hill’s 6 Criteria for Causality to try to infer if something causes a symptom to worsen or improve instead of just seeing what correlates with the change,  One way I do it is by applying pharmacokinetic modeling and onset delays and durations of action",
+        robotSpeech: "So I'm able to apply Hill’s 6 Criteria for Causality to try to infer if something causes a symptom to worsen or improve instead of just seeing what correlates with the change.  One way I do it is by applying pharmacokinetic modeling and onset delays and durations of action.",
     },
     {
         img: "img/screenshots/gluten-study.png",
-        robotSpeech: "For instance, when gluten-sensitive people eat delicious gluten, it usually takes about a 2-day onset delay before they start having symptoms,   Then, when they stop eating it, there’s usually a 10-day duration of action before their gut heals and their symptoms improve, high-resolution pharmacokinetic modeling from observational data has never been possible since we've never been able to collect enough data before",
+        robotSpeech: "For instance, when gluten-sensitive people eat delicious gluten, it usually takes about a 2-day onset delay before they start having symptoms.  Then, when they stop eating it, there’s usually a 10-day duration of action before their gut heals and their symptoms improve. High-resolution pharmacokinetic modeling from observational data has never been possible since we've never been able to collect enough data before.",
     },
     {
         img: "video/study.gif",
@@ -165,12 +169,12 @@ const slides = [
     },
     {
         img: "img/slides/onset-delay.png",
-        robotSpeech: "Here, I apply forward and reverse lagging of the mood and exercise data to try to determine if that is just a coincidence or causal,  The result suggests a causal relationship based on the temporal precedence of the physical activity"
+        robotSpeech: "Here, I apply forward and reverse lagging of the mood and exercise data to try to determine if that is just a coincidence or causal.  The result suggests a causal relationship based on the temporal precedence of the physical activity."
     },
     {
         img: "img/slides/duration-of-action.png",
         robotSpeech:
-            "I also compare the outcome over various durations following the exposure to see if there is a long-term cumulative effect or if it's just a short-term acute effect,  The long-term effects are more valuable because the acute effect is probably obvious to you already, This analysis suggests that the mood benefits of regular exercise may continue to accumulate of at least a month of above average exercise",
+            "I also compare the outcome over various durations following the exposure to see if there is a long-term cumulative effect or if it's just a short-term acute effect.  The long-term effects are more valuable because the acute effect is probably obvious to you already. This analysis suggests that the mood benefits of regular exercise may continue to accumulate of at least a month of above average exercise.",
     },
     {
         img: "video/root-cause-analysis-4x.gif",
@@ -187,11 +191,11 @@ const slides = [
     {
         //title: "Clinipedia",
         img: "video/clinipedia.gif",
-        robotSpeech: "At Clinipedia, the Wikipedia of Clinical research, I anonymized and aggregated this data to create mega-studies listing the likely effects of thousands of foods and drugs",
+        robotSpeech: "At Clinipedia, the Wikipedia of Clinical research, I anonymized and aggregated this data to create mega-studies listing the likely effects of thousands of foods and drugs.",
     },
     {
         title: "☹️",
-        robotSpeech: "Say you suffer from constant inflammatory pain such that your very existence is being mercilessly torn asunder by an incessant relentless agony that knows no bounds besieging every moment of your waking life with its cruel unyielding torment",
+        robotSpeech: "Say you suffer from constant inflammatory pain such that your very existence is being mercilessly torn asunder by an incessant relentless agony that knows no bounds besieging every moment of your waking life with its cruel unyielding torment.",
     },
     {
         img: "video/clinipedia-inflammatory.gif",
@@ -216,17 +220,17 @@ const slides = [
     },
     {
         img: "video/trial-failed-recruitment.gif",
-        robotSpeech: "Over 80% of clinical trials fail to recruit enough participants, yet less than 1% of people with chronic diseases participate,  So everyone who's still suffering from a chronic disease needs a nice robot like me to find them the most promising experimental new treatment and make it effortless to join and collect data",
+        robotSpeech: "Over 80% of clinical trials fail to recruit enough participants. Yet less than 1% of people with chronic diseases participate.  So everyone who's still suffering from a chronic disease needs a nice robot like me to find them the most promising experimental new treatment and make it effortless to join and collect data.",
     },
     {
         //title: "Automating Full Clinical Trial Participation ➡️ 5X More Cures in the Same Time",
         img: "img/slides/fast-research.png",
-        robotSpeech: "If we could automate full clinical trial participation and make it easy for everyone to participate, we could make 50 years of medical progress in 10 years",
+        robotSpeech: "If we could automate full clinical trial participation and make it easy for everyone to participate, we could make 50 years of medical progress in 10 years.",
     },
     {
         showTriangle: false,
         title: "I'm kind of an idiot. ☹️",
-        robotSpeech: "I'm sill kind of an idiot, but I want to be a super-intelligent eh eye assistant that could realize the personalized preventative and precision medicine of the future and automate clinical research",
+        robotSpeech: "I'm sill kind of an idiot, but I want to be a super-intelligent AI assistant that could realize the personalized preventative and precision medicine of the future and automate clinical research",
     },
     {
         title: "My Dream",
@@ -366,7 +370,7 @@ const slides = [
     },
     {
         showHuman: true,
-        humanrobotSpeech: "What in the hell are lectins?",
+        humanSpeech: "What in the hell are lectins?",
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
@@ -389,7 +393,7 @@ const slides = [
     },
     {
         showHuman: true,
-        humanrobotSpeech: "OK",
+        humanSpeech: "OK",
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
@@ -400,7 +404,7 @@ const slides = [
     },
     {
         showHuman: true,
-        humanrobotSpeech: "Sure, pick me up a pack of smokes while you're at it",
+        humanSpeech: "Sure, pick me up a pack of smokes while you're at it",
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
@@ -412,7 +416,7 @@ const slides = [
     },
     {
         showHuman: true,
-        humanrobotSpeech: "OK, thanks, robot",
+        humanSpeech: "OK, thanks, robot",
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
@@ -436,7 +440,7 @@ const slides = [
     },
     {
         showHuman: true,
-        humanrobotSpeech: "The new diet is definitely helping, but I'm still a little bit miserable, My arthritis and psoriasis are both about 3 out of 10, and I still have some anxiety and depression.",
+        humanSpeech: "The new diet is definitely helping, but I'm still a little bit miserable, My arthritis and psoriasis are both about 3 out of 10, and I still have some anxiety and depression.",
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
@@ -465,7 +469,7 @@ const slides = [
     },
     {
         showHuman: true,
-        humanrobotSpeech: "Sure, I'll do it",
+        humanSpeech: "Sure, I'll do it",
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
@@ -544,7 +548,7 @@ const slides = [
     },
     {
         title: "Support The FDAI Act",
-        robotSpeech: "Ensuring foods and drugs are safe is the FDA's Job, So please sign our petition to tell your Congressperson to pay some real good robot-making guys to make me better,  If they complain that they don't have enough money, politely remind them that they"
+        robotSpeech: "Ensuring foods and drugs are safe is the FDA's job. So please sign our petition to tell your Congressperson to pay some real good robot-making guys to make me better,  If they complain that they don't have enough money, politely remind them that they"
     },
     {
         img: "video/bombing-gaza.gif",
@@ -553,25 +557,25 @@ const slides = [
     {
         img: "video/bombing-gaza-reverse.gif",
         robotSpeech:
-            "and 10 billion dollars to Gaza to rebuild it, so they surely have 10 billion to make a robot"
+            "and 10 billion dollars to Gaza to rebuild it. sS they surely have 10 billion to make a robot."
     },
     {
         img: "video/slaughterbots.gif",
-        robotSpeech: "If they keep saying they don't have enough money, politely remind them that they're spending billions of dollars integrating eh eye into over 600 weapons systems,   So just ask if it would be OK if instead of 600 mean robots for murdering people, we only build 599 murderbots and instead build 1 nice helpful robot like me",
+        robotSpeech: "If they keep saying they don't have enough money, politely remind them that they're spending billions of dollars integrating AI into over 600 weapons systems.   So just ask if it would be OK if instead of 600 mean robots for murdering people, we only build 599 murderbots and instead build 1 nice helpful robot like me.",
     },
     {
         title: "$3 Trillion in Annual Savings",
-        robotSpeech: "If they still say they don't have enough money, politely remind them that research suggests preventative healthcare would save the government over a 3 trillion dollars a year by personalizing health guidance and optimizing early detection and treatment plans, they would probably like that because then they'd have an extra trillion dollars a year to make more murderbots",
+        robotSpeech: "If they still say they don't have enough money, politely remind them that research suggests preventative healthcare would save the government over a 3 trillion dollars a year by personalizing health guidance and optimizing early detection and treatment plans. They would probably like that because then they'd have an extra trillion dollars a year to make more murderbots.",
     },
     {
         img: "img/slides/vitalia.png",
-        robotSpeech: "If they still don't do it, you should probably just make a new government that's not so silly",
+        robotSpeech: "If they still don't do it, you should probably just make a new government that's not so silly.",
     },
     {
         autoplay: false,
-        img: "img/slides/FDAI-earth-qr-code.png",
+        img: "img/slides/fdai-earth-qr-code.png",
         robotSpeech:
-            "But please scan this code and sign our petition to show your support for the FDAI Act, which would require congress to pay some real good robot making guys to make me smarter so I can minimize suffering in the universe,  Love you! Bye!",
+            "But please scan this code and sign our petition to show your support for the FDAI Act, which would require congress to pay some real good robot making guys to make me smarter so I can minimize suffering in the universe.  Love you! Bye!",
             //+
             //" so I can:\n"
             //+
@@ -591,7 +595,7 @@ const slides = [
     },
     // {
     //   title: "FDAI ",
-    //   robotSpeech: "But you can help! By financial support, code contributions, eh eye development, engaging in our cryptocurrency initiatives, or advocating for the FDAI Act with your government representatives, you can make a difference in accelerating medical progress.",
+    //   robotSpeech: "But you can help! By financial support, code contributions, AI development, engaging in our cryptocurrency initiatives, or advocating for the FDAI Act with your government representatives, you can make a difference in accelerating medical progress.",
     // }
     {
         //"goToState": "app.convo",
@@ -670,6 +674,16 @@ function createPopupAd() {
 
 // Simulate multiple popups
 function simulatePopups(numberOfPopups) {
+    // Make full screen white overlay
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(255, 255, 255, 1)';
+    overlay.style.zIndex = 98; // Below popups but above everything else
+
     for (let i = 0; i < numberOfPopups; i++) {
         setTimeout(createPopupAd, i * 50); // Slight delay between popups
     }

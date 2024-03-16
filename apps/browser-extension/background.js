@@ -1,3 +1,5 @@
+import { extractAndSaveAmazon } from './extractAndSaveAmazon.js';
+
 chrome.runtime.onInstalled.addListener(() => {
   setDailyAlarm(); // Set an alarm on installation
 });
@@ -5,7 +7,7 @@ chrome.runtime.onInstalled.addListener(() => {
 function setDailyAlarm() {
   chrome.storage.sync.get("frequency", ({ frequency }) => {
     const minutes = parseInt(frequency, 10) || 1440; // Default to 1440 minutes (once a day) if not set
-    chrome.alarms.create("dailyPopup", { periodInMinutes: minutes });
+    chrome.alarms.create("trackingPopup", { periodInMinutes: minutes });
   });
 }
 
@@ -18,19 +20,62 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
   }
 });
 
+let popupId = null;
+
+function showTrackingPopup() {
+  debugger
+  console.log('Time to show the daily popup!');
+
+  let origin = 'https://safe.fdai.earth';
+  //origin = 'https://local.quantimo.do';
+
+  if (popupId !== null) {
+    chrome.windows.get(popupId, { populate: true }, (win) => {
+      if (chrome.runtime.lastError) {
+        // The window was closed or never created. Create it.
+        chrome.windows.create({
+          url: origin + '/app/public/android_popup.html',
+          type: 'popup',
+          width: 1,
+          height: 1,
+          left: 100,
+          top: 100,
+          focused: false
+        }, (win) => {
+          popupId = win.id;
+        });
+      } else {
+        // The window exists. Update it.
+        chrome.windows.update(popupId, { focused: true });
+      }
+    });
+  } else {
+    // No window ID, create a new window.
+    chrome.windows.create({
+      url: origin + '/app/public/android_popup.html',
+      type: 'popup',
+      width: 1,
+      height: 1,
+      left: 100,
+      top: 100,
+      focused: false
+    }, (win) => {
+      popupId = win.id;
+    });
+  }
+}
+
+// background.js
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === "showTrackingPopup") {
+    showTrackingPopup();
+  }
+});
+
 chrome.alarms.onAlarm.addListener((alarm) => {
   console.log("Got an alarm!", alarm);
-  if (alarm.name === "dailyPopup") {
-    console.log("Time to show the daily popup!");
-    // Open a window instead of creating a notification
-    chrome.windows.create({
-      url: 'https://safe.fdai.earth/app/public/android_popup.html',
-      type: 'popup',
-      width: 300,
-      height: 200,
-      left: 100,
-      top: 100
-    });
+  if (alarm.name === "trackingPopup") {
+    showTrackingPopup();
   }
 });
 
@@ -98,7 +143,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     //   target: {tabId: tab.id},
     //   function: extractAndSaveAmazon
     // });
-    chrome.tabs.create({url: "https://www.amazon.com/gp/css/order-history?ref_=nav_orders_first"});
+    chrome.tabs.create({url: "https://www.amazon.com/gp/css/order-history"});
   }
 });
 
@@ -121,7 +166,7 @@ function parseDate(deliveryDate) {
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   console.log("Tab updated:", changeInfo);
   // Check if the updated tab's URL is the Amazon order history page
-  if (changeInfo.url === "https://www.amazon.com/gp/css/order-history?ref_=nav_orders_first") {
+  if (changeInfo.url && changeInfo.url.startsWith("https://www.amazon.com/gp/css/order-history")) {
     debugger
     console.log("Amazon order history page loaded");
     // Execute the extractAndSaveAmazon function
@@ -144,59 +189,7 @@ async function getQuantimodoAccessToken() {
   });
 }
 
-async function extractAndSaveAmazon() {
-  const productBoxes = document.querySelectorAll('.a-fixed-left-grid.item-box.a-spacing-small, .a-fixed-left-grid.item-box.a-spacing-none');
-  const deliveryDate = document.querySelector('.delivery-box__primary-text').textContent.trim();
-  const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
-  let measurements = [];
 
-  for (const box of productBoxes) {
-    const productImage = box.querySelector('.product-image a img').src;
-    const productTitle = box.querySelector('.yohtmlc-product-title').textContent.trim();
-    const productLink = box.querySelector('.product-image a').href;
-
-    // Check if the product is already in localStorage
-    const isProductStored = storedProducts.some(product => product.url === productLink);
-
-    if (!isProductStored) {
-      // If not stored, add the product to the array and localStorage
-      const newProduct = {
-        date: deliveryDate,
-        title: productTitle,
-        image: productImage,
-        url: productLink
-      };
-      storedProducts.push(newProduct);
-      localStorage.setItem('products', JSON.stringify(storedProducts));
-
-      // Add the product details to the array
-      measurements.push({
-        startAt: parseDate(deliveryDate),
-        variableName: productTitle,
-        unitName: "Count",
-        value: 1,
-        url: productLink,
-        image: productImage
-      });
-    }
-  }
-
-  if(measurements.length > 0) {
-    const quantimodoAccessToken = await getQuantimodoAccessToken();
-    const response = await fetch('https://safe.fdai.earth/api/v1/measurements', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${quantimodoAccessToken}`
-      },
-      body: JSON.stringify(measurements)
-    });
-    const data = await response.json();
-    console.log('Response from Quantimodo API:', data);
-  }
-
-  console.log(`Processed ${productBoxes.length} products.`);
-}
 
 function hasAccessToken() {
   return new Promise((resolve, reject) => {
@@ -255,7 +248,15 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     // Execute your function here
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       //console.log("tabs", tabs);
+      if(!tabs[0]) {
+        console.log("No active tabs. Tabs:", tabs);
+        return;
+      }
       chrome.tabs.sendMessage(tabs[0].id, {message: "getFdaiLocalStorage", key: "accessToken"}, function(response) {
+        if(!response) {
+          console.error("No response from getFdaiLocalStorage");
+          return;
+        }
         //console.log(response.data);
         chrome.storage.sync.set({quantimodoAccessToken: response.data}, function() {
           console.log('Access token saved:')//, response.data);

@@ -19,11 +19,15 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                 },0.2 * 1000);
             }
         }
+        function formatSpeech(speech){
+            speech = speech.replace(" AI ", " eh eye ");
+            return speech.replace(".", ",");
+        }
 
         function humanTalk(slide, errorHandler) {
             speechEnded = false;
             human.talkHuman(
-                slide.humanSpeech.replace(".", ","),
+                formatSpeech(slide.humanSpeech),
                 function () {
                     speechEnded = true;
                     checkAndProceed();
@@ -102,18 +106,18 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
 	        },
 	        next: function(){
 		        $ionicSlideBoxDelegate.next();
-                $scope.state.slideIndex++;
+                setSlideIndex($scope.state.slideIndex + 1);
                 $scope.state.slideChanged($scope.state.slideIndex);
 	        },
 	        previous: function(){
 		        $ionicSlideBoxDelegate.previous();
-                $scope.state.slideIndex--;
+                setSlideIndex($scope.state.slideIndex - 1);
                 $scope.state.slideChanged($scope.state.slideIndex);
 	        },
 	        slideChanged: function(){
                 var index = $scope.state.slideIndex;
                 slide = $scope.state.slides[index];
-                qm.storage.setItem('presentationSlideIndex', index);
+                setSlideIndex(index);
                 human.closeMouth()
                 if(!$scope.state.playing){$scope.state.playing = true;}
                 var lastSlide = $scope.state.slides[index - 1];
@@ -170,8 +174,8 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                 //qm.robot.openMouth();
                 speechEnded = false;
 		        qm.speech.talkRobot(
-			        slide.robotSpeech.replace(".", ",")
-			        , function(){
+                    formatSpeech(slide.humanSpeech),
+                    function(){
                         speechEnded = true;
                         checkAndProceed();
                     }
@@ -196,8 +200,20 @@ angular.module('starter').controller('PresentationCtrl', ["$scope", "$state", "$
                 $scope.state.autoplay = $stateParams.autoplay;
             }
         });
+        function setSlideIndex(index){
+            if(index < 0){
+                console.error("Slide index cannot be less than 0");
+                index = 0;
+            }
+            if(index > slides.length - 1){
+                console.error("Slide index cannot be greater than the number of slides");
+                index = 0;
+            }
+            $scope.state.slideIndex = index;
+            qm.storage.setItem('presentationSlideIndex', index);
+        }
         $scope.$on('$ionicView.afterEnter', function(){
-            $scope.state.slideIndex = qm.storage.getItem('presentationSlideIndex') || 0;
+            setSlideIndex(qm.storage.getItem('presentationSlideIndex') || 0);
             qmService.navBar.hideNavigationMenu();
             qm.robot.onRobotClick = $scope.state.next;
 			qmService.hideLoader();

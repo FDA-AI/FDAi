@@ -6,7 +6,7 @@
             </div>
             <div style="float: right; margin-top:3px; margin-right:10px;">
                 <img id="deleteVariableMeasurements" style="cursor:pointer;"
-                     src="/{{ \App\Repos\QMWPPluginRepo::URL_PATH }}/css/images/trash.png"
+                     src="/{{ \App\Repos\QMWPPluginRepo::URL_PATH }}/images/trash.png"
                      title="Delete the Measurements for this variable">
                 <input id="input-variable-id" type="hidden">
             </div>
