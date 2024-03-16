@@ -234,7 +234,7 @@
 <div id="please-wait">
     <div id="please-wait-overlay">&nbsp;</div>
     <div class="please-wait-content">
-        <img src="{{ $pluginUrl . 'css/images/ajax-loader.gif' }}" alt="">
+        <img src="{{ $pluginUrl . 'images/ajax-loader.gif' }}" alt="">
         <span>please wait...</span>
     </div>
 </div>
