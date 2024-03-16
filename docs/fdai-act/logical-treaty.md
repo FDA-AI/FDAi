@@ -173,3 +173,7 @@ Total Time in Hours = Total Time in Minutes / 60
 
 Based on this estimation, an average person would need to invest approximately 5 hours to individually reach out to all 150 of their friends via personal messages or emails about the treaty. This calculation assumes a brief but personalized communication method, emphasizing the importance of each conversation in promoting global initiatives.
 
+# References
+
+https://watson.brown.edu/costsofwar/costs
+https://www.carnegie.org/our-work/article/costs-war/
