@@ -7,9 +7,26 @@ import {
 } from "typechat";
 import { Measurement } from "./measurementSchema";
 import { MeasurementSet } from "./measurementSchema";
+function findEnvFile(startPath: string): string | null {
+  let currentPath = startPath;
 
-// TODO: use local .env file.
-config({ path: path.join(__dirname, "../../.env") });
+  while (currentPath !== path.parse(currentPath).root) {
+    const envPath = path.join(currentPath, '.env');
+    if (fs.existsSync(envPath)) {
+      return envPath;
+    }
+    currentPath = path.dirname(currentPath);
+  }
+
+  return null;
+}
+
+const envPath = findEnvFile(__dirname);
+if (envPath) {
+  config({ path: envPath });
+} else {
+  throw Error('.env file not found');
+}
 
 const model = createLanguageModel(process.env);
 let viewSchema = fs.readFileSync(
@@ -58,7 +75,7 @@ function printMeasurementSet(measurementSet: MeasurementSet) {
     for (const measurement of measurementSet.measurements) {
       if(isMeasurement(measurement)) {
         const s = `
-        ${measurement.value} ${measurement.unitName} ${measurement.variableName} 
+        ${measurement.value} ${measurement.unitName} ${measurement.variableName}
          ${measurement.startTimeLocal} ${measurement.variableCategoryName}`;
         console.log(s);
         continue;
