@@ -10,7 +10,7 @@
 
 </head>
 <body>
-<div class="grid"></div>
+<!--<div class="grid"></div>-->
 <div class="lines"></div>
 <h1>
   <span>DIGITAL</span>
@@ -25,13 +25,13 @@
       <div class="option">
         <label class="option-label">
           <input type="radio" name="behavior" value="popup" checked>
-          Less Noticeable Background Notification
+          Less Noticeable Small Notification
         </label>
       </div>
       <div class="option">
         <label class="option-label">
           <input type="radio" name="behavior" value="direct">
-          Open Tab Immediately in Foreground
+          Open Full Inbox Immediately in Foreground
         </label>
       </div>
       <div class="option">
@@ -39,6 +39,8 @@
         <select id="frequency" name="frequency" class="input-field">
           <option value="1">Every minute</option>
           <option value="60">Every hour</option>
+          <option value="240">Every 4 hours</option>
+          <option value="480">Every 8 hours</option>
           <option value="1440" selected>Once a day</option>
           <option value="10080">Once a week</option>
         </select>

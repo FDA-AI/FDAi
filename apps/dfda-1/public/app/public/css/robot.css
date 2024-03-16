@@ -1,14 +1,13 @@
-
 .robot-container {
     box-sizing: border-box;
     position: absolute;
     width: 160px;
     height: 170px;
     bottom: -30px;
-    left: calc(100% - 300px);
+    left: calc(100% - 250px);
     z-index: 4;
 }
-.head {
+.robot-head {
     position: absolute;
     width: 130px;
     left: 20px;
@@ -18,25 +17,26 @@
     background: #ccc linear-gradient(to right, #b7a9a9 0%, #c1b1b1 40%, #c1b5b5 60%, #ab9c9c 100%);
     -webkit-transform-origin: 50% 100%;
     transform-origin: 50% 100%;
-    -webkit-animation: bob 8000ms ease-in-out alternate infinite -1000ms;
-    animation: bob 8000ms ease-in-out alternate infinite -1000ms;
-    border: 2px solid #000000; }
+    -webkit-animation: robotBob 8000ms ease-in-out alternate infinite -1000ms;
+    animation: robotBob 8000ms ease-in-out alternate infinite -1000ms;
+    border: 2px solid #000000;
+}
 
-.eyes {
+.robot-eyes {
     position: absolute;
     top: calc(40% - 10px);
     right: 10px;
     left: 10px;
     height: 63px;
-    -webkit-animation: blink 10000ms linear forwards infinite;
-    animation: blink 10000ms linear forwards infinite;
-    }
+    -webkit-animation: robotBlink 10000ms linear forwards infinite;
+    animation: robotBlink 10000ms linear forwards infinite;
+}
 
-.eyeball {
+.robot-eyeball {
     position: absolute;
-    width: 40px; /* Increase the size of the eyes */
-    height: 40px; /* Increase the size of the eyes */
-    background: radial-gradient(ellipse, #000 0%, #111827 30%, #6fbded 40%) no-repeat center; /* Change the color of the eyes */
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(ellipse, #000 0%, #111827 30%, #6fbded 40%) no-repeat center;
     background-size: 100%;
     z-index: -2;
     border-radius: 100%;
@@ -44,30 +44,30 @@
     border: 2px solid #000000;
 }
 
-.eyeball::before {
+.robot-eyeball::before {
     content: "";
     position: absolute;
     top: 10%;
     left: 10%;
     width: 15px;
     height: 15px;
-    background: radial-gradient(circle, #fff 0%, transparent 70%); /* Add a sparkle to the eyes */
+    background: radial-gradient(circle, #fff 0%, transparent 70%);
     border-radius: 50%;
 }
 
-.eyeball_left {
+.robot-eyeball_left {
     left: 0;
     transition: -webkit-transform 100ms ease-in-out;
     transition: transform 100ms ease-in-out;
-    transition: transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out; }
+}
 
-.eyeball_right {
+.robot-eyeball_right {
     right: 0;
     transition: -webkit-transform 100ms ease-in-out;
     transition: transform 100ms ease-in-out;
-    transition: transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out; }
+}
 
-.mouth {
+.robot-mouth {
     position: absolute;
     bottom: 15px;
     left: 50px;
@@ -75,36 +75,55 @@
     height: 10px;
     background-color: black;
     overflow: hidden;
-    border-bottom-left-radius: 50%; /* Make the bottom left corner rounded */
-    border-bottom-right-radius: 50%; /* Make the bottom right corner rounded */
-    transition: height 100ms cubic-bezier(0.455, 0.03, 0.515, 0.955); }
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    transition: height 100ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
 
-.mouth-container {
+.robot-mouth-container {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0; }
+    left: 0;
+}
 
-.robot_speaking .mouth {
-    height: 15px; }
+.robot_speaking .robot-mouth {
+    height: 15px;
+}
 
-.robot_speaking .mouth-container {
-    -webkit-animation: speakingAnim 0.3s infinite;
-    animation: speakingAnim 0.3s infinite; }
+.robot_speaking .robot-mouth-container {
+    -webkit-animation: robotSpeakingAnim 0.3s infinite;
+    animation: robotSpeakingAnim 0.3s infinite;
+}
 
-.mouth-container-line {
+.robot-mouth-container-line {
     position: absolute;
     top: 30%;
     height: 0px;
     background-color: limegreen;
     width: 100%;
-    margin-top: -1px; }
+    margin-top: -1px;
+}
 
-.robot_speaking .mouth-container-line {
-    height: 3px; }
+.robot_speaking .robot-mouth-container-line {
+    height: 3px;
+}
 
-.torso {
+.robot-torso-text {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 13px;
+    color: #000000;
+    font-weight: bold;
+    letter-spacing: 0px;
+    margin-bottom: 5px;
+}
+
+.robot-torso {
     position: absolute;
     bottom: 0;
     left: calc(50% - 20px);
@@ -112,9 +131,10 @@
     height: 60px;
     border-radius: 0px 0px 0 0;
     border: 2px solid #000000;
-    background: linear-gradient(to right, #b7afaf 0%, #b7b0b0 40%, #afa6a6 60%, #b9b0b0 100%); }
+    background: linear-gradient(to right, #b7afaf 0%, #b7b0b0 40%, #afa6a6 60%, #b9b0b0 100%);
+}
 
-.neck {
+.robot-neck {
     position: absolute;
     bottom: 45px;
     left: calc(50% - 5px);
@@ -122,133 +142,138 @@
     height: 50px;
     border-radius: 15px;
     border: 2px solid #000000;
-    background: repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 7%, #646464 10%), linear-gradient(to right, #ccc 0%, #e6e6e6 40%, #e6e6e6 60%, #ccc 100%); }
+    background: repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 7%, #646464 10%), linear-gradient(to right, #ccc 0%, #e6e6e6 40%, #e6e6e6 60%, #ccc 100%);
+}
 
-.arms {
+.robot-arms {
     position: absolute;
     bottom: 0;
     left: 50px;
     right: 50px;
-    height: 50px; }
+    height: 50px;
+}
 
-.arm {
+.robot-arm {
     position: absolute;
     border: 2px solid #000000;
     top: 0;
     width: 10px;
     height: 50px;
     border-radius: 10px 10px 0 0;
-    background: repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 7%, #646464 10%), linear-gradient(to right, #ccc 0%, #e6e6e6 40%, #e6e6e6 60%, #ccc 100%); }
+    background: repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 7%, #646464 10%), linear-gradient(to right, #ccc 0%, #e6e6e6 40%, #e6e6e6 60%, #ccc 100%);
+}
 
-.arm_left {
-    left: 0; }
+.robot-arm_left {
+    left: 0;
+}
 
-.arm_right {
-    right: 0; }
+.robot-arm_right {
+    right: 0;
+}
 
 @-webkit-keyframes lowAnim {
     0% {
-        -webkit-filter: url("#low-0");
-        filter: url("#low-0"); }
+        -webkit-filter: url("#robot-low-0");
+        filter: url("#robot-low-0"); }
     25% {
-        -webkit-filter: url("#low-1");
-        filter: url("#low-1"); }
+        -webkit-filter: url("#robot-low-1");
+        filter: url("#robot-low-1"); }
     50% {
-        -webkit-filter: url("#low-2");
-        filter: url("#low-2"); }
+        -webkit-filter: url("#robot-low-2");
+        filter: url("#robot-low-2"); }
     75% {
-        -webkit-filter: url("#low-3");
-        filter: url("#low-3"); }
+        -webkit-filter: url("#robot-low-3");
+        filter: url("#robot-low-3"); }
     100% {
-        -webkit-filter: url("#low-4");
-        filter: url("#low-4"); } }
+        -webkit-filter: url("#robot-low-4");
+        filter: url("#robot-low-4"); } }
 
 @keyframes lowAnim {
     0% {
-        -webkit-filter: url("#low-0");
-        filter: url("#low-0"); }
+        -webkit-filter: url("#robot-low-0");
+        filter: url("#robot-low-0"); }
     25% {
-        -webkit-filter: url("#low-1");
-        filter: url("#low-1"); }
+        -webkit-filter: url("#robot-low-1");
+        filter: url("#robot-low-1"); }
     50% {
-        -webkit-filter: url("#low-2");
-        filter: url("#low-2"); }
+        -webkit-filter: url("#robot-low-2");
+        filter: url("#robot-low-2"); }
     75% {
-        -webkit-filter: url("#low-3");
-        filter: url("#low-3"); }
+        -webkit-filter: url("#robot-low-3");
+        filter: url("#robot-low-3"); }
     100% {
-        -webkit-filter: url("#low-4");
-        filter: url("#low-4"); } }
+        -webkit-filter: url("#robot-low-4");
+        filter: url("#robot-low-4"); } }
 
-@-webkit-keyframes listeningAnim {
+@-webkit-keyframes robotListeningAnim {
     0% {
-        -webkit-filter: url("#listening-0");
-        filter: url("#listening-0"); }
+        -webkit-filter: url("#robot-listening-0");
+        filter: url("#robot-listening-0"); }
     25% {
-        -webkit-filter: url("#listening-1");
-        filter: url("#listening-1"); }
+        -webkit-filter: url("#robot-listening-1");
+        filter: url("#robot-listening-1"); }
     50% {
-        -webkit-filter: url("#listening-2");
-        filter: url("#listening-2"); }
+        -webkit-filter: url("#robot-listening-2");
+        filter: url("#robot-listening-2"); }
     75% {
-        -webkit-filter: url("#listening-3");
-        filter: url("#listening-3"); }
+        -webkit-filter: url("#robot-listening-3");
+        filter: url("#robot-listening-3"); }
     100% {
-        -webkit-filter: url("#listening-4");
-        filter: url("#listening-4"); } }
+        -webkit-filter: url("#robot-listening-4");
+        filter: url("#robot-listening-4"); } }
 
-@keyframes listeningAnim {
+@keyframes robotListeningAnim {
     0% {
-        -webkit-filter: url("#listening-0");
-        filter: url("#listening-0"); }
+        -webkit-filter: url("#robot-listening-0");
+        filter: url("#robot-listening-0"); }
     25% {
-        -webkit-filter: url("#listening-1");
-        filter: url("#listening-1"); }
+        -webkit-filter: url("#robot-listening-1");
+        filter: url("#robot-listening-1"); }
     50% {
-        -webkit-filter: url("#listening-2");
-        filter: url("#listening-2"); }
+        -webkit-filter: url("#robot-listening-2");
+        filter: url("#robot-listening-2"); }
     75% {
-        -webkit-filter: url("#listening-3");
-        filter: url("#listening-3"); }
+        -webkit-filter: url("#robot-listening-3");
+        filter: url("#robot-listening-3"); }
     100% {
-        -webkit-filter: url("#listening-4");
-        filter: url("#listening-4"); } }
+        -webkit-filter: url("#robot-listening-4");
+        filter: url("#robot-listening-4"); } }
 
-@-webkit-keyframes speakingAnim {
+@-webkit-keyframes robotSpeakingAnim {
     0% {
-        -webkit-filter: url("#speaking-0");
-        filter: url("#speaking-0"); }
+        -webkit-filter: url("#robot-speaking-0");
+        filter: url("#robot-speaking-0"); }
     25% {
-        -webkit-filter: url("#speaking-1");
-        filter: url("#speaking-1"); }
+        -webkit-filter: url("#robot-speaking-1");
+        filter: url("#robot-speaking-1"); }
     50% {
-        -webkit-filter: url("#speaking-2");
-        filter: url("#speaking-2"); }
+        -webkit-filter: url("#robot-speaking-2");
+        filter: url("#robot-speaking-2"); }
     75% {
-        -webkit-filter: url("#speaking-3");
-        filter: url("#speaking-3"); }
+        -webkit-filter: url("#robot-speaking-3");
+        filter: url("#robot-speaking-3"); }
     100% {
-        -webkit-filter: url("#speaking-4");
-        filter: url("#speaking-4"); } }
+        -webkit-filter: url("#robot-speaking-4");
+        filter: url("#robot-speaking-4"); } }
 
-@keyframes speakingAnim {
+@keyframes robotSpeakingAnim {
     0% {
-        -webkit-filter: url("#speaking-0");
-        filter: url("#speaking-0"); }
+        -webkit-filter: url("#robot-speaking-0");
+        filter: url("#robot-speaking-0"); }
     25% {
-        -webkit-filter: url("#speaking-1");
-        filter: url("#speaking-1"); }
+        -webkit-filter: url("#robot-speaking-1");
+        filter: url("#robot-speaking-1"); }
     50% {
-        -webkit-filter: url("#speaking-2");
-        filter: url("#speaking-2"); }
+        -webkit-filter: url("#robot-speaking-2");
+        filter: url("#robot-speaking-2"); }
     75% {
-        -webkit-filter: url("#speaking-3");
-        filter: url("#speaking-3"); }
+        -webkit-filter: url("#robot-speaking-3");
+        filter: url("#robot-speaking-3"); }
     100% {
-        -webkit-filter: url("#speaking-4");
-        filter: url("#speaking-4"); } }
+        -webkit-filter: url("#robot-speaking-4");
+        filter: url("#robot-speaking-4"); } }
 
-@-webkit-keyframes bob {
+@-webkit-keyframes robotBob {
     0% {
         -webkit-transform: rotate(-3deg);
         transform: rotate(-3deg); }
@@ -264,7 +289,7 @@
         -webkit-transform: rotate(3deg);
         transform: rotate(3deg); } }
 
-@keyframes bob {
+@keyframes robotBob {
     0% {
         -webkit-transform: rotate(-3deg);
         transform: rotate(-3deg); }
@@ -280,7 +305,7 @@
         -webkit-transform: rotate(3deg);
         transform: rotate(3deg); } }
 
-@-webkit-keyframes blink {
+@-webkit-keyframes robotBlink {
     50% {
         -webkit-transform: scale(1, 1);
         transform: scale(1, 1); }
@@ -291,7 +316,7 @@
         -webkit-transform: scale(1, 1);
         transform: scale(1, 1); } }
 
-@keyframes blink {
+@keyframes robotBlink {
     50% {
         -webkit-transform: scale(1, 1);
         transform: scale(1, 1); }
@@ -301,30 +326,3 @@
     52% {
         -webkit-transform: scale(1, 1);
         transform: scale(1, 1); } }
-
-
-#caption-container {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    padding: 10px;
-    font-size: 20px;
-    z-index: 1000; /* Ensures it stays on top */
-    max-width: 80%; /* Prevents it from spanning the full width of the screen */
-    overflow: hidden; /* Keeps the text contained */
-}
-
-.caption-text {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-    //text-overflow: ellipsis;
-    max-width: 90%; /* Adjust based on your layout to prevent overflow */
-}
-
