@@ -123,7 +123,6 @@ angular.module('starter',
         "ionicDatePickerProvider",
         "$ionicConfigProvider",
         //"AnalyticsProvider", // Analytics + uBlock origin extension breaks app
-        "ngMdIconServiceProvider",
         //"$opbeatProvider",
         function($stateProvider, $urlRouterProvider, $compileProvider, ionicTimePickerProvider, ionicDatePickerProvider,
                  $ionicConfigProvider

@@ -76,7 +76,8 @@ var qmStates = [
 			"ionIcon": "ion-log-in",
 			"logout": null,
             "slides": "slides",
-            "music": true,
+            showTriangle: true,
+            //"music": "sound/air-of-another-planet-full.mp3",
 		},
 		"views": {
 			"menuContent": {
@@ -96,8 +97,11 @@ var qmStates = [
             "ionIcon": "ion-log-in",
             "logout": null,
             "slides": "slidesConvo",
-            "autoplay": false,
+            "autoplay": true,
             "music": false,
+            "showHuman": true,
+            showTriangle: false,
+            backgroundImg: "img/slides/simpsons-living-room.png",
         },
         "views": {
             "menuContent": {
@@ -378,6 +382,22 @@ var qmStates = [
             }
         },
         "name": "app.import"
+    },
+    {
+        "url": "/analyzing",
+        "cache": false,
+        "params": {
+            "showAds": true,
+            "title": "Analyzing Data",
+            "ionIcon": "ion-ios-cloud-download-outline"
+        },
+        "views": {
+            "menuContent": {
+                "templateUrl": "templates/analyzing-page.html",
+                "controller": "AnalyzingCtrl"
+            }
+        },
+        "name": "app.analyzing"
     },
     {
         "url": "/chart-search",

@@ -1,20 +1,23 @@
 <div id="robot" style="z-index: 10; cursor: pointer;">
     <div class="robot">
-        <div class="neck"></div>
-        <div class="arms">
-            <div class="arm arm_left"></div>
-            <div class="arm arm_right"></div>
+        <div class="robot-neck"></div>
+        <div class="robot-arms">
+            <div class="robot-arm robot-arm_left"></div>
+            <div class="robot-arm robot-arm_right"></div>
         </div>
-        <div class="torso"></div>
-        <div class="head">
-            <div class="eyes">
-                <div class="eyeball eyeball_left"></div>
-                <div class="eyeball eyeball_right"></div>
+        <div class="robot-torso">
+            <p class="robot-torso-text">FDAi</p>
+<!--            <img src="img/fdai-logo-text-black.png" alt="fdai logo">-->
+        </div>
+        <div class="robot-head">
+            <div class="robot-eyes">
+                <div class="robot-eyeball robot-eyeball_left"></div>
+                <div class="robot-eyeball robot-eyeball_right"></div>
             </div>
-            <div class="mouth" ng-click="setSpeechEnabled(false)" aria-label="mute" ng-if="speechEnabled">
+            <div class="robot-mouth" ng-click="setSpeechEnabled(false)" aria-label="mute" ng-if="speechEnabled">
                 <md-tooltip>Shut Up, Robot!</md-tooltip>
-                <div class="mouth-container">
-                    <div class="mouth-container-line"></div>
+                <div class="robot-mouth-container">
+                    <div class="robot-mouth-container-line"></div>
                 </div>
             </div>
             <md-button class="md-icon-button" ng-click="setSpeechEnabled(true)" aria-label="un-mute"
@@ -28,19 +31,19 @@
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display:none">
         <defs>
             <!-- Low -->
-            <filter id="low-0">
-                <feTurbulence id="turbulence"
+            <filter id="robot-low-0">
+                <feTurbulence id="robot-turbulence"
                               baseFrequency="0.02"
                               numOctaves="3"
                               result="noise"
                               seed="0"/>
-                <feDisplacementMap id="displacement"
+                <feDisplacementMap id="robot-displacement"
                                    in="SourceGraphic"
                                    in2="noise"
                                    scale="1"/>
             </filter>
-            <filter id="low-1">
-                <feTurbulence id="turbulence"
+            <filter id="robot-low-1">
+                <feTurbulence id="robot-turbulence"
                               baseFrequency="0.02"
                               numOctaves="3"
                               result="noise"
@@ -49,8 +52,8 @@
                                    in2="noise"
                                    scale="1.5"/>
             </filter>
-            <filter id="low-2">
-                <feTurbulence id="turbulence"
+            <filter id="robot-low-2">
+                <feTurbulence id="robot-turbulence"
                               baseFrequency="0.02"
                               numOctaves="3"
                               result="noise"
@@ -59,8 +62,8 @@
                                    in2="noise"
                                    scale="1"/>
             </filter>
-            <filter id="low-3">
-                <feTurbulence id="turbulence"
+            <filter id="robot-low-3">
+                <feTurbulence id="robot-turbulence"
                               baseFrequency="0.02"
                               numOctaves="3"
                               result="noise"
@@ -69,8 +72,8 @@
                                    in2="noise"
                                    scale="1.5"/>
             </filter>
-            <filter id="low-4">
-                <feTurbulence id="turbulence"
+            <filter id="robot-low-4">
+                <feTurbulence id="robot-turbulence"
                               baseFrequency="0.1"
                               numOctaves="3"
                               result="noise"
@@ -80,19 +83,19 @@
                                    scale="0.5"/>
             </filter>
             <!-- Listening -->
-            <filter id="listening-0">
-                <feTurbulence id="turbulence"
+            <filter id="robot-listening-0">
+                <feTurbulence id="robot-turbulence"
                               baseFrequency="0.02"
                               numOctaves="3"
                               result="noise"
                               seed="0"/>
-                <feDisplacementMap id="displacement"
+                <feDisplacementMap id="robot-displacement"
                                    in="SourceGraphic"
                                    in2="noise"
                                    scale="2"/>
             </filter>
-            <filter id="listening-1">
-                <feTurbulence id="turbulence"
+            <filter id="robot-listening-1">
+                <feTurbulence id="robot-turbulence"
                               baseFrequency="0.02"
                               numOctaves="3"
                               result="noise"
@@ -101,8 +104,8 @@
                                    in2="noise"
                                    scale="3"/>
             </filter>
-            <filter id="listening-2">
-                <feTurbulence id="turbulence"
+            <filter id="robot-listening-2">
+                <feTurbulence id="robot-turbulence"
                               baseFrequency="0.02"
                               numOctaves="3"
                               result="noise"
@@ -111,8 +114,8 @@
                                    in2="noise"
                                    scale="2"/>
             </filter>
-            <filter id="listening-3">
-                <feTurbulence id="turbulence"
+            <filter id="robot-listening-3">
+                <feTurbulence id="robot-turbulence"
                               baseFrequency="0.02"
                               numOctaves="3"
                               result="noise"
@@ -121,8 +124,8 @@
                                    in2="noise"
                                    scale="3"/>
             </filter>
-            <filter id="listening-4">
-                <feTurbulence id="turbulence"
+            <filter id="robot-listening-4">
+                <feTurbulence id="robot-turbulence"
                               baseFrequency="0.1"
                               numOctaves="3"
                               result="noise"
@@ -132,19 +135,19 @@
                                    scale="1"/>
             </filter>
             <!-- Speaking -->
-            <filter id="speaking-0">
-                <feTurbulence id="turbulence"
+            <filter id="robot-speaking-0">
+                <feTurbulence id="robot-turbulence"
                               baseFrequency="0.02"
                               numOctaves="3"
                               result="noise"
                               seed="0"/>
-                <feDisplacementMap id="displacement"
+                <feDisplacementMap id="robot-displacement"
                                    in="SourceGraphic"
                                    in2="noise"
                                    scale="12"/>
             </filter>
-            <filter id="speaking-1">
-                <feTurbulence id="turbulence"
+            <filter id="robot-speaking-1">
+                <feTurbulence id="robot-turbulence"
                               baseFrequency="0.02"
                               numOctaves="3"
                               result="noise"
@@ -153,8 +156,8 @@
                                    in2="noise"
                                    scale="13"/>
             </filter>
-            <filter id="speaking-2">
-                <feTurbulence id="turbulence"
+            <filter id="robot-speaking-2">
+                <feTurbulence id="robot-turbulence"
                               baseFrequency="0.02"
                               numOctaves="3"
                               result="noise"
@@ -163,8 +166,8 @@
                                    in2="noise"
                                    scale="12"/>
             </filter>
-            <filter id="speaking-3">
-                <feTurbulence id="turbulence"
+            <filter id="robot-speaking-3">
+                <feTurbulence id="robot-turbulence"
                               baseFrequency="0.02"
                               numOctaves="3"
                               result="noise"
@@ -173,8 +176,8 @@
                                    in2="noise"
                                    scale="13"/>
             </filter>
-            <filter id="speaking-4">
-                <feTurbulence id="turbulence"
+            <filter id="robot-speaking-4">
+                <feTurbulence id="robot-turbulence"
                               baseFrequency="0.1"
                               numOctaves="3"
                               result="noise"
