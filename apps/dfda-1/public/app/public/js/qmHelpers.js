@@ -6809,6 +6809,7 @@ var qm = {
         player: {},
         status: {},
         isPlaying: function(filePath){
+            filePath = filePath || 'sound/air-of-another-planet-full.mp3';
             return qm.music.status[filePath] === 'play';
         },
         setPlayerStatus: function(filePath, status){
@@ -8917,6 +8918,7 @@ var qm = {
         showing: false,
         openMouth: function(){
             if(qm.robot.getClass()){
+                //debugger
                 qm.robot.getClass().classList.add('robot_speaking');
             }
         },
@@ -9188,9 +9190,9 @@ var qm = {
             utterance.pitch = 1;
             utterance.onerror = function(event){
                 var message = 'An error has occurred with the speech synthesis: ' + event.error;
-                qmLog.error(message);
+                qmLog.error(message, event);
                 if(errorHandler){
-                    errorHandler(message);
+                    errorHandler(message, event);
                 }
             };
             utterance.text = text;
@@ -9239,7 +9241,10 @@ var qm = {
             }
             qmLog.info("talkRobot called with " + text);
             qm.mic.addIgnoreCommand(text);
-            if(!qm.speech.voices){qm.speech.voices = speechSynthesis.getVoices();}
+            if(!qm.speech.voices){
+                qm.speech.voices = speechSynthesis.getVoices();
+                console.log("voices", qm.speech.voices)
+            }
             if(!qm.speech.voices.length){
                 qmLog.info("Waiting for voices to load with " + text);
                 qm.speech.pendingUtteranceText = text;
@@ -9276,7 +9281,7 @@ var qm = {
                 qmLog.debug("annyang still listening!")
             }
             qm.speech.utterances.push(utterance); // https://stackoverflow.com/questions/23483990/speechsynthesis-api-onend-callback-not-working
-            console.info("speechSynthesis.speak(utterance)", utterance);
+            //console.info("speechSynthesis.speak(utterance)", utterance);
             utterance.onend = function(event){
                 clearTimeout(qm.speech.timeoutResumeInfinity);
                 if(qm.mic.isListening()){
@@ -12795,12 +12800,15 @@ var qm = {
 	    showCircleVisualizer: function(){
 			qm.visualizer.showVisualizer("rainbow");
 	    },
+        showSiriVisualizer: function(){
+            qm.visualizer.showVisualizer("siri");
+        },
         showVisualizer: function(type){
             if(!qm.visualizer.visualizerEnabled){
                 return;
             }
             type = type || "siri";
-            qmLog.info("Showing visualizer type: " + type);
+            //qmLog.info("Showing visualizer type: " + type);
             if(type === "rainbow"){
                 var visualizer = qm.visualizer.getRainbowVisualizerCanvas();
                 visualizer.style.display = "block";
@@ -12833,7 +12841,7 @@ var qm = {
             }
         },
         rainbowCircleVisualizer: function(){
-            qmLog.info("Showing rainbowCircleVisualizer...");
+            //qmLog.info("Showing rainbowCircleVisualizer...");
             var visualizer = qm.visualizer.getRainbowVisualizerCanvas();
             if(visualizer){
                 visualizer.style.display = "block";
@@ -13022,8 +13030,8 @@ var qm = {
              * Display an error message.
              */
             function onStreamError(e){
-                document.body.innerHTML = "<h1>This pen only works with https://</h1>";
-                console.error(e);
+                ///document.body.innerHTML = "<h1>This pen only works with https://</h1>";
+                console.error("onStreamError: ", e);
             }
             /**
              * Utility function to create a number range
