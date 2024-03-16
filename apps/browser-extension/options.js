@@ -9,6 +9,7 @@ function saveOptions(e) {
     setTimeout(() => {
       status.textContent = '';
     }, 1500); // Clear status after 1.5 seconds
+    chrome.runtime.sendMessage({action: "showTrackingPopup"});
   });
 }
 
