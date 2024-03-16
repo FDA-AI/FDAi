@@ -31,7 +31,6 @@ Here is the logical proof that signing this accord is the most rational thing yo
 
 By combining the power of AI, the resources of global crowdfunding, and the collective wisdom of the world’s people, we can transform the fight against chronic disease. The resulting breakthroughs will improve health, extend lives, boost economies, and benefit every nation on Earth.
 
-
 # Cost of War
 
 The direct and indirect costs of war come out to [$74,259](cost-of-war.md) per person over an 80-year lifespan.
@@ -40,9 +39,13 @@ The direct and indirect costs of war come out to [$74,259](cost-of-war.md) per p
 
 Reducing spending on war by 1% annually would reduce the per-person costs by [$22,969](savings-from-1-percent-less-war.md) over an 80-year lifespan.
 
+# Cost of Disease
+
+The **$244 trillion** total global annual cost of disease is a comprehensive measure that encompasses direct healthcare costs, indirect economic losses, and the $100k valuation of a Year of Life Lost (YLL) and a $100k valuation Disability-Adjusted Life Year (DALYs).
+
 # Redirecting 1% of Military Spending to Healthcare Innovation
 
-The global cost of conflict is staggering, not just in human lives but also in economic terms. By redirecting just 1% of war spending each year to using AI to automate clinical research and personalized, preventive, precision medicine over 80 years, we would save lives, reduce disability, and significantly impact the global economy.  The monetary benefit of this shift would be approximately [$1,235,443](value-of-automating-research.md) per person over 80 years.
+ By redirecting just 1% of war spending each year to using AI to automate clinical research and personalized, preventive, precision medicine over 80 years, we would save lives, reduce disability, and significantly impact the global economy.  The monetary benefit of this shift would be approximately [$1,235,443](value-of-automating-research.md) per person over 80 years.
 
 # Total Net Benefit of Less War and More Cures
 
