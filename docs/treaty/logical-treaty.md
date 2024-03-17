@@ -22,10 +22,10 @@ Here is the logical proof that signing this accord is the most rational thing yo
 
 ## How it Works:
 
-1. Every participating nation will pledge **1% of its annual military budget** to the Global AI Health Research Fund. For example, if global military spending is $2 trillion per year, this would create a $20 billion annual fund. Participation from all nations is essential to maintain geopolitical stability.
+1. Every participating nation will pledge **1% of its annual military budget** to the [Decentralized Institutes of Health (DIH)](decentralized-institues-of-health.md). For example, if global military spending is $2 trillion per year, this would create a $20 billion annual fund. Participation from all nations is essential to maintain geopolitical stability.
 2. The **fund will support AI-driven research projects** aimed at discovering new treatments, cures, and early-detection methods for cancer, heart disease, diabetes, Alzheimer’s, and other chronic diseases that take the heaviest toll on human health worldwide.
 3. Research institutions, medical centers, and AI labs around the world will be invited to **submit project proposals** to the fund. These proposals will be reviewed and ranked by a global panel of experts based on their scientific merit, feasibility, and potential impact.
-4. However, the final decision on which projects receive funding will be **made democratically** by the global public. Using a platform similar to Gitcoin, anyone in the world will be able to vote on the proposals they believe hold the most promise. This crowdsourced approach ensures that the fund remains accountable to the people and focused on the projects that matter most to them.
+4. However, the final decision on which projects receive funding will be [**made democratically**](decentralized-institues-of-health.md) by the global public. Using a [crowdfunding platform](decentralized-institues-of-health.md), anyone in the world will be able to vote on the proposals they believe hold the most promise. This crowdsourced approach ensures that the fund remains accountable to the people and focused on the projects that matter most to them.
 5. All research findings and data generated through the fund will be made openly available in real-time to the global scientific community, **accelerating progress** and enabling rapid translation of discoveries into new medicines and improved clinical practices worldwide.
 6. Participating nations and research institutions will collaborate continuously through a state-of-the-art online platform, sharing knowledge, best practices, and resources to **maximize the impact of every research dollar** and speed the deployment of new health solutions to patients everywhere.
 
@@ -41,7 +41,7 @@ Reducing spending on war by 1% annually would reduce the per-person costs by [$2
 
 # Cost of Disease
 
-The **$244 trillion** total global annual cost of disease is a comprehensive measure that encompasses direct healthcare costs, indirect economic losses, and the $100k valuation of a Year of Life Lost (YLL) and a $100k valuation Disability-Adjusted Life Year (DALYs).
+The [**$244 trillion**](cost-of-disease.md) total global annual cost of disease is a comprehensive measure that encompasses direct healthcare costs, indirect economic losses, and the $100k valuation of a Year of Life Lost (YLL) and a $100k valuation Disability-Adjusted Life Year (DALYs).
 
 # Redirecting 1% of Military Spending to Healthcare Innovation
 
@@ -57,36 +57,8 @@ This is calculated by adding the [$22,969](savings-from-1-percent-less-war.md) s
 
 Historical examples show that petitions with support from over **1% of the population** have a high likelihood of being adopted. 
 
-So all you have to do is
+So all you have to do is convince a small fraction of your friends to sign this treaty and convince them to convince a small fraction of their friends to sign this treaty and so on.
 
-## Factors Influencing Time Investment
+Given the average number of friends (150) and the estimated time per friend (2 minutes), an average person would need to invest approximately [5 hours](individual-roi.md) to individually reach out to all 150 of their friends via personal messages or emails about the treaty.
 
-1. **Number of Friends:** The average number of significant relationships one might actively maintain, often cited as Dunbar's number, is around 150.
 
-2. **Method of Communication:** Personal messages or emails are considered for this estimation, assuming they strike a balance between personal touch and efficiency.
-
-3. **Time Per Friend:** It's estimated that drafting and sending a personal message or email would take approximately 2 minutes per friend. This includes the time to write the message and possibly tailor it slightly for each friend.
-
-## Calculation
-
-Given the average number of friends (150) and the estimated time per friend (2 minutes), the total time investment can be calculated as follows:
-
-- **Total Friends:** 150
-- **Time per Friend:** 2 minutes
-
-Total Time = Number of Friends × Time per Friend
-= 150 friends × 2 minutes/friend
-= 300 minutes
-
-Converting this into hours:
-
-Total Time in Hours = Total Time in Minutes / 60
-= 300 minutes / 60
-= 5 hours
-
-Based on this estimation, an average person would need to invest approximately 5 hours to individually reach out to all 150 of their friends via personal messages or emails about the treaty. This calculation assumes a brief but personalized communication method, emphasizing the importance of each conversation in promoting global initiatives.
-
-# References
-
-https://watson.brown.edu/costsofwar/costs
-https://www.carnegie.org/our-work/article/costs-war/
