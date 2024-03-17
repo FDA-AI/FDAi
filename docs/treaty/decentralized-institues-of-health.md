@@ -1,23 +1,23 @@
 # Decentralized Institutes of Health
 
-The Decentralized Institutes of Health (DIH) is at the forefront of a paradigm shift in global priorities, moving from military expenditures to a focus on pioneering health research and innovation. By harnessing decentralized science (DeSci), artificial intelligence (AI), and leveraging the Gitcoin Grants Stack, DIH aims to facilitate a significant reallocation of resources and human capital from defense to the development of medical breakthroughs. This initiative is uniquely funded through an innovative model, redirecting 1% of every country's military budget towards transformative health advancements, signifying a collective commitment to fostering a healthier future.
+By harnessing decentralized science (DeSci), artificial intelligence (AI), and leveraging the Gitcoin Grants Stack, the Decentralized Institutes of Health (DIH) aims to facilitate a significant reallocation of resources and human capital from defense to the development of medical breakthroughs. This initiative is uniquely funded through an innovative model, redirecting 1% of every country's military budget towards transformative health advancements, signifying a collective commitment to fostering a healthier future.
 
 ### Vision and Structural Innovation
 
-DIH embodies a vision to transform global efforts from arms development to discovering medical innovations, addressing the urgent need for a shift from destructive activities to life-preserving scientific endeavors. This reimagined approach to funding, through a custom instance of the Gitcoin Grants Stack, is made possible by a global pledge to allocate 1% of national military budgets to health research, illustrating a remarkable dedication to changing how we prioritize global resources.
+DIH embodies a vision to transform global efforts from bombs and slaughterbots development to discovering medical innovations, addressing the urgent need for a shift from destructive activities to life-preserving scientific endeavors. This approach to funding, through a custom instance of the Gitcoin Grants Stack, is made possible by a global pledge to allocate 1% of national military budgets to health research, illustrating a dedication to changing how we prioritize global resources.
 
 ### Organizational Framework
 
-At its core, DIH operates through a dynamic network of Decentralized Autonomous Organizations (DAOs), each dedicated to fostering innovation within specific areas of health and medical research:
+At its core, DIH operates through a network of Decentralized Autonomous Organizations (DAOs), each dedicated to fostering innovation within specific areas of health and medical research:
 
 - **Research DAOs**: Groups such as VitaDAO and AthenaDAO are at the helm of specialized research, employing tokenized models to ensure that public goods and stakeholder-driven development are at the forefront.
 - **Technology DAOs & Projects**: With initiatives like Inference Labs and The Bittensor Hub decentralizing the AI stack, DIH is equipped with tailored AI solutions to propel medical research forward.
 - **Patient Advocacy DAOs**: These entities champion the importance of aligning research and healthcare solutions with patient needs and perspectives.
-- **FDAi**: A single, sophisticated AI agent designed for widespread use, the FDAi automates, aggregates, and analyzes data, publishes results, offers real-time decision support, and facilitates clinical trial participation across therapeutic areas.
+- **FDAi**: An AI agent designed for everyone that automates, aggregates, and analyzes data, publishes results, offers real-time decision support, and facilitates clinical trial participation across therapeutic areas.
 
 ### Core Functionalities
 
-DIH introduces a revolutionary approach to healthcare research and development:
+DIH approach to healthcare research and development:
 
 - **Democratic Funding via Gitcoin Grants Stack**: This model dramatically shifts funding allocation towards projects with strong community backing, supported by military budget contributions.
 - **FDAi Integration**: By automating clinical research processes, the FDAi significantly enhances personalized healthcare, making cutting-edge research and treatment options more accessible.
