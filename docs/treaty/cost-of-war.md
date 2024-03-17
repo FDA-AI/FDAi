@@ -39,3 +39,8 @@ Assuming a global population of 7.8 billion and an average lifespan of 80 years:
 2. **Lifetime Cost Per Person:** $928.24 × 80 years = $74,259.2
 
 The comprehensive annual cost of war, factoring in both direct and indirect costs, is approximately $7,238.25 billion. This equates to $74,259.2 per person over an 80-year lifespan.
+
+# References
+
+https://watson.brown.edu/costsofwar/costs
+https://www.carnegie.org/our-work/article/costs-war/
