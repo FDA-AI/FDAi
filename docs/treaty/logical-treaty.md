@@ -41,7 +41,7 @@ Reducing spending on war by 1% annually would reduce the per-person costs by [$2
 
 # Cost of Disease
 
-The **$244 trillion** total global annual cost of disease is a comprehensive measure that encompasses direct healthcare costs, indirect economic losses, and the $100k valuation of a Year of Life Lost (YLL) and a $100k valuation Disability-Adjusted Life Year (DALYs).
+The [**$244 trillion**](cost-of-disease.md) total global annual cost of disease is a comprehensive measure that encompasses direct healthcare costs, indirect economic losses, and the $100k valuation of a Year of Life Lost (YLL) and a $100k valuation Disability-Adjusted Life Year (DALYs).
 
 # Redirecting 1% of Military Spending to Healthcare Innovation
 
@@ -57,7 +57,7 @@ This is calculated by adding the [$22,969](savings-from-1-percent-less-war.md) s
 
 Historical examples show that petitions with support from over **1% of the population** have a high likelihood of being adopted. 
 
-So all you have to do is
+So all you have to do is convince a small fraction of your friends to sign this treaty and convince them to convince a small fraction of their friends to sign this treaty and so on.
 
 ## Factors Influencing Time Investment
 
