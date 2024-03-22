@@ -9,9 +9,6 @@ So, roughly the process would be:
 👉 260X Faster Medical Progress and 1% Less War
 👉 [$179T](logical-treaty.md) Equivalent Economic Value of Less War and Disease
 
-
-
-
 Here is a list of GitHub issues with added labels, milestones, and estimated costs:
 
 ### Pre-Launch Phase
