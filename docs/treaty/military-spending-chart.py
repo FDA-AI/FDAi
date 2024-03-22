@@ -119,7 +119,8 @@ plt.xlim(start_year, projection_end_year)
 plt.ylim(0, max_spending_value * 1.1)  # Adding 10% margin
 
 plt.xlabel('Year')
-plt.ylabel('Global Military Spending (Trillions USD)')
+plt.gca().get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, loc: "${:.0f}T".format(x)))
+plt.ylabel('Global Military Spending')
 plt.title('Historical and Projected Global Military Spending')
 
 plt.grid(True)
