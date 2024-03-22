@@ -29,6 +29,3 @@ If this proposal resonates with the VitaDAO community, I suggest the following n
 I believe that by embracing this challenge and leading the way in launching the DIH DAO, VitaDAO has the potential to catalyze a new era of global cooperation and progress in the fight against disease. It is an ambitious undertaking, but one that I am convinced is both achievable and urgently necessary.
 
 I look forward to discussing this proposal further with the community and working together to turn this vision into reality.
-
-Sincerely,
-[Your Name]
