@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
+import emoji
 
 # Provided data
 years_provided = np.arange(1973, 2022)
@@ -78,11 +79,15 @@ spending_freeze = np.full_like(years_freeze, spending_2023)
 max_spending_value = max(max(spending_provided), max(spending_projected_filtered), max(spending_reduction), max(spending_freeze))
 
 # Plotting
-plt.figure(figsize=(14, 8))
-plt.plot(years_provided, spending_provided, 'bo', label='Historical Data')  # Historical Data
-plt.plot(years_projected_filtered, spending_projected_filtered, 'r-', label='Projected Status Quo')  # Projected Status Quo
-plt.plot(years_reduction, spending_reduction, 'g--', label='Projected 1% Reduction')  # Projected 1% Reduction
-plt.plot(years_freeze, spending_freeze, 'm-.', label='Projected Spending Freeze')  # Projected Spending Freeze
+plt.figure(figsize=(6, 6))  # Adjusting figure size to be larger for better readability on phones
+
+# Increase font sizes for better readability on smaller screens
+plt.rcParams.update({'font.size': 12})  # Adjusting global font size
+
+plt.plot(years_provided, spending_provided, 'bo', label='Historical Data', linewidth=2)  # Historical Data
+plt.plot(years_projected_filtered, spending_projected_filtered, 'r-', label='Projected Status Quo', linewidth=2)  # Projected Status Quo
+plt.plot(years_reduction, spending_reduction, 'g--', label='Projected 1% Reduction', linewidth=2)  # Projected 1% Reduction
+plt.plot(years_freeze, spending_freeze, 'm-.', label='Projected Spending Freeze', linewidth=2)  # Projected Spending Freeze
 
 # Calculate midpoints for x-axis labels
 midpoint_x = (start_year + projection_end_year) / 2 + 0.1 * (projection_end_year - start_year)
@@ -98,19 +103,19 @@ y_reduction = np.interp(midpoint_x, years_reduction, spending_reduction)
 y_freeze = spending_2023  # Constant value for freeze
 
 average_absolute_annual_increase_billion = average_absolute_annual_increase * 1000
-#average_absolute_annual_increase_billion = round(average_absolute_annual_increase_billion, 0)
-#average_annual_percentage_increase = round(average_annual_percentage_increase, 0)
-
 # Labeling directly on the plot, slightly above the center of each line with added styling
-plt.text(midpoint_historical, y_historical + max_spending_value * 0.05, 'Global Inflation-\nAdjusted Military\nSpending Doubled\nSince 2000', fontsize=9, ha='left', bbox=dict(facecolor='white', edgecolor='black'))
-plt.text(midpoint_x, y_status_quo + max_spending_value * 0.1, f"Status Quo\n{average_annual_percentage_increase:.1f}% Average Annual Increase\nof ${average_absolute_annual_increase_billion:.1f} Billion/Year", fontsize=9, ha='center', bbox=dict(facecolor='white', edgecolor='black'))
-plt.text(midpoint_x, y_reduction - max_spending_value * 0.1, 'If We Adopted a Treaty\nto Reduce by 1% Each Year\nWe Wouldn\'t Be Back Down\nto 2000-Level Spending\nUntil 2100', fontsize=9, ha='center', bbox=dict(facecolor='white', edgecolor='black'))
-plt.text(midpoint_x, y_freeze +  max_spending_value * 0.0, 'If We Froze Current Spending', fontsize=9, ha='center', bbox=dict(facecolor='white', edgecolor='black'))
+plt.text(midpoint_historical, y_historical + max_spending_value * 0.05, 'Global\nInflation-\nAdjusted\nMilitary\nSpending\nDoubled\nSince 2000', fontsize=11, ha='left', bbox=dict(facecolor='white', edgecolor='black', pad=4))
+plt.text(midpoint_x, y_status_quo + max_spending_value * 0.1, f"Status Quo\n{average_annual_percentage_increase:.1f}% Average Annual Increase\nof ${average_absolute_annual_increase_billion:.1f} Billion/Year", fontsize=11, ha='center', bbox=dict(facecolor='white', edgecolor='black', pad=4))
+plt.text(midpoint_x, y_reduction - max_spending_value * 0.25, 'If All Nations Adopted a Treaty\nto Reduce by 1% Each Year\nWe Wouldn\'t Be Back Down\nto 2000-Level Spending\nUntil 2100', fontsize=11, ha='center', bbox=dict(facecolor='white', edgecolor='black', pad=4))
+plt.text(midpoint_x+0.1*(projection_end_year-start_year), y_freeze +  max_spending_value * 0.025, emoji.emojize('If We Froze Current Spending'), fontsize=11, ha='center', bbox=dict(facecolor='white', edgecolor='black', pad=4))
 average_absolute_annual_increase = average_absolute_annual_increase * 1e3  # Convert to Billions USD
 
 # Add a label to the plot for the average annual increase, also slightly above
-label_text = f"Average Annual Increase: ${average_absolute_annual_increase:.2f} Billion or {average_annual_percentage_increase:.2f}%"
-plt.text(midpoint_x, max_spending_value * 9 + y_offset, label_text, fontsize=9, ha='center', bbox=dict(facecolor='white', alpha=0.5))
+label_text = emoji.emojize(f"Average Annual Increase: ${average_absolute_annual_increase:.2f} Billion or {average_annual_percentage_increase:.2f}%")
+plt.text(midpoint_x, max_spending_value * 9 + y_offset, label_text, fontsize=11, ha='center', bbox=dict(facecolor='white', alpha=0.5, pad=4))
+
+# Finally, adjust the legend to have a larger font size
+#plt.legend(fontsize='large')
 
 # Adjustable x-axis start and end years
 plt.xlim(start_year, projection_end_year)
@@ -119,10 +124,9 @@ plt.xlim(start_year, projection_end_year)
 plt.ylim(0, max_spending_value * 1.1)  # Adding 10% margin
 
 plt.xlabel('Year')
-plt.gca().get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, loc: "${:.0f}T".format(x)))
 plt.ylabel('Global Military Spending')
 plt.title('Historical and Projected Global Military Spending')
 
 plt.grid(True)
-plt.tight_layout()
+plt.savefig('military_spending_chart.png', dpi=300)
 plt.show()
