@@ -4,6 +4,11 @@ If you simply consider one part of military spending, nuclear weapons, we alread
 
 Even if you believe some level of military spending is warranted, we certainly don't need to be able to exterminate the human race more than once.
 
+Yet, we keep increasing military spending by $42 billion dollars a year.
+
+![military-spending-scenarios-chart.png](military-spending-scenarios-chart.png)
+
+
 ## Calculations
 
 Given the rough estimate that 100 to 1,000 nuclear detonations could potentially trigger a nuclear winter sufficient to cause global agricultural collapse and widespread famine, potentially endangering the majority of the world's population, the concept of "extinction-level events" becomes more nuanced when considering the long-term environmental impact rather than direct fatalities alone.
