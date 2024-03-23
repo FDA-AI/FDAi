@@ -2,7 +2,7 @@
 
 I propose that VitaDAO create the Decentralized Institutes of Health (DIH) DAO.
 
-The DIH DAO would focus on redirecting 1% of global military spending (approximately $20 billion annually) towards a decentralized, democratic platforms for medical research such as VitaDAO. By leveraging the power of DAOs, AI, and global crowdsourcing, the DIH has the potential to dramatically accelerate the pace of biomedical innovation and deliver transformative health benefits to people everywhere.
+The DIH DAO would be a non-profit SuperDAO focused on redirecting 1% of global military spending (approximately $20 billion annually) towards a decentralized, democratic platform for medical research such as VitaDAO. By leveraging the power of DAOs, AI, and global crowdsourcing, the DIH has the potential to dramatically accelerate the pace of biomedical innovation and deliver transformative health benefits to people everywhere.
 
 # Why VitaDAO:
 VitaDAO is uniquely positioned to bring the vision of the DIH to life. The VitaDAO community brings together an exceptional concentration of expertise, passion, and the ability to drive real progress through decentralized collaboration.

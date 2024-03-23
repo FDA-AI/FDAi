@@ -89,6 +89,28 @@ plt.plot(years_projected_filtered, spending_projected_filtered, 'r-', label='Pro
 plt.plot(years_reduction, spending_reduction, 'g--', label='Projected 1% Reduction', linewidth=2)  # Projected 1% Reduction
 plt.plot(years_freeze, spending_freeze, 'm-.', label='Projected Spending Freeze', linewidth=2)  # Projected Spending Freeze
 
+# Adjusting NIH funding data and plotting it from 2000 to 2022
+# Convert funding from millions to billions
+funding_millions_nih = np.array([
+    1019, 1130, 1260, 1390, 1540, 1700, 1890, 2100, 2340, 2600,
+    2890, 3210, 3570, 3970, 4420, 4930, 5500, 6140, 6860, 7660,
+    8540, 9510, 10600, 11800, 13100, 14500, 16100, 17900, 20000, 23100,
+    27000, 28500, 29100, 28500, 29100, 29500, 30300, 31000, 31000, 30860,
+    30150, 30310, 31300, 32300, 34100, 37100, 39100, 41700, 42900, 24309
+])
+funding_billions_nih = funding_millions_nih / 1000
+
+# Filter the data for years 2000 to 2022
+years_nih = np.array(range(1973, 2023))
+start_year_nih = 2000
+end_year_nih = 2022
+mask_nih = (years_nih >= start_year_nih) & (years_nih <= end_year_nih)
+filtered_years_nih = years_nih[mask_nih]
+filtered_funding_nih = funding_billions_nih[mask_nih]
+
+# Plotting filtered NIH funding data
+plt.plot(filtered_years_nih, filtered_funding_nih, 'c-', label='NIH Funding (Billions)', linewidth=2)  # Using cyan color for distinction
+
 # Calculate midpoints for x-axis labels
 midpoint_x = (start_year + projection_end_year) / 2 + 0.1 * (projection_end_year - start_year)
 midpoint_historical = start_year + (last_provided_year - start_year) / 6
