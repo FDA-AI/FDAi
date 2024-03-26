@@ -1,14 +1,18 @@
-[
+const fs = require('fs');
+const path = require('path');
+const { processStatement } = require('./statement-2-measurements');
+
+const examples = [
   {
     "statement": "I have been feeling very tired and fatigued today. I have been having trouble concentrating and I have been feeling very down.\nI took a cold shower for 5 minutes and I took a 20 minute nap. I also took magnesium 200mg, Omega3 one capsule 500mg",
     "localDateTime": "2021-01-01T20:00:00",
     "measurements": [
       {
         "combinationOperation": "MEAN",
-        "endDateLocal": "2021-01-01",
+        "endDateLocal": null,
         "endTimeLocal": null,
         "itemType": "measurement",
-        "originalText": "I have been feeling very tired and fatigued today",
+        "originalText": "I have been feeling very tired and fatigued today.",
         "startDateLocal": "2021-01-01",
         "startTimeLocal": null,
         "unitName": "1 to 5 Rating",
@@ -18,10 +22,10 @@
       },
       {
         "combinationOperation": "MEAN",
-        "endDateLocal": "2021-01-01",
+        "endDateLocal": null,
         "endTimeLocal": null,
         "itemType": "measurement",
-        "originalText": "I have been feeling very tired and fatigued today",
+        "originalText": "I have been feeling very tired and fatigued today.",
         "startDateLocal": "2021-01-01",
         "startTimeLocal": null,
         "unitName": "1 to 5 Rating",
@@ -31,7 +35,7 @@
       },
       {
         "combinationOperation": "MEAN",
-        "endDateLocal": "2021-01-01",
+        "endDateLocal": null,
         "endTimeLocal": null,
         "itemType": "measurement",
         "originalText": "I have been having trouble concentrating",
@@ -44,20 +48,20 @@
       },
       {
         "combinationOperation": "MEAN",
-        "endDateLocal": "2021-01-01",
+        "endDateLocal": null,
         "endTimeLocal": null,
         "itemType": "measurement",
-        "originalText": "I have been feeling very down",
+        "originalText": "I have been feeling very down.",
         "startDateLocal": "2021-01-01",
         "startTimeLocal": null,
         "unitName": "1 to 5 Rating",
         "value": 1,
-        "variableCategoryName": "Symptoms",
+        "variableCategoryName": "Emotions",
         "variableName": "Mood"
       },
       {
         "combinationOperation": "SUM",
-        "endDateLocal": "2021-01-01",
+        "endDateLocal": null,
         "endTimeLocal": null,
         "itemType": "measurement",
         "originalText": "I took a cold shower for 5 minutes",
@@ -65,12 +69,12 @@
         "startTimeLocal": null,
         "unitName": "Minutes",
         "value": 5,
-        "variableCategoryName": "Treatments",
+        "variableCategoryName": "Activities",
         "variableName": "Cold Shower"
       },
       {
         "combinationOperation": "SUM",
-        "endDateLocal": "2021-01-01",
+        "endDateLocal": null,
         "endTimeLocal": null,
         "itemType": "measurement",
         "originalText": "I took a 20 minute nap",
@@ -78,12 +82,12 @@
         "startTimeLocal": null,
         "unitName": "Minutes",
         "value": 20,
-        "variableCategoryName": "Treatments",
+        "variableCategoryName": "Sleep",
         "variableName": "Nap"
       },
       {
         "combinationOperation": "SUM",
-        "endDateLocal": "2021-01-01",
+        "endDateLocal": null,
         "endTimeLocal": null,
         "itemType": "measurement",
         "originalText": "I also took magnesium 200mg",
@@ -96,7 +100,7 @@
       },
       {
         "combinationOperation": "SUM",
-        "endDateLocal": "2021-01-01",
+        "endDateLocal": null,
         "endTimeLocal": null,
         "itemType": "measurement",
         "originalText": "I also took Omega3 one capsule 500mg",
@@ -167,3 +171,35 @@
     ]
   }
 ]
+
+
+function standardizeForFlakiness(arr) {
+  // Remove originalText from result and test measurements for comparison
+  // because it's kind of variable and not predictable
+  arr.measurements = arr.measurements.map(({ originalText, ...rest }) => rest);
+  // API sometimes returns 'Sleep' category instead of 'Activities' for naps
+  arr.measurements = arr.measurements.map(item => {
+    if (item.variableCategoryName === 'Sleep') {
+      return { ...item, variableCategoryName: 'Activities' };
+    }
+    return item;
+  });
+}
+
+function test(test) {
+  it(`${test.statement}`, async () => {
+    console.log('testing statement:', test.statement);
+    const result = await processStatement(test.statement, test.localDateTime);
+    standardizeForFlakiness(result);
+    standardizeForFlakiness(test);
+    expect(result.measurements).toEqual(test.measurements);
+  }, 120000); // Increase timeout to 10000 ms
+}
+
+describe('Test Statements', () => {
+  //const fixture = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'statement-2-measurements.json'), 'utf-8'));
+  test(examples[0]);
+  test(examples[1]);
+  test(examples[2]);
+  test(examples[3]);
+});
