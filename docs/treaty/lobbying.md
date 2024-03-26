@@ -6,6 +6,16 @@ Defense companies globally are estimated to spend between $200 million and $300 
 
 Military contractors globally receive between $800 billion to $1 trillion annually from government contracts. 
 
+```mermaid
+graph LR
+MIC("🏭 Military-<br>Industrial<br>Complex") -->|"💰 Pays<br>Lobbyists<br>$200M"| L("🤝 Lobbyists")
+L -->|"📈 Influence"| G("🏛 Government")
+G -->|"💸 $1T +<br>$42B/4% increase<br>every year<br>for nuclear &<br>autonomous weapons<br>systems, etc."| MIC
+style MIC fill:#fff,stroke:#333,stroke-width:4px,color:#000
+style L fill:#fff,stroke:#333,stroke-width:2px,color:#000
+style G fill:#fff,stroke:#333,stroke-width:2px,color:#000
+```
+
 #### Calculating the ROI
 
 The return on investment (ROI) for lobbying efforts is calculated using the formula: 
