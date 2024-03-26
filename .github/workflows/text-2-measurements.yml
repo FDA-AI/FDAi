@@ -21,7 +21,11 @@ jobs:
           node-version: '14'
 
       - name: Install Dependencies
-        run: npm ci
+        run: |
+          cd libs/text-2-measurements
+          npm ci
 
       - name: Run Tests
-        run: npm test
+        run: |
+          cd libs/text-2-measurements
+          npm test
