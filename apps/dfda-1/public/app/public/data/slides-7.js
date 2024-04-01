@@ -26,7 +26,7 @@ const slides = [
     {
         title: null,
         img: "img/slides/slow-research.png",
-        robotSpeech: "The bad news is that we only approve around 30 drugs a year. It would take over 350 years to find cures at this rate. So you’ll be long dead by then.",
+        robotSpeech: "The bad news is that we only approve around 20 drugs a year. It would take over 350 years to find cures at this rate. So you’ll be long dead by then.",
         //continuousAudio: "sound/air-of-another-planet-full.mp3",
         continuousAudioVolume: 0.1,
     },
@@ -64,11 +64,11 @@ const slides = [
     // },
     {
         img: "img/slides/small-trials.png",
-        robotSpeech: "Clinical trials are also very small with sometimes only 30 people so they don't detect rare side effects or effects on specific subgroups of patients.",
+        robotSpeech: "Clinical trials are also very small with sometimes only 20 people so they don't detect rare side effects or effects on specific subgroups of patients.",
     },
     {
         title: "Trials Don't Detect Long-Term Effects",
-        robotSpeech: "Since clinical trials often just last a few months, they don’t detect the long-term effects of drugs.",
+        robotSpeech: "Since clinical trials often just last several months, they can’t detect the long-term effects of drugs.",
     },
     {
         title: "What's the solution?",
@@ -106,8 +106,8 @@ const slides = [
     {
         robotSpeech: "with Viagra ads",
         animation: () => {
-            simulatePopups(25); // Start the simulation with 5 popups
-            removeAllPopupsAfterDelay(3); // Remove all popups after 10 seconds}
+            simulatePopups(20); // Start the simulation with 5 popups
+            removeAllPopupsAfterDelay(1); // Remove all popups after 10 seconds
         },
         cleanup: removeAllPopupAds,
     },
@@ -215,7 +215,7 @@ const slides = [
     // },
     {
         img: "video/trial-failed-recruitment.gif",
-        robotSpeech: "Over 80% of clinical trials fail to recruit enough participants. Yet less than 1% of people with chronic diseases participate, So everyone who's still suffering from a chronic disease needs a nice robot like me to find them the most promising experimental new treatment and make it effortless to join and collect data.",
+        robotSpeech: "Over 80% of clinical trials fail to recruit enough participants. Yet less than 1% of people with chronic diseases participate, So everyone who's still suffering from a chronic disease needs a nice robot like me to find them the most promising new treatment and make it effortless to join and collect data.",
     },
     {
         //title: "Automating Full Clinical Trial Participation ➡️ 5X More Cures in the Same Time",
@@ -259,17 +259,17 @@ const slides = [
     },
     {
         showHuman: true,
-        "humanSpeech": "Yeah, I was just being polite. I've got psoriasis, arthritis, and severe depression. I've been to rheumatologists, dermatologists, psychiatrists, even a veterinarian.",
+        "humanSpeech": "Yeah, I was just being polite. I've got severe arthritis, psoriasis, and crippling depression. I've been to rheumatologists, dermatologists, psychiatrists, gastroenterologists, astrologists, and even a veterinarian.",
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
         showHuman: true,
         backgroundImg: "img/slides/simpsons-living-room.png",
-        audio: "video/sitcom-laughing-1.wav"
+        audio: "video/sitcom-laughing-1.mp3"
     },
     {
         showHuman: true,
-        "humanSpeech": "They prescribed over 50 drugs but I'm still miserable.",
+        "humanSpeech": "Who is laughing at my pain? They prescribed over 50 drugs but I still want to blow my brains out most of the time.",
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
@@ -460,7 +460,7 @@ const slides = [
     {
         showHuman: true,
         img: "video/autonomous-study-search.gif",
-        robotSpeech: "However, I've identified an experimental drug trial with the most promising preclinical results for patients with your subset of symptoms",
+        robotSpeech: "However, I've identified a new trial with the most promising preclinical results for patients with your subset of symptoms",
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
@@ -675,9 +675,12 @@ function createPopupAd() {
     document.body.appendChild(popup);
 }
 
+let isCleanupCalled = false;
 // Simulate multiple popups
 function simulatePopups(numberOfPopups) {
-    // Make full screen white overlay
+    // Reset the flag when starting a new simulation
+    isCleanupCalled = false;
+    // Make full-screen white overlay
     const overlay = document.createElement('div');
     overlay.style.position = 'fixed';
     overlay.style.top = 0;
@@ -688,7 +691,11 @@ function simulatePopups(numberOfPopups) {
     overlay.style.zIndex = 98; // Below popups but above everything else
 
     for (let i = 0; i < numberOfPopups; i++) {
-        setTimeout(createPopupAd, i * 50); // Slight delay between popups
+        setTimeout(() => {
+            if (!isCleanupCalled) {
+                createPopupAd();
+            }
+        }, i * 50); // Slight delay between popups
     }
 }
 
@@ -701,5 +708,6 @@ function removeAllPopupAds() {
 function removeAllPopupsAfterDelay(delayInSeconds) {
     setTimeout(() => {
         removeAllPopupAds();
+        isCleanupCalled = true;
     }, delayInSeconds * 1000); // Convert seconds to milliseconds
 }
