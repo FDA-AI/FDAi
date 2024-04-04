@@ -1,12 +1,9 @@
 var express = require('express');
-var db = require('../db');
 const proxy = require("express-http-proxy");
 const urlHelper = require("../utils/urlHelper");
 const stringHelper = require("../utils/stringHelper");
 const qm = require("../../dfda-1/public/app/public/js/qmHelpers");
-let credentials = require('../utils/credentials');
 const authHelper = require("../utils/authHelper");
-const expressAccessToken = require('express-access-token');
 
 let unauthorizedResponse = {
   "error": "Unauthorized",
@@ -20,26 +17,10 @@ function handleUnauthorizedRequest(req, res){
     return res.redirect("/login");
   }
 }
-//Use the req.isAuthenticated() function to check if user is Authenticated
-checkAuthenticated = async (req, res, next) => {
-  //debugger
-  let authorized = req.isAuthenticated();
-  let user = req.user
-  if(!user){
-    let accessToken = authHelper.getAccessTokenFromRequest(req);
-    if(accessToken){
-      user = await authHelper.findUserByAccessToken(accessToken);
-      if(user){req.session.user = req.user = user;}
-    }
-  }
-  if(!user){
-    return handleUnauthorizedRequest(req, res);
-  }
-  next();
-}
+
 
 var router = express.Router();
-router.get('/api/v1/user', checkAuthenticated, async (req, res) => {
+router.get('/api/v1/user', authHelper.checkAuthenticated, async (req, res) => {
   if(!req.user){
     res.status(401).json(unauthorizedResponse);
     return;
