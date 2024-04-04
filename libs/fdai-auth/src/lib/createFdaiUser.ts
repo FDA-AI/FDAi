@@ -1,10 +1,5 @@
 import fetch from 'node-fetch';
 
-// Environment variables for configuration
-const FDAI_API_ORIGIN = process.env['FDAI_API_ORIGIN'] || 'https://safe.fdai.earth';
-const FDAI_CLIENT_ID = process.env['FDAI_CLIENT_ID'] || 'oauth_test_client';
-const FDAI_CLIENT_SECRET = process.env['FDAI_CLIENT_SECRET'] || 'oauth_test_secret';
-
 /**
  * Creates an FDAi user and returns the user ID.
  * @param {string} yourSystemUserId - The unique identifier for the user in the client's system.
@@ -12,7 +7,7 @@ const FDAI_CLIENT_SECRET = process.env['FDAI_CLIENT_SECRET'] || 'oauth_test_secr
  */
 export async function createFdaiUser(yourSystemUserId: string): Promise<string> {
     try {
-        const response = await fetch(`${FDAI_API_ORIGIN}/api/v1/user`, {
+        const response = await fetch(`https://safe.fdai.earth/api/v1/user`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -56,7 +56,7 @@ const slides = [
     },
     {
         img: "img/slides/exclusion.png",
-        robotSpeech: "For instance, antidepressant trials exclude the 85% of people with depression who take other medications, use drugs or alcohol, or have additional health conditions",
+        robotSpeech: "For instance, antidepressant trials exclude the 85% of people with depression who take other medications, who use drugs or alcohol, or have additional health conditions. That's why they almost never work as well in the real world as they do in trials.",
     },
     // {
     //     img: "img/trial-exclusion-pie-chart.png",
@@ -88,7 +88,11 @@ const slides = [
     },
     {
         img: "img/slides/super-fda-robot-transparent.png",
-        robotSpeech: "with the power of ROBOTS! Some robots can discover new drugs",
+        robotSpeech: "with the power of ROBOTS!",
+    },
+    {
+        img: "video/alpha-fold-ribbon.gif",
+        robotSpeech: "Some robots can discover new drugs",
     },
     {
         img: "video/robot-drugs.gif",
@@ -107,7 +111,7 @@ const slides = [
         robotSpeech: "with Viagra ads",
         animation: () => {
             simulatePopups(20); // Start the simulation with 5 popups
-            removeAllPopupsAfterDelay(1); // Remove all popups after 10 seconds
+            removeAllPopupsAfterDelay(2); // Remove all popups after 10 seconds
         },
         cleanup: removeAllPopupAds,
     },
@@ -135,7 +139,7 @@ const slides = [
         robotSpeech: "Yum! ",
     },
     {
-        video: "video/studies.mp4",
+        img: "video/studies-2-study.gif",
         robotSpeech: "Then I start analyzing it and generate N-of-1 personal studies telling you how much different medications, supplements, or foods might improve or worsen your symptoms.",
     },
     // {
@@ -229,7 +233,7 @@ const slides = [
     // },
     {
         title: "My Dream",
-        robotSpeech: "Here's an example of what I could eventually be with your help",
+        robotSpeech: "I'm currently kind of an idiot, but here's an example of what I could eventually be with your help",
         continuousAudio: false,
     },
     {
@@ -259,18 +263,18 @@ const slides = [
     },
     {
         showHuman: true,
-        "humanSpeech": "Yeah, I was just being polite. I've got severe arthritis, psoriasis, and crippling depression. I've been to rheumatologists, dermatologists, psychiatrists, gastroenterologists, astrologists, and even a veterinarian.",
+        "humanSpeech": "Yeah, I was just being polite. I've got severe arthritis, psoriasis, and crippling depression. I've been to rheumatologists, dermatologists, psychiatrists, gastroenterologists, astrologists, and even a veterinarian. They prescribed over 50 drugs but I still want to blow my brains out most of the time.",
         backgroundImg: "img/slides/simpsons-living-room.png",
-    },
-    {
-        showHuman: true,
-        backgroundImg: "img/slides/simpsons-living-room.png",
-        audio: "video/sitcom-laughing-1.mp3"
-    },
-    {
-        showHuman: true,
-        "humanSpeech": "Who is laughing at my pain? They prescribed over 50 drugs but I still want to blow my brains out most of the time.",
-        backgroundImg: "img/slides/simpsons-living-room.png",
+        animation: () => {
+            if(this.alreadyPlayedLaughTrack) return; // If the laugh track has already been played, don't play it again
+            this.alreadyPlayedLaughTrack = true;
+            // Play the laugh track when he says he's been to an astrologist
+            setTimeout(() => {
+                const audio = new Audio("video/sitcom-laughing-1.mp3"); // Create a new audio element
+                audio.volume = 0.3; // Set the volume to 10%
+                audio.play(); // Play the audio
+            }, 11000); // Wait 2 seconds before playing the audio
+        }
     },
     {
         showHuman: true,
@@ -419,6 +423,7 @@ const slides = [
         showHuman: true,
         "img": "video/grocery-shopping.gif",
         continuousAudio: "video/holiday-for-strings-short.mp3",
+        continuousAudioVolume: 0.1,
         robotSpeech: "Great! You can just delete the items you don't want and then place the order",
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
@@ -460,7 +465,7 @@ const slides = [
     {
         showHuman: true,
         img: "video/autonomous-study-search.gif",
-        robotSpeech: "However, I've identified a new trial with the most promising preclinical results for patients with your subset of symptoms",
+        robotSpeech: "However, I've identified a new trial with the most promising preclinical results for patients with your subset of symptoms and genetic profile",
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
@@ -536,10 +541,11 @@ const slides = [
     {
         title: "I love you! Bye! 😘",
         robotSpeech: "Love you!  Bye!",
-        showHuman: false,
+        showHuman: true,
         backgroundImg: "img/slides/simpsons-living-room.png",
     },
     {
+        showHuman: false,
         backgroundImg: "video/dream-sequence-end.gif",
         audio: "video/dream-sound-effect-fast.mp3",
     },
@@ -550,7 +556,7 @@ const slides = [
     // },
     {
         title: "Support The FDAI Act",
-        robotSpeech: "Ensuring foods and drugs are safe is the FDA's job. So please sign our petition to tell your Congressperson to pay some real good robot-making guys to make me smart,  If they complain that they don't have enough money, politely remind them that they"
+        robotSpeech: "Ensuring foods and drugs are safe is the FDA's job. So please sign our petition to tell your Congressperson to pay some real good robot-making guys to make me smarter,  If they complain that they don't have enough money, politely remind them that they"
         //continuousAudio: "sound/air-of-another-planet-full.mp3",
     },
     {
