@@ -280,3 +280,22 @@ module.exports.addAccessTokenToSession = function (req, res, next){
   if(req.query.final_callback_url){req.session.final_callback_url = req.query.final_callback_url;}
   next();
 }
+//Use the req.isAuthenticated() function to check if user is Authenticated
+checkAuthenticated = async (req, res, next) => {
+  //debugger
+  let authorized = req.isAuthenticated();
+  let user = req.user
+  if(!user){
+    let accessToken = authHelper.getAccessTokenFromRequest(req);
+    if(accessToken){
+      user = await authHelper.findUserByAccessToken(accessToken);
+      if(user){req.session.user = req.user = user;}
+    }
+  }
+  if(!user){
+    return handleUnauthorizedRequest(req, res);
+  }
+  next();
+}
+
+module.exports.checkAuthenticated = checkAuthenticated;
