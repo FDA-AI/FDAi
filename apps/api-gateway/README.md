@@ -1,4 +1,4 @@
-# DT-API Specification
+# FDAi API Gateway
 
 _Digital Twin Application Programming Interface (DT-API) Specification_
 
@@ -13,13 +13,13 @@ It can be edited by:
 ## Installation
 
 ```bash
-cd api && npm install
+cd api && yarn install
 ```
 
 ## Running the server
 
 ```bash
-cd express && npm start
+npm start
 ```
 
 ## Usage
@@ -66,7 +66,7 @@ fetch('https://app.quantimo.do/api/v3/variables?limit=100', options)
 
 ### Authentication
 
-To use the CureDAO API, you first need to get an access token as described below.  Once you have the token, include it in any of the [API requests documented here](https://curedao.org/api-docs) using the `Authorization` header in the format `Bearer YOUR_TOKEN_HERE`.
+To use the FDAi API, you first need to get an access token as described below.  Once you have the token, include it in any of the [API requests documented here](https://curedao.org/api-docs) using the `Authorization` header in the format `Bearer YOUR_TOKEN_HERE`.
 
 #### Option 1: Use Demo Data
 If you don't have your own data yet, you can use the access token `demo` in the `Authorization` header in the format `Bearer demo`.
