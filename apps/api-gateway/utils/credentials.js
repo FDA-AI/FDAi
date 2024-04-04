@@ -1,7 +1,6 @@
 const urlHelper = require("./urlHelper");
 const qm = require("../../dfda-1/public/app/public/js/qmHelpers");
 const dataSources = require("../data/data-sources");
-const envHelper = require("../../ionic/ts/env-helper");
 let credentials = {
   getScopes(connectorName){
     const dataSource = dataSources[connectorName] || null;
@@ -12,10 +11,17 @@ let credentials = {
     }
   }
 };
+function getRequiredEnv(name){
+  let val = this.getEnv(name);
+  if(val === null || typeof val === "undefined"){
+    throw Error("You must set the environment variable " + name);
+  }
+  return val
+}
 credentials.find = function(strategyName, connectorName){
   let toUpperCase = strategyName.toUpperCase();
-  let clientID = envHelper.getRequiredEnv("CONNECTOR_" + toUpperCase + "_CLIENT_ID");
-  let clientSecret = envHelper.getRequiredEnv("CONNECTOR_" + toUpperCase + "_CLIENT_SECRET");
+  let clientID = getRequiredEnv("CONNECTOR_" + toUpperCase + "_CLIENT_ID");
+  let clientSecret = getRequiredEnv("CONNECTOR_" + toUpperCase + "_CLIENT_SECRET");
   let res = {
     clientID: clientID,
     clientSecret: clientSecret,
