@@ -11,7 +11,7 @@ info:
     url: 'https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)'
   version: 0.0.1
 servers:
-  - url: 'https://app.quantimo.do/api'
+  - url: 'https://safe.fdai.earth/api'
     description: Production Server
 tags:
   - name: units
@@ -77,7 +77,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/variables:
     get:
@@ -185,7 +185,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
     post:
       tags:
@@ -223,7 +223,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/measurements:
     get:
@@ -272,7 +272,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - readmeasurements
   /v3/measurements/post:
     post:
@@ -304,7 +304,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - writemeasurements
       x-codegen-request-body-name: body
   /v3/measurements/update:
@@ -333,7 +333,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
       x-codegen-request-body-name: body
   /v3/measurements/delete:
@@ -355,7 +355,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - writemeasurements
       x-codegen-request-body-name: body
   /v3/appSettings:
@@ -414,7 +414,7 @@ paths:
                 type: integer
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v2/measurements/exportRequest:
     post:
@@ -434,7 +434,7 @@ paths:
                 type: integer
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/connect/mobile:
     get:
@@ -476,7 +476,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   '/v3/connectors/{connectorName}/connect':
     get:
@@ -503,7 +503,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   '/v3/connectors/{connectorName}/disconnect':
     get:
@@ -529,7 +529,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   '/v3/connectors/{connectorName}/update':
     get:
@@ -556,7 +556,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/correlations:
     get:
@@ -593,7 +593,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/deviceTokens:
     post:
@@ -647,7 +647,7 @@ paths:
                 $ref: '#/components/schemas/FeedResponse'
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
     post:
       tags:
@@ -680,7 +680,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
       x-codegen-request-body-name: body
   /v3/integration.js:
@@ -751,7 +751,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /oauth/token:
     get:
@@ -778,7 +778,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/shares:
     get:
@@ -807,7 +807,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - writemeasurements
   /v3/shares/delete:
     post:
@@ -840,7 +840,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - writemeasurements
   /v3/shares/invite:
     post:
@@ -870,7 +870,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - writemeasurements
       x-codegen-request-body-name: body
   /v3/studies:
@@ -921,7 +921,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/studies/open:
     get:
@@ -959,7 +959,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/studies/joined:
     get:
@@ -991,7 +991,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/studies/created:
     get:
@@ -1021,7 +1021,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/study/publish:
     post:
@@ -1056,7 +1056,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/study/join:
     post:
@@ -1089,7 +1089,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/study/create:
     post:
@@ -1125,7 +1125,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
       x-codegen-request-body-name: body
   /v3/trackingReminderNotifications:
@@ -1156,7 +1156,7 @@ paths:
                 $ref: '#/components/schemas/GetTrackingReminderNotificationsResponse'
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
     post:
       tags:
@@ -1189,7 +1189,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
       x-codegen-request-body-name: body
   /v3/trackingReminders:
@@ -1220,7 +1220,7 @@ paths:
                   $ref: '#/components/schemas/TrackingReminder'
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
     post:
       tags:
@@ -1246,7 +1246,7 @@ paths:
                 $ref: '#/components/schemas/PostTrackingRemindersResponse'
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
       x-codegen-request-body-name: body
   /v3/trackingReminders/delete:
@@ -1270,7 +1270,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
       x-codegen-request-body-name: body
   /v3/unitCategories:
@@ -1294,7 +1294,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/user:
     get:
@@ -1328,33 +1328,34 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
     post:
-        tags:
-            - user
-        summary: Create or update user info
-        description: 'Post user info.  If no userId is specified, posts info for currently authenticated user'
-        operationId: postUser
-        parameters:
-            - $ref: '#/components/parameters/clientIdParam'
-        requestBody:
-          description: User info to update
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-          required: true
-        responses:
-          '201':
-            description: Successful operation
-          '401':
-            description: Not found
-        security:
-            - bearerAuth: []
-            - curedao_oauth2:
-                - basic
-        x-codegen-request-body-name: body
+      tags:
+        - user
+      summary: Create or update user
+      description: 'Include your your system's user id as the clientUserId to make sure you can identify the user
+                     in your system. If the user already exists, the user will be updated with the new information.'
+      operationId: postUser
+      requestBody:
+        description: User info to update
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPostBody'
+        required: true
+      responses:
+        '201':
+          description: Successful operation
+        '401':
+          description: Not found
+      security:
+        - ClientIdHeader: [ ]
+          ClientSecretHeader: [ ]
+        - bearerAuth: []
+        - OAuth2:
+            - basic
+      x-codegen-request-body-name: body
   /v3/users:
     get:
       tags:
@@ -1386,7 +1387,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/user/delete:
     delete:
@@ -1415,7 +1416,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - writemeasurements
   /v3/userSettings:
     post:
@@ -1478,7 +1479,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
       x-codegen-request-body-name: body
   /v3/userTags/delete:
@@ -1503,7 +1504,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/userVariables/delete:
     delete:
@@ -1527,7 +1528,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/userVariables/reset:
     post:
@@ -1553,7 +1554,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/variableCategories:
     get:
@@ -1576,7 +1577,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
   /v3/votes:
     post:
@@ -1606,7 +1607,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
       x-codegen-request-body-name: body
   /v3/votes/delete:
@@ -1630,7 +1631,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
       x-codegen-request-body-name: body
   /v4/study:
@@ -1669,7 +1670,7 @@ paths:
           content: {}
       security:
         - bearerAuth: []
-        - curedao_oauth2:
+        - OAuth2:
             - basic
 components:
   schemas:
@@ -2776,10 +2777,10 @@ components:
           description: 'Ex: 72'
         image:
           type: string
-          description: 'Ex: https://app.quantimo.do/img/logos/curedao-logo-qm-rainbow-200-200.png'
+          description: 'Ex: https://safe.fdai.earth/img/logos/curedao-logo-qm-rainbow-200-200.png'
         imageHtml:
           type: string
-          description: 'Ex: <a href="https://quantimo.do"><img id="curedao_image" title="CureDAO" src="https://app.quantimo.do/img/logos/curedao-logo-qm-rainbow-200-200.png" alt="CureDAO"></a>'
+          description: 'Ex: <a href="https://quantimo.do"><img id="curedao_image" title="CureDAO" src="https://safe.fdai.earth/img/logos/curedao-logo-qm-rainbow-200-200.png" alt="CureDAO"></a>'
         lastSuccessfulUpdatedAt:
           type: string
           description: 'Ex: 2017-07-31 10:10:34 UTC ISO 8601 YYYY-MM-DDThh:mm:ss'
@@ -3332,7 +3333,7 @@ components:
           description: 'Ex: img/variable_categories/treatments.png'
         pngUrl:
           type: string
-          description: 'Ex: https://app.quantimo.do/img/variable_categories/treatments.png'
+          description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.png'
         productUrl:
           type: string
           description: Link to associated product for purchase
@@ -3350,7 +3351,7 @@ components:
           description: 'Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss'
         svgUrl:
           type: string
-          description: 'Ex: https://app.quantimo.do/img/variable_categories/treatments.svg'
+          description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.svg'
         unitAbbreviatedName:
           type: string
           description: Abbreviated name for the unit of measurement
@@ -4422,7 +4423,7 @@ components:
           description: 'Ex: img/variable_categories/symptoms.png'
         pngUrl:
           type: string
-          description: 'Ex: https://app.quantimo.do/img/variable_categories/symptoms.png'
+          description: 'Ex: https://safe.fdai.earth/img/variable_categories/symptoms.png'
         productUrl:
           type: string
           description: Link to associated product for purchase
@@ -4481,7 +4482,7 @@ components:
           format: string
         svgUrl:
           type: string
-          description: 'Ex: https://app.quantimo.do/img/variable_categories/symptoms.svg'
+          description: 'Ex: https://safe.fdai.earth/img/variable_categories/symptoms.svg'
         thirdDailyReminderTime:
           type: string
           description: 'Ex: 20:00:00'
@@ -4718,7 +4719,7 @@ components:
           description: 'Ex: img/variable_categories/emotions.png'
         pngUrl:
           type: string
-          description: 'Ex: https://app.quantimo.do/img/variable_categories/emotions.png'
+          description: 'Ex: https://safe.fdai.earth/img/variable_categories/emotions.png'
         popUp:
           type: boolean
           description: True if the reminders should appear as a popup notification
@@ -4759,7 +4760,7 @@ components:
           description: True if the reminders should be delivered via SMS
         svgUrl:
           type: string
-          description: 'Ex: https://app.quantimo.do/img/variable_categories/emotions.svg'
+          description: 'Ex: https://safe.fdai.earth/img/variable_categories/emotions.svg'
         thirdMostCommonValue:
           type: number
           description: 'Ex: 2'
@@ -5660,7 +5661,7 @@ components:
           description: 'Ex: img/variable_categories/treatments.png'
         pngUrl:
           type: string
-          description: 'Ex: https://app.quantimo.do/img/variable_categories/treatments.png'
+          description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.png'
         predictorOfInterest:
           type: integer
           description: 'Ex: 0'
@@ -5710,7 +5711,7 @@ components:
           description: Based on sort filter and can be shown beneath variable name on search list
         svgUrl:
           type: string
-          description: 'Ex: https://app.quantimo.do/img/variable_categories/treatments.svg'
+          description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.svg'
         thirdMostCommonValue:
           type: number
           description: 'Calculated Statistic: Ex: 6. Unit: User-specified or common.'
@@ -6205,7 +6206,7 @@ components:
           description: 'Ex: img/variable_categories/treatments.png'
         pngUrl:
           type: string
-          description: 'Ex: https://app.quantimo.do/img/variable_categories/treatments.png'
+          description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.png'
         predictorOfInterest:
           type: integer
           description: 'Ex: 0'
@@ -6255,7 +6256,7 @@ components:
           description: Based on sort filter and can be shown beneath variable name on search list
         svgUrl:
           type: string
-          description: 'Ex: https://app.quantimo.do/img/variable_categories/treatments.svg'
+          description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.svg'
         thirdMostCommonValue:
           type: number
           description: 'Calculated Statistic: Ex: 6. Unit: User-specified or common.'
@@ -6458,7 +6459,7 @@ components:
           description: 'Ex: img/variable_categories/emotions.png'
         pngUrl:
           type: string
-          description: 'Ex: https://app.quantimo.do/img/variable_categories/emotions.png'
+          description: 'Ex: https://safe.fdai.earth/img/variable_categories/emotions.png'
         public:
           type: boolean
           description: 'Ex: true'
@@ -6467,7 +6468,7 @@ components:
           description: 'Ex: img/variable_categories/emotions.svg'
         svgUrl:
           type: string
-          description: 'Ex: https://app.quantimo.do/img/variable_categories/emotions.svg'
+          description: 'Ex: https://safe.fdai.earth/img/variable_categories/emotions.svg'
         updated:
           type: integer
           description: 'Ex: 1'
@@ -7111,25 +7112,32 @@ components:
             $ref: '#/components/schemas/UserVariableDelete'
       required: true
   securitySchemes:
-    access_token:
-      type: apiKey
-      name: access_token
-      in: query
     bearerAuth:
       type: http
       scheme: bearer
       bearerFormat: JWT
+      description: Enter your bearer token in the format `Bearer access_token_here`
     client_id:
       type: apiKey
       name: clientId
       in: query
-    curedao_oauth2:
+    OAuth2:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: 'https://app.quantimo.do/oauth/authorize'
-          tokenUrl: 'https://app.quantimo.do/oauth/token'
+          authorizationUrl: 'https://safe.fdai.earth/oauth/authorize'
+          tokenUrl: 'https://safe.fdai.earth/oauth/token'
           scopes:
             basic: 'Allows you to read user info (display name, email, etc)'
             readmeasurements: Allows one to read a user's measurements
             writemeasurements: Allows you to write user measurements
+    ClientIdHeader:
+      type: apiKey
+      in: header
+      name: X-CLIENT-ID
+      description: Client ID for authentication from https://builder.fdai.earth
+    ClientSecretHeader:
+      type: apiKey
+      in: header
+      name: X-CLIENT-SECRET
+      description: Backend secret allowing you to store and retrieve data for your users. Obtain from https://builder.fdai.earth
