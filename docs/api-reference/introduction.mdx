@@ -1,33 +1,74 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: 'Getting Started'
+description: 'Introduction to the FDAi API and how to get started'
 ---
 
 <Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
+  Welcome to the FDAi API documentation! This guide will help you get started with using the FDAi API to build powerful applications and integrate data insights.
 </Note>
 
-## Welcome
+## API Overview
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+The FDAi API provides a comprehensive set of endpoints for tracking measurements, analyzing data, managing studies, and more. With the FDAi API, you can:
+
+- Track and manage user measurements
+- Retrieve user-specific analysis settings and statistics
+- Create and join studies
+- Access and manipulate variables and units
+- Perform advanced analytics and data correlations
 
 <Card
-  title="Plant Store Endpoints"
-  icon="leaf"
+  title="FDAi API Specification"
+  icon="file-code"
   href="/api-reference/openapi.yml"
 >
-  View the OpenAPI specification file
+  Explore the OpenAPI specification file
 </Card>
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+To authenticate your requests to the FDAi API, you need to include the following headers:
+
+- `X-CLIENT-ID`: Your client ID obtained from the [FDAi Developer Portal](https://developer.fdai.earth).
+- `X-CLIENT-SECRET`: Your client secret obtained from the [FDAi Developer Portal](https://developer.fdai.earth).
+
+Make sure to keep your client credentials secure and do not share them publicly.
 
 ```json
-"security": [
-  {
-    "bearerAuth": []
+"securitySchemes": {
+  "ClientCredentials": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "X-CLIENT-ID"
+  },
+  "ClientSecret": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "X-CLIENT-SECRET"
   }
-]
+}
 ```
+<Card
+  title="Authentication Guide"
+  icon="lock"
+  href="/guides/authentication"
+>
+Learn more about authenticating with the FDAi API
+</Card>
+
+Getting Started
+To start using the FDAi API, follow these steps:
+
+Sign up for an FDAi account at https://builder.fdai.earth to obtain your API credentials.
+Explore the API endpoints and their functionalities in the API Reference section.
+Check out the Guides section for tutorials and examples on how to use the FDAi API for various use cases.
+Start building your application by making requests to the FDAi API endpoints using your client credentials.
+<Card
+  title="Quickstart Guide"
+  icon="rocket"
+  href="/guides/quickstart"
+>
+Get up and running quickly with the FDAi API
+</Card>
+
+If you have any questions or need assistance, feel free to reach out on GitHub.
