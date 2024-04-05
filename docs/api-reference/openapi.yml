@@ -1334,8 +1334,7 @@ paths:
       tags:
         - user
       summary: Create or update user
-      description: 'Include your your system's user id as the clientUserId to make sure you can identify the user
-                     in your system. If the user already exists, the user will be updated with the new information.'
+      description: "Include your your system's user id as the clientUserId to make sure you can identify the user in your system. If the user already exists, the user will be updated with the new information."
       operationId: postUser
       requestBody:
         description: User info to update
@@ -4987,6 +4986,9 @@ components:
         id:
           type: integer
           description: 'Ex: 29'
+        image:
+          type: string
+          description: 'Ex: https://static.quantimo.do/img/medical/png/pill.png'
         manualTracking:
           type: integer
           description: 'Ex: 0'
