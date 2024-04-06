@@ -1,13 +1,18 @@
 import { GET } from '@/app/api';
+import { GetServerSidePropsContext } from 'next';
 
-export default async function WildcardModelPage({ params }) {
+interface ApiResponse {
+  data?: any; // Replace `any` with a more specific type according to your data structure
+}
+
+export default async function WildcardModelPage({ params }: { params: GetServerSidePropsContext['params'] }) {
   debugger
-  const wildcardSegment = params.wildcard_model_name;
+  const wildcardSegment = params?.wildcard_model_name;
   let data = await GET(`/${wildcardSegment}`, {
     params: { query: {} },
-  });
+  }) as ApiResponse; // Type assertion here
   if(data.data){
-    data = data.data
+    data = data.data;
   }
 
   return (
