@@ -1,5 +1,3 @@
-const envHelper = require("../utils/envHelper.js");
-
 export async function getUser(req, res) {
     res.send({
         message: 'This is the mockup controller for getUser'
@@ -18,8 +16,8 @@ export async function getOrCreateFdaiUser(yourSystemUserId) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'X-Client-Id': envHelper.getRequiredEnv('FDAI_CLIENT_ID'),
-      'X-Client-Secret': envHelper.getRequiredEnv('FDAI_CLIENT_SECRET'),
+      'X-Client-Id': process.env.FDAI_CLIENT_ID, // Get at https://builder.fdai.earth/app/public/#/app/configuration
+      'X-Client-Secret': process.env.FDAI_CLIENT_SECRET,  // Get at https://builder.fdai.earth/app/public/#/app/configuration
     },
     body: JSON.stringify({
       clientUserId: yourSystemUserId

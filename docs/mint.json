@@ -1,12 +1,12 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "The Decentralized FDA",
+  "name": "FDAi",
   "logo": {
     "light": "/logo/dfda-wide-text-logo-white-background.png",
     "dark": "/logo/dfda-wide-text-logo-white-text.png",
     "href": "/"
   },
-  "favicon": "/logo/dfda-favicon.png",
+  "favicon": "/favicon.svg",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
@@ -19,12 +19,12 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@crowdsourcingcures.org"
+      "url": "https://github.com/FDA-AI/FDAi/issues"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.dfda.earth"
+    "url": "https://builder.fdai.earth"
   },
   "tabs": [
     {
@@ -36,34 +36,198 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://docs.dfda.earth"
+      "url": "/"
     },
     {
       "name": "Community",
       "icon": "slack",
-      "url": "https://dfda.earth/community"
+      "url": "https://github.com/FDA-AI/FDAi/discussions"
     },
     {
-      "name": "Blog",
+      "name": "News",
       "icon": "newspaper",
-      "url": "https://crowdsourcingcures.org"
+      "url": "https://fdai.earth"
+    },
+    {
+      "name": "Code",
+      "icon": "github",
+      "url": "https://github.com/FDA-AI/FDAi"
     }
   ],
   "navigation": [
     {
-      "group": "Overview",
-      "pages": ["home", "roadmap"]
+      "group": "Get Started",
+      "pages": [
+        "introduction",
+        "quickstart",
+        "development"
+      ]
     },
     {
-      "group": "Components",
-      "pages": ["components/digital-twin-safe", "components/clinipedia", "components/data-silo-api-gateways"]
+      "group": "Essentials",
+      "pages": [
+        "essentials/markdown",
+        "essentials/code",
+        "essentials/images",
+        "essentials/settings",
+        "essentials/navigation",
+        "essentials/reusable-snippets"
+      ]
+    },
+    {
+      "group": "API Documentation",
+      "pages": [
+        "api-reference/introduction"
+      ]
+    },
+    {
+      "group": "Authentication",
+      "pages": [
+        "api-reference/user/post-user",
+        "api-reference/authentication/get-a-user-access-token",
+        "api-reference/authentication/request-authorization-code",
+        "api-reference/user/get-user-info"
+      ]
+    },
+    {
+      "group": "API Reference",
+      "pages": [
+        "api-reference/introduction",
+        {
+          "group": "Analytics",
+          "pages": [
+            "api-reference/analytics/get-correlations"
+          ]
+        },
+        {
+          "group": "App Settings",
+          "pages": [
+            "api-reference/appsettings/get-client-app-settings"
+          ]
+        },
+        {
+          "group": "Connectors",
+          "pages": [
+            "api-reference/connectors/delete-stored-connection-info",
+            "api-reference/connectors/get-embeddable-connect-javascript",
+            "api-reference/connectors/list-of-connectors",
+            "api-reference/connectors/mobile-connect-page",
+            "api-reference/connectors/obtain-a-token-from-3rd-party-data-source",
+            "api-reference/connectors/sync-with-data-source"
+          ]
+        },
+        {
+          "group": "Endpoint Examples",
+          "pages": [
+            "api-reference/endpoint/create",
+            "api-reference/endpoint/delete",
+            "api-reference/endpoint/get"
+          ]
+        },
+        {
+          "group": "Feed",
+          "pages": [
+            "api-reference/feed/post-user-interactions-with-feed",
+            "api-reference/feed/tracking-reminder-notifications-messages-and-study-results"
+          ]
+        },
+        {
+          "group": "Measurements",
+          "pages": [
+            "api-reference/measurements/delete-a-measurement",
+            "api-reference/measurements/get-measurements-for-this-user",
+            "api-reference/measurements/post-a-new-set-or-update-existing-measurements-to-the-database",
+            "api-reference/measurements/post-request-for-measurements-csv",
+            "api-reference/measurements/update-a-measurement",
+            "api-reference/measurements/upload-a-spreadsheet-with-measurements"
+          ]
+        },
+        {
+          "group": "Notifications",
+          "pages": [
+            "api-reference/notifications/get-notificationpreferences",
+            "api-reference/notifications/post-devicetokens"
+          ]
+        },
+        {
+          "group": "Reminders",
+          "pages": [
+            "api-reference/reminders/delete-tracking-reminder",
+            "api-reference/reminders/get-repeating-tracking-reminder-settings",
+            "api-reference/reminders/get-specific-tracking-reminder-notifications",
+            "api-reference/reminders/snooze-skip-or-track-a-tracking-reminder-notification",
+            "api-reference/reminders/store-a-tracking-reminder"
+          ]
+        },
+        {
+          "group": "Shares",
+          "pages": [
+            "api-reference/shares/delete-share-1",
+            "api-reference/shares/delete-share",
+            "api-reference/shares/get-authorized-apps-studies-and-individuals"
+          ]
+        },
+        {
+          "group": "Studies",
+          "pages": [
+            "api-reference/studies/create-a-study",
+            "api-reference/studies/delete-vote",
+            "api-reference/studies/get-personal-or-population-studies",
+            "api-reference/studies/get-studies-you-have-created",
+            "api-reference/studies/get-study",
+            "api-reference/studies/join-a-study",
+            "api-reference/studies/post-or-update-vote",
+            "api-reference/studies/publish-your-study",
+            "api-reference/studies/studies-you-have-joined",
+            "api-reference/studies/these-are-open-studies-that-anyone-can-join"
+          ]
+        },
+        {
+          "group": "Units",
+          "pages": [
+            "api-reference/units/get-unit-categories",
+            "api-reference/units/get-units"
+          ]
+        },
+        {
+          "group": "User",
+          "pages": [
+            "api-reference/user/delete-user",
+            "api-reference/user/get-users-who-shared-data"
+          ]
+        },
+        {
+          "group": "Variables",
+          "pages": [
+            "api-reference/variables/delete-all-measurements-for-variable",
+            "api-reference/variables/delete-user-tag-or-ingredient",
+            "api-reference/variables/get-variables-along-with-related-user-specific-analysis-settings-and-statistics",
+            "api-reference/variables/post-or-update-user-tags-or-ingredients",
+            "api-reference/variables/reset-user-settings-for-a-variable-to-defaults",
+            "api-reference/variables/update-user-settings-for-a-variable",
+            "api-reference/variables/variable-categories"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        "guides/tracking-measurements",
+        "guides/analyzing-data",
+        "guides/creating-studies"
+      ]
+    },
+    {
+      "group": "Support",
+      "pages": [
+        "support"
+      ]
     }
-
   ],
   "footerSocials": {
     "twitter": "https://twitter.com/FDADAO",
-    "github": "https://github.com/decentralized-fda",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
-  },
-  "openapi": "api-reference/openapi.json"
+    "github": "https://github.com/FDAi",
+    "linkedin": "https://www.linkedin.com/curedao"
+  }
 }
