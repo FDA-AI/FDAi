@@ -6,7 +6,7 @@
     "dark": "/logo/dfda-wide-text-logo-white-text.png",
     "href": "/"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "logo/dfda-favicon.png",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
@@ -94,6 +94,17 @@
       "pages": [
         "api-reference/introduction",
         {
+          "group": "Measurements",
+          "pages": [
+            "api-reference/measurements/save-measurements",
+            "api-reference/measurements/delete-a-measurement",
+            "api-reference/measurements/get-measurements-for-this-user",
+            "api-reference/measurements/post-request-for-measurements-csv",
+            "api-reference/measurements/update-a-measurement",
+            "api-reference/measurements/upload-a-spreadsheet-with-measurements"
+          ]
+        },
+        {
           "group": "Analytics",
           "pages": [
             "api-reference/analytics/get-correlations"
@@ -117,29 +128,10 @@
           ]
         },
         {
-          "group": "Endpoint Examples",
-          "pages": [
-            "api-reference/endpoint/create",
-            "api-reference/endpoint/delete",
-            "api-reference/endpoint/get"
-          ]
-        },
-        {
           "group": "Feed",
           "pages": [
             "api-reference/feed/post-user-interactions-with-feed",
             "api-reference/feed/tracking-reminder-notifications-messages-and-study-results"
-          ]
-        },
-        {
-          "group": "Measurements",
-          "pages": [
-            "api-reference/measurements/delete-a-measurement",
-            "api-reference/measurements/get-measurements-for-this-user",
-            "api-reference/measurements/post-a-new-set-or-update-existing-measurements-to-the-database",
-            "api-reference/measurements/post-request-for-measurements-csv",
-            "api-reference/measurements/update-a-measurement",
-            "api-reference/measurements/upload-a-spreadsheet-with-measurements"
           ]
         },
         {
@@ -216,12 +208,6 @@
         "guides/tracking-measurements",
         "guides/analyzing-data",
         "guides/creating-studies"
-      ]
-    },
-    {
-      "group": "Support",
-      "pages": [
-        "support"
       ]
     }
   ],
