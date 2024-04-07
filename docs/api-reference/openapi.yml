@@ -89,7 +89,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/includeChartsParam'
         - $ref: '#/components/parameters/numberOfRawMeasurementsParam'
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/variableCategoryNameParam'
         - name: name
           in: query
@@ -239,7 +238,6 @@ paths:
         - $ref: '#/components/parameters/offsetParam'
         - $ref: '#/components/parameters/variableCategoryNameParam'
         - $ref: '#/components/parameters/updatedAtParam'
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/sourceNameParam'
         - $ref: '#/components/parameters/connectorNameParam'
         - $ref: '#/components/parameters/valueParam'
@@ -278,11 +276,9 @@ paths:
     post:
       tags:
         - measurements
-      summary: Post a new set or update existing measurements to the database
-      description: 'You can submit or update multiple measurements in a "measurements" sub-array.  If the variable these measurements correspond to does not already exist in the database, it will be automatically added.'
+      summary: Save measurements
+      description: 'Store measurements representing things like a food eaten, a mood rating, or a medication taken. If the variable for the measurements does not already exist in the database, it will be automatically created.'
       operationId: postMeasurements
-      parameters:
-        - $ref: '#/components/parameters/userIdParam'
       requestBody:
         description: An array of measurement sets containing measurement items you want to insert.
         content:
@@ -290,7 +286,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/MeasurementSet'
+                $ref: '#/components/schemas/MeasurementItem'
         required: true
       responses:
         '201':
@@ -315,7 +311,7 @@ paths:
       description: Update a previously submitted measurement
       operationId: updateMeasurement
       requestBody:
-        description: 'The id as well as the new startTime, note, and/or value of the measurement to be updated'
+        description: 'The id as well as the new startAt, note, and/or value of the measurement to be updated'
         content:
           application/json:
             schema:
@@ -403,8 +399,6 @@ paths:
                 file:
                   type: string
                   format: binary
-      parameters:
-        - $ref: '#/components/parameters/userIdParam'
       responses:
         '201':
           description: successful operation
@@ -423,8 +417,6 @@ paths:
       summary: Post Request for Measurements CSV
       description: Use this endpoint to schedule a CSV export containing all user measurements to be emailed to the user within 24 hours.
       operationId: measurementExportRequest
-      parameters:
-        - $ref: '#/components/parameters/userIdParam'
       responses:
         '201':
           description: successful operation
@@ -443,8 +435,6 @@ paths:
       summary: Mobile connect page
       description: 'This page is designed to be opened in a webview.  Instead of using popup authentication boxes, it uses redirection. You can include the user''s access_token as a URL parameter like https://api.quantimo.do/api/v3/connect/mobile?access_token=123'
       operationId: getMobileConnectPage
-      parameters:
-        - $ref: '#/components/parameters/userIdParam'
       responses:
         '200':
           description: Mobile connect page was returned
@@ -486,7 +476,6 @@ paths:
       description: 'Attempt to obtain a token from the data provider, store it in the database. With this, the connector to continue to obtain new user data until the token is revoked.'
       operationId: connectConnector
       parameters:
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/connectorNamePathParam'
       responses:
         '200':
@@ -539,7 +528,6 @@ paths:
       description: The update method tells the QM Connector Framework to check with the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
       operationId: updateConnector
       parameters:
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/connectorNamePathParam'
       responses:
         '200':
@@ -562,16 +550,15 @@ paths:
     get:
       tags:
         - analytics
-      summary: Get user_variable_relationships
-      description: 'Get a list of user_variable_relationships that can be used to display top predictors of a given outcome like mood, for instance.'
-      operationId: getCorrelations
+      summary: Get user variable relationships
+      description: 'Get a list of user variable relationships that can be used to display top predictors of a given outcome like mood, for instance.'
+      operationId: getUserVariableRelationships
       parameters:
         - $ref: '#/components/parameters/causeVariableNameParam'
         - $ref: '#/components/parameters/effectVariableNameParam'
         - $ref: '#/components/parameters/sortParam'
         - $ref: '#/components/parameters/limitParam'
         - $ref: '#/components/parameters/offsetParam'
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/correlationCoefficientParam'
         - $ref: '#/components/parameters/updatedAtParam'
         - $ref: '#/components/parameters/outcomesOfInterestParam'
@@ -587,7 +574,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetCorrelationsResponse'
+                $ref: '#/components/schemas/GetUserVariableRelationshipsResponse'
         '401':
           description: Not Authenticated
           content: {}
@@ -632,7 +619,6 @@ paths:
       operationId: getFeed
       parameters:
         - $ref: '#/components/parameters/sortParam'
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/createdAtParam'
         - $ref: '#/components/parameters/updatedAtParam'
         - $ref: '#/components/parameters/limitParam'
@@ -656,7 +642,6 @@ paths:
       description: Post user actions on feed cards
       operationId: postFeed
       parameters:
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/clientIdParam'
       requestBody:
         description: Id of the tracking reminder notification to be snoozed
@@ -788,7 +773,6 @@ paths:
       description: 'This is a list of individuals, apps, or studies with access to your measurements.'
       operationId: getShares
       parameters:
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/createdAtParam'
         - $ref: '#/components/parameters/updatedAtParam'
         - $ref: '#/components/parameters/clientIdParam'
@@ -883,7 +867,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/causeVariableNameParam'
         - $ref: '#/components/parameters/effectVariableNameParam'
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/clientIdParam'
         - $ref: '#/components/parameters/includeChartsParam'
         - $ref: '#/components/parameters/recalculate'
@@ -933,7 +916,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/causeVariableNameParam'
         - $ref: '#/components/parameters/effectVariableNameParam'
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/clientIdParam'
         - $ref: '#/components/parameters/includeChartsParam'
         - $ref: '#/components/parameters/recalculate'
@@ -974,7 +956,6 @@ paths:
         - $ref: '#/components/parameters/sortParam'
         - $ref: '#/components/parameters/limitParam'
         - $ref: '#/components/parameters/offsetParam'
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/correlationCoefficientParam'
         - $ref: '#/components/parameters/updatedAtParam'
         - $ref: '#/components/parameters/outcomesOfInterestParam'
@@ -1006,7 +987,6 @@ paths:
         - $ref: '#/components/parameters/sortParam'
         - $ref: '#/components/parameters/limitParam'
         - $ref: '#/components/parameters/offsetParam'
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/updatedAtParam'
         - $ref: '#/components/parameters/clientIdParam'
       responses:
@@ -1033,7 +1013,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/causeVariableNameParam'
         - $ref: '#/components/parameters/effectVariableNameParam'
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/clientIdParam'
         - $ref: '#/components/parameters/includeChartsParam'
         - $ref: '#/components/parameters/recalculate'
@@ -1069,7 +1048,6 @@ paths:
         - $ref: '#/components/parameters/studyClientIdParam'
         - $ref: '#/components/parameters/causeVariableNameParam'
         - $ref: '#/components/parameters/effectVariableNameParam'
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/clientIdParam'
       responses:
         '201':
@@ -1137,7 +1115,6 @@ paths:
       operationId: getTrackingReminderNotifications
       parameters:
         - $ref: '#/components/parameters/sortParam'
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/createdAtParam'
         - $ref: '#/components/parameters/updatedAtParam'
         - $ref: '#/components/parameters/limitParam'
@@ -1165,7 +1142,6 @@ paths:
       description: 'Snooze, skip, or track a tracking reminder notification'
       operationId: postTrackingReminderNotifications
       parameters:
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/clientIdParam'
       requestBody:
         description: Id of the tracking reminder notification to be snoozed
@@ -1200,7 +1176,6 @@ paths:
       description: Users can be reminded to track certain variables at a specified frequency with a default value.
       operationId: getTrackingReminders
       parameters:
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/variableCategoryNameParam'
         - $ref: '#/components/parameters/createdAtParam'
         - $ref: '#/components/parameters/updatedAtParam'
@@ -1256,8 +1231,6 @@ paths:
       summary: Delete Tracking Reminder
       description: Stop getting notifications to record data for a variable.  Previously recorded measurements will be preserved.
       operationId: deleteTrackingReminder
-      parameters:
-        - $ref: '#/components/parameters/userIdParam'
       responses:
         '204':
           description: Successful Operation
@@ -1304,7 +1277,6 @@ paths:
       description: 'Returns user info.  If no userId is specified, returns info for currently authenticated user'
       operationId: getUser
       parameters:
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/createdAtParam'
         - $ref: '#/components/parameters/updatedAtParam'
         - $ref: '#/components/parameters/limitParam'
@@ -1363,7 +1335,6 @@ paths:
       description: Returns users who have granted access to their data
       operationId: getUsers
       parameters:
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/createdAtParam'
         - $ref: '#/components/parameters/updatedAtParam'
         - $ref: '#/components/parameters/limitParam'
@@ -1457,8 +1428,6 @@ paths:
       summary: Post or update user tags or ingredients
       description: This endpoint allows users to tag foods with their ingredients.  This information will then be used to infer the user intake of the different ingredients by just entering the foods. The inferred intake levels will then be used to determine the effects of different nutrients on the user during analysis.
       operationId: postUserTags
-      parameters:
-        - $ref: '#/components/parameters/userIdParam'
       requestBody:
         description: Contains the new user tag data
         content:
@@ -1585,8 +1554,6 @@ paths:
       summary: Post or update vote
       description: 'I am really good at finding user_variable_relationships and even compensating for various onset delays and durations of action. However, you are much better than me at knowing if there''s a way that a given factor could plausibly influence an outcome. You can help me learn and get better at my predictions by pressing the thumbs down button for relationships that you think are coincidences and thumbs up once that make logic sense.'
       operationId: postVote
-      parameters:
-        - $ref: '#/components/parameters/userIdParam'
       requestBody:
         description: 'Contains the cause variable, effect variable, and vote value.'
         content:
@@ -1616,8 +1583,6 @@ paths:
       summary: Delete vote
       description: Delete previously posted vote
       operationId: deleteVote
-      parameters:
-        - $ref: '#/components/parameters/userIdParam'
       responses:
         '204':
           description: Successful Operation
@@ -1643,7 +1608,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/causeVariableNameParam'
         - $ref: '#/components/parameters/effectVariableNameParam'
-        - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/clientIdParam'
         - $ref: '#/components/parameters/includeChartsParam'
         - $ref: '#/components/parameters/recalculate'
@@ -3042,7 +3006,7 @@ components:
           description: A super neat url you might want to share with your users!
         card:
           $ref: '#/components/schemas/Card'
-    GetCorrelationsResponse:
+    GetUserVariableRelationshipsResponse:
       required:
         - description
         - summary
@@ -3266,7 +3230,7 @@ components:
     Measurement:
       required:
         - sourceName
-        - startTimeString
+        - startAt
         - unitAbbreviatedName
         - value
         - variableName
@@ -3342,10 +3306,7 @@ components:
         startDate:
           type: string
           description: 'Ex: 2014-08-27'
-        startTimeEpoch:
-          type: integer
-          description: Seconds between the start of the event measured and 1970 (Unix timestamp)
-        startTimeString:
+        startAt:
           type: string
           description: 'Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss'
         svgUrl:
@@ -3444,52 +3405,30 @@ components:
           description: Name of the variable for which we are creating the measurement records
         displayName:
           type: string
-          description: 'Ex: Trader Joe''s Bedtime Tea'
+          description: 'Ex: Trader Joe Bedtime Tea'
     MeasurementItem:
       required:
-        - timestamp
+        - startAt
         - value
+        - variableName
+        - unitAbbreviatedName
+        - variableCategoryName
+        - combinationOperation
       type: object
       properties:
-        note:
+        startAt:
           type: string
-          description: Optional note to include with the measurement
-        timestamp:
-          type: integer
-          description: Timestamp for the measurement event in epoch time (unixtime)
-          format: int64
+          description: 'Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss'
+          default: '2022-01-01T00:00:00'
         value:
           type: number
           description: Measurement value
           format: double
-    MeasurementSet:
-      required:
-        - measurementItems
-        - sourceName
-        - unitAbbreviatedName
-        - variableName
-      type: object
-      properties:
-        combinationOperation:
-          type: string
-          description: 'Way to aggregate measurements over time. SUM should be used for things like minutes of exercise.  If you use MEAN for exercise, then a person might exercise more minutes in one day but add separate measurements that were smaller.  So when we are doing correlational analysis, we would think that the person exercised less that day even though they exercised more.  Conversely, we must use MEAN for things such as ratings which cannot be SUMMED.'
-          enum:
-            - MEAN
-            - SUM
-        measurementItems:
-          type: array
-          description: 'Array of timestamps, values, and optional notes'
-          items:
-            $ref: '#/components/schemas/MeasurementItem'
-        sourceName:
-          type: string
-          description: Name of the application or device used to record the measurement values
-        unitAbbreviatedName:
-          type: string
-          description: Unit of measurement
+          default: '3'
         variableCategoryName:
           type: string
           description: 'Ex: Emotions, Treatments, Symptoms...'
+          default: 'Emotions'
           enum:
             - Activity
             - Books
@@ -3516,10 +3455,28 @@ components:
             - Vital Signs
         variableName:
           type: string
-          description: ORIGINAL name of the variable for which we are creating the measurement records
+          default: 'Overall Mood'
+          description: Name of the variable for which we are creating the measurement records
+        unitAbbreviatedName:
+          type: string
+          description: Unit of measurement
+          default: '/5'
+        combinationOperation:
+          type: string
+          description: 'Way to aggregate measurements over time. SUM should be used for things like minutes of exercise.  If you use MEAN for exercise, then a person might exercise more minutes in one day but add separate measurements that were smaller.  So when we are doing correlational analysis, we would think that the person exercised less that day even though they exercised more.  Conversely, we must use MEAN for things such as ratings which cannot be SUMMED.'
+          enum:
+            - MEAN
+            - SUM
+          default: 'Mean'
+        sourceName:
+          type: string
+          description: Name of the application or device used to record the measurement values
         upc:
           type: string
-          description: UPC or other barcode scan result
+          description: UPC or other barcode scan result if you want to attach it to the variable name for recording measurements with a UPC scanner
+        note:
+          type: string
+          description: Optional note to include with the measurement
     MeasurementUpdate:
       required:
         - id
@@ -3531,9 +3488,9 @@ components:
         note:
           type: string
           description: The new note for the measurement (optional)
-        startTime:
-          type: integer
-          description: The new timestamp for the the event in epoch seconds (optional)
+        startAt:
+          type: string
+          description: 'Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss'
         value:
           type: number
           description: The new value of for the measurement (optional)
@@ -3577,7 +3534,7 @@ components:
         eventAtUnixTime:
           type: integer
           description: 'Ex: 1438876142'
-        startTimeString:
+        startAt:
           type: string
           description: 'Ex: 2015-08-06 15:49:02 UTC ISO 8601 YYYY-MM-DDThh:mm:ss'
         timestamp:
@@ -4745,7 +4702,7 @@ components:
           description: 'Earliest time of day at which reminders should appear in UTC HH:MM:SS format'
         reminderTime:
           type: string
-          description: 'UTC ISO 8601 YYYY-MM-DDThh:mm:ss timestamp for the specific time the variable should be tracked in UTC.  This will be used for the measurement startTime if the track endpoint is used.'
+          description: 'UTC ISO 8601 YYYY-MM-DDThh:mm:ss timestamp for the specific time the variable should be tracked in UTC.  This will be used for the measurement startAt if the track endpoint is used.'
         secondMostCommonValue:
           type: number
           description: 'Ex: 4'
@@ -4791,7 +4748,7 @@ components:
           description: 'Ex: 5072482'
         trackingReminderNotificationTime:
           type: string
-          description: 'UTC ISO 8601 YYYY-MM-DDThh:mm:ss timestamp for the specific time the variable should be tracked in UTC.  This will be used for the measurement startTime if the track endpoint is used.'
+          description: 'UTC ISO 8601 YYYY-MM-DDThh:mm:ss timestamp for the specific time the variable should be tracked in UTC.  This will be used for the measurement startAt if the track endpoint is used.'
         trackingReminderNotificationTimeEpoch:
           type: integer
           description: 'Ex: 1501534124'
