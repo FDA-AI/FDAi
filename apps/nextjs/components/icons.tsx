@@ -22,7 +22,7 @@ import { FaRegStar, FaSort, FaUserAlt } from "react-icons/fa"
 import { ImSpinner8, ImStatsBars } from "react-icons/im"
 import { LuSettings } from "react-icons/lu"
 import { MdDeleteForever, MdOutlineLogout } from "react-icons/md"
-import { RxDashboard, RxMixerHorizontal } from "react-icons/rx"
+import { RxDashboard, RxMixerHorizontal, RxPencil1 } from 'react-icons/rx';
 
 export type IconKeys = keyof typeof icons
 
@@ -38,6 +38,7 @@ const icons = {
   // Dashboard Icons
   dashboard: RxDashboard,
   activity: BsActivity,
+  measurement: RxPencil1,
   settings: LuSettings,
 
   // Mode Toggle
