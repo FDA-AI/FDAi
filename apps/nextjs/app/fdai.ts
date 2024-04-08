@@ -5,14 +5,14 @@
 
 
 export interface paths {
-  "/units": {
+  "/v3/units": {
     /**
      * Get units
      * @description Get a list of the available measurement units
      */
     get: operations["getUnits"];
   };
-  "/variables": {
+  "/v3/variables": {
     /**
      * Get variables along with related user-specific analysis settings and statistics
      * @description Get variables. If the user has specified variable settings, these are provided instead of the common variable defaults.
@@ -24,35 +24,35 @@ export interface paths {
      */
     post: operations["postUserVariables"];
   };
-  "/measurements": {
+  "/v3/measurements": {
     /**
      * Get measurements for this user
      * @description Measurements are any value that can be recorded like daily steps, a mood rating, or apples eaten.
      */
     get: operations["getMeasurements"];
   };
-  "/measurements/post": {
+  "/v3/measurements/post": {
     /**
      * Post a new set or update existing measurements to the database
      * @description You can submit or update multiple measurements in a "measurements" sub-array.  If the variable these measurements correspond to does not already exist in the database, it will be automatically added.
      */
     post: operations["postMeasurements"];
   };
-  "/measurements/update": {
+  "/v3/measurements/update": {
     /**
      * Update a measurement
      * @description Update a previously submitted measurement
      */
     post: operations["updateMeasurement"];
   };
-  "/measurements/delete": {
+  "/v3/measurements/delete": {
     /**
      * Delete a measurement
      * @description Delete a previously submitted measurement
      */
     delete: operations["deleteMeasurement"];
   };
-  "/appSettings": {
+  "/v3/appSettings": {
     /**
      * Get client app settings
      * @description Get the settings for your application configurable at https://builder.quantimo.do
@@ -73,56 +73,56 @@ export interface paths {
      */
     post: operations["measurementExportRequest"];
   };
-  "/connect/mobile": {
+  "/v3/connect/mobile": {
     /**
      * Mobile connect page
-     * @description This page is designed to be opened in a webview.  Instead of using popup authentication boxes, it uses redirection. You can include the user's access_token as a URL parameter like https://api.quantimo.do/api/connect/mobile?access_token=123
+     * @description This page is designed to be opened in a webview.  Instead of using popup authentication boxes, it uses redirection. You can include the user's access_token as a URL parameter like https://api.quantimo.do/api/v3/connect/mobile?access_token=123
      */
     get: operations["getMobileConnectPage"];
   };
-  "/connectors/list": {
+  "/v3/connectors/list": {
     /**
      * List of Connectors
      * @description A connector pulls data from other data providers using their API or a screenscraper. Returns a list of all available connectors and information about them such as their id, name, whether the user has provided access, logo url, connection instructions, and the update history.
      */
     get: operations["getConnectors"];
   };
-  "/connectors/{connectorName}/connect": {
+  "/v3/connectors/{connectorName}/connect": {
     /**
      * Obtain a token from 3rd party data source
      * @description Attempt to obtain a token from the data provider, store it in the database. With this, the connector to continue to obtain new user data until the token is revoked.
      */
     get: operations["connectConnector"];
   };
-  "/connectors/{connectorName}/disconnect": {
+  "/v3/connectors/{connectorName}/disconnect": {
     /**
      * Delete stored connection info
      * @description The disconnect method deletes any stored tokens or connection information from the connectors database.
      */
     get: operations["disconnectConnector"];
   };
-  "/connectors/{connectorName}/update": {
+  "/v3/connectors/{connectorName}/update": {
     /**
      * Sync with data source
      * @description The update method tells the QM Connector Framework to check with the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
      */
     get: operations["updateConnector"];
   };
-  "/correlations": {
+  "/v3/correlations": {
     /**
      * Get user_variable_relationships
      * @description Get a list of user_variable_relationships that can be used to display top predictors of a given outcome like mood, for instance.
      */
     get: operations["getCorrelations"];
   };
-  "/deviceTokens": {
+  "/v3/deviceTokens": {
     /**
      * Post DeviceTokens
      * @description Post user token for Android, iOS, or web push notifications
      */
     post: operations["postDeviceToken"];
   };
-  "/feed": {
+  "/v3/feed": {
     /**
      * Tracking reminder notifications, messages, and study results
      * @description Tracking reminder notifications, messages, and study results
@@ -134,7 +134,7 @@ export interface paths {
      */
     post: operations["postFeed"];
   };
-  "/integration.js": {
+  "/v3/integration.js": {
     /**
      * Get embeddable connect javascript
      * @description Get embeddable connect javascript. Usage:
@@ -152,7 +152,7 @@ export interface paths {
      */
     get: operations["getIntegrationJs"];
   };
-  "/notificationPreferences": {
+  "/v3/notificationPreferences": {
     /**
      * Get NotificationPreferences
      * @description Get NotificationPreferences
@@ -173,77 +173,77 @@ export interface paths {
      */
     get: operations["getAccessToken"];
   };
-  "/shares": {
+  "/v3/shares": {
     /**
      * Get Authorized Apps, Studies, and Individuals
      * @description This is a list of individuals, apps, or studies with access to your measurements.
      */
     get: operations["getShares"];
   };
-  "/shares/delete": {
+  "/v3/shares/delete": {
     /**
      * Delete share
      * @description Remove access to user data for a given client_id associated with a given individual, app, or study
      */
     post: operations["deleteShare"];
   };
-  "/shares/invite": {
+  "/v3/shares/invite": {
     /**
      * Delete share
      * @description Invite someone to view your measurements
      */
     post: operations["inviteShare"];
   };
-  "/studies": {
+  "/v3/studies": {
     /**
      * Get Personal or Population Studies
      * @description If you have enough data, this will be a list of your personal studies, otherwise it will consist of aggregated population studies.
      */
     get: operations["getStudies"];
   };
-  "/studies/open": {
+  "/v3/studies/open": {
     /**
      * These are open studies that anyone can join
      * @description These are studies that anyone can join and share their data for the predictor and outcome variables of interest.
      */
     get: operations["getOpenStudies"];
   };
-  "/studies/joined": {
+  "/v3/studies/joined": {
     /**
      * Studies You Have Joined
      * @description These are studies that you are currently sharing your data with.
      */
     get: operations["getStudiesJoined"];
   };
-  "/studies/created": {
+  "/v3/studies/created": {
     /**
      * Get studies you have created
      * @description These are studies that you have created.
      */
     get: operations["getStudiesCreated"];
   };
-  "/study/publish": {
+  "/v3/study/publish": {
     /**
      * Publish Your Study
      * @description Make a study and all related measurements publicly visible by anyone
      */
     post: operations["publishStudy"];
   };
-  "/study/join": {
+  "/v3/study/join": {
     /**
      * Join a Study
      * @description Anonymously share measurements for specified variables
      */
     post: operations["joinStudy"];
   };
-  "/study/create": {
+  "/v3/study/create": {
     /**
      * Create a Study
      * @description Create an individual, group, or population study examining the relationship between a predictor and outcome variable. You will be given a study id which you can invite participants to join and share their measurements for the specified variables.
      */
     post: operations["createStudy"];
   };
-  "/trackingReminderNotifications": {
+  "/v3/trackingReminderNotifications": {
     /**
      * Get specific tracking reminder notifications
      * @description Specific tracking reminder notification instances that still need to be tracked.
@@ -255,7 +255,7 @@ export interface paths {
      */
     post: operations["postTrackingReminderNotifications"];
   };
-  "/trackingReminders": {
+  "/v3/trackingReminders": {
     /**
      * Get repeating tracking reminder settings
      * @description Users can be reminded to track certain variables at a specified frequency with a default value.
@@ -267,21 +267,21 @@ export interface paths {
      */
     post: operations["postTrackingReminders"];
   };
-  "/trackingReminders/delete": {
+  "/v3/trackingReminders/delete": {
     /**
      * Delete Tracking Reminder
      * @description Stop getting notifications to record data for a variable.  Previously recorded measurements will be preserved.
      */
     delete: operations["deleteTrackingReminder"];
   };
-  "/unitCategories": {
+  "/v3/unitCategories": {
     /**
      * Get unit categories
      * @description Get a list of the categories of measurement units such as 'Distance', 'Duration', 'Energy', 'Frequency', 'Miscellany', 'Pressure', 'Proportion', 'Rating', 'Temperature', 'Volume', and 'Weight'.
      */
     get: operations["getUnitCategories"];
   };
-  "/user": {
+  "/v3/user": {
     /**
      * Get user info
      * @description Returns user info.  If no userId is specified, returns info for currently authenticated user
@@ -293,70 +293,70 @@ export interface paths {
      */
     post: operations["postUser"];
   };
-  "/users": {
+  "/v3/users": {
     /**
      * Get users who shared data
      * @description Returns users who have granted access to their data
      */
     get: operations["getUsers"];
   };
-  "/user/delete": {
+  "/v3/user/delete": {
     /**
      * Delete user
      * @description Delete user account. Only the client app that created a user can delete that user.
      */
     delete: operations["deleteUser"];
   };
-  "/userSettings": {
+  "/v3/userSettings": {
     /**
      * Post UserSettings
      * @description Post UserSettings
      */
     post: operations["postUserSettings"];
   };
-  "/userTags": {
+  "/v3/userTags": {
     /**
      * Post or update user tags or ingredients
      * @description This endpoint allows users to tag foods with their ingredients.  This information will then be used to infer the user intake of the different ingredients by just entering the foods. The inferred intake levels will then be used to determine the effects of different nutrients on the user during analysis.
      */
     post: operations["postUserTags"];
   };
-  "/userTags/delete": {
+  "/v3/userTags/delete": {
     /**
      * Delete user tag or ingredient
      * @description Delete previously created user tags or ingredients.
      */
     delete: operations["deleteUserTag"];
   };
-  "/userVariables/delete": {
+  "/v3/userVariables/delete": {
     /**
      * Delete All Measurements For Variable
      * @description Users can delete all of their measurements for a variable
      */
     delete: operations["deleteUserVariable"];
   };
-  "/userVariables/reset": {
+  "/v3/userVariables/reset": {
     /**
      * Reset user settings for a variable to defaults
      * @description Reset user settings for a variable to defaults
      */
     post: operations["resetUserVariableSettings"];
   };
-  "/variableCategories": {
+  "/v3/variableCategories": {
     /**
      * Variable categories
      * @description The variable categories include Activity, Causes of Illness, Cognitive Performance, Conditions, Environment, Foods, Location, Miscellaneous, Mood, Nutrition, Physical Activity, Physique, Sleep, Social Interactions, Symptoms, Treatments, Vital Signs, and Goals.
      */
     get: operations["getVariableCategories"];
   };
-  "/votes": {
+  "/v3/votes": {
     /**
      * Post or update vote
      * @description I am really good at finding user_variable_relationships and even compensating for various onset delays and durations of action. However, you are much better than me at knowing if there's a way that a given factor could plausibly influence an outcome. You can help me learn and get better at my predictions by pressing the thumbs down button for relationships that you think are coincidences and thumbs up once that make logic sense.
      */
     post: operations["postVote"];
   };
-  "/votes/delete": {
+  "/v3/votes/delete": {
     /**
      * Delete vote
      * @description Delete previously posted vote
@@ -3738,7 +3738,7 @@ export interface components {
     codeParam: string;
     /** @description Ex: facebook */
     connectorNameParam?: string;
-    /** @description Lowercase system name of the source application or device. Get a list of available connectors from the /connectors/list endpoint. */
+    /** @description Lowercase system name of the source application or device. Get a list of available connectors from the /v3/connectors/list endpoint. */
     connectorNamePathParam: "facebook" | "fitbit" | "github" | "googlecalendar" | "googlefit" | "medhelper" | "mint" | "moodpanda" | "moodscope" | "myfitnesspal" | "mynetdiary" | "netatmo" | "rescuetime" | "runkeeper" | "slack" | "sleepcloud" | "slice" | "up" | "whatpulse" | "withings" | "worldweatheronline" | "foursquare" | "strava" | "gmail";
     /** @description Pearson correlation coefficient between cause and effect after lagging by onset delay and grouping by duration of action */
     correlationCoefficientParam?: string;
@@ -4222,7 +4222,7 @@ export interface operations {
   };
   /**
    * Mobile connect page
-   * @description This page is designed to be opened in a webview.  Instead of using popup authentication boxes, it uses redirection. You can include the user's access_token as a URL parameter like https://api.quantimo.do/api/connect/mobile?access_token=123
+   * @description This page is designed to be opened in a webview.  Instead of using popup authentication boxes, it uses redirection. You can include the user's access_token as a URL parameter like https://api.quantimo.do/api/v3/connect/mobile?access_token=123
    */
   getMobileConnectPage: {
     parameters: {
