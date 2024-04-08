@@ -11,7 +11,7 @@ import { QuickMeasurementButton } from '@/components/userVariable/measurements/q
 interface UserVariableItemProps {
   userVariable: Pick<
     UserVariable,
-    "id" | "name" | "description" | "colorCode" | "createdAt"
+    "id" | "name" | "description" | "createdAt"
   >
 }
 
