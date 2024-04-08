@@ -5,6 +5,7 @@ import { Icons } from "@/components/icons"
 import { UserVariableAddButton } from "./user-variable-add-button"
 import { UserVariableItem } from "./user-variable-item"
 import { useEffect, useState } from "react";
+import { UserVariable } from "@/types/models/UserVariable";
 
 
 export function UserVariableList() {
