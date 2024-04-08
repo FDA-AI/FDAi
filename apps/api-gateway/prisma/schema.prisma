@@ -19,30 +19,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model action_events {
-  id              BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
-  batch_id        String    @db.Char(36)
-  user_id         BigInt    @db.UnsignedBigInt
-  name            String    @db.VarChar(255)
-  actionable_type String    @db.VarChar(255)
-  actionable_id   BigInt    @db.UnsignedBigInt
-  target_type     String    @db.VarChar(255)
-  target_id       BigInt    @db.UnsignedBigInt
-  model_type      String    @db.VarChar(255)
-  model_id        BigInt?   @db.UnsignedBigInt
-  fields          String    @db.Text
-  status          String    @default("running") @db.VarChar(25)
-  exception       String    @db.Text
-  created_at      DateTime? @db.Timestamp(0)
-  updated_at      DateTime? @db.Timestamp(0)
-  original        String?   @db.Text
-  changes         String?   @db.Text
-
-  @@index([actionable_type, actionable_id], map: "action_events_actionable_type_actionable_id_index")
-  @@index([batch_id, model_type, model_id], map: "action_events_batch_id_model_type_model_id_index")
-  @@index([user_id], map: "action_events_user_id_index")
-}
-
 model global_variable_relationships {
   id                                                                                                 Int                                            @id @default(autoincrement())
   forward_pearson_correlation_coefficient                                                            Float                                          @db.Float
@@ -206,120 +182,6 @@ model applications {
   @@index([wp_post_id], map: "applications_wp_posts_ID_fk")
 }
 
-model button_clicks {
-  card_id      String     @db.VarChar(80)
-  button_id    String     @db.VarChar(80)
-  client_id    String     @db.VarChar(80)
-  created_at   DateTime   @default(now()) @db.Timestamp(0)
-  deleted_at   DateTime?  @db.Timestamp(0)
-  id           Int        @id @default(autoincrement())
-  input_fields String?    @db.Text
-  intent_name  String?    @db.VarChar(80)
-  parameters   String?    @db.Text
-  updated_at   DateTime   @default(now()) @db.Timestamp(0)
-  user_id      BigInt     @db.UnsignedBigInt
-  oa_clients   oa_clients @relation(fields: [client_id], references: [client_id], onUpdate: Restrict, map: "button_clicks_client_id_fk")
-  wp_users     wp_users   @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "button_clicks_user_id_fk")
-
-  @@index([client_id], map: "button_clicks_client_id_fk")
-  @@index([user_id], map: "button_clicks_user_id_fk")
-}
-
-model buttons {
-  accessibility_text     String?    @db.VarChar(100)
-  action                 String?    @db.VarChar(20)
-  additional_information String?    @db.VarChar(20)
-  client_id              String     @db.VarChar(80)
-  color                  String?    @db.VarChar(20)
-  confirmation_text      String?    @db.VarChar(100)
-  created_at             DateTime   @default(now()) @db.Timestamp(0)
-  deleted_at             DateTime?  @db.Timestamp(0)
-  function_name          String?    @db.VarChar(20)
-  function_parameters    String?    @db.Text
-  html                   String?    @db.VarChar(200)
-  element_id             String     @db.VarChar(80)
-  image                  String?    @db.VarChar(100)
-  input_fields           String?    @db.Text
-  ion_icon               String?    @db.VarChar(20)
-  link                   String?    @db.VarChar(100)
-  state_name             String?    @db.VarChar(20)
-  state_params           String?    @db.Text
-  success_alert_body     String?    @db.VarChar(200)
-  success_alert_title    String?    @db.VarChar(80)
-  success_toast_text     String?    @db.VarChar(80)
-  text                   String?    @db.VarChar(80)
-  title                  String?    @db.VarChar(80)
-  tooltip                String?    @db.VarChar(80)
-  type                   String     @db.VarChar(80)
-  updated_at             DateTime   @default(now()) @db.Timestamp(0)
-  user_id                BigInt     @db.UnsignedBigInt
-  id                     Int        @id @unique(map: "buttons_id_uindex") @default(autoincrement())
-  slug                   String?    @unique(map: "buttons_slug_uindex") @db.VarChar(200)
-  oa_clients             oa_clients @relation(fields: [client_id], references: [client_id], onUpdate: Restrict, map: "buttons_client_id_fk")
-  wp_users               wp_users   @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "buttons_user_id_fk")
-
-  @@index([client_id], map: "buttons_client_id_fk")
-  @@index([user_id], map: "buttons_user_id_fk")
-}
-
-model cards {
-  action_sheet_buttons String?    @db.Text
-  avatar               String?    @db.VarChar(100)
-  avatar_circular      String?    @db.VarChar(100)
-  background_color     String?    @db.VarChar(20)
-  buttons              String?    @db.Text
-  client_id            String     @db.VarChar(80)
-  content              String?    @db.Text
-  created_at           DateTime   @default(now()) @db.Timestamp(0)
-  deleted_at           DateTime?  @db.Timestamp(0)
-  header_title         String?    @db.VarChar(100)
-  html                 String?    @db.Text
-  html_content         String?    @db.Text
-  element_id           String     @db.VarChar(80)
-  image                String?    @db.VarChar(100)
-  input_fields         String?    @db.Text
-  intent_name          String?    @db.VarChar(80)
-  ion_icon             String?    @db.VarChar(20)
-  link                 String?    @db.VarChar(2083)
-  parameters           String?    @db.Text
-  sharing_body         String?    @db.Text
-  sharing_buttons      String?    @db.Text
-  sharing_title        String?    @db.VarChar(80)
-  sub_header           String?    @db.VarChar(80)
-  sub_title            String?    @db.VarChar(80)
-  title                String?    @db.VarChar(80)
-  type                 String     @db.VarChar(80)
-  updated_at           DateTime   @default(now()) @db.Timestamp(0)
-  user_id              BigInt     @db.UnsignedBigInt
-  url                  String?    @db.VarChar(2083)
-  id                   Int        @id
-  slug                 String?    @unique(map: "cards_slug_uindex") @db.VarChar(200)
-  oa_clients           oa_clients @relation(fields: [client_id], references: [client_id], onUpdate: Restrict, map: "cards_client_id_fk")
-  wp_users             wp_users   @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "cards_user_id_fk")
-
-  @@index([client_id], map: "cards_client_id_fk")
-  @@index([user_id], map: "cards_user_id_fk")
-}
-
-model checks {
-  id                                          Int       @id @default(autoincrement()) @db.UnsignedInt
-  host_id                                     Int       @db.UnsignedInt
-  type                                        String    @db.VarChar(255)
-  status                                      String?   @db.VarChar(255)
-  enabled                                     Boolean   @default(true)
-  last_run_message                            String?   @db.Text
-  last_run_output                             Json?
-  last_ran_at                                 DateTime? @db.Timestamp(0)
-  next_run_in_minutes                         Int?
-  started_throttling_failing_notifications_at DateTime? @db.Timestamp(0)
-  custom_properties                           Json?
-  created_at                                  DateTime? @db.Timestamp(0)
-  updated_at                                  DateTime? @db.Timestamp(0)
-  hosts                                       hosts     @relation(fields: [host_id], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "checks_host_id_foreign")
-
-  @@index([host_id], map: "checks_host_id_foreign")
-}
-
 model child_parents {
   id                                              Int       @id @default(autoincrement()) @db.UnsignedInt
   child_user_id                                   BigInt    @db.UnsignedBigInt
@@ -333,85 +195,6 @@ model child_parents {
 
   @@unique([child_user_id, parent_user_id], map: "child_user_id_parent_user_id_uindex")
   @@index([parent_user_id], map: "child_parents_wp_users_ID_fk_2")
-}
-
-model clockwork {
-  id                       String  @id @db.VarChar(100)
-  version                  Int?
-  type                     String? @db.VarChar(100)
-  time                     Float?
-  method                   String? @db.VarChar(10)
-  url                      String? @db.MediumText
-  uri                      String? @db.MediumText
-  headers                  String? @db.MediumText
-  controller               String? @db.VarChar(250)
-  getData                  String? @db.MediumText
-  postData                 String? @db.MediumText
-  requestData              String? @db.MediumText
-  sessionData              String? @db.MediumText
-  authenticatedUser        String? @db.MediumText
-  cookies                  String? @db.MediumText
-  responseTime             Float?
-  responseStatus           Int?
-  responseDuration         Float?
-  memoryUsage              Float?
-  middleware               String? @db.MediumText
-  databaseQueries          String? @db.MediumText
-  databaseQueriesCount     Int?
-  databaseSlowQueries      Int?
-  databaseSelects          Int?
-  databaseInserts          Int?
-  databaseUpdates          Int?
-  databaseDeletes          Int?
-  databaseOthers           Int?
-  databaseDuration         Float?
-  cacheQueries             String? @db.MediumText
-  cacheReads               Int?
-  cacheHits                Int?
-  cacheWrites              Int?
-  cacheDeletes             Int?
-  cacheTime                Float?
-  modelsActions            String? @db.MediumText
-  modelsRetrieved          String? @db.MediumText
-  modelsCreated            String? @db.MediumText
-  modelsUpdated            String? @db.MediumText
-  modelsDeleted            String? @db.MediumText
-  redisCommands            String? @db.MediumText
-  queueJobs                String? @db.MediumText
-  timelineData             String? @db.MediumText
-  log                      String? @db.MediumText
-  events                   String? @db.MediumText
-  routes                   String? @db.MediumText
-  notifications            String? @db.MediumText
-  emailsData               String? @db.MediumText
-  viewsData                String? @db.MediumText
-  userData                 String? @db.MediumText
-  subrequests              String? @db.MediumText
-  xdebug                   String? @db.MediumText
-  commandName              String? @db.MediumText
-  commandArguments         String? @db.MediumText
-  commandArgumentsDefaults String? @db.MediumText
-  commandOptions           String? @db.MediumText
-  commandOptionsDefaults   String? @db.MediumText
-  commandExitCode          Int?
-  commandOutput            String? @db.MediumText
-  jobName                  String? @db.MediumText
-  jobDescription           String? @db.MediumText
-  jobStatus                String? @db.MediumText
-  jobPayload               String? @db.MediumText
-  jobQueue                 String? @db.MediumText
-  jobConnection            String? @db.MediumText
-  jobOptions               String? @db.MediumText
-  testName                 String? @db.MediumText
-  testStatus               String? @db.MediumText
-  testStatusMessage        String? @db.MediumText
-  testAsserts              String? @db.MediumText
-  clientMetrics            String? @db.MediumText
-  webVitals                String? @db.MediumText
-  parent                   String? @db.MediumText
-  updateToken              String? @db.VarChar(100)
-
-  @@index([time], map: "clockwork_time_index")
 }
 
 model cohort_studies {
@@ -981,27 +764,6 @@ model credentials {
   @@index([client_id], map: "credentials_client_id_fk")
 }
 
-model crypto_trades {
-  id                     Int       @id @default(autoincrement()) @db.UnsignedInt
-  datetime               DateTime? @db.Timestamp(0)
-  side                   String    @db.VarChar(255)
-  symbol                 String    @db.VarChar(255)
-  exchange               String    @db.VarChar(255)
-  amount                 Float
-  createdUnixTimeSeconds Int?
-  fee                    Float?
-  info                   String?   @db.LongText
-  ohlcv                  String?   @db.LongText
-  price                  Float?
-  tradeParameters        String?   @db.LongText
-  type                   String?   @db.VarChar(255)
-  created_at             DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at             DateTime? @db.Timestamp(0)
-  updated_at             DateTime  @default(now()) @db.Timestamp(0)
-
-  @@unique([createdUnixTimeSeconds, exchange, side, symbol], map: "unique_index_name_here")
-}
-
 model ct_causes {
   id                              Int                               @id @default(autoincrement())
   name                            String                            @unique(map: "causeName") @db.VarChar(100)
@@ -1490,49 +1252,6 @@ model global_studies {
   @@index([effect_variable_id], map: "global_studies_effect_variable_id")
 }
 
-model health_checks {
-  id             Int      @id @default(autoincrement()) @db.UnsignedInt
-  resource_name  String   @db.VarChar(255)
-  resource_slug  String   @db.VarChar(255)
-  target_name    String   @db.VarChar(255)
-  target_slug    String   @db.VarChar(255)
-  target_display String   @db.VarChar(255)
-  healthy        Boolean
-  error_message  String?  @db.Text
-  runtime        Float
-  value          String?  @db.VarChar(255)
-  value_human    String?  @db.VarChar(255)
-  created_at     DateTime @default(now()) @db.Timestamp(0)
-
-  @@index([created_at], map: "health_checks_created_at_index")
-  @@index([resource_slug], map: "health_checks_resource_slug_index")
-  @@index([target_slug], map: "health_checks_target_slug_index")
-}
-
-model hosts {
-  id                Int       @id @default(autoincrement()) @db.UnsignedInt
-  name              String    @db.VarChar(255)
-  ssh_user          String?   @db.VarChar(255)
-  port              Int?
-  ip                String?   @db.VarChar(255)
-  custom_properties Json?
-  created_at        DateTime? @db.Timestamp(0)
-  updated_at        DateTime? @db.Timestamp(0)
-  checks            checks[]
-}
-
-model jobs {
-  id           BigInt @id @default(autoincrement()) @db.UnsignedBigInt
-  queue        String @db.VarChar(255)
-  payload      String @db.LongText
-  attempts     Int    @db.UnsignedTinyInt
-  reserved_at  Int?   @db.UnsignedInt
-  available_at Int    @db.UnsignedInt
-  created_at   Int    @db.UnsignedInt
-
-  @@index([queue], map: "jobs_queue_index")
-}
-
 model likes {
   id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
   user_id       BigInt    @db.UnsignedBigInt
@@ -1894,9 +1613,6 @@ model oa_clients {
   wp_users                                  wp_users                          @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "oa_clients_user_id_fk")
   global_variable_relationships             global_variable_relationships[]
   applications                              applications?
-  button_clicks                             button_clicks[]
-  buttons                                   buttons[]
-  cards                                     cards[]
   cohort_studies                            cohort_studies[]
   cohort_study_statistics                   cohort_study_statistics[]
   collaborators                             collaborators[]
@@ -1924,8 +1640,6 @@ model oa_clients {
   spreadsheet_importers                     spreadsheet_importers[]
   studies                                   studies[]
   third_party_correlations                  third_party_correlations[]
-  tracker_log                               tracker_log[]
-  tracker_sessions                          tracker_sessions[]
   tracking_reminder_notifications           tracking_reminder_notifications[]
   tracking_reminders                        tracking_reminders[]
   user_clients                              user_clients[]
@@ -1935,7 +1649,6 @@ model oa_clients {
   variable_user_sources                     variable_user_sources[]
   variables                                 variables[]
   votes                                     votes[]
-  wp_bp_activity_meta                       wp_bp_activity_meta[]
 
   @@index([user_id], map: "oa_clients_user_id_fk")
 }
@@ -2425,68 +2138,6 @@ model third_party_correlations {
   @@index([cause_variable_category_id], map: "third_party_correlations_cause_variable_category_id_fk")
   @@index([client_id], map: "third_party_correlations_client_id_fk")
   @@index([effect_variable_category_id], map: "third_party_correlations_effect_variable_category_id_fk")
-}
-
-model tracker_log {
-  id            BigInt      @id @default(autoincrement()) @db.UnsignedBigInt
-  session_id    BigInt?     @db.UnsignedBigInt
-  path_id       BigInt?     @db.UnsignedBigInt
-  query_id      BigInt?     @db.UnsignedBigInt
-  method        String      @db.VarChar(10)
-  route_path_id BigInt?     @db.UnsignedBigInt
-  is_ajax       Boolean
-  is_secure     Boolean
-  is_json       Boolean
-  wants_json    Boolean
-  error_id      BigInt?     @db.UnsignedBigInt
-  created_at    DateTime    @default(now()) @db.Timestamp(0)
-  updated_at    DateTime    @default(now()) @db.Timestamp(0)
-  client_id     String?     @db.VarChar(255)
-  user_id       BigInt      @db.UnsignedBigInt
-  deleted_at    DateTime?   @db.Timestamp(0)
-  oa_clients    oa_clients? @relation(fields: [client_id], references: [client_id], onDelete: Restrict, onUpdate: Restrict, map: "tracker_log_client_id_fk")
-  wp_users      wp_users    @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "tracker_log_user_id_fk")
-
-  @@index([client_id], map: "tracker_log_client_id_fk")
-  @@index([created_at], map: "tracker_log_created_at_index")
-  @@index([error_id], map: "tracker_log_error_id_index")
-  @@index([method], map: "tracker_log_method_index")
-  @@index([path_id], map: "tracker_log_path_id_index")
-  @@index([query_id], map: "tracker_log_query_id_index")
-  @@index([route_path_id], map: "tracker_log_route_path_id_index")
-  @@index([session_id], map: "tracker_log_session_id_index")
-  @@index([updated_at], map: "tracker_log_updated_at_index")
-  @@index([user_id], map: "tracker_log_user_id_fk")
-}
-
-model tracker_sessions {
-  id         BigInt      @id @default(autoincrement()) @db.UnsignedBigInt
-  uuid       String      @unique(map: "tracker_sessions_uuid_unique") @db.VarChar(255)
-  user_id    BigInt      @db.UnsignedBigInt
-  device_id  BigInt?     @db.UnsignedBigInt
-  agent_id   BigInt?     @db.UnsignedBigInt
-  client_ip  String      @db.VarChar(255)
-  referer_id BigInt?     @db.UnsignedBigInt
-  cookie_id  BigInt?     @db.UnsignedBigInt
-  geoip_id   BigInt?     @db.UnsignedBigInt
-  is_robot   Boolean
-  created_at DateTime    @default(now()) @db.Timestamp(0)
-  updated_at DateTime    @default(now()) @db.Timestamp(0)
-  deleted_at DateTime?   @db.Timestamp(0)
-  client_id  String?     @db.VarChar(255)
-  oa_clients oa_clients? @relation(fields: [client_id], references: [client_id], onDelete: Restrict, onUpdate: Restrict, map: "tracker_sessions_client_id_fk")
-  wp_users   wp_users    @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "tracker_sessions_user_id_fk")
-
-  @@index([agent_id], map: "tracker_sessions_agent_id_index")
-  @@index([client_id], map: "tracker_sessions_client_id_fk")
-  @@index([client_ip], map: "tracker_sessions_client_ip_index")
-  @@index([cookie_id], map: "tracker_sessions_cookie_id_index")
-  @@index([created_at], map: "tracker_sessions_created_at_index")
-  @@index([device_id], map: "tracker_sessions_device_id_index")
-  @@index([geoip_id], map: "tracker_sessions_geoip_id_index")
-  @@index([referer_id], map: "tracker_sessions_referer_id_index")
-  @@index([updated_at], map: "tracker_sessions_updated_at_index")
-  @@index([user_id], map: "tracker_sessions_user_id_index")
 }
 
 model tracking_reminder_notifications {
@@ -3332,394 +2983,6 @@ model votes {
   @@index([effect_variable_id], map: "votes_effect_variable_id_index")
 }
 
-model wp_blog_versions {
-  blog_id      BigInt    @id @default(0)
-  db_version   String    @default("") @db.VarChar(20)
-  last_updated DateTime  @default(dbgenerated("'0000-00-00 00:00:00'")) @db.DateTime(0)
-  updated_at   DateTime  @default(now()) @db.Timestamp(0)
-  created_at   DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at   DateTime? @db.Timestamp(0)
-  client_id    String?   @db.VarChar(255)
-
-  @@index([db_version], map: "db_version")
-}
-
-model wp_blogs {
-  blog_id      BigInt    @id @default(autoincrement())
-  site_id      BigInt    @default(0)
-  domain       String    @default("") @db.VarChar(200)
-  path         String    @default("") @db.VarChar(100)
-  registered   DateTime  @default(dbgenerated("'0000-00-00 00:00:00'")) @db.DateTime(0)
-  last_updated DateTime  @default(dbgenerated("'0000-00-00 00:00:00'")) @db.DateTime(0)
-  public       Int       @default(1) @db.TinyInt
-  archived     Int       @default(0) @db.TinyInt
-  mature       Int       @default(0) @db.TinyInt
-  spam         Int       @default(0) @db.TinyInt
-  deleted      Int       @default(0) @db.TinyInt
-  lang_id      Int       @default(0)
-  updated_at   DateTime  @default(now()) @db.Timestamp(0)
-  created_at   DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at   DateTime? @db.Timestamp(0)
-  client_id    String?   @db.VarChar(255)
-
-  @@index([domain(length: 50), path(length: 5)], map: "domain")
-  @@index([lang_id], map: "lang_id")
-}
-
-model wp_bp_activity {
-  id                  BigInt                @id @default(autoincrement())
-  user_id             BigInt                @db.UnsignedBigInt
-  component           String                @db.VarChar(75)
-  type                String                @db.VarChar(75)
-  action              String                @db.Text
-  content             String                @db.LongText
-  primary_link        String                @db.Text
-  item_id             BigInt
-  secondary_item_id   BigInt?
-  date_recorded       DateTime              @db.DateTime(0)
-  hide_sitewide       Boolean?              @default(false)
-  mptt_left           Int                   @default(0)
-  mptt_right          Int                   @default(0)
-  is_spam             Boolean               @default(false)
-  updated_at          DateTime              @default(now()) @db.Timestamp(0)
-  created_at          DateTime              @default(now()) @db.Timestamp(0)
-  deleted_at          DateTime?             @db.Timestamp(0)
-  client_id           String?               @db.VarChar(255)
-  wp_users            wp_users              @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "wp_bp_activity_wp_users_ID_fk")
-  wp_bp_activity_meta wp_bp_activity_meta[]
-
-  @@index([component], map: "component")
-  @@index([date_recorded], map: "date_recorded")
-  @@index([hide_sitewide], map: "hide_sitewide")
-  @@index([is_spam], map: "is_spam")
-  @@index([item_id], map: "item_id")
-  @@index([mptt_left], map: "mptt_left")
-  @@index([mptt_right], map: "mptt_right")
-  @@index([secondary_item_id], map: "secondary_item_id")
-  @@index([type], map: "type")
-  @@index([user_id], map: "user_id")
-}
-
-model wp_bp_activity_meta {
-  id             BigInt         @id @default(autoincrement())
-  activity_id    BigInt
-  meta_key       String?        @db.VarChar(255)
-  meta_value     String?        @db.LongText
-  updated_at     DateTime       @default(now()) @db.Timestamp(0)
-  created_at     DateTime       @default(now()) @db.Timestamp(0)
-  deleted_at     DateTime?      @db.Timestamp(0)
-  client_id      String?        @db.VarChar(255)
-  oa_clients     oa_clients?    @relation(fields: [client_id], references: [client_id], onDelete: Restrict, onUpdate: Restrict, map: "wp_bp_activity_meta_oa_clients_client_id_fk")
-  wp_bp_activity wp_bp_activity @relation(fields: [activity_id], references: [id], onUpdate: Restrict, map: "wp_bp_activity_meta_wp_bp_activity_id_fk")
-
-  @@index([activity_id], map: "activity_id")
-  @@index([meta_key(length: 191)], map: "meta_key")
-  @@index([client_id], map: "wp_bp_activity_meta_oa_clients_client_id_fk")
-}
-
-model wp_bp_friends {
-  id                                                 BigInt    @id @default(autoincrement())
-  initiator_user_id                                  BigInt    @db.UnsignedBigInt
-  friend_user_id                                     BigInt    @db.UnsignedBigInt
-  is_confirmed                                       Boolean?  @default(false)
-  is_limited                                         Boolean?  @default(false)
-  date_created                                       DateTime  @db.DateTime(0)
-  updated_at                                         DateTime  @default(now()) @db.Timestamp(0)
-  created_at                                         DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at                                         DateTime? @db.Timestamp(0)
-  client_id                                          String?   @db.VarChar(255)
-  wp_users_wp_bp_friends_friend_user_idTowp_users    wp_users  @relation("wp_bp_friends_friend_user_idTowp_users", fields: [friend_user_id], references: [ID], onUpdate: Restrict, map: "wp_bp_friends_friend_user_id_wp_users_ID_fk")
-  wp_users_wp_bp_friends_initiator_user_idTowp_users wp_users  @relation("wp_bp_friends_initiator_user_idTowp_users", fields: [initiator_user_id], references: [ID], onUpdate: Restrict, map: "wp_bp_friends_initiator_user_id_wp_users_ID_fk")
-
-  @@index([friend_user_id], map: "friend_user_id")
-  @@index([initiator_user_id], map: "initiator_user_id")
-}
-
-model wp_bp_groups {
-  id           BigInt    @id @default(autoincrement())
-  creator_id   BigInt
-  name         String    @db.VarChar(100)
-  slug         String    @db.VarChar(200)
-  description  String    @db.LongText
-  status       String    @default("public") @db.VarChar(10)
-  parent_id    BigInt    @default(0)
-  enable_forum Boolean   @default(true)
-  date_created DateTime  @db.DateTime(0)
-  updated_at   DateTime  @default(now()) @db.Timestamp(0)
-  created_at   DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at   DateTime? @db.Timestamp(0)
-  client_id    String?   @db.VarChar(255)
-
-  @@index([creator_id], map: "creator_id")
-  @@index([parent_id], map: "parent_id")
-  @@index([status], map: "status")
-}
-
-model wp_bp_groups_groupmeta {
-  id         BigInt    @id @default(autoincrement())
-  group_id   BigInt
-  meta_key   String?   @db.VarChar(255)
-  meta_value String?   @db.LongText
-  updated_at DateTime  @default(now()) @db.Timestamp(0)
-  created_at DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at DateTime? @db.Timestamp(0)
-  client_id  String?   @db.VarChar(255)
-
-  @@index([group_id], map: "group_id")
-  @@index([meta_key(length: 191)], map: "meta_key")
-}
-
-model wp_bp_groups_members {
-  id            BigInt    @id @default(autoincrement())
-  group_id      BigInt
-  user_id       BigInt    @db.UnsignedBigInt
-  inviter_id    BigInt
-  is_admin      Boolean   @default(false)
-  is_mod        Boolean   @default(false)
-  user_title    String    @db.VarChar(100)
-  date_modified DateTime  @db.DateTime(0)
-  comments      String    @db.LongText
-  is_confirmed  Boolean   @default(false)
-  is_banned     Boolean   @default(false)
-  invite_sent   Boolean   @default(false)
-  updated_at    DateTime  @default(now()) @db.Timestamp(0)
-  created_at    DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at    DateTime? @db.Timestamp(0)
-  client_id     String?   @db.VarChar(255)
-  wp_users      wp_users  @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "wp_bp_groups_members_wp_users_ID_fk")
-
-  @@index([group_id], map: "group_id")
-  @@index([inviter_id], map: "inviter_id")
-  @@index([is_admin], map: "is_admin")
-  @@index([is_confirmed], map: "is_confirmed")
-  @@index([is_mod], map: "is_mod")
-  @@index([user_id], map: "user_id")
-}
-
-model wp_bp_invitations {
-  id                BigInt   @id @default(autoincrement())
-  user_id           BigInt
-  inviter_id        BigInt
-  invitee_email     String?  @db.VarChar(100)
-  class             String   @db.VarChar(120)
-  item_id           BigInt
-  secondary_item_id BigInt?
-  type              String   @default("invite") @db.VarChar(12)
-  content           String?  @db.LongText
-  date_modified     DateTime @db.DateTime(0)
-  invite_sent       Boolean  @default(false)
-  accepted          Boolean  @default(false)
-
-  @@index([accepted], map: "accepted")
-  @@index([class], map: "class")
-  @@index([invite_sent], map: "invite_sent")
-  @@index([invitee_email], map: "invitee_email")
-  @@index([inviter_id], map: "inviter_id")
-  @@index([item_id], map: "item_id")
-  @@index([secondary_item_id], map: "secondary_item_id")
-  @@index([type], map: "type")
-  @@index([user_id], map: "user_id")
-}
-
-model wp_bp_messages_messages {
-  id         BigInt    @id @default(autoincrement())
-  thread_id  BigInt
-  sender_id  BigInt
-  subject    String    @db.VarChar(200)
-  message    String    @db.LongText
-  date_sent  DateTime  @db.DateTime(0)
-  updated_at DateTime  @default(now()) @db.Timestamp(0)
-  created_at DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at DateTime? @db.Timestamp(0)
-  client_id  String?   @db.VarChar(255)
-
-  @@index([sender_id], map: "sender_id")
-  @@index([thread_id], map: "thread_id")
-}
-
-model wp_bp_messages_meta {
-  id         BigInt    @id @default(autoincrement())
-  message_id BigInt
-  meta_key   String?   @db.VarChar(255)
-  meta_value String?   @db.LongText
-  updated_at DateTime  @default(now()) @db.Timestamp(0)
-  created_at DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at DateTime? @db.Timestamp(0)
-  client_id  String?   @db.VarChar(255)
-
-  @@index([message_id], map: "message_id")
-  @@index([meta_key(length: 191)], map: "meta_key")
-}
-
-model wp_bp_messages_notices {
-  id         BigInt    @id @default(autoincrement())
-  subject    String    @db.VarChar(200)
-  message    String    @db.LongText
-  date_sent  DateTime  @db.DateTime(0)
-  is_active  Boolean   @default(false)
-  updated_at DateTime  @default(now()) @db.Timestamp(0)
-  created_at DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at DateTime? @db.Timestamp(0)
-  client_id  String?   @db.VarChar(255)
-
-  @@index([is_active], map: "is_active")
-}
-
-model wp_bp_messages_recipients {
-  id           BigInt    @id @default(autoincrement())
-  user_id      BigInt    @db.UnsignedBigInt
-  thread_id    BigInt
-  unread_count Int       @default(0)
-  sender_only  Boolean   @default(false)
-  is_deleted   Boolean   @default(false)
-  updated_at   DateTime  @default(now()) @db.Timestamp(0)
-  created_at   DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at   DateTime? @db.Timestamp(0)
-  client_id    String?   @db.VarChar(255)
-  wp_users     wp_users  @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "wp_bp_messages_recipients_wp_users_ID_fk")
-
-  @@index([is_deleted], map: "is_deleted")
-  @@index([sender_only], map: "sender_only")
-  @@index([thread_id], map: "thread_id")
-  @@index([unread_count], map: "unread_count")
-  @@index([user_id], map: "user_id")
-}
-
-model wp_bp_notifications {
-  id                BigInt    @id @default(autoincrement())
-  user_id           BigInt    @db.UnsignedBigInt
-  item_id           BigInt
-  secondary_item_id BigInt?
-  component_name    String    @db.VarChar(75)
-  component_action  String    @db.VarChar(75)
-  date_notified     DateTime  @db.DateTime(0)
-  is_new            Boolean   @default(false)
-  updated_at        DateTime  @default(now()) @db.Timestamp(0)
-  created_at        DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at        DateTime? @db.Timestamp(0)
-  client_id         String?   @db.VarChar(255)
-  wp_users          wp_users  @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "wp_bp_notifications_wp_users_ID_fk")
-
-  @@index([component_action], map: "component_action")
-  @@index([component_name], map: "component_name")
-  @@index([is_new], map: "is_new")
-  @@index([item_id], map: "item_id")
-  @@index([secondary_item_id], map: "secondary_item_id")
-  @@index([user_id, is_new], map: "useritem")
-}
-
-model wp_bp_notifications_meta {
-  id              BigInt    @id @default(autoincrement())
-  notification_id BigInt
-  meta_key        String?   @db.VarChar(255)
-  meta_value      String?   @db.LongText
-  updated_at      DateTime  @default(now()) @db.Timestamp(0)
-  created_at      DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at      DateTime? @db.Timestamp(0)
-  client_id       String?   @db.VarChar(255)
-
-  @@index([meta_key(length: 191)], map: "meta_key")
-  @@index([notification_id], map: "notification_id")
-}
-
-model wp_bp_user_blogs {
-  id         BigInt    @id @default(autoincrement())
-  user_id    BigInt    @db.UnsignedBigInt
-  blog_id    BigInt
-  updated_at DateTime  @default(now()) @db.Timestamp(0)
-  created_at DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at DateTime? @db.Timestamp(0)
-  client_id  String?   @db.VarChar(255)
-  wp_users   wp_users  @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "wp_bp_user_blogs_wp_users_ID_fk")
-
-  @@index([blog_id], map: "blog_id")
-  @@index([user_id], map: "user_id")
-}
-
-model wp_bp_user_blogs_blogmeta {
-  id         BigInt    @id @default(autoincrement())
-  blog_id    BigInt
-  meta_key   String?   @db.VarChar(255)
-  meta_value String?   @db.LongText
-  updated_at DateTime  @default(now()) @db.Timestamp(0)
-  created_at DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at DateTime? @db.Timestamp(0)
-  client_id  String?   @db.VarChar(255)
-
-  @@index([blog_id], map: "blog_id")
-  @@index([meta_key(length: 191)], map: "meta_key")
-}
-
-model wp_bp_xprofile_data {
-  id           BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
-  field_id     BigInt    @db.UnsignedBigInt
-  user_id      BigInt    @db.UnsignedBigInt
-  value        String    @db.LongText
-  last_updated DateTime  @db.DateTime(0)
-  updated_at   DateTime  @default(now()) @db.Timestamp(0)
-  created_at   DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at   DateTime? @db.Timestamp(0)
-  client_id    String?   @db.VarChar(255)
-  wp_users     wp_users  @relation(fields: [user_id], references: [ID], onUpdate: Restrict, map: "wp_bp_xprofile_data_wp_users_ID_fk")
-
-  @@index([field_id], map: "field_id")
-  @@index([user_id], map: "user_id")
-}
-
-model wp_bp_xprofile_fields {
-  id                BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
-  group_id          BigInt    @db.UnsignedBigInt
-  parent_id         BigInt    @db.UnsignedBigInt
-  type              String    @db.VarChar(150)
-  name              String    @db.VarChar(150)
-  description       String    @db.LongText
-  is_required       Boolean   @default(false)
-  is_default_option Boolean   @default(false)
-  field_order       BigInt    @default(0)
-  option_order      BigInt    @default(0)
-  order_by          String    @default("") @db.VarChar(15)
-  can_delete        Boolean   @default(true)
-  updated_at        DateTime  @default(now()) @db.Timestamp(0)
-  created_at        DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at        DateTime? @db.Timestamp(0)
-  client_id         String?   @db.VarChar(255)
-
-  @@index([can_delete], map: "can_delete")
-  @@index([field_order], map: "field_order")
-  @@index([group_id], map: "group_id")
-  @@index([is_required], map: "is_required")
-  @@index([parent_id], map: "parent_id")
-}
-
-model wp_bp_xprofile_groups {
-  id          BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
-  name        String    @db.VarChar(150)
-  description String    @db.MediumText
-  group_order BigInt    @default(0)
-  can_delete  Boolean
-  updated_at  DateTime  @default(now()) @db.Timestamp(0)
-  created_at  DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at  DateTime? @db.Timestamp(0)
-  client_id   String?   @db.VarChar(255)
-
-  @@index([can_delete], map: "can_delete")
-}
-
-model wp_bp_xprofile_meta {
-  id          BigInt    @id @default(autoincrement())
-  object_id   BigInt
-  object_type String    @db.VarChar(150)
-  meta_key    String?   @db.VarChar(255)
-  meta_value  String?   @db.LongText
-  updated_at  DateTime  @default(now()) @db.Timestamp(0)
-  created_at  DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at  DateTime? @db.Timestamp(0)
-  client_id   String?   @db.VarChar(255)
-
-  @@index([meta_key(length: 191)], map: "meta_key")
-  @@index([object_id], map: "object_id")
-}
-
 model wp_commentmeta {
   meta_id     BigInt       @id @default(autoincrement()) @db.UnsignedBigInt
   comment_id  BigInt?      @db.UnsignedBigInt
@@ -3869,32 +3132,6 @@ model wp_posts {
   @@index([post_parent], map: "post_parent")
   @@index([post_type, post_status, post_date, ID], map: "type_status_date")
   @@index([post_modified], map: "wp_posts_post_modified_index")
-}
-
-model wp_site {
-  id         BigInt    @id @default(autoincrement())
-  domain     String    @default("") @db.VarChar(200)
-  path       String    @default("") @db.VarChar(100)
-  updated_at DateTime  @default(now()) @db.Timestamp(0)
-  created_at DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at DateTime? @db.Timestamp(0)
-  client_id  String?   @db.VarChar(255)
-
-  @@index([domain(length: 140), path(length: 51)], map: "domain")
-}
-
-model wp_sitemeta {
-  meta_id    BigInt    @id @default(autoincrement())
-  site_id    BigInt    @default(0)
-  meta_key   String?   @db.VarChar(255)
-  meta_value String?   @db.LongText
-  updated_at DateTime  @default(now()) @db.Timestamp(0)
-  created_at DateTime  @default(now()) @db.Timestamp(0)
-  deleted_at DateTime? @db.Timestamp(0)
-  client_id  String?   @db.VarChar(255)
-
-  @@index([meta_key(length: 191)], map: "meta_key")
-  @@index([site_id], map: "site_id")
 }
 
 model wp_term_relationships {
@@ -4096,9 +3333,6 @@ model wp_users {
   wp_posts_wp_postsTowp_users_wp_post_id                            wp_posts?                         @relation("wp_postsTowp_users_wp_post_id", fields: [wp_post_id], references: [ID], map: "wp_users_wp_posts_ID_fk")
   wp_users                                                          wp_users?                         @relation("wp_usersTowp_users", fields: [referrer_user_id], references: [ID], onDelete: Restrict, onUpdate: Restrict, map: "wp_users_wp_users_ID_fk")
   applications                                                      applications[]
-  button_clicks                                                     button_clicks[]
-  buttons                                                           buttons[]
-  cards                                                             cards[]
   child_parents_child_parents_child_user_idTowp_users               child_parents[]                   @relation("child_parents_child_user_idTowp_users")
   child_parents_child_parents_parent_user_idTowp_users              child_parents[]                   @relation("child_parents_parent_user_idTowp_users")
   cohort_studies                                                    cohort_studies[]
@@ -4131,8 +3365,6 @@ model wp_users {
   sharer_trustees_sharer_trustees_trustee_user_idTowp_users         sharer_trustees[]                 @relation("sharer_trustees_trustee_user_idTowp_users")
   studies                                                           studies[]
   subscriptions                                                     subscriptions[]
-  tracker_log                                                       tracker_log[]
-  tracker_sessions                                                  tracker_sessions[]
   tracking_reminder_notifications                                   tracking_reminder_notifications[]
   tracking_reminders                                                tracking_reminders[]
   user_clients                                                      user_clients[]
@@ -4142,14 +3374,6 @@ model wp_users {
   user_variables                                                    user_variables[]
   variable_user_sources                                             variable_user_sources[]
   votes                                                             votes[]
-  wp_bp_activity                                                    wp_bp_activity[]
-  wp_bp_friends_wp_bp_friends_friend_user_idTowp_users              wp_bp_friends[]                   @relation("wp_bp_friends_friend_user_idTowp_users")
-  wp_bp_friends_wp_bp_friends_initiator_user_idTowp_users           wp_bp_friends[]                   @relation("wp_bp_friends_initiator_user_idTowp_users")
-  wp_bp_groups_members                                              wp_bp_groups_members[]
-  wp_bp_messages_recipients                                         wp_bp_messages_recipients[]
-  wp_bp_notifications                                               wp_bp_notifications[]
-  wp_bp_user_blogs                                                  wp_bp_user_blogs[]
-  wp_bp_xprofile_data                                               wp_bp_xprofile_data[]
   wp_comments                                                       wp_comments[]
   wp_links                                                          wp_links[]
   wp_posts_wp_posts_post_authorTowp_users                           wp_posts[]                        @relation("wp_posts_post_authorTowp_users")
