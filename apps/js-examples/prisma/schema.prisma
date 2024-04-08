@@ -10,9 +10,9 @@ datasource db {
 model users {
   id                           Int       @id @default(autoincrement())
   email                        String?
-  fdai_user_id                 Int?
   first_name                   String?
   username                     String?
+  fdai_user_id                 Int?
   fdai_access_token            String?
   fdai_refresh_token           String?
   fdai_expires_in              Int?
