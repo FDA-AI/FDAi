@@ -186,6 +186,113 @@ paths:
         - bearerAuth: []
         - OAuth2:
             - basic
+  /v3/userVariables:
+    get:
+      tags:
+        - variables
+      summary: Get variables along with related user-specific analysis settings and statistics
+      description: 'Get variables. If the user has specified variable settings, these are provided instead of the common variable defaults.'
+      operationId: getUserVariables
+      parameters:
+        - $ref: '#/components/parameters/includeChartsParam'
+        - $ref: '#/components/parameters/numberOfRawMeasurementsParam'
+        - $ref: '#/components/parameters/variableCategoryNameParam'
+        - name: name
+          in: query
+          description: 'Name of the variable. To get results matching a substring, add % as a wildcard as the first and/or last character of a query string parameter. In order to get variables that contain `Mood`, the following query should be used: ?variableName=%Mood%'
+          schema:
+            type: string
+        - $ref: '#/components/parameters/variableNameParam'
+        - $ref: '#/components/parameters/updatedAtParam'
+        - $ref: '#/components/parameters/sourceNameParam'
+        - $ref: '#/components/parameters/earliestMeasurementTimeParam'
+        - $ref: '#/components/parameters/latestMeasurementTimeParam'
+        - name: id
+          in: query
+          description: Common variable id
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/lastSourceParam'
+        - $ref: '#/components/parameters/limitParam'
+        - $ref: '#/components/parameters/offsetParam'
+        - $ref: '#/components/parameters/sortParam'
+        - $ref: '#/components/parameters/includePublicParam'
+        - $ref: '#/components/parameters/manualTrackingParam'
+        - $ref: '#/components/parameters/clientIdParam'
+        - name: upc
+          in: query
+          description: UPC or other barcode scan result
+          schema:
+            type: string
+        - $ref: '#/components/parameters/effectOrCauseParam'
+        - $ref: '#/components/parameters/publicEffectOrCauseParam'
+        - $ref: '#/components/parameters/exactMatchParam'
+        - $ref: '#/components/parameters/variableCategoryIdParam'
+        - $ref: '#/components/parameters/includePrivateParam'
+        - $ref: '#/components/parameters/searchPhraseParam'
+        - $ref: '#/components/parameters/synonymsParam'
+        - $ref: '#/components/parameters/taggedVariableIdParam'
+        - $ref: '#/components/parameters/tagVariableIdParam'
+        - name: joinVariableId
+          in: query
+          description: 'Id of the variable you would like to get variables that can be joined to.  This is used to merge duplicate variables.   If joinVariableId is specified, this returns only variables eligible to be joined to the variable specified by the joinVariableId.'
+          schema:
+            type: integer
+        - name: parentUserTagVariableId
+          in: query
+          description: 'Id of the parent category variable (i.e. Fruit) you would like to get eligible child sub-type variables (i.e. Apple) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child sub-type of the parent category Fruit could be Apple.  When Apple is tagged with the parent category Fruit, Apple measurements will be included when Fruit is analyzed.'
+          schema:
+            type: integer
+        - name: childUserTagVariableId
+          in: query
+          description: 'Id of the child sub-type variable (i.e. Apple) you would like to get eligible parent variables (i.e. Fruit) for.  Child variable measurements will be included in analysis of the parent variable.  For instance, a child sub-type of the parent category Fruit could be Apple. When Apple is tagged with the parent category Fruit, Apple measurements will be included when Fruit is analyzed.'
+          schema:
+            type: integer
+        - name: ingredientUserTagVariableId
+          in: query
+          description: 'Id of the ingredient variable (i.e. Fructose)  you would like to get eligible ingredientOf variables (i.e. Apple) for.  IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredientOf of variable Fruit could be Apple.'
+          schema:
+            type: integer
+        - name: ingredientOfUserTagVariableId
+          in: query
+          description: 'Id of the ingredientOf variable (i.e. Apple) you would like to get eligible ingredient variables (i.e. Fructose) for.  IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredientOf of variable Fruit could be Apple.'
+          schema:
+            type: integer
+        - name: commonOnly
+          in: query
+          description: Return only public and aggregated common variable data instead of user-specific variables
+          schema:
+            type: boolean
+        - name: userOnly
+          in: query
+          description: 'Return only user-specific variables and data, excluding common aggregated variable data'
+          schema:
+            type: boolean
+        - $ref: '#/components/parameters/includeTagsParam'
+        - $ref: '#/components/parameters/recalculate'
+        - $ref: '#/components/parameters/variableIdParam'
+        - $ref: '#/components/parameters/conciseParam'
+        - name: refresh
+          in: query
+          description: Regenerate charts instead of getting from the cache
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Variables returned
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Variable'
+        '401':
+          description: Not Authenticated
+          content: { }
+      security:
+        - bearerAuth: [ ]
+        - OAuth2:
+            - basic
     post:
       tags:
         - variables
@@ -213,15 +320,15 @@ paths:
                 $ref: '#/components/schemas/CommonResponse'
         '400':
           description: The received JSON was invalid or malformed
-          content: {}
+          content: { }
         '401':
           description: Not Authenticated
-          content: {}
+          content: { }
         '404':
           description: Unknown target user ID
-          content: {}
+          content: { }
       security:
-        - bearerAuth: []
+        - bearerAuth: [ ]
         - OAuth2:
             - basic
   /v3/measurements:
@@ -6284,6 +6391,569 @@ components:
         userVariableUnitId:
           type: integer
           description: 'Ex: 23'
+        userVariableUnitName:
+          type: string
+          description: 'Ex: Count'
+        variableCategory:
+          $ref: '#/components/schemas/VariableCategory'
+        joinedVariables:
+          type: array
+          description: Array of Variables that are joined with this Variable
+          items:
+            $ref: '#/components/schemas/TagVariable'
+        valence:
+          type: string
+          description: 'Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with the happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables. '
+        variableCategoryId:
+          type: integer
+          description: 'Ex: 6'
+        variableCategoryName:
+          type: string
+          description: 'User-Defined Variable Setting: Variable category like Emotions, Sleep, Physical Activities, Treatments, Symptoms, etc.'
+          enum:
+            - Activity
+            - Books
+            - Causes of Illness
+            - Cognitive Performance
+            - Conditions
+            - Emotions
+            - Environment
+            - Foods
+            - Goals
+            - Locations
+            - Miscellaneous
+            - Movies and TV
+            - Music
+            - Nutrients
+            - Payments
+            - Physical Activities
+            - Physique
+            - Sleep
+            - Social Interactions
+            - Software
+            - Symptoms
+            - Treatments
+            - Vital Signs
+        variableId:
+          type: integer
+          description: 'Ex: 96380'
+        variableName:
+          type: string
+          description: 'Ex: Sleep Duration'
+        variance:
+          type: number
+          description: 'Statistic: Ex: 115947037.40816'
+          format: double
+        wikipediaTitle:
+          type: string
+          description: 'User-Defined Variable Setting: You can help to improve the studies by pasting the title of the most appropriate Wikipedia article for this variable'
+    UserVariable:
+      required:
+        - id
+        - name
+        - userId
+        - variableId
+      type: object
+      properties:
+        actionArray:
+          type: array
+          items:
+            $ref: '#/components/schemas/TrackingReminderNotificationAction'
+        alias:
+          type: string
+          description: 'User-Defined Variable Setting:  Alternative display name'
+        availableUnits:
+          type: array
+          items:
+            $ref: '#/components/schemas/Unit'
+        bestStudyLink:
+          type: string
+          description: Link to study comparing variable with strongest relationship for user or population
+        bestStudyCard:
+          $ref: '#/components/schemas/Card'
+        bestUserStudyLink:
+          type: string
+          description: Link to study comparing variable with strongest relationship for user
+        bestUserStudyCard:
+          $ref: '#/components/schemas/Card'
+        bestPopulationStudyLink:
+          type: string
+          description: Link to study comparing variable with strongest relationship for population
+        bestPopulationStudyCard:
+          $ref: '#/components/schemas/Card'
+        optimalValueMessage:
+          type: string
+          description: Description of relationship with variable with strongest relationship for user or population
+        commonOptimalValueMessage:
+          type: string
+          description: Description of relationship with variable with strongest relationship for population
+        userOptimalValueMessage:
+          type: string
+          description: Description of relationship with variable with strongest relationship for user
+        card:
+          $ref: '#/components/schemas/Card'
+        causeOnly:
+          type: boolean
+          description: 'User-Defined Variable Setting: True indicates that this variable is generally a cause in a causal relationship.  An example of a causeOnly variable would be a variable such as Cloud Cover which would generally not be influenced by the behaviour of the user'
+        charts:
+          $ref: '#/components/schemas/VariableCharts'
+        chartsLinkDynamic:
+          type: string
+          description: 'Ex: https://local.quantimo.do/ionic/Modo/www/#/app/charts/Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29?variableName=Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29&userId=230&pngUrl=https%3A%2F%2Fapi.quantimo.do%2Fionic%2FModo%2Fwww%2Fimg%2Fvariable_categories%2Ftreatments.png'
+        chartsLinkEmail:
+          type: string
+          description: 'Ex: mailto:?subject=Check%20out%20my%20Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29%20data%21&body=See%20my%20Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29%20history%20at%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapi.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png%0A%0AHave%20a%20great%20day!'
+        chartsLinkFacebook:
+          type: string
+          description: 'Ex: https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapi.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png'
+        chartsLinkGoogle:
+          type: string
+          description: 'Ex: https://plus.google.com/share?url=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapi.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png'
+        chartsLinkStatic:
+          type: string
+          description: 'Ex: https://local.quantimo.do/api/v2/charts?variableName=Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29&userId=230&pngUrl=https%3A%2F%2Fapi.quantimo.do%2Fionic%2FModo%2Fwww%2Fimg%2Fvariable_categories%2Ftreatments.png'
+        chartsLinkTwitter:
+          type: string
+          description: 'Ex: https://twitter.com/home?status=Check%20out%20my%20Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29%20data%21%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapi.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png%20%40curedao'
+        childCommonTagVariables:
+          type: array
+          description: Commonly defined for all users. An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
+          items:
+            $ref: '#/components/schemas/TagVariable'
+        childUserTagVariables:
+          type: array
+          description: 'User-Defined Variable Setting: An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.'
+          items:
+            $ref: '#/components/schemas/TagVariable'
+        clientId:
+          type: string
+          description: 'Your client id can be obtained by creating an app at https://builder.quantimo.do'
+        combinationOperation:
+          type: string
+          description: 'User-Defined Variable Setting: How to aggregate measurements over time. SUM should be used for things like minutes of exercise.  If you use MEAN for exercise, then a person might exercise more minutes in one day but add separate measurements that were smaller.  So when we are doing correlational analysis, we would think that the person exercised less that day even though they exercised more.  Conversely, we must use MEAN for things such as ratings which cannot be SUMMED.'
+          enum:
+            - MEAN
+            - SUM
+        commonAlias:
+          type: string
+          description: 'Ex: Anxiety / Nervousness'
+        commonTaggedVariables:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagVariable'
+        commonTagVariables:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagVariable'
+        createdAt:
+          type: string
+          description: 'When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format'
+        dataSourceNames:
+          type: string
+          description: Comma-separated list of source names to limit variables to those sources
+        dataSources:
+          type: array
+          description: These are sources of measurements for this variable
+          items:
+            $ref: '#/components/schemas/DataSource'
+        description:
+          type: string
+          description: 'User-Defined Variable Setting: Ex: Summary to be used in studies.'
+        displayName:
+          type: string
+          description: 'Ex: Trader Joe''s Bedtime Tea'
+        durationOfAction:
+          type: integer
+          description: 'The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay. Unit: Seconds'
+          format: int32
+        durationOfActionInHours:
+          type: number
+          description: 'User-Defined Variable Setting: The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.  Unit: Hours'
+          format: float
+        earliestFillingTime:
+          type: integer
+          description: Earliest filling time
+          format: int32
+        earliestMeasurementTime:
+          type: integer
+          description: Earliest measurement time
+          format: int32
+        earliestSourceTime:
+          type: integer
+          description: Earliest source time
+          format: int32
+        errorMessage:
+          type: string
+          description: Error message from last analysis
+        experimentEndTime:
+          type: string
+          description: 'User-Defined Variable Setting: Latest measurement time to be used in analysis. Format: UTC ISO 8601 YYYY-MM-DDThh:mm:ss.'
+        experimentStartTime:
+          type: string
+          description: 'User-Defined Variable Setting: Earliest measurement time to be used in analysis. Format: UTC ISO 8601 YYYY-MM-DDThh:mm:ss.'
+        fillingType:
+          type: string
+          description: 'User-Defined Variable Setting: When it comes to analysis to determine the effects of this variable, knowing when it did not occur is as important as knowing when it did occur. For example, if you are tracking a medication, it is important to know when you did not take it, but you do not have to log zero values for all the days when you haven''t taken it. Hence, you can specify a filling value (typically 0) to insert whenever data is missing.'
+          enum:
+            - none
+            - zero-filling
+            - value-filling
+        fillingValue:
+          type: number
+          description: 'User-Defined Variable Setting: When it comes to analysis to determine the effects of this variable, knowing when it did not occur is as important as knowing when it did occur. For example, if you are tracking a medication, it is important to know when you did not take it, but you do not have to log zero values for all the days when you haven''t taken it. Hence, you can specify a filling value (typically 0) to insert whenever data is missing.  Unit: User-specified or common.'
+          format: float
+        iconIcon:
+          type: string
+          description: 'Ex: ion-sad-outline'
+        id:
+          type: integer
+          description: 'Ex: 95614'
+        imageUrl:
+          type: string
+        informationalUrl:
+          type: string
+          description: 'Ex: https://google.com'
+        ingredientOfCommonTagVariables:
+          type: array
+          description: 'Commonly defined for all users. IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollipop could be Sugar.  This way you only have to record Lollipop consumption, and we can use this data to see how sugar might be affecting you.'
+          items:
+            $ref: '#/components/schemas/TagVariable'
+        ingredientCommonTagVariables:
+          type: array
+          description: 'Commonly defined for all users. IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollipop could be Sugar.  This way you only have to record Lollipop consumption, and we can use this data to see how sugar might be affecting you.'
+          items:
+            $ref: '#/components/schemas/TagVariable'
+        ingredientOfUserTagVariables:
+          type: array
+          description: 'User-Defined Variable Setting: IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollipop could be Sugar.  This way you only have to record Lollipop consumption, and we can use this data to see how sugar might be affecting you.'
+          items:
+            $ref: '#/components/schemas/TagVariable'
+        ingredientUserTagVariables:
+          type: array
+          description: 'User-Defined Variable Setting: IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollipop could be Sugar.  This way you only have to record Lollipop consumption, and we can use this data to see how sugar might be affecting you.'
+          items:
+            $ref: '#/components/schemas/TagVariable'
+        inputType:
+          type: string
+          description: Type of input field to show for recording measurements
+        ionIcon:
+          type: string
+        joinedCommonTagVariables:
+          type: array
+          description: 'Commonly defined for all users.  Joining can be used used to merge duplicate variables. For instance, if two variables called Apples (Red Delicious) and Red Delicious Apples are joined, when one of them is analyzed, the measurements for the other will be included as well.'
+          items:
+            $ref: '#/components/schemas/TagVariable'
+        joinedUserTagVariables:
+          type: array
+          description: 'User-Defined Variable Setting: Joining can be used used to merge duplicate variables. For instance, if two variables called Apples (Red Delicious) and Red Delicious Apples are joined, when one of them is analyzed, the measurements for the other will be included as well.'
+          items:
+            $ref: '#/components/schemas/TagVariable'
+        joinWith:
+          type: integer
+          description: Duplicate variables. If the variable is joined with some other variable then it is not shown to user in the list of variables
+          format: int32
+        kurtosis:
+          type: number
+          description: Kurtosis
+          format: float
+        lastProcessedDailyValue:
+          type: number
+          description: 'Calculated Statistic: Ex: 500. Unit: User-specified or common.'
+          format: double
+        lastSuccessfulUpdateTime:
+          type: string
+          description: 'When this variable or its settings were last updated UTC ISO 8601 YYYY-MM-DDThh:mm:ss'
+        lastValue:
+          type: number
+          description: 'Calculated Statistic: Last measurement value in the common unit or user unit if different. Unit: User-specified or common.'
+          format: float
+        latestFillingTime:
+          type: integer
+          description: Latest filling time
+          format: int32
+        latestMeasurementTime:
+          type: integer
+          description: 'Latest measurement time. Format: Unix-time epoch seconds.'
+          format: int32
+        latestSourceTime:
+          type: integer
+          description: 'Latest source time. Format: Unix-time epoch seconds.'
+          format: int32
+        latestUserMeasurementTime:
+          type: integer
+          description: 'Ex: 1501383600. Format: Unix-time epoch seconds.'
+        latitude:
+          type: number
+          description: 'Latitude. Unit: User-specified or common.'
+          format: float
+        location:
+          type: string
+          description: Location
+        longitude:
+          type: number
+          description: Longitude
+          format: float
+        manualTracking:
+          type: boolean
+          description: True if the variable is an emotion or symptom rating that is not typically automatically collected by a device or app.
+        maximumAllowedDailyValue:
+          type: number
+          description: 'User-Defined Variable Setting: The maximum allowed value a daily aggregated measurement. Unit: User-specified or common.'
+          format: float
+        maximumAllowedValue:
+          type: number
+          description: 'User-Defined Variable Setting: The maximum allowed value a single measurement. While you can record a value above this maximum, it will be excluded from the correlation analysis.  Unit: User-specified or common.'
+          format: float
+        maximumRecordedDailyValue:
+          type: number
+          description: 'Calculated Statistic: Maximum recorded daily value of this variable. Unit: User-specified or common.'
+          format: float
+        maximumRecordedValue:
+          type: number
+          description: 'Calculated Statistic: Ex: 1. Unit: User-specified or common.'
+          format: double
+        mean:
+          type: number
+          description: 'Mean. Unit: User-specified or common.'
+          format: float
+        measurementsAtLastAnalysis:
+          type: integer
+          description: Number of measurements at last analysis
+          format: int32
+        median:
+          type: number
+          description: Median
+          format: float
+        minimumAllowedValue:
+          type: number
+          description: 'User-Defined Variable Setting: The minimum allowed value a single measurement. While you can record a value below this minimum, it will be excluded from the correlation analysis. Unit: User-specified or common'
+          format: float
+        minimumAllowedDailyValue:
+          type: number
+          description: 'User-Defined Variable Setting: The minimum allowed value a daily aggregated measurement.  For instance, you might set to 100 for steps to keep erroneous 0 daily steps out of the analysis. Unit: User-specified or common.'
+          format: float
+        minimumNonZeroValue:
+          type: number
+          description: 'User-Defined Variable Setting: The minimum allowed non-zero value a single measurement.  For instance, you might set to 100 mL for steps to keep erroneous 0 daily steps out of the analysis. Unit: User-specified or common.'
+          format: float
+        minimumRecordedValue:
+          type: number
+          description: 'Minimum recorded value of this variable. Unit: User-specified or common.'
+          format: float
+        mostCommonConnectorId:
+          type: integer
+          description: 'Ex: 51'
+        mostCommonOriginalUnitId:
+          type: integer
+          description: 'Ex: 23'
+        mostCommonUnitId:
+          type: integer
+          description: Most common Unit ID
+          format: int32
+        mostCommonValue:
+          type: number
+          description: 'Calculated Statistic: Most common value. Unit: User-specified or common.'
+          format: float
+        name:
+          type: string
+          description: 'Ex: Trader Joes Bedtime Tea / Sleepytime Tea (any Brand)'
+        numberOfGlobalVariableRelationshipsAsCause:
+          type: integer
+          description: 'Ex: 1'
+        numberOfGlobalVariableRelationshipsAsEffect:
+          type: integer
+          description: 'Ex: 310'
+        numberOfChanges:
+          type: integer
+          description: Number of changes
+          format: int32
+        numberOfCorrelations:
+          type: integer
+          description: Number of user_variable_relationships for this variable
+          format: int32
+        numberOfCorrelationsAsCause:
+          type: integer
+          description: numberOfGlobalVariableRelationshipsAsCause plus numberOfUserVariableRelationshipsAsCause
+        numberOfCorrelationsAsEffect:
+          type: integer
+          description: numberOfGlobalVariableRelationshipsAsEffect plus numberOfUserVariableRelationshipsAsEffect
+        numberOfProcessedDailyMeasurements:
+          type: integer
+          description: Number of processed measurements
+          format: int32
+        numberOfRawMeasurements:
+          type: integer
+          description: 'Ex: 295'
+        numberOfTrackingReminders:
+          type: integer
+          description: 'Ex: 1'
+        numberOfUniqueDailyValues:
+          type: number
+          description: Number of unique daily values
+          format: float
+        numberOfUniqueValues:
+          type: integer
+          description: 'Ex: 2'
+        numberOfUserVariableRelationshipsAsCause:
+          type: integer
+          description: 'Ex: 115'
+        numberOfUserVariableRelationshipsAsEffect:
+          type: integer
+          description: 'Ex: 29014'
+        numberOfUserVariables:
+          type: integer
+          description: 'Ex: 2'
+        onsetDelay:
+          type: integer
+          description: 'The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the onset delay. For example, the onset delay between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.'
+          format: int32
+        onsetDelayInHours:
+          type: number
+          description: 'User-Defined Variable Setting: The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the onset delay. For example, the onset delay between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.'
+          format: double
+        outcome:
+          type: boolean
+          description: 'User-Defined Variable Setting: True for variables for which a human would generally want to identify the influencing factors. These include symptoms of illness, physique, mood, cognitive performance, etc.  Generally correlation calculations are only performed on outcome variables'
+        outcomeOfInterest:
+          type: boolean
+          description: Do you want to receive updates on newly discovered factors influencing this variable?
+        parentCommonTagVariables:
+          type: array
+          description: Commonly defined for all users.  An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
+          items:
+            $ref: '#/components/schemas/TagVariable'
+        parentUserTagVariables:
+          type: array
+          description: User-defined. An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
+          items:
+            $ref: '#/components/schemas/TagVariable'
+        pngPath:
+          type: string
+          description: 'Ex: img/variable_categories/treatments.png'
+        pngUrl:
+          type: string
+          description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.png'
+        predictorOfInterest:
+          type: integer
+          description: 'Ex: 0'
+        price:
+          type: number
+          description: 'Ex: 95.4'
+          format: double
+        productUrl:
+          type: string
+          description: Link to associated product for purchase
+        public:
+          type: boolean
+          description: Should this variable show up in automcomplete searches for users who do not already have measurements for it?
+        question:
+          type: string
+          description: 'Ex: How is your overall mood?'
+        longQuestion:
+          type: string
+          description: 'Ex: How is your overall mood on a scale of 1 to 5??'
+        rawMeasurementsAtLastAnalysis:
+          type: integer
+          description: 'Ex: 131'
+        secondMostCommonValue:
+          type: number
+          description: 'Calculated Statistic: Ex: 1. Unit: User-specified or common.'
+          format: double
+        secondToLastValue:
+          type: number
+          description: 'Calculated Statistic: Ex: 250. Unit: User-specified or common.'
+          format: double
+        shareUserMeasurements:
+          type: boolean
+          description: Would you like to make your measurements publicly visible?
+        skewness:
+          type: number
+          description: Skewness
+          format: float
+        standardDeviation:
+          type: number
+          description: 'Standard deviation Ex: 0.46483219855434'
+          format: double
+        status:
+          type: string
+          description: status
+        subtitle:
+          type: string
+          description: Based on sort filter and can be shown beneath variable name on search list
+        svgUrl:
+          type: string
+          description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.svg'
+        thirdMostCommonValue:
+          type: number
+          description: 'Calculated Statistic: Ex: 6. Unit: User-specified or common.'
+          format: double
+        thirdToLastValue:
+          type: number
+          description: 'Calculated Statistic: Ex: 250. Unit: User-specified or common.'
+          format: double
+        trackingInstructions:
+          type: string
+          description: HTML instructions for tracking
+        trackingInstructionsCard:
+          $ref: '#/components/schemas/Card'
+        unit:
+          $ref: '#/components/schemas/Unit'
+        unitAbbreviatedName:
+          type: string
+          description: 'Ex: count'
+        unitCategoryId:
+          type: integer
+          description: 'Ex: 6'
+        unitCategoryName:
+          type: string
+          description: 'Ex: Miscellany'
+        unitId:
+          type: integer
+          description: ID of unit to use for this variable
+          format: int32
+        unitName:
+          type: string
+          description: 'User-Defined Variable Setting: Count'
+        upc:
+          type: string
+          description: Universal product code or similar
+        updated:
+          type: integer
+          description: updated
+          format: int32
+        updatedAt:
+          type: string
+          description: 'When the record in the database was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format'
+        updatedTime:
+          type: string
+          description: 'Ex: 2017-07-30 14:58:26'
+        userId:
+          type: integer
+          description: User ID
+          format: int32
+        userTaggedVariables:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagVariable'
+        userTagVariables:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagVariable'
+        userVariableUnitAbbreviatedName:
+          type: string
+          description: 'Ex: count'
+        userVariableUnitCategoryId:
+          type: integer
+          description: 'Ex: 6'
+        userVariableUnitCategoryName:
+          type: string
+          description: 'Ex: Miscellany'
+        userVariableUnitId:
+          type: integer
+          description: 'Ex: 23'
+        userVariableId:
+          type: integer
+          description: 'Ex: 95614'
         userVariableUnitName:
           type: string
           description: 'Ex: Count'
