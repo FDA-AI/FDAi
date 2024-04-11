@@ -25,8 +25,9 @@ import { toast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
 
 import { MeasurementsAddForm } from "./measurements/measurements-add-form"
+import { UserVariable } from "@/types/models/UserVariable"
 
-async function deleteUserVariable(userVariableId: string) {
+async function deleteUserVariable(userVariableId: number) {
   const response = await fetch(`/api/userVariables/${userVariableId}`, {
     method: "DELETE",
   })
@@ -47,7 +48,12 @@ async function deleteUserVariable(userVariableId: string) {
 }
 
 interface UserVariableOperationsProps {
-  userVariable: Pick<UserVariable, "id">
+  userVariable: Pick<
+    UserVariable,
+    "id" | "name" | "description" | "createdAt" | "imageUrl" |
+    "combinationOperation" | "unitAbbreviatedName" | "variableCategoryName" |
+    "lastValue" | "unitName"
+  >
   children?: React.ReactNode
 }
 
