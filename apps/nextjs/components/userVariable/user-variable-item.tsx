@@ -1,20 +1,20 @@
 "use client"
 
 import Link from "next/link"
-import { UserVariable } from "@prisma/client"
 
-import { formatDate } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UserVariableOperations } from "@/components/userVariable/user-variable-operations"
 import { QuickMeasurementButton } from '@/components/userVariable/measurements/quick-measurement-button';
+import { UserVariable } from "@/types/models/UserVariable";
 
 interface UserVariableItemProps {
   userVariable: Pick<
     UserVariable,
-    "id" | "name" | "description" | "createdAt"
+    "id" | "name" | "description" | "createdAt" | "imageUrl" |
+    "combinationOperation" | "unitAbbreviatedName" | "variableCategoryName" |
+    "lastValue" | "unitName"
   >
 }
-
 export function UserVariableItem({ userVariable }: UserVariableItemProps) {
   return (
     <div className="flex items-center justify-between gap-2 p-4">
