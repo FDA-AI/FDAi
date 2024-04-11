@@ -6,16 +6,15 @@ import { useRouter } from "next/navigation"
 import { Button, ButtonProps } from "@/components/ui/button"
 import { toast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
-interface UserVariable {
-  unitAbbreviatedName: string;
-  combinationOperation: string;
-  variableCategoryName: string;
-  id: string;
-  lastValue: number;
-  unitName: string;
-}
+import { UserVariable } from "@/types/models/UserVariable";
+
 interface QuickMeasurementButtonProps extends ButtonProps {
-  userVariable: UserVariable;
+  userVariable: Pick<
+    UserVariable,
+    "id" | "name" | "description" | "createdAt" | "imageUrl" |
+    "combinationOperation" | "unitAbbreviatedName" | "variableCategoryName" |
+    "lastValue" | "unitName"
+  >
 }
 
 export function QuickMeasurementButton({ userVariable, ...props }: QuickMeasurementButtonProps) {
