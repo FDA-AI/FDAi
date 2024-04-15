@@ -64,17 +64,6 @@
       ]
     },
     {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
-    },
-    {
       "group": "API Documentation",
       "pages": [
         "api-reference/introduction"
@@ -86,7 +75,7 @@
         "api-reference/user/post-user",
         "api-reference/authentication/get-a-user-access-token",
         "api-reference/authentication/request-authorization-code",
-        "api-reference/user/get-user-info"
+        "api-reference/user/get-user"
       ]
     },
     {
@@ -154,7 +143,6 @@
         {
           "group": "Shares",
           "pages": [
-            "api-reference/shares/delete-share-1",
             "api-reference/shares/delete-share",
             "api-reference/shares/get-authorized-apps-studies-and-individuals"
           ]
@@ -193,7 +181,7 @@
           "pages": [
             "api-reference/variables/delete-all-measurements-for-variable",
             "api-reference/variables/delete-user-tag-or-ingredient",
-            "api-reference/variables/get-variables-along-with-related-user-specific-analysis-settings-and-statistics",
+            "api-reference/variables/get-variables",
             "api-reference/variables/post-or-update-user-tags-or-ingredients",
             "api-reference/variables/reset-user-settings-for-a-variable-to-defaults",
             "api-reference/variables/update-user-settings-for-a-variable",
@@ -205,9 +193,9 @@
     {
       "group": "Guides",
       "pages": [
-        "guides/tracking-measurements",
-        "guides/analyzing-data",
-        "guides/creating-studies"
+        "guides/create-user",
+        "guides/record-measurements",
+        "guides/analyzing-data"
       ]
     }
   ],
