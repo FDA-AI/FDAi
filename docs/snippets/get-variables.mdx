@@ -1,0 +1,30 @@
+You can check the [API documentation](api-reference/get-variables) to generate code to do this in any language.
+
+However, here is a simple example of how you can create a user if you're using Node.js and Prisma.
+
+```javascript
+
+fetch("https://safe.fdai.earth/api/v3/userVariables?clientId=quantimodo&limit=10&includePublic=true&searchPhrase=mood&sort=-latestMeasurementTime", {
+  "headers": {
+    "accept": "application/json",
+    "accept-language": "en-US,en;q=0.9",
+    "authorization": "Bearer {your_fdai_access_token}",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-app-version": "2.10.705",
+    "x-client-id": "quantimodo",
+    "x-framework": "ionic",
+    "x-platform": "web",
+    "x-timezone": "America/Denver"
+  },
+  "referrer": "https://safe.fdai.earth/app/public/",
+  "referrerPolicy": "same-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+});
+```
