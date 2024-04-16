@@ -1,7 +1,16 @@
+---
+title: Record Measurements
+description: See how to save treatments or symptom ratings for a user
+---
+
+First, [create a user and get an access token](guides/get-access-token) if you haven't done that already.
+
+Then, you can record measurements for a user.
+
 The request should include the user's access token in the `Authorization` header.
 
 There are examples of how to do this in any language in the
-[measurement endpoint documentation](api-reference/save-measurements).
+[measurement endpoint documentation](../api-reference/measurements/save-measurements).
 
 However, here is an example using javascript:
 
@@ -21,3 +30,4 @@ async function postMeasurements(fdaiUser, measurements) {
   });
 }
 ```
+
