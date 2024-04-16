@@ -535,11 +535,34 @@ paths:
         - bearerAuth: []
         - OAuth2:
             - basic
+  /v3/connectors/list:
+    get:
+      tags:
+        - connectors
+      summary: List Data Sources
+      description: 'A connector pulls data from other data providers using their API or a screenscraper. Returns a list of all available connectors and information about them such as their id, name, whether the user has provided access, logo url, connection instructions, and the update history.'
+      operationId: getConnectors
+      parameters:
+        - $ref: '#/components/parameters/clientIdParam'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetConnectorsResponse'
+        '401':
+          description: Not Authenticated
+          content: {}
+      security:
+        - bearerAuth: []
+        - OAuth2:
+            - basic
   '/v3/connectors/{connectorName}/connect':
     get:
       tags:
         - connectors
-      summary: Obtain a token from 3rd party data source
+      summary: Connect Data Source
       description: 'Attempt to obtain a token from the data provider, store it in the database. With this, the connector to continue to obtain new user data until the token is revoked.'
       operationId: connectConnector
       parameters:
@@ -565,7 +588,7 @@ paths:
     get:
       tags:
         - connectors
-      summary: Delete stored connection info
+      summary: Disconnect Data Source
       description: The disconnect method deletes any stored tokens or connection information from the connectors database.
       operationId: disconnectConnector
       parameters:
@@ -591,8 +614,8 @@ paths:
     get:
       tags:
         - connectors
-      summary: Sync with data source
-      description: The update method tells the QM Connector Framework to check with the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
+      summary: Sync Data Source
+      description: Trigger an import from the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
       operationId: updateConnector
       parameters:
         - $ref: '#/components/parameters/connectorNamePathParam'
@@ -818,9 +841,6 @@ paths:
         - $ref: '#/components/parameters/createdAtParam'
         - $ref: '#/components/parameters/updatedAtParam'
         - $ref: '#/components/parameters/clientIdParam'
-        - $ref: '#/components/parameters/appVersionParam'
-        - $ref: '#/components/parameters/log'
-        - $ref: '#/components/parameters/pwd'
       responses:
         '200':
           description: Successful Operation
@@ -1225,7 +1245,6 @@ paths:
         - $ref: '#/components/parameters/offsetParam'
         - $ref: '#/components/parameters/sortParam'
         - $ref: '#/components/parameters/clientIdParam'
-        - $ref: '#/components/parameters/appVersionParam'
       responses:
         '200':
           description: Successful operation
@@ -1325,10 +1344,7 @@ paths:
         - $ref: '#/components/parameters/offsetParam'
         - $ref: '#/components/parameters/sortParam'
         - $ref: '#/components/parameters/clientIdParam'
-        - $ref: '#/components/parameters/appVersionParam'
         - $ref: '#/components/parameters/clientUserIdParam'
-        - $ref: '#/components/parameters/log'
-        - $ref: '#/components/parameters/pwd'
         - $ref: '#/components/parameters/includeAuthorizedClientsParam'
       responses:
         '200':
@@ -1377,16 +1393,9 @@ paths:
       description: Returns users who have granted access to their data
       operationId: getUsers
       parameters:
-        - $ref: '#/components/parameters/createdAtParam'
-        - $ref: '#/components/parameters/updatedAtParam'
         - $ref: '#/components/parameters/limitParam'
         - $ref: '#/components/parameters/offsetParam'
         - $ref: '#/components/parameters/sortParam'
-        - $ref: '#/components/parameters/clientIdParam'
-        - $ref: '#/components/parameters/appVersionParam'
-        - $ref: '#/components/parameters/clientUserIdParam'
-        - $ref: '#/components/parameters/log'
-        - $ref: '#/components/parameters/pwd'
       responses:
         '200':
           description: Successful operation
@@ -7393,12 +7402,6 @@ components:
       name: publicEffectOrCause
       in: query
       description: 'Ex: '
-      schema:
-        type: string
-    pwd:
-      name: pwd
-      in: query
-      description: User password
       schema:
         type: string
     recalculate:

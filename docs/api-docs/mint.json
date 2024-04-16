@@ -103,12 +103,10 @@
           ]
         },
         {
-          "group": "Connectors",
+          "group": "Data Import",
           "pages": [
-            "api-reference/connectors/delete-stored-connection-info",
-            "api-reference/connectors/get-embeddable-connect-javascript",
             "api-reference/connectors/list-of-connectors",
-            "api-reference/connectors/mobile-connect-page",
+            "api-reference/connectors/delete-stored-connection-info",
             "api-reference/connectors/obtain-a-token-from-3rd-party-data-source",
             "api-reference/connectors/sync-with-data-source"
           ]
