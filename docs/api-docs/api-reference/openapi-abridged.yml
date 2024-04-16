@@ -778,58 +778,6 @@ paths:
         '500':
           description: Internal server error
           content: {}
-  /oauth/authorize:
-    get:
-      tags:
-        - authentication
-      summary: Request Authorization Code
-      description: You can implement OAuth2 authentication to your application using our **OAuth2** endpoints.  You need to redirect users to `/oauth/authorize` endpoint to get an authorization code and include the parameters below.   This page will ask the user if they want to allow a client's application to submit or obtain data from their QM account. It will redirect the user to the url provided by the client application with the code as a query parameter or error in case of an error. See the /oauth/access_token endpoint for the next steps.
-      operationId: getOauthAuthorizationCode
-      parameters:
-        - $ref: '#/components/parameters/clientIdParam'
-        - $ref: '#/components/parameters/clientSecretParam'
-        - $ref: '#/components/parameters/responseTypeParam'
-        - $ref: '#/components/parameters/scopeParam'
-        - $ref: '#/components/parameters/redirectUriParam'
-        - $ref: '#/components/parameters/stateParam'
-      responses:
-        '200':
-          description: Successful Operation
-          content: {}
-        '401':
-          description: Not Authenticated
-          content: {}
-      security:
-        - bearerAuth: []
-        - OAuth2:
-            - basic
-  /oauth/token:
-    get:
-      tags:
-        - authentication
-      summary: Get a user access token
-      description: 'Client provides authorization token obtained from /oauth/authorize to this endpoint and  receives an access token. Access token can then be used to query API endpoints. ### Request Access Token After user approves your access to the given scope form the https:/api.quantimo.do/oauth/authorize endpoint, you''ll receive an authorization code to request an access token. This time make a `POST` request to `/oauth/access_token` with parameters including: * `grant_type` Can be `authorization_code` or `refresh_token` since we are getting the `access_token` for the first time we don''t have a `refresh_token` so this must be `authorization_code`. * `code` Authorization code you received with the previous request. * `redirect_uri` Your application''s redirect url. ### Refreshing Access Token Access tokens expire at some point, to continue using our api you need to refresh them with `refresh_token` you received along with the `access_token`. To do this make a `POST` request to `/oauth/access_token` with correct parameters, which are: * `grant_type` This time grant type must be `refresh_token` since we have it. * `clientId` Your application''s client id. * `client_secret` Your application''s client secret. * `refresh_token` The refresh token you received with the `access_token`. Every request you make to this endpoint will give you a new refresh token and make the old one expired. So you can keep getting new access tokens with new refresh tokens. ### Using Access Token Currently we support 2 ways for this, you can''t use both at the same time. * Adding access token to the request header as `Authorization: Bearer {access_token}` * Adding to the url as a query parameter `?access_token={access_token}` You can read more about OAuth2 from [here](https://oauth.net/2/)'
-      operationId: getAccessToken
-      parameters:
-        - $ref: '#/components/parameters/clientIdParam'
-        - $ref: '#/components/parameters/clientSecretParam'
-        - $ref: '#/components/parameters/grantTypeParam'
-        - $ref: '#/components/parameters/codeParam'
-        - $ref: '#/components/parameters/responseTypeParam'
-        - $ref: '#/components/parameters/scopeParam'
-        - $ref: '#/components/parameters/redirectUriParam'
-        - $ref: '#/components/parameters/stateParam'
-      responses:
-        '200':
-          description: Successful Operation
-          content: {}
-        '401':
-          description: Not Authenticated
-          content: {}
-      security:
-        - bearerAuth: []
-        - OAuth2:
-            - basic
   /v3/shares:
     get:
       tags:
