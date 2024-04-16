@@ -40,7 +40,7 @@ export default function Footer() {
             >
               {siteConfig.name}
             </a>
-            . Your Rights to Self-Experimentation Reserved.
+            . All Rights to Science Reserved.
           </div>
         </div>
       </div>
