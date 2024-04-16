@@ -6,7 +6,6 @@ import { siteConfig } from "@/config/site"
 import { ModeToggle } from "../mode-toggle"
 
 export default function Footer() {
-  return null;
   return (
     <footer className="mt-auto">
       <div className="mx-auto w-full max-w-screen-xl p-6 md:py-8">
@@ -39,10 +38,10 @@ export default function Footer() {
             © {new Date().getFullYear()}{" "}
             <a
               target="_blank"
-              href="https://github.com/redpangilinan/Wishonia"
+              href="https://github.com/decentralized-fda"
               className="hover:underline"
             >
-              Wishonia App
+              {siteConfig.name}
             </a>
             . All Rights Reserved.
           </div>

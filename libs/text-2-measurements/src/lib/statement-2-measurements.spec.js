@@ -176,7 +176,7 @@ const examples = [
 function standardizeForFlakiness(arr) {
   // Remove originalText from result and test measurements for comparison
   // because it's kind of variable and not predictable
-  arr.measurements = arr.measurements.map(({ originalText, ...rest }) => rest);
+arr.measurements = arr.measurements.map(({ originalText, endDateLocal, endTimeLocal, ...rest }) => rest);
   // API sometimes returns 'Sleep' category instead of 'Activities' for naps
   arr.measurements = arr.measurements.map(item => {
     if (item.variableCategoryName === 'Sleep') {
