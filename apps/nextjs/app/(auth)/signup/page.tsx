@@ -29,10 +29,10 @@ export default function Signup() {
       <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
         <div className="flex flex-col space-y-2 text-center">
           <h1 className="text-2xl font-semibold tracking-tight">
-            Become a Citizen of Wishonia
+            Join the Decentralized FDA
           </h1>
           <p className="text-sm text-muted-foreground">
-            Select a provider to verify your identity
+            Become a citizen scientist and accelerate clinical discovery
           </p>
         </div>
         <UserAuthForm />
