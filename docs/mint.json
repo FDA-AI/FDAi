@@ -194,6 +194,7 @@
       "group": "Guides",
       "pages": [
         "guides/create-user",
+        "guides/get-variables",
         "guides/record-measurements",
         "guides/analyzing-data"
       ]
