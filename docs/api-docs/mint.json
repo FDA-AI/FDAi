@@ -61,24 +61,21 @@
       ]
     },
     {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Authentication",
-      "pages": [
-        "api-reference/user/post-user",
-        "api-reference/authentication/get-a-user-access-token",
-        "api-reference/authentication/request-authorization-code",
-        "api-reference/user/get-user"
-      ]
-    },
-    {
       "group": "API Reference",
       "pages": [
         "api-reference/introduction",
+        {
+          "group": "Variables",
+          "pages": [
+            "api-reference/variables/delete-all-measurements-for-variable",
+            "api-reference/variables/delete-user-tag-or-ingredient",
+            "api-reference/variables/get-user-variables",
+            "api-reference/variables/post-or-update-user-tags-or-ingredients",
+            "api-reference/variables/reset-user-settings-for-a-variable-to-defaults",
+            "api-reference/variables/update-user-settings-for-a-variable",
+            "api-reference/variables/variable-categories"
+          ]
+        },
         {
           "group": "Measurements",
           "pages": [
@@ -167,20 +164,10 @@
         {
           "group": "User",
           "pages": [
+            "api-reference/user/post-user",
+            "api-reference/user/get-user",
             "api-reference/user/delete-user",
             "api-reference/user/get-users-who-shared-data"
-          ]
-        },
-        {
-          "group": "Variables",
-          "pages": [
-            "api-reference/variables/delete-all-measurements-for-variable",
-            "api-reference/variables/delete-user-tag-or-ingredient",
-            "api-reference/variables/get-user-variables",
-            "api-reference/variables/post-or-update-user-tags-or-ingredients",
-            "api-reference/variables/reset-user-settings-for-a-variable-to-defaults",
-            "api-reference/variables/update-user-settings-for-a-variable",
-            "api-reference/variables/variable-categories"
           ]
         }
       ]
