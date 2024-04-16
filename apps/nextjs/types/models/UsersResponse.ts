@@ -14,7 +14,7 @@ import { Card } from '../models/Card';
 import { ErrorResponse } from '../models/ErrorResponse';
 import { Image } from '../models/Image';
 import { User } from '../models/User';
-import { HttpFile } from '../http/http';
+
 
 export class UsersResponse {
     'users': Array<User>;

@@ -13,7 +13,7 @@
 import { Card } from '../models/Card';
 import { ErrorResponse } from '../models/ErrorResponse';
 import { GetCorrelationsDataResponse } from '../models/GetCorrelationsDataResponse';
-import { HttpFile } from '../http/http';
+
 
 export class GetUserVariableRelationshipsResponse {
     'data'?: GetCorrelationsDataResponse;

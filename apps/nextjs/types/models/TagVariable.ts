@@ -15,7 +15,7 @@ import { DataSource } from '../models/DataSource';
 import { TrackingReminderNotificationAction } from '../models/TrackingReminderNotificationAction';
 import { Unit } from '../models/Unit';
 import { VariableCharts } from '../models/VariableCharts';
-import { HttpFile } from '../http/http';
+
 
 export class TagVariable {
     'actionArray'?: Array<TrackingReminderNotificationAction>;
