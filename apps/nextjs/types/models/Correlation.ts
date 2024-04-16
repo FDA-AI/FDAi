@@ -16,7 +16,7 @@ import { StudyHtml } from '../models/StudyHtml';
 import { StudyImages } from '../models/StudyImages';
 import { StudyLinks } from '../models/StudyLinks';
 import { StudyText } from '../models/StudyText';
-import { HttpFile } from '../http/http';
+
 
 export class Correlation {
     /**

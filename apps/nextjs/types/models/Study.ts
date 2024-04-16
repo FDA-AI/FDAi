@@ -21,7 +21,7 @@ import { StudySharing } from '../models/StudySharing';
 import { StudyText } from '../models/StudyText';
 import { StudyVotes } from '../models/StudyVotes';
 import { Variable } from '../models/Variable';
-import { HttpFile } from '../http/http';
+
 
 /**
 * A study analyzes the relationship between a predictor variable like gluten-intake and an outcome of interest such as overall mood.

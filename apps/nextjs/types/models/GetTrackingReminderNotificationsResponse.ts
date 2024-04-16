@@ -13,7 +13,7 @@
 import { Card } from '../models/Card';
 import { ErrorResponse } from '../models/ErrorResponse';
 import { TrackingReminderNotification } from '../models/TrackingReminderNotification';
-import { HttpFile } from '../http/http';
+
 
 export class GetTrackingReminderNotificationsResponse {
     'data'?: Array<TrackingReminderNotification>;

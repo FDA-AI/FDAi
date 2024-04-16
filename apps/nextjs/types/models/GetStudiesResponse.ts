@@ -13,7 +13,7 @@
 import { ExplanationStartTracking } from '../models/ExplanationStartTracking';
 import { Image } from '../models/Image';
 import { Study } from '../models/Study';
-import { HttpFile } from '../http/http';
+
 
 export class GetStudiesResponse {
     'studies'?: Array<Study>;
