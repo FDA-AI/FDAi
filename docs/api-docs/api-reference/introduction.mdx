@@ -25,33 +25,20 @@ The FDAi API provides a comprehensive set of endpoints for tracking measurements
   Explore the OpenAPI specification file
 </Card>
 
-## Authentication
+## Back End Authentication for Creating Users
 
 To authenticate your requests to the FDAi API, you need to include the following headers:
 
-- `X-CLIENT-ID`: Your client ID obtained from the [FDAi Developer Portal](https://developer.fdai.earth).
-- `X-CLIENT-SECRET`: Your client secret obtained from the [FDAi Developer Portal](https://developer.fdai.earth).
+- `X-CLIENT-ID`: Your client ID obtained from the [FDAi Developer Portal](https://builder.fdai.earth).
+- `X-CLIENT-SECRET`: Your client secret obtained from the [FDAi Developer Portal](https://builder.fdai.earth).
 
 Make sure to keep your client credentials secure and do not share them publicly.
 
-```json
-"securitySchemes": {
-  "ClientCredentials": {
-    "type": "apiKey",
-    "in": "header",
-    "name": "X-CLIENT-ID"
-  },
-  "ClientSecret": {
-    "type": "apiKey",
-    "in": "header",
-    "name": "X-CLIENT-SECRET"
-  }
-}
-```
+
 <Card
   title="Authentication Guide"
   icon="lock"
-  href="/guides/authentication"
+  href="/guides/get-access-token"
 >
 Learn more about authenticating with the FDAi API
 </Card>
@@ -63,12 +50,5 @@ Sign up for an FDAi account at https://builder.fdai.earth to obtain your API cre
 Explore the API endpoints and their functionalities in the API Reference section.
 Check out the Guides section for tutorials and examples on how to use the FDAi API for various use cases.
 Start building your application by making requests to the FDAi API endpoints using your client credentials.
-<Card
-  title="Quickstart Guide"
-  icon="rocket"
-  href="/guides/quickstart"
->
-Get up and running quickly with the FDAi API
-</Card>
 
-If you have any questions or need assistance, feel free to reach out on GitHub.
+If you have any questions or need assistance, feel free to [create an issue](https://github.com/FDA-AI/FDAi/issues/new)

@@ -7,6 +7,7 @@ import { LayoutDashboard, MessageSquare, Settings } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/config/site";
 
 const poppins = Montserrat ({ weight: '600', subsets: ['latin'] });
 
@@ -47,13 +48,13 @@ export const Sidebar = ({
             <Image fill alt="Logo" src="/logo.png" />
           </div>
           <h1 className={cn("text-2xl font-bold", poppins.className)}>
-            Wishonia
+            {siteConfig.name}
           </h1>
         </Link>
         <div className="space-y-1">
           {routes.map((route) => (
             <Link
-              key={route.href} 
+              key={route.href}
               href={route.href}
               className={cn(
                 "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",

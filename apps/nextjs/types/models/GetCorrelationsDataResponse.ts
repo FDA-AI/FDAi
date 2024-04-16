@@ -14,7 +14,7 @@ import { Card } from '../models/Card';
 import { Correlation } from '../models/Correlation';
 import { ErrorResponse } from '../models/ErrorResponse';
 import { Explanation } from '../models/Explanation';
-import { HttpFile } from '../http/http';
+
 
 export class GetCorrelationsDataResponse {
     'correlations': Array<Correlation>;

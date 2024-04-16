@@ -11,7 +11,7 @@
  */
 
 import { Chart } from '../models/Chart';
-import { HttpFile } from '../http/http';
+
 
 /**
 * An object with various chart properties each property contain and svg and Highcharts configuration

@@ -11,7 +11,7 @@
  */
 
 import { Card } from '../models/Card';
-import { HttpFile } from '../http/http';
+
 
 export class User {
     /**

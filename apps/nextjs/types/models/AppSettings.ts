@@ -11,7 +11,7 @@
  */
 
 import { User } from '../models/User';
-import { HttpFile } from '../http/http';
+
 
 export class AppSettings {
     'additionalSettings'?: any;

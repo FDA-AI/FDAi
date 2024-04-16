@@ -13,7 +13,7 @@
 import { Card } from '../models/Card';
 import { DataSource } from '../models/DataSource';
 import { ErrorResponse } from '../models/ErrorResponse';
-import { HttpFile } from '../http/http';
+
 
 export class GetConnectorsResponse {
     'connectors'?: Array<DataSource>;

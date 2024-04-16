@@ -14,7 +14,7 @@ import { Card } from '../models/Card';
 import { TrackingReminderNotificationAction } from '../models/TrackingReminderNotificationAction';
 import { TrackingReminderNotificationTrackAllAction } from '../models/TrackingReminderNotificationTrackAllAction';
 import { Unit } from '../models/Unit';
-import { HttpFile } from '../http/http';
+
 
 export class TrackingReminderNotification {
     'actionArray': Array<TrackingReminderNotificationAction>;

@@ -1,4 +1,3 @@
-openapi: 3.0.1
 x-stoplight:
   id: e2dd35f0e728f
 info:
@@ -3415,7 +3414,7 @@ components:
           description: 'Ex: 2014-08-27'
         startAt:
           type: string
-          description: 'Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss'
+          description: 'Start Time for the measurement event in UTC ISO 8601 like 2020-01-01T12:12:12'
         svgUrl:
           type: string
           description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.svg'
@@ -3525,7 +3524,7 @@ components:
       properties:
         startAt:
           type: string
-          description: 'Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss'
+          description: 'Start Time for the measurement event in UTC ISO 8601 like 2020-01-01T12:12:12'
           default: '2022-01-01T00:00:00'
         value:
           type: number
@@ -3597,7 +3596,7 @@ components:
           description: The new note for the measurement (optional)
         startAt:
           type: string
-          description: 'Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss'
+          description: 'Start Time for the measurement event in UTC ISO 8601 like 2020-01-01T12:12:12'
         value:
           type: number
           description: The new value of for the measurement (optional)

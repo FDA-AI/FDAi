@@ -13,7 +13,7 @@
 import { Card } from '../models/Card';
 import { ErrorResponse } from '../models/ErrorResponse';
 import { PostTrackingRemindersDataResponse } from '../models/PostTrackingRemindersDataResponse';
-import { HttpFile } from '../http/http';
+
 
 export class PostTrackingRemindersResponse {
     'data'?: PostTrackingRemindersDataResponse;

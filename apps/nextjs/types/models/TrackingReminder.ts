@@ -13,7 +13,7 @@
 import { Card } from '../models/Card';
 import { TrackingReminderNotificationAction } from '../models/TrackingReminderNotificationAction';
 import { Unit } from '../models/Unit';
-import { HttpFile } from '../http/http';
+
 
 export class TrackingReminder {
     'actionArray'?: Array<TrackingReminderNotificationAction>;
