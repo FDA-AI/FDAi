@@ -13,7 +13,7 @@
 import { Card } from '../models/Card';
 import { ErrorResponse } from '../models/ErrorResponse';
 import { PostUserSettingsDataResponse } from '../models/PostUserSettingsDataResponse';
-import { HttpFile } from '../http/http';
+
 
 export class PostUserSettingsResponse {
     'data'?: PostUserSettingsDataResponse;

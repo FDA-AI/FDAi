@@ -15,8 +15,7 @@ export function UserVariableList() {
     fetch('/api/userVariables')
       .then(response => response.json())
       .then(userVariables => {
-        debugger
-        console.log(userVariables);
+        //console.log("Got userVariables", userVariables);
         setUserVariables(userVariables);
       })
       .catch(error => console.error('Error fetching war images:', error));

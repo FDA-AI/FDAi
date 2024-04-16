@@ -15,7 +15,7 @@ import { ErrorResponse } from '../models/ErrorResponse';
 import { TrackingReminder } from '../models/TrackingReminder';
 import { TrackingReminderNotification } from '../models/TrackingReminderNotification';
 import { Variable } from '../models/Variable';
-import { HttpFile } from '../http/http';
+
 
 export class PostTrackingRemindersDataResponse {
     'trackingReminderNotifications'?: Array<TrackingReminderNotification>;

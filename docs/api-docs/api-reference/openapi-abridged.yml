@@ -79,13 +79,13 @@ paths:
         - bearerAuth: []
         - OAuth2:
             - basic
-  /v3/variables:
+  /v3/public/variables:
     get:
       tags:
         - variables
-      summary: Get variables along with related user-specific analysis settings and statistics
-      description: 'Get variables. If the user has specified variable settings, these are provided instead of the common variable defaults.'
-      operationId: getVariables
+      summary: Get public variables
+      description: 'Get variables with the aggregated statistics for everyone and default settings. '
+      operationId: getPublicVariables
       parameters:
         - $ref: '#/components/parameters/includeChartsParam'
         - $ref: '#/components/parameters/numberOfRawMeasurementsParam'
@@ -190,8 +190,8 @@ paths:
     get:
       tags:
         - variables
-      summary: Get variables along with related user-specific analysis settings and statistics
-      description: 'Get variables. If the user has specified variable settings, these are provided instead of the common variable defaults.'
+      summary: Get user variables
+      description: 'Get user variables settings and statistics. If the user has specified variable settings, these are provided instead of the common variable defaults.'
       operationId: getUserVariables
       parameters:
         - $ref: '#/components/parameters/includeChartsParam'
@@ -279,13 +279,13 @@ paths:
             type: boolean
       responses:
         '200':
-          description: Variables returned
+          description: User variables returned
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Variable'
+                  $ref: '#/components/schemas/UserVariable'
         '401':
           description: Not Authenticated
           content: { }
@@ -335,7 +335,7 @@ paths:
     get:
       tags:
         - measurements
-      summary: Get measurements for this user
+      summary: Get measurements
       description: 'Measurements are any value that can be recorded like daily steps, a mood rating, or apples eaten.'
       operationId: getMeasurements
       parameters:
@@ -535,11 +535,34 @@ paths:
         - bearerAuth: []
         - OAuth2:
             - basic
+  /v3/connectors/list:
+    get:
+      tags:
+        - connectors
+      summary: List Data Sources
+      description: 'A connector pulls data from other data providers using their API or a screenscraper. Returns a list of all available connectors and information about them such as their id, name, whether the user has provided access, logo url, connection instructions, and the update history.'
+      operationId: getConnectors
+      parameters:
+        - $ref: '#/components/parameters/clientIdParam'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetConnectorsResponse'
+        '401':
+          description: Not Authenticated
+          content: {}
+      security:
+        - bearerAuth: []
+        - OAuth2:
+            - basic
   '/v3/connectors/{connectorName}/connect':
     get:
       tags:
         - connectors
-      summary: Obtain a token from 3rd party data source
+      summary: Connect Data Source
       description: 'Attempt to obtain a token from the data provider, store it in the database. With this, the connector to continue to obtain new user data until the token is revoked.'
       operationId: connectConnector
       parameters:
@@ -565,7 +588,7 @@ paths:
     get:
       tags:
         - connectors
-      summary: Delete stored connection info
+      summary: Disconnect Data Source
       description: The disconnect method deletes any stored tokens or connection information from the connectors database.
       operationId: disconnectConnector
       parameters:
@@ -591,8 +614,8 @@ paths:
     get:
       tags:
         - connectors
-      summary: Sync with data source
-      description: The update method tells the QM Connector Framework to check with the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
+      summary: Sync Data Source
+      description: Trigger an import from the data provider (such as Fitbit or MyFitnessPal) and retrieve any new measurements available.
       operationId: updateConnector
       parameters:
         - $ref: '#/components/parameters/connectorNamePathParam'
@@ -755,58 +778,6 @@ paths:
         '500':
           description: Internal server error
           content: {}
-  /oauth/authorize:
-    get:
-      tags:
-        - authentication
-      summary: Request Authorization Code
-      description: You can implement OAuth2 authentication to your application using our **OAuth2** endpoints.  You need to redirect users to `/oauth/authorize` endpoint to get an authorization code and include the parameters below.   This page will ask the user if they want to allow a client's application to submit or obtain data from their QM account. It will redirect the user to the url provided by the client application with the code as a query parameter or error in case of an error. See the /oauth/access_token endpoint for the next steps.
-      operationId: getOauthAuthorizationCode
-      parameters:
-        - $ref: '#/components/parameters/clientIdParam'
-        - $ref: '#/components/parameters/clientSecretParam'
-        - $ref: '#/components/parameters/responseTypeParam'
-        - $ref: '#/components/parameters/scopeParam'
-        - $ref: '#/components/parameters/redirectUriParam'
-        - $ref: '#/components/parameters/stateParam'
-      responses:
-        '200':
-          description: Successful Operation
-          content: {}
-        '401':
-          description: Not Authenticated
-          content: {}
-      security:
-        - bearerAuth: []
-        - OAuth2:
-            - basic
-  /oauth/token:
-    get:
-      tags:
-        - authentication
-      summary: Get a user access token
-      description: 'Client provides authorization token obtained from /oauth/authorize to this endpoint and  receives an access token. Access token can then be used to query API endpoints. ### Request Access Token After user approves your access to the given scope form the https:/api.quantimo.do/oauth/authorize endpoint, you''ll receive an authorization code to request an access token. This time make a `POST` request to `/oauth/access_token` with parameters including: * `grant_type` Can be `authorization_code` or `refresh_token` since we are getting the `access_token` for the first time we don''t have a `refresh_token` so this must be `authorization_code`. * `code` Authorization code you received with the previous request. * `redirect_uri` Your application''s redirect url. ### Refreshing Access Token Access tokens expire at some point, to continue using our api you need to refresh them with `refresh_token` you received along with the `access_token`. To do this make a `POST` request to `/oauth/access_token` with correct parameters, which are: * `grant_type` This time grant type must be `refresh_token` since we have it. * `clientId` Your application''s client id. * `client_secret` Your application''s client secret. * `refresh_token` The refresh token you received with the `access_token`. Every request you make to this endpoint will give you a new refresh token and make the old one expired. So you can keep getting new access tokens with new refresh tokens. ### Using Access Token Currently we support 2 ways for this, you can''t use both at the same time. * Adding access token to the request header as `Authorization: Bearer {access_token}` * Adding to the url as a query parameter `?access_token={access_token}` You can read more about OAuth2 from [here](https://oauth.net/2/)'
-      operationId: getAccessToken
-      parameters:
-        - $ref: '#/components/parameters/clientIdParam'
-        - $ref: '#/components/parameters/clientSecretParam'
-        - $ref: '#/components/parameters/grantTypeParam'
-        - $ref: '#/components/parameters/codeParam'
-        - $ref: '#/components/parameters/responseTypeParam'
-        - $ref: '#/components/parameters/scopeParam'
-        - $ref: '#/components/parameters/redirectUriParam'
-        - $ref: '#/components/parameters/stateParam'
-      responses:
-        '200':
-          description: Successful Operation
-          content: {}
-        '401':
-          description: Not Authenticated
-          content: {}
-      security:
-        - bearerAuth: []
-        - OAuth2:
-            - basic
   /v3/shares:
     get:
       tags:
@@ -818,9 +789,6 @@ paths:
         - $ref: '#/components/parameters/createdAtParam'
         - $ref: '#/components/parameters/updatedAtParam'
         - $ref: '#/components/parameters/clientIdParam'
-        - $ref: '#/components/parameters/appVersionParam'
-        - $ref: '#/components/parameters/log'
-        - $ref: '#/components/parameters/pwd'
       responses:
         '200':
           description: Successful Operation
@@ -952,7 +920,7 @@ paths:
     get:
       tags:
         - studies
-      summary: These are open studies that anyone can join
+      summary: Get Open Studies
       description: These are studies that anyone can join and share their data for the predictor and outcome variables of interest.
       operationId: getOpenStudies
       parameters:
@@ -1152,7 +1120,7 @@ paths:
     get:
       tags:
         - reminders
-      summary: Get specific tracking reminder notifications
+      summary: Get tracking reminder notifications
       description: Specific tracking reminder notification instances that still need to be tracked.
       operationId: getTrackingReminderNotifications
       parameters:
@@ -1214,7 +1182,7 @@ paths:
     get:
       tags:
         - reminders
-      summary: Get repeating tracking reminder settings
+      summary: Get tracking reminder settings
       description: Users can be reminded to track certain variables at a specified frequency with a default value.
       operationId: getTrackingReminders
       parameters:
@@ -1225,7 +1193,6 @@ paths:
         - $ref: '#/components/parameters/offsetParam'
         - $ref: '#/components/parameters/sortParam'
         - $ref: '#/components/parameters/clientIdParam'
-        - $ref: '#/components/parameters/appVersionParam'
       responses:
         '200':
           description: Successful operation
@@ -1242,7 +1209,7 @@ paths:
     post:
       tags:
         - reminders
-      summary: Store a Tracking Reminder
+      summary: Create or Update Tracking Reminder
       description: This is to enable users to create reminders to track a variable with a default value at a specified frequency
       operationId: postTrackingReminders
       requestBody:
@@ -1325,10 +1292,7 @@ paths:
         - $ref: '#/components/parameters/offsetParam'
         - $ref: '#/components/parameters/sortParam'
         - $ref: '#/components/parameters/clientIdParam'
-        - $ref: '#/components/parameters/appVersionParam'
         - $ref: '#/components/parameters/clientUserIdParam'
-        - $ref: '#/components/parameters/log'
-        - $ref: '#/components/parameters/pwd'
         - $ref: '#/components/parameters/includeAuthorizedClientsParam'
       responses:
         '200':
@@ -1377,16 +1341,9 @@ paths:
       description: Returns users who have granted access to their data
       operationId: getUsers
       parameters:
-        - $ref: '#/components/parameters/createdAtParam'
-        - $ref: '#/components/parameters/updatedAtParam'
         - $ref: '#/components/parameters/limitParam'
         - $ref: '#/components/parameters/offsetParam'
         - $ref: '#/components/parameters/sortParam'
-        - $ref: '#/components/parameters/clientIdParam'
-        - $ref: '#/components/parameters/appVersionParam'
-        - $ref: '#/components/parameters/clientUserIdParam'
-        - $ref: '#/components/parameters/log'
-        - $ref: '#/components/parameters/pwd'
       responses:
         '200':
           description: Successful operation
@@ -3350,7 +3307,7 @@ components:
           description: 'Ex: 2014-08-27'
         startAt:
           type: string
-          description: 'Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss'
+          description: 'Start Time for the measurement event in UTC ISO 8601 like 2020-01-01T12:12:12'
         svgUrl:
           type: string
           description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.svg'
@@ -3460,7 +3417,7 @@ components:
       properties:
         startAt:
           type: string
-          description: 'Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss'
+          description: 'Start Time for the measurement event in UTC ISO 8601 like 2020-01-01T12:12:12'
           default: '2022-01-01T00:00:00'
         value:
           type: number
@@ -3532,7 +3489,7 @@ components:
           description: The new note for the measurement (optional)
         startAt:
           type: string
-          description: 'Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss'
+          description: 'Start Time for the measurement event in UTC ISO 8601 like 2020-01-01T12:12:12'
         value:
           type: number
           description: The new value of for the measurement (optional)
@@ -3596,8 +3553,6 @@ components:
       properties:
         userVariables:
           type: array
-          items:
-            $ref: '#/components/schemas/Variable'
         description:
           type: string
           description: Can be used as body of help info popup
@@ -3654,9 +3609,6 @@ components:
         code:
           type: number
           description: Response code such as 200
-        link:
-          type: string
-          description: A super neat url you might want to share with your users!
         card:
           $ref: '#/components/schemas/Card'
     PostStudyPublishResponse:
@@ -3730,8 +3682,6 @@ components:
             $ref: '#/components/schemas/TrackingReminder'
         userVariables:
           type: array
-          items:
-            $ref: '#/components/schemas/Variable'
         description:
           type: string
           description: Can be used as body of help info popup
@@ -4281,18 +4231,12 @@ components:
         bestStudyLink:
           type: string
           description: Link to study comparing variable with strongest relationship for user or population
-        bestStudyCard:
-          $ref: '#/components/schemas/Card'
         bestUserStudyLink:
           type: string
           description: Link to study comparing variable with strongest relationship for user
-        bestUserStudyCard:
-          $ref: '#/components/schemas/Card'
         bestPopulationStudyLink:
           type: string
           description: Link to study comparing variable with strongest relationship for population
-        bestPopulationStudyCard:
-          $ref: '#/components/schemas/Card'
         optimalValueMessage:
           type: string
           description: Description of relationship with variable with strongest relationship for user or population
@@ -5182,7 +5126,7 @@ components:
           description: 'When the record in the database was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format'
         userRegistered:
           type: string
-          description: 'Ex: 2013-12-03 15:25:13 UTC ISO 8601 YYYY-MM-DDThh:mm:ss'
+          description: 'Ex: 2020-12-03 15:25:13 UTC ISO 8601 YYYY-MM-DDThh:mm:ss'
         userUrl:
           type: string
           description: 'Ex: https://plus.google.com/+MikeSinn'
@@ -6453,13 +6397,9 @@ components:
         childCommonTagVariables:
           type: array
           description: Commonly defined for all users. An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
-          items:
-            $ref: '#/components/schemas/TagVariable'
         childUserTagVariables:
           type: array
           description: 'User-Defined Variable Setting: An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.'
-          items:
-            $ref: '#/components/schemas/TagVariable'
         clientId:
           type: string
           description: 'Your client id can be obtained by creating an app at https://builder.quantimo.do'
@@ -6474,12 +6414,10 @@ components:
           description: 'Ex: Anxiety / Nervousness'
         commonTaggedVariables:
           type: array
-          items:
-            $ref: '#/components/schemas/TagVariable'
+          description: 'Commonly defined for all users.  An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.'
         commonTagVariables:
           type: array
-          items:
-            $ref: '#/components/schemas/TagVariable'
+          description: 'Commonly defined for all users.  An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.'
         createdAt:
           type: string
           description: 'When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format'
@@ -6489,8 +6427,6 @@ components:
         dataSources:
           type: array
           description: These are sources of measurements for this variable
-          items:
-            $ref: '#/components/schemas/DataSource'
         description:
           type: string
           description: 'User-Defined Variable Setting: Ex: Summary to be used in studies.'
@@ -6551,23 +6487,15 @@ components:
         ingredientOfCommonTagVariables:
           type: array
           description: 'Commonly defined for all users. IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollipop could be Sugar.  This way you only have to record Lollipop consumption, and we can use this data to see how sugar might be affecting you.'
-          items:
-            $ref: '#/components/schemas/TagVariable'
         ingredientCommonTagVariables:
           type: array
           description: 'Commonly defined for all users. IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollipop could be Sugar.  This way you only have to record Lollipop consumption, and we can use this data to see how sugar might be affecting you.'
-          items:
-            $ref: '#/components/schemas/TagVariable'
         ingredientOfUserTagVariables:
           type: array
           description: 'User-Defined Variable Setting: IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollipop could be Sugar.  This way you only have to record Lollipop consumption, and we can use this data to see how sugar might be affecting you.'
-          items:
-            $ref: '#/components/schemas/TagVariable'
         ingredientUserTagVariables:
           type: array
           description: 'User-Defined Variable Setting: IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollipop could be Sugar.  This way you only have to record Lollipop consumption, and we can use this data to see how sugar might be affecting you.'
-          items:
-            $ref: '#/components/schemas/TagVariable'
         inputType:
           type: string
           description: Type of input field to show for recording measurements
@@ -6576,13 +6504,9 @@ components:
         joinedCommonTagVariables:
           type: array
           description: 'Commonly defined for all users.  Joining can be used used to merge duplicate variables. For instance, if two variables called Apples (Red Delicious) and Red Delicious Apples are joined, when one of them is analyzed, the measurements for the other will be included as well.'
-          items:
-            $ref: '#/components/schemas/TagVariable'
         joinedUserTagVariables:
           type: array
           description: 'User-Defined Variable Setting: Joining can be used used to merge duplicate variables. For instance, if two variables called Apples (Red Delicious) and Red Delicious Apples are joined, when one of them is analyzed, the measurements for the other will be included as well.'
-          items:
-            $ref: '#/components/schemas/TagVariable'
         joinWith:
           type: integer
           description: Duplicate variables. If the variable is joined with some other variable then it is not shown to user in the list of variables
@@ -6755,13 +6679,9 @@ components:
         parentCommonTagVariables:
           type: array
           description: Commonly defined for all users.  An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
-          items:
-            $ref: '#/components/schemas/TagVariable'
         parentUserTagVariables:
           type: array
           description: User-defined. An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
-          items:
-            $ref: '#/components/schemas/TagVariable'
         pngPath:
           type: string
           description: 'Ex: img/variable_categories/treatments.png'
@@ -6867,13 +6787,11 @@ components:
           description: User ID
           format: int32
         userTaggedVariables:
+          description: User-defined. An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
           type: array
-          items:
-            $ref: '#/components/schemas/TagVariable'
         userTagVariables:
+          description: User-defined. An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
           type: array
-          items:
-            $ref: '#/components/schemas/TagVariable'
         userVariableUnitAbbreviatedName:
           type: string
           description: 'Ex: count'
@@ -6896,9 +6814,7 @@ components:
           $ref: '#/components/schemas/VariableCategory'
         joinedVariables:
           type: array
-          description: Array of Variables that are joined with this Variable
-          items:
-            $ref: '#/components/schemas/TagVariable'
+          description: Array of Variables that are joined with this Variable. These are basically duplicate variables.
         valence:
           type: string
           description: 'Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with the happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables. '
@@ -7434,12 +7350,6 @@ components:
       name: publicEffectOrCause
       in: query
       description: 'Ex: '
-      schema:
-        type: string
-    pwd:
-      name: pwd
-      in: query
-      description: User password
       schema:
         type: string
     recalculate:

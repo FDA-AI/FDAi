@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "FDAi",
+  "name": "The Decentralized FDA",
   "logo": {
     "light": "/logo/dfda-wide-text-logo-white-background.png",
     "dark": "/logo/dfda-wide-text-logo-white-text.png",
@@ -34,11 +34,6 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "/"
-    },
-    {
       "name": "Community",
       "icon": "slack",
       "url": "https://github.com/FDA-AI/FDAi/discussions"
@@ -59,40 +54,28 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "quickstart",
+        "guides/get-access-token",
+        "guides/get-user-variables",
+        "guides/record-measurements",
         "development"
-      ]
-    },
-    {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Authentication",
-      "pages": [
-        "api-reference/user/post-user",
-        "api-reference/authentication/get-a-user-access-token",
-        "api-reference/authentication/request-authorization-code",
-        "api-reference/user/get-user-info"
       ]
     },
     {
       "group": "API Reference",
       "pages": [
         "api-reference/introduction",
+        {
+          "group": "Variables",
+          "pages": [
+            "api-reference/variables/delete-all-measurements-for-variable",
+            "api-reference/variables/delete-user-tag-or-ingredient",
+            "api-reference/variables/get-user-variables",
+            "api-reference/variables/post-or-update-user-tags-or-ingredients",
+            "api-reference/variables/reset-user-settings-for-a-variable-to-defaults",
+            "api-reference/variables/update-user-settings-for-a-variable",
+            "api-reference/variables/variable-categories"
+          ]
+        },
         {
           "group": "Measurements",
           "pages": [
@@ -117,12 +100,10 @@
           ]
         },
         {
-          "group": "Connectors",
+          "group": "Data Import",
           "pages": [
-            "api-reference/connectors/delete-stored-connection-info",
-            "api-reference/connectors/get-embeddable-connect-javascript",
             "api-reference/connectors/list-of-connectors",
-            "api-reference/connectors/mobile-connect-page",
+            "api-reference/connectors/delete-stored-connection-info",
             "api-reference/connectors/obtain-a-token-from-3rd-party-data-source",
             "api-reference/connectors/sync-with-data-source"
           ]
@@ -154,7 +135,6 @@
         {
           "group": "Shares",
           "pages": [
-            "api-reference/shares/delete-share-1",
             "api-reference/shares/delete-share",
             "api-reference/shares/get-authorized-apps-studies-and-individuals"
           ]
@@ -184,30 +164,12 @@
         {
           "group": "User",
           "pages": [
+            "api-reference/user/post-user",
+            "api-reference/user/get-user",
             "api-reference/user/delete-user",
             "api-reference/user/get-users-who-shared-data"
           ]
-        },
-        {
-          "group": "Variables",
-          "pages": [
-            "api-reference/variables/delete-all-measurements-for-variable",
-            "api-reference/variables/delete-user-tag-or-ingredient",
-            "api-reference/variables/get-variables-along-with-related-user-specific-analysis-settings-and-statistics",
-            "api-reference/variables/post-or-update-user-tags-or-ingredients",
-            "api-reference/variables/reset-user-settings-for-a-variable-to-defaults",
-            "api-reference/variables/update-user-settings-for-a-variable",
-            "api-reference/variables/variable-categories"
-          ]
         }
-      ]
-    },
-    {
-      "group": "Guides",
-      "pages": [
-        "guides/tracking-measurements",
-        "guides/analyzing-data",
-        "guides/creating-studies"
       ]
     }
   ],
