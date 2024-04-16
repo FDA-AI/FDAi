@@ -30,7 +30,7 @@ export default function Signin() {
         <div className="flex flex-col space-y-2 text-center">
           <h1 className="text-2xl font-semibold tracking-tight">Sign In</h1>
           <p className="text-sm text-muted-foreground">
-            Sign in to the Decentralized FDA and contribute to accelerating clinical discovery
+            Sign in and accelerate clinical discovery
           </p>
         </div>
         <UserAuthForm />
@@ -40,7 +40,7 @@ export default function Signin() {
             href="/signup"
             className="hover:text-brand underline underline-offset-4"
           >
-            Become a citizen
+            Sign Up
           </Link>
         </p>
       </div>
