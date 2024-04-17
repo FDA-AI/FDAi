@@ -11,7 +11,7 @@
  */
 
 import { AppSettings } from '../models/AppSettings';
-import { HttpFile } from '../http/http';
+
 
 export class AuthorizedClients {
     /**

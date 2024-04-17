@@ -17,7 +17,7 @@ import { TrackingReminderNotificationAction } from '../models/TrackingReminderNo
 import { Unit } from '../models/Unit';
 import { VariableCategory } from '../models/VariableCategory';
 import { VariableCharts } from '../models/VariableCharts';
-import { HttpFile } from '../http/http';
+
 
 export class UserVariable {
     'actionArray'?: Array<TrackingReminderNotificationAction>;

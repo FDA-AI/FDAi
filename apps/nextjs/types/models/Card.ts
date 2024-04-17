@@ -12,7 +12,7 @@
 
 import { Button } from '../models/Button';
 import { InputField } from '../models/InputField';
-import { HttpFile } from '../http/http';
+
 
 export class Card {
     'actionSheetButtons'?: Array<Button>;

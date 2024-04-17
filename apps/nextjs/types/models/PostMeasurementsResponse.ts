@@ -13,7 +13,7 @@
 import { Card } from '../models/Card';
 import { ErrorResponse } from '../models/ErrorResponse';
 import { PostMeasurementsDataResponse } from '../models/PostMeasurementsDataResponse';
-import { HttpFile } from '../http/http';
+
 
 export class PostMeasurementsResponse {
     'data'?: PostMeasurementsDataResponse;
