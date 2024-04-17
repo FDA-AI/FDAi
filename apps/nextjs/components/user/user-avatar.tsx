@@ -10,15 +10,16 @@ interface UserAvatarProps extends AvatarProps {
 
 export function UserAvatar({ user, ...props }: UserAvatarProps) {
   return (
-    <div className="flex items-center">
-      <Avatar {...props}>
+    <div id="avatar-container" className="flex items-center relative">
+      <Avatar id="avatar component" {...props}>
+        {/* Always render the fallback icon behind the image */}
+        <AvatarFallback id="avatar-fallback-component" className="absolute inset-0 flex items-center justify-center">
+          <Icons.userAlt className="h-4 w-4" />
+        </AvatarFallback>
         {user.image ? (
-          <AvatarImage alt="Picture" src={user.image} />
+          <AvatarImage id="avatar-image-component" alt="Picture" src={user.image} className="relative z-10" onError={(e) => e.currentTarget.style.display = 'none'} />
         ) : (
-          <AvatarFallback>
-            <span className="sr-only">{user.name}</span>
-            <Icons.userAlt className="h-4 w-4" />
-          </AvatarFallback>
+          <span className="sr-only">{user.name}</span>
         )}
       </Avatar>
     </div>

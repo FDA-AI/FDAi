@@ -15,7 +15,7 @@ import { ErrorResponse } from '../models/ErrorResponse';
 import { Study } from '../models/Study';
 import { TrackingReminder } from '../models/TrackingReminder';
 import { TrackingReminderNotification } from '../models/TrackingReminderNotification';
-import { HttpFile } from '../http/http';
+
 
 export class StudyJoinResponse {
     'study'?: Study;

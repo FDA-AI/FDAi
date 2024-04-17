@@ -12,7 +12,7 @@
 
 import { ExplanationStartTracking } from '../models/ExplanationStartTracking';
 import { Image } from '../models/Image';
-import { HttpFile } from '../http/http';
+
 
 export class Explanation {
     /**

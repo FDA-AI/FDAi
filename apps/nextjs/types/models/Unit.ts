@@ -12,7 +12,7 @@
 
 import { ConversionStep } from '../models/ConversionStep';
 import { UnitCategory } from '../models/UnitCategory';
-import { HttpFile } from '../http/http';
+
 
 export class Unit {
     /**

@@ -12,7 +12,7 @@
 
 import { Card } from '../models/Card';
 import { ErrorResponse } from '../models/ErrorResponse';
-import { HttpFile } from '../http/http';
+
 
 export class PostStudyPublishResponse {
     /**
