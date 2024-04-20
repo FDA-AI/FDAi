@@ -26,7 +26,7 @@
       "js": ["contentScript.js"]
     },
     {
-      "matches": ["https://safe.fdai.earth/*"],
+      "matches": ["https://safe.dfda.earth/*"],
       "js": ["contentScriptForFdai.js"]
     }
   ],
