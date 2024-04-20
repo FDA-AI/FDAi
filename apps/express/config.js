@@ -3,7 +3,7 @@ const path = require('path');
 const config = {
   ROOT_DIR: __dirname,
   URL_PORT: 8080,
-  URL_PATH: 'https://safe.fdai.earth',
+  URL_PATH: 'https://safe.dfda.earth',
   BASE_VERSION: '/api',
   CONTROLLER_DIRECTORY: path.join(__dirname, 'controllers'),
   PROJECT_DIR: __dirname,
