@@ -44,7 +44,7 @@ require('dotenv').config(); // Load environment variables
 
 3. Access Environment Variables:
 Now, you can access FDAI_CLIENT_ID and FDAI_CLIENT_SECRET anywhere in your application using process.env.FDAI_CLIENT_ID and process.env.FDAI_CLIENT_SECRET, respectively.
-Here's an updated snippet of your function getFdaiAccessToken incorporating the loading of environment variables using dotenv:
+Here's an updated snippet of your function getDfdaAccessToken incorporating the loading of environment variables using dotenv:
 
 ```javascript
 // Required Imports
@@ -56,7 +56,7 @@ require('dotenv').config(); // Load environment variables
 const prisma = new PrismaClient();
 
 // Function to create or retrieve an FDAI user's access token linked to your system's user ID
-async function getFdaiAccessToken() {
+async function getDfdaAccessToken() {
   const yourUserId = getLoggedInUserId(); // You'll need to implement this function to get the user ID
   // Attempt to fetch the user from your database
   let your_user = await prisma.user.findUnique({
@@ -107,7 +107,7 @@ You can then use the access token to make [authenticated requests](api-reference
       method: 'GET',
       headers: {
           'accept': 'application/json',
-          'Authorization': `Bearer ${getFdaiAccessToken()}`,
+          'Authorization': `Bearer ${getDfdaAccessToken()}`,
       },
       credentials: 'include'
   });
