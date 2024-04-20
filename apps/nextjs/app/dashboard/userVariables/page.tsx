@@ -1,7 +1,6 @@
 import { Metadata } from "next"
 import { redirect } from "next/navigation"
 
-import { getUserVariables } from "@/lib/api/userVariables"
 import { authOptions } from "@/lib/auth"
 import { getCurrentUser } from "@/lib/session"
 import { UserVariableAddButton } from "@/components/userVariable/user-variable-add-button"

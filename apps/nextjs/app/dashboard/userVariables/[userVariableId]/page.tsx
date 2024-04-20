@@ -13,7 +13,7 @@ import { DateRangePicker } from "@/components/date-range-picker"
 import { Icons } from "@/components/icons"
 import { Shell } from "@/components/layout/shell"
 import { DashboardHeader } from "@/components/pages/dashboard/dashboard-header"
-import { GET } from '@/app/api';
+
 
 interface UserVariablePageProps {
   params: { userVariableId: string }
@@ -29,7 +29,7 @@ export async function generateMetadata({
     redirect(authOptions?.pages?.signIn || "/signin")
   }
 
-  const userVariable = await getUserVariable(params.userVariableId, true)
+  const userVariable = await fetch
 
   return {
     title: userVariable?.name || "Not Found",
