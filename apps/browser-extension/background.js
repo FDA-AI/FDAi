@@ -26,7 +26,7 @@ function showTrackingPopup() {
   debugger
   console.log('Time to show the daily popup!');
 
-  let origin = 'https://safe.fdai.earth';
+  let origin = 'https://safe.dfda.earth';
   //origin = 'https://local.quantimo.do';
 
   if (popupId !== null) {
@@ -91,7 +91,7 @@ chrome.runtime.onStartup.addListener(() => {
 function redirectToLogin() {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     // Handle the case where there are no active tabs
-    const loginUrl = `https://safe.fdai.earth/app/public`;
+    const loginUrl = `https://safe.dfda.earth/app/public`;
     chrome.tabs.create({ url: loginUrl });
 
   });
@@ -123,7 +123,7 @@ chrome.storage.sync.get("quantimodoAccessToken", ({ quantimodoAccessToken }) => 
 
 chrome.action.onClicked.addListener((tab) => {
   // Perform the action when the extension button is clicked
-  chrome.tabs.create({url: "https://safe.fdai.earth/app/public"});
+  chrome.tabs.create({url: "https://safe.dfda.earth/app/public"});
 });
 
 // background.js
@@ -230,7 +230,7 @@ chrome.webRequest.onBeforeRequest.addListener(
   },
   // filters
   {
-    urls: ["https://safe.fdai.earth/*"],
+    urls: ["https://safe.dfda.earth/*"],
     types: ["main_frame"]
   }
 );
@@ -244,7 +244,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   //console.log("changeInfo", changeInfo);
   if (changeInfo.status === "complete" &&
     currentUrl &&
-    currentUrl.indexOf("https://safe.fdai.earth/app/public/#/app/") > -1) {
+    currentUrl.indexOf("https://safe.dfda.earth/app/public/#/app/") > -1) {
     // Execute your function here
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       //console.log("tabs", tabs);
