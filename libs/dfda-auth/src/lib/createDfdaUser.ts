@@ -5,14 +5,14 @@ import fetch from 'node-fetch';
  * @param {string} yourSystemUserId - The unique identifier for the user in the client's system.
  * @returns {Promise<string>} The FDAi user ID.
  */
-export async function createFdaiUser(yourSystemUserId: string): Promise<string> {
+export async function createDfdaUser(yourSystemUserId: string): Promise<string> {
     try {
-        const response = await fetch(`https://safe.fdai.earth/api/v1/user`, {
+        const response = await fetch(`https://safe.dfda.earth/api/v1/user`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-Client-Id': process.env['FDAI_CLIENT_ID'] || 'oauth_test_client',
-                'X-Client-Secret': process.env['FDAI_CLIENT_SECRET'] || 'oauth_test_secret',
+                'X-Client-Id': process.env['DFDA_CLIENT_ID'] || 'oauth_test_client',
+                'X-Client-Secret': process.env['DFDA_CLIENT_SECRET'] || 'oauth_test_secret',
             },
             body: JSON.stringify({
               clientUserId: yourSystemUserId
