@@ -24,7 +24,7 @@
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://builder.fdai.earth"
+    "url": "https://builder.dfda.earth"
   },
   "tabs": [
     {
@@ -41,7 +41,7 @@
     {
       "name": "News",
       "icon": "newspaper",
-      "url": "https://fdai.earth"
+      "url": "https://dfda.earth"
     },
     {
       "name": "Code",

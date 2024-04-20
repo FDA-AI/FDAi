@@ -3,7 +3,7 @@
 import Link from "next/link"
 
 import { Skeleton } from "@/components/ui/skeleton"
-import { UserVariableOperations } from "@/components/userVariable/user-variable-operations"
+import { UserVariableOperationsButton } from "@/components/userVariable/user-variable-operations-button"
 import { QuickMeasurementButton } from '@/components/userVariable/measurements/quick-measurement-button';
 import { UserVariable } from "@/types/models/UserVariable";
 
@@ -56,7 +56,7 @@ export function UserVariableItem({ userVariable }: UserVariableItemProps) {
           variant="outline"
           size="icon"
         />
-        <UserVariableOperations
+        <UserVariableOperationsButton
           userVariable={userVariable}
         />
       </div>

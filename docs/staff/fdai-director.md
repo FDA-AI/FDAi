@@ -46,4 +46,4 @@ As the Director of the FDAI Initiative, you will oversee the development and mai
 
 ### How to Apply:
 
-Please submit your resume, cover letter, and any relevant work samples or contributions to open-source projects to hello@fdai.earth. In your cover letter, explain why you are passionate about the FDAI Initiative and how your experience aligns with our mission and objectives.
+Please submit your resume, cover letter, and any relevant work samples or contributions to open-source projects to hello@dfda.earth. In your cover letter, explain why you are passionate about the FDAI Initiative and how your experience aligns with our mission and objectives.

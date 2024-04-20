@@ -1,5 +1,5 @@
 {
-  "name": "@fdai/text-2-measurements",
+  "name": "@dfda/text-2-measurements",
   "version": "0.0.1",
   "description": "This library uses artificial intelligence to convert natural language inputs into structured data about diet, treatment, and symptom tracking.",
   "main": "index.js",
@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/FDA-AI/FDAi/issues"
   },
-  "homepage": "https://fdai.earth",
+  "homepage": "https://dfda.earth",
   "dependencies": {
     "axios": "*",
     "dotenv": "*",

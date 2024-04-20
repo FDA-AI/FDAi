@@ -16,9 +16,9 @@ Clone the repository to your local machine.
 
 Copy `.env.example` to `.env` file in the root of the project. The following environment variables are supported:
 
-[https://builder.fdai.earth](https://builder.fdai.earth)
-- `FDAI_CLIENT_ID`: The client ID of your FDAi app.
-- `FDAI_CLIENT_SECRET`: The client secret of your FDAi app.
+[https://builder.dfda.earth](https://builder.dfda.earth)
+- `DFDA_CLIENT_ID`: The client ID of your FDAi app.
+- `DFDA_CLIENT_SECRET`: The client secret of your FDAi app.
 
 See the .env file for how to get the rest of the required environment variables.
 

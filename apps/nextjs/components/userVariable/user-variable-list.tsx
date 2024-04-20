@@ -1,26 +1,52 @@
 "use client";
-import { EmptyPlaceholder } from "@/components/empty-placeholder"
-import { Icons } from "@/components/icons"
+import { EmptyPlaceholder } from "@/components/empty-placeholder";
+import { Icons } from "@/components/icons";
 
-import { UserVariableAddButton } from "./user-variable-add-button"
-import { UserVariableItem } from "./user-variable-item"
-import { useEffect, useState } from "react";
+import { UserVariableAddButton } from "./user-variable-add-button";
+import { UserVariableItem } from "./user-variable-item";
+import { FC, useEffect, useState } from "react";
 import { UserVariable } from "@/types/models/UserVariable";
 
+type UserVariableListProps = {
+  user: {
+    id: string;
+  };
+  searchParams: {
+    includePublic?: boolean | null;
+    sort?: string | null;
+    limit?: number | null;
+    offset?: number | null;
+    searchPhrase?: string | null;
+  };
+};
 
-export function UserVariableList() {
-  const [userVariables, setUserVariables]  =useState<UserVariable[]>([]);
+export const UserVariableList: FC<UserVariableListProps> = ({ user, searchParams }) => {
+
+  const [userVariables, setUserVariables] = useState<UserVariable[]>([]);
 
   useEffect(() => {
-    fetch('/api/userVariables')
+    // Ensure searchParams is an object
+    const safeSearchParams = searchParams ?? {};
+
+    // Construct query string from searchParams
+    const queryParams = new URLSearchParams();
+    Object.entries(safeSearchParams).forEach(([key, value]) => {
+      if (value !== null && value !== undefined) {
+        queryParams.append(key, value.toString());
+      }
+    });
+
+    const queryString = queryParams.toString();
+    const url = `/api/userVariables/${user.id}${queryString ? `?${queryString}` : ''}`;
+
+    fetch(url)
       .then(response => response.json())
       .then(userVariables => {
-        //console.log("Got userVariables", userVariables);
         setUserVariables(userVariables);
       })
-      .catch(error => console.error('Error fetching war images:', error));
+      .catch(error => console.error('Error fetching user variables:', error));
 
-  }, [setUserVariables]);
+  }, [user, searchParams]);
 
   return (
     <>

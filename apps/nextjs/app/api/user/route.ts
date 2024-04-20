@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth/next"
 import { authOptions } from "@/lib/auth"
 import {handleError} from "@/lib/errorHandler";
-import { getOrCreateFdaiUser } from '@/lib/fdaiUserService';
+import { getOrCreateDfdaUser } from '@/lib/dfdaUserService';
 export async function GET(
   req: Request
 ) {
@@ -11,8 +11,8 @@ export async function GET(
     if (!session?.user) {
       return new Response(null, { status: 403 })
     }
-    const fdaiUser = await getOrCreateFdaiUser(session.user.id);
-    return new Response(JSON.stringify(fdaiUser), { status: 200, headers: { 'Content-Type': 'application/json' } })
+    const dfdaUser = await getOrCreateDfdaUser(session.user.id);
+    return new Response(JSON.stringify(dfdaUser), { status: 200, headers: { 'Content-Type': 'application/json' } })
   } catch (error) {
     return handleError(error)
   }

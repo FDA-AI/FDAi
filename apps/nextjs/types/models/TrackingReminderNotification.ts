@@ -164,7 +164,7 @@ export class TrackingReminderNotification {
     */
     'pngPath'?: string;
     /**
-    * Ex: https://safe.fdai.earth/img/variable_categories/emotions.png
+    * Ex: https://safe.dfda.earth/img/variable_categories/emotions.png
     */
     'pngUrl'?: string;
     /**
@@ -216,7 +216,7 @@ export class TrackingReminderNotification {
     */
     'sms'?: boolean;
     /**
-    * Ex: https://safe.fdai.earth/img/variable_categories/emotions.svg
+    * Ex: https://safe.dfda.earth/img/variable_categories/emotions.svg
     */
     'svgUrl'?: string;
     /**

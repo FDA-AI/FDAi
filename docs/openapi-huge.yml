@@ -10,7 +10,7 @@ info:
     url: 'https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)'
   version: 0.0.1
 servers:
-  - url: 'https://safe.fdai.earth/api'
+  - url: 'https://safe.dfda.earth/api'
     description: Production Server
 tags:
   - name: units
@@ -2846,10 +2846,10 @@ components:
           description: 'Ex: 72'
         image:
           type: string
-          description: 'Ex: https://safe.fdai.earth/img/logos/curedao-logo-qm-rainbow-200-200.png'
+          description: 'Ex: https://safe.dfda.earth/img/logos/curedao-logo-qm-rainbow-200-200.png'
         imageHtml:
           type: string
-          description: 'Ex: <a href="https://quantimo.do"><img id="curedao_image" title="CureDAO" src="https://safe.fdai.earth/img/logos/curedao-logo-qm-rainbow-200-200.png" alt="CureDAO"></a>'
+          description: 'Ex: <a href="https://quantimo.do"><img id="curedao_image" title="CureDAO" src="https://safe.dfda.earth/img/logos/curedao-logo-qm-rainbow-200-200.png" alt="CureDAO"></a>'
         lastSuccessfulUpdatedAt:
           type: string
           description: 'Ex: 2017-07-31 10:10:34 UTC ISO 8601 YYYY-MM-DDThh:mm:ss'
@@ -3402,7 +3402,7 @@ components:
           description: 'Ex: img/variable_categories/treatments.png'
         pngUrl:
           type: string
-          description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.png'
+          description: 'Ex: https://safe.dfda.earth/img/variable_categories/treatments.png'
         productUrl:
           type: string
           description: Link to associated product for purchase
@@ -3417,7 +3417,7 @@ components:
           description: 'Start Time for the measurement event in UTC ISO 8601 like 2020-01-01T12:12:12'
         svgUrl:
           type: string
-          description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.svg'
+          description: 'Ex: https://safe.dfda.earth/img/variable_categories/treatments.svg'
         unitAbbreviatedName:
           type: string
           description: Abbreviated name for the unit of measurement
@@ -4485,7 +4485,7 @@ components:
           description: 'Ex: img/variable_categories/symptoms.png'
         pngUrl:
           type: string
-          description: 'Ex: https://safe.fdai.earth/img/variable_categories/symptoms.png'
+          description: 'Ex: https://safe.dfda.earth/img/variable_categories/symptoms.png'
         productUrl:
           type: string
           description: Link to associated product for purchase
@@ -4544,7 +4544,7 @@ components:
           format: string
         svgUrl:
           type: string
-          description: 'Ex: https://safe.fdai.earth/img/variable_categories/symptoms.svg'
+          description: 'Ex: https://safe.dfda.earth/img/variable_categories/symptoms.svg'
         thirdDailyReminderTime:
           type: string
           description: 'Ex: 20:00:00'
@@ -4781,7 +4781,7 @@ components:
           description: 'Ex: img/variable_categories/emotions.png'
         pngUrl:
           type: string
-          description: 'Ex: https://safe.fdai.earth/img/variable_categories/emotions.png'
+          description: 'Ex: https://safe.dfda.earth/img/variable_categories/emotions.png'
         popUp:
           type: boolean
           description: True if the reminders should appear as a popup notification
@@ -4822,7 +4822,7 @@ components:
           description: True if the reminders should be delivered via SMS
         svgUrl:
           type: string
-          description: 'Ex: https://safe.fdai.earth/img/variable_categories/emotions.svg'
+          description: 'Ex: https://safe.dfda.earth/img/variable_categories/emotions.svg'
         thirdMostCommonValue:
           type: number
           description: 'Ex: 2'
@@ -5726,7 +5726,7 @@ components:
           description: 'Ex: img/variable_categories/treatments.png'
         pngUrl:
           type: string
-          description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.png'
+          description: 'Ex: https://safe.dfda.earth/img/variable_categories/treatments.png'
         predictorOfInterest:
           type: integer
           description: 'Ex: 0'
@@ -5776,7 +5776,7 @@ components:
           description: Based on sort filter and can be shown beneath variable name on search list
         svgUrl:
           type: string
-          description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.svg'
+          description: 'Ex: https://safe.dfda.earth/img/variable_categories/treatments.svg'
         thirdMostCommonValue:
           type: number
           description: 'Calculated Statistic: Ex: 6. Unit: User-specified or common.'
@@ -6271,7 +6271,7 @@ components:
           description: 'Ex: img/variable_categories/treatments.png'
         pngUrl:
           type: string
-          description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.png'
+          description: 'Ex: https://safe.dfda.earth/img/variable_categories/treatments.png'
         predictorOfInterest:
           type: integer
           description: 'Ex: 0'
@@ -6321,7 +6321,7 @@ components:
           description: Based on sort filter and can be shown beneath variable name on search list
         svgUrl:
           type: string
-          description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.svg'
+          description: 'Ex: https://safe.dfda.earth/img/variable_categories/treatments.svg'
         thirdMostCommonValue:
           type: number
           description: 'Calculated Statistic: Ex: 6. Unit: User-specified or common.'
@@ -6831,7 +6831,7 @@ components:
           description: 'Ex: img/variable_categories/treatments.png'
         pngUrl:
           type: string
-          description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.png'
+          description: 'Ex: https://safe.dfda.earth/img/variable_categories/treatments.png'
         predictorOfInterest:
           type: integer
           description: 'Ex: 0'
@@ -6881,7 +6881,7 @@ components:
           description: Based on sort filter and can be shown beneath variable name on search list
         svgUrl:
           type: string
-          description: 'Ex: https://safe.fdai.earth/img/variable_categories/treatments.svg'
+          description: 'Ex: https://safe.dfda.earth/img/variable_categories/treatments.svg'
         thirdMostCommonValue:
           type: number
           description: 'Calculated Statistic: Ex: 6. Unit: User-specified or common.'
@@ -7087,7 +7087,7 @@ components:
           description: 'Ex: img/variable_categories/emotions.png'
         pngUrl:
           type: string
-          description: 'Ex: https://safe.fdai.earth/img/variable_categories/emotions.png'
+          description: 'Ex: https://safe.dfda.earth/img/variable_categories/emotions.png'
         public:
           type: boolean
           description: 'Ex: true'
@@ -7096,7 +7096,7 @@ components:
           description: 'Ex: img/variable_categories/emotions.svg'
         svgUrl:
           type: string
-          description: 'Ex: https://safe.fdai.earth/img/variable_categories/emotions.svg'
+          description: 'Ex: https://safe.dfda.earth/img/variable_categories/emotions.svg'
         updated:
           type: integer
           description: 'Ex: 1'
@@ -7753,8 +7753,8 @@ components:
       type: oauth2
       flows:
         authorizationCode:
-          authorizationUrl: 'https://safe.fdai.earth/oauth/authorize'
-          tokenUrl: 'https://safe.fdai.earth/oauth/token'
+          authorizationUrl: 'https://safe.dfda.earth/oauth/authorize'
+          tokenUrl: 'https://safe.dfda.earth/oauth/token'
           scopes:
             basic: 'Allows you to read user info (display name, email, etc)'
             readmeasurements: Allows one to read a user's measurements
@@ -7763,9 +7763,9 @@ components:
       type: apiKey
       in: header
       name: X-CLIENT-ID
-      description: Client ID for authentication from https://builder.fdai.earth
+      description: Client ID for authentication from https://builder.dfda.earth
     ClientSecretHeader:
       type: apiKey
       in: header
       name: X-CLIENT-SECRET
-      description: Backend secret allowing you to store and retrieve data for your users. Obtain from https://builder.fdai.earth
+      description: Backend secret allowing you to store and retrieve data for your users. Obtain from https://builder.dfda.earth

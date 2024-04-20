@@ -17,12 +17,12 @@ However, here is an example using javascript:
 ```javascript
 
 
-async function postMeasurements(fdaiUser, measurements) {
-  const response = await fetch(`https://safe.fdai.earth/api/v1/measurements`, {
+async function postMeasurements(dfdaUser, measurements) {
+  const response = await fetch(`https://safe.dfda.earth/api/v1/measurements`, {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
-      'Authorization': `Bearer ${fdaiUser.accessToken}`
+      'Authorization': `Bearer ${dfdaUser.accessToken}`
     },
     body: JSON.stringify({
       measurements

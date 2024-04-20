@@ -40,12 +40,12 @@ model Session {
 
 model User {
   id                           String    @id @default(cuid())
-  fdai_user_id                 Int?
-  fdai_access_token            String?
-  fdai_refresh_token           String?
-  fdai_expires_in              Int?
-  fdai_scope                   String?
-  fdai_access_token_expires_at DateTime?
+  dfda_user_id                 Int?
+  dfda_access_token            String?
+  dfda_refresh_token           String?
+  dfda_expires_in              Int?
+  dfda_scope                   String?
+  dfda_access_token_expires_at DateTime?
   address                      String?
   banned                       Boolean?
   birthday                     DateTime?
