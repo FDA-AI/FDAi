@@ -1209,9 +1209,9 @@ export interface components {
       getItUrl: string;
       /** @description Ex: 72 */
       id: number;
-      /** @description Ex: https://safe.fdai.earth/img/logos/curedao-logo-qm-rainbow-200-200.png */
+      /** @description Ex: https://safe.dfda.earth/img/logos/curedao-logo-qm-rainbow-200-200.png */
       image: string;
-      /** @description Ex: <a href="https://quantimo.do"><img id="curedao_image" title="CureDAO" src="https://safe.fdai.earth/img/logos/curedao-logo-qm-rainbow-200-200.png" alt="CureDAO"></a> */
+      /** @description Ex: <a href="https://quantimo.do"><img id="curedao_image" title="CureDAO" src="https://safe.dfda.earth/img/logos/curedao-logo-qm-rainbow-200-200.png" alt="CureDAO"></a> */
       imageHtml: string;
       /** @description Ex: 2017-07-31 10:10:34 UTC ISO 8601 YYYY-MM-DDThh:mm:ss */
       lastSuccessfulUpdatedAt?: string;
@@ -1513,7 +1513,7 @@ export interface components {
       originalValue?: number;
       /** @description Ex: img/variable_categories/treatments.png */
       pngPath?: string;
-      /** @description Ex: https://safe.fdai.earth/img/variable_categories/treatments.png */
+      /** @description Ex: https://safe.dfda.earth/img/variable_categories/treatments.png */
       pngUrl?: string;
       /** @description Link to associated product for purchase */
       productUrl?: string;
@@ -1525,7 +1525,7 @@ export interface components {
       startTimeEpoch?: number;
       /** @description Start Time for the measurement event in UTC ISO 8601 YYYY-MM-DDThh:mm:ss */
       startTimeString: string;
-      /** @description Ex: https://safe.fdai.earth/img/variable_categories/treatments.svg */
+      /** @description Ex: https://safe.dfda.earth/img/variable_categories/treatments.svg */
       svgUrl?: string;
       /** @description Abbreviated name for the unit of measurement */
       unitAbbreviatedName: string;
@@ -2174,7 +2174,7 @@ export interface components {
       outcome?: boolean;
       /** @description Ex: img/variable_categories/symptoms.png */
       pngPath?: string;
-      /** @description Ex: https://safe.fdai.earth/img/variable_categories/symptoms.png */
+      /** @description Ex: https://safe.dfda.earth/img/variable_categories/symptoms.png */
       pngUrl?: string;
       /** @description Link to associated product for purchase */
       productUrl?: string;
@@ -2225,7 +2225,7 @@ export interface components {
        * @description Latest date on which the user should be reminded to track in YYYY-MM-DD format
        */
       stopTrackingDate?: string;
-      /** @description Ex: https://safe.fdai.earth/img/variable_categories/symptoms.svg */
+      /** @description Ex: https://safe.dfda.earth/img/variable_categories/symptoms.svg */
       svgUrl?: string;
       /** @description Ex: 20:00:00 */
       thirdDailyReminderTime?: string;
@@ -2381,7 +2381,7 @@ export interface components {
       outcome?: boolean;
       /** @description Ex: img/variable_categories/emotions.png */
       pngPath?: string;
-      /** @description Ex: https://safe.fdai.earth/img/variable_categories/emotions.png */
+      /** @description Ex: https://safe.dfda.earth/img/variable_categories/emotions.png */
       pngUrl?: string;
       /** @description True if the reminders should appear as a popup notification */
       popUp?: boolean;
@@ -2413,7 +2413,7 @@ export interface components {
       secondToLastValue?: number;
       /** @description True if the reminders should be delivered via SMS */
       sms?: boolean;
-      /** @description Ex: https://safe.fdai.earth/img/variable_categories/emotions.svg */
+      /** @description Ex: https://safe.dfda.earth/img/variable_categories/emotions.svg */
       svgUrl?: string;
       /**
        * Format: double
@@ -3056,7 +3056,7 @@ export interface components {
       outcomeOfInterest?: boolean;
       /** @description Ex: img/variable_categories/treatments.png */
       pngPath?: string;
-      /** @description Ex: https://safe.fdai.earth/img/variable_categories/treatments.png */
+      /** @description Ex: https://safe.dfda.earth/img/variable_categories/treatments.png */
       pngUrl?: string;
       /** @description Ex: 0 */
       predictorOfInterest?: number;
@@ -3101,7 +3101,7 @@ export interface components {
       status?: string;
       /** @description Based on sort filter and can be shown beneath variable name on search list */
       subtitle?: string;
-      /** @description Ex: https://safe.fdai.earth/img/variable_categories/treatments.svg */
+      /** @description Ex: https://safe.dfda.earth/img/variable_categories/treatments.svg */
       svgUrl?: string;
       /**
        * Format: double
@@ -3485,7 +3485,7 @@ export interface components {
       parentUserTagVariables?: components["schemas"]["TagVariable"][];
       /** @description Ex: img/variable_categories/treatments.png */
       pngPath?: string;
-      /** @description Ex: https://safe.fdai.earth/img/variable_categories/treatments.png */
+      /** @description Ex: https://safe.dfda.earth/img/variable_categories/treatments.png */
       pngUrl?: string;
       /** @description Ex: 0 */
       predictorOfInterest?: number;
@@ -3530,7 +3530,7 @@ export interface components {
       status?: string;
       /** @description Based on sort filter and can be shown beneath variable name on search list */
       subtitle?: string;
-      /** @description Ex: https://safe.fdai.earth/img/variable_categories/treatments.svg */
+      /** @description Ex: https://safe.dfda.earth/img/variable_categories/treatments.svg */
       svgUrl?: string;
       /**
        * Format: double
@@ -3658,13 +3658,13 @@ export interface components {
       outcome?: boolean;
       /** @description Ex: img/variable_categories/emotions.png */
       pngPath?: string;
-      /** @description Ex: https://safe.fdai.earth/img/variable_categories/emotions.png */
+      /** @description Ex: https://safe.dfda.earth/img/variable_categories/emotions.png */
       pngUrl?: string;
       /** @description Ex: true */
       public?: boolean;
       /** @description Ex: img/variable_categories/emotions.svg */
       svgPath?: string;
-      /** @description Ex: https://safe.fdai.earth/img/variable_categories/emotions.svg */
+      /** @description Ex: https://safe.dfda.earth/img/variable_categories/emotions.svg */
       svgUrl?: string;
       /** @description Ex: 1 */
       updated?: number;

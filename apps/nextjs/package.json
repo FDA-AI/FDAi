@@ -17,7 +17,7 @@
     "test:ci": "jest --ci",
     "format": "pnpm prettier . --write",
     "format:check": "pnpm prettier . --check",
-    "generate:sdk": "openapi-typescript ../../docs/api-reference/openapi.yml --output app/fdai.ts",
+    "generate:sdk": "openapi-typescript ../../docs/api-reference/openapi.yml --output app/dfda.ts",
     "generate:rapini": "npx rapini react-query -p ../../docs/api-reference/openapi.yml"
   },
   "dependencies": {

@@ -98,7 +98,7 @@ export class VariableCategory {
     */
     'pngPath'?: string;
     /**
-    * Ex: https://safe.fdai.earth/img/variable_categories/emotions.png
+    * Ex: https://safe.dfda.earth/img/variable_categories/emotions.png
     */
     'pngUrl'?: string;
     /**
@@ -110,7 +110,7 @@ export class VariableCategory {
     */
     'svgPath'?: string;
     /**
-    * Ex: https://safe.fdai.earth/img/variable_categories/emotions.svg
+    * Ex: https://safe.dfda.earth/img/variable_categories/emotions.svg
     */
     'svgUrl'?: string;
     /**

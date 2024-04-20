@@ -181,7 +181,7 @@ export class TrackingReminder {
     */
     'pngPath'?: string;
     /**
-    * Ex: https://safe.fdai.earth/img/variable_categories/symptoms.png
+    * Ex: https://safe.dfda.earth/img/variable_categories/symptoms.png
     */
     'pngUrl'?: string;
     /**
@@ -253,7 +253,7 @@ export class TrackingReminder {
     */
     'stopTrackingDate'?: string;
     /**
-    * Ex: https://safe.fdai.earth/img/variable_categories/symptoms.svg
+    * Ex: https://safe.dfda.earth/img/variable_categories/symptoms.svg
     */
     'svgUrl'?: string;
     /**

@@ -80,11 +80,11 @@ export class DataSource {
     */
     'id': number;
     /**
-    * Ex: https://safe.fdai.earth/img/logos/curedao-logo-qm-rainbow-200-200.png
+    * Ex: https://safe.dfda.earth/img/logos/curedao-logo-qm-rainbow-200-200.png
     */
     'image': string;
     /**
-    * Ex: <a href=\"https://quantimo.do\"><img id=\"curedao_image\" title=\"CureDAO\" src=\"https://safe.fdai.earth/img/logos/curedao-logo-qm-rainbow-200-200.png\" alt=\"CureDAO\"></a>
+    * Ex: <a href=\"https://quantimo.do\"><img id=\"curedao_image\" title=\"CureDAO\" src=\"https://safe.dfda.earth/img/logos/curedao-logo-qm-rainbow-200-200.png\" alt=\"CureDAO\"></a>
     */
     'imageHtml': string;
     /**
