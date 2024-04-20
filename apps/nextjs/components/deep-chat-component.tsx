@@ -8,7 +8,7 @@ import dynamic from 'next/dynamic';
 export default function DeepChatComponent() {
   return         <FullPageChat
     chatflowid="3a94fd29-fbe1-4318-a67b-a3fb5b6f74a8"
-    apiHost="https://fw.fdai.earth"
+    apiHost="https://fw.dfda.earth"
     theme={{
       chatWindow: {
         welcomeMessage: "Hello! This is custom welcome message",

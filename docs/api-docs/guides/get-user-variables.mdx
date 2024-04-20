@@ -7,7 +7,7 @@ his function fetches user-defined and public variables based on specified criter
 Variables can include treatments, symptoms, or any custom user data.
 It allows for filtering based on a search phrase, sorting by measurement time.
 
-First, create a `getFdaiAccessToken()` function as [described here](guides/get-access-token) if you haven't done that already.
+First, create a `getDfdaAccessToken()` function as [described here](guides/get-access-token) if you haven't done that already.
 
 <Note>
   You can check the [API documentation](../api-reference/variables/get-user-variables) to generate code to do this in any language.
@@ -23,7 +23,7 @@ First, create a `getFdaiAccessToken()` function as [described here](guides/get-a
 
 ```javascript
 async function fetchUserVariables(searchPhrase, includePublic = true, limit = 10, offset = 0, sort = '-latestMeasurementTime') {
-    const baseUrl = 'https://safe.fdai.earth/api/v3/userVariables';
+    const baseUrl = 'https://safe.dfda.earth/api/v3/userVariables';
     const params = new URLSearchParams({
         includePublic: includePublic,
         limit: limit,
@@ -36,8 +36,7 @@ async function fetchUserVariables(searchPhrase, includePublic = true, limit = 10
         method: 'GET',
         headers: {
             'accept': 'application/json',
-            'Authorization': `Bearer ${getFdaiAccessToken()}`,
-            'X-CLIENT-ID': getFdaiClientId(),
+            'Authorization': `Bearer ${getDfdaAccessToken()}`,
         },
         credentials: 'include'
     });

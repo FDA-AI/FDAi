@@ -3,13 +3,11 @@
 import * as React from "react"
 import { useRouter } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { UserVariable } from "@prisma/client"
 import { HexColorPicker } from "react-colorful"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 
 import { cn } from "@/lib/utils"
-import { userVariablePatchSchema } from "@/lib/validations/userVariable"
 import { buttonVariants } from "@/components/ui/button"
 import {
   Card,
@@ -24,9 +22,11 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
+import {UserVariable} from "@/types/models/UserVariable";
+import {userVariablePatchSchema} from "@/lib/validations/userVariable";
 
 interface UserVariableEditFormProps extends React.HTMLAttributes<HTMLFormElement> {
-  userVariable: Pick<UserVariable, "id" | "name" | "description" | "colorCode">
+  userVariable: Pick<UserVariable, "id" | "name" | "description">
 }
 
 type FormData = z.infer<typeof userVariablePatchSchema>

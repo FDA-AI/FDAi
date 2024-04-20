@@ -5,7 +5,7 @@ var randomBytes = require('bluebird').promisify(require('crypto').randomBytes);
 const prisma = new PrismaClient()
 let oaClients = prisma.oa_clients;
 let client;
-const clientId = process.env.FDAI_CLIENT_ID;
+const clientId = process.env.DFDA_CLIENT_ID;
 
 BigInt.prototype["toJSON"] = function () {
   return this.toString();

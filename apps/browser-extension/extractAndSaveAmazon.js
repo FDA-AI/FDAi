@@ -58,7 +58,7 @@ export async function extractAndSaveAmazon(html) {
   }
 
   if(typeof global.apiOrigin === 'undefined') {
-    global.apiOrigin = 'https://safe.fdai.earth';
+    global.apiOrigin = 'https://safe.dfda.earth';
   }
 
   if(measurements.length > 0) {

@@ -2,7 +2,7 @@
   "nodes": [
     {
       "width": 300,
-      "height": 460,
+      "height": 457,
       "id": "getApiChain_0",
       "position": {
         "x": 1235.1408711478114,
@@ -70,7 +70,7 @@
         ],
         "inputs": {
           "model": "{{chatOpenAI_1.data.instance}}",
-          "apiDocs": "BASE URL: 'https://safe.fdai.earth/api'\n\nAPI Documentation\nThe API endpoint  /v3/measurements accepts the following URL params\n- variableName:  This can be anything like \"Overall Mood\", any treatment, or symptom. (optional)\n- variableCategoryName: Options are Emotions, Symptoms, Treatments, Sleep  (optional)\n- sort:  Use sort=-updatedAt by default so we get the most recent ones. \n\n\nIt returns a list of measurements. Measurements are any values that can be recorded, such as daily steps, a mood rating, or apples eaten.\n\n\nYou'll get back an array of measurement objects. When handling the response, focus mainly on the following properties:\nvalue\nunitName\nvariableName\nstartAt - when the measurement event occurred\n\n\n\n",
+          "apiDocs": "BASE URL: 'https://safe.dfda.earth/api'\n\nAPI Documentation\nThe API endpoint  /v3/measurements accepts the following URL params\n- variableName:  This can be anything like \"Overall Mood\", any treatment, or symptom. (optional)\n- variableCategoryName: Options are Emotions, Symptoms, Treatments, Sleep  (optional)\n- sort:  Use sort=-updatedAt by default so we get the most recent ones. \n\n\nIt returns a list of measurements. Measurements are any values that can be recorded, such as daily steps, a mood rating, or apples eaten.\n\n\nYou'll get back an array of measurement objects. When handling the response, focus mainly on the following properties:\nvalue\nunitName\nvariableName\nstartAt - when the measurement event occurred\n\n\n\n",
           "headers": "{\"Authorization\":\"Bearer demo\"}",
           "urlPrompt": "You are given the below API Documentation:\n{api_docs}\nUsing this documentation, generate the full API url to call for answering the user question.\nYou should build the API url in order to get a response that is as short as possible, while still getting the necessary information to answer the question. Pay attention to deliberately exclude any unnecessary pieces of data in the API call.\n\nQuestion:{question}\nAPI url:",
           "ansPrompt": "Given this {api_response} response for {api_url}. use the given response to answer this {question}"
@@ -95,7 +95,7 @@
     },
     {
       "width": 300,
-      "height": 603,
+      "height": 601,
       "id": "chainTool_0",
       "position": {
         "x": 1773.6414313022271,
@@ -175,11 +175,11 @@
     },
     {
       "width": 300,
-      "height": 378,
+      "height": 375,
       "id": "bufferMemory_0",
       "position": {
-        "x": 1642.0644080121785,
-        "y": 1715.6131926891728
+        "x": 2299.735139122225,
+        "y": 1741.2111552772883
       },
       "type": "customNode",
       "data": {
@@ -229,18 +229,18 @@
       },
       "selected": false,
       "positionAbsolute": {
-        "x": 1642.0644080121785,
-        "y": 1715.6131926891728
+        "x": 2299.735139122225,
+        "y": 1741.2111552772883
       },
       "dragging": false
     },
     {
       "width": 300,
-      "height": 603,
+      "height": 601,
       "id": "chainTool_1",
       "position": {
-        "x": 1284.7746596034926,
-        "y": 895.1444797047182
+        "x": 1324.1561405082857,
+        "y": 908.9279980213955
       },
       "type": "customNode",
       "data": {
@@ -291,8 +291,8 @@
           }
         ],
         "inputs": {
-          "name": "discord-bot",
-          "description": "useful for when you need to send message to Discord",
+          "name": "measurement-recorder",
+          "description": "useful for when the user wants to record a symptom or treatment measurement",
           "returnDirect": "",
           "baseChain": "{{postApiChain_0.data.instance}}"
         },
@@ -309,18 +309,18 @@
       },
       "selected": false,
       "positionAbsolute": {
-        "x": 1284.7746596034926,
-        "y": 895.1444797047182
+        "x": 1324.1561405082857,
+        "y": 908.9279980213955
       },
       "dragging": false
     },
     {
       "width": 300,
-      "height": 460,
+      "height": 457,
       "id": "postApiChain_0",
       "position": {
-        "x": 948.0473922694291,
-        "y": 983.6861671985527
+        "x": 849.3235539136847,
+        "y": 979.48097664856
       },
       "type": "customNode",
       "data": {
@@ -384,8 +384,8 @@
         ],
         "inputs": {
           "model": "{{chatOpenAI_2.data.instance}}",
-          "apiDocs": "API documentation:\nEndpoint: https://eog776prcv6dg0j.m.pipedream.net\n\nThis API is for sending Discord message\n\nQuery body table:\nmessage | string | Message to send | required\n\nResponse schema (string):\nresult | string",
-          "headers": "",
+          "apiDocs": "BASE URL: 'https://safe.dfda.earth/api'\n\nAPI Documentation\nThe API endpoint  /v3/measurements/post accepts and array of measurements like this if some says I ate one apple on \"2020-01-01T12:12:12\"\n\nIt accepts an array of measurements. Measurements are any values that can be recorded, such as daily steps, a mood rating, or apples eaten.\n\nHere's an example:\nconst options = {\n  method: 'POST',\n  headers: {Authorization: 'Bearer demo', 'Content-Type': 'application/json'},\n  body: '[{\"startAt\":\"2020-01-01T12:12:12\",\"value\":1,\"variableCategoryName\":\"Foods\",\"variableName\":\"Apples\",\"unitAbbreviatedName\":\"count\",\"combinationOperation\":\"SUM\"}]'\n};\n\n\n- variableName:  This can be anything like \"Overall Mood\", any treatment, or symptom. \n- variableCategoryName: Options are Emotions, Symptoms, Treatments, Sleep \n\n\n\n\n\n",
+          "headers": "{\"Authorization\":\"Bearer demo\"}",
           "urlPrompt": "You are given the below API Documentation:\n{api_docs}\nUsing this documentation, generate a json string with two keys: \"url\" and \"data\".\nThe value of \"url\" should be a string, which is the API url to call for answering the user question.\nThe value of \"data\" should be a dictionary of key-value pairs you want to POST to the url as a JSON body.\nBe careful to always use double quotes for strings in the json string.\nYou should build the json string in order to get a response that is as short as possible, while still getting the necessary information to answer the question. Pay attention to deliberately exclude any unnecessary pieces of data in the API call.\n\nQuestion:{question}\njson string:",
           "ansPrompt": "You are given the below API Documentation:\n{api_docs}\nUsing this documentation, generate a json string with two keys: \"url\" and \"data\".\nThe value of \"url\" should be a string, which is the API url to call for answering the user question.\nThe value of \"data\" should be a dictionary of key-value pairs you want to POST to the url as a JSON body.\nBe careful to always use double quotes for strings in the json string.\nYou should build the json string in order to get a response that is as short as possible, while still getting the necessary information to answer the question. Pay attention to deliberately exclude any unnecessary pieces of data in the API call.\n\nQuestion:{question}\njson string: {api_url_body}\n\nHere is the response from the API:\n\n{api_response}\n\nSummarize this response to answer the original question.\n\nSummary:"
         },
@@ -402,14 +402,14 @@
       },
       "selected": false,
       "positionAbsolute": {
-        "x": 948.0473922694291,
-        "y": 983.6861671985527
+        "x": 849.3235539136847,
+        "y": 979.48097664856
       },
       "dragging": false
     },
     {
       "width": 300,
-      "height": 670,
+      "height": 667,
       "id": "chatOpenAI_2",
       "position": {
         "x": 397.46897627395833,
@@ -649,11 +649,11 @@
     },
     {
       "width": 300,
-      "height": 670,
+      "height": 667,
       "id": "chatOpenAI_1",
       "position": {
-        "x": 828.7788305309582,
-        "y": 302.8996144964516
+        "x": 785.4592015356858,
+        "y": 41.012766479576754
       },
       "type": "customNode",
       "data": {
@@ -882,18 +882,18 @@
       },
       "selected": false,
       "positionAbsolute": {
-        "x": 828.7788305309582,
-        "y": 302.8996144964516
+        "x": 785.4592015356858,
+        "y": 41.012766479576754
       },
       "dragging": false
     },
     {
       "width": 300,
-      "height": 670,
+      "height": 667,
       "id": "chatOpenAI_3",
       "position": {
-        "x": 1148.338912314111,
-        "y": 1561.0888070167944
+        "x": 1833.5766800575127,
+        "y": 1322.8308475427953
       },
       "type": "customNode",
       "data": {
@@ -1122,14 +1122,14 @@
       },
       "selected": false,
       "positionAbsolute": {
-        "x": 1148.338912314111,
-        "y": 1561.0888070167944
+        "x": 1833.5766800575127,
+        "y": 1322.8308475427953
       },
       "dragging": false
     },
     {
       "width": 300,
-      "height": 435,
+      "height": 432,
       "id": "conversationalAgent_0",
       "position": {
         "x": 2240.3800058044085,
@@ -1195,7 +1195,8 @@
           "inputModeration": "",
           "tools": [
             "{{chainTool_0.data.instance}}",
-            "{{chainTool_1.data.instance}}"
+            "{{chainTool_1.data.instance}}",
+            "{{chainTool_2.data.instance}}"
           ],
           "model": "{{chatOpenAI_3.data.instance}}",
           "memory": "{{bufferMemory_0.data.instance}}",
@@ -1216,6 +1217,419 @@
       "positionAbsolute": {
         "x": 2240.3800058044085,
         "y": 831.7135530295203
+      },
+      "dragging": false
+    },
+    {
+      "width": 300,
+      "height": 457,
+      "id": "getApiChain_1",
+      "position": {
+        "x": 1379.1612452666554,
+        "y": -224.19372416564184
+      },
+      "type": "customNode",
+      "data": {
+        "id": "getApiChain_1",
+        "label": "GET API Chain",
+        "version": 1,
+        "name": "getApiChain",
+        "type": "GETApiChain",
+        "baseClasses": [
+          "GETApiChain",
+          "BaseChain",
+          "BaseLangChain"
+        ],
+        "category": "Chains",
+        "description": "Chain to run queries against GET API",
+        "inputParams": [
+          {
+            "label": "API Documentation",
+            "name": "apiDocs",
+            "type": "string",
+            "description": "Description of how API works. Please refer to more <a target=\"_blank\" href=\"https://github.com/langchain-ai/langchain/blob/master/libs/langchain/langchain/chains/api/open_meteo_docs.py\">examples</a>",
+            "rows": 4,
+            "id": "getApiChain_1-input-apiDocs-string"
+          },
+          {
+            "label": "Headers",
+            "name": "headers",
+            "type": "json",
+            "additionalParams": true,
+            "optional": true,
+            "id": "getApiChain_1-input-headers-json"
+          },
+          {
+            "label": "URL Prompt",
+            "name": "urlPrompt",
+            "type": "string",
+            "description": "Prompt used to tell LLMs how to construct the URL. Must contains {api_docs} and {question}",
+            "default": "You are given the below API Documentation:\n{api_docs}\nUsing this documentation, generate the full API url to call for answering the user question.\nYou should build the API url in order to get a response that is as short as possible, while still getting the necessary information to answer the question. Pay attention to deliberately exclude any unnecessary pieces of data in the API call.\n\nQuestion:{question}\nAPI url:",
+            "rows": 4,
+            "additionalParams": true,
+            "id": "getApiChain_1-input-urlPrompt-string"
+          },
+          {
+            "label": "Answer Prompt",
+            "name": "ansPrompt",
+            "type": "string",
+            "description": "Prompt used to tell LLMs how to return the API response. Must contains {api_response}, {api_url}, and {question}",
+            "default": "Given this {api_response} response for {api_url}. use the given response to answer this {question}",
+            "rows": 4,
+            "additionalParams": true,
+            "id": "getApiChain_1-input-ansPrompt-string"
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Language Model",
+            "name": "model",
+            "type": "BaseLanguageModel",
+            "id": "getApiChain_1-input-model-BaseLanguageModel"
+          }
+        ],
+        "inputs": {
+          "model": "{{chatOpenAI_4.data.instance}}",
+          "apiDocs": "BASE URL: 'https://safe.dfda.earth/api'\n\nAPI Documentation\nThe API endpoint  /v3/trackingReminderNotifications ret\n\n\nGets an array of variables such symptoms and treatment that the user need to record measurements for.  \n\n\n\n",
+          "headers": "{\"Authorization\":\"Bearer demo\"}",
+          "urlPrompt": "You are given the below API Documentation:\n{api_docs}\nUsing this documentation, generate the full API url to call for answering the user question.\nYou should build the API url in order to get a response that is as short as possible, while still getting the necessary information to answer the question. Pay attention to deliberately exclude any unnecessary pieces of data in the API call.\n\nQuestion:{question}\nAPI url:",
+          "ansPrompt": "Given this {api_response} response for {api_url}. use the given response to answer this {question}"
+        },
+        "outputAnchors": [
+          {
+            "id": "getApiChain_1-output-getApiChain-GETApiChain|BaseChain|BaseLangChain",
+            "name": "getApiChain",
+            "label": "GETApiChain",
+            "type": "GETApiChain | BaseChain | BaseLangChain"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1379.1612452666554,
+        "y": -224.19372416564184
+      },
+      "dragging": false
+    },
+    {
+      "width": 300,
+      "height": 601,
+      "id": "chainTool_2",
+      "position": {
+        "x": 2029.8990259997315,
+        "y": 89.41000745216093
+      },
+      "type": "customNode",
+      "data": {
+        "id": "chainTool_2",
+        "label": "Chain Tool",
+        "version": 1,
+        "name": "chainTool",
+        "type": "ChainTool",
+        "baseClasses": [
+          "ChainTool",
+          "DynamicTool",
+          "Tool",
+          "StructuredTool",
+          "BaseLangChain"
+        ],
+        "category": "Tools",
+        "description": "Use a chain as allowed tool for agent",
+        "inputParams": [
+          {
+            "label": "Chain Name",
+            "name": "name",
+            "type": "string",
+            "placeholder": "state-of-union-qa",
+            "id": "chainTool_2-input-name-string"
+          },
+          {
+            "label": "Chain Description",
+            "name": "description",
+            "type": "string",
+            "rows": 3,
+            "placeholder": "State of the Union QA - useful for when you need to ask questions about the most recent state of the union address.",
+            "id": "chainTool_2-input-description-string"
+          },
+          {
+            "label": "Return Direct",
+            "name": "returnDirect",
+            "type": "boolean",
+            "optional": true,
+            "id": "chainTool_2-input-returnDirect-boolean"
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Base Chain",
+            "name": "baseChain",
+            "type": "BaseChain",
+            "id": "chainTool_2-input-baseChain-BaseChain"
+          }
+        ],
+        "inputs": {
+          "name": "reminder-notications-qa",
+          "description": "useful for getting a list of treatments and symptoms the user is supposed to record",
+          "returnDirect": "",
+          "baseChain": "{{getApiChain_1.data.instance}}"
+        },
+        "outputAnchors": [
+          {
+            "id": "chainTool_2-output-chainTool-ChainTool|DynamicTool|Tool|StructuredTool|BaseLangChain",
+            "name": "chainTool",
+            "label": "ChainTool",
+            "type": "ChainTool | DynamicTool | Tool | StructuredTool | BaseLangChain"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "selected": false,
+      "positionAbsolute": {
+        "x": 2029.8990259997315,
+        "y": 89.41000745216093
+      },
+      "dragging": false
+    },
+    {
+      "width": 300,
+      "height": 667,
+      "id": "chatOpenAI_4",
+      "position": {
+        "x": 997.4399784659265,
+        "y": -604.1780462604091
+      },
+      "type": "customNode",
+      "data": {
+        "id": "chatOpenAI_4",
+        "label": "ChatOpenAI",
+        "version": 5,
+        "name": "chatOpenAI",
+        "type": "ChatOpenAI",
+        "baseClasses": [
+          "ChatOpenAI",
+          "BaseChatModel",
+          "BaseLanguageModel"
+        ],
+        "category": "Chat Models",
+        "description": "Wrapper around OpenAI large language models that use the Chat endpoint",
+        "inputParams": [
+          {
+            "label": "Connect Credential",
+            "name": "credential",
+            "type": "credential",
+            "credentialNames": [
+              "openAIApi"
+            ],
+            "id": "chatOpenAI_4-input-credential-credential"
+          },
+          {
+            "label": "Model Name",
+            "name": "modelName",
+            "type": "options",
+            "options": [
+              {
+                "label": "gpt-4",
+                "name": "gpt-4"
+              },
+              {
+                "label": "gpt-4-turbo-preview",
+                "name": "gpt-4-turbo-preview"
+              },
+              {
+                "label": "gpt-4-0125-preview",
+                "name": "gpt-4-0125-preview"
+              },
+              {
+                "label": "gpt-4-1106-preview",
+                "name": "gpt-4-1106-preview"
+              },
+              {
+                "label": "gpt-4-1106-vision-preview",
+                "name": "gpt-4-1106-vision-preview"
+              },
+              {
+                "label": "gpt-4-vision-preview",
+                "name": "gpt-4-vision-preview"
+              },
+              {
+                "label": "gpt-4-0613",
+                "name": "gpt-4-0613"
+              },
+              {
+                "label": "gpt-4-32k",
+                "name": "gpt-4-32k"
+              },
+              {
+                "label": "gpt-4-32k-0613",
+                "name": "gpt-4-32k-0613"
+              },
+              {
+                "label": "gpt-3.5-turbo",
+                "name": "gpt-3.5-turbo"
+              },
+              {
+                "label": "gpt-3.5-turbo-0125",
+                "name": "gpt-3.5-turbo-0125"
+              },
+              {
+                "label": "gpt-3.5-turbo-1106",
+                "name": "gpt-3.5-turbo-1106"
+              },
+              {
+                "label": "gpt-3.5-turbo-0613",
+                "name": "gpt-3.5-turbo-0613"
+              },
+              {
+                "label": "gpt-3.5-turbo-16k",
+                "name": "gpt-3.5-turbo-16k"
+              },
+              {
+                "label": "gpt-3.5-turbo-16k-0613",
+                "name": "gpt-3.5-turbo-16k-0613"
+              }
+            ],
+            "default": "gpt-3.5-turbo",
+            "optional": true,
+            "id": "chatOpenAI_4-input-modelName-options"
+          },
+          {
+            "label": "Temperature",
+            "name": "temperature",
+            "type": "number",
+            "default": 0.9,
+            "optional": true,
+            "id": "chatOpenAI_4-input-temperature-number"
+          },
+          {
+            "label": "Max Tokens",
+            "name": "maxTokens",
+            "type": "number",
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOpenAI_4-input-maxTokens-number"
+          },
+          {
+            "label": "Top Probability",
+            "name": "topP",
+            "type": "number",
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOpenAI_4-input-topP-number"
+          },
+          {
+            "label": "Frequency Penalty",
+            "name": "frequencyPenalty",
+            "type": "number",
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOpenAI_4-input-frequencyPenalty-number"
+          },
+          {
+            "label": "Presence Penalty",
+            "name": "presencePenalty",
+            "type": "number",
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOpenAI_4-input-presencePenalty-number"
+          },
+          {
+            "label": "Timeout",
+            "name": "timeout",
+            "type": "number",
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOpenAI_4-input-timeout-number"
+          },
+          {
+            "label": "BasePath",
+            "name": "basepath",
+            "type": "string",
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOpenAI_4-input-basepath-string"
+          },
+          {
+            "label": "BaseOptions",
+            "name": "baseOptions",
+            "type": "json",
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOpenAI_4-input-baseOptions-json"
+          },
+          {
+            "label": "Allow Image Uploads",
+            "name": "allowImageUploads",
+            "type": "boolean",
+            "description": "Automatically uses gpt-4-vision-preview when image is being uploaded from chat. Only works with LLMChain, Conversation Chain, ReAct Agent, and Conversational Agent",
+            "default": false,
+            "optional": true,
+            "id": "chatOpenAI_4-input-allowImageUploads-boolean"
+          },
+          {
+            "label": "Image Resolution",
+            "description": "This parameter controls the resolution in which the model views the image.",
+            "name": "imageResolution",
+            "type": "options",
+            "options": [
+              {
+                "label": "Low",
+                "name": "low"
+              },
+              {
+                "label": "High",
+                "name": "high"
+              },
+              {
+                "label": "Auto",
+                "name": "auto"
+              }
+            ],
+            "default": "low",
+            "optional": false,
+            "additionalParams": true,
+            "id": "chatOpenAI_4-input-imageResolution-options"
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Cache",
+            "name": "cache",
+            "type": "BaseCache",
+            "optional": true,
+            "id": "chatOpenAI_4-input-cache-BaseCache"
+          }
+        ],
+        "inputs": {
+          "modelName": "gpt-3.5-turbo",
+          "temperature": 0.9,
+          "maxTokens": "",
+          "topP": "",
+          "frequencyPenalty": "",
+          "presencePenalty": "",
+          "timeout": "",
+          "basepath": "",
+          "baseOptions": "",
+          "allowImageUploads": true,
+          "imageResolution": "low"
+        },
+        "outputAnchors": [
+          {
+            "id": "chatOpenAI_4-output-chatOpenAI-ChatOpenAI|BaseChatModel|BaseLanguageModel",
+            "name": "chatOpenAI",
+            "label": "ChatOpenAI",
+            "type": "ChatOpenAI | BaseChatModel | BaseLanguageModel"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "selected": false,
+      "positionAbsolute": {
+        "x": 997.4399784659265,
+        "y": -604.1780462604091
       },
       "dragging": false
     }
@@ -1308,6 +1722,30 @@
       "data": {
         "label": ""
       }
+    },
+    {
+      "source": "getApiChain_1",
+      "sourceHandle": "getApiChain_1-output-getApiChain-GETApiChain|BaseChain|BaseLangChain",
+      "target": "chainTool_2",
+      "targetHandle": "chainTool_2-input-baseChain-BaseChain",
+      "type": "buttonedge",
+      "id": "getApiChain_1-getApiChain_1-output-getApiChain-GETApiChain|BaseChain|BaseLangChain-chainTool_2-chainTool_2-input-baseChain-BaseChain"
+    },
+    {
+      "source": "chatOpenAI_4",
+      "sourceHandle": "chatOpenAI_4-output-chatOpenAI-ChatOpenAI|BaseChatModel|BaseLanguageModel",
+      "target": "getApiChain_1",
+      "targetHandle": "getApiChain_1-input-model-BaseLanguageModel",
+      "type": "buttonedge",
+      "id": "chatOpenAI_4-chatOpenAI_4-output-chatOpenAI-ChatOpenAI|BaseChatModel|BaseLanguageModel-getApiChain_1-getApiChain_1-input-model-BaseLanguageModel"
+    },
+    {
+      "source": "chainTool_2",
+      "sourceHandle": "chainTool_2-output-chainTool-ChainTool|DynamicTool|Tool|StructuredTool|BaseLangChain",
+      "target": "conversationalAgent_0",
+      "targetHandle": "conversationalAgent_0-input-tools-Tool",
+      "type": "buttonedge",
+      "id": "chainTool_2-chainTool_2-output-chainTool-ChainTool|DynamicTool|Tool|StructuredTool|BaseLangChain-conversationalAgent_0-conversationalAgent_0-input-tools-Tool"
     }
   ]
 }

@@ -34,7 +34,7 @@ delay_ and _duration of action_.
 
 The aggregation method and other hyper-parameters can be found by putting the **Variable Name** in either
 1. the [API Explorer](https://curedao.readme.io/reference/getvariables) or
-2. in the URL `https://studies.fdai.earth/VARIABLE_NAME_HERE`.
+2. in the URL `https://studies.dfda.earth/VARIABLE_NAME_HERE`.
 
 ## Resources
 

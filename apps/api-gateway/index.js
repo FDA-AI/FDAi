@@ -65,7 +65,7 @@ app.use('/data', express.static(path.join(__dirname, '../dfda-1/public/app/publi
 app.use('/js', express.static(path.join(__dirname, '../dfda-1/public/app/public/js')))
 app.use('/', require('./routes/api'));
 app.use('/', require('./routes/auth'));
-app.use('/', require('./routes/fdai'));
+app.use('/', require('./routes/dfda'));
 
 //app.use('/', require('./routes/github'));
 var server = http.createServer(app);

@@ -20,47 +20,47 @@ async function getYourUser(yourUserId) {
 }
 
 // Function to get or create a user
-async function getOrCreateFdaiUser(yourUserId) {
+async function getOrCreateDfdaUser(yourUserId) {
   let your_user = await getYourUser(yourUserId)
-  if(your_user && your_user.fdai_user_id) {
+  if(your_user && your_user.dfda_user_id) {
     return your_user;
   }
 
-  let response = await fetch(`https://safe.fdai.earth/api/v1/user`, {
+  let response = await fetch(`https://safe.dfda.earth/api/v1/user`, {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
-      'X-Client-ID': process.env.FDAI_CLIENT_ID,
-      'X-Client-Secret': process.env.FDAI_CLIENT_SECRET
+      'X-Client-ID': process.env.DFDA_CLIENT_ID,
+      'X-Client-Secret': process.env.DFDA_CLIENT_SECRET
     },
     body: JSON.stringify({
       clientUserId: yourUserId
     })
   });
   response = await response.json();
-  const fdaiUser = response.user;
-  // Update your user with the fdai_user_id
+  const dfdaUser = response.user;
+  // Update your user with the dfda_user_id
   await prisma.users.update({
     where: { id: yourUserId },
     data: {
-      fdai_user_id: fdaiUser.id,
-      fdai_scope: fdaiUser.scope,
-      fdai_access_token: fdaiUser.accessToken,
-      fdai_refresh_token: fdaiUser.refreshToken,
-      fdai_access_token_expires_at: new Date(fdaiUser.accessTokenExpires).toISOString()
+      dfda_user_id: dfdaUser.id,
+      dfda_scope: dfdaUser.scope,
+      dfda_access_token: dfdaUser.accessToken,
+      dfda_refresh_token: dfdaUser.refreshToken,
+      dfda_access_token_expires_at: new Date(dfdaUser.accessTokenExpires).toISOString()
     }
   });
   return response.user
 }
 
-async function postMeasurements(fdaiUser, measurements) {
-  const response = await fetch(`https://safe.fdai.earth/api/v1/measurements`, {
+async function postMeasurements(dfdaUser, measurements) {
+  const response = await fetch(`https://safe.dfda.earth/api/v1/measurements`, {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
-      'X-Client-ID': process.env.FDAI_CLIENT_ID,
-      'X-Client-Secret': process.env.FDAI_CLIENT_SECRET,
-      'Authorization': `Bearer ${fdaiUser.accessToken}`
+      'X-Client-ID': process.env.DFDA_CLIENT_ID,
+      'X-Client-Secret': process.env.DFDA_CLIENT_SECRET,
+      'Authorization': `Bearer ${dfdaUser.accessToken}`
     },
     body: JSON.stringify({
       measurements
@@ -75,11 +75,11 @@ async function postMeasurements(fdaiUser, measurements) {
 async function test() {
   let yourUser = await getYourUser(yourUserId);
   // get or create FDAi User ID and save the
-  const fdaiUser = await getOrCreateFdaiUser(yourUser.id);
+  const dfdaUser = await getOrCreateDfdaUser(yourUser.id);
   yourUser = await getYourUser(yourUserId); // get the updated user
   // save measurements
   const measurements = [ getBupropionMeasurement(new Date().toISOString())];
-  await postMeasurements(fdaiUser, measurements);
+  await postMeasurements(dfdaUser, measurements);
 
 }
 
