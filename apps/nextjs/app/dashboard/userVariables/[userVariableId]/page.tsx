@@ -1,7 +1,6 @@
 import { Metadata } from "next"
 import { notFound, redirect } from "next/navigation"
 
-import { getUserVariable } from "@/lib/api/userVariables"
 import { authOptions } from "@/lib/auth"
 import { getCurrentUser } from "@/lib/session"
 import { cn, dateRangeParams } from "@/lib/utils"
@@ -48,13 +47,7 @@ export default async function UserVariablePage({
   }
 
   const userVariable = await getUserVariable(params.userVariableId, true)
-  let measurements = userVariable?.measurements || []
-  if(!measurements || measurements.length === 0) {
-    const results =  await GET('/v3/measurements', {
-      params: { query: { userVariableId: userVariable.userVariableId } },
-    });
-    measurements = results.data;
-  }
+
 
   if (!userVariable) {
     notFound()

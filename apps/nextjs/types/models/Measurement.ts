@@ -84,7 +84,7 @@ export class Measurement {
     */
     'pngPath'?: string;
     /**
-    * Ex: https://safe.fdai.earth/img/variable_categories/treatments.png
+    * Ex: https://safe.dfda.earth/img/variable_categories/treatments.png
     */
     'pngUrl'?: string;
     /**
@@ -104,7 +104,7 @@ export class Measurement {
     */
     'startAt': string;
     /**
-    * Ex: https://safe.fdai.earth/img/variable_categories/treatments.svg
+    * Ex: https://safe.dfda.earth/img/variable_categories/treatments.svg
     */
     'svgUrl'?: string;
     /**

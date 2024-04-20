@@ -31,12 +31,12 @@ CREATE TABLE "sessions" (
 -- CreateTable
 CREATE TABLE "users" (
     "id" TEXT NOT NULL,
-    "fdai_user_id" INTEGER,
-    "fdai_access_token" TEXT,
-    "fdai_refresh_token" TEXT,
-    "fdai_expires_in" INTEGER,
-    "fdai_scope" TEXT,
-    "fdai_access_token_expires_at" TIMESTAMP(3),
+    "dfda_user_id" INTEGER,
+    "dfda_access_token" TEXT,
+    "dfda_refresh_token" TEXT,
+    "dfda_expires_in" INTEGER,
+    "dfda_scope" TEXT,
+    "dfda_access_token_expires_at" TIMESTAMP(3),
     "address" TEXT,
     "banned" BOOLEAN,
     "birthday" TIMESTAMP(3),

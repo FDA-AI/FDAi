@@ -24,10 +24,7 @@ export async function GET(req: Request, context: z.infer<typeof routeContextSche
     const url = new URL(req.url, `http://${req.headers.get("host")}`);
     const dfdaParams = url.searchParams;
 
-    const dfdaOrigin = process.env.DFDA_API_ORIGIN || 'https://safe.dfda.earth';
-    let dfdaUrl = `${dfdaOrigin}/api/v3/variables?${dfdaParams}`;
-    console.log("Making request to:", dfdaUrl);
-    const response = await fetch(dfdaUrl, {
+    const response = await fetch(`https://safe.dfda.earth/api/v3/variables?${dfdaParams}`, {
       method: 'GET',
       headers: {
         'accept': 'application/json',
@@ -36,8 +33,7 @@ export async function GET(req: Request, context: z.infer<typeof routeContextSche
       credentials: 'include'
     });
     const data = await response.json();
-    console.log("Response data:", data);
-    return new Response(JSON.stringify(data), { status: 200, headers: { 'Content-Type': 'application/json' } })
+    return data;
   } catch (error) {
     return handleError(error);
   }

@@ -21,16 +21,21 @@ export default async function UserVariablesPage() {
     redirect(authOptions?.pages?.signIn || "/signin")
   }
 
-
+  // Define search parameters
+  const searchParams = {
+    includePublic: true,
+    sort: 'createdAt',
+    limit: 10,
+    offset: 0,
+    searchPhrase: "mood",
+  };
 
   return (
     <Shell>
       <DashboardHeader heading="Your Variables" text="Manage your treatments, symptoms, and other variables.">
         <UserVariableAddButton />
       </DashboardHeader>
-      <div className="divide-y divide-border rounded-md border">
-        <UserVariableList />
-      </div>
+      <UserVariableList user={user} searchParams={searchParams} />
     </Shell>
   )
 }

@@ -408,7 +408,7 @@ export class UserVariable {
     */
     'pngPath'?: string;
     /**
-    * Ex: https://safe.fdai.earth/img/variable_categories/treatments.png
+    * Ex: https://safe.dfda.earth/img/variable_categories/treatments.png
     */
     'pngUrl'?: string;
     /**
@@ -468,7 +468,7 @@ export class UserVariable {
     */
     'subtitle'?: string;
     /**
-    * Ex: https://safe.fdai.earth/img/variable_categories/treatments.svg
+    * Ex: https://safe.dfda.earth/img/variable_categories/treatments.svg
     */
     'svgUrl'?: string;
     /**
