@@ -8,10 +8,10 @@ You can check the [API documentation](../api-reference/user/post-user) to genera
 However, here is a simple example of how you can create a user if you're using Node.js and Prisma.
 
 <Info>
-  Ensure you have your client ID from https://builder.fdai.earth and access tokens set properly in your environment variables.
+  Ensure you have your client ID from https://builder.dfda.earth and access tokens set properly in your environment variables.
 </Info>
 
-To securely manage your FDAI client credentials (FDAI_CLIENT_ID and FDAI_CLIENT_SECRET),
+To securely manage your FDAI client credentials (DFDA_CLIENT_ID and DFDA_CLIENT_SECRET),
 it's recommended to use environment variables.
 This approach helps in keeping sensitive information out of your source code.
 Here's how you can set up and use a .env file for this purpose:
@@ -20,8 +20,8 @@ Here's how you can set up and use a .env file for this purpose:
 In the root of your Node.js project, create a file named .env. Inside this file, you can define your FDAI client credentials like so:
 
 ```
- FDAI_CLIENT_ID=yourClientIdHere
- FDAI_CLIENT_SECRET=yourClientSecretHere
+ DFDA_CLIENT_ID=yourClientIdHere
+ DFDA_CLIENT_SECRET=yourClientSecretHere
 ```
 Replace yourClientIdHere and yourClientSecretHere with your actual FDAI client ID and secret.
 
@@ -43,7 +43,7 @@ require('dotenv').config(); // Load environment variables
 ```
 
 3. Access Environment Variables:
-Now, you can access FDAI_CLIENT_ID and FDAI_CLIENT_SECRET anywhere in your application using process.env.FDAI_CLIENT_ID and process.env.FDAI_CLIENT_SECRET, respectively.
+Now, you can access DFDA_CLIENT_ID and DFDA_CLIENT_SECRET anywhere in your application using process.env.DFDA_CLIENT_ID and process.env.DFDA_CLIENT_SECRET, respectively.
 Here's an updated snippet of your function getDfdaAccessToken incorporating the loading of environment variables using dotenv:
 
 ```javascript
@@ -64,37 +64,37 @@ async function getDfdaAccessToken() {
   });
 
   // Check if the user already has an FDAI access token and return if exists
-  if (your_user && your_user.fdai_access_token) {
-    return your_user.fdai_access_token;
+  if (your_user && your_user.dfda_access_token) {
+    return your_user.dfda_access_token;
   }
 
   // If not, create a new FDAI user using the API
-  let response = await fetch(`https://safe.fdai.earth/api/v1/user`, {
+  let response = await fetch(`https://safe.dfda.earth/api/v1/user`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'X-Client-ID': process.env.FDAI_CLIENT_ID,
-      'X-Client-Secret': process.env.FDAI_CLIENT_SECRET
+      'X-Client-ID': process.env.DFDA_CLIENT_ID,
+      'X-Client-Secret': process.env.DFDA_CLIENT_SECRET
     },
     body: JSON.stringify({ clientUserId: yourUserId })
   });
 
   response = await response.json();
-  const fdaiUser = response.user;
+  const dfdaUser = response.user;
 
   // Update your user data with FDAI user access token details
   await prisma.user.update({
     where: { id: yourUserId },
     data: {
-      fdai_user_id: fdaiUser.id,
-      fdai_access_token: fdaiUser.accessToken,
-      fdai_refresh_token: fdaiUser.refreshToken,
-      fdai_access_token_expires_at: new Date(fdaiUser.accessTokenExpires).toISOString()
+      dfda_user_id: dfdaUser.id,
+      dfda_access_token: dfdaUser.accessToken,
+      dfda_refresh_token: dfdaUser.refreshToken,
+      dfda_access_token_expires_at: new Date(dfdaUser.accessTokenExpires).toISOString()
     }
   });
 
   // Return the FDAI user's access token
-  return fdaiUser.accessToken;
+  return dfdaUser.accessToken;
 }
 ```
 
@@ -103,7 +103,7 @@ async function getDfdaAccessToken() {
 You can then use the access token to make [authenticated requests](api-reference) to the FDAI API like this:
 
 ```javascript
-  const response = await fetch(`https://safe.fdai.earth/api/v1/user`, {
+  const response = await fetch(`https://safe.dfda.earth/api/v1/user`, {
       method: 'GET',
       headers: {
           'accept': 'application/json',

@@ -23,7 +23,7 @@ First, create a `getDfdaAccessToken()` function as [described here](guides/get-a
 
 ```javascript
 async function fetchUserVariables(searchPhrase, includePublic = true, limit = 10, offset = 0, sort = '-latestMeasurementTime') {
-    const baseUrl = 'https://safe.fdai.earth/api/v3/userVariables';
+    const baseUrl = 'https://safe.dfda.earth/api/v3/userVariables';
     const params = new URLSearchParams({
         includePublic: includePublic,
         limit: limit,
