@@ -22,7 +22,7 @@ async function getYourUser(yourUserId) {
 // Function to get or create a user
 async function getOrCreateDfdaUser(yourUserId) {
   let your_user = await getYourUser(yourUserId)
-  if(your_user && your_user.fdai_user_id) {
+  if(your_user && your_user.dfda_user_id) {
     return your_user;
   }
 
@@ -39,15 +39,15 @@ async function getOrCreateDfdaUser(yourUserId) {
   });
   response = await response.json();
   const dfdaUser = response.user;
-  // Update your user with the fdai_user_id
+  // Update your user with the dfda_user_id
   await prisma.users.update({
     where: { id: yourUserId },
     data: {
-      fdai_user_id: dfdaUser.id,
-      fdai_scope: dfdaUser.scope,
-      fdai_access_token: dfdaUser.accessToken,
-      fdai_refresh_token: dfdaUser.refreshToken,
-      fdai_access_token_expires_at: new Date(dfdaUser.accessTokenExpires).toISOString()
+      dfda_user_id: dfdaUser.id,
+      dfda_scope: dfdaUser.scope,
+      dfda_access_token: dfdaUser.accessToken,
+      dfda_refresh_token: dfdaUser.refreshToken,
+      dfda_access_token_expires_at: new Date(dfdaUser.accessTokenExpires).toISOString()
     }
   });
   return response.user
