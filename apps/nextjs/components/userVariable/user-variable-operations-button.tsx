@@ -57,7 +57,7 @@ interface UserVariableOperationsProps {
   children?: React.ReactNode
 }
 
-export function UserVariableOperations({
+export function UserVariableOperationsButton({
   userVariable,
   children,
 }: UserVariableOperationsProps) {
@@ -119,9 +119,9 @@ export function UserVariableOperations({
       <Credenza open={showMeasurementAlert} onOpenChange={setShowMeasurementAlert}>
         <CredenzaContent>
           <CredenzaHeader>
-            <CredenzaTitle>Record a {userVariable.name} Measurement</CredenzaTitle>
+            <CredenzaTitle>Record a Measurement</CredenzaTitle>
             <CredenzaDescription>
-              This will record a measurement.
+              This will record a {userVariable.name} measurement.
             </CredenzaDescription>
           </CredenzaHeader>
           <MeasurementsAddForm

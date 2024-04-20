@@ -27,9 +27,10 @@ import {
 } from "@/components/ui/popover"
 import { toast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
+import {UserVariable} from "@/types/models/UserVariable";
 
 interface MeasurementsAddFormProps {
-  userVariable: object
+  userVariable: UserVariable
   setShowMeasurementAlert: (active: boolean) => void
 }
 
@@ -47,16 +48,14 @@ type FormValues = z.infer<typeof FormSchema>
 const currentDate = new Date()
 currentDate.setHours(0, 0, 0, 0)
 
-const defaultValues: Partial<FormValues> = {
-  date: currentDate,
-  value: 0, // Default value for the new field
-}
-
 export function MeasurementsAddForm({ userVariable, setShowMeasurementAlert }: MeasurementsAddFormProps) {
   const router = useRouter()
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
-    defaultValues,
+    defaultValues: {
+      date: currentDate,
+      value: userVariable.mostCommonValue, // Set default value to userVariable.mostCommonValue
+    },
   })
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
 
@@ -149,11 +148,15 @@ export function MeasurementsAddForm({ userVariable, setShowMeasurementAlert }: M
             <FormItem className="flex flex-col">
               <FormLabel>Value</FormLabel>
               <FormControl>
-                <input
-                  type="number"
-                  className="w-full"
-                  {...field}
-                />
+                <div className="flex items-center">
+                  <input
+                    id="value-input"
+                    type="number"
+                    className="w-full"
+                    {...field}
+                  />
+                  <span className="ml-2">{userVariable.unitAbbreviatedName}</span>
+                </div>
               </FormControl>
               <FormDescription>
                 Value of the measurement
@@ -172,7 +175,7 @@ export function MeasurementsAddForm({ userVariable, setShowMeasurementAlert }: M
             ) : (
               <Icons.add className="mr-2 h-4 w-4" />
             )}
-            <span>Add {userVariable.name} measurement</span>
+            <span>Record measurement</span>
           </Button>
         </CredenzaFooter>
       </form>
