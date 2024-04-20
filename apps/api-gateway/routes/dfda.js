@@ -1,18 +1,16 @@
 const express = require('express');
-const stringHelper = require('../utils/stringHelper');
-const authHelper = require('../utils/authHelper');
 const router = express.Router();
 const userService = require('../services/userService');
 
-router.get('fdai/user', async function getUser(req, res) {
+router.get('dfda/user', async function getUser(req, res) {
     const yourUser = req.user;
-    const fdaiUser = await userService.getOrCreateFdaiUser(yourUser.id);
-    res.json(fdaiUser);
+    const dfdaUser = await userService.getOrCreateDfdaUser(yourUser.id);
+    res.json(dfdaUser);
 });
 
 const measurementsService = require('../services/measurementsService');
 // GET /measurements
-router.get('/fdai/measurements', async (req, res) => {
+router.get('/dfda/measurements', async (req, res) => {
   try {
     const params = req.query;
     const measurements = await measurementsService.getMeasurements(params);
@@ -24,7 +22,7 @@ router.get('/fdai/measurements', async (req, res) => {
 });
 
 // POST /measurements
-router.post('/fdai/measurements', async (req, res) => {
+router.post('/dfda/measurements', async (req, res) => {
   try {
     const body = req.body;
     const response = await measurementsService.postMeasurements(body);
@@ -36,7 +34,7 @@ router.post('/fdai/measurements', async (req, res) => {
 });
 
 // POST /measurements/update
-router.post('/fdai/measurements/update', async (req, res) => {
+router.post('/dfda/measurements/update', async (req, res) => {
   try {
     const body = req.body;
     const response = await measurementsService.updateMeasurement(body);
@@ -48,7 +46,7 @@ router.post('/fdai/measurements/update', async (req, res) => {
 });
 
 // DELETE /measurements/delete
-router.delete('/fdai/measurements/delete', async (req, res) => {
+router.delete('/dfda/measurements/delete', async (req, res) => {
   try {
     const response = await measurementsService.deleteMeasurement();
     res.json(response);
