@@ -5,10 +5,10 @@
   "license": "GPL-3.0-or-later",
   "author": {
     "name": "FDAi",
-    "email": "hello@fdai.earth",
-    "url": "https://fdai.earth",
+    "email": "hello@dfda.earth",
+    "url": "https://dfda.earth",
     "organization": "FDAi",
-    "organizationUrl": "https://fdai.earth"
+    "organizationUrl": "https://dfda.earth"
   },
   "main": "index.js",
   "scripts": {
