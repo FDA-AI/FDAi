@@ -5,15 +5,11 @@ import Link from "next/link"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UserVariableOperationsButton } from "@/components/userVariable/user-variable-operations-button"
 import { QuickMeasurementButton } from '@/components/userVariable/measurements/quick-measurement-button';
+import { MeasurementButton } from '@/components/userVariable/measurement-button';
 import { UserVariable } from "@/types/models/UserVariable";
 
 interface UserVariableItemProps {
-  userVariable: Pick<
-    UserVariable,
-    "id" | "name" | "description" | "createdAt" | "imageUrl" |
-    "combinationOperation" | "unitAbbreviatedName" | "variableCategoryName" |
-    "lastValue" | "unitName"
-  >
+  userVariable: UserVariable;
 }
 export function UserVariableItem({ userVariable }: UserVariableItemProps) {
   return (
@@ -50,6 +46,12 @@ export function UserVariableItem({ userVariable }: UserVariableItemProps) {
         ) : null}*/}
       </div>
       <div className="flex flex-col gap-2 md:flex-row">
+        <MeasurementButton
+          userVariable={userVariable}
+          className="flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted"
+          variant="outline"
+          size="icon"
+        />
         <QuickMeasurementButton
           userVariable={userVariable}
           className="flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted"
