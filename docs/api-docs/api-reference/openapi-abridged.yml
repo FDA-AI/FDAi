@@ -446,6 +446,16 @@ paths:
       summary: Delete a measurement
       description: Delete a previously submitted measurement
       operationId: deleteMeasurement
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: The ID of the measurement to delete
       responses:
         '204':
           description: Successful Operation
