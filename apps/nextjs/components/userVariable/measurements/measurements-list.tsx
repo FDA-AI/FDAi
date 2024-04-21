@@ -37,9 +37,9 @@ export const MeasurementsList: FC<MeasurementsListProps> = ({ user, variableId }
     return <div>Loading...</div>; // Show a loader or a loading component
   }
 
-  // Ensure measurements is defined before trying to access its properties
+  // Ensure measurements are defined before trying to access its properties
   if (!measurements) {
-    return <div>No data found.</div>; // Handle the case where measurements is undefined
+    return <div>No data found.</div>; // Handle the case where measurements are undefined
   }
 
   return (
