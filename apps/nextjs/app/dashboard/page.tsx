@@ -23,8 +23,7 @@ export default async function Dashboard() {
   }
 
 
-  const layout = "grid grid-cols-1 gap-4 md:grid-cols-2";
-  const scrollClass =  "h-[17rem] rounded-lg border";
+  const layout = "gap-4";
 
   return (
     <Shell>
