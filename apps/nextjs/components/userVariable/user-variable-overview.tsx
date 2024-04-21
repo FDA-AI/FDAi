@@ -13,9 +13,13 @@ type UserVariableOverviewProps = {
     id: string;
   };
   variableId: number;
+  measurementsDateRange: {
+    from: string;
+    to: string;
+  };
 };
 
-export const UserVariableOverview: FC<UserVariableOverviewProps> = ({ user, variableId }) => {
+export const UserVariableOverview: FC<UserVariableOverviewProps> = ({ user, variableId, measurementsDateRange }) => {
 
   const [userVariable, setUserVariable] = useState<UserVariable>();
   const [isLoading, setIsLoading] = useState(true); // Add a loading state
@@ -46,12 +50,10 @@ export const UserVariableOverview: FC<UserVariableOverviewProps> = ({ user, vari
     return <div>No data found.</div>; // Handle the case where userVariable is undefined
   }
 
-
-
   return (
-
-    <><DashboardHeader
-      heading={`${userVariable.name} Stats`}
+    <>
+      <DashboardHeader
+      heading={`${userVariable.name} Measurements`}
       text={userVariable.description}
     >
       <div className="flex flex-col items-stretch gap-2 md:items-end">
@@ -68,7 +70,7 @@ export const UserVariableOverview: FC<UserVariableOverviewProps> = ({ user, vari
         </UserVariableOperationsButton>
       </div>
     </DashboardHeader>
-      <MeasurementsList user={user} variableId={variableId}></MeasurementsList>
+      <MeasurementsList user={user} variableId={variableId} measurementsDateRange={measurementsDateRange}></MeasurementsList>
     </>
   )
 }

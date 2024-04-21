@@ -31,7 +31,8 @@ interface UserVariablePageProps {
 // }
 
 export default async function UserVariablePage({
-  params
+  params,
+  searchParams,
 }: UserVariablePageProps) {
   const user = await getCurrentUser()
 
@@ -41,7 +42,10 @@ export default async function UserVariablePage({
 
   return (
     <Shell>
-      <UserVariableOverview variableId={params.variableId} user={user} />
+      <UserVariableOverview variableId={params.variableId} user={user} measurementsDateRange={{
+        from: searchParams.from,
+        to: searchParams.to
+      }} />
     </Shell>
   )
 }
