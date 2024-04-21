@@ -21,9 +21,10 @@ import {
 } from "@/components/ui/card"
 import { toast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
+import { UserVariable } from "@/types/models/UserVariable";
 
 interface UserVariableEditFormProps extends React.HTMLAttributes<HTMLFormElement> {
-  userVariable: Pick<UserVariable, "id" | "name" | "description" | "colorCode">
+  userVariable: Pick<UserVariable, "id" | "name" | "description">
 }
 
 type FormData = z.infer<typeof userVariablePatchSchema>

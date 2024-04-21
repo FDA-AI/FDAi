@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth/next"
 import { authOptions } from "@/lib/auth"
 import {handleError} from "@/lib/errorHandler";
-import { getOrCreateDfdaUser } from '@/lib/dfdaUserService';
+import { getOrCreateDfdaUser } from '@/lib/dfda';
 export async function GET(
   req: Request
 ) {
