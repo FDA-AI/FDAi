@@ -37,7 +37,7 @@ export const UserVariableList: FC<UserVariableListProps> = ({ user, searchParams
     });
 
     const queryString = queryParams.toString();
-    const url = `/api/userVariables/${user.id}${queryString ? `?${queryString}` : ''}`;
+    const url = `/api/dfda/variables${queryString ? `?${queryString}` : ''}`;
 
     fetch(url)
       .then(response => response.json())
@@ -51,11 +51,11 @@ export const UserVariableList: FC<UserVariableListProps> = ({ user, searchParams
   return (
     <>
       {userVariables?.length ? (
-        <>
+        <div className="flex flex-col"> {/* Add Tailwind classes here */}
           {userVariables.map((userVariable) => (
             <UserVariableItem key={userVariable.id} userVariable={userVariable} />
           ))}
-        </>
+        </div>
       ) : (
         <EmptyPlaceholder>
           <div className="flex h-20 w-20 items-center justify-center rounded-full bg-muted">
