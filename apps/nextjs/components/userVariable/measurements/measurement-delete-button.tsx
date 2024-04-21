@@ -16,21 +16,14 @@ import {
 } from "@/components/ui/credenza"
 import { toast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
+import { Measurement } from "@/app/types.ts";
 
 interface MeasurementsDeleteButtonProps {
-  measurements: {
-    id: string
-    date: Date
-    count: number
-    userVariable: {
-      id: string
-      name: string
-    }
-  }
+  measurement: Measurement
 }
 
 async function deleteUserVariable(userVariableId: string, measurementsId: string) {
-  const response = await fetch(`/api/userVariables/${userVariableId}/measurements/${measurementsId}`, {
+  const response = await fetch(`/api/dfda/measurements?id=${measurementsId}`, {
     method: "DELETE",
   })
 
@@ -49,14 +42,14 @@ async function deleteUserVariable(userVariableId: string, measurementsId: string
   return true
 }
 
-export function MeasurementsDeleteButton({ measurements }: MeasurementsDeleteButtonProps) {
+export function MeasurementDeleteButton({ measurement }: MeasurementsDeleteButtonProps) {
   const router = useRouter()
   const [showDeleteAlert, setShowDeleteAlert] = React.useState<boolean>(false)
   const [isDeleteLoading, setIsDeleteLoading] = React.useState<boolean>(false)
 
   const handleDelete = async () => {
     setIsDeleteLoading(true)
-    const deleted = await deleteUserVariable(measurements.userVariable.id, measurements.id)
+    const deleted = await deleteUserVariable(measurement.variableId, measurements.id)
 
     if (deleted) {
       setIsDeleteLoading(false)

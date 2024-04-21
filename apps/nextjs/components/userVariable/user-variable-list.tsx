@@ -61,9 +61,9 @@ export const UserVariableList: FC<UserVariableListProps> = ({ user, searchParams
           <div className="flex h-20 w-20 items-center justify-center rounded-full bg-muted">
             <Icons.activity className="h-10 w-10" />
           </div>
-          <EmptyPlaceholder.Title>No Variables Created</EmptyPlaceholder.Title>
+          <EmptyPlaceholder.Title>Get Started!</EmptyPlaceholder.Title>
           <EmptyPlaceholder.Description>
-            Add a Variable to start tracking.
+            Add a symptom, food or treatment to start tracking!
           </EmptyPlaceholder.Description>
           <UserVariableAddButton variant="outline" />
         </EmptyPlaceholder>

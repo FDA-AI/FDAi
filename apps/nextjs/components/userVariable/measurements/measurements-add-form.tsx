@@ -128,12 +128,15 @@ export function MeasurementsAddForm({ userVariable, setShowMeasurementAlert }: M
     if (!response?.ok) {
       toast({
         title: 'Something went wrong.',
-        description: 'Your userVariable was not measured. Please try again.',
+        description: userVariable.name + ' was not recorded. Please try again.',
         variant: 'destructive'
       });
     } else {
       toast({
-        description: 'Your userVariable has been measured successfully.'
+        description: 'Recorded ' + data.value + ' ' +
+         userVariable.unitAbbreviatedName + ' for ' +
+          userVariable.name + ' on ' +
+         format(data.date, 'PPP')
       });
     }
 

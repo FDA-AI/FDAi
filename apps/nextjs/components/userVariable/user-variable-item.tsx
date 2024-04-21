@@ -45,7 +45,7 @@ export function UserVariableItem({ userVariable }: UserVariableItemProps) {
           </div>
         ) : null}*/}
       </div>
-      <div className="flex flex-col gap-2 md:flex-row">
+      <div className="flex flex-row gap-2">
         <MeasurementButton
           userVariable={userVariable}
           className="flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted"

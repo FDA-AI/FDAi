@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 import { authOptions } from '@/lib/auth';
 import { handleError } from '@/lib/errorHandler';
-import { getOrCreateDfdaAccessToken } from '@/lib/dfdaUserService';
+import { getOrCreateDfdaAccessToken } from '@/lib/dfda';
 
 const routeContextSchema = z.object({
   params: z.object({

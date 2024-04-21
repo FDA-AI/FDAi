@@ -1,4 +1,5 @@
 import { db } from "@/lib/db"
+import { UserVariable } from "@/types/models/UserVariable";
 
 async function getYourUser(yourUserId: any) {
   let user = await db.user.findUnique({
@@ -58,4 +59,16 @@ export async function getOrCreateDfdaAccessToken(yourUserId: any) {
 
   const user = await getOrCreateDfdaUser(yourUserId);
   return user.accessToken;
+}
+
+export async function getUserVariable(variableId: number, params?: any): Promise<UserVariable> {
+  let path = `/api/dfda/userVariables?variableId=${variableId}`;
+  if (params) {path += `?${new URLSearchParams(params).toString()}`}
+  let response = await fetch(path);
+  let jsonResponse = await response.json();
+  return jsonResponse[0];
+}
+
+export async function getUserVariableWithCharts(variableId: number): Promise<UserVariable> {
+  return await getUserVariable(variableId, {includeCharts: true})
 }

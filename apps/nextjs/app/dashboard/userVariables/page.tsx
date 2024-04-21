@@ -23,7 +23,7 @@ export default async function UserVariablesPage() {
 
   // Define search parameters
   const searchParams = {
-    includePublic: true,
+    includePublic: false,
     sort: 'createdAt',
     limit: 10,
     offset: 0,

@@ -21,6 +21,9 @@ interface MeasurementButtonProps extends ButtonProps {
     "combinationOperation" | "unitAbbreviatedName" | "variableCategoryName" |
     "lastValue" | "unitName"
   >
+  className: string;
+  size: string;
+  variant: string; 
 }
 
 export function MeasurementButton({ userVariable, ...props }: MeasurementButtonProps) {
