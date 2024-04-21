@@ -27,7 +27,7 @@ export function QuickMeasurementButton({ userVariable, ...props }: QuickMeasurem
     const dateToday = new Date()
     dateToday.setHours(0, 0, 0, 0)
 
-    const response = await fetch(`/api/userVariables/${userVariable.id}/measurements`, {
+    const response = await fetch(`/api/dfda/measurements/post`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
