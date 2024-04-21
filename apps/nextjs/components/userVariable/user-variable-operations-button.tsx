@@ -48,12 +48,7 @@ async function deleteUserVariable(userVariableId: number) {
 }
 
 interface UserVariableOperationsProps {
-  userVariable: Pick<
-    UserVariable,
-    "id" | "name" | "description" | "createdAt" | "imageUrl" |
-    "combinationOperation" | "unitAbbreviatedName" | "variableCategoryName" |
-    "lastValue" | "unitName"
-  >
+  userVariable: UserVariable;
   children?: React.ReactNode
 }
 
@@ -89,7 +84,7 @@ export function UserVariableOperationsButton({
             }}
           >
             <Icons.add className="mr-2 h-4 w-4" />
-            Record {userVariable.name} Measurement
+            Record Measurement
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem>

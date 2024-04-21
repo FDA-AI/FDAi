@@ -22,6 +22,11 @@ Copy `.env.example` to `.env` file in the root of the project. The following env
 
 See the .env file for how to get the rest of the required environment variables.
 
+Start the database with [docker-compose](https://docs.docker.com/desktop/):
+
+```bash
+docker-compose up
+```
 
 First, install the dependencies:
 
@@ -35,11 +40,7 @@ Then, run the development server:
 npm run dev
 ```
 
-Then start the database with [docker-compose](https://docs.docker.com/desktop/):
 
-```bash
-docker-compose up
-```
 
 Generate the Prisma client:
 

@@ -11,13 +11,13 @@ type UserVariableSearchProps = {
 export const UserVariableSearch: FC<UserVariableSearchProps> = ({ user }) => {
 
   // State to manage search phrase
-  const [searchPhrase, setSearchPhrase] = useState("mood");
+  const [searchPhrase, setSearchPhrase] = useState("");
   const [debouncedSearchPhrase, setDebouncedSearchPhrase] = useState(searchPhrase);
 
   // Define search parameters
   const searchParams = {
     includePublic: true,
-    //sort: '-numberOfUserVariables',
+    sort: '-numberOfUserVariables',
     limit: 10,
     offset: 0,
     searchPhrase: debouncedSearchPhrase, // Use debounced value
@@ -33,7 +33,7 @@ export const UserVariableSearch: FC<UserVariableSearchProps> = ({ user }) => {
   }, [searchPhrase]);
 
   return (
-    <>
+    <div className="search-container flex flex-col"> {/* Added flex container */}
       <div className="mb-4">
         <input
           type="text"
@@ -44,6 +44,6 @@ export const UserVariableSearch: FC<UserVariableSearchProps> = ({ user }) => {
         />
       </div>
       <UserVariableList user={user} searchParams={searchParams}/>
-    </>
+    </div>
   );
 };

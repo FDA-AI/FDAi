@@ -7,7 +7,8 @@ import { cn } from "@/lib/utils"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 
-import { MeasurementsDeleteButton } from "./measurements-delete-button"
+import { MeasurementDeleteButton } from "./measurement-delete-button"
+import { Measurement } from "@/app/types.ts";
 
 export type MeasurementsType = {
   id: string
@@ -19,7 +20,7 @@ export type MeasurementsType = {
   }
 }
 
-export const measurementColumns: ColumnDef<MeasurementsType>[] = [
+export const measurementColumns: ColumnDef<Measurement>[] = [
   {
     accessorKey: "date",
     header: ({ column }) => {
@@ -34,7 +35,7 @@ export const measurementColumns: ColumnDef<MeasurementsType>[] = [
       )
     },
     cell: (row) => {
-      const date = new Date(row.getValue() as string)
+      const date = new Date(row.row.original.startAt)
       const formattedDate = Intl.DateTimeFormat("en-US", {
         weekday: "short",
         month: "long",
@@ -57,17 +58,16 @@ export const measurementColumns: ColumnDef<MeasurementsType>[] = [
         </Button>
       )
     },
-    cell: (row) => {
-      const userVariable = row.row.original.userVariable
-      const name = userVariable.name
-      const id = userVariable.id
+    cell: (measurement) => {
+      const variableName =  measurement.row.original.variableName
+      const variableId =  measurement.row.original.variableId
 
       return (
         <Link
-          href={`/dashboard/userVariables/${id}`}
+          href={`/dashboard/userVariables/${variableId}`}
           className={cn(buttonVariants({ variant: "ghost" }))}
         >
-          {name}
+          {variableName}
         </Link>
       )
     },
@@ -86,15 +86,15 @@ export const measurementColumns: ColumnDef<MeasurementsType>[] = [
       )
     },
     cell: ({ row }) => {
-      const value = row.original.count
-      return <div className="px-4">{value}</div>
+      const value = row.original.value
+      return <div className="px-4">{value} {row.original.unitAbbreviatedName}</div>
     },
   },
   {
     id: "actions",
     cell: ({ row }) => {
-      const measurements = row.original
-      return <MeasurementsDeleteButton measurements={measurements} />
+      const measurement = row.original
+      return <MeasurementDeleteButton measurement={measurement} />
     },
   },
 ]
