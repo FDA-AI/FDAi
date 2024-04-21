@@ -35,7 +35,7 @@ export const measurementColumns: ColumnDef<Measurement>[] = [
       )
     },
     cell: (row) => {
-      const date = new Date(row.getValue() as string)
+      const date = new Date(row.row.original.startAt)
       const formattedDate = Intl.DateTimeFormat("en-US", {
         weekday: "short",
         month: "long",
@@ -87,14 +87,14 @@ export const measurementColumns: ColumnDef<Measurement>[] = [
     },
     cell: ({ row }) => {
       const value = row.original.value
-      return <div className="px-4">{value}</div>
+      return <div className="px-4">{value} {row.original.unitAbbreviatedName}</div>
     },
   },
   {
     id: "actions",
     cell: ({ row }) => {
       const measurement = row.original
-      return <MeasurementDeleteButton measurement={measurements} />
+      return <MeasurementDeleteButton measurement={measurement} />
     },
   },
 ]

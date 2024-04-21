@@ -7,9 +7,7 @@ import { DateRangePicker } from "@/components/date-range-picker";
 import { UserVariableOperationsButton } from "@/components/userVariable/user-variable-operations-button";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-import { DataTable } from "@/components/data-table";
-import { measurementColumns } from "@/components/userVariable/measurements/measurements-columns";
-
+import { MeasurementsList } from "@/components/userVariable/measurements/measurements-list";
 type UserVariableOverviewProps = {
   user: {
     id: string;
@@ -21,16 +19,15 @@ export const UserVariableOverview: FC<UserVariableOverviewProps> = ({ user, vari
 
   const [userVariable, setUserVariable] = useState<UserVariable>();
   const [isLoading, setIsLoading] = useState(true); // Add a loading state
-  const
 
   useEffect(() => {
     setIsLoading(true); // Set loading to true when starting to fetch
-    const url = `/api/dfda/variables?variableId=${variableId}&includeCharts=1`;
+    const url = `/api/dfda/variables?variableId=${variableId}`;
 
     fetch(url)
       .then(response => response.json())
-      .then(userVariable => {
-        setUserVariable(userVariable);
+      .then(userVariables => {
+        setUserVariable(userVariables[0]);
         setIsLoading(false); // Set loading to false once data is fetched
       })
       .catch(error => {
@@ -71,9 +68,7 @@ export const UserVariableOverview: FC<UserVariableOverviewProps> = ({ user, vari
         </UserVariableOperationsButton>
       </div>
     </DashboardHeader>
-    <DataTable columns={measurementColumns} data={userVariable.measurements ?? []}>
-      Measurements
-    </DataTable>
+      <MeasurementsList user={user} variableId={variableId}></MeasurementsList>
     </>
   )
 }

@@ -22,8 +22,12 @@ interface MeasurementsDeleteButtonProps {
   measurement: Measurement
 }
 
-async function deleteUserVariable(userVariableId: string, measurementsId: string) {
-  const response = await fetch(`/api/dfda/measurements?id=${measurementsId}`, {
+async function deleteMeasurement(measurementId: number | undefined) {
+  if(!measurementId) {
+    console.error("Measurement ID is not defined for deleteMeasurement")
+    return false
+  }
+  const response = await fetch(`/api/dfda/measurements?id=${measurementId}`, {
     method: "DELETE",
   })
 
@@ -49,7 +53,7 @@ export function MeasurementDeleteButton({ measurement }: MeasurementsDeleteButto
 
   const handleDelete = async () => {
     setIsDeleteLoading(true)
-    const deleted = await deleteUserVariable(measurement.variableId, measurements.id)
+    const deleted = await deleteMeasurement(measurement.id)
 
     if (deleted) {
       setIsDeleteLoading(false)
@@ -73,7 +77,7 @@ export function MeasurementDeleteButton({ measurement }: MeasurementsDeleteButto
         <CredenzaContent>
           <CredenzaHeader>
             <CredenzaTitle>
-              Delete measurements from {formatDate(measurements.date)}?
+              Delete measurement from {formatDate(measurement.startAt)}?
             </CredenzaTitle>
             <CredenzaDescription>
               This action cannot be undone.
