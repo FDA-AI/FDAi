@@ -1,10 +1,8 @@
 import { Metadata } from "next"
 import { notFound, redirect } from "next/navigation"
 
-import { getUserVariable } from "@/lib/api/userVariables"
 import { authOptions } from "@/lib/auth"
 import { getCurrentUser } from "@/lib/session"
-import { UserVariableEditForm } from "@/components/userVariable/user-variable-edit-form"
 import { Shell } from "@/components/layout/shell"
 import { DashboardHeader } from "@/components/pages/dashboard/dashboard-header"
 import { UserVariableCharts } from '@/components/userVariable/user-variable-charts';
@@ -14,7 +12,7 @@ export const metadata: Metadata = {
 }
 
 interface UserVariableEditProps {
-  params: { userVariableId: string }
+  params: { variableId: string }
 }
 
 export default async function UserVariableChart({ params }: UserVariableEditProps) {
@@ -24,7 +22,10 @@ export default async function UserVariableChart({ params }: UserVariableEditProp
     redirect(authOptions?.pages?.signIn || "/signin")
   }
 
-  const userVariable = await getUserVariable(params.userVariableId)
+  const response = await fetch(
+    `/api/dfda/userVariables?variableId=${params.variableId}&includeCharts=true`)
+  const userVariables = await response.json()
+  const userVariable = userVariables[0]
 
   if (!userVariable) {
     notFound()

@@ -9,21 +9,46 @@ type MeasurementsListProps = {
     id: string;
   };
   variableId: number;
+  measurementsDateRange: {
+    from: string;
+    to: string;
+  };
 };
 
-export const MeasurementsList: FC<MeasurementsListProps> = ({ user, variableId }) => {
+export const MeasurementsList: FC<MeasurementsListProps> = ({ user, variableId, measurementsDateRange }) => {
 
   const [measurements, setMeasurements] = useState<Measurement[]>();
   const [isLoading, setIsLoading] = useState(true); // Add a loading state
 
   useEffect(() => {
     setIsLoading(true); // Set loading to true when starting to fetch
-    const url = `/api/dfda/measurements?variableId=${variableId}`;
+    let url = `/api/dfda/measurements?variableId=${variableId}`;
+    if(measurementsDateRange.from) {
+      url += `&earliestMeasurementTime=${measurementsDateRange.from}`;
+    }
+    if(measurementsDateRange.to) {
+      url += `&latestMeasurementTime=${measurementsDateRange.to}`;
+    }
 
     fetch(url)
       .then(response => response.json())
       .then(measurements => {
+        if(measurementsDateRange.from){
+          measurements = measurements.filter((measurement: Measurement) => {
+            const measurementTime = new Date(measurement.startAt);
+            const fromDate = new Date(measurementsDateRange.from);
+            return measurementTime >= fromDate;
+          });
+        }
+        if(measurementsDateRange.to){
+          measurements = measurements.filter((measurement: Measurement) => {
+            const measurementTime = new Date(measurement.startAt);
+            const toDate = new Date(measurementsDateRange.to);
+            return measurementTime <= toDate;
+          });
+        }
         setMeasurements(measurements);
+
         setIsLoading(false); // Set loading to false once data is fetched
       })
       .catch(error => {

@@ -10,16 +10,6 @@ import { Icons } from "@/components/icons"
 import { MeasurementDeleteButton } from "./measurement-delete-button"
 import { Measurement } from "@/app/types.ts";
 
-export type MeasurementsType = {
-  id: string
-  date: Date
-  count: number
-  userVariable: {
-    id: string
-    name: string
-  }
-}
-
 export const measurementColumns: ColumnDef<Measurement>[] = [
   {
     accessorKey: "date",
@@ -73,21 +63,38 @@ export const measurementColumns: ColumnDef<Measurement>[] = [
     },
   },
   {
-    accessorKey: "count",
+    accessorKey: "value",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Count
+          Value
           <Icons.sort className="ml-2 h-4 w-4" />
         </Button>
       )
     },
     cell: ({ row }) => {
       const value = row.original.value
-      return <div className="px-4">{value} {row.original.unitAbbreviatedName}</div>
+      return <div className="px-4">{value}</div>
+    },
+  },
+  {
+    accessorKey: "unitAbbreviatedName",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Unit
+          <Icons.sort className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+    cell: ({ row }) => {
+      return <div className="px-4">{row.original.unitAbbreviatedName}</div>
     },
   },
   {

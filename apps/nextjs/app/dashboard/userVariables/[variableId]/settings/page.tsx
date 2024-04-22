@@ -1,7 +1,6 @@
 import { Metadata } from "next"
 import { notFound, redirect } from "next/navigation"
 
-import { getUserVariable } from "@/lib/api/userVariables"
 import { authOptions } from "@/lib/auth"
 import { getCurrentUser } from "@/lib/session"
 import { UserVariableEditForm } from "@/components/userVariable/user-variable-edit-form"
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
 }
 
 interface UserVariableEditProps {
-  params: { userVariableId: string }
+  params: { variableId: string }
 }
 
 export default async function UserVariableEdit({ params }: UserVariableEditProps) {
@@ -23,7 +22,10 @@ export default async function UserVariableEdit({ params }: UserVariableEditProps
     redirect(authOptions?.pages?.signIn || "/signin")
   }
 
-  const userVariable = await getUserVariable(parseInt(params.userVariableId), true)
+  const response = await fetch(
+    `/api/dfda/userVariables?variableId=${params.variableId}&includeCharts=0`)
+  const userVariables = await response.json()
+  const userVariable = userVariables[0]
 
   if (!userVariable) {
     notFound()
@@ -40,8 +42,7 @@ export default async function UserVariableEdit({ params }: UserVariableEditProps
           userVariable={{
             id: userVariable.id,
             name: userVariable.name,
-            description: userVariable.description,
-            colorCode: userVariable.colorCode,
+            description: userVariable.description
           }}
         />
       </div>
