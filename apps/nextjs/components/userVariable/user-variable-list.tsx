@@ -23,8 +23,10 @@ type UserVariableListProps = {
 export const UserVariableList: FC<UserVariableListProps> = ({ user, searchParams }) => {
 
   const [userVariables, setUserVariables] = useState<UserVariable[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     // Ensure searchParams is an object
     const safeSearchParams = searchParams ?? {};
 
@@ -43,13 +45,19 @@ export const UserVariableList: FC<UserVariableListProps> = ({ user, searchParams
       .then(response => response.json())
       .then(userVariables => {
         setUserVariables(userVariables);
+        setIsLoading(false);
       })
-      .catch(error => console.error('Error fetching user variables:', error));
+      .catch(error => {
+        console.error('Error fetching user variables:', error);
+        setIsLoading(false); // Ensure loading is set to false even if there's an error
+      });
 
   }, [user, searchParams]);
 
   return (
     <>
+    {isLoading ? ( <div className="flex justify-center items-center"> 
+    <Icons.spinner className="animate-spin text-4xl" /> </div>) : "" }
       {userVariables?.length ? (
         <div className="flex flex-col"> {/* Add Tailwind classes here */}
           {userVariables.map((userVariable) => (

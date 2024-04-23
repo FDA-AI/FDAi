@@ -18,7 +18,7 @@ import {
   BsMoonStars,
   BsSun,
 } from "react-icons/bs"
-import {FaBell, FaRegStar, FaSort, FaUserAlt} from "react-icons/fa"
+import {FaBell, FaChartBar, FaRegStar, FaSort, FaUserAlt} from "react-icons/fa"
 import { ImSpinner8, ImStatsBars } from "react-icons/im"
 import { LuSettings } from "react-icons/lu"
 import { MdDeleteForever, MdOutlineLogout } from "react-icons/md"
@@ -61,6 +61,7 @@ const icons = {
   add: AiOutlinePlus,
   reminder: FaBell,
   history: BiHistory,
+  charts: FaChartBar,
   signout: MdOutlineLogout,
   calendar: BiCalendar,
   sort: FaSort,
