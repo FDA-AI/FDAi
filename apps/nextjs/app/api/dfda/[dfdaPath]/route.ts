@@ -39,10 +39,10 @@ async function fetchDfdaApi(req: Request, method: 'GET' | 'POST', context: z.inf
       const requestBody = await req.json();
       init.body = JSON.stringify(requestBody);
     }
-    console.log(`Making ${method} request to ${dfdaUrl} with init:`, init);
+    console.log(`Making ${method} request to ${dfdaUrl}`); // with init:`, init);
     const response = await fetch(dfdaUrl, init);
     const data = await response.json();
-    console.log("Response data:", data);
+    //console.log("Response data:", data);
     return new Response(JSON.stringify(data), { status: 200, headers: { 'Content-Type': 'application/json' } })
   } catch (error) {
     return handleError(error);
