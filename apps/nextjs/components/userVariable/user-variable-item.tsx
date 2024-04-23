@@ -7,6 +7,7 @@ import { UserVariableOperationsButton } from "@/components/userVariable/user-var
 import { QuickMeasurementButton } from '@/components/userVariable/measurements/quick-measurement-button';
 import { MeasurementButton } from '@/components/userVariable/measurement-button';
 import { UserVariable } from "@/types/models/UserVariable";
+import { Icons } from "../icons";
 
 interface UserVariableItemProps {
   userVariable: UserVariable;
@@ -27,7 +28,7 @@ export function UserVariableItem({ userVariable }: UserVariableItemProps) {
           ></div>*/}
           <div>
             <Link
-              href={`/dashboard/userVariables/${userVariable.id}`}
+              href={`/dashboard/userVariables/${userVariable.variableId}`}
               className="font-semibold hover:underline"
             >
               {userVariable.name}
@@ -45,19 +46,31 @@ export function UserVariableItem({ userVariable }: UserVariableItemProps) {
           </div>
         ) : null}*/}
       </div>
-      <div className="flex flex-row gap-2">
+      <div id="variable-buttons" className="flex flex-row gap-2">
         <MeasurementButton
           userVariable={userVariable}
           className="flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted"
           variant="outline"
           size="icon"
         />
-        <QuickMeasurementButton
+{/*        <QuickMeasurementButton
           userVariable={userVariable}
           className="flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted"
           variant="outline"
           size="icon"
-        />
+        />*/}
+        <Link
+          href={`/dashboard/userVariables/${userVariable.variableId}`}
+          className="flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted"
+        >
+          <Icons.history className="h-4 w-4" />
+        </Link>
+        <Link
+          href={`/dashboard/userVariables/${userVariable.variableId}/charts`}
+          className="flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted"
+        >
+          <Icons.charts className="h-4 w-4" />
+        </Link>
         <UserVariableOperationsButton
           userVariable={userVariable}
         />
