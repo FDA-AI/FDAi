@@ -21,6 +21,9 @@
     "generate:rapini": "npx rapini react-query -p ../../docs/api-reference/openapi.yml"
   },
   "dependencies": {
+    "@copilotkit/backend": "^0.8.0",
+    "@copilotkit/react-core": "^0.24.0",
+    "@copilotkit/react-ui": "^0.21.0",
     "@hookform/resolvers": "^3.3.4",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",

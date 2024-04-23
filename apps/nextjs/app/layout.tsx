@@ -8,6 +8,9 @@ import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/components/theme-provider"
+import { CopilotKit } from "@copilotkit/react-core";
+import { CopilotSidebar } from "@copilotkit/react-ui";
+//import "@copilotkit/react-ui/styles.css";
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -73,6 +76,8 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <body className={cn("antialiased", inter.className)}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          {/*<CopilotKit url="/api/copilotkit/openai">*/}
+          {/*  <CopilotSidebar>*/}
           <NextTopLoader color="#DC2645" height={2.5} showSpinner={false} />
           <div
             vaul-drawer-wrapper=""
@@ -81,6 +86,8 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             {children}
           </div>
           <Toaster />
+          {/*  </CopilotSidebar>*/}
+          {/*</CopilotKit>*/}
         </ThemeProvider>
       </body>
     </html>
