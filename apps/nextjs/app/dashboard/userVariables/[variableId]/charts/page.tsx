@@ -21,25 +21,12 @@ export default async function UserVariableChart({ params }: UserVariableEditProp
   if (!user) {
     redirect(authOptions?.pages?.signIn || "/signin")
   }
-
-  const response = await fetch(
-    `/api/dfda/userVariables?variableId=${params.variableId}&includeCharts=true`)
-  const userVariables = await response.json()
-  const userVariable = userVariables[0]
-
-  if (!userVariable) {
-    notFound()
-  }
-
+  const variableId = parseInt(params.variableId)
   return (
     <Shell>
-      <DashboardHeader
-        heading="UserVariable Settings"
-        text="Modify userVariable details."
-      />
       <div className="grid grid-cols-1 gap-10">
         <UserVariableCharts
-          userVariable={userVariable}
+          variableId={variableId}
         />
       </div>
     </Shell>
