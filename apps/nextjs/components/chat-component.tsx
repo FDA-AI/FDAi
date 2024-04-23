@@ -4,10 +4,10 @@ import { FullPageChat } from 'flowise-embed-react';
 export default function ChatComponent() {
   return  <FullPageChat
     chatflowid="3a94fd29-fbe1-4318-a67b-a3fb5b6f74a8"
-    apiHost="https://fw.dfda.earth"
+    apiHost="https://fw.fdai.earth"
     theme={{
       chatWindow: {
-        welcomeMessage: "Hello! This is custom welcome message",
+        welcomeMessage: "How are you?",
         backgroundColor: "#ffffff",
         height: 700,
         width: 400,
