@@ -10,10 +10,8 @@ import {UserVariableSearch} from "@/components/userVariable/user-variable-search
 
 export const metadata: Metadata = {
   title: "Dashboard",
-  description: "Monitor your progress.",
+  description: "Record your treatments and symptom.",
 }
-
-
 
 export default async function Dashboard() {
   const user = await getCurrentUser()

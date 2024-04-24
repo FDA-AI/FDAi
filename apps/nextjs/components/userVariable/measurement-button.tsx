@@ -9,8 +9,7 @@ import {
   CredenzaTitle
 } from '@/components/ui/credenza';
 import { MeasurementsAddForm } from "@/components/userVariable/measurements/measurements-add-form";
-import { UserVariable } from "@/types/models/UserVariable"; // Ensure this import is correct
-import { toast } from "@/components/ui/use-toast";
+import { UserVariable } from "@/types/models/UserVariable";
 import { Icons } from "@/components/icons";
 import { ButtonProps } from 'react-day-picker';
 
@@ -23,7 +22,7 @@ interface MeasurementButtonProps extends ButtonProps {
   >
   className: string;
   size: string;
-  variant: string; 
+  variant: string;
 }
 
 export function MeasurementButton({ userVariable, ...props }: MeasurementButtonProps) {
@@ -41,7 +40,7 @@ export function MeasurementButton({ userVariable, ...props }: MeasurementButtonP
 
   return (
     <>
-      <Button onClick={onClick} {...buttonProps}>
+      <Button onClick={onClick} {...buttonProps} variant={props.variant as ButtonProps['variant']}>
         <Icons.add className="h-4 w-4" />
       </Button>
       {isFormOpen && (
