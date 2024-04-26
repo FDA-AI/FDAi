@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
   // Log the receipt of the image in base64 format
   console.log('Received image in base64 format');
 
-  // Utilize the provided custom prompt or a default prompt if it's not provided.
+  // Use the provided custom prompt or a default prompt if it's not provided.
   // This prompt guides the analysis of the image by OpenAI's model.
   let promptText = `
   Analyze the provided image and estimate the macro and micronutrient content of any food items, and extract data about any medications or nutritional supplements present. Return the results as an array of structured JSON data with the following format:
