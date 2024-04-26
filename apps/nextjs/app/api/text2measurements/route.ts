@@ -42,7 +42,8 @@ export async function POST(request: NextRequest) {
   // Log the receipt of the image in base64 format
 try {
     // Process the statement to extract measurements
-  const measurements = await  processStatement(prompt);
+  const measurements = await processStatement(prompt);
+  // If you want to save them, uncomment await dfdaPOST('/v3/measurements', measurements, session?.user.id);
 
     // Return the analysis in the response
     return NextResponse.json({ success: true, measurements: measurements });

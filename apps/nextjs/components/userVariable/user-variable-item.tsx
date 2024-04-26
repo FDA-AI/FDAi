@@ -21,11 +21,6 @@ export function UserVariableItem({ userVariable }: UserVariableItemProps) {
           {userVariable.imageUrl && (
             <img src={userVariable.imageUrl} alt={userVariable.name} style={{ maxWidth: '25%', width: '50px' }} />
           )}
-{/*          <div
-            className="h-4 w-4 rounded-full shadow shadow-black dark:shadow-white"
-            data-testid="color-code"
-            style={{ backgroundColor: `${userVariable.colorCode}` }}
-          ></div>*/}
           <div>
             <Link
               href={`/dashboard/userVariables/${userVariable.variableId}`}

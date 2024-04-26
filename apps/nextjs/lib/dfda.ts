@@ -1,5 +1,5 @@
-import { db } from "@/lib/db"
-import { UserVariable } from "@/types/models/UserVariable";
+import {db} from "@/lib/db"
+import {UserVariable} from "@/types/models/UserVariable";
 
 async function getYourUser(yourUserId: any) {
   let user = await db.user.findUnique({
@@ -71,4 +71,58 @@ export async function getUserVariable(variableId: number, params?: any): Promise
 
 export async function getUserVariableWithCharts(variableId: number): Promise<UserVariable> {
   return await getUserVariable(variableId, {includeCharts: true})
+}
+
+async function dfdaFetch(
+  method: 'GET' | 'POST',
+  path: string,
+  urlParams?: Record<string, string>,
+  body?: any,
+  yourUserId?: string,
+  additionalHeaders?: Record<string, string>
+) {
+  const dfdaParams = new URLSearchParams(urlParams);
+  const dfdaUrl = `https://safe.dfda.earth/api/v3/${path}?${dfdaParams}`;
+  const headers: HeadersInit = {
+    accept: 'application/json',
+    'Content-Type': method === 'POST' ? 'application/json' : '',
+    ...additionalHeaders,
+  };
+
+  if (yourUserId) {
+    headers['Authorization'] = `Bearer ${await getOrCreateDfdaAccessToken(yourUserId)}`;
+  }
+
+  const init: RequestInit = {
+    method: method,
+    headers,
+    credentials: 'include',
+  };
+
+  if (method === 'POST' && body) {
+    init.body = JSON.stringify(body);
+  }
+
+  console.log(`Making ${method} request to ${dfdaUrl}`);
+  const response = await fetch(dfdaUrl, init);
+  return await response.json();
+}
+
+export async function dfdaGET(
+  path: string,
+  urlParams?: Record<string, string>,
+  yourUserId?: string,
+  additionalHeaders?: Record<string, string>
+) {
+  return dfdaFetch('GET', path, urlParams, undefined, yourUserId, additionalHeaders);
+}
+
+export async function dfdaPOST(
+  path: string,
+  body?: any,
+  yourUserId?: string,
+  urlParams?: Record<string, string>,
+  additionalHeaders?: Record<string, string>
+) {
+  return dfdaFetch('POST', path, urlParams, body, yourUserId, additionalHeaders);
 }
