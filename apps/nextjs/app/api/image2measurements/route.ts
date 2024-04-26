@@ -25,8 +25,9 @@ export async function POST(request: NextRequest) {
 
   // Extracting the file (in base64 format) and an optional custom prompt
   // from the request body. This is essential for processing the image using OpenAI's API.
-  const { file: base64Image, prompt: customPrompt, detail, max_tokens } = await request.json();
+  let { file: base64Image, prompt: customPrompt, detail, max_tokens, image } = await request.json();
 
+  base64Image = base64Image || image;
   // Check if the image file is included in the request. If not, return an error response.
   if (!base64Image) {
     console.error('No file found in the request');

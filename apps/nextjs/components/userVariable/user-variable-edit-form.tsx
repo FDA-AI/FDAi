@@ -3,7 +3,6 @@
 import * as React from "react"
 import { useRouter } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { HexColorPicker } from "react-colorful"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 
@@ -45,11 +44,8 @@ export function UserVariableEditForm({
     resolver: zodResolver(userVariablePatchSchema),
     defaultValues: {
       name: userVariable?.name || "",
-      description: userVariable?.description || "",
-      colorCode: "",
     },
   })
-  const [color, setColor] = React.useState(userVariable.colorCode || "#ffffff")
 
   async function onSubmit(data: FormData) {
     const response = await fetch(`/api/userVariables/${userVariable.id}`, {
@@ -59,8 +55,6 @@ export function UserVariableEditForm({
       },
       body: JSON.stringify({
         name: data.name,
-        description: data.description,
-        colorCode: color,
       }),
     })
 
@@ -111,20 +105,6 @@ export function UserVariableEditForm({
               Description{" "}
               <span className="text-muted-foreground">(optional)</span>
             </Label>
-            <Textarea
-              id="description"
-              className="w-full lg:w-[400px]"
-              {...register("description")}
-            />
-            {errors?.description && (
-              <p className="px-1 text-xs text-red-600">
-                {errors.description.message}
-              </p>
-            )}
-          </div>
-          <div className="grid gap-3">
-            <Label>Color</Label>
-            <HexColorPicker color={color} onChange={setColor} />
           </div>
         </CardContent>
         <CardFooter>
