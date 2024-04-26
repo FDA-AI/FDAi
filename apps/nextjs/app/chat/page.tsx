@@ -37,6 +37,14 @@ const App: React.FC = () => {
     setBase64Image(base64);
   }, []);
 
+  // Function to handle Blob from CameraButton and convert it to File
+  const handleCapture = useCallback((blob: Blob | null) => {
+    if (blob) {
+      const file = new File([blob], "captured_image.png", { type: blob.type });
+      handleFileChange(file);
+    }
+  }, [handleFileChange]);
+
   // Function to handle submission for image analysis
   const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
@@ -87,7 +95,7 @@ const App: React.FC = () => {
       <div className="flex">
         <div className="text-center mx-auto my-5 p-5 border border-gray-300 rounded-lg max-w-md">
           <div className="p-4">
-            <CameraButton onCapture={handleFileChange}/>
+            <CameraButton onCapture={handleCapture}/>
           </div>
           <div>
             OR
