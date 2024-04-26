@@ -8,7 +8,7 @@ import { Button, buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 
 import { MeasurementDeleteButton } from "./measurement-delete-button"
-import { Measurement } from "@/app/types.ts";
+import { Measurement } from "@/types/models/Measurement";
 
 export const measurementColumns: ColumnDef<Measurement>[] = [
   {
