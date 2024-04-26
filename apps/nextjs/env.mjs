@@ -14,6 +14,7 @@ export const env = createEnv({
     GITHUB_CLIENT_SECRET: z.string().min(1),
     EMAIL_SERVER: z.string().min(1),
     EMAIL_FROM: z.string().min(1),
+    OPENAI_API_KEY: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().min(1),
@@ -31,5 +32,6 @@ export const env = createEnv({
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
     EMAIL_SERVER: process.env.EMAIL_SERVER,
     EMAIL_FROM: process.env.EMAIL_FROM,
+    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
   },
 })

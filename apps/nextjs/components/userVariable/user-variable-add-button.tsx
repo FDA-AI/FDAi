@@ -33,7 +33,6 @@ export function UserVariableAddButton({ ...props }: UserVariableAddButtonProps) 
       },
       body: JSON.stringify({
         name: "New Variable",
-        colorCode: "#ffffff",
       }),
     })
 
