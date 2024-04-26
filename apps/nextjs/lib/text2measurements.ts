@@ -1,5 +1,5 @@
 import OpenAI from 'openai';
-import { Measurement } from "@/app/types.ts";
+import { Measurement } from "@/types/models/Measurement";
 
 // Create an OpenAI API client (that's edge-friendly!)
 const openai = new OpenAI({

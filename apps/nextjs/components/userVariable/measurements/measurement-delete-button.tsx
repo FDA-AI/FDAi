@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/credenza"
 import { toast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
-import { Measurement } from "@/app/types.ts";
+import { Measurement } from "@/types/models/Measurement";
 
 interface MeasurementsDeleteButtonProps {
   measurement: Measurement
