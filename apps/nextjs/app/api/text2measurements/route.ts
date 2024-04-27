@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { text2measurements } from "@/lib/text2measurements";
 
 export async function POST(request: NextRequest) {
-  const { statement, localDateTime } = await request.json();
+  let { statement, localDateTime, text } = await request.json();
+  statement = statement || text;
 
 try {
   const measurements = await text2measurements(statement, localDateTime);
