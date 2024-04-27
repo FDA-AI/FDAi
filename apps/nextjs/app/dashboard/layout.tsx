@@ -28,7 +28,7 @@ export default async function DashboardLayout({
         </aside>
         <main className="flex w-full flex-1 flex-col">{children}</main>
       </div>
-      <Footer />
+      {/*<Footer />*/}
     </div>
   )
 }

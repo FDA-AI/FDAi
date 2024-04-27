@@ -14,7 +14,7 @@ export const CameraButton = ({ onCapture }: { onCapture: (blob: Blob | null) => 
       videoRef.current.srcObject = videoStream;
     }
   }, [videoStream]);
-  
+
 
   const handleStartCapture = () => {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -60,7 +60,9 @@ export const CameraButton = ({ onCapture }: { onCapture: (blob: Blob | null) => 
         {showModal && (
           <PopoverContent className="modal">
             <video ref={videoRef} autoPlay={true}></video>
-            <button onClick={handleCapture}>Capture</button>
+            <Button variant="outline" onClick={handleCapture}>
+              Take Picture
+            </Button>
           </PopoverContent>
         )}
       </Popover>

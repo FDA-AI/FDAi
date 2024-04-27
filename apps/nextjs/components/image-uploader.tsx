@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from "react"
-import {convertFileToBase64} from "@/app/utils/convertFileToBase64";
+import {convertFileToBase64} from "@/lib/convertFileToBase64";
 import ChatComponent from "@/app/chat/ChatComponent";
 
 const [file, setFile] = useState<File | null>(null); // Holds the selected image file
