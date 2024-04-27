@@ -18,11 +18,12 @@ import {
   BsMoonStars,
   BsSun,
 } from "react-icons/bs"
-import {FaBell, FaChartBar, FaRegStar, FaSort, FaUserAlt} from "react-icons/fa"
+import {FaBell, FaCamera, FaChartBar, FaRegStar, FaSort, FaUserAlt} from "react-icons/fa"
 import { ImSpinner8, ImStatsBars } from "react-icons/im"
 import { LuSettings } from "react-icons/lu"
 import { MdDeleteForever, MdOutlineLogout } from "react-icons/md"
 import { RxDashboard, RxMixerHorizontal, RxPencil1 } from 'react-icons/rx';
+import {FaMessage} from "react-icons/fa6";
 
 export type IconKeys = keyof typeof icons
 
@@ -40,6 +41,8 @@ const icons = {
   activity: BsActivity,
   measurement: RxPencil1,
   settings: LuSettings,
+  camera: FaCamera,
+  write: FaMessage,
 
   // Mode Toggle
   moon: BsMoonStars,

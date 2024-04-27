@@ -1,160 +1,121 @@
 "use client"
-import { ChangeEvent, useState, FormEvent } from "react"
-import NutritionFactsLabel from '@/components/NutritionFactsLabel'; // Adjust the import path as necessary
 
-function getStringBetween(prefix: string, suffix: string, str: string): string {
-  const start = str.indexOf(prefix);
-  if (start === -1) return str; // prefix not found
+import dynamic from 'next/dynamic';
+const ChatComponent = dynamic(() => import('./ChatComponent'), {
+  ssr: true,
+});
+import React, { useState, useCallback } from 'react';
+import { convertFileToBase64 } from '@/lib/convertFileToBase64';
+import {Shell} from "@/components/layout/shell";
+import {DashboardHeader} from "@/components/pages/dashboard/dashboard-header";
+import {AnalyzeButton} from "@/components/AnalyzeButton";
+import {FileUploader} from "@/components/FileUploader";
+import {AnalysisResult} from "@/components/AnalysisResult";
+import {CameraButton} from "@/components/CameraButton"; // Importing the CameraButton component
 
-  const end = str.indexOf(suffix, start + prefix.length);
-  if (end === -1) return str; // suffix not found
+// The main App component
+const App: React.FC = () => {
+  // State management for various functionalities
+  const [file, setFile] = useState<File | null>(null); // Holds the selected image file
+  const [preview, setPreview] = useState<string>(''); // URL for the image preview
+  const [result, setResult] = useState<string>(''); // Stores the analysis result
+  const [statusMessage, setStatusMessage] = useState<string>(''); // Displays status messages to the user
+  const [uploadProgress, setUploadProgress] = useState<number>(0); // Manages the upload progress
+  const [textInput, setTextInput] = useState<string>(''); // Custom text input by the user
+  const [base64Image, setBase64Image] = useState<string>('');
 
-  return str.substring(start + prefix.length, end);
-}
-export default function Home() {
-  const [image, setImage] = useState<string>("");
-  const [openAIResponse, setOpenAIResponse] = useState<string>("");
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [nutritionData, setNutritionData] = useState<any[]>([]);
-  const [completeResponse, setCompleteResponse] = useState<string>("");
+  // Callback for handling file selection changes
+  const handleFileChange = useCallback(async (selectedFile: File) => {
+    // Updating state with the new file and its preview URL
+    setFile(selectedFile);
+    setPreview(URL.createObjectURL(selectedFile));
+    setStatusMessage('Image selected. Click "Analyze Image" to proceed.');
+    setUploadProgress(0);
 
-  function handleFileChange(event: ChangeEvent<HTMLInputElement>) {
-    if(event.target.files === null) {
-      window.alert("No file selected. Choose a file.")
-      return;
+    // Convert the file to a base64 string and store it in the state
+    const base64 = await convertFileToBase64(selectedFile);
+    setBase64Image(base64);
+  }, []);
+
+  // Function to handle Blob from CameraButton and convert it to File
+  const handleCapture = useCallback((blob: Blob | null) => {
+    if (blob) {
+      const file = new File([blob], "captured_image.png", { type: blob.type });
+      handleFileChange(file);
     }
-    const file = event.target.files[0];
+  }, [handleFileChange]);
 
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-
-    reader.onload = () => {
-      if(typeof reader.result === "string") {
-        console.log(reader.result);
-        setImage(reader.result);
-      }
-    }
-
-    reader.onerror = (error) => {
-      console.log("error: " + error);
-    }
-
-  }
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  // Function to handle submission for image analysis
+  const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
-
-    if(image === "") {
-      alert("Upload an image.")
+    if (!file) {
+      setStatusMessage('No file selected!');
       return;
     }
 
-    setIsLoading(true); // Start loading
-    setOpenAIResponse(""); // Reset previous responses
-    setNutritionData([]); // Clear previous data
+    setStatusMessage('Sending request...');
+    setUploadProgress(40); // Progress after image conversion
 
-    await fetch("/api/image2measurements", {
-      method: "POST",
+    // Send a POST request to your API endpoint
+    const response = await fetch('/api/image2measurements', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        image: image // base64 image
-      })
-    })
-    .then(async (response: any) => {
-      // Because we are getting a streaming text response
-      // we have to make some logic to handle the streaming text
-      const reader = response.body?.getReader();
-      setOpenAIResponse("");
-      // reader allows us to read a new piece of info on each "read"
-      // "Hello" + "I am" + "Cooper Codes"  reader.read();
-      while (true) {
-        const { done, value } = await reader?.read();
-        // done is true once the response is done
-        if(done) {
-
-
-          const prefix =  "```json";
-          const suffix = "```";
-          const jsonData = getStringBetween(prefix, suffix, openAIResponse);
-          //const parsedData = JSON.parse(jsonData); // Assuming the response is JSON formatted
-          debugger
-          //setNutritionData(parsedData); // Set the parsed data for rendering
-          break;
-        }
-
-        // value : uint8array -> a string.
-        const currentChunk = new TextDecoder().decode(value);
-        setOpenAIResponse((prev) => prev + currentChunk);
-      }
-
-
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-      alert('Failed to fetch data.');
-    })
-    .finally(() => {
-      setIsLoading(false); // End loading
+        file: base64Image,
+        prompt: textInput,
+      }),
     });
-  }
+
+    setUploadProgress(60);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const apiResponse = await response.json();
+    setUploadProgress(80); // Progress after receiving response
+
+    if (apiResponse.success) {
+      setResult(apiResponse.analysis);
+      setStatusMessage('Analysis complete.');
+      setUploadProgress(100); // Final progress
+    } else {
+      setStatusMessage(apiResponse.message);
+    }
+  };
 
   return (
-    <div className="min-h-screen flex items-center justify-center text-md">
-      <div className='bg-slate-800 w-full max-w-2xl rounded-lg shadow-md p-8'>
-        <h2 className='text-xl font-bold mb-4'>Uploaded Image</h2>
-        { image !== "" ?
-          <div className="mb-4 overflow-hidden">
-            <img
-              src={image}
-              className="w-full object-contain max-h-72"
-            />
+    <Shell>
+      <DashboardHeader
+        heading="Image 2 Measurements"
+        text="Upload an Image of a Medication, Food, or Supplement"
+      />
+      <div className="flex">
+        <div className="text-center mx-auto my-5 p-5 border border-gray-300 rounded-lg max-w-md">
+          <div className="p-4">
+            <CameraButton onCapture={handleCapture}/>
           </div>
-        :
-        <div className="mb-4 p-8 text-center">
-          <p>Once you upload an image, you will see it here.</p>
+          <div>
+            OR
+          </div>
+          <FileUploader onFileChange={handleFileChange} preview={preview}/>
+          <input
+            type="text"
+            value={textInput}
+            onChange={(e) => setTextInput(e.target.value)}
+            placeholder="Optional: Include any additional info"
+            className="mb-5 p-2 border border-gray-300 rounded-lg w-full"
+          />
+          <AnalyzeButton onClick={handleSubmit} uploadProgress={uploadProgress}/>
+          {statusMessage && <p className="text-gray-600 mb-5">{statusMessage}</p>}
+          {result && <AnalysisResult result={result}/>}
         </div>
-        }
-
-
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <div className='flex flex-col mb-6'>
-            <label className='mb-2 text-sm font-medium'>Upload Image</label>
-            <input
-              type="file"
-              className="text-sm border rounded-lg cursor-pointer"
-              onChange={(e) => handleFileChange(e)}
-            />
-          </div>
-
-          <div className='flex justify-center'>
-            <button type="submit" className='p-2 bg-sky-600 rounded-md mb-4'>
-              Ask ChatGPT To Analyze Your Image
-            </button>
-          </div>
-
-        </form>
-
-        {nutritionData.length ? (
-          <div>Loading...</div>
-        ) : (
-          nutritionData.map((item, index) => (
-            <NutritionFactsLabel key={index} data={item} />
-          ))
-        )}
-
-        {openAIResponse !== "" ?
-        <div className="border-t border-gray-300 pt-4">
-          <h2 className="text-xl font-bold mb-2">AI Response</h2>
-          <p>{openAIResponse}</p>
-        </div>
-        :
-        null
-        }
-
-
+        <ChatComponent base64Image={base64Image}/>
       </div>
-    </div>
-  )
+    </Shell>
+  );
 }
+
+export default App;
