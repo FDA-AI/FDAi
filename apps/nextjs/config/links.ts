@@ -31,6 +31,16 @@ export const dashboardLinks: Navigation = {
       icon: "measurement",
     },
     {
+      title: "Image 2 Measurements",
+      href: "/dashboard/image2measurements",
+      icon: "camera",
+    },
+    {
+      title: "Text 2 Measurements",
+      href: "/dashboard/text2measurements",
+      icon: "write",
+    },
+    {
       title: "Profile",
       href: "/dashboard/settings",
       icon: "settings",
