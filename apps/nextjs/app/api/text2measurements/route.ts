@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { text2measurements } from "@/lib/text2measurements";
+import {dfdaPOST} from "@/lib/dfda";
+import {getServerSession} from "next-auth/next";
+import {authOptions} from "@/lib/auth";
 
 export async function POST(request: NextRequest) {
   let { statement, localDateTime, text } = await request.json();
@@ -7,7 +10,11 @@ export async function POST(request: NextRequest) {
 
 try {
   const measurements = await text2measurements(statement, localDateTime);
-  // If you want to save them, uncomment await dfdaPOST('/v3/measurements', measurements, session?.user.id);
+  const session = await getServerSession(authOptions);
+  const userId = session?.user.id;
+  if(userId){
+    await dfdaPOST('/v3/measurements', measurements, session?.user.id);
+  }
     return NextResponse.json({ success: true, measurements: measurements });
   } catch (error) {
     // Log and handle any errors encountered during the request to OpenAI
