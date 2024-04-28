@@ -48,12 +48,12 @@ export function UserVariableItem({ userVariable }: UserVariableItemProps) {
           variant="outline"
           size="icon"
         />
-{/*        <QuickMeasurementButton
+        <QuickMeasurementButton
           userVariable={userVariable}
           className="flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted"
           variant="outline"
           size="icon"
-        />*/}
+        />
         <Link
           href={`/dashboard/userVariables/${userVariable.variableId}`}
           className="flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted"

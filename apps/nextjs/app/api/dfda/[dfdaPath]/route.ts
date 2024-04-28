@@ -16,7 +16,9 @@ export async function GET(req: Request, context: z.infer<typeof routeContextSche
   const urlParams = Object.fromEntries(new URL(req.url).searchParams);
   const session = await getServerSession(authOptions);
   try {
-    return dfdaGET(params.dfdaPath, urlParams, session?.user.id);
+    const response = await dfdaGET(params.dfdaPath, urlParams, session?.user.id);
+    const data = response.data ?? response;
+    return new Response(JSON.stringify(data), { status: 200, headers: { 'Content-Type': 'application/json' } });
   } catch (error) {
     return handleError(error);
   }
@@ -28,7 +30,9 @@ export async function POST(req: Request, context: z.infer<typeof routeContextSch
   const body = await req.json();
   const session = await getServerSession(authOptions);
   try {
-    return dfdaPOST(params.dfdaPath, body, session?.user.id, urlParams);
+    const response = await dfdaPOST(params.dfdaPath, body, session?.user.id, urlParams);
+    const data = response.data ?? response;
+    return new Response(JSON.stringify(data), { status: response.status, headers: { 'Content-Type': 'application/json' } });
   } catch (error) {
     return handleError(error);
   }
