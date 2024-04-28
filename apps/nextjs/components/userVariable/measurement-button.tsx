@@ -20,9 +20,6 @@ interface MeasurementButtonProps extends ButtonProps {
     "combinationOperation" | "unitAbbreviatedName" | "variableCategoryName" |
     "lastValue" | "unitName" | "userId" | "variableId"
   >
-  className: string;
-  size: string;
-  variant: string;
 }
 
 export function MeasurementButton({ userVariable, ...props }: MeasurementButtonProps) {
@@ -35,13 +32,10 @@ export function MeasurementButton({ userVariable, ...props }: MeasurementButtonP
     //router.refresh();
   }
 
-  // Destructure `ref` and `size` out of props to avoid passing it to the Button component if not valid
-  const { ref, size, ...buttonProps } = props;
-
 
   return (
     <>
-      <Button onClick={onClick} {...buttonProps} size={"default"} variant={"default"}>
+      <Button onClick={onClick}  {...props}>
         <Icons.add className="h-4 w-4" />
       </Button>
       {isFormOpen && (
