@@ -19,7 +19,7 @@ import { VariableCategory } from '../models/VariableCategory';
 import { VariableCharts } from '../models/VariableCharts';
 
 
-export class Variable {
+export class GlobalVariable {
     'actionArray'?: Array<TrackingReminderNotificationAction>;
     /**
     * User-Defined Variable Setting:  Alternative display name
@@ -1498,7 +1498,7 @@ export class Variable {
         }    ];
 
     static getAttributeTypeMap() {
-        return Variable.attributeTypeMap;
+        return GlobalVariable.attributeTypeMap;
     }
 
     public constructor() {

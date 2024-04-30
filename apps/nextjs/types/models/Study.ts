@@ -20,7 +20,7 @@ import { StudyLinks } from '../models/StudyLinks';
 import { StudySharing } from '../models/StudySharing';
 import { StudyText } from '../models/StudyText';
 import { StudyVotes } from '../models/StudyVotes';
-import { Variable } from '../models/Variable';
+import { GlobalVariable } from './GlobalVariable';
 
 
 /**
@@ -39,13 +39,13 @@ export class Study {
     * ID of the cohort study which is necessary to allow participants to join
     */
     'id'?: string;
-    'causeVariable'?: Variable;
+    'causeVariable'?: GlobalVariable;
     /**
     * Ex: Sleep Quality
     */
     'causeVariableName'?: string;
     'studyCharts'?: StudyCharts;
-    'effectVariable'?: Variable;
+    'effectVariable'?: GlobalVariable;
     /**
     * Ex: Overall Mood
     */
