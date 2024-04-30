@@ -1,14 +1,16 @@
 "use client";
 import { FC, useEffect, useState } from "react";
-import {UserVariableList} from "@/components/userVariable/user-variable-list";
+import {GenericVariableList} from "@/components/genericVariables/generic-variable-list";
 
 type UserVariableSearchProps = {
   user: {
     id: string;
   };
+  includePublic?: boolean; // Optional parameter with a default value
+  sort?: string; // Optional parameter with a default value
 };
 
-export const UserVariableSearch: FC<UserVariableSearchProps> = ({ user }) => {
+export const GenericVariableSearch: FC<UserVariableSearchProps> = ({ user, includePublic = true, sort = '-numberOfUserVariables' }) => {
 
   // State to manage search phrase
   const [searchPhrase, setSearchPhrase] = useState("");
@@ -16,8 +18,8 @@ export const UserVariableSearch: FC<UserVariableSearchProps> = ({ user }) => {
 
   // Define search parameters
   const searchParams = {
-    includePublic: true,
-    sort: '-numberOfUserVariables',
+    includePublic: includePublic,
+    sort: sort,
     limit: 10,
     offset: 0,
     searchPhrase: debouncedSearchPhrase, // Use debounced value
@@ -43,7 +45,7 @@ export const UserVariableSearch: FC<UserVariableSearchProps> = ({ user }) => {
           className="input-class form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-full transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
         />
       </div>
-      <UserVariableList user={user} searchParams={searchParams}/>
+      <GenericVariableList user={user} searchParams={searchParams}/>
     </div>
   );
 };

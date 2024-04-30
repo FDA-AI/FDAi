@@ -5,17 +5,17 @@ import { authOptions } from "@/lib/auth"
 import { getCurrentUser } from "@/lib/session"
 import { Shell } from "@/components/layout/shell"
 import { DashboardHeader } from "@/components/pages/dashboard/dashboard-header"
-import { UserVariableCharts } from '@/components/userVariables/user-variable-charts';
+import { GlobalVariableCharts } from '@/components/globalVariables/global-variable-charts';
 
 export const metadata: Metadata = {
-  title: "UserVariable Charts",
+  title: "Global Variable Charts",
 }
 
-interface UserVariableEditProps {
+interface GlobalVariableEditProps {
   params: { variableId: string }
 }
 
-export default async function UserVariableChart({ params }: UserVariableEditProps) {
+export default async function GlobalVariableChart({ params }: GlobalVariableEditProps) {
   const user = await getCurrentUser()
 
   if (!user) {
@@ -25,7 +25,7 @@ export default async function UserVariableChart({ params }: UserVariableEditProp
   return (
     <Shell>
       <div className="grid grid-cols-1 gap-10">
-        <UserVariableCharts
+        <GlobalVariableCharts
           variableId={variableId}
         />
       </div>

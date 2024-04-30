@@ -6,7 +6,7 @@ import { getCurrentUser } from "@/lib/session"
 
 import { Shell } from "@/components/layout/shell"
 import { DashboardHeader } from "@/components/pages/dashboard/dashboard-header"
-import {UserVariableSearch} from "@/components/userVariable/user-variable-search";
+import {GenericVariableSearch} from "@/components/genericVariables/generic-variable-search";
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -25,10 +25,10 @@ export default async function Dashboard() {
 
   return (
     <Shell>
-      <DashboardHeader heading="Your Data" text="Monitor your symptoms and factors.">
+      <DashboardHeader heading="Variables" text="Record measurements, add reminders or view your measurement history">
       </DashboardHeader>
       <div className={layout}>
-         <UserVariableSearch user={user}/>
+         <GenericVariableSearch user={user}/>
       </div>
     </Shell>
   )

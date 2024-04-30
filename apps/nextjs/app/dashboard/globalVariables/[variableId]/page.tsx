@@ -4,36 +4,36 @@ import { redirect } from "next/navigation"
 import { authOptions } from "@/lib/auth"
 import { getCurrentUser } from "@/lib/session"
 import { Shell } from "@/components/layout/shell"
-import { UserVariableOverview } from "@/components/userVariables/user-variable-overview";
+import { GlobalVariableOverview } from "@/components/globalVariables/global-variable-overview";
 
 
-interface UserVariablePageProps {
+interface GlobalVariablePageProps {
   params: { variableId: number }
   searchParams: { from: string; to: string }
 }
 
 // export async function generateMetadata({
 //   params,
-// }: UserVariablePageProps): Promise<Metadata> {
+// }: GlobalVariablePageProps): Promise<Metadata> {
 //   const user = await getCurrentUser()
 //
 //   if (!user) {
 //     redirect(authOptions?.pages?.signIn || "/signin")
 //   }
-//   const response = await fetch(`/api/dfda/userVariables?variableId=${params.variableId}&includeCharts=0`);
-//   const userVariables = await response.json();
-//   const userVariable = userVariables[0];
+//   const response = await fetch(`/api/dfda/globalVariables?variableId=${params.variableId}&includeCharts=0`);
+//   const globalVariables = await response.json();
+//   const globalVariable = globalVariables[0];
 //
 //   return {
-//     title: userVariable?.name || "Not Found",
-//     description: userVariable?.description,
+//     title: globalVariable?.name || "Not Found",
+//     description: globalVariable?.description,
 //   }
 // }
 
-export default async function UserVariablePage({
+export default async function GlobalVariablePage({
   params,
   searchParams,
-}: UserVariablePageProps) {
+}: GlobalVariablePageProps) {
   const user = await getCurrentUser()
 
   if (!user) {
@@ -42,7 +42,7 @@ export default async function UserVariablePage({
 
   return (
     <Shell>
-      <UserVariableOverview variableId={params.variableId} user={user} measurementsDateRange={{
+      <GlobalVariableOverview variableId={params.variableId} user={user} measurementsDateRange={{
         from: searchParams.from,
         to: searchParams.to
       }} />

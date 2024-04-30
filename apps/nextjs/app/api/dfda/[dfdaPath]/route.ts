@@ -1,9 +1,7 @@
-import { getServerSession } from 'next-auth/next';
 import { z } from 'zod';
-
-import { authOptions } from '@/lib/auth';
 import { handleError } from '@/lib/errorHandler';
 import {dfdaGET, dfdaPOST} from '@/lib/dfda';
+import {getUserId} from "@/lib/getUserId";
 
 const routeContextSchema = z.object({
   params: z.object({
@@ -14,9 +12,9 @@ const routeContextSchema = z.object({
 export async function GET(req: Request, context: z.infer<typeof routeContextSchema>) {
   const { params } = routeContextSchema.parse(context);
   const urlParams = Object.fromEntries(new URL(req.url).searchParams);
-  const session = await getServerSession(authOptions);
+  const userId = await getUserId()
   try {
-    const response = await dfdaGET(params.dfdaPath, urlParams, session?.user.id);
+    const response = await dfdaGET(params.dfdaPath, urlParams, userId);
     const data = response.data ?? response;
     return new Response(JSON.stringify(data), { status: 200, headers: { 'Content-Type': 'application/json' } });
   } catch (error) {
@@ -28,9 +26,9 @@ export async function POST(req: Request, context: z.infer<typeof routeContextSch
   const { params } = routeContextSchema.parse(context);
   const urlParams = Object.fromEntries(new URL(req.url).searchParams);
   const body = await req.json();
-  const session = await getServerSession(authOptions);
+  const userId = await getUserId()
   try {
-    const response = await dfdaPOST(params.dfdaPath, body, session?.user.id, urlParams);
+    const response = await dfdaPOST(params.dfdaPath, body, userId, urlParams);
     const data = response.data ?? response;
     return new Response(JSON.stringify(data), { status: response.status, headers: { 'Content-Type': 'application/json' } });
   } catch (error) {

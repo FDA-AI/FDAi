@@ -12,11 +12,11 @@
 
 import { Card } from '../models/Card';
 import { ErrorResponse } from '../models/ErrorResponse';
-import { Variable } from '../models/Variable';
+import { GlobalVariable } from './GlobalVariable';
 
 
 export class PostMeasurementsDataResponse {
-    'userVariables'?: Array<Variable>;
+    'userVariables'?: Array<GlobalVariable>;
     /**
     * Can be used as body of help info popup
     */

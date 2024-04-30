@@ -126,3 +126,7 @@ export async function dfdaPOST(
 ) {
   return dfdaFetch('POST', path, urlParams, body, yourUserId, additionalHeaders);
 }
+
+export async function postMeasurements(measurements: any, yourUserId: any) {
+  return dfdaPOST('measurements', measurements, yourUserId);
+}
