@@ -2,7 +2,9 @@
 import { FC, useState, useEffect } from "react";
 import { Measurement } from "@/types/models/Measurement";
 import { DataTable } from "@/components/data-table";
-import { measurementColumns } from "@/components/userVariable/measurements/measurements-columns";
+import { measurementColumns } from "@/components/measurements/measurements-columns";
+import {Icons} from "@/components/icons";
+import * as React from "react";
 
 type MeasurementsListProps = {
   user: {
@@ -62,7 +64,9 @@ export const MeasurementsList: FC<MeasurementsListProps> = ({ user, variableId, 
   }, [user, variableId, measurementsDateRange.from, measurementsDateRange.to]);
 
   if (isLoading) {
-    return <div>Loading...</div>; // Show a loader or a loading component
+    return <div className="flex justify-center p-8">
+      <Icons.spinner className="animate-spin text-4xl" />
+    </div>;
   }
 
   // Ensure measurements are defined before trying to access its properties

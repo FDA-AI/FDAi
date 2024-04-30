@@ -7,17 +7,18 @@ import { Button, ButtonProps } from "@/components/ui/button"
 import { toast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
 import { UserVariable } from "@/types/models/UserVariable";
+import {GlobalVariable} from "@/types/models/GlobalVariable";
 
 interface QuickMeasurementButtonProps extends ButtonProps {
-  userVariable: Pick<
-    UserVariable,
+  genericVariable: Pick<
+    UserVariable | GlobalVariable,
     "id" | "name" | "description" | "createdAt" | "imageUrl" |
     "combinationOperation" | "unitAbbreviatedName" | "variableCategoryName" |
     "lastValue" | "unitName"
   >
 }
 
-export function QuickMeasurementButton({ userVariable, ...props }: QuickMeasurementButtonProps) {
+export function QuickMeasurementButton({ genericVariable, ...props }: QuickMeasurementButtonProps) {
   const router = useRouter()
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
 
@@ -34,11 +35,11 @@ export function QuickMeasurementButton({ userVariable, ...props }: QuickMeasurem
       },
       body: JSON.stringify({
         startAt: dateToday,
-        value: userVariable.lastValue,
-        variableId: userVariable.name,
-        variableCategoryName: userVariable.variableCategoryName,
-        combinationOperation: userVariable.combinationOperation,
-        unitAbbreviatedName: userVariable.unitAbbreviatedName,
+        value: genericVariable.lastValue,
+        variableId: genericVariable.name,
+        variableCategoryName: genericVariable.variableCategoryName,
+        combinationOperation: genericVariable.combinationOperation,
+        unitAbbreviatedName: genericVariable.unitAbbreviatedName,
       }),
     })
 
@@ -59,6 +60,10 @@ export function QuickMeasurementButton({ userVariable, ...props }: QuickMeasurem
     router.refresh()
   }
 
+  if(!genericVariable) {
+    debugger
+  }
+
   return (
     <Button onClick={onClick} disabled={isLoading} {...props}>
       {isLoading ? (
@@ -66,7 +71,7 @@ export function QuickMeasurementButton({ userVariable, ...props }: QuickMeasurem
       ) : (
         <>
           <Icons.add className="h-4 w-4" />
-          <span>{userVariable.lastValue} {userVariable.unitAbbreviatedName}</span>
+          <span>{genericVariable.lastValue} {genericVariable.unitAbbreviatedName}</span>
         </>
       )}
     </Button>

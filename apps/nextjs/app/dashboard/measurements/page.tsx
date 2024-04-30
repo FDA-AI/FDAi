@@ -5,7 +5,7 @@ import { getCurrentUser } from "@/lib/session"
 import { Shell } from "@/components/layout/shell"
 import {DashboardHeader} from "@/components/pages/dashboard/dashboard-header";
 import {DateRangePicker} from "@/components/date-range-picker";
-import {MeasurementsList} from "@/components/userVariable/measurements/measurements-list";
+import {MeasurementsList} from "@/components/measurements/measurements-list";
 
 
 interface MeasurementsPageProps {
