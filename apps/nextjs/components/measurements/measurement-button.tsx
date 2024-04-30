@@ -8,23 +8,24 @@ import {
   CredenzaHeader,
   CredenzaTitle
 } from '@/components/ui/credenza';
-import {MeasurementsAddForm} from "@/components/userVariable/measurements/measurements-add-form";
+import {MeasurementsAddForm} from "@/components/measurements/measurements-add-form";
 import {UserVariable} from "@/types/models/UserVariable";
 import {Icons} from "@/components/icons";
 import {ButtonProps} from 'react-day-picker';
+import {GlobalVariable} from "@/types/models/GlobalVariable";
 
 interface MeasurementButtonProps extends ButtonProps {
-  userVariable: Pick<
-    UserVariable,
+  genericVariable: Pick<
+    UserVariable | GlobalVariable,
     "id" | "name" | "description" | "createdAt" | "imageUrl" |
     "combinationOperation" | "unitAbbreviatedName" | "variableCategoryName" |
     "lastValue" | "unitName" | "userId" | "variableId"
   >,
-  variant?: string,
-  size?: string
+  variant?: "default" | "link" | "destructive" | "outline" | "secondary" | "ghost" | null | undefined,
+  size?: "default" | "sm" | "lg" | "icon" | null | undefined
 }
 
-export function MeasurementButton({userVariable, variant, size, ...props}: MeasurementButtonProps) {
+export function MeasurementButton({genericVariable, variant, size, ...props}: MeasurementButtonProps) {
   const {ref, ...rest} = props; // Destructure out `ref` and spread the rest
 
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -37,13 +38,13 @@ export function MeasurementButton({userVariable, variant, size, ...props}: Measu
 
   return (
     <>
-      <Button onClick={onClick} variant={"outline"} {...rest}>
+      <Button onClick={onClick} variant={variant} size={size} title="Click to record a measurement" {...rest}>
         <Icons.add className="h-4 w-4"/>
       </Button>
       {isFormOpen && (
         <Credenza>
           <MeasurementsAddForm
-            userVariable={userVariable}
+            genericVariable={genericVariable}
             setShowMeasurementAlert={setShowMeasurementAlert}
           />
         </Credenza>
@@ -53,11 +54,11 @@ export function MeasurementButton({userVariable, variant, size, ...props}: Measu
           <CredenzaHeader>
             <CredenzaTitle>Record a Measurement</CredenzaTitle>
             <CredenzaDescription>
-              This will record a {userVariable.name} measurement.
+              This will record a {genericVariable.name} measurement.
             </CredenzaDescription>
           </CredenzaHeader>
           <MeasurementsAddForm
-            userVariable={userVariable}
+            genericVariable={genericVariable}
             setShowMeasurementAlert={setShowMeasurementAlert}
           />
         </CredenzaContent>
