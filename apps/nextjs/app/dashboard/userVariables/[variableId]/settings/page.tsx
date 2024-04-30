@@ -3,7 +3,7 @@ import { notFound, redirect } from "next/navigation"
 
 import { authOptions } from "@/lib/auth"
 import { getCurrentUser } from "@/lib/session"
-import { UserVariableEditForm } from "@/components/userVariable/user-variable-edit-form"
+import { UserVariableEditForm } from "@/components/userVariables/user-variable-edit-form"
 import { Shell } from "@/components/layout/shell"
 import { DashboardHeader } from "@/components/pages/dashboard/dashboard-header"
 

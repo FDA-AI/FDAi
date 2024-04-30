@@ -2,8 +2,8 @@
 import { EmptyPlaceholder } from "@/components/empty-placeholder";
 import { Icons } from "@/components/icons";
 
-import { UserVariableAddButton } from "./user-variable-add-button";
-import { UserVariableItem } from "./user-variable-item";
+import { UserVariableAddButton } from "../userVariables/user-variable-add-button";
+import { UserVariableItem } from "../userVariables/user-variable-item";
 import { FC, useEffect, useState } from "react";
 import { UserVariable } from "@/types/models/UserVariable";
 
@@ -20,9 +20,9 @@ type UserVariableListProps = {
   };
 };
 
-export const UserVariableList: FC<UserVariableListProps> = ({ user, searchParams }) => {
+export const GenericVariableList: FC<UserVariableListProps> = ({ user, searchParams }) => {
 
-  const [userVariables, setUserVariables] = useState<UserVariable[]>([]);
+  const [genericVariables, setGenericVariables] = useState<UserVariable[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export const UserVariableList: FC<UserVariableListProps> = ({ user, searchParams
     fetch(url)
       .then(response => response.json())
       .then(userVariables => {
-        setUserVariables(userVariables);
+        setGenericVariables(userVariables);
         setIsLoading(false);
       })
       .catch(error => {
@@ -56,11 +56,11 @@ export const UserVariableList: FC<UserVariableListProps> = ({ user, searchParams
 
   return (
     <>
-    {isLoading ? ( <div className="flex justify-center items-center"> 
+    {isLoading ? ( <div className="flex justify-center items-center">
     <Icons.spinner className="animate-spin text-4xl" /> </div>) : "" }
-      {userVariables?.length ? (
+      {genericVariables?.length ? (
         <div className="flex flex-col"> {/* Add Tailwind classes here */}
-          {userVariables.map((userVariable) => (
+          {genericVariables.map((userVariable) => (
             <UserVariableItem key={userVariable.id} userVariable={userVariable} />
           ))}
         </div>

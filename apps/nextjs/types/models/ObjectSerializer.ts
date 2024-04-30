@@ -62,7 +62,7 @@ export * from '../models/UserTag';
 export * from '../models/UserVariable';
 export * from '../models/UserVariableDelete';
 export * from '../models/UsersResponse';
-export * from '../models/Variable';
+export * from './GlobalVariable';
 export * from '../models/VariableCategory';
 export * from '../models/VariableCharts';
 export * from '../models/Vote';
@@ -131,7 +131,7 @@ import { UserTag } from '../models/UserTag';
 import { UserVariable                        , UserVariableCombinationOperationEnum                  , UserVariableFillingTypeEnum                                                                                                            , UserVariableVariableCategoryNameEnum       } from '../models/UserVariable';
 import { UserVariableDelete } from '../models/UserVariableDelete';
 import { UsersResponse } from '../models/UsersResponse';
-import { Variable                        , VariableCombinationOperationEnum                  , VariableFillingTypeEnum                                                                                                           , VariableVariableCategoryNameEnum       } from '../models/Variable';
+import { GlobalVariable                        , VariableCombinationOperationEnum                  , VariableFillingTypeEnum                                                                                                           , VariableVariableCategoryNameEnum       } from './GlobalVariable';
 import { VariableCategory                           , VariableCategoryVariableCategoryNameEnum    } from '../models/VariableCategory';
 import { VariableCharts } from '../models/VariableCharts';
 import { Vote       , VoteValueEnum  , VoteTypeEnum   } from '../models/Vote';
@@ -247,7 +247,7 @@ let typeMap: {[index: string]: any} = {
     "UserVariable": UserVariable,
     "UserVariableDelete": UserVariableDelete,
     "UsersResponse": UsersResponse,
-    "Variable": Variable,
+    "Variable": GlobalVariable,
     "VariableCategory": VariableCategory,
     "VariableCharts": VariableCharts,
     "Vote": Vote,

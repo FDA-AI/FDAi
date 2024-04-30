@@ -27,10 +27,11 @@ import {
 } from '@/components/ui/popover';
 import { toast } from '@/components/ui/use-toast';
 import { Icons } from '@/components/icons';
-import { UserVariable } from '@/types/models/UserVariable';
+import {GlobalVariable as GlobalVariable} from '@/types/models/GlobalVariable';
+import {UserVariable} from "@/types/models/UserVariable";
 
 interface MeasurementsAddFormProps {
-  userVariable: UserVariable;
+  genericVariable: GlobalVariable | UserVariable;
   setShowMeasurementAlert: (active: boolean) => void;
 }
 
@@ -87,21 +88,21 @@ const ratingButtons: Record<Valence, { numericValue: number; src: string; title:
     { numericValue: 5, src: 'https://static.quantimo.do/img/rating/numeric_rating_button_256_5.png', title: '5/5' }
   ]
 };
-export function MeasurementsAddForm({ userVariable, setShowMeasurementAlert }: MeasurementsAddFormProps) {
+export function MeasurementsAddForm({ genericVariable, setShowMeasurementAlert }: MeasurementsAddFormProps) {
   const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       date: currentDate,
-      value: userVariable.mostCommonValue // Set default value to userVariable.mostCommonValue
+      value: genericVariable.mostCommonValue // Set default value to genericVariable.mostCommonValue
     }
   });
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const valence = userVariable.valence;
+  const valence = genericVariable.valence;
 
   let buttons = null;
 
-  if(userVariable.unitAbbreviatedName === '/5' && ratingButtons[valence as Valence]) {
+  if(genericVariable.unitAbbreviatedName === '/5' && ratingButtons[valence as Valence]) {
     buttons = ratingButtons[valence as Valence];
   }
 
@@ -121,21 +122,21 @@ export function MeasurementsAddForm({ userVariable, setShowMeasurementAlert }: M
       body: JSON.stringify({
         startAt: data.date,
         value: data.value, // Use the value from the form
-        variableId: userVariable.variableId
+        variableId: genericVariable.variableId
       })
     });
 
     if (!response?.ok) {
       toast({
         title: 'Something went wrong.',
-        description: userVariable.name + ' was not recorded. Please try again.',
+        description: genericVariable.name + ' was not recorded. Please try again.',
         variant: 'destructive'
       });
     } else {
       toast({
         description: 'Recorded ' + data.value + ' ' +
-         userVariable.unitAbbreviatedName + ' for ' +
-          userVariable.name + ' on ' +
+         genericVariable.unitAbbreviatedName + ' for ' +
+          genericVariable.name + ' on ' +
          format(data.date, 'PPP')
       });
     }
@@ -216,18 +217,18 @@ export function MeasurementsAddForm({ userVariable, setShowMeasurementAlert }: M
               name="value"
               render={({ field }) => (
                 <FormItem className="flex flex-col">
-                  <FormLabel>{userVariable.name} Value</FormLabel>
+                  <FormLabel>{genericVariable.name} Value</FormLabel>
                   <FormControl>
                     <div className="flex items-center">
                       <input
                         id="value-input"
                         type="number"
                         className="w-full"
-                        min={userVariable.minimumAllowedValue} // Set minimum allowed value
-                        max={userVariable.maximumAllowedValue} // Set maximum allowed value
+                        min={genericVariable.minimumAllowedValue} // Set minimum allowed value
+                        max={genericVariable.maximumAllowedValue} // Set maximum allowed value
                         {...field}
                       />
-                      <span className="ml-2">{userVariable.unitAbbreviatedName}</span>
+                      <span className="ml-2">{genericVariable.unitAbbreviatedName}</span>
                     </div>
                   </FormControl>
                   <FormDescription>

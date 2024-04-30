@@ -14,13 +14,13 @@ import { Card } from '../models/Card';
 import { ErrorResponse } from '../models/ErrorResponse';
 import { TrackingReminder } from '../models/TrackingReminder';
 import { TrackingReminderNotification } from '../models/TrackingReminderNotification';
-import { Variable } from '../models/Variable';
+import { GlobalVariable } from './GlobalVariable';
 
 
 export class PostTrackingRemindersDataResponse {
     'trackingReminderNotifications'?: Array<TrackingReminderNotification>;
     'trackingReminders'?: Array<TrackingReminder>;
-    'userVariables'?: Array<Variable>;
+    'userVariables'?: Array<GlobalVariable>;
     /**
     * Can be used as body of help info popup
     */
