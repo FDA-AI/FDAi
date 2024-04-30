@@ -4,10 +4,11 @@ import { FC, useEffect, useState } from "react";
 import { UserVariable } from "@/types/models/UserVariable";
 import { DashboardHeader } from "@/components/pages/dashboard/dashboard-header";
 import { DateRangePicker } from "@/components/date-range-picker";
-import { UserVariableOperationsButton } from "@/components/userVariable/user-variable-operations-button";
+import { UserVariableOperationsButton } from "@/components/userVariables/user-variable-operations-button";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-import { MeasurementsList } from "@/components/userVariable/measurements/measurements-list";
+import { MeasurementsList } from "@/components/measurements/measurements-list";
+import * as React from "react";
 type UserVariableOverviewProps = {
   user: {
     id: string;
@@ -42,7 +43,9 @@ export const UserVariableOverview: FC<UserVariableOverviewProps> = ({ user, vari
   }, [user, variableId]);
 
   if (isLoading) {
-    return <div>Loading...</div>; // Show a loader or a loading component
+    return <div className="flex justify-center p-8">
+      <Icons.spinner className="animate-spin text-4xl" />
+    </div>;
   }
 
   // Ensure userVariable is defined before trying to access its properties

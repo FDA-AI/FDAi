@@ -3,11 +3,12 @@
 import Link from "next/link"
 
 import { Skeleton } from "@/components/ui/skeleton"
-import { UserVariableOperationsButton } from "@/components/userVariable/user-variable-operations-button"
-import { QuickMeasurementButton } from '@/components/userVariable/measurements/quick-measurement-button';
-import { MeasurementButton } from '@/components/userVariable/measurement-button';
+import { UserVariableOperationsButton } from "@/components/userVariables/user-variable-operations-button"
+import { QuickMeasurementButton } from '@/components/measurements/quick-measurement-button';
+import { MeasurementButton } from '@/components/measurements/measurement-button';
 import { UserVariable } from "@/types/models/UserVariable";
 import { Icons } from "../icons";
+import {Button} from "@/components/ui/button";
 
 interface UserVariableItemProps {
   userVariable: UserVariable;
@@ -43,13 +44,13 @@ export function UserVariableItem({ userVariable }: UserVariableItemProps) {
       </div>
       <div id="variable-buttons" className="flex flex-row gap-2">
         <MeasurementButton
-          userVariable={userVariable}
+          genericVariable={userVariable}
           className="flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted"
           variant="outline"
-          size="icon"
+          size="default"
         />
         <QuickMeasurementButton
-          userVariable={userVariable}
+          genericVariable={userVariable}
           className="flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted"
           variant="outline"
           size="icon"

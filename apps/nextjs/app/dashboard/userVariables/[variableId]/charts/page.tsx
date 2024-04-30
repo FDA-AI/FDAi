@@ -5,7 +5,7 @@ import { authOptions } from "@/lib/auth"
 import { getCurrentUser } from "@/lib/session"
 import { Shell } from "@/components/layout/shell"
 import { DashboardHeader } from "@/components/pages/dashboard/dashboard-header"
-import { UserVariableCharts } from '@/components/userVariable/user-variable-charts';
+import { UserVariableCharts } from '@/components/userVariables/user-variable-charts';
 
 export const metadata: Metadata = {
   title: "UserVariable Charts",
