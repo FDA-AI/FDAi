@@ -24,7 +24,7 @@ import {
 import { toast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
 
-import { MeasurementsAddForm } from "./measurements/measurements-add-form"
+import { MeasurementsAddForm } from "@/components/measurements/measurements-add-form"
 import { UserVariable } from "@/types/models/UserVariable"
 
 async function deleteUserVariable(userVariableId: number) {
@@ -120,7 +120,7 @@ export function UserVariableOperationsButton({
             </CredenzaDescription>
           </CredenzaHeader>
           <MeasurementsAddForm
-            userVariable={userVariable}
+            genericVariable={userVariable}
             setShowMeasurementAlert={setShowMeasurementAlert}
           />
         </CredenzaContent>
