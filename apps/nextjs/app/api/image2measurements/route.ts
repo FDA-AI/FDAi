@@ -12,6 +12,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from "openai";
+import {handleError} from "@/lib/errorHandler";
 
 // Initialize the OpenAI client with the API key. This key is essential for authenticating
 // the requests with OpenAI's API services.
@@ -154,8 +155,6 @@ Please provide the JSON output without any additional text or explanations.
     // Return the analysis in the response
     return NextResponse.json({ success: true, analysis: analysis });
   } catch (error) {
-    // Log and handle any errors encountered during the request to OpenAI
-    console.error('Error sending request to OpenAI:', error);
-    return NextResponse.json({ success: false, message: 'Error sending request to OpenAI' });
+    return handleError(error, "image2measurements");
   }
 }

@@ -1,7 +1,11 @@
 // lib/errorHandler.ts
 import {z} from "zod";
+import {env} from "@/env.mjs";
 
-export function handleError(error: unknown) {
+export function handleError(error: unknown, context?: string) {
+  if(!context){
+    context = 'handleError'
+  }
     if (error instanceof z.ZodError) {
         return new Response(JSON.stringify(error.issues), {
             status: 422,
@@ -9,9 +13,9 @@ export function handleError(error: unknown) {
         })
     }
 
-    console.error(error)
+    console.error(context+": ", error)
 
-    if (process.env.NODE_ENV === "development") {
+    if (env.NODE_ENV === "development") {
         return new Response(
             JSON.stringify({ error: "Internal Server Error", details: error }),
             {

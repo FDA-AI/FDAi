@@ -1,18 +1,19 @@
 import { Measurement } from "@/types/models/Measurement";
 import {textCompletion} from "@/lib/llm";
+import {convertToLocalDateTime, getUtcDateTime} from "@/lib/dateTimeWithTimezone";
 
 // IMPORTANT! Set the runtime to edge
 export const runtime = 'edge';
 
 export function conversation2MeasurementsPrompt(statement: string,
-                                                localDateTime: string | null | undefined,
+                                                utcDateTime: string | null | undefined,
+                                                timeZoneOffset: number | null | undefined,
                                                 previousStatements: string | null | undefined): string {
 
 
-  if(!localDateTime) {
-    const now = new Date();
-    localDateTime = now.toISOString().slice(0, 19);
-  }
+  if(!utcDateTime) {utcDateTime = getUtcDateTime();}
+  let localDateTime = utcDateTime;
+  if(timeZoneOffset) {localDateTime = convertToLocalDateTime(utcDateTime, timeZoneOffset);}
   return `
 You are a robot designed to collect diet, treatment, and symptom data from the user.
 
@@ -57,9 +58,10 @@ The following is the user request translated into a JSON object with 2 spaces of
 }
 
 export async function conversation2measurements(statement: string,
-                                        localDateTime: string | null | undefined,
+                                        utcDateTime: string | null | undefined,
+                                                timeZoneOffset: number | null | undefined,
                                                 previousStatements: string | null | undefined): Promise<Measurement[]> {
-  let promptText = conversation2MeasurementsPrompt(statement, localDateTime, previousStatements);
+  let promptText = conversation2MeasurementsPrompt(statement, utcDateTime, timeZoneOffset, previousStatements);
   const maxTokenLength = 1500;
   if(promptText.length > maxTokenLength) {
     // truncate to less than 1500 characters

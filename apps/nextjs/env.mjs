@@ -15,6 +15,7 @@ export const env = createEnv({
     EMAIL_SERVER: z.string().min(1),
     EMAIL_FROM: z.string().min(1),
     OPENAI_API_KEY: z.string().min(1),
+    NODE_ENV: z.enum(["development", "production"]),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().min(1),
@@ -33,5 +34,6 @@ export const env = createEnv({
     EMAIL_SERVER: process.env.EMAIL_SERVER,
     EMAIL_FROM: process.env.EMAIL_FROM,
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+    NODE_ENV: process.env.NODE_ENV,
   },
 })
