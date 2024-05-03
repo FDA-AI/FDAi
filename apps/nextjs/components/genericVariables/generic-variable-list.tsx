@@ -2,10 +2,10 @@
 import { EmptyPlaceholder } from "@/components/empty-placeholder";
 import { Icons } from "@/components/icons";
 
-import { UserVariableAddButton } from "../userVariables/user-variable-add-button";
 import { UserVariableItem } from "../userVariables/user-variable-item";
 import { FC, useEffect, useState } from "react";
 import { UserVariable } from "@/types/models/UserVariable";
+import {GenericVariableAddButton} from "@/components/genericVariables/generic-variable-add-button";
 
 type UserVariableListProps = {
   user: {
@@ -39,7 +39,10 @@ export const GenericVariableList: FC<UserVariableListProps> = ({ user, searchPar
     });
 
     const queryString = queryParams.toString();
-    const url = `/api/dfda/variables${queryString ? `?${queryString}` : ''}`;
+    let url = `/api/dfda/variables${queryString ? `?${queryString}` : ''}`;
+    if(!searchParams.includePublic){
+      url = `/api/dfda/userVariables${queryString ? `?${queryString}` : ''}`;
+    }
 
     fetch(url)
       .then(response => response.json())
@@ -73,7 +76,7 @@ export const GenericVariableList: FC<UserVariableListProps> = ({ user, searchPar
           <EmptyPlaceholder.Description>
             Add a symptom, food or treatment to start tracking!
           </EmptyPlaceholder.Description>
-          <UserVariableAddButton variant="outline" />
+          <GenericVariableAddButton variant="outline" />
         </EmptyPlaceholder>
       )}
     </>

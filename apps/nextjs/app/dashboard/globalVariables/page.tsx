@@ -3,15 +3,15 @@ import { redirect } from "next/navigation"
 
 import { authOptions } from "@/lib/auth"
 import { getCurrentUser } from "@/lib/session"
-import { GlobalVariableAddButton } from "@/components/globalVariables/global-variable-add-button"
+import { GenericVariableAddButton } from "@/components/genericVariables/generic-variable-add-button"
 import { Shell } from "@/components/layout/shell"
 import { DashboardHeader } from "@/components/pages/dashboard/dashboard-header"
-import {GenericVariableList} from "@/components/genericVariables/generic-variable-list";
+import {GlobalVariableSearch} from "@/components/globalVariables/global-variable-search";
 
 
 export const metadata: Metadata = {
-  title: "Your Variables",
-  description: "Manage your treatments, symptoms, and other variables.",
+  title: "Search for a Variable",
+  description: "Find a food, drug, symptom, or other variable.",
 }
 
 export default async function GlobalVariablesPage() {
@@ -21,21 +21,11 @@ export default async function GlobalVariablesPage() {
     redirect(authOptions?.pages?.signIn || "/signin")
   }
 
-  // Define search parameters
-  const searchParams = {
-    includePublic: false,
-    sort: 'createdAt',
-    limit: 10,
-    offset: 0,
-    searchPhrase: "",
-  };
-
   return (
     <Shell>
-      <DashboardHeader heading="Your Variables" text="Manage your treatments, symptoms, and other variables.">
-        <GlobalVariableAddButton />
+      <DashboardHeader heading="Global Variables" text="Search for a food, drug, symptom or anything else.">
       </DashboardHeader>
-      <GenericVariableList user={user} searchParams={searchParams} />
+      <GlobalVariableSearch user={user} />
     </Shell>
   )
 }

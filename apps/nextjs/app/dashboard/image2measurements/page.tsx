@@ -11,9 +11,9 @@ import {DashboardHeader} from "@/components/pages/dashboard/dashboard-header";
 import {AnalyzeButton} from "@/components/AnalyzeButton";
 import {FileUploader} from "@/components/FileUploader";
 import {AnalysisResult} from "@/components/AnalysisResult";
-import {CameraButton} from "@/components/CameraButton"; // Importing the CameraButton component
+import {CameraButton} from "@/components/CameraButton";
+import {getUtcDateTimeWithTimezone} from "@/lib/dateTimeWithTimezone";
 
-// The main App component
 const App: React.FC = () => {
   // State management for various functionalities
   const [file, setFile] = useState<File | null>(null); // Holds the selected image file
@@ -26,7 +26,7 @@ const App: React.FC = () => {
 
   // Callback for handling file selection changes
   const handleFileChange = useCallback(async (selectedFile: File) => {
-    // Updating state with the new file and its preview URL
+    // Updating the state with the new file and its preview URL
     setFile(selectedFile);
     setPreview(URL.createObjectURL(selectedFile));
     setStatusMessage('Image selected. Click "Analyze Image" to proceed.');
@@ -65,6 +65,7 @@ const App: React.FC = () => {
       body: JSON.stringify({
         file: base64Image,
         prompt: textInput,
+        utcDateTimeWithTimezone: getUtcDateTimeWithTimezone(),
       }),
     });
 

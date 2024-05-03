@@ -2,7 +2,7 @@
 import { FC, useEffect, useState } from "react";
 import {GenericVariableList} from "@/components/genericVariables/generic-variable-list";
 
-type UserVariableSearchProps = {
+type GenericVariableSearchProps = {
   user: {
     id: string;
   };
@@ -10,7 +10,7 @@ type UserVariableSearchProps = {
   sort?: string; // Optional parameter with a default value
 };
 
-export const GenericVariableSearch: FC<UserVariableSearchProps> = ({ user, includePublic = true, sort = '-numberOfUserVariables' }) => {
+export const GenericVariableSearch: FC<GenericVariableSearchProps> = ({ user, includePublic = true, sort = '-numberOfUserVariables' }) => {
 
   // State to manage search phrase
   const [searchPhrase, setSearchPhrase] = useState("");

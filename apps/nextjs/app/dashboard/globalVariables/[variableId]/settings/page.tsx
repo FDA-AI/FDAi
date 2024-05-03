@@ -23,7 +23,7 @@ export default async function GlobalVariableEdit({ params }: GlobalVariableEditP
   }
 
   const response = await fetch(
-    `/api/dfda/globalVariables?variableId=${params.variableId}&includeCharts=0`)
+    `/api/dfda/variables?variableId=${params.variableId}&includeCharts=0`)
   const globalVariables = await response.json()
   const globalVariable = globalVariables[0]
 
