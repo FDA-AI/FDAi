@@ -3,10 +3,11 @@ import { redirect } from "next/navigation"
 
 import { authOptions } from "@/lib/auth"
 import { getCurrentUser } from "@/lib/session"
-import { UserVariableAddButton } from "@/components/userVariables/user-variable-add-button"
 import { GenericVariableList } from "@/components/genericVariables/generic-variable-list"
 import { Shell } from "@/components/layout/shell"
 import { DashboardHeader } from "@/components/pages/dashboard/dashboard-header"
+import {GenericVariableAddButton} from "@/components/genericVariables/generic-variable-add-button";
+import {UserVariableSearch} from "@/components/userVariables/user-variable-search";
 
 
 export const metadata: Metadata = {
@@ -33,9 +34,9 @@ export default async function UserVariablesPage() {
   return (
     <Shell>
       <DashboardHeader heading="Your Variables" text="Manage your treatments, symptoms, and other variables.">
-        <UserVariableAddButton />
+        <GenericVariableAddButton />
       </DashboardHeader>
-      <GenericVariableList user={user} searchParams={searchParams} />
+      <UserVariableSearch user={user} />
     </Shell>
   )
 }

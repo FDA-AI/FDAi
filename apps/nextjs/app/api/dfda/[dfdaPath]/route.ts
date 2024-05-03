@@ -18,7 +18,7 @@ export async function GET(req: Request, context: z.infer<typeof routeContextSche
     const data = response.data ?? response;
     return new Response(JSON.stringify(data), { status: 200, headers: { 'Content-Type': 'application/json' } });
   } catch (error) {
-    return handleError(error);
+    return handleError(error, "GET dfdaPath");
   }
 }
 
@@ -32,6 +32,6 @@ export async function POST(req: Request, context: z.infer<typeof routeContextSch
     const data = response.data ?? response;
     return new Response(JSON.stringify(data), { status: response.status, headers: { 'Content-Type': 'application/json' } });
   } catch (error) {
-    return handleError(error);
+    return handleError(error, "POST dfdaPath");
   }
 }
