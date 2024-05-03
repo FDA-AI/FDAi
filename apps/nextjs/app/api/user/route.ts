@@ -14,6 +14,6 @@ export async function GET(
     const dfdaUser = await getOrCreateDfdaUser(session.user.id);
     return new Response(JSON.stringify(dfdaUser), { status: 200, headers: { 'Content-Type': 'application/json' } })
   } catch (error) {
-    return handleError(error)
+    return handleError(error, "GET dfdaUser");
   }
 }

@@ -1,5 +1,6 @@
 import {db} from "@/lib/db"
 import {UserVariable} from "@/types/models/UserVariable";
+import {env} from "@/env.mjs";
 
 async function getYourUser(yourUserId: any) {
   let user = await db.user.findUnique({
@@ -105,7 +106,14 @@ async function dfdaFetch(
 
   console.log(`Making ${method} request to ${dfdaUrl}`);
   const response = await fetch(dfdaUrl, init);
-  return await response.json();
+  const json =  await response.json();
+  if(env.NODE_ENV === "development") {
+    console.log(`${dfdaUrl} Response status: ${response.status}`, json);
+  }
+  if(json.error) {
+    console.error("Error in dfdaFetch to ${dfdaUrl}", json.error)
+  }
+  return json;
 }
 
 export async function dfdaGET(

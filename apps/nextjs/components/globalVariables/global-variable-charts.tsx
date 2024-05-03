@@ -31,7 +31,7 @@ export const GlobalVariableCharts: FC<GlobalVariableChartsProps> = ({ variableId
   const [isLoading, setIsLoading] = useState(true); // Add a loading state
 
   useEffect(() => {
-    const url = `/api/dfda/globalVariables?variableId=${variableId}&includeCharts=1`;
+    const url = `/api/dfda/variables?variableId=${variableId}&includeCharts=1`;
 
     setIsLoading(true); // Set loading to true when the fetch starts
     fetch(url)

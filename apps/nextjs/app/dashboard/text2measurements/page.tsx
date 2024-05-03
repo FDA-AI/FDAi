@@ -4,12 +4,12 @@ import React, { useState } from 'react';
 import {Shell} from "@/components/layout/shell";
 import {DashboardHeader} from "@/components/pages/dashboard/dashboard-header";
 import {Icons} from "@/components/icons";
+import {getTimeZoneOffset, getUtcDateTime} from "@/lib/dateTimeWithTimezone";
 
 // Define a type for the message objects
 type Message = {
   type: 'user' | 'response' | 'loading';
   text: string;
-  time: string;
 };
 
 const App: React.FC = () => {
@@ -19,18 +19,24 @@ const App: React.FC = () => {
 
   const sendMessage = async () => {
     if (input.trim()) {
-      const localDateTime = new Date().toISOString(); // Get current date and time in ISO format
-      setMessages([...messages, { type: 'user', text: input, time: localDateTime }, { type: 'loading', text: 'Loading...', time: localDateTime }]);
+
+      setMessages([...messages, { type: 'user', text: input }, { type: 'loading', text: 'Loading...' }]);
       setIsLoading(true);
       const response = await fetch('/api/text2measurements', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ text: input, localDateTime }), // Include localDateTime in the request body
+        body: JSON.stringify({
+          text: input,
+          timeZoneOffset: getTimeZoneOffset(),
+          utcDateTime: getUtcDateTime(),
+        }),
       });
       const data = await response.json();
-      setMessages(prevMessages => prevMessages.filter(msg => msg.type !== 'loading').concat({ type: 'response', text: JSON.stringify(data), time: localDateTime }));
+      setMessages(prevMessages => prevMessages
+        .filter(msg => msg.type !== 'loading')
+        .concat({ type: 'response', text: JSON.stringify(data) }));
       setIsLoading(false);
       setInput('');
     }
