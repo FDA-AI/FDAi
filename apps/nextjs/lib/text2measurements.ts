@@ -1,11 +1,9 @@
 import {Measurement} from "@/types/models/Measurement";
-import {textCompletion} from "@/lib/llm";
+import {getDateTimeFromStatement, textCompletion} from "@/lib/llm";
 import {getUserId} from "@/lib/getUserId";
 import {postMeasurements} from "@/lib/dfda";
 import {
   convertToLocalDateTime,
-  convertToUTC, getDateTimeFromStatement,
-  getUtcDateTime,
   throwErrorIfDateInFuture
 } from "@/lib/dateTimeWithTimezone";
 
