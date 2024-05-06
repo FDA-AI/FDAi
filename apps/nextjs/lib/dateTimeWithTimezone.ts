@@ -1,5 +1,3 @@
-import {textCompletion} from "@/lib/llm";
-
 export function getUtcDateTimeWithTimezone() {
   const date = new Date();
   const timezoneOffset = date.getTimezoneOffset();
@@ -35,17 +33,3 @@ export function convertToLocalDateTime(utcDateTime: string | number | Date, time
   return localDate.toISOString();
 }
 
-export async function getDateTimeFromStatement(statement: string): Promise<string> {
-  const currentDate = getUtcDateTime();
-  const promptText = `
-        estimate the date and time of the user statement based on the current date and time ${currentDate}
-         and the following user statement:
-\`\`\`
-${statement}
-\`\`\`
-       Return a single string in the format "YYYY-MM-DDThh:mm:ss"`;
-  let result = await textCompletion(promptText, "text");
-  // Remove quote marks
-  result = result.replace(/['"]+/g, '');
-  return result;
-}
