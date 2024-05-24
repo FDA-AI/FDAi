@@ -1,0 +1,1790 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model global_variable_relationships {
+  id                                                                                                 Int                                      @id @default(autoincrement())
+  forward_pearson_correlation_coefficient                                                            Float
+  onset_delay                                                                                        Int
+  duration_of_action                                                                                 Int
+  number_of_pairs                                                                                    Int
+  value_predicting_high_outcome                                                                      Float
+  value_predicting_low_outcome                                                                       Float
+  optimal_pearson_product                                                                            Float
+  average_vote                                                                                       Float?                                   @default(0.5)
+  number_of_users                                                                                    Int
+  number_of_user_variable_relationships                                                                             Int
+  statistical_significance                                                                           Float
+  cause_unit_id                                                                                      Int?                                     @db.SmallInt
+  cause_changes                                                                                      Int
+  effect_changes                                                                                     Int
+  aggregate_qm_score                                                                                 Float
+  created_at                                                                                         DateTime                                 @default(now()) @db.Timestamp(0)
+  updated_at                                                                                         DateTime                                 @default(now()) @db.Timestamp(0)
+  status                                                                                             String                                   @db.VarChar(25)
+  reverse_pearson_correlation_coefficient                                                            Float
+  predictive_pearson_correlation_coefficient                                                         Float
+  data_source_name                                                                                   String?                                  @db.VarChar(255)
+  predicts_high_effect_change                                                                        Int
+  predicts_low_effect_change                                                                         Int
+  p_value                                                                                            Float
+  t_value                                                                                            Float
+  critical_t_value                                                                                   Float
+  confidence_interval                                                                                Float
+  deleted_at                                                                                         DateTime?                                @db.Timestamp(0)
+  average_effect                                                                                     Float
+  average_effect_following_high_cause                                                                Float
+  average_effect_following_low_cause                                                                 Float
+  average_daily_low_cause                                                                            Float
+  average_daily_high_cause                                                                           Float
+  population_trait_pearson_correlation_coefficient                                                   Float?
+  grouped_cause_value_closest_to_value_predicting_low_outcome                                        Float
+  grouped_cause_value_closest_to_value_predicting_high_outcome                                       Float
+  client_id                                                                                          String?                                  @db.VarChar(255)
+  published_at                                                                                       DateTime?                                @db.Timestamp(0)
+  dfda_post_id                                                                                       BigInt?
+  cause_variable_category_id                                                                         Int                                      @db.SmallInt
+  effect_variable_category_id                                                                        Int                                      @db.SmallInt
+  interesting_variable_category_pair                                                                 Boolean
+  newest_data_at                                                                                     DateTime?                                @db.Timestamp(0)
+  analysis_requested_at                                                                              DateTime?                                @db.Timestamp(0)
+  reason_for_analysis                                                                                String                                   @db.VarChar(255)
+  analysis_started_at                                                                                DateTime?                                @db.Timestamp(0)
+  analysis_ended_at                                                                                  DateTime?                                @db.Timestamp(0)
+  user_error_message                                                                                 String?
+  internal_error_message                                                                             String?
+  cause_variable_id                                                                                  Int
+  effect_variable_id                                                                                 Int
+  cause_baseline_average_per_day                                                                     Float
+  cause_baseline_average_per_duration_of_action                                                      Float
+  cause_treatment_average_per_day                                                                    Float
+  cause_treatment_average_per_duration_of_action                                                     Float
+  effect_baseline_average                                                                            Float
+  effect_baseline_relative_standard_deviation                                                        Float
+  effect_baseline_standard_deviation                                                                 Float
+  effect_follow_up_average                                                                           Float
+  effect_follow_up_percent_change_from_baseline                                                      Float
+  z_score                                                                                            Float
+  charts                                                                                             Json                                     @db.Json
+  number_of_variables_where_best_aggregate_correlation                                               Int
+  deletion_reason                                                                                    String?                                  @db.VarChar(280)
+  record_size_in_kb                                                                                  Int?
+  is_public                                                                                          Boolean
+  slug                                                                                               String?                                  @unique(map: "global_variable_relationships_slug_uindex") @db.VarChar(200)
+  boring                                                                                             Boolean?
+  outcome_is_a_goal                                                                                  Boolean?
+  predictor_is_controllable                                                                          Boolean?
+  plausibly_causal                                                                                   Boolean?
+  obvious                                                                                            Boolean?
+  number_of_up_votes                                                                                 Int
+  number_of_down_votes                                                                               Int
+  strength_level                                                                                     String                                   @db.VarChar(255)
+  confidence_level                                                                                   String                                   @db.VarChar(255)
+  relationship                                                                                       String                                   @db.VarChar(255)
+  units                                                                                              units?                                   @relation(fields: [cause_unit_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "global_variable_relationships_cause_unit_id_fk")
+  variable_categories_global_variable_relationships_cause_variable_category_idTovariable_categories  variable_categories                      @relation("global_variable_relationships_cause_variable_category_idTovariable_categories", fields: [cause_variable_category_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "global_variable_relationships_cause_variable_category_id_fk")
+  variables_global_variable_relationships_cause_variable_idTovariables                               global_variables                                @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "global_variable_relationships_client_id_fk")
+  variable_categories_global_variable_relationships_effect_variable_category_idTovariable_categories variable_categories                      @relation("global_variable_relationships_effect_variable_category_idTovariable_categories", fields: [effect_variable_category_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "global_variable_relationships_effect_variable_category_id_fk")
+  correlation_causality_votes                                                                        correlation_causality_votes[]
+  variable_relationship_usefulness_votes                                                             variable_relationship_usefulness_votes[]
+  user_variable_relationships                                                                                       user_variable_relationships[]
+  global_studies                                                                                     global_studies[]
+  variables_variables_best_aggregate_correlation_idToglobal_variable_relationships                   global_variables[]                              @relation("variables_best_aggregate_correlation_idToglobal_variable_relationships")
+  votes                                                                                              votes[]
+  variables                                                                                          global_variables?                               @relation(fields: [variablesId], references: [id])
+  variablesId                                                                                        Int?
+  variables                                                                                          global_variables?                               @relation(fields: [variablesId], references: [id])
+  variablesId                                                                                        Int?
+  oa_clients                                                                                         oa_clients?                              @relation(fields: [oa_clientsClient_id], references: [client_id])
+  oa_clientsClient_id                                                                                String?                                  @db.VarChar(80)
+
+  @@unique([cause_variable_id, effect_variable_id], map: "global_variable_relationships_pk")
+  @@unique([cause_variable_id, effect_variable_id], map: "cause_variable_id_effect_variable_id_uindex")
+  @@index([cause_unit_id], map: "global_variable_relationships_cause_unit_id_fk")
+  @@index([cause_variable_category_id], map: "global_variable_relationships_cause_variable_category_id_fk")
+  @@index([client_id], map: "global_variable_relationships_client_id_fk")
+  @@index([effect_variable_category_id], map: "global_variable_relationships_effect_variable_category_id_fk")
+  @@index([effect_variable_id], map: "global_variable_relationships_effect_variable_id_index")
+  @@index([dfda_post_id], map: "global_variable_relationships_dfda_posts_ID_fk")
+}
+
+model cohort_studies {
+  id                                                     Int         @id
+  cohort_study_statistics_id                             Int?
+  cause_variable_id                                      Int
+  effect_variable_id                                     Int
+  user_id                                                BigInt
+  created_at                                             DateTime    @default(now()) @db.Timestamp(0)
+  deleted_at                                             DateTime?   @db.Timestamp(0)
+  analysis_parameters                                    String?
+  user_study_text                                        String?
+  user_title                                             String?
+  study_status                                           String      @default("publish") @db.VarChar(20)
+  comment_status                                         String      @default("open") @db.VarChar(20)
+  study_password                                         String?     @db.VarChar(20)
+  study_images                                           String?
+  updated_at                                             DateTime    @default(now()) @db.Timestamp(0)
+  client_id                                              String?     @db.VarChar(255)
+  published_at                                           DateTime?   @db.Timestamp(0)
+  dfda_post_id                                           Int?
+  cohort_correlation_id                                  Int?
+  newest_data_at                                         DateTime?   @db.Timestamp(0)
+  analysis_requested_at                                  DateTime?   @db.Timestamp(0)
+  reason_for_analysis                                    String?     @db.VarChar(255)
+  analysis_ended_at                                      DateTime?   @db.Timestamp(0)
+  analysis_started_at                                    DateTime?   @db.Timestamp(0)
+  internal_error_message                                 String?     @db.VarChar(255)
+  user_error_message                                     String?     @db.VarChar(255)
+  status                                                 String?     @db.VarChar(25)
+  analysis_settings_modified_at                          DateTime?   @db.Timestamp(0)
+  is_public                                              Boolean?
+  sort_order                                             Int?
+  slug                                                   String?     @unique(map: "cohort_studies_slug_uindex") @db.VarChar(200)
+  variables_cohort_studies_cause_variable_idTovariables  global_variables   @relation("cohort_studies_cause_variable_idTovariables", fields: [cause_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "cohort_studies_cause_variable_id_variables_id_fk")
+  variables_cohort_studies_effect_variable_idTovariables global_variables   @relation("cohort_studies_effect_variable_idTovariables", fields: [effect_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "cohort_studies_effect_variable_id_variables_id_fk")
+  dfda_users                                             dfda_users  @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "cohort_studies_user_id_fk")
+  oa_clients                                             oa_clients? @relation(fields: [oa_clientsClient_id], references: [client_id])
+  oa_clientsClient_id                                    String?     @db.VarChar(80)
+
+  @@unique([user_id, cause_variable_id, effect_variable_id], map: "user_cause_effect")
+  @@index([cause_variable_id], map: "cause_variable_id")
+  @@index([cause_variable_id], map: "cohort_studies_cause_variable_id")
+  @@index([client_id], map: "cohort_studies_client_id_fk")
+  @@index([effect_variable_id], map: "cohort_studies_effect_variable_id")
+  @@index([effect_variable_id], map: "effect_variable_id")
+}
+
+
+
+model cohort_study_statistics {
+  id                                                                                           Int                 @id @default(autoincrement())
+  cohort_study_id                                                                              Int?
+  forward_pearson_correlation_coefficient                                                      Float
+  onset_delay                                                                                  Int
+  duration_of_action                                                                           Int
+  number_of_pairs                                                                              Int
+  value_predicting_high_outcome                                                                Float
+  value_predicting_low_outcome                                                                 Float
+  optimal_pearson_product                                                                      Float
+  average_vote                                                                                 Float?              @default(0.5)
+  number_of_participants                                                                       Int
+  statistical_significance                                                                     Float
+  cause_unit_id                                                                                Int?                @db.SmallInt
+  cause_changes                                                                                Int
+  effect_changes                                                                               Int
+  Cohort_qm_score                                                                              Float
+  created_at                                                                                   DateTime            @default(now()) @db.Timestamp(0)
+  updated_at                                                                                   DateTime            @default(now()) @db.Timestamp(0)
+  status                                                                                       String              @db.VarChar(25)
+  reverse_pearson_correlation_coefficient                                                      Float
+  predictive_pearson_correlation_coefficient                                                   Float
+  data_source_name                                                                             String?             @db.VarChar(255)
+  predicts_high_effect_change                                                                  Int
+  predicts_low_effect_change                                                                   Int
+  p_value                                                                                      Float
+  t_value                                                                                      Float
+  critical_t_value                                                                             Float
+  confidence_interval                                                                          Float
+  deleted_at                                                                                   DateTime?           @db.Timestamp(0)
+  average_effect                                                                               Float
+  average_effect_following_high_cause                                                          Float
+  average_effect_following_low_cause                                                           Float
+  average_daily_low_cause                                                                      Float
+  average_daily_high_cause                                                                     Float
+  population_trait_pearson_correlation_coefficient                                             Float?
+  grouped_cause_value_closest_to_value_predicting_low_outcome                                  Float
+  grouped_cause_value_closest_to_value_predicting_high_outcome                                 Float
+  client_id                                                                                    String?             @db.VarChar(255)
+  published_at                                                                                 DateTime?           @db.Timestamp(0)
+  dfda_post_id                                                                                 BigInt?
+  cause_variable_category_id                                                                   Int                 @db.SmallInt
+  effect_variable_category_id                                                                  Int                 @db.SmallInt
+  interesting_variable_category_pair                                                           Boolean
+  newest_data_at                                                                               DateTime?           @db.Timestamp(0)
+  analysis_requested_at                                                                        DateTime?           @db.Timestamp(0)
+  reason_for_analysis                                                                          String              @db.VarChar(255)
+  analysis_started_at                                                                          DateTime?           @db.Timestamp(0)
+  analysis_ended_at                                                                            DateTime?           @db.Timestamp(0)
+  user_error_message                                                                           String?
+  internal_error_message                                                                       String?
+  cause_variable_id                                                                            Int
+  effect_variable_id                                                                           Int
+  cause_baseline_average_per_day                                                               Float
+  cause_baseline_average_per_duration_of_action                                                Float
+  cause_treatment_average_per_day                                                              Float
+  cause_treatment_average_per_duration_of_action                                               Float
+  effect_baseline_average                                                                      Float
+  effect_baseline_relative_standard_deviation                                                  Float
+  effect_baseline_standard_deviation                                                           Float
+  effect_follow_up_average                                                                     Float
+  effect_follow_up_percent_change_from_baseline                                                Float
+  z_score                                                                                      Float
+  charts                                                                                       Json                @db.Json
+  number_of_variables_where_best_cohort_correlation                                            Int
+  deletion_reason                                                                              String?             @db.VarChar(280)
+  record_size_in_kb                                                                            Int?
+  is_public                                                                                    Boolean?
+  slug                                                                                         String?             @unique(map: "cohort_study_statistics_slug_uindex") @db.VarChar(200)
+  boring                                                                                       Boolean?
+  outcome_is_a_goal                                                                            Boolean?
+  predictor_is_controllable                                                                    Boolean?
+  plausibly_causal                                                                             Boolean?
+  obvious                                                                                      Boolean?
+  number_of_up_votes                                                                           Int
+  number_of_down_votes                                                                         Int
+  strength_level                                                                               String              @db.VarChar(255)
+  confidence_level                                                                             String              @db.VarChar(255)
+  relationship                                                                                 String              @db.VarChar(255)
+  units                                                                                        units?              @relation(fields: [cause_unit_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "cohort_study_statistics_cause_unit_id_fk")
+  variable_categories_cohort_study_statistics_cause_variable_category_idTovariable_categories  variable_categories @relation("cohort_study_statistics_cause_variable_category_idTovariable_categories", fields: [cause_variable_category_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "cohort_study_statistics_cause_variable_category_id_fk")
+  variables_cohort_study_statistics_cause_variable_idTovariables                               global_variables           @relation("cohort_study_statistics_cause_variable_idTovariables", fields: [cause_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "cohort_study_statistics_cause_variables_id_fk")
+  oa_clients                                                                                   oa_clients?         @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "cohort_study_statistics_client_id_fk")
+  variable_categories_cohort_study_statistics_effect_variable_category_idTovariable_categories variable_categories @relation("cohort_study_statistics_effect_variable_category_idTovariable_categories", fields: [effect_variable_category_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "cohort_study_statistics_effect_variable_category_id_fk")
+  variables_cohort_study_statistics_effect_variable_idTovariables                              global_variables           @relation("cohort_study_statistics_effect_variable_idTovariables", fields: [effect_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "cohort_study_statistics_effect_variables_id_fk")
+
+  @@unique([cause_variable_id, effect_variable_id], map: "cs_cause_variable_id_effect_variable_id_uindex")
+  @@index([cause_unit_id], map: "cohort_study_statistics_cause_unit_id_fk")
+  @@index([cause_variable_category_id], map: "cohort_study_statistics_cause_variable_category_id_fk")
+  @@index([client_id], map: "cohort_study_statistics_client_id_fk")
+  @@index([effect_variable_category_id], map: "cohort_study_statistics_effect_variable_category_id_fk")
+  @@index([effect_variable_id], map: "cohort_study_statistics_effect_variable_id_index")
+}
+
+model common_tags {
+  id                                                  Int         @id @default(autoincrement())
+  tagged_variable_id                                  Int
+  tag_variable_id                                     Int
+  number_of_data_points                               Int?
+  standard_error                                      Float?
+  tag_variable_unit_id                                Int?        @db.SmallInt
+  tagged_variable_unit_id                             Int?        @db.SmallInt
+  conversion_factor                                   Float
+  client_id                                           String?     @db.VarChar(80)
+  created_at                                          DateTime    @default(now()) @db.Timestamp(0)
+  updated_at                                          DateTime    @default(now()) @db.Timestamp(0)
+  deleted_at                                          DateTime?   @db.Timestamp(0)
+  oa_clients                                          oa_clients? @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "common_tags_client_id_fk")
+  variables_common_tags_tag_variable_idTovariables    global_variables   @relation("common_tags_tag_variable_idTovariables", fields: [tag_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "common_tags_tag_variable_id_variables_id_fk")
+  units_common_tags_tag_variable_unit_idTounits       units?      @relation("common_tags_tag_variable_unit_idTounits", fields: [tag_variable_unit_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "common_tags_tag_variable_unit_id_fk")
+  variables_common_tags_tagged_variable_idTovariables global_variables   @relation("common_tags_tagged_variable_idTovariables", fields: [tagged_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "common_tags_tagged_variable_id_variables_id_fk")
+  units_common_tags_tagged_variable_unit_idTounits    units?      @relation("common_tags_tagged_variable_unit_idTounits", fields: [tagged_variable_unit_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "common_tags_tagged_variable_unit_id_fk")
+
+  @@unique([tagged_variable_id, tag_variable_id], map: "UK_tag_tagged")
+  @@index([client_id], map: "common_tags_client_id_fk")
+  @@index([tag_variable_id], map: "common_tags_tag_variable_id_variables_id_fk")
+  @@index([tag_variable_unit_id], map: "common_tags_tag_variable_unit_id_fk")
+  @@index([tagged_variable_unit_id], map: "common_tags_tagged_variable_unit_id_fk")
+}
+
+model connections {
+  id                                Int                  @id @default(autoincrement())
+  client_id                         String?              @db.VarChar(80)
+  user_id                           BigInt
+  connector_id                      Int
+  connect_status                    String               @db.VarChar(32)
+  connect_error                     String?
+  update_requested_at               DateTime?            @db.Timestamp(0)
+  update_status                     String               @db.VarChar(32)
+  update_error                      String?
+  last_successful_updated_at        DateTime?            @db.Timestamp(0)
+  created_at                        DateTime             @default(now()) @db.Timestamp(0)
+  updated_at                        DateTime             @default(now()) @db.Timestamp(0)
+  deleted_at                        DateTime?            @db.Timestamp(0)
+  total_measurements_in_last_update Int?
+  user_message                      String?              @db.VarChar(255)
+  latest_measurement_at             DateTime?            @db.Timestamp(0)
+  import_started_at                 DateTime?            @db.Timestamp(0)
+  import_ended_at                   DateTime?            @db.Timestamp(0)
+  reason_for_import                 String?              @db.VarChar(255)
+  user_error_message                String?
+  internal_error_message            String?
+  dfda_post_id                      BigInt?
+  number_of_connector_imports       Int?
+  number_of_connector_requests      Int?
+  credentials                       String?
+  imported_data_from_at             DateTime?            @db.Timestamp(0)
+  imported_data_end_at              DateTime?            @db.Timestamp(0)
+  number_of_measurements            Int?
+  is_public                         Boolean?
+  slug                              String?              @unique(map: "connections_slug_uindex") @db.VarChar(200)
+  meta                              String?
+  connector_user_id                 String?              @db.VarChar(255)
+  connector_user_email              String?              @db.VarChar(255)
+  oa_clients                        oa_clients?          @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "connections_client_id_fk")
+  connectors                        connectors           @relation(fields: [connector_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "connections_connectors_id_fk")
+  dfda_users                        dfda_users           @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "connections_user_id_fk")
+  connector_imports                 connector_imports[]
+  connector_requests                connector_requests[]
+  measurements                      measurements[]
+
+  @@unique([user_id, connector_id], map: "UX_userId_connectorId")
+  @@index([connect_status], map: "IDX_status")
+  @@index([client_id], map: "connections_client_id_fk")
+  @@index([connector_id], map: "connections_connectors_id_fk")
+  @@index([dfda_post_id], map: "connections_dfda_posts_ID_fk")
+  @@index([connector_user_id, connector_id], map: "connector_user_id_uindex")
+  @@index([update_status], map: "status")
+  @@index([update_requested_at, update_status], map: "status_update_requested")
+}
+
+model connector_imports {
+  id                           Int                  @id @default(autoincrement())
+  client_id                    String?              @db.VarChar(80)
+  connection_id                Int?
+  connector_id                 Int
+  created_at                   DateTime             @default(now()) @db.Timestamp(0)
+  deleted_at                   DateTime?            @db.Timestamp(0)
+  earliest_measurement_at      DateTime?            @db.Timestamp(0)
+  import_ended_at              DateTime?            @db.Timestamp(0)
+  import_started_at            DateTime?            @db.Timestamp(0)
+  internal_error_message       String?
+  latest_measurement_at        DateTime?            @db.Timestamp(0)
+  number_of_measurements       Int                  @default(0)
+  reason_for_import            String?              @db.VarChar(255)
+  success                      Boolean?             @default(true)
+  updated_at                   DateTime             @default(now()) @db.Timestamp(0)
+  user_error_message           String?
+  user_id                      BigInt
+  additional_meta_data         Json?                @db.Json
+  number_of_connector_requests Int?
+  imported_data_from_at        DateTime?            @db.Timestamp(0)
+  imported_data_end_at         DateTime?            @db.Timestamp(0)
+  credentials                  String?
+  oa_clients                   oa_clients?          @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "connector_imports_client_id_fk")
+  connections                  connections?         @relation(fields: [connection_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "connector_imports_connections_id_fk")
+  connectors                   connectors           @relation(fields: [connector_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "connector_imports_connectors_id_fk")
+  dfda_users                   dfda_users           @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "connector_imports_dfda_users_ID_fk")
+  connector_requests           connector_requests[]
+  measurements                 measurements[]
+
+  @@unique([connection_id, created_at], map: "connector_imports_connection_id_created_at_uindex")
+  @@unique([connector_id, user_id, created_at], map: "connector_imports_connector_id_user_id_created_at_uindex")
+  @@index([user_id, connector_id], map: "IDX_connector_imports_user_connector")
+  @@index([client_id], map: "connector_imports_client_id_fk")
+}
+
+model connector_requests {
+  id                    Int               @id @default(autoincrement())
+  connector_id          Int
+  user_id               BigInt
+  connection_id         Int?
+  connector_import_id   Int
+  method                String            @db.VarChar(10)
+  code                  Int
+  uri                   String            @db.VarChar(2083)
+  response_body         String?
+  request_body          String?
+  request_headers       String
+  created_at            DateTime          @default(now()) @db.Timestamp(0)
+  updated_at            DateTime          @default(now()) @db.Timestamp(0)
+  deleted_at            DateTime?         @db.Timestamp(0)
+  content_type          String?           @db.VarChar(100)
+  imported_data_from_at DateTime?         @db.Timestamp(0)
+  connections           connections?      @relation(fields: [connection_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "connector_requests_connections_id_fk")
+  connector_imports     connector_imports @relation(fields: [connector_import_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "connector_requests_connector_imports_id_fk")
+  connectors            connectors        @relation(fields: [connector_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "connector_requests_connectors_id_fk")
+  dfda_users            dfda_users        @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "connector_requests_dfda_users_ID_fk")
+
+  @@index([connection_id], map: "connector_requests_connections_id_fk")
+  @@index([connector_import_id], map: "connector_requests_connector_imports_id_fk")
+  @@index([connector_id], map: "connector_requests_connectors_id_fk")
+  @@index([user_id], map: "connector_requests_dfda_users_ID_fk")
+}
+
+model connectors {
+  id                           Int                  @id @default(autoincrement())
+  name                         String               @unique(map: "connectors_name_unique") @db.VarChar(30)
+  display_name                 String               @db.VarChar(30)
+  image                        String               @db.VarChar(2083)
+  get_it_url                   String?              @db.VarChar(2083)
+  short_description            String
+  long_description             String
+  enabled                      Boolean              @default(true)
+  oauth                        Boolean              @default(false)
+  qm_client                    Boolean?             @default(false)
+  created_at                   DateTime             @default(now()) @db.Timestamp(0)
+  updated_at                   DateTime             @default(now()) @db.Timestamp(0)
+  client_id                    String?              @db.VarChar(80)
+  deleted_at                   DateTime?            @db.Timestamp(0)
+  dfda_post_id                 BigInt?
+  number_of_connections        Int?
+  number_of_connector_imports  Int?
+  number_of_connector_requests Int?
+  number_of_measurements       Int?
+  is_public                    Boolean?
+  sort_order                   Int?
+  slug                         String?              @unique(map: "connectors_slug_uindex") @db.VarChar(200)
+  available_outside_us         Boolean              @default(true)
+  connections                  connections[]
+  connector_imports            connector_imports[]
+  connector_requests           connector_requests[]
+  oa_clients                   oa_clients?          @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "connectors_client_id_fk")
+
+  measurements measurements[]
+
+  @@index([client_id], map: "connectors_client_id_fk")
+  @@index([dfda_post_id], map: "connectors_dfda_posts_ID_fk")
+}
+
+model correlation_causality_votes {
+  id                                                                  Int                            @id @default(autoincrement())
+  cause_variable_id                                                   Int
+  effect_variable_id                                                  Int
+  correlation_id                                                      Int?
+  aggregate_correlation_id                                            Int?
+  user_id                                                             BigInt
+  vote                                                                Int
+  created_at                                                          DateTime                       @default(now()) @db.Timestamp(0)
+  updated_at                                                          DateTime                       @default(now()) @db.Timestamp(0)
+  deleted_at                                                          DateTime?                      @db.Timestamp(0)
+  client_id                                                           String?                        @db.VarChar(80)
+  is_public                                                           Boolean?
+  global_variable_relationships                                       global_variable_relationships? @relation(fields: [aggregate_correlation_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "correlation_causality_votes_global_variable_relationships_id_fk")
+  variables_correlation_causality_votes_cause_variable_idTovariables  global_variables                      @relation("correlation_causality_votes_cause_variable_idTovariables", fields: [cause_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "correlation_causality_votes_cause_variables_id_fk")
+  oa_clients                                                          oa_clients?                    @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "correlation_causality_votes_client_id_fk")
+  user_variable_relationships                                                        user_variable_relationships?   @relation(fields: [correlation_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "correlation_causality_votes_user_variable_relationships_id_fk")
+  variables_correlation_causality_votes_effect_variable_idTovariables global_variables                      @relation("correlation_causality_votes_effect_variable_idTovariables", fields: [effect_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "correlation_causality_votes_effect_variables_id_fk")
+  dfda_users                                                          dfda_users                     @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "correlation_causality_votes_dfda_users_ID_fk")
+
+  @@unique([user_id, cause_variable_id, effect_variable_id], map: "correlation_causality_votes_user_cause_effect_uindex")
+  @@index([aggregate_correlation_id], map: "correlation_causality_votes_global_variable_relationships_id_fk")
+  @@index([cause_variable_id], map: "correlation_causality_votes_cause_variables_id_fk")
+  @@index([client_id], map: "correlation_causality_votes_client_id_fk")
+  @@index([correlation_id], map: "correlation_causality_votes_user_variable_relationships_id_fk")
+  @@index([effect_variable_id], map: "correlation_causality_votes_effect_variables_id_fk")
+}
+
+model variable_relationship_usefulness_votes {
+  id                                                                             Int                            @id @default(autoincrement())
+  cause_variable_id                                                              Int
+  effect_variable_id                                                             Int
+  correlation_id                                                                 Int?
+  aggregate_correlation_id                                                       Int?
+  user_id                                                                        BigInt
+  vote                                                                           Int
+  created_at                                                                     DateTime                       @default(now()) @db.Timestamp(0)
+  updated_at                                                                     DateTime                       @default(now()) @db.Timestamp(0)
+  deleted_at                                                                     DateTime?                      @db.Timestamp(0)
+  client_id                                                                      String?                        @db.VarChar(80)
+  is_public                                                                      Boolean?
+  global_variable_relationships                                                  global_variable_relationships? @relation(fields: [aggregate_correlation_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "variable_relationship_usefulness_votes_global_variable_relationships_id_fk")
+  variables_variable_relationship_usefulness_votes_cause_variable_idTovariables  global_variables                      @relation("variable_relationship_usefulness_votes_cause_variable_idTovariables", fields: [cause_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "variable_relationship_usefulness_votes_cause_variables_id_fk")
+  oa_clients                                                                     oa_clients?                    @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "variable_relationship_usefulness_votes_client_id_fk")
+  user_variable_relationships                                                                   user_variable_relationships?   @relation(fields: [correlation_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "variable_relationship_usefulness_votes_user_variable_relationships_id_fk")
+  variables_variable_relationship_usefulness_votes_effect_variable_idTovariables global_variables                      @relation("variable_relationship_usefulness_votes_effect_variable_idTovariables", fields: [effect_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "variable_relationship_usefulness_votes_effect_variables_id_fk")
+  dfda_users                                                                     dfda_users                     @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "variable_relationship_usefulness_votes_dfda_users_ID_fk")
+
+  @@unique([user_id, cause_variable_id, effect_variable_id], map: "variable_relationship_usefulness_votes_user_cause_effect_uindex")
+  @@index([aggregate_correlation_id], map: "variable_relationship_usefulness_votes_global_variable_relationships_id_fk")
+  @@index([cause_variable_id], map: "variable_relationship_usefulness_votes_cause_variables_id_fk")
+  @@index([client_id], map: "variable_relationship_usefulness_votes_client_id_fk")
+  @@index([correlation_id], map: "variable_relationship_usefulness_votes_user_variable_relationships_id_fk")
+  @@index([effect_variable_id], map: "variable_relationship_usefulness_votes_effect_variables_id_fk")
+}
+
+
+
+model user_variable_relationships {
+  id                                                                   Int                                      @id @default(autoincrement())
+  user_id                                                              BigInt
+  cause_variable_id                                                    Int
+  effect_variable_id                                                   Int
+  qm_score                                                             Float?
+  forward_pearson_correlation_coefficient                              Float?
+  value_predicting_high_outcome                                        Float?
+  value_predicting_low_outcome                                         Float?
+  predicts_high_effect_change                                          Int?
+  predicts_low_effect_change                                           Int
+  average_effect                                                       Float
+  average_effect_following_high_cause                                  Float
+  average_effect_following_low_cause                                   Float
+  average_daily_low_cause                                              Float
+  average_daily_high_cause                                             Float
+  average_forward_pearson_correlation_over_onset_delays                Float?
+  average_reverse_pearson_correlation_over_onset_delays                Float?
+  cause_changes                                                        Int
+  cause_filling_value                                                  Float?
+  cause_number_of_processed_daily_measurements                         Int
+  cause_number_of_raw_measurements                                     Int
+  cause_unit_id                                                        Int?                                     @db.SmallInt
+  confidence_interval                                                  Float
+  critical_t_value                                                     Float
+  created_at                                                           DateTime                                 @default(now()) @db.Timestamp(0)
+  data_source_name                                                     String?                                  @db.VarChar(255)
+  deleted_at                                                           DateTime?                                @db.Timestamp(0)
+  duration_of_action                                                   Int
+  effect_changes                                                       Int
+  effect_filling_value                                                 Float?
+  effect_number_of_processed_daily_measurements                        Int
+  effect_number_of_raw_measurements                                    Int
+  forward_spearman_correlation_coefficient                             Float
+  number_of_days                                                       Int
+  number_of_pairs                                                      Int
+  onset_delay                                                          Int
+  onset_delay_with_strongest_pearson_correlation                       Int?
+  optimal_pearson_product                                              Float?
+  p_value                                                              Float?
+  pearson_correlation_with_no_onset_delay                              Float?
+  predictive_pearson_correlation_coefficient                           Float?
+  reverse_pearson_correlation_coefficient                              Float?
+  statistical_significance                                             Float?
+  strongest_pearson_correlation_coefficient                            Float?
+  t_value                                                              Float?
+  updated_at                                                           DateTime                                 @default(now()) @db.Timestamp(0)
+  grouped_cause_value_closest_to_value_predicting_low_outcome          Float
+  grouped_cause_value_closest_to_value_predicting_high_outcome         Float
+  client_id                                                            String?                                  @db.VarChar(255)
+  published_at                                                         DateTime?                                @db.Timestamp(0)
+  dfda_post_id                                                         BigInt?
+  status                                                               String?                                  @db.VarChar(25)
+  cause_variable_category_id                                           Int                                      @db.SmallInt
+  effect_variable_category_id                                          Int                                      @db.SmallInt
+  interesting_variable_category_pair                                   Boolean
+  newest_data_at                                                       DateTime?                                @db.Timestamp(0)
+  analysis_requested_at                                                DateTime?                                @db.Timestamp(0)
+  reason_for_analysis                                                  String                                   @db.VarChar(255)
+  analysis_started_at                                                  DateTime?                                @db.Timestamp(0)
+  analysis_ended_at                                                    DateTime?                                @db.Timestamp(0)
+  user_error_message                                                   String?
+  internal_error_message                                               String?
+  cause_user_variable_id                                               Int
+  effect_user_variable_id                                              Int
+  latest_measurement_start_at                                          DateTime?                                @db.Timestamp(0)
+  earliest_measurement_start_at                                        DateTime?                                @db.Timestamp(0)
+  cause_baseline_average_per_day                                       Float
+  cause_baseline_average_per_duration_of_action                        Float
+  cause_treatment_average_per_day                                      Float
+  cause_treatment_average_per_duration_of_action                       Float
+  effect_baseline_average                                              Float?
+  effect_baseline_relative_standard_deviation                          Float
+  effect_baseline_standard_deviation                                   Float?
+  effect_follow_up_average                                             Float
+  effect_follow_up_percent_change_from_baseline                        Float
+  z_score                                                              Float?
+  experiment_start_at                                                  DateTime?                                @db.Timestamp(0)
+  experiment_end_at                                                    DateTime?                                @db.Timestamp(0)
+  aggregate_correlation_id                                             Int?
+  aggregated_at                                                        DateTime?                                @db.Timestamp(0)
+  usefulness_vote                                                      Int?
+  causality_vote                                                       Int?
+  deletion_reason                                                      String?                                  @db.VarChar(280)
+  record_size_in_kb                                                    Int?
+  correlations_over_durations                                          String?
+  correlations_over_delays                                             String?
+  is_public                                                            Boolean?
+  sort_order                                                           Int?
+  slug                                                                 String?                                  @unique(map: "correlations_slug_uindex") @db.VarChar(200)
+  boring                                                               Boolean?
+  outcome_is_goal                                                      Boolean?
+  predictor_is_controllable                                            Boolean?
+  plausibly_causal                                                     Boolean?
+  obvious                                                              Boolean?
+  number_of_up_votes                                                   Int?
+  number_of_down_votes                                                 Int?
+  strength_level                                                       String                                   @db.VarChar(255)
+  confidence_level                                                     String                                   @db.VarChar(255)
+  relationship                                                         String                                   @db.VarChar(255)
+  correlation_causality_votes                                          correlation_causality_votes[]
+  variable_relationship_usefulness_votes                               variable_relationship_usefulness_votes[]
+  global_variable_relationships                                        global_variable_relationships?           @relation(fields: [aggregate_correlation_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_variable_relationships_global_variable_relationships_id_fk")
+  units                                                                units?                                   @relation(fields: [cause_unit_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_variable_relationships_cause_unit_id_fk")
+  variable_categories                                                  variable_categories                      @relation(fields: [cause_variable_category_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_variable_relationships_cause_variable_category_id_fk")
+  variables_user_variable_relationships_cause_variable_idTovariables                  global_variables                                @relation("user_variable_relationships_cause_variable_idTovariables", fields: [cause_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_variable_relationships_cause_variable_id_fk")
+  oa_clients                                                           oa_clients?                              @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "user_variable_relationships_client_id_fk")
+  variables_user_variable_relationships_effect_variable_idTovariables                 global_variables                                @relation("user_variable_relationships_effect_variable_idTovariables", fields: [effect_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_variable_relationships_effect_variable_id_fk")
+  dfda_users                                                           dfda_users                               @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "user_variable_relationships_user_id_fk")
+  user_variables_user_variable_relationships_cause_user_variable_idTouser_variables   user_variables                           @relation("user_variable_relationships_cause_user_variable_idTouser_variables", fields: [cause_user_variable_id], references: [id], onDelete: Cascade, map: "user_variable_relationships_user_variables_cause_user_variable_id_fk")
+  user_variables_user_variable_relationships_effect_user_variable_idTouser_variables  user_variables                           @relation("user_variable_relationships_effect_user_variable_idTouser_variables", fields: [effect_user_variable_id], references: [id], onDelete: Cascade, map: "user_variable_relationships_user_variables_effect_user_variable_id_fk")
+  user_studies                                                         user_studies?
+  user_variables_user_variables_best_user_correlation_idTouser_variable_relationships user_variables[]                         @relation("user_variables_best_user_correlation_idTouser_variable_relationships")
+  votes                                                                votes[]
+
+  @@unique([user_id, cause_variable_id, effect_variable_id], map: "user_variable_relationships_pk")
+  @@unique([user_id, cause_variable_id, effect_variable_id], map: "user_variable_relationships_user_id_cause_variable_id_effect_variable_id_uinde")
+  @@index([effect_variable_category_id], map: "c_effect_variable_category_id_fk")
+  @@index([aggregate_correlation_id], map: "user_variable_relationships_global_variable_relationships_id_fk")
+  @@index([analysis_started_at], map: "user_variable_relationships_analysis_started_at_index")
+  @@index([cause_unit_id], map: "user_variable_relationships_cause_unit_id_fk")
+  @@index([cause_variable_category_id], map: "user_variable_relationships_cause_variable_category_id_fk")
+  @@index([cause_variable_id], map: "user_variable_relationships_cause_variable_id_fk")
+  @@index([client_id], map: "user_variable_relationships_client_id_fk")
+  @@index([deleted_at, analysis_ended_at], map: "user_variable_relationships_deleted_at_analysis_ended_at_index")
+  @@index([effect_variable_id], map: "user_variable_relationships_effect_variable_id_fk")
+  @@index([updated_at], map: "user_variable_relationships_updated_at_index")
+  @@index([user_id, deleted_at, qm_score], map: "user_variable_relationships_user_id_deleted_at_qm_score_index")
+  @@index([cause_user_variable_id], map: "user_variable_relationships_user_variables_cause_user_variable_id_fk")
+  @@index([effect_user_variable_id], map: "user_variable_relationships_user_variables_effect_user_variable_id_fk")
+  @@index([dfda_post_id], map: "user_variable_relationships_dfda_posts_ID_fk")
+  @@index([user_id, cause_variable_id, deleted_at, qm_score], map: "user_id_cause_variable_id_deleted_at_qm_score_index")
+  @@index([user_id, effect_variable_id, deleted_at, qm_score], map: "user_id_effect_variable_id_deleted_at_qm_score_index")
+}
+
+model device_tokens {
+  device_token                                      String      @id @db.VarChar(255)
+  created_at                                        DateTime    @default(now()) @db.Timestamp(0)
+  updated_at                                        DateTime    @default(now()) @db.Timestamp(0)
+  deleted_at                                        DateTime?   @db.Timestamp(0)
+  user_id                                           BigInt
+  number_of_waiting_tracking_reminder_notifications Int?
+  last_notified_at                                  DateTime?   @db.Timestamp(0)
+  platform                                          String      @db.VarChar(255)
+  number_of_new_tracking_reminder_notifications     Int?
+  number_of_notifications_last_sent                 Int?
+  error_message                                     String?     @db.VarChar(255)
+  last_checked_at                                   DateTime?   @db.Timestamp(0)
+  received_at                                       DateTime?   @db.Timestamp(0)
+  server_ip                                         String?     @db.VarChar(255)
+  server_hostname                                   String?     @db.VarChar(255)
+  client_id                                         String?     @db.VarChar(255)
+  oa_clients                                        oa_clients? @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "device_tokens_client_id_fk")
+  dfda_users                                        dfda_users  @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "device_tokens_user_id_fk")
+
+  @@index([client_id], map: "device_tokens_client_id_fk")
+  @@index([user_id], map: "index_user_id")
+}
+
+model global_studies {
+  id                                                     Int                            @id
+  aggregate_correlation_id                               Int?
+  cause_variable_id                                      Int
+  effect_variable_id                                     Int
+  cause_user_variable_id                                 Int
+  effect_user_variable_id                                Int
+  user_id                                                BigInt
+  created_at                                             DateTime                       @default(now()) @db.Timestamp(0)
+  deleted_at                                             DateTime?                      @db.Timestamp(0)
+  analysis_parameters                                    String?
+  user_study_text                                        String?
+  user_title                                             String?
+  study_status                                           String                         @default("publish") @db.VarChar(20)
+  comment_status                                         String                         @default("open") @db.VarChar(20)
+  study_password                                         String?                        @db.VarChar(20)
+  study_images                                           String?
+  updated_at                                             DateTime                       @default(now()) @db.Timestamp(0)
+  client_id                                              String?                        @db.VarChar(255)
+  published_at                                           DateTime?                      @db.Timestamp(0)
+  dfda_post_id                                           Int?
+  newest_data_at                                         DateTime?                      @db.Timestamp(0)
+  analysis_requested_at                                  DateTime?                      @db.Timestamp(0)
+  reason_for_analysis                                    String?                        @db.VarChar(255)
+  analysis_ended_at                                      DateTime?                      @db.Timestamp(0)
+  analysis_started_at                                    DateTime?                      @db.Timestamp(0)
+  internal_error_message                                 String?                        @db.VarChar(255)
+  user_error_message                                     String?                        @db.VarChar(255)
+  status                                                 String?                        @db.VarChar(25)
+  analysis_settings_modified_at                          DateTime?                      @db.Timestamp(0)
+  is_public                                              Boolean
+  sort_order                                             Int?
+  slug                                                   String?                        @unique(map: "global_studies_slug_uindex") @db.VarChar(200)
+  global_variable_relationships                          global_variable_relationships? @relation(fields: [aggregate_correlation_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "global_studies_global_variable_relationships_id_fk")
+  variables_global_studies_cause_variable_idTovariables  global_variables                      @relation("global_studies_cause_variable_idTovariables", fields: [cause_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "global_studies_cause_variable_id_variables_id_fk")
+  oa_clients                                             oa_clients?                    @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "global_studies_client_id_fk")
+  variables_global_studies_effect_variable_idTovariables global_variables                      @relation("global_studies_effect_variable_idTovariables", fields: [effect_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "global_studies_effect_variable_id_variables_id_fk")
+  dfda_users                                             dfda_users                     @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "global_studies_user_id_fk")
+
+  @@unique([user_id, cause_variable_id, effect_variable_id], map: "global_studies_cause_effect")
+  @@index([aggregate_correlation_id], map: "global_studies_global_variable_relationships_id_fk")
+  @@index([cause_variable_id], map: "global_studies_cause_variable_id")
+  @@index([client_id], map: "global_studies_client_id_fk")
+  @@index([effect_variable_id], map: "global_studies_effect_variable_id")
+}
+
+
+
+model measurement_exports {
+  id            Int         @id @default(autoincrement())
+  user_id       BigInt
+  client_id     String?     @db.VarChar(255)
+  status        String      @db.VarChar(32)
+  type          String      @default("user") @db.VarChar(255)
+  output_type   String      @default("csv") @db.VarChar(255)
+  error_message String?     @db.VarChar(255)
+  created_at    DateTime    @default(now()) @db.Timestamp(0)
+  updated_at    DateTime    @default(now()) @db.Timestamp(0)
+  deleted_at    DateTime?   @db.Timestamp(0)
+  oa_clients    oa_clients? @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "measurement_exports_client_id_fk")
+  dfda_users    dfda_users  @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "measurement_exports_user_id_fk")
+
+  @@index([client_id], map: "measurement_exports_client_id_fk")
+  @@index([user_id], map: "measurement_exports_user_id_fk")
+}
+
+model measurement_imports {
+  id                     Int         @id @default(autoincrement())
+  user_id                BigInt
+  file                   String      @db.VarChar(255)
+  created_at             DateTime    @default(now()) @db.Timestamp(0)
+  updated_at             DateTime    @default(now()) @db.Timestamp(0)
+  status                 String      @default("WAITING") @db.VarChar(25)
+  error_message          String?
+  source_name            String?     @db.VarChar(80)
+  deleted_at             DateTime?   @db.Timestamp(0)
+  client_id              String?     @db.VarChar(255)
+  import_started_at      DateTime?   @db.Timestamp(0)
+  import_ended_at        DateTime?   @db.Timestamp(0)
+  reason_for_import      String?     @db.VarChar(255)
+  user_error_message     String?     @db.VarChar(255)
+  internal_error_message String?     @db.VarChar(255)
+  oa_clients             oa_clients? @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "measurement_imports_client_id_fk")
+  dfda_users             dfda_users  @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "measurement_imports_user_id_fk")
+
+  @@index([client_id], map: "measurement_imports_client_id_fk")
+  @@index([user_id], map: "measurement_imports_user_id_fk")
+}
+
+model measurements {
+  id                                         BigInt              @id @default(autoincrement())
+  user_id                                    BigInt
+  client_id                                  String?             @db.VarChar(80)
+  connector_id                               Int?
+  variable_id                                Int
+  start_time                                 Int
+  value                                      Float
+  unit_id                                    Int                 @db.SmallInt
+  original_value                             Float
+  original_unit_id                           Int                 @db.SmallInt
+  duration                                   Int?
+  note                                       String?
+  latitude                                   Float?
+  longitude                                  Float?
+  location                                   String?             @db.VarChar(255)
+  created_at                                 DateTime            @default(now()) @db.Timestamp(0)
+  updated_at                                 DateTime            @default(now()) @db.Timestamp(0)
+  error                                      String?
+  variable_category_id                       Int                 @db.SmallInt
+  deleted_at                                 DateTime?           @db.Timestamp(0)
+  source_name                                String?             @db.VarChar(80)
+  user_variable_id                           Int
+  start_at                                   DateTime?           @db.Timestamp(0)
+  connection_id                              Int?
+  connector_import_id                        Int?
+  deletion_reason                            String?             @db.VarChar(280)
+  original_start_at                          DateTime?           @db.Timestamp(0)
+  oa_clients                                 oa_clients?         @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "measurements_client_id_fk")
+  connections                                connections?        @relation(fields: [connection_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "measurements_connections_id_fk")
+  connector_imports                          connector_imports?  @relation(fields: [connector_import_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "measurements_connector_imports_id_fk")
+  connectors                                 connectors?         @relation(fields: [connector_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "measurements_connectors_id_fk")
+  units_measurements_original_unit_idTounits units               @relation("measurements_original_unit_idTounits", fields: [original_unit_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "measurements_original_unit_id_fk")
+  units_measurements_unit_idTounits          units               @relation("measurements_unit_idTounits", fields: [unit_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "measurements_unit_id_fk")
+  dfda_users                                 dfda_users          @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "measurements_user_id_fk")
+  user_variables                             user_variables      @relation(fields: [user_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "measurements_user_variables_user_variable_id_fk")
+  variable_categories                        variable_categories @relation(fields: [variable_category_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "measurements_variable_category_id_fk")
+  variables                                  global_variables           @relation(fields: [variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "measurements_variables_id_fk")
+
+  @@unique([user_id, variable_id, start_time], map: "measurements_pk")
+  @@index([unit_id], map: "fk_measurementUnits")
+  @@index([client_id], map: "measurements_client_id_fk")
+  @@index([connection_id], map: "measurements_connections_id_fk")
+  @@index([connector_import_id], map: "measurements_connector_imports_id_fk")
+  @@index([connector_id], map: "measurements_connectors_id_fk")
+  @@index([original_unit_id], map: "measurements_original_unit_id_fk")
+  @@index([start_time], map: "measurements_start_time_index")
+  @@index([user_id, variable_category_id, start_time], map: "measurements_user_id_variable_category_id_start_time_index")
+  @@index([user_variable_id], map: "measurements_user_variables_user_variable_id_fk")
+  @@index([variable_id, user_id], map: "measurements_user_variables_variable_id_user_id_fk")
+  @@index([variable_category_id], map: "measurements_variable_category_id_fk")
+  @@index([variable_id, start_time], map: "measurements_variable_id_start_time_index")
+  @@index([variable_id, value, start_time], map: "measurements_variable_id_value_start_time_index")
+}
+
+model patient_physicians {
+  id                                                          Int        @id @default(autoincrement())
+  patient_user_id                                             BigInt
+  physician_user_id                                           BigInt
+  scopes                                                      String     @db.VarChar(2000)
+  created_at                                                  DateTime   @default(now()) @db.Timestamp(0)
+  updated_at                                                  DateTime   @default(now()) @db.Timestamp(0)
+  deleted_at                                                  DateTime?  @db.Timestamp(0)
+  dfda_users_patient_physicians_patient_user_idTodfda_users   dfda_users @relation("patient_physicians_patient_user_idTodfda_users", fields: [patient_user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "patient_physicians_dfda_users_ID_fk")
+  dfda_users_patient_physicians_physician_user_idTodfda_users dfda_users @relation("patient_physicians_physician_user_idTodfda_users", fields: [physician_user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "patient_physicians_dfda_users_ID_fk_2")
+
+  @@unique([patient_user_id, physician_user_id], map: "patients_patient_user_id_physician_user_id_uindex")
+  @@index([physician_user_id], map: "patient_physicians_dfda_users_ID_fk_2")
+}
+
+/// This model has constraints using non-default deferring rules and requires additional setup for migrations. Visit https://pris.ly/d/constraint-deferring for more info.
+model phrases {
+  client_id                 String     @db.VarChar(80)
+  created_at                DateTime   @default(now()) @db.Timestamp(0)
+  deleted_at                DateTime?  @db.Timestamp(0)
+  id                        Int        @id @default(autoincrement())
+  image                     String?    @db.VarChar(100)
+  text                      String
+  title                     String?    @db.VarChar(80)
+  type                      String     @db.VarChar(80)
+  updated_at                DateTime   @default(now()) @db.Timestamp(0)
+  url                       String?    @db.VarChar(100)
+  user_id                   BigInt
+  responding_to_phrase_id   Int?
+  response_phrase_id        Int?
+  recipient_user_ids        String?
+  number_of_times_heard     Int?
+  interpretative_confidence Float?
+  oa_clients                oa_clients @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "phrases_client_id_fk")
+  dfda_users                dfda_users @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "phrases_user_id_fk")
+
+  @@index([client_id], map: "phrases_client_id_fk")
+}
+
+model sent_emails {
+  id            Int         @id @default(autoincrement())
+  user_id       BigInt?
+  type          String      @db.VarChar(100)
+  created_at    DateTime    @default(now()) @db.Timestamp(0)
+  updated_at    DateTime    @default(now()) @db.Timestamp(0)
+  deleted_at    DateTime?   @db.Timestamp(0)
+  client_id     String?     @db.VarChar(255)
+  slug          String?     @db.VarChar(100)
+  response      String?     @db.VarChar(140)
+  content       String?
+  dfda_post_id  BigInt?
+  email_address String?     @db.VarChar(255)
+  subject       String      @db.VarChar(255)
+  oa_clients    oa_clients? @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "sent_emails_client_id_fk")
+  dfda_users    dfda_users? @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "sent_emails_user_id_fk")
+
+  @@index([client_id], map: "sent_emails_client_id_fk")
+  @@index([user_id, type], map: "sent_emails_user_id_type_index")
+  @@index([dfda_post_id], map: "sent_emails_dfda_posts_ID_fk")
+}
+
+
+
+model sharer_trustees {
+  id                                                     Int        @id @default(autoincrement())
+  sharer_user_id                                         BigInt
+  trustee_user_id                                        BigInt
+  scopes                                                 String     @db.VarChar(2000)
+  relationship_type                                      String     @db.VarChar(255)
+  created_at                                             DateTime   @default(now()) @db.Timestamp(0)
+  updated_at                                             DateTime   @default(now()) @db.Timestamp(0)
+  deleted_at                                             DateTime?  @db.Timestamp(0)
+  dfda_users_sharer_trustees_sharer_user_idTodfda_users  dfda_users @relation("sharer_trustees_sharer_user_idTodfda_users", fields: [sharer_user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "sharer_trustees_dfda_users_ID_fk")
+  dfda_users_sharer_trustees_trustee_user_idTodfda_users dfda_users @relation("sharer_trustees_trustee_user_idTodfda_users", fields: [trustee_user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "sharer_trustees_dfda_users_ID_fk_2")
+
+  @@unique([sharer_user_id, trustee_user_id], map: "sharer_user_id_trustee_user_id_uindex")
+  @@index([trustee_user_id], map: "sharer_trustees_dfda_users_ID_fk_2")
+}
+
+model spreadsheet_importers {
+  id                            Int         @id @default(autoincrement())
+  name                          String      @db.VarChar(30)
+  display_name                  String      @db.VarChar(30)
+  image                         String      @db.VarChar(2083)
+  get_it_url                    String?     @db.VarChar(2083)
+  short_description             String
+  long_description              String
+  enabled                       Boolean     @default(true)
+  created_at                    DateTime    @default(now()) @db.Timestamp(0)
+  updated_at                    DateTime    @default(now()) @db.Timestamp(0)
+  client_id                     String?     @db.VarChar(80)
+  deleted_at                    DateTime?   @db.Timestamp(0)
+  dfda_post_id                  BigInt?
+  number_of_measurement_imports Int?
+  number_of_measurements        Int?
+  sort_order                    Int?
+  oa_clients                    oa_clients? @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "spreadsheet_importers_client_id_fk")
+
+  @@index([client_id], map: "spreadsheet_importers_client_id_fk")
+  @@index([dfda_post_id], map: "spreadsheet_importers_dfda_posts_ID_fk")
+}
+
+model tracking_reminder_notifications {
+  id                   Int                @id @default(autoincrement())
+  tracking_reminder_id Int
+  created_at           DateTime           @default(now()) @db.Timestamp(0)
+  updated_at           DateTime           @default(now()) @db.Timestamp(0)
+  deleted_at           DateTime?          @db.Timestamp(0)
+  user_id              BigInt
+  notified_at          DateTime?          @db.Timestamp(0)
+  received_at          DateTime?          @db.Timestamp(0)
+  client_id            String?            @db.VarChar(255)
+  variable_id          Int
+  notify_at            DateTime?          @db.Timestamp(0)
+  user_variable_id     Int
+  oa_clients           oa_clients?        @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "tracking_reminder_notifications_client_id_fk")
+  tracking_reminders   tracking_reminders @relation(fields: [tracking_reminder_id], references: [id], onDelete: Cascade, map: "tracking_reminder_notifications_tracking_reminders_id_fk")
+  dfda_users           dfda_users         @relation(fields: [user_id], references: [ID], onDelete: Cascade, onUpdate: NoAction, map: "tracking_reminder_notifications_user_id_fk")
+  user_variables       user_variables     @relation(fields: [user_variable_id], references: [id], onDelete: Cascade, map: "tracking_reminder_notifications_user_variables_id_fk")
+  variables            global_variables          @relation(fields: [variable_id], references: [id], onDelete: Cascade, map: "tracking_reminder_notifications_variables_id_fk")
+
+  @@unique([notify_at, tracking_reminder_id], map: "notify_at_tracking_reminder_id_uindex")
+  @@index([client_id], map: "tracking_reminder_notifications_client_id_fk")
+  @@index([tracking_reminder_id], map: "tracking_reminder_notifications_tracking_reminders_id_fk")
+  @@index([user_id], map: "tracking_reminder_notifications_user_id_fk")
+  @@index([user_variable_id], map: "tracking_reminder_notifications_user_variables_id_fk")
+  @@index([variable_id], map: "tracking_reminder_notifications_variable_id_fk")
+}
+
+model tracking_reminders {
+  id                                                                    Int                               @id @default(autoincrement())
+  user_id                                                               BigInt
+  client_id                                                             String                            @db.VarChar(80)
+  variable_id                                                           Int
+  default_value                                                         Float?
+  reminder_start_time                                                   DateTime                          @default(dbgenerated("'00:00:00'::time without time zone")) @db.Time(0)
+  reminder_end_time                                                     DateTime?                         @db.Time(0)
+  reminder_sound                                                        String?                           @db.VarChar(125)
+  reminder_frequency                                                    Int?
+  pop_up                                                                Boolean?
+  sms                                                                   Boolean?
+  email                                                                 Boolean?
+  notification_bar                                                      Boolean?
+  last_tracked                                                          DateTime?                         @db.Timestamp(0)
+  created_at                                                            DateTime                          @default(now()) @db.Timestamp(0)
+  updated_at                                                            DateTime                          @default(now()) @db.Timestamp(0)
+  start_tracking_date                                                   DateTime?                         @db.Date
+  stop_tracking_date                                                    DateTime?                         @db.Date
+  instructions                                                          String?
+  deleted_at                                                            DateTime?                         @db.Timestamp(0)
+  image_url                                                             String?                           @db.VarChar(2083)
+  user_variable_id                                                      Int
+  latest_tracking_reminder_notification_notify_at                       DateTime?                         @db.Timestamp(0)
+  number_of_tracking_reminder_notifications                             Int?
+  tracking_reminder_notifications                                       tracking_reminder_notifications[]
+  oa_clients                                                            oa_clients                        @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "tracking_reminders_client_id_fk")
+  dfda_users                                                            dfda_users                        @relation(fields: [user_id], references: [ID], onDelete: Cascade, map: "tracking_reminders_user_id_fk")
+  user_variables_tracking_reminders_user_id_variable_idTouser_variables user_variables                    @relation("tracking_reminders_user_id_variable_idTouser_variables", fields: [user_id, variable_id], references: [user_id, variable_id], onDelete: NoAction, onUpdate: NoAction, map: "tracking_reminders_user_variables_user_id_variable_id_fk")
+  user_variables_tracking_reminders_user_variable_idTouser_variables    user_variables                    @relation("tracking_reminders_user_variable_idTouser_variables", fields: [user_variable_id], references: [id], onDelete: Cascade, map: "tracking_reminders_user_variables_user_variable_id_fk")
+  variables                                                             global_variables                         @relation(fields: [variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "tracking_reminders_variables_id_fk")
+
+  @@unique([user_id, variable_id, reminder_start_time, reminder_frequency], map: "UK_user_var_time_freq")
+  @@index([client_id], map: "tracking_reminders_client_id_fk")
+  @@index([user_variable_id], map: "tracking_reminders_user_variables_user_variable_id_fk")
+  @@index([variable_id, user_id], map: "tracking_reminders_user_variables_variable_id_user_id_fk")
+  @@index([user_id, client_id], map: "user_client")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model unit_categories {
+  id            Int       @id @default(autoincrement()) @db.SmallInt
+  name          String    @unique(map: "unit_categories_name_UNIQUE") @db.VarChar(64)
+  created_at    DateTime  @default(now()) @db.Timestamp(0)
+  updated_at    DateTime  @default(now()) @db.Timestamp(0)
+  can_be_summed Boolean   @default(true)
+  deleted_at    DateTime? @db.Timestamp(0)
+  sort_order    Int?
+}
+
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model units {
+  id                                                     Int                             @id @default(autoincrement()) @db.SmallInt
+  name                                                   String                          @unique(map: "units_name_UNIQUE") @db.VarChar(64)
+  abbreviated_name                                       String?                         @unique(map: "abbr_name_UNIQUE") @db.VarChar(40)
+  unit_category_id                                       Int                             @db.SmallInt
+  minimum_value                                          Float?
+  maximum_value                                          Float?
+  created_at                                             DateTime                        @default(now()) @db.Timestamp(0)
+  updated_at                                             DateTime                        @default(now()) @db.Timestamp(0)
+  deleted_at                                             DateTime?                       @db.Timestamp(0)
+  filling_type                                           String                          @db.VarChar(255)
+  number_of_outcome_population_studies                   Int?
+  number_of_common_tags_where_tag_variable_unit          Int?
+  number_of_common_tags_where_tagged_variable_unit       Int?
+  number_of_outcome_case_studies                         Int?
+  number_of_measurements                                 Int?
+  number_of_user_variables_where_default_unit            Int?
+  number_of_variable_categories_where_default_unit       Int?
+  number_of_variables_where_default_unit                 Int?
+  advanced                                               Boolean
+  manual_tracking                                        Boolean
+  filling_value                                          Float?
+  scale                                                  String                          @db.VarChar(255)
+  conversion_steps                                       String?
+  maximum_daily_value                                    Float?
+  sort_order                                             Int?
+  slug                                                   String?                         @unique(map: "units_slug_uindex") @db.VarChar(200)
+  code                                                   String?                         @db.VarChar(255)
+  descriptive_name                                       String?                         @db.VarChar(255)
+  code_system                                            String?                         @db.VarChar(255)
+  definition                                             String?                         @db.VarChar(255)
+  synonym                                                String?                         @db.VarChar(255)
+  status                                                 String?                         @db.VarChar(255)
+  kind_of_quantity                                       String?                         @db.VarChar(255)
+  concept_id                                             String?                         @db.VarChar(255)
+  dimension                                              String?                         @db.VarChar(255)
+  global_variable_relationships                          global_variable_relationships[]
+  cohort_study_statistics                                cohort_study_statistics[]
+  common_tags_common_tags_tag_variable_unit_idTounits    common_tags[]                   @relation("common_tags_tag_variable_unit_idTounits")
+  common_tags_common_tags_tagged_variable_unit_idTounits common_tags[]                   @relation("common_tags_tagged_variable_unit_idTounits")
+  user_variable_relationships                                           user_variable_relationships[]
+  measurements_measurements_original_unit_idTounits      measurements[]                  @relation("measurements_original_unit_idTounits")
+  measurements_measurements_unit_idTounits               measurements[]                  @relation("measurements_unit_idTounits")
+  user_variables_user_variables_default_unit_idTounits   user_variables[]                @relation("user_variables_default_unit_idTounits")
+  user_variables_user_variables_last_unit_idTounits      user_variables[]                @relation("user_variables_last_unit_idTounits")
+  variable_categories                                    variable_categories[]
+  variables                                              global_variables[]
+
+  @@index([unit_category_id], map: "fk_unitCategory")
+}
+
+model user_studies {
+  id                                                                  String                       @id @db.VarChar(80)
+  cause_variable_id                                                   Int
+  effect_variable_id                                                  Int
+  cause_user_variable_id                                              Int
+  effect_user_variable_id                                             Int
+  correlation_id                                                      Int?                         @unique(map: "user_studies_correlation_id_uindex")
+  user_id                                                             BigInt
+  created_at                                                          DateTime                     @default(now()) @db.Timestamp(0)
+  deleted_at                                                          DateTime?                    @db.Timestamp(0)
+  analysis_parameters                                                 String?
+  user_study_text                                                     String?
+  user_title                                                          String?
+  study_status                                                        String                       @default("publish") @db.VarChar(20)
+  comment_status                                                      String                       @default("open") @db.VarChar(20)
+  study_password                                                      String?                      @db.VarChar(20)
+  study_images                                                        String?
+  updated_at                                                          DateTime                     @default(now()) @db.Timestamp(0)
+  client_id                                                           String?                      @db.VarChar(255)
+  published_at                                                        DateTime?                    @db.Timestamp(0)
+  dfda_post_id                                                        Int?
+  newest_data_at                                                      DateTime?                    @db.Timestamp(0)
+  analysis_requested_at                                               DateTime?                    @db.Timestamp(0)
+  reason_for_analysis                                                 String?                      @db.VarChar(255)
+  analysis_ended_at                                                   DateTime?                    @db.Timestamp(0)
+  analysis_started_at                                                 DateTime?                    @db.Timestamp(0)
+  internal_error_message                                              String?                      @db.VarChar(255)
+  user_error_message                                                  String?                      @db.VarChar(255)
+  status                                                              String?                      @db.VarChar(25)
+  analysis_settings_modified_at                                       DateTime?                    @db.Timestamp(0)
+  is_public                                                           Boolean?
+  sort_order                                                          Int?
+  slug                                                                String?                      @unique(map: "user_studies_slug_uindex") @db.VarChar(200)
+  user_variables_user_studies_cause_user_variable_idTouser_variables  user_variables               @relation("user_studies_cause_user_variable_idTouser_variables", fields: [cause_user_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_studies_cause_user_variables_id_fk")
+  variables_user_studies_cause_variable_idTovariables                 global_variables                    @relation("user_studies_cause_variable_idTovariables", fields: [cause_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_studies_cause_variables_id_fk")
+  user_variable_relationships                                                        user_variable_relationships? @relation(fields: [correlation_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_studies_user_variable_relationships_id_fk")
+  user_variables_user_studies_effect_user_variable_idTouser_variables user_variables               @relation("user_studies_effect_user_variable_idTouser_variables", fields: [effect_user_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_studies_effect_user_variables_id_fk")
+  variables_user_studies_effect_variable_idTovariables                global_variables                    @relation("user_studies_effect_variable_idTovariables", fields: [effect_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_studies_effect_variables_id_fk")
+  dfda_users                                                          dfda_users                   @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "user_studies_user_id_fk")
+
+  @@unique([user_id, cause_variable_id, effect_variable_id], map: "user_studies_user_cause_effect")
+  @@index([cause_user_variable_id], map: "user_studies_cause_user_variables_id_fk")
+  @@index([cause_variable_id], map: "user_studies_cause_variables_id_fk")
+  @@index([effect_user_variable_id], map: "user_studies_effect_user_variables_id_fk")
+  @@index([effect_variable_id], map: "user_studies_effect_variables_id_fk")
+}
+
+model user_tags {
+  id                                                               Int             @id @default(autoincrement())
+  tagged_variable_id                                               Int
+  tag_variable_id                                                  Int
+  conversion_factor                                                Float
+  user_id                                                          BigInt
+  created_at                                                       DateTime        @default(now()) @db.Timestamp(0)
+  updated_at                                                       DateTime        @default(now()) @db.Timestamp(0)
+  client_id                                                        String?         @db.VarChar(80)
+  deleted_at                                                       DateTime?       @db.Timestamp(0)
+  tagged_user_variable_id                                          Int?
+  tag_user_variable_id                                             Int
+  oa_clients                                                       oa_clients?     @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "user_tags_client_id_fk")
+  user_variables_user_tags_tag_user_variable_idTouser_variables    user_variables  @relation("user_tags_tag_user_variable_idTouser_variables", fields: [tag_user_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_tags_tag_user_variable_id_fk")
+  user_variables_user_tags_tagged_user_variable_idTouser_variables user_variables? @relation("user_tags_tagged_user_variable_idTouser_variables", fields: [tagged_user_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_tags_tagged_user_variable_id_fk")
+  variables                                                        global_variables       @relation(fields: [tagged_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_tags_tagged_variable_id_variables_id_fk")
+  dfda_users                                                       dfda_users      @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "user_tags_user_id_fk")
+
+  @@unique([tagged_variable_id, tag_variable_id, user_id], map: "UK_user_tag_tagged")
+  @@index([tag_variable_id], map: "fk_conversionUnit")
+  @@index([client_id], map: "user_tags_client_id_fk")
+  @@index([tagged_user_variable_id], map: "user_tags_tagged_user_variable_id_fk")
+  @@index([user_id], map: "user_tags_user_id_fk")
+}
+
+model user_variable_clients {
+  id                      Int            @id @default(autoincrement())
+  client_id               String         @db.VarChar(80)
+  created_at              DateTime       @default(now()) @db.Timestamp(0)
+  deleted_at              DateTime?      @db.Timestamp(0)
+  earliest_measurement_at DateTime?      @db.Timestamp(0)
+  latest_measurement_at   DateTime?      @db.Timestamp(0)
+  number_of_measurements  Int?
+  updated_at              DateTime       @default(now()) @db.Timestamp(0)
+  user_id                 BigInt
+  user_variable_id        Int
+  variable_id             Int
+  oa_clients              oa_clients     @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "user_variable_clients_client_id_fk")
+  dfda_users              dfda_users     @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "user_variable_clients_user_id_fk")
+  user_variables          user_variables @relation(fields: [user_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_variable_clients_user_variables_user_variable_id_fk")
+  variables               global_variables      @relation(fields: [variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_variable_clients_variable_id_fk")
+
+  @@unique([user_id, variable_id, client_id], map: "user_variable_clients_user")
+  @@index([client_id], map: "user_variable_clients_client_id_fk")
+  @@index([user_variable_id], map: "user_variable_clients_user_variables_user_variable_id_fk")
+  @@index([variable_id], map: "user_variable_clients_variable_id_fk")
+}
+
+/// This model has constraints using non-default deferring rules and requires additional setup for migrations. Visit https://pris.ly/d/constraint-deferring for more info.
+model user_variable_outcome_category {
+  id                               Int                 @id @default(autoincrement())
+  user_variable_id                 Int
+  variable_id                      Int
+  variable_category_id             Int                 @db.SmallInt
+  number_of_outcome_user_variables Int
+  created_at                       DateTime            @default(now()) @db.Timestamp(0)
+  updated_at                       DateTime            @default(now()) @db.Timestamp(0)
+  deleted_at                       DateTime?           @db.Timestamp(0)
+  user_variables                   user_variables      @relation(fields: [user_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_variable_outcome_category_user_variables_id_fk")
+  variable_categories              variable_categories @relation(fields: [variable_category_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_variable_outcome_category_variable_categories_id_fk")
+  variables                        global_variables           @relation(fields: [variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_variable_outcome_category_variables_id_fk")
+
+  @@unique([user_variable_id, variable_category_id], map: "user_variable_outcome_category_uindex")
+  @@index([variable_category_id], map: "user_variable_outcome_category_variable_categories_id_fk")
+  @@index([variable_id], map: "user_variable_outcome_category_variables_id_fk")
+}
+
+/// This model has constraints using non-default deferring rules and requires additional setup for migrations. Visit https://pris.ly/d/constraint-deferring for more info.
+model user_variable_predictor_category {
+  id                                 Int                 @id @default(autoincrement())
+  user_variable_id                   Int
+  variable_id                        Int
+  variable_category_id               Int                 @db.SmallInt
+  number_of_predictor_user_variables Int
+  created_at                         DateTime            @default(now()) @db.Timestamp(0)
+  updated_at                         DateTime            @default(now()) @db.Timestamp(0)
+  deleted_at                         DateTime?           @db.Timestamp(0)
+  user_variables                     user_variables      @relation(fields: [user_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_variable_predictor_category_user_variables_id_fk")
+  variable_categories                variable_categories @relation(fields: [variable_category_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_variable_predictor_category_variable_categories_id_fk")
+  variables                          global_variables           @relation(fields: [variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_variable_predictor_category_variables_id_fk")
+
+  @@unique([user_variable_id, variable_category_id], map: "user_variable_predictor_category_uindex")
+  @@index([variable_category_id], map: "user_variable_predictor_category_variable_categories_id_fk")
+  @@index([variable_id], map: "user_variable_predictor_category_variables_id_fk")
+}
+
+
+
+model user_variables {
+  id                                                                        Int                                @id @default(autoincrement())
+  parent_id                                                                 Int?
+  client_id                                                                 String?                            @db.VarChar(80)
+  user_id                                                                   BigInt
+  variable_id                                                               Int
+  default_unit_id                                                           Int?                               @db.SmallInt
+  minimum_allowed_value                                                     Float?
+  maximum_allowed_value                                                     Float?
+  filling_value                                                             Float?                             @default(-1)
+  join_with                                                                 Int?
+  onset_delay                                                               Int?
+  duration_of_action                                                        Int?
+  variable_category_id                                                      Int?                               @db.SmallInt
+  cause_only                                                                Boolean?
+  filling_type                                                              String?                            @db.VarChar(255)
+  number_of_processed_daily_measurements                                    Int?
+  measurements_at_last_analysis                                             Int                                @default(0)
+  last_unit_id                                                              Int?                               @db.SmallInt
+  last_original_unit_id                                                     Int?                               @db.SmallInt
+  last_value                                                                Float?
+  last_original_value                                                       Float?
+  number_of_user_variable_relationships                                                    Int?
+  status                                                                    String?                            @db.VarChar(25)
+  standard_deviation                                                        Float?
+  variance                                                                  Float?
+  minimum_recorded_value                                                    Float?
+  maximum_recorded_value                                                    Float?
+  mean                                                                      Float?
+  median                                                                    Float?
+  most_common_original_unit_id                                              Int?
+  most_common_value                                                         Float?
+  number_of_unique_daily_values                                             Int?
+  number_of_unique_values                                                   Int?
+  number_of_changes                                                         Int?
+  skewness                                                                  Float?
+  kurtosis                                                                  Float?
+  latitude                                                                  Float?
+  longitude                                                                 Float?
+  location                                                                  String?                            @db.VarChar(255)
+  created_at                                                                DateTime                           @default(now()) @db.Timestamp(0)
+  updated_at                                                                DateTime                           @default(now()) @db.Timestamp(0)
+  outcome                                                                   Boolean?
+  data_sources_count                                                        String?
+  earliest_filling_time                                                     Int?
+  latest_filling_time                                                       Int?
+  last_processed_daily_value                                                Float?
+  outcome_of_interest                                                       Boolean?                           @default(false)
+  predictor_of_interest                                                     Boolean?                           @default(false)
+  experiment_start_time                                                     DateTime?                          @db.Timestamp(0)
+  experiment_end_time                                                       DateTime?                          @db.Timestamp(0)
+  description                                                               String?
+  deleted_at                                                                DateTime?                          @db.Timestamp(0)
+  alias                                                                     String?                            @db.VarChar(125)
+  second_to_last_value                                                      Float?
+  third_to_last_value                                                       Float?
+  number_of_user_user_variable_relationships_as_effect                                     Int?
+  number_of_user_user_variable_relationships_as_cause                                      Int?
+  combination_operation                                                     String?                            @db.VarChar(255)
+  informational_url                                                         String?                            @db.VarChar(2000)
+  most_common_connector_id                                                  Int?
+  valence                                                                   String?                            @db.VarChar(255)
+  wikipedia_title                                                           String?                            @db.VarChar(100)
+  number_of_tracking_reminders                                              Int
+  number_of_raw_measurements_with_tags_joins_children                       Int?
+  most_common_source_name                                                   String?                            @db.VarChar(255)
+  optimal_value_message                                                     String?                            @db.VarChar(500)
+  best_cause_variable_id                                                    Int?
+  best_effect_variable_id                                                   Int?
+  user_maximum_allowed_daily_value                                          Float?
+  user_minimum_allowed_daily_value                                          Float?
+  user_minimum_allowed_non_zero_value                                       Float?
+  minimum_allowed_seconds_between_measurements                              Int?
+  average_seconds_between_measurements                                      Int?
+  median_seconds_between_measurements                                       Int?
+  last_correlated_at                                                        DateTime?                          @db.Timestamp(0)
+  number_of_measurements_with_tags_at_last_correlation                      Int?
+  analysis_settings_modified_at                                             DateTime?                          @db.Timestamp(0)
+  newest_data_at                                                            DateTime?                          @db.Timestamp(0)
+  analysis_requested_at                                                     DateTime?                          @db.Timestamp(0)
+  reason_for_analysis                                                       String?                            @db.VarChar(255)
+  analysis_started_at                                                       DateTime?                          @db.Timestamp(0)
+  analysis_ended_at                                                         DateTime?                          @db.Timestamp(0)
+  user_error_message                                                        String?
+  internal_error_message                                                    String?
+  earliest_source_measurement_start_at                                      DateTime?                          @db.Timestamp(0)
+  latest_source_measurement_start_at                                        DateTime?                          @db.Timestamp(0)
+  latest_tagged_measurement_start_at                                        DateTime?                          @db.Timestamp(0)
+  earliest_tagged_measurement_start_at                                      DateTime?                          @db.Timestamp(0)
+  latest_non_tagged_measurement_start_at                                    DateTime?                          @db.Timestamp(0)
+  earliest_non_tagged_measurement_start_at                                  DateTime?                          @db.Timestamp(0)
+  dfda_post_id                                                              BigInt?
+  number_of_soft_deleted_measurements                                       Int?
+  best_user_correlation_id                                                  Int?
+  number_of_measurements                                                    Int?
+  number_of_tracking_reminder_notifications                                 Int?
+  deletion_reason                                                           String?                            @db.VarChar(280)
+  record_size_in_kb                                                         Int?
+  number_of_common_tags                                                     Int?
+  number_common_tagged_by                                                   Int?
+  number_of_common_joined_variables                                         Int?
+  number_of_common_ingredients                                              Int?
+  number_of_common_foods                                                    Int?
+  number_of_common_children                                                 Int?
+  number_of_common_parents                                                  Int?
+  number_of_user_tags                                                       Int?
+  number_user_tagged_by                                                     Int?
+  number_of_user_joined_variables                                           Int?
+  number_of_user_ingredients                                                Int?
+  number_of_user_foods                                                      Int?
+  number_of_user_children                                                   Int?
+  number_of_user_parents                                                    Int?
+  is_public                                                                 Boolean?
+  slug                                                                      String?                            @unique(map: "user_variables_slug_uindex") @db.VarChar(200)
+  is_goal                                                                   String?                            @db.VarChar(255)
+  controllable                                                              String?                            @db.VarChar(255)
+  boring                                                                    Boolean?
+  predictor                                                                 Boolean?
+  user_variable_relationships_user_variable_relationships_cause_user_variable_idTouser_variables          user_variable_relationships[]      @relation("user_variable_relationships_cause_user_variable_idTouser_variables")
+  user_variable_relationships_user_variable_relationships_effect_user_variable_idTouser_variables         user_variable_relationships[]      @relation("user_variable_relationships_effect_user_variable_idTouser_variables")
+  measurements                                                              measurements[]
+  tracking_reminder_notifications                                           tracking_reminder_notifications[]
+  tracking_reminders_tracking_reminders_user_id_variable_idTouser_variables tracking_reminders[]               @relation("tracking_reminders_user_id_variable_idTouser_variables")
+  tracking_reminders_tracking_reminders_user_variable_idTouser_variables    tracking_reminders[]               @relation("tracking_reminders_user_variable_idTouser_variables")
+  user_studies_user_studies_cause_user_variable_idTouser_variables          user_studies[]                     @relation("user_studies_cause_user_variable_idTouser_variables")
+  user_studies_user_studies_effect_user_variable_idTouser_variables         user_studies[]                     @relation("user_studies_effect_user_variable_idTouser_variables")
+  user_tags_user_tags_tag_user_variable_idTouser_variables                  user_tags[]                        @relation("user_tags_tag_user_variable_idTouser_variables")
+  user_tags_user_tags_tagged_user_variable_idTouser_variables               user_tags[]                        @relation("user_tags_tagged_user_variable_idTouser_variables")
+  user_variable_clients                                                     user_variable_clients[]
+  user_variable_outcome_category                                            user_variable_outcome_category[]
+  user_variable_predictor_category                                          user_variable_predictor_category[]
+  oa_clients                                                                oa_clients?                        @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "user_variables_client_id_fk")
+  user_variable_relationships_user_variables_best_user_correlation_idTouser_variable_relationships        user_variable_relationships?       @relation("user_variables_best_user_correlation_idTouser_variable_relationships", fields: [best_user_correlation_id], references: [id], onUpdate: NoAction, map: "user_variables_user_variable_relationships_qm_score_fk")
+  units_user_variables_default_unit_idTounits                               units?                             @relation("user_variables_default_unit_idTounits", fields: [default_unit_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_variables_default_unit_id_fk")
+  units_user_variables_last_unit_idTounits                                  units?                             @relation("user_variables_last_unit_idTounits", fields: [last_unit_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_variables_last_unit_id_fk")
+  dfda_users                                                                dfda_users                         @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "user_variables_user_id_fk")
+  variable_categories                                                       variable_categories?               @relation(fields: [variable_category_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_variables_variable_category_id_fk")
+  variables                                                                 global_variables                          @relation(fields: [variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_variables_variables_id_fk")
+
+  @@unique([user_id, variable_id], map: "uv_user_id")
+  @@index([variable_id], map: "fk_variableSettings")
+  @@index([analysis_started_at], map: "user_variables_analysis_started_at_index")
+  @@index([client_id], map: "user_variables_client_id_fk")
+  @@index([best_user_correlation_id], map: "user_variables_user_variable_relationships_qm_score_fk")
+  @@index([default_unit_id], map: "user_variables_default_unit_id_fk")
+  @@index([user_id], map: "user_variables_user_id_latest_tagged_measurement_time_index")
+  @@index([variable_category_id], map: "user_variables_variable_category_id_fk")
+  @@index([dfda_post_id], map: "user_variables_dfda_posts_ID_fk")
+}
+
+
+
+model variable_categories {
+  id                                                                                                           Int                                @id @default(autoincrement()) @db.SmallInt
+  name                                                                                                         String                             @db.VarChar(64)
+  filling_value                                                                                                Float?
+  maximum_allowed_value                                                                                        Float?
+  minimum_allowed_value                                                                                        Float?
+  duration_of_action                                                                                           Int                                @default(86400)
+  onset_delay                                                                                                  Int                                @default(0)
+  combination_operation                                                                                        String                             @default("SUM") @db.VarChar(255)
+  cause_only                                                                                                   Boolean                            @default(false)
+  outcome                                                                                                      Boolean?
+  created_at                                                                                                   DateTime                           @default(now()) @db.Timestamp(0)
+  updated_at                                                                                                   DateTime                           @default(now()) @db.Timestamp(0)
+  image_url                                                                                                    String?
+  default_unit_id                                                                                              Int?                               @default(12) @db.SmallInt
+  deleted_at                                                                                                   DateTime?                          @db.Timestamp(0)
+  manual_tracking                                                                                              Boolean?                           @default(false)
+  minimum_allowed_seconds_between_measurements                                                                 Int?
+  average_seconds_between_measurements                                                                         Int?
+  median_seconds_between_measurements                                                                          Int?
+  dfda_post_id                                                                                                 BigInt?
+  filling_type                                                                                                 String?                            @db.VarChar(255)
+  number_of_outcome_population_studies                                                                         Int?
+  number_of_predictor_population_studies                                                                       Int?
+  number_of_outcome_case_studies                                                                               Int?
+  number_of_predictor_case_studies                                                                             Int?
+  number_of_measurements                                                                                       Int?
+  number_of_user_variables                                                                                     Int?
+  number_of_variables                                                                                          Int?
+  is_public                                                                                                    Boolean?
+  synonyms                                                                                                     String                             @db.VarChar(600)
+  amazon_product_category                                                                                      String                             @db.VarChar(100)
+  boring                                                                                                       Boolean?
+  effect_only                                                                                                  Boolean?
+  predictor                                                                                                    Boolean?
+  font_awesome                                                                                                 String?                            @db.VarChar(100)
+  ion_icon                                                                                                     String?                            @db.VarChar(100)
+  more_info                                                                                                    String?                            @db.VarChar(255)
+  valence                                                                                                      String?                            @db.VarChar(255)
+  name_singular                                                                                                String                             @db.VarChar(255)
+  sort_order                                                                                                   Int?
+  slug                                                                                                         String                             @unique(map: "vc_slug_uindex") @db.VarChar(200)
+  is_goal                                                                                                      String?                            @db.VarChar(255)
+  controllable                                                                                                 String?                            @db.VarChar(255)
+  string_id                                                                                                    String?                            @db.VarChar(64)
+  description                                                                                                  String?                            @db.VarChar(255)
+  global_variable_relationships_global_variable_relationships_cause_variable_category_idTovariable_categories  global_variable_relationships[]    @relation("global_variable_relationships_cause_variable_category_idTovariable_categories")
+  global_variable_relationships_global_variable_relationships_effect_variable_category_idTovariable_categories global_variable_relationships[]    @relation("global_variable_relationships_effect_variable_category_idTovariable_categories")
+  cohort_study_statistics_cohort_study_statistics_cause_variable_category_idTovariable_categories              cohort_study_statistics[]          @relation("cohort_study_statistics_cause_variable_category_idTovariable_categories")
+  cohort_study_statistics_cohort_study_statistics_effect_variable_category_idTovariable_categories             cohort_study_statistics[]          @relation("cohort_study_statistics_effect_variable_category_idTovariable_categories")
+  user_variable_relationships                                                                                                 user_variable_relationships[]
+  measurements                                                                                                 measurements[]
+  user_variable_outcome_category                                                                               user_variable_outcome_category[]
+  user_variable_predictor_category                                                                             user_variable_predictor_category[]
+  user_variables                                                                                               user_variables[]
+  variable_outcome_category                                                                                    variable_outcome_category[]
+  variable_predictor_category                                                                                  variable_predictor_category[]
+  variables                                                                                                    global_variables[]
+  units                                                                                                        units?                             @relation(fields: [unitsId], references: [id])
+  unitsId                                                                                                      Int?                               @db.SmallInt
+
+  @@index([default_unit_id], map: "variable_categories_default_unit_id_fk")
+  @@index([dfda_post_id], map: "variable_categories_dfda_posts_ID_fk")
+}
+
+/// This model has constraints using non-default deferring rules and requires additional setup for migrations. Visit https://pris.ly/d/constraint-deferring for more info.
+model variable_outcome_category {
+  id                          Int                 @id @default(autoincrement())
+  variable_id                 Int
+  variable_category_id        Int                 @db.SmallInt
+  number_of_outcome_variables Int
+  created_at                  DateTime            @default(now()) @db.Timestamp(0)
+  updated_at                  DateTime            @default(now()) @db.Timestamp(0)
+  deleted_at                  DateTime?           @db.Timestamp(0)
+  variable_categories         variable_categories @relation(fields: [variable_category_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "variable_outcome_category_variable_categories_id_fk")
+  variables                   global_variables           @relation(fields: [variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "variable_outcome_category_variables_id_fk")
+
+  @@unique([variable_id, variable_category_id], map: "variable_outcome_category_uindex")
+  @@index([variable_category_id], map: "v_outcome_category_variable_categories_id_fk")
+}
+
+/// This model has constraints using non-default deferring rules and requires additional setup for migrations. Visit https://pris.ly/d/constraint-deferring for more info.
+model variable_predictor_category {
+  id                            Int                 @id @default(autoincrement())
+  variable_id                   Int
+  variable_category_id          Int                 @db.SmallInt
+  number_of_predictor_variables Int
+  created_at                    DateTime            @default(now()) @db.Timestamp(0)
+  updated_at                    DateTime            @default(now()) @db.Timestamp(0)
+  variable_categories           variable_categories @relation(fields: [variable_category_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "variable_predictor_category_variable_categories_id_fk")
+  variables                     global_variables           @relation(fields: [variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "variable_predictor_category_variables_id_fk")
+}
+
+
+
+model global_variables {
+  id                                                                                                          Int                                      @id @default(autoincrement())
+  name                                                                                                        String                                   @unique(map: "variables_name_UNIQUE") @db.VarChar(125)
+  number_of_user_variables                                                                                    Int                                      @default(0)
+  variable_category_id                                                                                        Int                                      @db.SmallInt
+  default_unit_id                                                                                             Int                                      @db.SmallInt
+  default_value                                                                                               Float?
+  cause_only                                                                                                  Boolean?
+  client_id                                                                                                   String?                                  @db.VarChar(80)
+  combination_operation                                                                                       String?                                  @db.VarChar(255)
+  common_alias                                                                                                String?                                  @db.VarChar(125)
+  created_at                                                                                                  DateTime                                 @default(now()) @db.Timestamp(0)
+  description                                                                                                 String?
+  duration_of_action                                                                                          Int?
+  filling_value                                                                                               Float?                                   @default(-1)
+  image_url                                                                                                   String?                                  @db.VarChar(2083)
+  informational_url                                                                                           String?                                  @db.VarChar(2083)
+  ion_icon                                                                                                    String?                                  @db.VarChar(40)
+  kurtosis                                                                                                    Float?
+  maximum_allowed_value                                                                                       Float?
+  maximum_recorded_value                                                                                      Float?
+  mean                                                                                                        Float?
+  median                                                                                                      Float?
+  minimum_allowed_value                                                                                       Float?
+  minimum_recorded_value                                                                                      Float?
+  number_of_global_variable_relationships_as_cause                                                            Int?
+  most_common_original_unit_id                                                                                Int?
+  most_common_value                                                                                           Float?
+  number_of_global_variable_relationships_as_effect                                                           Int?
+  number_of_unique_values                                                                                     Int?
+  onset_delay                                                                                                 Int?
+  outcome                                                                                                     Boolean?
+  parent_id                                                                                                   Int?
+  price                                                                                                       Float?
+  product_url                                                                                                 String?                                  @db.VarChar(2083)
+  second_most_common_value                                                                                    Float?
+  skewness                                                                                                    Float?
+  standard_deviation                                                                                          Float?
+  status                                                                                                      String                                   @default("WAITING") @db.VarChar(25)
+  third_most_common_value                                                                                     Float?
+  updated_at                                                                                                  DateTime                                 @default(now()) @db.Timestamp(0)
+  variance                                                                                                    Float?
+  most_common_connector_id                                                                                    Int?
+  synonyms                                                                                                    String?                                  @db.VarChar(600)
+  wikipedia_url                                                                                               String?                                  @db.VarChar(2083)
+  brand_name                                                                                                  String?                                  @db.VarChar(125)
+  valence                                                                                                     String?                                  @db.VarChar(255)
+  wikipedia_title                                                                                             String?                                  @db.VarChar(100)
+  number_of_tracking_reminders                                                                                Int?
+  upc_12                                                                                                      String?                                  @db.VarChar(255)
+  upc_14                                                                                                      String?                                  @db.VarChar(255)
+  number_common_tagged_by                                                                                     Int?
+  number_of_common_tags                                                                                       Int?
+  deleted_at                                                                                                  DateTime?                                @db.Timestamp(0)
+  most_common_source_name                                                                                     String?                                  @db.VarChar(255)
+  data_sources_count                                                                                          String?
+  optimal_value_message                                                                                       String?                                  @db.VarChar(500)
+  best_cause_variable_id                                                                                      Int?
+  best_effect_variable_id                                                                                     Int?
+  common_maximum_allowed_daily_value                                                                          Float?
+  common_minimum_allowed_daily_value                                                                          Float?
+  common_minimum_allowed_non_zero_value                                                                       Float?
+  minimum_allowed_seconds_between_measurements                                                                Int?
+  average_seconds_between_measurements                                                                        Int?
+  median_seconds_between_measurements                                                                         Int?
+  number_of_raw_measurements_with_tags_joins_children                                                         Int?
+  additional_meta_data                                                                                        String?
+  manual_tracking                                                                                             Boolean?
+  analysis_settings_modified_at                                                                               DateTime?                                @db.Timestamp(0)
+  newest_data_at                                                                                              DateTime?                                @db.Timestamp(0)
+  analysis_requested_at                                                                                       DateTime?                                @db.Timestamp(0)
+  reason_for_analysis                                                                                         String?                                  @db.VarChar(255)
+  analysis_started_at                                                                                         DateTime?                                @db.Timestamp(0)
+  analysis_ended_at                                                                                           DateTime?                                @db.Timestamp(0)
+  user_error_message                                                                                          String?
+  internal_error_message                                                                                      String?
+  latest_tagged_measurement_start_at                                                                          DateTime?                                @db.Timestamp(0)
+  earliest_tagged_measurement_start_at                                                                        DateTime?                                @db.Timestamp(0)
+  latest_non_tagged_measurement_start_at                                                                      DateTime?                                @db.Timestamp(0)
+  earliest_non_tagged_measurement_start_at                                                                    DateTime?                                @db.Timestamp(0)
+  dfda_post_id                                                                                                BigInt?
+  number_of_soft_deleted_measurements                                                                         Int?
+  charts                                                                                                      Json?                                    @db.Json
+  creator_user_id                                                                                             BigInt
+  best_aggregate_correlation_id                                                                               Int?
+  filling_type                                                                                                String?                                  @db.VarChar(255)
+  number_of_outcome_population_studies                                                                        Int?
+  number_of_predictor_population_studies                                                                      Int?
+  number_of_applications_where_outcome_variable                                                               Int?
+  number_of_applications_where_predictor_variable                                                             Int?
+  number_of_common_tags_where_tag_variable                                                                    Int?
+  number_of_common_tags_where_tagged_variable                                                                 Int?
+  number_of_outcome_case_studies                                                                              Int?
+  number_of_measurements                                                                                      Int?
+  number_of_predictor_case_studies                                                                            Int?
+  number_of_studies_where_cause_variable                                                                      Int?
+  number_of_studies_where_effect_variable                                                                     Int?
+  number_of_tracking_reminder_notifications                                                                   Int?
+  number_of_user_tags_where_tag_variable                                                                      Int?
+  number_of_user_tags_where_tagged_variable                                                                   Int?
+  number_of_variables_where_best_cause_variable                                                               Int?
+  number_of_variables_where_best_effect_variable                                                              Int?
+  number_of_votes_where_cause_variable                                                                        Int?
+  number_of_votes_where_effect_variable                                                                       Int?
+  number_of_users_where_primary_outcome_variable                                                              Int?
+  deletion_reason                                                                                             String?                                  @db.VarChar(280)
+  maximum_allowed_daily_value                                                                                 Float?
+  record_size_in_kb                                                                                           Int?
+  number_of_common_joined_variables                                                                           Int?
+  number_of_common_ingredients                                                                                Int?
+  number_of_common_foods                                                                                      Int?
+  number_of_common_children                                                                                   Int?
+  number_of_common_parents                                                                                    Int?
+  number_of_user_joined_variables                                                                             Int?
+  number_of_user_ingredients                                                                                  Int?
+  number_of_user_foods                                                                                        Int?
+  number_of_user_children                                                                                     Int?
+  number_of_user_parents                                                                                      Int?
+  is_public                                                                                                   Boolean?
+  sort_order                                                                                                  Int?
+  slug                                                                                                        String?                                  @unique(map: "variables_slug_uindex") @db.VarChar(200)
+  is_goal                                                                                                     String?                                  @db.VarChar(255)
+  controllable                                                                                                String?                                  @db.VarChar(255)
+  boring                                                                                                      Boolean?
+  canonical_variable_id                                                                                       Int?
+  predictor                                                                                                   Boolean?
+  source_url                                                                                                  String?                                  @db.VarChar(2083)
+  string_id                                                                                                   String?                                  @db.VarChar(125)
+  global_variable_relationships_global_variable_relationships_cause_variable_idTovariables                    global_variable_relationships[]          @relation("global_variable_relationships_cause_variable_idTovariables")
+  global_variable_relationships_global_variable_relationships_effect_variable_idTovariables                   global_variable_relationships[]          @relation("global_variable_relationships_effect_variable_idTovariables")
+  cohort_studies_cohort_studies_cause_variable_idTovariables                                                  cohort_studies[]                         @relation("cohort_studies_cause_variable_idTovariables")
+  cohort_studies_cohort_studies_effect_variable_idTovariables                                                 cohort_studies[]                         @relation("cohort_studies_effect_variable_idTovariables")
+  cohort_study_statistics_cohort_study_statistics_cause_variable_idTovariables                                cohort_study_statistics[]                @relation("cohort_study_statistics_cause_variable_idTovariables")
+  cohort_study_statistics_cohort_study_statistics_effect_variable_idTovariables                               cohort_study_statistics[]                @relation("cohort_study_statistics_effect_variable_idTovariables")
+  common_tags_common_tags_tag_variable_idTovariables                                                          common_tags[]                            @relation("common_tags_tag_variable_idTovariables")
+  common_tags_common_tags_tagged_variable_idTovariables                                                       common_tags[]                            @relation("common_tags_tagged_variable_idTovariables")
+  correlation_causality_votes_correlation_causality_votes_cause_variable_idTovariables                        correlation_causality_votes[]            @relation("correlation_causality_votes_cause_variable_idTovariables")
+  correlation_causality_votes_correlation_causality_votes_effect_variable_idTovariables                       correlation_causality_votes[]            @relation("correlation_causality_votes_effect_variable_idTovariables")
+  variable_relationship_usefulness_votes_variable_relationship_usefulness_votes_cause_variable_idTovariables  variable_relationship_usefulness_votes[] @relation("variable_relationship_usefulness_votes_cause_variable_idTovariables")
+  variable_relationship_usefulness_votes_variable_relationship_usefulness_votes_effect_variable_idTovariables variable_relationship_usefulness_votes[] @relation("variable_relationship_usefulness_votes_effect_variable_idTovariables")
+  user_variable_relationships_user_variable_relationships_cause_variable_idTovariables                                                      user_variable_relationships[]            @relation("user_variable_relationships_cause_variable_idTovariables")
+  user_variable_relationships_user_variable_relationships_effect_variable_idTovariables                                                     user_variable_relationships[]            @relation("user_variable_relationships_effect_variable_idTovariables")
+  global_studies_global_studies_cause_variable_idTovariables                                                  global_studies[]                         @relation("global_studies_cause_variable_idTovariables")
+  global_studies_global_studies_effect_variable_idTovariables                                                 global_studies[]                         @relation("global_studies_effect_variable_idTovariables")
+  measurements                                                                                                measurements[]
+  tracking_reminder_notifications                                                                             tracking_reminder_notifications[]
+  tracking_reminders                                                                                          tracking_reminders[]
+  user_studies_user_studies_cause_variable_idTovariables                                                      user_studies[]                           @relation("user_studies_cause_variable_idTovariables")
+  user_studies_user_studies_effect_variable_idTovariables                                                     user_studies[]                           @relation("user_studies_effect_variable_idTovariables")
+  user_tags                                                                                                   user_tags[]
+  user_variable_clients                                                                                       user_variable_clients[]
+  user_variable_outcome_category                                                                              user_variable_outcome_category[]
+  user_variable_predictor_category                                                                            user_variable_predictor_category[]
+  user_variables                                                                                              user_variables[]
+  variable_outcome_category                                                                                   variable_outcome_category[]
+  variable_predictor_category                                                                                 variable_predictor_category[]
+
+  global_variable_relationships_variables_best_aggregate_correlation_idToglobal_variable_relationships global_variable_relationships?  @relation("variables_best_aggregate_correlation_idToglobal_variable_relationships", fields: [best_aggregate_correlation_id], references: [id], onUpdate: NoAction, map: "variables_global_variable_relationships_id_fk")
+  variables_variables_best_cause_variable_idTovariables                                                global_variables?                      @relation("variables_best_cause_variable_idTovariables", fields: [best_cause_variable_id], references: [id], onUpdate: NoAction, map: "variables_best_cause_variable_id_fk")
+  other_variables_variables_best_cause_variable_idTovariables                                          global_variables[]                     @relation("variables_best_cause_variable_idTovariables")
+  variables_variables_best_effect_variable_idTovariables                                               global_variables?                      @relation("variables_best_effect_variable_idTovariables", fields: [best_effect_variable_id], references: [id], onUpdate: NoAction, map: "variables_best_effect_variable_id_fk")
+  other_variables_variables_best_effect_variable_idTovariables                                         global_variables[]                     @relation("variables_best_effect_variable_idTovariables")
+  oa_clients                                                                                           oa_clients?                     @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "variables_client_id_fk")
+  units                                                                                                units                           @relation(fields: [default_unit_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "variables_default_unit_id_fk")
+  votes_votes_cause_variable_idTovariables                                                             votes[]                         @relation("votes_cause_variable_idTovariables")
+  votes_votes_effect_variable_idTovariables                                                            votes[]                         @relation("votes_effect_variable_idTovariables")
+  global_variable_relationships                                                                        global_variable_relationships[]
+  variable_categories                                                                                  variable_categories?            @relation(fields: [variable_categoriesId], references: [id])
+  variable_categoriesId                                                                                Int?                            @db.SmallInt
+
+  @@index([variable_category_id, default_unit_id, name, number_of_user_variables, id], map: "IDX_cat_unit_public_name")
+  @@index([default_unit_id], map: "fk_variableDefaultUnit")
+  @@index([deleted_at, synonyms, number_of_user_variables], map: "public_deleted_at_synonyms_number_of_user_variables_index")
+  @@index([best_aggregate_correlation_id], map: "variables_global_variable_relationships_id_fk")
+  @@index([best_cause_variable_id], map: "variables_best_cause_variable_id_fk")
+  @@index([best_effect_variable_id], map: "variables_best_effect_variable_id_fk")
+  @@index([client_id], map: "variables_client_id_fk")
+  @@index([name, number_of_user_variables], map: "variables_public_name_number_of_user_variables_index")
+  @@index([dfda_post_id], map: "variables_dfda_posts_ID_fk")
+}
+
+model votes {
+  id                                            Int                            @id @default(autoincrement())
+  client_id                                     String?                        @db.VarChar(80)
+  user_id                                       BigInt
+  value                                         Int
+  created_at                                    DateTime                       @default(now()) @db.Timestamp(0)
+  updated_at                                    DateTime                       @default(now()) @db.Timestamp(0)
+  deleted_at                                    DateTime?                      @db.Timestamp(0)
+  cause_variable_id                             Int
+  effect_variable_id                            Int
+  correlation_id                                Int?
+  aggregate_correlation_id                      Int?
+  is_public                                     Boolean?
+  global_variable_relationships                 global_variable_relationships? @relation(fields: [aggregate_correlation_id], references: [id], onUpdate: NoAction, map: "votes_global_variable_relationships_id_fk")
+  variables_votes_cause_variable_idTovariables  global_variables                      @relation("votes_cause_variable_idTovariables", fields: [cause_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "votes_cause_variable_id_fk")
+  oa_clients                                    oa_clients?                    @relation(fields: [client_id], references: [client_id], onDelete: NoAction, onUpdate: NoAction, map: "votes_client_id_fk")
+  user_variable_relationships                                  user_variable_relationships?   @relation(fields: [correlation_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "votes_user_variable_relationships_id_fk")
+  variables_votes_effect_variable_idTovariables global_variables                      @relation("votes_effect_variable_idTovariables", fields: [effect_variable_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "votes_effect_variable_id_fk_2")
+  dfda_users                                    dfda_users                     @relation(fields: [user_id], references: [ID], onDelete: NoAction, onUpdate: NoAction, map: "votes_user_id_fk")
+
+  @@unique([user_id, cause_variable_id, effect_variable_id], map: "votes_user_id_cause_variable_id_effect_variable_id_uindex")
+  @@index([aggregate_correlation_id], map: "votes_global_variable_relationships_id_fk")
+  @@index([cause_variable_id], map: "votes_cause_variable_id_index")
+  @@index([client_id], map: "votes_client_id_fk")
+  @@index([correlation_id], map: "votes_user_variable_relationships_id_fk")
+  @@index([effect_variable_id], map: "votes_effect_variable_id_index")
+}
+
+model Account {
+  id                String   @id @default(cuid())
+  userId            String   @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String   @map("provider_account_id")
+  refresh_token     String?  @db.Text
+  access_token      String?  @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?  @db.Text
+  session_state     String?
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique @map("session_token")
+  userId       String   @map("user_id")
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model User {
+  id                           String    @id @default(cuid())
+  dfda_user_id                 Int?
+  dfda_access_token            String?
+  dfda_refresh_token           String?
+  dfda_expires_in              Int?
+  dfda_scope                   String?
+  dfda_access_token_expires_at DateTime?
+  address                      String?
+  banned                       Boolean?
+  birthday                     DateTime?
+  city                         String?
+  countryCode                  String?   @map("country_code")
+  createdAt                    DateTime  @default(now()) @map("created_at")
+  deletedAt                    DateTime? @map("deleted_at")
+  email                        String?   @unique
+  emailVerified                DateTime? @map("email_verified")
+  emailValidated               Boolean   @default(false) @map("email_validated")
+  firstName                    String?   @map("first_name")
+  gdprConsent                  Boolean   @default(false) @map("gdpr_consent")
+  gender                       String?
+  image                        String?
+  ipAddress                    String?   @map("ip_address") @db.VarChar(45)
+  language                     String?
+  lastName                     String?   @map("last_name")
+  lastSignInAt                 BigInt?   @map("last_sign_in_at")
+  name                         String?
+  newsletterSubscribed         Boolean   @default(false) @map("newsletter_subscribed")
+  phoneNumber                  String?   @map("phone_number")
+  postalCode                   String?   @map("postal_code")
+  referrerUserId               String?   @map("referrer_user_id")
+  stateProvince                String?   @map("state_province")
+  updatedAt                    DateTime  @updatedAt @map("updated_at")
+  username                     String    @unique @default(uuid())
+  web3Wallet                   String?   @map("web3_wallet")
+  unsafeMetadata               Json?     @map("unsafe_metadata")
+  publicMetadata               Json?     @map("public_metadata")
+  privateMetadata              Json?     @map("private_metadata")
+  accounts                     Account[]
+  sessions                     Session[]
+
+  @@map("users")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+model dfda_users {
+  ID                                     BigInt                                   @id @default(autoincrement()) @db.UnsignedBigInt
+  cohort_studies                         cohort_studies[]
+  connections                            connections[]
+  connector_imports                      connector_imports[]
+  connector_requests                     connector_requests[]
+  correlation_causality_votes            correlation_causality_votes[]
+  variable_relationship_usefulness_votes variable_relationship_usefulness_votes[]
+  user_variable_relationships            user_variable_relationships[]
+  device_tokens                          device_tokens[]
+  global_studies                         global_studies[]
+  measurement_exports                    measurement_exports[]
+  measurement_imports                    measurement_imports[]
+  measurements                           measurements[]
+  phrases                                phrases[]
+  sent_emails                            sent_emails[]
+  tracking_reminder_notifications        tracking_reminder_notifications[]
+  tracking_reminders                     tracking_reminders[]
+  user_studies                           user_studies[]
+  user_tags                              user_tags[]
+  user_variable_clients                  user_variable_clients[]
+  user_variables                         user_variables[]
+  votes                                  votes[]
+}
+
+model oa_clients {
+  client_id                                 String                                   @id @db.VarChar(80)
+  client_secret                             String                                   @db.VarChar(80)
+  redirect_uri                              String?                                  @db.VarChar(2000)
+  grant_types                               String?                                  @db.VarChar(80)
+  user_id                                   BigInt                                   @db.UnsignedBigInt
+  created_at                                DateTime                                 @default(now()) @db.Timestamp(0)
+  updated_at                                DateTime                                 @default(now()) @db.Timestamp(0)
+  icon_url                                  String?                                  @db.VarChar(2083)
+  app_identifier                            String?                                  @db.VarChar(255)
+  deleted_at                                DateTime?                                @db.Timestamp(0)
+  earliest_measurement_start_at             DateTime?                                @db.Timestamp(0)
+  latest_measurement_start_at               DateTime?                                @db.Timestamp(0)
+  number_of_global_variable_relationships   Int?                                     @db.UnsignedInt
+  number_of_applications                    Int?                                     @db.UnsignedInt
+  number_of_oauth_access_tokens             Int?                                     @db.UnsignedInt
+  number_of_oauth_authorization_codes       Int?                                     @db.UnsignedInt
+  number_of_oauth_refresh_tokens            Int?                                     @db.UnsignedInt
+  number_of_button_clicks                   Int?                                     @db.UnsignedInt
+  number_of_collaborators                   Int?                                     @db.UnsignedInt
+  number_of_common_tags                     Int?                                     @db.UnsignedInt
+  number_of_connections                     Int?                                     @db.UnsignedInt
+  number_of_connector_imports               Int?                                     @db.UnsignedInt
+  number_of_connectors                      Int?                                     @db.UnsignedInt
+  number_of_user_variable_relationships                    Int?                                     @db.UnsignedInt
+  number_of_measurement_exports             Int?                                     @db.UnsignedInt
+  number_of_measurement_imports             Int?                                     @db.UnsignedInt
+  number_of_measurements                    Int?                                     @db.UnsignedInt
+  number_of_sent_emails                     Int?                                     @db.UnsignedInt
+  number_of_studies                         Int?                                     @db.UnsignedInt
+  number_of_tracking_reminder_notifications Int?                                     @db.UnsignedInt
+  number_of_tracking_reminders              Int?                                     @db.UnsignedInt
+  number_of_user_tags                       Int?                                     @db.UnsignedInt
+  number_of_user_variables                  Int?                                     @db.UnsignedInt
+  number_of_variables                       Int?                                     @db.UnsignedInt
+  number_of_votes                           Int?                                     @db.UnsignedInt
+  global_variable_relationships             global_variable_relationships[]
+  cohort_studies                            cohort_studies[]
+  cohort_study_statistics                   cohort_study_statistics[]
+  common_tags                               common_tags[]
+  connections                               connections[]
+  connector_imports                         connector_imports[]
+  connectors                                connectors[]
+  correlation_causality_votes               correlation_causality_votes[]
+  device_tokens                             device_tokens[]
+  global_studies                            global_studies[]
+  measurement_exports                       measurement_exports[]
+  measurement_imports                       measurement_imports[]
+  measurements                              measurements[]
+  phrases                                   phrases[]
+  sent_emails                               sent_emails[]
+  spreadsheet_importers                     spreadsheet_importers[]
+  tracking_reminder_notifications           tracking_reminder_notifications[]
+  tracking_reminders                        tracking_reminders[]
+  user_tags                                 user_tags[]
+  user_variable_clients                     user_variable_clients[]
+  user_variables                            user_variables[]
+  variables                                 global_variables[]
+  votes                                     votes[]
+  variable_relationship_usefulness_votes    variable_relationship_usefulness_votes[]
+  user_variable_relationships               user_variable_relationships[]
+
+  @@index([user_id], map: "oa_clients_user_id_fk")
+}
