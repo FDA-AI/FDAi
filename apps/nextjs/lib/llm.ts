@@ -1,5 +1,5 @@
 import OpenAI from 'openai';
-import {getUtcDateTime} from "@/lib/dateTimeWithTimezone";
+import {convertToLocalDateTime} from "@/lib/dateTimeWithTimezone";
 // Create an OpenAI API client (that's edge-friendly!)
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || '',
@@ -33,10 +33,12 @@ export async function textCompletion(promptText: string, returnType: "text" | "j
   return response.choices[0].message.content;
 }
 
-export async function getDateTimeFromStatement(statement: string): Promise<string> {
-  const currentDate = getUtcDateTime();
+export async function getDateTimeFromStatementInUserTimezone(statement: string,
+                                                             utcDateTime: string,
+                                                             timeZoneOffset: number): Promise<string> {
+  const localDateTime = convertToLocalDateTime(utcDateTime, timeZoneOffset);
   const promptText = `
-        estimate the date and time of the user statement based on the current date and time ${currentDate}
+        estimate the date and time of the user statement based on the user's current date and time ${localDateTime}
          and the following user statement:
 \`\`\`
 ${statement}
