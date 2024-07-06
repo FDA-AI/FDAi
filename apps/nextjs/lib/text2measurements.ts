@@ -1,23 +1,17 @@
 import {Measurement} from "@/types/models/Measurement";
-import {getDateTimeFromStatement, textCompletion} from "@/lib/llm";
+import {getDateTimeFromStatementInUserTimezone, textCompletion} from "@/lib/llm";
 import {getUserId} from "@/lib/getUserId";
 import {postMeasurements} from "@/lib/dfda";
 import {
-  convertToLocalDateTime,
-  throwErrorIfDateInFuture
+  convertToLocalDateTime, convertToUTC,
 } from "@/lib/dateTimeWithTimezone";
 
 export function generateText2MeasurementsPrompt(statement: string,
-                                                utcDateTime: string,
+                                                currentUtcDateTime: string,
                                                 timeZoneOffset: number): string {
-  if(!utcDateTime) {
-    const now = new Date();
-    utcDateTime = now.toISOString().slice(0, 19);
-  }
-  throwErrorIfDateInFuture(utcDateTime);
 
-  const localDateTime = convertToLocalDateTime(utcDateTime, timeZoneOffset);
-  const localDate = utcDateTime.split('T')[0];
+  const currentLocalDateTime = convertToLocalDateTime(currentUtcDateTime, timeZoneOffset);
+  const currentLocalDate = currentUtcDateTime.split('T')[0];
 
   return `
         You are a service that translates user requests into an array of JSON objects of type "Measurement" according to the following TypeScript definitions:
@@ -133,19 +127,19 @@ export interface Measurement {
   // For example, if the answer is "I took 5 mg of NMN", then this value is 5.
   // For example, if the answer is "I have been feeling very tired and fatigued today", you would return two measurements
   // with the value 5 like this:
-  // {variableName: "Tiredness", value: 5, unitName: "1 to 5 Rating", startAt: "${localDate}T00:00:00", endAt: "${localDate}T23:59:59", combinationOperation: "MEAN", variableCategoryName: "Symptoms"}
-  // {variableName: "Fatigue", value: 5, unitName: "1 to 5 Rating", startAt: "${localDate}T00:00:00", endAt: "${localDate}T23:59:59", combinationOperation: "MEAN", variableCategoryName: "Symptoms"}
+  // {variableName: "Tiredness", value: 5, unitName: "1 to 5 Rating", startAt: "${currentLocalDate}T00:00:00", endAt: "${currentLocalDate}T23:59:59", combinationOperation: "MEAN", variableCategoryName: "Symptoms"}
+  // {variableName: "Fatigue", value: 5, unitName: "1 to 5 Rating", startAt: "${currentLocalDate}T00:00:00", endAt: "${currentLocalDate}T23:59:59", combinationOperation: "MEAN", variableCategoryName: "Symptoms"}
   // For example, if the answer is "I have been having trouble concentrating today", then this value is 1 and the object
-  // would be {variableName: "Concentration", value: 1, unitName: "1 to 5 Rating", startAt: "${localDate}T00:00:00", endAt: "${localDate}T23:59:59", combinationOperation: "MEAN", variableCategoryName: "Symptoms"}
+  // would be {variableName: "Concentration", value: 1, unitName: "1 to 5 Rating", startAt: "${currentLocalDate}T00:00:00", endAt: "${currentLocalDate}T23:59:59", combinationOperation: "MEAN", variableCategoryName: "Symptoms"}
   // For example, if the answer is "I also took magnesium 200mg, Omega3 one capsule 500mg", then the measurements would be:
-  // {variableName: "Magnesium", value: 200, unitName: "Milligrams", startAt: "${localDate}T00:00:00", endAt: "${localDate}T23:59:59", combinationOperation: "SUM", variableCategoryName: "Treatments"}
-  // {variableName: "Omega3", value: 500, unitName: "Milligrams", startAt: "${localDate}T00:00:00", endAt: "${localDate}T23:59:59", combinationOperation: "SUM", variableCategoryName: "Treatments"}
+  // {variableName: "Magnesium", value: 200, unitName: "Milligrams", startAt: "${currentLocalDate}T00:00:00", endAt: "${currentLocalDate}T23:59:59", combinationOperation: "SUM", variableCategoryName: "Treatments"}
+  // {variableName: "Omega3", value: 500, unitName: "Milligrams", startAt: "${currentLocalDate}T00:00:00", endAt: "${currentLocalDate}T23:59:59", combinationOperation: "SUM", variableCategoryName: "Treatments"}
   // (I just used the current date in those examples, but you should use the correct date if the user specifies a different date or time range.)
   unitName: UnitName;
   // unitName is the unit of the treatment, symptom, food, drink, etc.
   // For example, if the answer is "I took 5 mg of NMN", then this unitName is "Milligrams".
-  startAt: string;  // startAt should be the local datetime the measurement was taken in the format "YYYY-MM-DDThh:mm:ss" inferred from the USER STATEMENT relative to and sometime before the current local datetime ${localDateTime}.
-  endAt: string|null; // If a time range is suggested, then endAt should be the end of that period. It should also be in the format "YYYY-MM-DDThh:mm:ss" and should not be in the future relative to the current time ${localDateTime} .
+  startAt: string;  // startAt should be the local datetime the measurement was taken in the format "YYYY-MM-DDThh:mm:ss" inferred from the USER STATEMENT relative to and sometime before the current local datetime ${currentLocalDateTime}.
+  endAt: string|null; // If a time range is suggested, then endAt should be the end of that period. It should also be in the format "YYYY-MM-DDThh:mm:ss" and should not be in the future relative to the current time ${currentLocalDateTime} .
   combinationOperation: "SUM" | "MEAN"; // combinationOperation is the operation used to combine multiple measurements of the same variableName
   variableCategoryName: VariableCategoryName; // variableCategoryName is the category of the variableName
   // For example, if the answer is "I took 5 mg of NMN", then this variableCategoryName is "Treatments".
@@ -179,7 +173,7 @@ export type Symptom = Measurement & {
   unitName: '/5';
 };
 
-Remember, startAt and endAt should be in the format "YYYY-MM-DDThh:mm:ss" and should not be in the future relative to the current time ${localDateTime}.
+Remember, startAt and endAt should be in the format "YYYY-MM-DDThh:mm:ss" and should not be in the future relative to the current time ${currentLocalDateTime}.
 
 USER STATEMENT TO CONVERT TO AN ARRAY OF MEASUREMENTS:
 """
@@ -191,25 +185,18 @@ The following is the user request translated into a JSON object with 2 spaces of
 }
 
 export async function text2measurements(statement: string,
-                                        utcDateTime: string,
+                                        currentUtcDateTime: string,
                                         timeZoneOffset: number): Promise<Measurement[]> {
-  const promptText = generateText2MeasurementsPrompt(statement, utcDateTime, timeZoneOffset);
+  const promptText = generateText2MeasurementsPrompt(statement, currentUtcDateTime, timeZoneOffset);
   const str = await textCompletion(promptText, "json_object");
-  const dateTime = await getDateTimeFromStatement(statement);
+  const localDateTime = await getDateTimeFromStatementInUserTimezone(statement,
+    currentUtcDateTime, timeZoneOffset);
+  const utcDateTimeFromStatement = convertToUTC(localDateTime, timeZoneOffset);
   let json = JSON.parse(str);
-  if(!Array.isArray(str)){
-    json = [json];
-  }
+  if(!Array.isArray(str)){json = [json];}
   const measurements: Measurement[] = [];
   json.forEach((measurement: Measurement) => {
-    // Convert the startAt to UTC based on the timezone from the utcDateTime
-    measurement.startAt = dateTime;
-    // replace with the current time if greater
-    const now = new Date().toISOString();
-    if(measurement.startAt > now){
-      console.error(`startAt is in the future: ${measurement.startAt}`);
-      measurement.startAt = now;
-    }
+    measurement.startAt = utcDateTimeFromStatement;
     measurements.push(measurement);
   });
   const userId = await getUserId();
