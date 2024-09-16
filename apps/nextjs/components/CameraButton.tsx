@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover';
 
 // CameraButton component to capture images from webcam or mobile camera
-export const CameraButton = ({ onCapture }: { onCapture: (blob: Blob | null) => void }) => {
+export const CameraButton = ({ onCapture }: { onCapture: (blob: Blob) => void }) => {
   const [capturing, setCapturing] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [videoStream, setVideoStream] = useState<MediaStream | null>(null);
@@ -39,13 +39,15 @@ export const CameraButton = ({ onCapture }: { onCapture: (blob: Blob | null) => 
       const ctx = canvas.getContext('2d');
       if (ctx) {
         ctx.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
-        canvas.toBlob(blob => onCapture(blob));
+        canvas.toBlob(blob => {
+          if (blob) onCapture(blob);
+        });
+        if (videoStream) {
+          videoStream.getTracks().forEach((track: { stop: () => any; }) => track.stop());
+        }
+        setShowModal(false);
+        setCapturing(false);
       }
-      if (videoStream) {
-        videoStream.getTracks().forEach((track: { stop: () => any; }) => track.stop());
-      }
-      setShowModal(false);
-      setCapturing(false);
     }
   };
 
