@@ -2,8 +2,7 @@
  * @jest-environment node
  */
 import {foodOrDrugCostBenefitAnalysis, safeUnapprovedDrugs} from "@/lib/fdaiAgent";
-beforeAll(async () => {
-});
+
 describe("FDAi Tests", () => {
     it("cost-benefit analysis", async () => {
         const result = await foodOrDrugCostBenefitAnalysis("NMN");
