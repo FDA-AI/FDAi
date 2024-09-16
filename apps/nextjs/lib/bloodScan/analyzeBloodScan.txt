@@ -1,0 +1,141 @@
+// TODO
+
+// pages/api/bloodMarkersExtraction.ts
+import { NextApiRequest, NextApiResponse } from 'next';
+import { OpenAIApi, Configuration } from 'openai';
+import pdf from 'pdf-parse';
+import fs from 'fs';
+import { fromBuffer } from 'pdf2pic';
+import axios from 'axios';
+import { getBloodScanPrompt } from './bloodScanPrompt';
+
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+
+const prompt = getBloodScanPrompt();
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method === 'POST') {
+    try {
+      const { bloodReportURL } = req.body;
+      const response = await axios.get(bloodReportURL, { responseType: 'arraybuffer' });
+      const text = await extractTextFromPDF(response);
+      const result = text !== '' ? await extractBloodParamsWithGPT3(text) : await performOCRWithGPT4(await convertPdfToImages(response));
+      res.status(200).json(result);
+    } catch (error) {
+      console.error('Error processing blood markers extraction:', error);
+      res.status(500).json({ error: 'An error occurred' });
+    }
+  } else {
+    res.status(405).json({ error: 'Method not allowed' });
+  }
+}
+
+async function performOCRWithGPT4(base64Images: string[]) {
+  try {
+    const messages = [
+      {
+        role: 'user',
+        content: [
+          {
+            type: 'text',
+            text: prompt,
+          },
+          ...base64Images.map((base64Image) => ({
+            type: 'image_url',
+            image_url: {
+              url: `data:image/png;base64,${base64Image}`,
+              detail: 'high',
+            },
+          })),
+        ],
+      },
+    ];
+
+    const response = await openai.createChatCompletion({
+      model: 'gpt-4-vision-preview',
+      messages: messages as any,
+      max_tokens: 3000,
+    });
+
+    const data = JSON.parse(response.data.choices[0].message.content.trim().slice(7, -3).trim());
+    console.log('GPT4 response: ' + JSON.stringify(data));
+    return data;
+  } catch (error) {
+    console.error('Error performing OCR with GPT-4 Vision:', error);
+    throw error;
+  }
+}
+
+async function extractBloodParamsWithGPT3(text: string) {
+  try {
+    const conversation = [
+      { role: 'system', content: 'You are a helpful assistant.' },
+      { role: 'user', content: text },
+      {
+        role: 'assistant',
+        content: prompt,
+      },
+    ];
+
+    const response = await openai.createChatCompletion({
+      model: 'gpt-4-1106-preview',
+      messages: conversation as any,
+      max_tokens: 3000,
+    });
+
+    const data = JSON.parse(response.data.choices[0].message.content.trim());
+    console.log('GPT4 highlighted response: ' + JSON.stringify(data));
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+    throw error;
+  }
+}
+
+async function extractTextFromPDF(response: axios.AxiosResponse<ArrayBuffer>) {
+  try {
+    const data = await pdf(response.data);
+    return data.text.trim();
+  } catch (error) {
+    console.error('Error fetching or processing PDF:', error.message);
+    throw error;
+  }
+}
+
+async function convertPdfToImages(response: axios.AxiosResponse<ArrayBuffer>) {
+  try {
+    const pdfBuffer = Buffer.from(response.data);
+    const options = {
+      density: 900,
+      quality: 100,
+      format: 'png',
+      height: 4400,
+      preserveAspectRatio: true,
+    };
+    const pdf2pic = fromBuffer(pdfBuffer, options);
+    let page = 1;
+    const base64Images: string[] = [];
+    let path: string;
+
+    while (true) {
+      try {
+        const result = await pdf2pic(page);
+        path = result.path;
+        const imageBuffer = fs.readFileSync(result.path);
+        const base64Data = imageBuffer.toString('base64');
+        base64Images.push(base64Data);
+        page++;
+      } catch (error) {
+        break;
+      }
+    }
+
+    fs.unlinkSync(path);
+    return base64Images;
+  } catch (error) {
+    console.error('Error downloading PDF:');
+    throw error;
+  }
+}
