@@ -66,7 +66,6 @@
     "flowise-embed": "^1.2.1",
     "flowise-embed-react": "^1.0.2",
     "fs-extra": "^11.2.0",
-    "glob": "^10.3.12",
     "gray-matter": "^4.0.3",
     "highcharts": "^11.4.1",
     "highcharts-react-official": "^3.2.1",
@@ -123,7 +122,9 @@
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "prisma": "^5.9.1",
-    "ts-jest": "^29.1.2"
+    "ts-jest": "^29.1.4",
+    "ts-node": "latest",
+    "typescript": "latest"
   },
   "trigger.dev": {
     "endpointId": "the-decentralized-fda-1W-N"
