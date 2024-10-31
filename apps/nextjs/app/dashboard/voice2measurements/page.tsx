@@ -1,27 +1,59 @@
-"use client"
+'use client';
+import Button from "@/components/buttons/Button";
+//import { SendQuery } from "@/core/services/GPTService";
+import useSharedStore from "@/core/store/SharedStore";
+import { SuggestionItem } from "@/core/types/types";
+import { useCallback, useEffect, useState } from "react";
+import "regenerator-runtime/runtime";
+import { MdSettingsVoice,MdOutlineSettingsVoice } from "react-icons/md";
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import Lottie from "lottie-react";
+import loadingAnimation from "@/animations/loading.json";
+//import List from "@/components/list/List";
+import { useSpeechSynthesis } from 'react-speech-kit';
+import { getTimeZoneOffset, getUtcDateTime } from '@/lib/dateTimeWithTimezone';
 
-import React, { useState } from 'react';
 import {Shell} from "@/components/layout/shell";
 import {DashboardHeader} from "@/components/pages/dashboard/dashboard-header";
 import {Icons} from "@/components/icons";
-import {getTimeZoneOffset, getUtcDateTime} from "@/lib/dateTimeWithTimezone";
 
-// Define a type for the message objects
-type Message = {
-  type: 'user' | 'response' | 'loading';
-  text: string;
-};
 
-const App: React.FC = () => {
+
+function isNumber(numStr: string) {
+
+ return !isNaN(Number(numStr));
+}
+
+export default function Home() {
+
+  const [ifStarted, setIfStarted] = useState<boolean>(false);
+  const [ifThinking, setIfThinking] = useState<boolean>(false);
+
+  const { speak, voices } = useSpeechSynthesis();
+
+  const {
+    transcript,
+    listening,
+    resetTranscript
+  } = useSpeechRecognition();
+
+  type Message = {
+    type: 'user' | 'response' | 'loading';
+    text: string;
+  };
+  const conversation: Message[] = useSharedStore((state) => state.conversation);
+  const response: string = useSharedStore((state) => state.response);
+  const suggestions: SuggestionItem[] = useSharedStore((state) => state.suggestions);
+
   const [input, setInput] = useState<string>('');
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const sendMessage = async () => {
-    if (input.trim()) {
+  let previousStatements: string = useSharedStore((state) => state.previousStatements);
+  let previousQuestions: string = useSharedStore((state) => state.previousQuestions);
 
-      setMessages([...messages, { type: 'user', text: input }, { type: 'loading', text: 'Loading...' }]);
-      setIsLoading(true);
+  const sendMessage = async (input: string) => {
+    if (input.trim()) {
       const response = await fetch('/api/voice2measurements', {
         method: 'POST',
         headers: {
@@ -31,58 +63,235 @@ const App: React.FC = () => {
           text: input,
           timeZoneOffset: getTimeZoneOffset(),
           utcDateTime: getUtcDateTime(),
+          previousStatements: previousStatements,
+          previousQuestions: previousQuestions
         }),
       });
       const data = await response.json();
-      setMessages(prevMessages => prevMessages
-        .filter(msg => msg.type !== 'loading')
-        .concat({ type: 'response', text: JSON.stringify(data) }));
-      setIsLoading(false);
-      setInput('');
+
+      //const parsedData = JSON.parse(data.question);
+
+      // Extract the question from the array
+      //const question = parsedData.questions[0].question;
+
+      console.log(data.question);
+      //console.log("PRINTING DATA",data.question);
+      speak({ text: data.question, voice: voices[0] });
+      let ps = previousStatements
+      if(!previousStatements){
+        ps = "";
+      }
+      ps += input;
+      ps += "\n";
+      useSharedStore.setState({ previousStatements: ps});
+
+      let pq = previousQuestions
+      if(!previousQuestions){
+        pq = "";
+      }
+      pq += data.question;
+      pq += "\n";
+      useSharedStore.setState({ previousQuestions: pq});
+
+      setIfThinking(false);
     }
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
-  };
+  async function startConversation () {
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      sendMessage();
+    if (!ifStarted) {
+     //sendConversationToGPT(conversation,true);
+      setIfStarted(true);
     }
-  };
+  }
+
+  function formatPassage(passage: string) {
+
+    const processed = passage.replaceAll("\n","\n<br/>");
+    return processed;
+  }
+
+  function processResponse(gptResponse: string): SuggestionItem[] {
+
+    // to get the list of suggestions returned (they are all separated by an \n)
+    const suggestions: string[] = gptResponse.split("\n");
+    const processed: SuggestionItem[] = [];
+
+    suggestions.forEach((eachSuggestion: string, index: number) => {
+
+      //  we do not want the 1st index
+      //  because it is not a suggestion
+      if (index !== 0) {
+
+        //  here we are getting the 1st character of this string
+        const firstChar: string = eachSuggestion[0];
+
+        //  we then check if the first character is a number
+        if (isNumber(firstChar)) {
+
+          //  if it is a suggestion, we get the place's name with the number in front of it
+          let splitToken: string = " - ";
+          if (eachSuggestion.indexOf(":") !== -1) { splitToken = ":"; }
+          const splitSuggestion: string[] = eachSuggestion.split(splitToken);
+          const placeNameWithNumber: string = splitSuggestion[0];
+
+          // we can get the place name from above.
+          // but it could be followed by a . or a )
+          let token: string = ".";
+          if (placeNameWithNumber.indexOf(")") !== -1) { token = ")"; }
+
+          const splitPlaceName: string[] = placeNameWithNumber.split(token);
+          const placeName: string = splitPlaceName[1];
+
+          const placeDesc: string = splitSuggestion[1];
+
+          const newSuggestion: SuggestionItem = {
+            id: crypto.randomUUID(),
+            placeName: placeName,
+            description: placeDesc
+          };
+
+          processed.push(newSuggestion);
+        }
+      }
+    });
+
+    return processed;
+  }
+
+  const sendConversationToGPT = useCallback(async (updatedConversations: Message[], ifStart: boolean) => {
+
+    const gptResponse: string = await SendQuery(updatedConversations);
+    let displayText: string = gptResponse;
+
+    displayText = formatPassage(gptResponse);
+
+    useSharedStore.setState({ response: displayText });
+
+    // using text-to-speech to have the app speak out the response from GPT
+    speak({ text: gptResponse, voice: voices[0] });
+
+    setIfThinking(false);
+
+    if (!ifStart) {
+
+      const suggestions = processResponse(gptResponse);
+      useSharedStore.setState({ suggestions: suggestions });
+    }
+
+  },[speak, voices]);
+
+  function startListening() {
+
+    SpeechRecognition.startListening({ continuous: false });
+  }
+
+  function stopListening() {
+
+   SpeechRecognition.stopListening();
+  }
+
+  const continueConversation = useCallback(
+    (text: string) =>
+    {
+
+    setIfThinking(true);
+
+    useSharedStore.setState({ response: ""});
+
+    //  create new GPT message based on the current transcript
+    const newMessage: Message = {
+      role: "user",
+      content: text
+    };
+
+    resetTranscript();
+
+    //  updating the conversation in the store
+    const messages = conversation;
+    messages.push(newMessage);
+    useSharedStore.setState({ conversation: messages});
+
+    //  and send the updated conversation to the GPT API service
+    //sendConversationToGPT(messages, false); //TODO: double check
+      sendMessage(text);
+  },[conversation, resetTranscript, sendConversationToGPT]);
+
+  useEffect(() => {
+
+    const timeOut = setTimeout(() => {
+      if (transcript.length > 0) {
+        continueConversation(transcript);
+      }
+    }, 2500);
+
+    return (()=>{
+      clearTimeout(timeOut);
+    })
+
+  }, [continueConversation, transcript]);
 
   return (
-    <Shell>
-      <DashboardHeader
-        heading="Voice 2 Measurements"
-        text="Start with 'Hello robot!'.Tell us what foods, medications, supplements you took or tell me about your symptoms and I'll convert it to structured data."
-      />
-      <div className="flex flex-col h-full">
-        <div className="flex-grow overflow-auto">
-          {messages.map((msg, index) => (
-            <div key={index} className={`message ${msg.type} break-all overflow-hidden`}>
-              {msg.type === 'loading' ? ( <div className="flex justify-center items-center">
-                <Icons.spinner className="animate-spin text-4xl" /> </div>) : msg.text}
-            </div>
-          ))}
-        </div>
-        <div className="flex fixed bottom-0 left-0 right-0 bg-white">
-          <input
-            type="text"
-            value={input}
-            onChange={handleInputChange}
-            onKeyPress={handleKeyPress}
-            className="flex-grow form-input border p-2 mr-2"
-            placeholder="Type your message..."
-          />
-          <button onClick={sendMessage} className="btn btn-primary bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Send
-          </button>
-        </div>
-      </div>
-    </Shell>
-  );
-}
+    <div className={"w-full"}>
+      <div className={"w-3/4 max-w-screen-md pt-4 m-auto"}>
+        {
+          !ifThinking &&
+          <div className={"pt-12 font-extrabold text-8xl pb-8"}>
+            <h2>Voice 2 Measurements</h2>
+          </div>
+        }
 
-export default App;
+      </div>
+
+      {
+        !ifStarted ? <>
+          <div className={"text-lg px-10"}>
+            <div>
+              Use your voice to converse in this GPT-powered app to get lifestyle and health suggestions!
+            </div>
+          </div>
+            <div className="px-10 pt-12">
+            <Button title="Let's go!" callback={startConversation} />
+          </div>
+        </>
+      :
+        <>
+          {
+            ifThinking &&
+            <div className="w-full pt-20">
+              <Lottie animationData={loadingAnimation} loop={true}/>
+            </div>
+          }
+          {
+            (!ifThinking && suggestions.length > 0) ?
+            <>
+              <List listItems={suggestions} />
+            </>
+            :
+            <div className="px-14" dangerouslySetInnerHTML={{ __html: response}} />
+          }
+          {
+            (!ifThinking && suggestions.length == 0) &&
+            <button
+              onMouseDown={startListening}
+              onMouseUp={stopListening}
+              className="absolute flex flex-row w-full pt-12 m-auto cursor-pointer px-14 bottom-30"
+            >
+                <div className="border border-white rounded-full w-28 h-28"
+                >
+                {
+                  listening
+                  ? <MdSettingsVoice className="w-16 h-16 pl-1 mt-5 ml-5 text-orange-600" />
+                  : <MdOutlineSettingsVoice className="w-16 h-16 pl-1 mt-5 ml-5"/>
+                }
+              </div>
+              <div className={"px-5 pt-8 text-md max-w-24"}>
+                { transcript }
+              </div>
+            </button>
+          }
+        </>
+      }
+    </div>
+  )
+}
