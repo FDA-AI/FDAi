@@ -22,21 +22,10 @@ export function getUtcDateTimeWithTimezone(): string {
  */
 export function convertToUTC(localDateTime: string, timezoneOffsetInMinutes: number): string {
   // Convert the localDateTime string to a Date object
+  console.log("local date time being used "+ localDateTime);
   const localDate = new Date(localDateTime);
-
-  // Get the local time zone offset in milliseconds
-  const localOffset = localDate.getTimezoneOffset() * 60 * 1000;
-
-  // Calculate the UTC time in milliseconds
-  const utcTime = localDate.getTime() + localOffset;
-
-  // Adjust for the provided timezone offset
-  const adjustedTime = utcTime + (timezoneOffsetInMinutes * 60 * 1000);
-
-  // Create a new Date object using the adjusted UTC time
-  const utcDate = new Date(adjustedTime);
-
-  return utcDate.toUTCString();
+  console.log("date being used "+ localDate);
+  return new Date(localDate.getTime() + timezoneOffsetInMinutes * 60000).toISOString();
 }
 
 export function throwErrorIfDateInFuture(utcDateTime: string) {
@@ -79,6 +68,6 @@ export function convertToLocalDateTime(
   utcDateTime: string | number | Date,
   timeZoneOffsetInMinutes: number): string {
   const utcDate = new Date(utcDateTime);
-  const localDate = new Date(utcDate.getTime() + timeZoneOffsetInMinutes * 60 * 1000);
+  const localDate = new Date(utcDate.getTime() - timeZoneOffsetInMinutes * 60000);
   return localDate.toISOString();
 }
