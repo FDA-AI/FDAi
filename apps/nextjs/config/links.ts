@@ -41,6 +41,16 @@ export const dashboardLinks: Navigation = {
       icon: "write",
     },
     {
+      title: "Voice 2 Measurements",
+      href: "/dashboard/voice2measurements",
+      icon: "write",
+    },
+    {
+      title: "New page : Voice 2 Measurements",
+      href: "/dashboard/newvoice2measurements",
+      icon: "write",
+    },
+    {
       title: "Profile",
       href: "/dashboard/settings",
       icon: "settings",
