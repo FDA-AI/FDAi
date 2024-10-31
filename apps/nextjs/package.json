@@ -122,16 +122,14 @@
     "@types/react-calendar-heatmap": "^1.6.7",
     "@types/react-speech-recognition": "^3.9.1",
     "@types/regenerator-runtime": "^0.13.1",
-    "eslint": "8.56.0",
-    "eslint-config-next": "14.1.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "prisma": "^5.9.1",
+    "rimraf": "^5.0.10",
     "ts-jest": "^29.1.4",
-    "ts-node": "latest",
-    "typescript": "latest"
+    "ts-node": "latest"
   },
   "trigger.dev": {
     "endpointId": "the-decentralized-fda-1W-N"
