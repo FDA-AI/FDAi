@@ -2,17 +2,19 @@ import { create } from 'zustand';
 import { Message, SuggestionItem } from '../types/types';
 
 interface SharedState {
-
     suggestions: SuggestionItem[],
     response: string,
-    conversation: Message[]
+    conversation: Message[],
+    previousStatements: string,
+    previousQuestions: string
 }
 
 const useSharedStore = create<SharedState>((set)=>({
-
     suggestions: [],
     response: "",
-    conversation: []
+    conversation: [],
+    previousStatements: "",
+    previousQuestions: ""
 }));
 
 export default useSharedStore;

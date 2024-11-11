@@ -1,6 +1,6 @@
 'use client';
 import Button from "@/components/buttons/Button";
-//import { SendQuery } from "@/core/services/GPTService";
+import { SendQuery } from "@/core/services/GPTService";
 import useSharedStore from "@/core/store/SharedStore";
 import { SuggestionItem } from "@/core/types/types";
 import { useCallback, useEffect, useState } from "react";
@@ -9,8 +9,9 @@ import { MdSettingsVoice,MdOutlineSettingsVoice } from "react-icons/md";
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import Lottie from "lottie-react";
 import loadingAnimation from "@/animations/loading.json";
-//import List from "@/components/list/List";
+import List from "@/components/list/List";
 import { useSpeechSynthesis } from 'react-speech-kit';
+import { Message} from "@/core/types/types";
 import { getTimeZoneOffset, getUtcDateTime } from '@/lib/dateTimeWithTimezone';
 
 import {Shell} from "@/components/layout/shell";
@@ -37,10 +38,6 @@ export default function Home() {
     resetTranscript
   } = useSpeechRecognition();
 
-  type Message = {
-    type: 'user' | 'response' | 'loading';
-    text: string;
-  };
   const conversation: Message[] = useSharedStore((state) => state.conversation);
   const response: string = useSharedStore((state) => state.response);
   const suggestions: SuggestionItem[] = useSharedStore((state) => state.suggestions);
