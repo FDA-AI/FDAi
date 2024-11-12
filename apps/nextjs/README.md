@@ -45,7 +45,7 @@ npm run dev
 Generate the Prisma client:
 
 ```bash
-npx prisma generate[page.tsx]
+npx prisma generate
 ```
 
 Run the migrations:
