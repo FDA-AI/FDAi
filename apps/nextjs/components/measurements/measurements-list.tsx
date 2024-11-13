@@ -25,6 +25,7 @@ export const MeasurementsList: FC<MeasurementsListProps> = ({ user, variableId, 
   useEffect(() => {
     setIsLoading(true); // Set loading to true when starting to fetch
     let url = `/api/dfda/measurements`;
+    url += `?sort=-updatedAt`;
     if (variableId) {  // Check if variableId is provided
       url += `?variableId=${variableId}`;
     }

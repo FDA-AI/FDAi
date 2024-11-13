@@ -1,11 +1,12 @@
 import {Measurement} from "@/types/models/Measurement";
-import {textCompletion} from "@/lib/llm";
+import {textCompletion4oMini, textCompletion} from "@/lib/llm";
 import {convertToLocalDateTime, getUtcDateTime} from "@/lib/dateTimeWithTimezone";
 import {text2measurements} from "@/lib/text2measurements";
 
 // IMPORTANT! Set the runtime to edge
 export const runtime = 'edge';
 
+//TODO: add previousQuestions as argument as well
 export function conversation2MeasurementsPrompt(statement: string,
                                                 utcDateTime: string | null | undefined,
                                                 timeZoneOffset: number | null | undefined,
@@ -49,7 +50,9 @@ Your responses should be in JSON format and have 2 properties called data and me
 ${previousStatements ? `The following are the previous statements:
 ${previousStatements}` : ''}
 
+
 // Use the current local datetime ${localDateTime} to determine startDateLocal. If specified, also determine startTimeLocal, endDateLocal, and endTimeLocal or just leave them null.\`\`\`
+If there is no time or date in user's answer, output local datetime.
 The following is a user request:
 """
 ${statement}
@@ -78,7 +81,7 @@ export async function conversation2measurements(statement: string,
   return measurements;
 }
 
-export async function getNextQuestion(currentStatement: string, previousStatements: string | null | undefined): Promise<string> {
+export async function getNextQuestion(currentStatement: string, previousStatements: string | null | undefined, previousQuestions:string | null | undefined): Promise<string> {
   let promptText = `
   You are a robot designed to collect diet, treatment, and symptom data from the user.
 
@@ -90,26 +93,29 @@ Immediately begin asking the user the following questions
 
 Also, after asking each question and getting a response, check if there's anything else the user want to add to the first question response. For instance, after getting a response to "What did you eat today?", your next question should be, "Did you eat anything else today?".  If they respond in the negative, move on to the next question.
 
+Make sure to only return exactly one followup question as plain text.
+
 Here is the current user statement:
   ${currentStatement}
 
   Here are the previous statements in the conversation: ${previousStatements}
+  These are the questions already asked, so don't ask these questions again: ${previousQuestions}
   `;
 
-  return await textCompletion(promptText, "text");
+  return await textCompletion4oMini(promptText, "text");
 }
 
 export async function haveConversation(statement: string,
                                        utcDateTime: string,
                                        timeZoneOffset: number,
-                                       previousStatements: string | null | undefined): Promise<{
+                                       previousStatements: string | null | undefined,
+                                       previousQuestions: string | null | undefined): Promise<{
   questionForUser: string;
-  measurements: Measurement[]
 }> {
-  let questionForUser = await getNextQuestion(statement,  previousStatements);
-  const measurements = await text2measurements(statement, utcDateTime, timeZoneOffset);
+  let questionForUser = await getNextQuestion(statement,  previousStatements, previousQuestions);
+  console.log(questionForUser);
+
   return {
     questionForUser,
-    measurements
   }
 }

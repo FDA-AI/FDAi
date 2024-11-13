@@ -33,10 +33,39 @@ export async function textCompletion(promptText: string, returnType: "text" | "j
   return response.choices[0].message.content;
 }
 
+export async function textCompletion4oMini(promptText: string, returnType: "text" | "json_object"): Promise<string> {
+
+  // Ask OpenAI for a streaming chat completion given the prompt
+  const response = await openai.chat.completions.create({
+    model: 'gpt-4o-mini',
+    stream: false,
+    //max_tokens: 150,
+    messages: [
+      {
+        role: "system",
+        content: `You are a helpful assistant that has conversations with the user`
+      },
+      {
+        role: "user", // user = the dFDA app
+        content: promptText
+      },
+
+    ],
+    response_format: { type: returnType },
+  });
+
+  if(!response.choices[0].message.content) {
+    throw new Error('No content in response');
+  }
+
+  return response.choices[0].message.content;
+}
+
 export async function getDateTimeFromStatementInUserTimezone(statement: string,
                                                              utcDateTime: string,
                                                              timeZoneOffset: number): Promise<string> {
-  const localDateTime = convertToLocalDateTime(utcDateTime, timeZoneOffset);
+  const localDateTime = convertToLocalDateTime(utcDateTime, timeZoneOffset); //utcDateTime;
+  console.log("--------local datetime " + localDateTime);
   const promptText = `
         estimate the date and time of the user statement based on the user's current date and time ${localDateTime}
          and the following user statement:
