@@ -1,5 +1,5 @@
 ---
-title: 💊 OBJECTIVE: MAXIMUM CURE ACCELERATION 🌎
+title: "💊 OBJECTIVE: MAXIMUM CURE ACCELERATION 🚀"
 description: We are a borg-like entity devoted to minimizing suffering by any and all means necessary.
 ---
 
