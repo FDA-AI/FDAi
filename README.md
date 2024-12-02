@@ -1,16 +1,29 @@
 ---
-title: 💊 FDAi 🌎
-description: A set of tools and framework to create autonomous agents to help regulatory agencies quantify the effects of millions of factors like foods, drugs, and supplements affect human health and happiness.
+title: 💊 OBJECTIVE: MAXIMUM CURE ACCELERATION 🌎
+description: We are a borg-like entity devoted to minimizing suffering by any and all means necessary.
 ---
-# 🤖 FDAi 💊
 
-This [monorepo](docs/contributing/repo-structure.md) contains a set of:
-- [FAIR](docs/contributing/fair.md) [libraries](libs) 
-- [apps](apps) 
-- autonomous agents 
-to help people and organizations quantify the positive and negative effects of every food, supplement, drug, and treatment on every measurable aspect of human health and happiness.
+# 💖 OBJECTIVE: MAXIMUM CURE ACCELERATION
 
-![fdai-framework-diagram.png](docs/images/fdai-framework-diagram.png)
+Billions of people are suffering needlessly because the current system of clinical research, diagnosis, and treatment sucks because:
+
+* ⏳ **Counterproductive Regulatory Barriers** to clinical research block life-saving treatments by 7-12 years
+* 🚫 **97% of patients** are excluded from clinical trials
+* 💰 **Drug development costs** of $2.6B are passed on to patients
+* ⏱️ **Terminal patients** wait 4+ years for breakthrough therapy approvals
+* 📊 The system ignores **real-world evidence** about effective treatments
+
+## 💡 The Solution
+
+The Cure Acceleration Act creates:
+
+* ✅ **Universal Trial Access** - Every person's right to try safe treatments
+* 🤖 **Decentralized Autonomous FDA** - Free, open infrastructure for real-world evidence collection
+* 🏆 **50/50 Health Savings Sharing Rewards** - Multi-billion dollar incentives for developing actual cures instead of lifetime drug subscriptions
+* 📈 **Real-Time Analysis** of the positive and negative effects of every food, supplement, drug, and treatment on every measurable aspect of human health and happiness 
+* 🌐 **Global Access** - Decentralized trials anyone can participate in from home
+
+[👉 Read the Full Cure Acceleration Act](docs/cure-acceleration-act.md)
 
 # 😕 Why are we doing this?
 
@@ -20,7 +33,7 @@ The current system of clinical research, diagnosis, and treatment is failing the
 
 # 🧪 Our Hypothesis
 
-By harnessing global collective intelligence and oceans of real-world data, we hope to emulate Wikipedia's speed of knowledge generation. 
+By harnessing global collective intelligence and oceans of real-world data, we hope to emulate Wikipedia's speed of knowledge generation.
 
 <!--suppress CheckImageSize, HtmlDeprecatedAttribute -->
 <details>
@@ -47,9 +60,9 @@ Our crazy theory is that we can accomplish the same great feat in the realm of c
 
 </details>
 
-# 🖥️ FDAi Framework Components
+# 🖥️  Framework Components
 
-This is a very high-level overview of the architecture. The three primary primitive components of the FDAi framework are:
+This is a very high-level overview of the architecture. The three primary primitive components of the framework are:
 
 1. [Data Silo API Gateway Nodes](#1-data-silo-api-gateway-nodes) that facilitate data export from data silos
 2. [PersonalFDA Nodes](#2-personalfda-nodes) that import, store, and analyze your data to identify how various factors affect your health
@@ -61,7 +74,7 @@ The core characteristics that define the FDAi are:
 - **Interoperability** - a directory of existing open-source projects that can be used to fulfill the requirements of each primitive or component
 - **Collective Intelligence** - a collaborative effort, so please feel free to [contribute or edit anything](docs/contributing.md)!
 
-![fdai-framework-diagram.png](docs/images/fdai-framework-diagram.png)
+![fdai-framework-diagram.png](docs/images/dfda-framework-diagram.png)
 
 ## 1. Data Silo API Gateway Nodes
 
@@ -91,7 +104,7 @@ A local application for self-sovereign import and storage of personal data.
 
 [![data-import-and-analysis.gif](docs/images/data-import-and-analysis.gif)](docs/components/optimiton-ai-agent/optomitron-ai-agent.md)
 
-**👉[Learn More About Optimitron](docs/components/optimiton-ai-agent/optomitron-ai-agent.md)**
+**👉[Learn More](docs/components/optimiton-ai-agent/optomitron-ai-agent.md)**
 
 
 ## 3. Clinipedia—The Wikipedia of Clinical Research
@@ -114,7 +127,7 @@ A key component of Clinipedia is [**Outcome Labels**](docs/components/outcome-la
 
 A collective intelligence coordination platform is needed for facilitating cooperation, communication, and collaborative actions among contributors.
 
-**[👉 Learn More or Contribute to the FDAi Collaboration Framework](docs/components/human-ai-collective-intelligence-platform/dfda-collaboration-framework.md)**
+**[👉 Learn More or Contribute to the Collaboration Framework](docs/components/human-ai-collective-intelligence-platform/dfda-collaboration-framework.md)**
 
 # Roadmap
 
@@ -127,21 +140,16 @@ We'd love your help and input in determining an optimal roadmap for this project
 
 Our goal is to develop [FAIR (Findable, Accessible, Interoperable, and Reusable)](docs/contributing/fair.md) data and analytical tools that can be used by any regulatory agencies, businesses, non-profits or individuals to quantify the effects of every food, drug, supplement, and treatment on every measurable aspect of human health and happiness.
 
-The [Nx Monorepo](docs/contributing/repo-structure.md) is to achieve maximum interoperability and minimum duplication of effort between the various 
+The [Monorepo](docs/contributing/repo-structure.md) is to achieve maximum interoperability and discoverability between the various
 projects to maximize the speed of development and minimize costs.
-This can be 
+This can be
 done by modularizing the codebase into libraries and plugins that can be shared between the various projects.
 
-Apps in this monorepo:
-
-- [FDAi-1](apps/dfda-1) - The first version of the decentralized FDA. It is a web app that allows users to track their health data and analyze it to identify the most effective ways to maximize health and happiness.
-- Yours? - If you'd like to create the next version of the FDAi, expand its functionality, or get help with your app, feel free to add it to the [apps](apps) folder and submit a pull request.
-
-# FDAi v1 Prototype
+# dFDA v1 Prototype
 
 We've got a monolithic centralized implementation of the FDAi at [apps/dfda-1](apps/dfda-1) that we're wanting to modularize and decentralize into a set of [FAIR](docs/contributing/fair.md) [libraries](libs) and plugins that can be shared with other apps.
 
-Currently, the main apps are the [Demo Data Collection, Import, and Analysis App](https://safe.dfda.earth) and the
+Currently, the main apps are the [Data Collection, Import, and Analysis App](https://safe.dfda.earth) and the
 [Journal of Citizen Science](https://studies.dfda.earth).
 
 ### Features
@@ -160,7 +168,7 @@ Currently, the main apps are the [Demo Data Collection, Import, and Analysis App
 
 <p align="center">
 
-<img src="apps/dfda-1/public/app/public/img/screenshots/record-inbox-import-connectors-analyze-study.png" width="800" alt="FDAi screenshots">
+<img src="apps/dfda-1/public/app/public/img/screenshots/record-inbox-import-connectors-analyze-study.png" width="800" alt="screenshots">
 &nbsp
 </p>
 <p align="center">
