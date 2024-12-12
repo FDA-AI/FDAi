@@ -1,4 +1,6 @@
-**Cure Acceleration Act**
+# The Cure Acceleration Act
+
+**A blueprint for a world without disease.**
 
 **Section 1: Purpose**  
 To reduce the global disease burden by aligning economic incentives with prevention and cure, making all known treatment data transparent, and streamlining patient access to the most effective therapies.
