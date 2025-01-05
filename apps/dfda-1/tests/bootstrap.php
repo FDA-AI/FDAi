@@ -38,30 +38,34 @@ set_exception_handler('exception_handler'); // Needed because Windows doesn't ou
 QMBaseTestCase::setSuiteStartTime(microtime(true));
 $suiteName = QMBaseTestCase::getSuiteName();
 if($suiteName !== 'bootstrap.php' && !EnvOverride::isLocal()){
-	QMAPIRepo::logErrorIfAlreadyTesting();
-	if(QMAPIRepo::suiteStatusIsSuccess()){
-		QMLog::notice("Suite $suiteName is already successful. Skipping tests.");
-		exit(0);
-	}
-	if(QMAPIRepo::suiteStatusIsPending()){
-		QMLog::notice("Suite $suiteName is already running. Skipping tests...");
-		exit(0);
-	}
-	if(QMAPIRepo::suiteStatusIsFailure()){
-		QMLog::notice("Suite $suiteName already failed so retrying here...");
-	}
-	if(QMAPIRepo::suiteStatusIsError()){
-		QMLog::notice("Suite $suiteName errored so retrying here...");
-	}
-	QMAPIRepo::setSuitePending();
-	function phpunit_shutdown(){ 
-		try {
-			QMAPIRepo::setFinalStatus();
-		} catch (\Throwable $loggerException) {
-			error_log("Could not setFinalStatus because: ".$loggerException->__toString());
+	try {
+		QMAPIRepo::logErrorIfAlreadyTesting();
+		if(QMAPIRepo::suiteStatusIsSuccess()){
+			QMLog::notice("Suite $suiteName is already successful. Skipping tests.");
+			exit(0);
 		}
+		if(QMAPIRepo::suiteStatusIsPending()){
+			QMLog::notice("Suite $suiteName is already running. Skipping tests...");
+			exit(0);
+		}
+		if(QMAPIRepo::suiteStatusIsFailure()){
+			QMLog::notice("Suite $suiteName already failed so retrying here...");
+		}
+		if(QMAPIRepo::suiteStatusIsError()){
+			QMLog::notice("Suite $suiteName errored so retrying here...");
+		}
+		QMAPIRepo::setSuitePending();
+		function phpunit_shutdown(){ 
+			try {
+				QMAPIRepo::setFinalStatus();
+			} catch (\Throwable $loggerException) {
+				error_log("Could not setFinalStatus because: ".$loggerException->__toString());
+			}
+		}
+		register_shutdown_function('phpunit_shutdown');
+	} catch (\Throwable $e) {
+		QMLog::info("Git operations failed, continuing without test status tracking: " . $e->getMessage());
 	}
-	register_shutdown_function('phpunit_shutdown'); // Needed because Windows doesn't output exceptions otherwise
 }
 QMProfile::deleteProfiles();
 $env = Env::get('APP_ENV');

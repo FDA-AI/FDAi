@@ -1,0 +1,84 @@
+volumes:
+    qm-docker-postgres-test-volume: null
+    vendor-volume: null
+
+networks:
+    test-network:
+        driver: bridge
+
+services:
+    phpunit:
+        image: dfda-phpunit
+        build:
+            context: .
+            dockerfile: Dockerfile.phpunit
+        environment:
+            - APP_ENV=testing
+            - DB_CONNECTION=pgsql
+            - DB_HOST=qm-docker-postgres
+            - DB_PORT=5432
+            - DB_DATABASE=quantimodo_test
+            - DB_USERNAME=postgres
+            - DB_PASSWORD=secret
+            - BUGSNAG_API_KEY=mock-bugsnag-api-key
+            - CONNECTOR_FACEBOOK_CLIENT_ID=connector-disabled
+            - CONNECTOR_FACEBOOK_CLIENT_SECRET=connector-disabled
+            - CONNECTOR_GOOGLE_CLIENT_ID=connector-disabled
+            - CONNECTOR_GOOGLE_CLIENT_SECRET=connector-disabled
+            - CONNECTOR_TWITTER_CLIENT_ID=connector-disabled
+            - CONNECTOR_TWITTER_CLIENT_SECRET=connector-disabled
+            - CONNECTOR_GITHUB_CLIENT_ID=connector-disabled
+            - CONNECTOR_GITHUB_CLIENT_SECRET=connector-disabled
+            - CONNECTOR_LINKEDIN_CLIENT_ID=connector-disabled
+            - CONNECTOR_LINKEDIN_CLIENT_SECRET=connector-disabled
+            - CONNECTOR_RESCUETIME_CLIENT_ID=connector-disabled
+            - CONNECTOR_RESCUETIME_CLIENT_SECRET=connector-disabled
+            - CONNECTOR_RESCUETIME_REDIRECT_URI=connector-disabled
+            - CONNECTOR_AMAZON_CLIENT_ID=connector-disabled
+            - CONNECTOR_AMAZON_CLIENT_SECRET=connector-disabled
+            - CONNECTOR_FITBIT_CLIENT_ID=connector-disabled
+            - CONNECTOR_FITBIT_CLIENT_SECRET=connector-disabled
+            - CONNECTOR_FOURSQUARE_CLIENT_ID=connector-disabled
+            - CONNECTOR_FOURSQUARE_CLIENT_SECRET=connector-disabled
+            - CONNECTOR_NETATMO_CLIENT_ID=connector-disabled
+            - CONNECTOR_NETATMO_CLIENT_SECRET=connector-disabled
+            - CONNECTOR_OPEN_HUMANS_CLIENT_SECRET=connector-disabled
+            - CONNECTOR_QUANTIMODO_CLIENT_ID=connector-disabled
+            - CONNECTOR_QUANTIMODO_CLIENT_SECRET=connector-disabled
+            - CONNECTOR_RUNKEEPER_CLIENT_ID=connector-disabled
+            - CONNECTOR_RUNKEEPER_CLIENT_SECRET=connector-disabled
+            - CONNECTOR_SLACK_CLIENT_ID=connector-disabled
+            - CONNECTOR_SLACK_CLIENT_SECRET=connector-disabled
+            - CONNECTOR_SLEEPCLOUD_CLIENT_ID=connector-disabled
+            - CONNECTOR_SLEEPCLOUD_CLIENT_SECRET=connector-disabled
+            - CONNECTOR_STRAVA_CLIENT_ID=connector-disabled
+            - CONNECTOR_STRAVA_CLIENT_SECRET=connector-disabled
+            - CONNECTOR_WITHINGS_CLIENT_ID=connector-disabled
+            - CONNECTOR_WITHINGS_CLIENT_SECRET=connector-disabled
+        volumes:
+            - ".:/var/www/html"
+            - "vendor-volume:/var/www/html/vendor"
+            - "./test-deploy.sh:/usr/local/bin/test-deploy"
+            - "./docker/xdebug-local.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+            - "./.env:/var/www/html/.env"
+        networks:
+            - test-network
+        depends_on:
+            - qm-docker-postgres
+            - qm-docker-redis
+
+    qm-docker-postgres:
+        image: postgres:14.2
+        environment:
+            - POSTGRES_DB=quantimodo_test
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=secret
+        volumes:
+            - qm-docker-postgres-test-volume:/var/lib/postgresql/data
+        networks:
+            - test-network
+
+    qm-docker-redis:
+        image: redis:6.2.4
+        networks:
+            - test-network 

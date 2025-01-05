@@ -1,0 +1,23 @@
+networks:
+    cypress-network:
+        driver: bridge
+
+services:
+    cypress:
+        image: dfda-cypress
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: local
+        environment:
+            - CONTAINER_ROLE=CYPRESS
+            - APP_ENV=testing
+        volumes:
+            - ".:/var/www/html"
+            - "./start.sh:/usr/local/bin/start"
+            - "./docker/xdebug-local.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+        ports:
+            - "87:80"
+        working_dir: /var/www/html
+        networks:
+            - cypress-network 

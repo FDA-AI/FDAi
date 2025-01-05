@@ -1,0 +1,73 @@
+volumes:
+    qm-docker-postgres-test-volume: null
+
+networks:
+    sail:
+        driver: bridge
+
+services:
+    phpunit:
+        image: dfda-phpunit
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: local
+        entrypoint: /bin/bash
+        command: -c "chmod +x /var/www/html/test-deploy.sh && /var/www/html/test-deploy.sh"
+        environment:
+            - CONTAINER_ROLE=TEST
+            - APP_ENV=testing
+            - DB_CONNECTION=pgsql
+            - DB_HOST=qm-docker-postgres
+            - DB_PORT=5432
+            - DB_DATABASE=quantimodo_test
+            - DB_USERNAME=postgres
+            - DB_PASSWORD=secret
+        volumes:
+            - ".:/var/www/html"
+            - "./start.sh:/usr/local/bin/start"
+            - "./docker/xdebug-local.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+        working_dir: /var/www/html
+        networks:
+            - sail
+        depends_on:
+            - qm-docker-postgres
+            - qm-docker-redis
+
+    cypress:
+        image: dfda-cypress
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: local
+        environment:
+            - CONTAINER_ROLE=CYPRESS
+            - APP_ENV=testing
+        volumes:
+            - ".:/var/www/html"
+            - "./start.sh:/usr/local/bin/start"
+            - "./docker/xdebug-local.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+        ports:
+            - "87:80"
+        working_dir: /var/www/html
+        networks:
+            - sail
+
+    testing:
+        image: dfda-testing
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: local
+        environment:
+            - CONTAINER_ROLE=ALL
+            - APP_ENV=testing
+        volumes:
+            - ".:/var/www/html"
+            - "./start.sh:/usr/local/bin/start"
+            - "./docker/xdebug-local.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+        ports:
+            - "86:80"
+        working_dir: /var/www/html
+        networks:
+            - sail 

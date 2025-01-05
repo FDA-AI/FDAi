@@ -1,0 +1,7 @@
+FROM curedao/php-8.1-apache-buster-xdebug-opcache-composer-pgsql:latest AS base
+
+WORKDIR /var/www/html
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
+CMD ["/usr/local/bin/test-deploy"] 

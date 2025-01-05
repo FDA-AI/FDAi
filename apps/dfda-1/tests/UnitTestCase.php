@@ -25,7 +25,11 @@ class UnitTestCase extends QMBaseTestCase {
 		if($appUrl !== 'https://testing.quantimo.do'){
 			$str = 'Env::getAppUrl() should be "https://testing.quantimo.do" but is "'.$appUrl;
 			QMLog::error($str);
-			QMAPIRepo::setStatusFailed(new LogicException($str));
+			try {
+				QMAPIRepo::setStatusFailed(new LogicException($str));
+			} catch (\Throwable $e) {
+				QMLog::info("GitHub API calls failed, continuing without status updates: " . $e->getMessage());
+			}
 			die(1);
 		}
 	}

@@ -186,7 +186,7 @@ $config = [
 | this array to grant expanded functionality to your applications.
 |
 */
-$config['providers'] = [
+$providers = [
 	/*
 	 * Laravel Framework Service Providers...
 	 */
@@ -215,7 +215,6 @@ $config['providers'] = [
 	/*
 	 * Package Service Providers (MAKE SURE TO PUT NEW ONES BEFORE Application Service Providers)
 	 */
-	Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
 	Collective\Html\HtmlServiceProvider::class,
 	Ipunkt\LaravelAnalytics\AnalyticsServiceProvider::class,
 	Laravel\Cashier\CashierServiceProvider::class,
@@ -253,5 +252,12 @@ $config['providers'] = [
     \SocialiteProviders\Manager\ServiceProvider::class,
 	// NOTE: Add development-only providers in \App\Providers\AppServiceProvider::register()
 ];
+
+// Only register Bugsnag if API key is set
+if (env('BUGSNAG_API_KEY')) {
+    $providers[] = Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class;
+}
+
+$config['providers'] = $providers;
 
 return $config;

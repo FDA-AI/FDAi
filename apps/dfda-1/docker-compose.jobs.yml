@@ -1,0 +1,36 @@
+networks:
+    sail:
+        driver: bridge
+
+services:
+    push-notifications:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        entrypoint: vendor/bin/phpunit
+        environment:
+            - CONTAINER_ROLE=PUSH_NOTIFICATIONS
+            - APP_ENV=production
+        volumes:
+            - ".:/var/www/html"
+            - "./start.sh:/usr/local/bin/start"
+            - "./docker/xdebug-local.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+        working_dir: /var/www/html
+        networks:
+            - sail
+
+    generate-notifications:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        entrypoint: php scripts/php/generate_notifications.php
+        environment:
+            - CONTAINER_ROLE=GENERATE_NOTIFICATIONS
+            - APP_ENV=production
+        volumes:
+            - ".:/var/www/html"
+            - "./start.sh:/usr/local/bin/start"
+            - "./docker/xdebug-local.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+        working_dir: /var/www/html
+        networks:
+            - sail 
