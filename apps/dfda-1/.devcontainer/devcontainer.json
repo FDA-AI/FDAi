@@ -1,0 +1,28 @@
+{
+    "name": "DFDA Development",
+    "dockerComposeFile": "../docker-compose.phpunit.yml",
+    "service": "phpunit",
+    "workspaceFolder": "/var/www/html",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "bmewburn.vscode-intelephense-client",
+                "xdebug.php-debug",
+                "mikestead.dotenv",
+                "calebporzio.better-phpunit"
+            ],
+            "settings": {
+                "php.validate.executablePath": "/usr/local/bin/php",
+                "php.debug.ideKey": "VSCODE",
+                "phpunit.php": "/usr/local/bin/php"
+            }
+        }
+    },
+    "forwardPorts": [80],
+    "remoteUser": "www-data",
+    "updateRemoteUserUID": true,
+    "postCreateCommand": "sudo chown -R www-data:www-data /var/www && composer install",
+    "remoteEnv": {
+        "PATH": "/usr/local/bin:${containerEnv:PATH}"
+    }
+} 
