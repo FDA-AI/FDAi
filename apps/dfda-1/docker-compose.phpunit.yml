@@ -13,7 +13,10 @@ services:
             dockerfile: Dockerfile.phpunit
         env_file: .env.testing
         volumes:
-            - ".:/var/www/html"
+            - type: bind
+              source: .
+              target: /var/www/html
+              consistency: cached
             - "./test-deploy.sh:/usr/local/bin/test-deploy"
             - "./docker/xdebug-local.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
         networks:
